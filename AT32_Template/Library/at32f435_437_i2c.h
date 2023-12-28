@@ -51,7 +51,6 @@ extern "C" {
   * @brief i2c interrupt
   * @{
   */
-
 #define I2C_TD_INT                       ((uint32_t)0x00000002) /*!< i2c transmit data 中断 */
 #define I2C_RD_INT                       ((uint32_t)0x00000004) /*!< i2c receive data 中断 */
 #define I2C_Addr_INT                     ((uint32_t)0x00000008) /*!< i2c address match 中断 */
@@ -68,7 +67,6 @@ extern "C" {
   * @brief i2c flag
   * @{
   */
-
 #define  I2C_TDBE_FLAG                   ((uint32_t)0x00000001) /*!< i2c transmit data buffer empty flag */
 #define  I2C_TDIS_FLAG                   ((uint32_t)0x00000002) /*!< i2c send interrupt status */
 #define  I2C_RDBF_FLAG                   ((uint32_t)0x00000004) /*!< i2c receive data buffer full flag */
@@ -376,7 +374,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define I2C1                             ((I2C_Type *) I2C1_BASE)
 #define I2C2                             ((I2C_Type *) I2C2_BASE)
 #define I2C3                             ((I2C_Type *) I2C3_BASE)

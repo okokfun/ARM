@@ -4,7 +4,7 @@
 //       refer to STM32F40x STM32F41x datasheets
 //       refer to STM32F42x STM32F43x datasheets
 
-// <<< Use Configuration Wizard in Context Menu >>>
+// <<< 在上下文菜单中使用配置向导 >>>
 
 // <h> Debug MCU configuration register (DBGMCU_CR)
 //   <o.2>  DBG_STANDBY              <i> Debug Standby Mode

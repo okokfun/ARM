@@ -29,8 +29,8 @@
 #define SYS_CLK_2M5Hz		1		//1 内部高频2.5MHz RC振荡器
 #define SYS_CLK_40MHz		2		//2 内部高频40MHz  RC振荡器
 #define SYS_CLK_5MHz		3		//3 内部高频 5MHz  RC振荡器
-#define SYS_CLK_XTAL		4		//4 外部晶体振荡器（4-32MHz）
-#define SYS_CLK_XTAL_DIV8	5		//5 外部晶体振荡器（4-32MHz） 8分频
+#define SYS_CLK_XTAL		4		//4 外部晶体振荡器(4-32MHz)
+#define SYS_CLK_XTAL_DIV8	5		//5 外部晶体振荡器(4-32MHz) 8分频
 #define SYS_CLK_PLL			6		//6 锁相环输出
 #define SYS_CLK_PLL_DIV8	7		//7 锁相环输出 8分频
 #define SYS_CLK_32KHz		8		//8 内部低频32KHz RC  振荡器

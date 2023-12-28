@@ -46,7 +46,6 @@ extern "C" {
   * @brief dvp event flag
   * @{
   */
-
 #define DVP_CFD_EVT_FLAG                 ((uint32_t)0x00000001) /*!< capture frame done event status flag */
 #define DVP_OVR_EVT_FLAG                 ((uint32_t)0x00000002) /*!< data fifo overrun event status flag */
 #define DVP_ESE_EVT_FLAG                 ((uint32_t)0x00000004) /*!< embedded synchronization error event status flag */
@@ -61,7 +60,6 @@ extern "C" {
   * @brief dvp interrupt flag
   * @{
   */
-
 #define DVP_CFD_INT_FLAG                 ((uint32_t)0x80000001) /*!< capture frame done interrupt status flag */
 #define DVP_OVR_INT_FLAG                 ((uint32_t)0x80000002) /*!< data fifo overrun interrupt status flag */
 #define DVP_ESE_INT_FLAG                 ((uint32_t)0x80000004) /*!< embedded synchronization error interrupt status flag */
@@ -76,7 +74,6 @@ extern "C" {
   * @brief dvp interrupt
   * @{
   */
-
 #define DVP_CFD_INT                      ((uint32_t)0x00000001) /*!< capture frame done 中断 */
 #define DVP_OVR_INT                      ((uint32_t)0x00000002) /*!< data fifo overrun 中断 */
 #define DVP_ESE_INT                      ((uint32_t)0x00000004) /*!< embedded synchronization error 中断 */
@@ -511,7 +508,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define DVP                              ((DVP_Type *) DVP_BASE)
 
 /** @defgroup DVP_exported_functions

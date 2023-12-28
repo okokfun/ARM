@@ -133,7 +133,7 @@ void ENET_DeInit(void) {
       参数:        HALFDUPLEX_OPTION: choose to configure halfduplex mode related parameters
       参数:        TIMER_OPTION: choose to configure time counter related parameters
       参数:        INTERFRAMEGAP_OPTION: choose to configure the inter frame gap related parameters
-    参数[输入]:  para: the related parameters according to the option
+    参数[输入]:  para: the related parameters 根据 the option
                 all the related parameters should be configured which are shown as below
                       FORWARD_OPTION related parameters:
                       -  ENET_Auto_PADCRC_DROP_ENABLE/ ENET_Auto_PADCRC_DROP_DISABLE ;
@@ -1557,7 +1557,7 @@ ErrStatus ENET_PHY_Config(void) {
     /* get the HCLK frequency */
     ahbclk = RCU_Clock_Freq_Get(CK_AHB);
 
-    /* configure MDC clock according to HCLK frequency range */
+    /* configure MDC clock 根据 HCLK frequency range */
     if(ENET_RANGE(ahbclk, 20000000U, 35000000U)) {
         reg |= ENET_MDC_HCLK_DIV16;
     } else if(ENET_RANGE(ahbclk, 35000000U, 60000000U)) {

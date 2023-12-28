@@ -4,8 +4,8 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * @简介   该文件提供了计算输入消息的HASH MD5和HMAC MD5摘要的高级函数。
-  *          它使用stm32f4xx_hash.c/。h驱动程序访问STM32F4xx HASH外设设备。
+  * @简介    该文件提供了计算输入消息的HASH MD5和HMAC MD5摘要的高级函数。
+  *          它使用stm32f4xx_hash.c/.h驱动程序访问STM32F4xx HASH外设设备。
   *
 @verbatim
  ===================================================================
@@ -81,12 +81,16 @@
 
 /**
   * @简介  计算HASH MD5摘要。
+  * 
   * @参数  Input: 指向要处理的输入缓冲区的指针。
+  * 
   * @参数  Ilen: 输入缓冲区的长度。
+  * 
   * @参数  Output: 返回的摘要
-  * * @返回值 ErrorStatus枚举值:
-  *          - SUCCESS: 摘要计算已完成
-  *          - ERROR: 摘要计算失败
+  * 
+  * @返回值 ErrorStatus枚举值:
+          - SUCCESS: 摘要计算已完成
+          - ERROR: 摘要计算失败
   */
 ErrorStatus HASH_MD5(uint8_t *Input, uint32_t Ilen, uint8_t Output[16]) {
     HASH_InitTypeDef MD5_HASH_InitStructure;
@@ -149,11 +153,17 @@ ErrorStatus HASH_MD5(uint8_t *Input, uint32_t Ilen, uint8_t Output[16]) {
 
 /**
   * @简介  计算HMAC MD5摘要。
+  * 
   * @参数  Key: 指向HMAC所用键的指针。
+  * 
   * @参数  Keylen: 用于HMAC的密钥的长度。
+  * 
   * @参数  Input: 指向要处理的输入缓冲区的指针。
+  * 
   * @参数  Ilen: 输入缓冲区的长度。
+  * 
   * @参数  Output: 返回的摘要
+  * 
   * @返回值 ErrorStatus枚举值:
   *          - SUCCESS: 摘要计算已完成
   *          - ERROR: 摘要计算失败

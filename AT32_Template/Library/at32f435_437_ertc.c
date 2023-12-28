@@ -38,7 +38,6 @@
 /** @defgroup ERTC_private_functions
   * @{
   */
-
 #define ERTC_TIMEOUT         ((uint32_t) 0x00360000)
 
 /**

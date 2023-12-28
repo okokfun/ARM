@@ -67,13 +67,11 @@ typedef struct {
 /** @defgroup LPTIM_Exported_Constants
   * @{
   */
-
 #define IS_LPTIM_ALL_PERIPH(PERIPH)                  ((PERIPH) == LPTIM1)
 
 /** @defgroup LPTIM_Clock_Source LPTIM Clock Source
   * @{
   */
-
 #define LPTIM_ClockSource_APBClock_LPosc     ((uint32_t)0x00000000)
 #define LPTIM_ClockSource_ULPTIM             ((uint32_t)0x00000001)
 #define IS_LPTIM_CLOCK_SOURCE(SOURCE)        (((SOURCE) == LPTIM_ClockSource_ULPTIM) || \

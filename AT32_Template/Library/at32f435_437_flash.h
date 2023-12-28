@@ -595,7 +595,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define FLASH                            ((FLASH_Type *) FLASH_REG_BASE)
 #define USD                              ((usd_Type *) USD_BASE)
 

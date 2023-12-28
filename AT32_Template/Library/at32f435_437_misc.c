@@ -39,7 +39,6 @@
 /** @defgroup MISC_private_functions
   * @{
   */
-
 #define AIRCR_VECTKEY_MASK    ((uint32_t)0x05FA0000)
 
 /**
@@ -90,7 +89,7 @@ void NVIC_IRQ_Disable(IRQn_Type irqn) {
   * @retval 无
   */
 void NVIC_Priority_Group_Config(NVIC_Priority_Group_Type priority_group) {
-    /* set the prigroup[10:8] bits according to NVIC_prioritygroup value */
+    /* set the prigroup[10:8] bits 根据 NVIC_prioritygroup value */
     NVIC_SetPriorityGrouping(priority_group);
 }
 

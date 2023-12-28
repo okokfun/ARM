@@ -41,7 +41,6 @@ extern "C" {
 /** @addtogroup CRM
   * @{
   */
-
 #define CRM_REG(value)                   PERIPH_REG(CRM_BASE, value)
 #define CRM_REG_BIT(value)               PERIPH_REG_BIT(value)
 
@@ -49,7 +48,6 @@ extern "C" {
   * @brief crm flag
   * @{
   */
-
 #define CRM_HICK_Stable_FLAG             MAKE_VALUE(0x00, 1)  /*!< high speed internal clock stable flag */
 #define CRM_Hext_Stable_FLAG             MAKE_VALUE(0x00, 17) /*!< high speed external crystal stable flag */
 #define CRM_PLL_Stable_FLAG              MAKE_VALUE(0x00, 25) /*!< phase locking loop stable flag */
@@ -77,7 +75,6 @@ extern "C" {
   * @brief crm interrupt
   * @{
   */
-
 #define CRM_LICK_Stable_INT              ((uint32_t)0x00000100) /*!< low speed internal clock stable 中断 */
 #define CRM_Lext_Stable_INT              ((uint32_t)0x00000200) /*!< low speed external crystal stable 中断 */
 #define CRM_HICK_Stable_INT              ((uint32_t)0x00000400) /*!< high speed internal clock stable 中断 */
@@ -1433,7 +1430,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define CRM                              ((CRM_Type *) CRM_BASE)
 
 /** @defgroup CRM_exported_functions

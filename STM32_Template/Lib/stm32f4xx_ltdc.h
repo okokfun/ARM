@@ -49,7 +49,6 @@ extern "C" {
 /**
   * 简介:  LTDC Init structure definition
   */
-
 typedef struct {
     uint32_t LTDC_HSPolarity;                 /*!< 配置水平同步极性。
                                                   该参数可以是@ref LTDC_HSPolarity 的一个值 */
@@ -94,7 +93,6 @@ typedef struct {
 /**
   * 简介:  LTDC层结构定义
   */
-
 typedef struct {
     uint32_t LTDC_HorizontalStart;            /*!< 配置窗口水平起始位置。
                                                   该参数的范围必须是 0x000 到 0xFFF。 */
@@ -198,7 +196,6 @@ typedef struct {
 /** @defgroup LTDC_SYNC
   * @{
   */
-
 #define LTDC_HorizontalSYNC               ((uint32_t)0x00000FFF)
 #define LTDC_VerticalSYNC                 ((uint32_t)0x000007FF)
 
@@ -428,7 +425,6 @@ typedef struct {
 /** @defgroup LTDC_CLUT_Config
   * @{
   */
-
 #define LTDC_CLUTWR                       ((uint32_t)0x000000FF)
 
 #define IS_LTDC_CLUTWR(CLUTWR)  ((CLUTWR) <= LTDC_CLUTWR)

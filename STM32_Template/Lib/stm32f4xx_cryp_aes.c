@@ -14,7 +14,7 @@
                   ##### 如何使用此驱动程序 #####
  ===================================================================
  [..]
-   (#) 使用 RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_CRYP, ENABLE) 启用 CRYP 控制器时钟； 函数。
+   (#) 使用 RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_CRYP, ENABLE) 启用 CRYP 控制器时钟; 函数。
 
    (#) 使用 CRYP_AES_ECB() 函数在 ECB 模式下使用 AES 进行加密和解密。
 
@@ -87,15 +87,22 @@
 
 /**
   * 简介:  在 ECB 模式下使用 AES 进行加密和解密。
+  * 
   * 参数:  Mode: 加密或解密模式。
   *          此参数可以是以下值之一:
   *            @arg MODE_ENCRYPT:加密
   *            @arg MODE_DECRYPT:解密
+  * 
   * 参数:  Key: 用于AES算法的密钥。
+  * 
   * 参数:  Keysize: 密钥的长度必须为128、192或256。
+  * 
   * 参数:  Input: 指向输入缓冲区的指针。
+  * 
   * 参数:  Ilength: 输入缓冲区的长度必须是16的倍数。
+  * 
   * 参数:  Output: 指向返回缓冲区的指针。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: 操作已完成
   *          - ERROR: 操作失败
@@ -263,16 +270,24 @@ ErrorStatus CRYP_AES_ECB(uint8_t Mode, uint8_t* Key, uint16_t Keysize,
 
 /**
   * 简介:  在 CBC 模式下使用 AES 进行加密和解密。
+  * 
   * 参数:  Mode: 加密或解密模式。
   *          此参数可以是以下值之一:
   *            @arg MODE_ENCRYPT:加密
   *            @arg MODE_DECRYPT:解密
+  * 
   * 参数:  InitVectors: 用于AES算法的初始化矢量。
+  * 
   * 参数:  Key: 用于AES算法的密钥。
+  * 
   * 参数:  Keysize: 密钥的长度必须为128、192或256。
+  * 
   * 参数:  Input: 指向输入缓冲区的指针。
+  * 
   * 参数:  Ilength: 输入缓冲区的长度必须是 16 的倍数。
+  * 
   * 参数:  Output: 指向返回缓冲区的指针。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: 操作已完成
   *          - ERROR: 操作失败
@@ -455,16 +470,24 @@ ErrorStatus CRYP_AES_CBC(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
 
 /**
   * 简介:  在 CTR 模式下使用 AES 进行加密和解密。
+  * 
   * 参数:  Mode: 加密或解密模式。
   *           此参数可以是以下值之一:
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
+  * 
   * 参数:  InitVectors: 用于AES算法的初始化矢量。
+  * 
   * 参数:  Key: 用于AES算法的密钥。
+  * 
   * 参数:  Keysize: 密钥的长度必须为128、192或256。
+  * 
   * 参数:  Input: 指向输入缓冲区的指针。
+  * 
   * 参数:  Ilength: 输入缓冲区的长度必须是16的倍数。
+  * 
   * 参数:  Output: 指向返回缓冲区的指针。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS	: 操作已完成
   *          - ERROR	: 操作失败
@@ -621,19 +644,29 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
 
 /**
   * 简介:  在 GCM 模式下使用 AES 进行加密和解密。GCM 和 CCM 模式仅在 STM32F437x 设备上可用。
+  * 
   * 参数:  Mode: 加密或解密模式。
   *          此参数可以是以下值之一:
-  *            @arg MODE_ENCRYPT:加密
-  *            @arg MODE_DECRYPT:解密
+  *            @arg MODE_ENCRYPT: 加密
+  *            @arg MODE_DECRYPT: 解密
+  * 
   * 参数:  InitVectors: 用于AES算法的初始化矢量。
+  * 
   * 参数:  Key: 用于AES算法的密钥。
+  * 
   * 参数:  Keysize: 密钥的长度必须为128、192或256。
+  * 
   * 参数:  Input: 指向输入缓冲区的指针。
+  * 
   * 参数:  Ilength: 输入缓冲区的长度(以字节为单位)必须是 16 的倍数。
+  * 
   * 参数:  Header: 指向头缓冲区的指针。
+  * 
   * 参数:  Hlength: 头部缓冲区的长度，单位是字节，必须是 16 的倍数。
   * 参数:  Output: 指向返回缓冲区的指针。
+  * 
   * 参数:  AuthTAG: 指向认证TAG缓冲区的指针。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: 操作已完成
   *          - ERROR: 操作失败
@@ -1049,21 +1082,34 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
 /**
   * 简介:  在 CCM 模式下使用 AES 进行加密和解密。
   *        GCM 和 CCM 模式仅在 STM32F437x 器件上可用。
+  * 
   * 参数:  Mode: 加密或解密模式。
   *          此参数可以是以下值之一:
   *            @arg MODE_ENCRYPT:加密
   *            @arg MODE_DECRYPT:解密
+  * 
   * 参数:  Nonce: 用于 AES 算法的 nonce。它对每一次处理都应是唯一的。
+  * 
   * 参数:  Key: 用于 AES 算法的密钥。
+  * 
   * 参数:  Keysize: 密钥的长度必须为 128、192或256。
+  * 
   * 参数:  Input: 指向输入缓冲区的指针。
+  * 
   * 参数:  Ilength: 输入缓冲区的长度(以字节为单位)必须是 16 的倍数。
+  * 
   * 参数:  Header: 指向头缓冲区的指针。
+  * 
   * 参数:  Hlength: 头部缓冲区的长度，以字节为单位。
+  * 
   * 参数:  HBuffer: 指向用于附加头的临时缓冲区的指针 HBuffer 的大小必须等于 Hlength + 21
+  * 
   * 参数:  Output: 指向返回缓冲区的指针。
+  * 
   * 参数:  AuthTAG: 指向认证 TAG 缓冲区的指针。
+  * 
   * 参数:  TAGSize: TAG 的大小(也叫MAC)。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: 操作已完成
   *          - ERROR: 操作失败

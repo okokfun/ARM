@@ -187,7 +187,7 @@
  */
 
 /**
- * @brief  Initializes the specified TMR2 channel according to the specified parameters
+ * @brief  Initializes the specified TMR2 channel 根据 the specified parameters
  *         in the structure stc_tmr2_init_t
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
  *                                      This parameter can be a value of the following:
@@ -360,7 +360,7 @@ int32_t TMR2_PWM_StructInit(stc_tmr2_pwm_init_t *pstPwmInit) {
 
 /**
  * @brief  Configures the PWM of the specified TMR2 channel
- *         according to the specified parameters in the structure @ref stc_tmr2_pwm_init_t
+ *         根据 the specified parameters in the structure @ref stc_tmr2_pwm_init_t
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
  *                                      This parameter can be a value of the following:
  *   @arg  CM_TMR2_x or CM_TMR2

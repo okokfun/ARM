@@ -182,7 +182,9 @@
   */
 /**
   * 简介:  用于将 CRYP 配置设置为默认复位状态的函数
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void CRYP_DeInit(void) {
@@ -195,7 +197,9 @@ void CRYP_DeInit(void) {
 
 /**
   * 简介:  根据 CRYP_InitStruct 中指定的参数初始化 CRYP 外设。
+  * 
   * 参数:  CRYP_InitStruct: 指向包含CRYP外设设备配置信息的CRYP_InitTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void CRYP_Init(CRYP_InitTypeDef* CRYP_InitStruct) {
@@ -229,7 +233,9 @@ void CRYP_Init(CRYP_InitTypeDef* CRYP_InitStruct) {
 
 /**
   * 简介:  用默认值填充每个 CRYP_InitStruct 成员。
+  * 
   * 参数:  CRYP_InitStruct: 指向将被初始化的CRYP_InitTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void CRYP_StructInit(CRYP_InitTypeDef* CRYP_InitStruct) {
@@ -248,7 +254,9 @@ void CRYP_StructInit(CRYP_InitTypeDef* CRYP_InitStruct) {
 
 /**
   * 简介:  根据 CRYP_KeyInitStruct 中指定的参数初始化 CRYP 密钥。
+  * 
   * 参数:  CRYP_KeyInitStruct: 指向包含CRYP密钥配置信息的CRYP_KeyInitTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void CRYP_KeyInit(CRYP_KeyInitTypeDef* CRYP_KeyInitStruct) {
@@ -265,7 +273,9 @@ void CRYP_KeyInit(CRYP_KeyInitTypeDef* CRYP_KeyInitStruct) {
 
 /**
   * 简介:  用默认值填充每个 CRYP_KeyInitStruct 成员。
+  * 
   * 参数:  CRYP_KeyInitStruct: 指向将被初始化的CRYP_KeyInitTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void CRYP_KeyStructInit(CRYP_KeyInitTypeDef* CRYP_KeyInitStruct) {
@@ -280,7 +290,9 @@ void CRYP_KeyStructInit(CRYP_KeyInitTypeDef* CRYP_KeyInitStruct) {
 }
 /**
   * 简介:  根据 CRYP_IVInitStruct 中指定的参数初始化 CRYP 初始化向量 (IV)。
+  * 
   * 参数:  CRYP_IVInitStruct: 指向包含CRYP配置信息的CRYP_IVInitTypeDef结构的指针初始化矢量(IV)。
+  * 
   * 返回值: 无
   */
 void CRYP_IVInit(CRYP_IVInitTypeDef* CRYP_IVInitStruct) {
@@ -292,7 +304,9 @@ void CRYP_IVInit(CRYP_IVInitTypeDef* CRYP_IVInitStruct) {
 
 /**
   * 简介:  用默认值填充每个 CRYP_IVInitStruct 成员。
+  * 
   * 参数:  CRYP_IVInitStruct: 指向将被初始化的CRYP_IVInitTypeDef初始化向量(IV)结构的指针。
+  * 
   * 返回值: 无
   */
 void CRYP_IVStructInit(CRYP_IVInitTypeDef* CRYP_IVInitStruct) {
@@ -304,13 +318,16 @@ void CRYP_IVStructInit(CRYP_IVInitTypeDef* CRYP_IVInitStruct) {
 
 /**
   * 简介:  配置 AES-CCM 和 AES-GCM 阶段。
+  * 
   * 注意:   此函数仅用于AES-CCM或AES-GCM算法
+  * 
   * 参数:  CRYP_Phase: 指定要配置的CRYP AES-CCM和AES-GCM阶段。
   *           此参数可以是以下值之一:
   *            @arg CRYP_Phase_Init: 初始化阶段
   *            @arg CRYP_Phase_Header: 头部阶段
   *            @arg CRYP_Phase_Payload: 有效载荷阶段
   *            @arg CRYP_Phase_Final: 最后阶段
+  * 
   * 返回值: 无
   */
 void CRYP_PhaseConfig(uint32_t CRYP_Phase) {
@@ -333,8 +350,11 @@ void CRYP_PhaseConfig(uint32_t CRYP_Phase) {
 
 /**
   * 简介:  刷新 IN 和 OUT FIFO(即 FIFO 的读写指针被复位)
+  * 
   * 注意:   只有当BUSY标志被重置时，FIFO必须被刷新。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void CRYP_FIFOFlush(void) {
@@ -344,8 +364,10 @@ void CRYP_FIFOFlush(void) {
 
 /**
   * 简介:  启用或禁用CRYP外设设备。
+  * 
   * 参数:  NewState: CRYP外围的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void CRYP_Cmd(FunctionalState NewState) {
@@ -381,8 +403,11 @@ void CRYP_Cmd(FunctionalState NewState) {
 
 /**
   * 简介:  将数据写入数据输入寄存器(DIN)。
+  * 
   * 注意:   在DIN寄存器被读过一次或几次之后,FIFO必须被刷新(使用CRYP_FIFOFlush()函数)。
+  * 
   * 参数:  Data: 要写入数据输入寄存器的数据
+  * 
   * 返回值: 无
   */
 void CRYP_DataIn(uint32_t Data) {
@@ -391,7 +416,9 @@ void CRYP_DataIn(uint32_t Data) {
 
 /**
   * 简介:  返回输入输出FIFO的最后一个数据。
+  * 
   * 参数:  无
+  * 
   * 返回值: 最后输入输出FIFO的数据。
   */
 uint32_t CRYP_DataOut(void) {
@@ -423,10 +450,14 @@ uint32_t CRYP_DataOut(void) {
 
 /**
   * 简介:  保存CRYP外设上下文。
+  * 
   * 注意:   该函数在保存上下文之前停止DMA传输。在 恢复上下文后，
   *         你必须再次启用DMA(如果以前使用过DMA)。
+  * 
   * 参数:  CRYP_ContextSave: 指向CRYP_Context结构的指针，该结构含有 当前上下文的存储库。
+  * 
   * 参数:  CRYP_KeyInitStruct: 指向CRYP_KeyInitTypeDef结构的指针，该结构包含CRYP密钥的配置信息。
+  * 
   * 返回值: 无
   */
 ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
@@ -513,10 +544,14 @@ ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
 
 /**
   * 简介:  恢复 CRYP 外设设备上下文。
+  * 
   * 注意:   由于DMA传输在CRYP_SaveContext()函数中被停止，
   *         在恢复上下文后，你必须再次启用DMA(如果以前使用过DMA)。
+  * 
   * 参数:  CRYP_ContextRestore: 指向包含已保存上下文的存储库的CRYP_Context结构的指针。
+  * 
   * 注意:   上下文保存期间保存的数据必须重写到IN FIFO中。
+  * 
   * 返回值: 无
   */
 void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore) {
@@ -540,7 +575,7 @@ void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore) {
     CRYP->IV1LR = CRYP_ContextRestore->CRYP_IV1LR;
     CRYP->IV1RR = CRYP_ContextRestore->CRYP_IV1RR;
 
-    /* Restore the content of context swap registers */
+    /* 恢复上下文交换寄存器的内容 */
     CRYP->CSGCMCCM0R = CRYP_ContextRestore->CRYP_CSGCMCCMR[0];
     CRYP->CSGCMCCM1R = CRYP_ContextRestore->CRYP_CSGCMCCMR[1];
     CRYP->CSGCMCCM2R = CRYP_ContextRestore->CRYP_CSGCMCCMR[2];
@@ -585,12 +620,15 @@ void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore) {
 
 /**
   * 简介:  启用或禁用 CRYP DMA 接口。
+  * 
   * 参数:  CRYP_DMAReq: 指定要启用或禁用的CRYP DMA传输请求。
   *           此参数可以是以下值的任意组合:
   *            @arg CRYP_DMAReq_DataOUT: 用于传出(Tx)数据传输的DMA
   *            @arg CRYP_DMAReq_DataIN: 用于传入(Rx)数据传输的DMA
+  * 
   * 参数:  NewState: 所选CRYP DMA传输请求的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
@@ -684,12 +722,15 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用指定的CRYP中断。
+  * 
   * 参数:  CRYP_IT: 指定要启用或禁用的CRYP中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg CRYP_IT_INI: 输入FIFO中断
   *            @arg CRYP_IT_OUTI: 输出FIFO中断
+  * 
   * 参数:  NewState: 指定CRYP中断的新状态。
   *           此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void CRYP_ITConfig(uint8_t CRYP_IT, FunctionalState NewState) {
@@ -708,11 +749,14 @@ void CRYP_ITConfig(uint8_t CRYP_IT, FunctionalState NewState) {
 
 /**
   * 简介:  检查是否发生了指定的 CRYP 中断。
+  * 
   * 注意:   该函数检查被屏蔽的中断的状态(即该中断应该是先前启用的)。
+  * 
   * 参数:  CRYP_IT: 指定要检查的CRYP(屏蔽的)中断源。
   *           此参数可以是以下值之一:
   *            @arg CRYP_IT_INI: 输入FIFO中断
   *            @arg CRYP_IT_OUTI: 输出FIFO中断
+  * 
   * 返回值: CRYP_IT的新状态(SET或RESET)。
   */
 ITStatus CRYP_GetITStatus(uint8_t CRYP_IT) {
@@ -735,7 +779,9 @@ ITStatus CRYP_GetITStatus(uint8_t CRYP_IT) {
 
 /**
   * 简介:  返回 CRYP 外设是启用还是禁用。
+  * 
   * 参数:  无.
+  * 
   * 返回值: CRYP外设的当前状态(ENABLE或DISABLE)。
   */
 FunctionalState CRYP_GetCmdStatus(void) {
@@ -754,6 +800,7 @@ FunctionalState CRYP_GetCmdStatus(void) {
 
 /**
   * 简介:  检查是否设置了指定的 CRYP 标志。
+  * 
   * 参数:  CRYP_FLAG: 指定要检查的CRYP标志。
   *          此参数可以是以下值之一:
   *            @arg CRYP_FLAG_IFEM: 输入FIFO空标志。
@@ -763,6 +810,7 @@ FunctionalState CRYP_GetCmdStatus(void) {
   *            @arg CRYP_FLAG_BUSY: 忙碌标志.
   *            @arg CRYP_FLAG_OUTRIS: 输出FIFO原始中断标志.
   *            @arg CRYP_FLAG_INRIS: 输入FIFO原始中断标志.
+  * 
   * 返回值。CRYP_FLAG的新状态(SET或RESET)。
   */
 FlagStatus CRYP_GetFlagStatus(uint8_t CRYP_FLAG) {

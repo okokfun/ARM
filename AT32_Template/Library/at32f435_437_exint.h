@@ -45,7 +45,6 @@ extern "C" {
 /** @defgroup EXINT_lines
   * @{
   */
-
 #define EXINT_Line_NONE                  ((uint32_t)0x000000)
 #define EXINT_Line_0                     ((uint32_t)0x000001) /*!< external interrupt line 0 */
 #define EXINT_Line_1                     ((uint32_t)0x000002) /*!< external interrupt line 1 */
@@ -181,7 +180,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define EXINT                             ((EXINT_Type *) EXINT_BASE)
 
 /** @defgroup EXINT_exported_functions

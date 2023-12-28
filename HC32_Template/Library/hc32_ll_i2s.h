@@ -242,7 +242,6 @@ typedef struct {
  */
 #define I2S_RST_TYPE_CODEC                      (I2S_CTRL_CODECRC)  /*!< Reset codec of I2S */
 #define I2S_RST_TYPE_FIFO                       (I2S_CTRL_FIFOR)    /*!< Reset FIFO of I2S  */
-
 #define I2S_RST_TYPE_SW                         (I2S_CTRL_SRST)     /*!< I2S software reset */
 #define I2S_RST_TYPE_ALL                        (I2S_RST_TYPE_CODEC | I2S_RST_TYPE_FIFO | I2S_RST_TYPE_SW)
 /**

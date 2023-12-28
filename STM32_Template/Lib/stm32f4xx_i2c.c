@@ -23,9 +23,12 @@
 
       (#) 外设设备替代函数。
         (++) 使用GPIO_PinAFConfig()函数将引脚连接到所需的外设设备的替代功能(AF)。
-        (++)通过配置所需引脚的备用功能。
+
+        (++) 通过配置所需引脚的复用功能。
              GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
+
         (++) 通过GPIO_PuPd、GPIO_OType和GPIO_Speed成员选择类型、上拉/下拉和输出速度
+        
         (++) 调用GPIO_Init()函数
              建议配置为推挽、拉升、开漏。
              如果有必要的话，可以添加一个外部拉高(通常是4.7KOhm)。
@@ -121,7 +124,9 @@
 
 /**
   * 简介:  将I2Cx外设寄存器取消初始化为其默认复位值。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 返回值: 无
   */
 void I2C_DeInit(I2C_TypeDef* I2Cx) {
@@ -154,7 +159,9 @@ void I2C_DeInit(I2C_TypeDef* I2Cx) {
   * 注意:   要在400KHz(快速模式)下使用I2C，PCLK1的频率(I2C外围输入时钟)必须是10MHz的倍数。
   *
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_InitStruct: 指向I2C_InitTypeDef结构的指针，该结构包含指定I2C外设的配置信息。
+  * 
   * 返回值: 无
   */
 void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct) {
@@ -209,7 +216,7 @@ void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct) {
         I2Cx->TRISE = freqrange + 1;
     }
     /* 在快速模式下配置速度 */
-    /* 要使用400 KHz的I2C（在快速模式下），PCLK1频率（I2C外围设备输入时钟）必须是10 MHz的倍数 */
+    /* 要使用400 KHz的I2C(在快速模式下)，PCLK1频率(I2C外围设备输入时钟)必须是10 MHz的倍数 */
     else { /*(I2C_InitStruct->I2C_ClockSpeed <= 400000)*/
         if (I2C_InitStruct->I2C_DutyCycle == I2C_DutyCycle_2) {
             /* 快速模式速度计算: Tlow/Thigh = 2 */
@@ -257,7 +264,9 @@ void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct) {
 
 /**
   * 简介:  用每个I2C_InitStruct成员的默认值填充其默认值。
+  * 
   * 参数:  I2C_InitStruct: 指向I2C_InitTypeDef结构的指针，将被初始化。
+  * 
   * 返回值: 无
   */
 void I2C_StructInit(I2C_InitTypeDef* I2C_InitStruct) {
@@ -278,9 +287,12 @@ void I2C_StructInit(I2C_InitTypeDef* I2C_InitStruct) {
 
 /**
   * 简介:  启用或禁用指定的 I2C 外设.
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: 新状态-> I2Cx 外设.
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void I2C_Cmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -303,9 +315,12 @@ void I2C_Cmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
   * 注意:   该功能只能用于STM32F42xxx/STM3243xxx、STM32F401xx、STM32F410xx和STM32F411xE器件。
   *
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: 新的模拟状态的过滤器。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 注意:   这个函数应该在初始化和启用 I2C外设。
+  * 
   * 返回值: 无
   */
 void I2C_AnalogFilterCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -328,9 +343,12 @@ void I2C_AnalogFilterCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
   * 注意:   该功能只能用于STM32F42xxx/STM3243xxx、STM32F401xx、STM32F410xx和STM32F411xE器件。
   *
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_DigitalFilter: 数字噪音过滤器的系数。
   *          这个参数可以是0x00到0x0F之间的数字。
+  * 
   * 注意:   这个函数应该在初始化和启用 I2C外设。
+  * 
   * 返回值: 无
   */
 void I2C_DigitalFilterConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DigitalFilter) {
@@ -355,9 +373,12 @@ void I2C_DigitalFilterConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DigitalFilter) {
 
 /**
   * 简介:  生成 I2Cx 通信启动条件。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: I2C START条件生成的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无.
   */
 void I2C_GenerateSTART(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -376,9 +397,12 @@ void I2C_GenerateSTART(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  生成 I2Cx 通信停止条件。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: 产生I2C STOP条件的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无.
   */
 void I2C_GenerateSTOP(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -397,12 +421,16 @@ void I2C_GenerateSTOP(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  传输地址字节以选择从设备。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  Address: 指定将被传送的从属地址
+  * 
   * 参数:  I2C_Direction: 指定I2C设备是发射器还是接收器。
   *          该参数可以是以下值之一:
   *            @arg I2C_Direction_Transmitter: 发射器模式
   *            @arg I2C_Direction_Receiver: 接收器模式
+  * 
   * 返回值: 无.
   */
 void I2C_Send7bitAddress(I2C_TypeDef* I2Cx, uint8_t Address, uint8_t I2C_Direction) {
@@ -425,9 +453,12 @@ void I2C_Send7bitAddress(I2C_TypeDef* I2Cx, uint8_t Address, uint8_t I2C_Directi
 
 /**
   * 简介:  启用或禁用指定的 I2C 认可的特点。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: I2C确认的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无.
   */
 void I2C_AcknowledgeConfig(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -446,8 +477,11 @@ void I2C_AcknowledgeConfig(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  配置指定的 I2C 自己的地址2。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  Address: 指定7位I2C自己的地址2。
+  * 
   * 返回值: 无.
   */
 void I2C_OwnAddress2Config(I2C_TypeDef* I2Cx, uint8_t Address) {
@@ -471,9 +505,12 @@ void I2C_OwnAddress2Config(I2C_TypeDef* I2Cx, uint8_t Address) {
 
 /**
   * 简介:  启用或禁用指定的 I2C 双寻址模式。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: I2C双寻址模式的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void I2C_DualAddressCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -492,9 +529,12 @@ void I2C_DualAddressCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用指定的 I2C 常规调用功能。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: I2C一般调用的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void I2C_GeneralCallCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -513,10 +553,14 @@ void I2C_GeneralCallCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用指定的 I2C 软件复位.
+  * 
   * 注意:   当软件复位被启用时，I2C IO被释放(这对于从总线错误中恢复很有用)。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: I2C软件复位的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void I2C_SoftwareResetCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -535,9 +579,12 @@ void I2C_SoftwareResetCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用指定的 I2C 时钟拉伸。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: I2Cx时钟拉伸的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void I2C_StretchClockCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -556,11 +603,14 @@ void I2C_StretchClockCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  选择指定的 I2C 快速模式占空比。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_DutyCycle: 指定快速模式的占空比。
   *          此参数可以是以下值之一:
   *            @arg I2C_DutyCycle_2: I2C fast mode Tlow/Thigh = 2
   *            @arg I2C_DutyCycle_16_9: I2C fast mode Tlow/Thigh = 16/9
+  * 
   * 返回值: 无
   */
 void I2C_FastModeDutyCycleConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DutyCycle) {
@@ -579,10 +629,13 @@ void I2C_FastModeDutyCycleConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DutyCycle) {
 
 /**
   * 简介:  在主接收机模式下选择指定的 I2C NACK 位置。
+  * 
   * 注意:   此功能在I2C主机中很有用接收器模式 当要接收的数据数量等于2时。
   *         在这种情况下，应在数据接收开始之前调用此函数(使用参数I2C_NACKPosition_Next)，
   *         如参考手册第节:主接收器中推荐的2字节接收程序所述。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_NACKPosition: 指定NACK位置。
   *          此参数可以是以下值之一:
   *            @arg I2C_NACKPosition_Next: 指示下一个字节将是最后接收的字节。
@@ -610,11 +663,14 @@ void I2C_NACKPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_NACKPosition) {
 
 /**
   * 简介:  针对指定的 I2C 将 SMBusAlert 引脚驱动至高电平或低电平。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_SMBusAlert: 指定SMBAlert引脚级别。
   *          此参数可以是以下值之一:
   *            @arg I2C_SMBusAlert_Low: SMBAlert引脚驱动低
   *            @arg I2C_SMBusAlert_High: SMBAlert引脚驱动高
+  * 
   * 返回值: 无
   */
 void I2C_SMBusAlertConfig(I2C_TypeDef* I2Cx, uint16_t I2C_SMBusAlert) {
@@ -633,9 +689,12 @@ void I2C_SMBusAlertConfig(I2C_TypeDef* I2Cx, uint16_t I2C_SMBusAlert) {
 
 /**
   * 简介:  启用或禁用指定的 I2C ARP.
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: I2Cx ARP的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void I2C_ARPCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -669,8 +728,11 @@ void I2C_ARPCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  通过 I2Cx 外设发送一个数据字节。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  Data: 要传输的字节。
+  * 
   * 返回值: 无
   */
 void I2C_SendData(I2C_TypeDef* I2Cx, uint8_t Data) {
@@ -682,7 +744,9 @@ void I2C_SendData(I2C_TypeDef* I2Cx, uint8_t Data) {
 
 /**
   * 简介:  返回 I2Cx 外设最近接收到的数据。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 返回值: The value of 接收的数据。
   */
 uint8_t I2C_ReceiveData(I2C_TypeDef* I2Cx) {
@@ -710,9 +774,12 @@ uint8_t I2C_ReceiveData(I2C_TypeDef* I2Cx) {
 
 /**
   * 简介:  启用或禁用指定的 I2C PEC 传输.
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: I2C PEC传输的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void I2C_TransmitPEC(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -731,7 +798,9 @@ void I2C_TransmitPEC(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  选择指定的 I2C PEC 位置。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_PECPosition: 指定PEC位置。
   *          此参数可以是以下值之一:
   *            @arg I2C_PECPosition_Next: 表示下一个字节是PEC
@@ -758,9 +827,12 @@ void I2C_PECPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_PECPosition) {
 
 /**
   * 简介:  启用或禁用传输字节的 PEC 值计算。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: I2Cx PEC值计算的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void I2C_CalculatePEC(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -779,7 +851,9 @@ void I2C_CalculatePEC(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  返回指定 I2C 的 PEC 值。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 返回值: The PEC value.
   */
 uint8_t I2C_GetPEC(I2C_TypeDef* I2Cx) {
@@ -808,9 +882,12 @@ uint8_t I2C_GetPEC(I2C_TypeDef* I2Cx) {
 
 /**
   * 简介:  启用或禁用指定的 I2C DMA 请求.
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: I2C DMA传输的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void I2C_DMACmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -829,9 +906,12 @@ void I2C_DMACmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  指定下一次 DMA 传输是最后一次传输。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  NewState: I2C DMA最后一次传输的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
@@ -927,6 +1007,7 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
 /**
   * 简介:  读取指定的 I2C 寄存器并返回其值。
+  * 
   * 参数:  I2C_Register: 指定要读取的寄存器。
   *          此参数可以是以下值之一:
   *            @arg I2C_Register_CR1:   CR1 寄存器.
@@ -938,6 +1019,7 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
   *            @arg I2C_Register_SR2:   SR2 寄存器.
   *            @arg I2C_Register_CCR:   CCR 寄存器.
   *            @arg I2C_Register_TRISE: TRISE 寄存器.
+  * 
   * 返回值: 读取寄存器的值。
   */
 uint16_t I2C_ReadRegister(I2C_TypeDef* I2Cx, uint8_t I2C_Register) {
@@ -956,14 +1038,18 @@ uint16_t I2C_ReadRegister(I2C_TypeDef* I2Cx, uint8_t I2C_Register) {
 
 /**
   * 简介:  启用或禁用指定的 I2C 中断.
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_IT: 指定要启用或禁用的I2C中断源。
   *          此参数可以是以下值的任意组合:
   *             @arg I2C_IT_BUF: 缓冲器中断屏蔽
   *             @arg I2C_IT_EVT: 事件中断掩码
   *             @arg I2C_IT_ERR: 错误中断屏蔽
+  * 
   * 参数:  NewState: 指定I2C中断的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void I2C_ITConfig(I2C_TypeDef* I2Cx, uint16_t I2C_IT, FunctionalState NewState) {
@@ -989,7 +1075,9 @@ void I2C_ITConfig(I2C_TypeDef* I2Cx, uint16_t I2C_IT, FunctionalState NewState) 
 
 /**
   * 简介:  检查最后一个 I2Cx 事件是否等于作为参数传递的事件。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_EVENT: 指定要检查的事件。
   *          此参数可以是以下值之一:
   *            @arg I2C_EVENT_SLAVE_TRANSMITTER_ADDRESS_MATCHED: EV1
@@ -1057,6 +1145,7 @@ ErrorStatus I2C_CheckEvent(I2C_TypeDef* I2Cx, uint32_t I2C_EVENT) {
 
 /**
   * 简介:  返回最后一个 I2Cx 事件。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
   *
   * 注意:   关于事件的详细描述，请参考I2C_Events部分 中的I2C_Events部分。
@@ -1090,7 +1179,9 @@ uint32_t I2C_GetLastEvent(I2C_TypeDef* I2Cx) {
 
 /**
   * 简介:  检查是否设置了指定的 I2C 标志。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
   *             @arg I2C_FLAG_DUALF: 双重标志 (从机模式)
@@ -1115,6 +1206,7 @@ uint32_t I2C_GetLastEvent(I2C_TypeDef* I2Cx) {
   *             @arg I2C_FLAG_ADDR: 地址发送标志(主模式) "ADSL"
   *             地址匹配标志(从机模式)"ENDAD"
   *             @arg I2C_FLAG_SB: 启动位标志(主模式)
+  * 
   * 返回值: I2C_FLAG的新状态(SET或RESET)。
   */
 FlagStatus I2C_GetFlagStatus(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG) {
@@ -1158,7 +1250,9 @@ FlagStatus I2C_GetFlagStatus(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG) {
 
 /**
   * 简介:  清除 I2Cx 的挂起标志。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
   *             @arg I2C_FLAG_SMBALERT: SMBus警报标志
@@ -1195,7 +1289,9 @@ void I2C_ClearFlag(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG) {
 
 /**
   * 简介:  检查是否发生了指定的 I2C 中断。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_IT: 指定要检查的中断源。
   *          此参数可以是以下值之一:
   *             @arg I2C_IT_SMBALERT: SMBus警报标志
@@ -1213,6 +1309,7 @@ void I2C_ClearFlag(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG) {
   *             @arg I2C_IT_ADDR: 地址发送标志(主模式) "ADSL"
   *             地址匹配标志(从机模式)"ENDAD"
   *             @arg I2C_IT_SB: 启动位标志(主模式)
+  * 
   * 返回值:I2C_IT的新状态(SET或RESET)。
   */
 ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, uint32_t I2C_IT) {
@@ -1244,7 +1341,9 @@ ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, uint32_t I2C_IT) {
 
 /**
   * 简介:  清除 I2Cx 的中断挂起位。
+  * 
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
+  * 
   * 参数:  I2C_IT: 指定要清除的中断等待位。
   *          此参数可以是以下值的任意组合:
   *              @arg I2C_IT_SMBALERT: SMBus警报中断
@@ -1267,6 +1366,7 @@ ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, uint32_t I2C_IT) {
   *     (I2C_GetITStatus())，然后对I2C_SR2寄存器进行读操作((void)(I2Cx->SR2))。
   * 注意: SB (Start Bit)通过软件顺序清除:对I2C_SR1寄存器进行读操作
   *     (I2C_GetITStatus())，然后对I2C_DR寄存器进行写操作(I2C_SendData())。
+  * 
   * 返回值: 无
   */
 void I2C_ClearITPendingBit(I2C_TypeDef* I2Cx, uint32_t I2C_IT) {

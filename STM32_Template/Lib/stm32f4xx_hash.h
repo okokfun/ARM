@@ -93,7 +93,6 @@ typedef struct {
 #define HASH_AlgoSelection_SHA224    HASH_CR_ALGO_1     /*!< HASH 函数是 SHA224 */
 #define HASH_AlgoSelection_SHA256    HASH_CR_ALGO       /*!< HASH 函数是 SHA256 */
 #define HASH_AlgoSelection_MD5       HASH_CR_ALGO_0     /*!< HASH 函数是 is MD5    */
-
 #define IS_HASH_ALGOSELECTION(ALGOSELECTION) (((ALGOSELECTION) == HASH_AlgoSelection_SHA1) || \
         ((ALGOSELECTION) == HASH_AlgoSelection_SHA224) || \
         ((ALGOSELECTION) == HASH_AlgoSelection_SHA256) || \
@@ -135,7 +134,6 @@ typedef struct {
   */
 #define HASH_HMACKeyType_ShortKey      ((uint32_t)0x00000000) /*!< HMAC 密钥 <= 64 字节 */
 #define HASH_HMACKeyType_LongKey       HASH_CR_LKEY           /*!< HMAC 密钥 > 64 字节  */
-
 #define IS_HASH_HMAC_KEYTYPE(KEYTYPE) (((KEYTYPE) == HASH_HMACKeyType_ShortKey) || \
                                        ((KEYTYPE) == HASH_HMACKeyType_LongKey))
 /**
@@ -156,7 +154,6 @@ typedef struct {
   */
 #define HASH_IT_DINI               HASH_IMR_DINIM  /*!< 可以将新块输入到输入缓冲区 (DIN) */
 #define HASH_IT_DCI                HASH_IMR_DCIM   /*!< 摘要计算完成                            */
-
 #define IS_HASH_IT(IT) ((((IT) & (uint32_t)0xFFFFFFFC) == 0x00000000) && ((IT) != 0x00000000))
 #define IS_HASH_GET_IT(IT) (((IT) == HASH_IT_DINI) || ((IT) == HASH_IT_DCI))
 
@@ -172,7 +169,6 @@ typedef struct {
 #define HASH_FLAG_DMAS             HASH_SR_DMAS   /*!< 启用 DMA 接口 (DMAE=1) 或正在进行传输                          */
 #define HASH_FLAG_BUSY             HASH_SR_BUSY   /*!< 哈希核心忙:处理数据块                                 */
 #define HASH_FLAG_DINNE            HASH_CR_DINNE  /*!< DIN 非空:输入缓冲区至少包含一个字的数据                 */
-
 #define IS_HASH_GET_FLAG(FLAG) (((FLAG) == HASH_FLAG_DINIS) || \
                                 ((FLAG) == HASH_FLAG_DCIS)  || \
                                 ((FLAG) == HASH_FLAG_DMAS)  || \

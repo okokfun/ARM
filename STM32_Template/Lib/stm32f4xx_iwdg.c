@@ -110,10 +110,12 @@
 
 /**
   * 简介:  启用或禁用对IWDG_PR和IWDG_RLR寄存器的写入访问权限。
+  * 
   * 参数:  IWDG_WriteAccess: 对IWDG_PR和IWDG_RLR寄存器进行写操作的新状态。
   *          此参数可以是以下值之一:
   *            @arg IWDG_WriteAccess_Enable: 启用对IWDG_PR和IWDG_RLR寄存器的写入权限
   *            @arg IWDG_WriteAccess_Disable: 禁止对IWDG_PR和IWDG_RLR寄存器的写访问
+  * 
   * 返回值: 无
   */
 void IWDG_WriteAccessCmd(uint16_t IWDG_WriteAccess) {
@@ -124,6 +126,7 @@ void IWDG_WriteAccessCmd(uint16_t IWDG_WriteAccess) {
 
 /**
   * 简介:  设置IWDG预分频器值。
+  * 
   * 参数:  IWDG_Prescaler: 指定IWDG预分频器的值。
   *          此参数可以是以下值之一:
   *               @arg IWDG_Prescaler_4: IWDG预分频器设置为4
@@ -133,6 +136,7 @@ void IWDG_WriteAccessCmd(uint16_t IWDG_WriteAccess) {
   *               @arg IWDG_Prescaler_64: IWDG预分频器设置为64
   *               @arg IWDG_Prescaler_128: IWDG预分频器设置为128
   *               @arg IWDG_Prescaler_256: IWDG预分频器设置为256
+  * 
   * 返回值: 无
   */
 void IWDG_SetPrescaler(uint8_t IWDG_Prescaler) {
@@ -143,8 +147,10 @@ void IWDG_SetPrescaler(uint8_t IWDG_Prescaler) {
 
 /**
   * 简介:  设置 IWDG 重新加载值。
+  * 
   * 参数:  Reload: 指定IWDG重新加载值。
   *          这个参数必须是0到0x0FFF之间的数字。
+  * 
   * 返回值: 无
   */
 void IWDG_SetReload(uint16_t Reload) {
@@ -156,7 +162,9 @@ void IWDG_SetReload(uint16_t Reload) {
 /**
   * 简介:  使用重新加载寄存器中定义的值重新加载 IWDG 计数器
   *       (禁用对IWDG_PR和IWDG_RLR寄存器的写入访问)。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void IWDG_ReloadCounter(void) {
@@ -181,7 +189,9 @@ void IWDG_ReloadCounter(void) {
 
 /**
   * 简介:  启用 IWDG(禁用对IWDG_PR和IWDG_RLR寄存器的写访问)。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void IWDG_Enable(void) {
@@ -206,10 +216,12 @@ void IWDG_Enable(void) {
 
 /**
   * 简介:  检查是否设置了指定的 IWDG 标志。
+  * 
   * 参数:  IWDG_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
   *             @arg IWDG_FLAG_PVU: 预分频器值更新时的情况
   *             @arg IWDG_FLAG_RVU: 重新加载值的更新。
+  * 
   * 返回值。IWDG_FLAG的新状态(SET或RESET)。
   */
 FlagStatus IWDG_GetFlagStatus(uint16_t IWDG_FLAG) {

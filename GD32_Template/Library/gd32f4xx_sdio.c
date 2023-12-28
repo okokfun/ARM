@@ -78,7 +78,7 @@ void SDIO_Clock_Config(uint32_t clock_edge, uint32_t clock_bypass, uint32_t cloc
         clock_division -= 256U;
     }
 
-    /* configure the SDIO_CLKCTL according to the parameters */
+    /* configure the SDIO_CLKCTL 根据 the parameters */
     clock_Config |= (clock_edge | clock_bypass | clock_powersave | clock_division);
     SDIO_CLKCTL = clock_Config;
 }
@@ -114,7 +114,7 @@ void SDIO_Hardware_Clock_Disable(void) {
     返回值:      无
 */
 void SDIO_bus_Mode_Set(uint32_t bus_mode) {
-    /* reset the SDIO card bus mode bits and set according to bus_mode */
+    /* reset the SDIO card bus mode bits and set 根据 bus_mode */
     SDIO_CLKCTL &= ~SDIO_CLKCTL_BUSMODE;
     SDIO_CLKCTL |= bus_mode;
 }
@@ -185,7 +185,7 @@ void SDIO_command_response_Config(uint32_t cmd_index, uint32_t cmd_argument, uin
     SDIO_CMDAGMT = cmd_argument;
     cmd_Config = SDIO_CMDCTL;
     cmd_Config &= ~(SDIO_CMDCTL_CMDIDX | SDIO_CMDCTL_CMDRESP);
-    /* configure SDIO_CMDCTL and SDIO_CMDAGMT according to the parameters */
+    /* configure SDIO_CMDCTL and SDIO_CMDAGMT 根据 the parameters */
     cmd_Config |= (cmd_index | response_type);
     SDIO_CMDCTL = cmd_Config;
 }
@@ -203,7 +203,7 @@ void SDIO_command_response_Config(uint32_t cmd_index, uint32_t cmd_argument, uin
 void SDIO_Wait_type_Set(uint32_t wait_type) {
     /* reset INTWAIT and WAITDEND */
     SDIO_CMDCTL &= ~(SDIO_CMDCTL_INTWAIT | SDIO_CMDCTL_WaitDEND);
-    /* set the wait type according to wait_type */
+    /* set the wait type 根据 wait_type */
     SDIO_CMDCTL |= wait_type;
 }
 
@@ -325,7 +325,7 @@ void SDIO_Data_Config(uint32_t data_timeout, uint32_t data_length, uint32_t data
 */
 void SDIO_Data_Transfer_Config(uint32_t transfer_mode, uint32_t transfer_direction) {
     uint32_t data_trans = 0U;
-    /* reset the data transfer mode, transfer direction and set according to the parameters */
+    /* reset the data transfer mode, transfer direction and set 根据 the parameters */
     data_trans = SDIO_DATACTL;
     data_trans &= ~(SDIO_DATACTL_TRANSMOD | SDIO_DATACTL_DATADIR);
     data_trans |= (transfer_mode | transfer_direction);

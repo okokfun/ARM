@@ -182,7 +182,6 @@ typedef struct {
 /** @defgroup CAN_InitStatus
   * @{
   */
-
 #define CAN_InitStatus_Failed              ((uint8_t)0x00) /*!< CAN 初始化失败 */
 #define CAN_InitStatus_Success             ((uint8_t)0x01) /*!< CAN初始化OK */
 
@@ -197,7 +196,6 @@ typedef struct {
 /** @defgroup CAN_operating_mode
   * @{
   */
-
 #define CAN_Mode_Normal             ((uint8_t)0x00)  /*!< 正常模式 */
 #define CAN_Mode_LoopBack           ((uint8_t)0x01)  /*!< 环回模式 */
 #define CAN_Mode_Silent             ((uint8_t)0x02)  /*!< 静音模式 */
@@ -232,7 +230,6 @@ typedef struct {
   * @defgroup CAN_operating_mode_status
   * @{
   */
-
 #define CAN_ModeStatus_Failed    ((uint8_t)0x00)                /*!< CAN进入特定模式失败 */
 #define CAN_ModeStatus_Success   ((uint8_t)!CAN_ModeStatus_Failed)   /*!< CAN进入特定模式成功 */
 /**

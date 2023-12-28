@@ -29,8 +29,9 @@
         在I2S模式下，如果使用外部时钟源，则还应启用I2S CKIN引脚GPIO时钟。
 
    (#) 外设设备替代函数:
-       (++) 使用GPIO_PinAFConfig()函数将管脚连接到所需外设设备的备用功能(AF)
-       (++) 通过以下方式在备用功能中配置所需引脚:
+       (++) 使用GPIO_PinAFConfig()函数将管脚连接到所需外设设备的复用功能(AF)
+       
+       (++) 通过以下方式在复用功能中配置所需引脚:
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
        (++) 通过GPIO_PuPd、GPIO_OType和GPIO_Speed成员选择类型、上拉/下拉和输出速度
        (++) 调用GPIO_Init()函数在I2S模式下，如果使用外部时钟源，
@@ -189,7 +190,7 @@
   * 参数:  SPIx: 选择SPIx/I2Sx外设，其中x在SPI模式下为1、2、3、4、5或6，在I2S模式下为2或3。
   *
   * 注意:   扩展的I2S块(即。I2S2ext和I2S3ext块)在相对
-			I2S外设去初始化时被去初始化(扩展块的时钟由I2S外设时钟管理)。
+			      I2S外设去初始化时被去初始化(扩展块的时钟由I2S外设时钟管理)。
   *
   * 返回值: 无
   */
@@ -234,8 +235,11 @@ void SPI_I2S_DeInit(SPI_TypeDef* SPIx) {
 
 /**
   * 简介:  根据SPI_InitStruct中的指定参数初始化SPIx外设设备。
+  * 
   * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
+  * 
   * 参数:  SPI_InitStruct: 指向SPI_InitTypeDef结构的指针，该结构包含指定SPI外设的配置信息。
+  * 
   * 返回值: 无
   */
 void SPI_Init(SPI_TypeDef* SPIx, SPI_InitTypeDef* SPI_InitStruct) {
@@ -260,14 +264,14 @@ void SPI_Init(SPI_TypeDef* SPIx, SPI_InitTypeDef* SPI_InitStruct) {
     tmpreg = SPIx->CR1;
     /* 清除 BIDIMode, BIDIOE, RxONLY, SSM, SSI, LSBFirst, BR, MSTR, CPOL and CPHA 位 */
     tmpreg &= CR1_CLEAR_MASK;
-    /* Configure SPIx: direction, NSS management, first transmitted bit, BaudRate prescaler
+    /* 配置 SPIx: direction, NSS management, first transmitted bit, BaudRate prescaler
        master/salve mode, CPOL and CPHA */
-    /* Set BIDImode, BIDIOE and RxONLY bits according to SPI_Direction 值 */
-    /* Set SSM, SSI and MSTR bits according to SPI_Mode and SPI_NSS values */
-    /* Set LSBFirst bit according to SPI_FirstBit 值 */
-    /* Set BR bits according to SPI_BaudRatePrescaler 值 */
-    /* Set CPOL bit according to SPI_CPOL 值 */
-    /* Set CPHA bit according to SPI_CPHA 值 */
+    /* 设置 BIDImode, BIDIOE and RxONLY bits 根据 SPI_Direction 值 */
+    /* 设置 SSM, SSI and MSTR bits 根据 SPI_Mode and SPI_NSS values */
+    /* 设置 LSBFirst bit 根据 SPI_FirstBit 值 */
+    /* 设置 BR bits 根据 SPI_BaudRatePrescaler 值 */
+    /* 设置 CPOL bit 根据 SPI_CPOL 值 */
+    /* 设置 CPHA bit 根据 SPI_CPHA 值 */
     tmpreg |= (uint16_t)((uint32_t)SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode |
                          SPI_InitStruct->SPI_DataSize | SPI_InitStruct->SPI_CPOL |
                          SPI_InitStruct->SPI_CPHA | SPI_InitStruct->SPI_NSS |
@@ -284,7 +288,9 @@ void SPI_Init(SPI_TypeDef* SPIx, SPI_InitTypeDef* SPI_InitStruct) {
 
 /**
   * 简介:  根据I2S_InitStruct中指定的参数初始化 SPIx 外设。
+  * 
   * 参数:  SPIx: 其中x可以是2或3，以选择SPI外设设备(在I2S模式下配置)。
+  * 
   * 参数:  I2S_InitStruct: 指向I2S_InitTypeDef结构的指针，
   *        该结构包含I2S模式下配置的指定SPI外设的配置信息。
   *
@@ -320,12 +326,12 @@ void I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct) {
     /* 获取I2SCFGR寄存器值 */
     tmpreg = SPIx->I2SCFGR;
 
-    /* If the default value has to be written, reinitialize i2sdiv and i2sodd*/
+    /* 如果必须写入默认值，请重新初始化i2sdiv和i2sodd*/
     if(I2S_InitStruct->I2S_AudioFreq == I2S_AudioFreq_Default) {
         i2sodd = (uint16_t)0;
         i2sdiv = (uint16_t)2;
     }
-    /* If the requested audio frequency is not the default, compute the prescaler */
+    /* 如果请求的音频频率不是默认值，则计算预分频器 */
     else {
         /* 检查 the frame length (For the Prescaler computing) *******************/
         if(I2S_InitStruct->I2S_DataFormat == I2S_DataFormat_16b) {
@@ -336,23 +342,22 @@ void I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct) {
             packetlength = 2;
         }
 
-        /* Get I2S source Clock frequency  ****************************************/
+        /* 获取I2S源时钟频率  ****************************************/
 
-        /* If an external I2S clock has to be used, this define should be set
-           in the project configuration or in the stm32f4xx_conf.h file */
+        /* 如果必须使用外部 I2S 时钟，则应在项目配置或 stm32f4x_conf.h 文件中设置此定义 */
         #ifdef I2S_EXTERNAL_CLOCK_VAL
 
-        /* Set external clock as I2S clock source */
+        /* 将外部时钟设置为 I2S 时钟源 */
         if ((RCC->CFGR & RCC_CFGR_I2SSRC) == 0) {
             RCC->CFGR |= (uint32_t)RCC_CFGR_I2SSRC;
         }
 
-        /* 设置 I2S clock to the external clock  值 */
+        /* 设置 I2S 时钟到外部时钟值 */
         i2sclk = I2S_EXTERNAL_CLOCK_VAL;
 
-        #else /* There is no define for External I2S clock source */
+        #else /* 没有定义外部 I2S 时钟源 */
 
-        /* Set PLLI2S as I2S clock source */
+        /* 将 PLLI2S 设置为 I2S 时钟源 */
         if ((RCC->CFGR & RCC_CFGR_I2SSRC) != 0) {
             RCC->CFGR &= ~(uint32_t)RCC_CFGR_I2SSRC;
         }
@@ -378,12 +383,12 @@ void I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct) {
 
         #endif /* I2S_EXTERNAL_CLOCK_VAL */
 
-        /* Compute the Real divider depending on the MCLK output state, with a floating point */
+        /* 根据 MCLK 输出状态，使用浮点计算实数除法器 */
         if(I2S_InitStruct->I2S_MCLKOutput == I2S_MCLKOutput_Enable) {
-            /* MCLK output is enabled */
+            /* 启用MCLK输出 */
             tmp = (uint16_t)(((((i2sclk / 256) * 10) / I2S_InitStruct->I2S_AudioFreq)) + 5);
         } else {
-            /* MCLK output is disabled */
+            /* 禁用MCLK输出 */
             tmp = (uint16_t)(((((i2sclk / (32 * packetlength)) * 10 ) / I2S_InitStruct->I2S_AudioFreq)) + 5);
         }
 
@@ -966,9 +971,9 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
 	 (##) I2S_FLAG_TIFRFE：指示发生帧格式错误(仅在TI模式下可用)。
 
    (+) 中断源:
-（##）SPI_I2S_IT_TXE：指定Tx缓冲区空中断的中断源。
-（##）SPI_I2S_IT_RXNE：指定Rx缓冲区非空中断的中断源。
-（##）SPI_I2S_IT_ERR：指定错误中断的中断源。
+(##)SPI_I2S_IT_TXE：指定Tx缓冲区空中断的中断源。
+(##)SPI_I2S_IT_RXNE：指定Rx缓冲区非空中断的中断源。
+(##)SPI_I2S_IT_ERR：指定错误中断的中断源。
 
  [..] 在此模式下，建议使用以下函数:
    (+) void SPI_I2S_ITConfig(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT, FunctionalState NewState);
@@ -1070,11 +1075,11 @@ FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {
   *			此功能仅清除CRCERR标志。
   *				@arg SPI_FLAG_CERRR:CRC错误标志。
   *
-  * 注意:   OVR（OverRun error）标志由软件序列清除：对SPI_DR寄存器（SPI_I2S_ReceiveData（））进行
-			读取操作，然后对SPI_SR寄存器（SPI_I2S_GetFlagStatus（））执行读取操作。
-  * 注意:   通过对SPI_SR寄存器的读取操作（SPI_I2S_GetFlagStatus（））清除UDR（运行不足错误）标志。
-  * 注意:   MODF（模式故障）标志由软件序列清除：对SPI_SR寄存器（SPI_I2S_GetFlagStatus（））
-			进行读/写操作，然后对SPI_CR1寄存器（SPI_Cmd（）进行写操作以启用SPI）。
+  * 注意:   OVR(OverRun error)标志由软件序列清除：对SPI_DR寄存器(SPI_I2S_ReceiveData())进行
+			读取操作，然后对SPI_SR寄存器(SPI_I2S_GetFlagStatus())执行读取操作。
+  * 注意:   通过对SPI_SR寄存器的读取操作(SPI_I2S_GetFlagStatus())清除UDR(运行不足错误)标志。
+  * 注意:   MODF(模式故障)标志由软件序列清除：对SPI_SR寄存器(SPI_I2S_GetFlagStatus())
+			进行读/写操作，然后对SPI_CR1寄存器(SPI_Cmd()进行写操作以启用SPI)。
   * 返回值: 无
   */
 void SPI_I2S_ClearFlag(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {

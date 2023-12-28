@@ -440,7 +440,7 @@ int32_t DAC_StructInit(stc_dac_init_t *pstcDacInit) {
 }
 
 /**
- * @brief  Initialize the DAC peripheral according to the specified parameters
+ * @brief  Initialize the DAC peripheral 根据 the specified parameters
  *         in the stc_dac_init_t
  * @param  [in] DACx       Pointer to the DAC peripheral register.
  *         This parameter can be a value of the following:

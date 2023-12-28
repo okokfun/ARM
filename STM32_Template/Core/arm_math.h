@@ -1273,7 +1273,7 @@ void arm_biquad_cascade_df1_q15(
  * @param[in]     numStages    number of 2nd order stages in the filter.
  * @param[in]     *pCoeffs     points to the filter coefficients.
  * @param[in]     *pState      points to the state buffer.
- * @param[in]     postShift    Shift to be applied to the output. Varies according to the coefficients format
+ * @param[in]     postShift    Shift to be applied to the output. Varies 根据 the coefficients format
  * @return        none
  */
 
@@ -1337,7 +1337,7 @@ void arm_biquad_cascade_df1_fast_q31(
  * @param[in]     numStages      number of 2nd order stages in the filter.
  * @param[in]     *pCoeffs     points to the filter coefficients.
  * @param[in]     *pState      points to the state buffer.
- * @param[in]     postShift    Shift to be applied to the output. Varies according to the coefficients format
+ * @param[in]     postShift    Shift to be applied to the output. Varies 根据 the coefficients format
  * @return        none
  */
 
@@ -3708,7 +3708,7 @@ void arm_biquad_cas_df1_32x64_q31(
  * @param[in]     numStages    number of 2nd order stages in the filter.
  * @param[in]     *pCoeffs     points to the filter coefficients.
  * @param[in]     *pState      points to the state buffer.
- * @param[in]     postShift    shift to be applied to the output. Varies according to the coefficients format
+ * @param[in]     postShift    shift to be applied to the output. Varies 根据 the coefficients format
  * @return        none
  */
 

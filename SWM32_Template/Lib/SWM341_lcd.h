@@ -18,14 +18,14 @@ typedef struct {
     uint32_t Background;	//背景颜色
     uint8_t  SampleEdge;	//屏幕在DOTCLK的哪个边沿采样数据：LCD_SAMPLE_RISE、LCD_SAMPLE_FALL
 
-    uint8_t  IntEOTEn;		//End of Transter（传输完成）中断使能
+    uint8_t  IntEOTEn;		//End of Transter(传输完成)中断使能
 } LCD_InitStructure;
 
 
 typedef struct {
     uint8_t  Alpha;
     uint16_t HStart;		//水平方向起始位置，取值范围0 ~ HnPixel-1
-    uint16_t HStop;			//水平方向终止位置（包含），不得小于HStart，且 HStop - HStart 结果必须为奇数
+    uint16_t HStop;			//水平方向终止位置(包含)，不得小于HStart，且 HStop - HStart 结果必须为奇数
     uint16_t VStart;
     uint16_t VStop;
     uint32_t DataSource;	//显示数据地址

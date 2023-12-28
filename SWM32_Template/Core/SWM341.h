@@ -407,7 +407,7 @@ typedef struct {
 
 #define SYS_PRNGCR_CLR_Pos			0		//种子清零，至少保持一个LRC时钟周期
 #define SYS_PRNGCR_CLR_Msk			(0x01 << SYS_PRNGCR_CLR_Pos)
-#define SYS_PRNGCR_MODE_Pos			1		//0 关闭   2 三时钟模式（RCHF、RCLF、XTAH）   3 两时钟模式（RCHF、RCLF）
+#define SYS_PRNGCR_MODE_Pos			1		//0 关闭   2 三时钟模式(RCHF、RCLF、XTAH)   3 两时钟模式(RCHF、RCLF)
 #define SYS_PRNGCR_MODE_Msk			(0x03 << SYS_PRNGCR_MODE_Pos)
 #define SYS_PRNGCR_RDY_Pos			8		//1 可以从PRNGDL和PRNGDH读取数据
 #define SYS_PRNGCR_RDY_Msk			(0x01 << SYS_PRNGCR_RDY_Pos)
@@ -794,9 +794,9 @@ typedef struct {
 
     __IO uint32_t HALLEN;					//HALL功能开关
 
-    __IO uint32_t HALL0V;					//HALL0输入跳变沿将Timer0（加载值 - 当前值）存入此寄存器
+    __IO uint32_t HALL0V;					//HALL0输入跳变沿将Timer0(加载值 - 当前值)存入此寄存器
 
-    __IO uint32_t HALL3V;					//HALL3输入跳变沿将Timer3（加载值 - 当前值）存入此寄存器
+    __IO uint32_t HALL3V;					//HALL3输入跳变沿将Timer3(加载值 - 当前值)存入此寄存器
 
     uint32_t RESERVED2;
 
@@ -939,9 +939,9 @@ typedef struct {
 #define UART_BAUD_RXTOIF_Msk		(0x01 << UART_BAUD_RXTOIF_Pos)
 #define UART_BAUD_TXIF_Pos			17		//发送中断标志 = TXTHRF & TXIE
 #define UART_BAUD_TXIF_Msk			(0x01 << UART_BAUD_TXIF_Pos)
-#define UART_BAUD_RXTHRF_Pos		19		//RX FIFO Threshold Flag，RX FIFO中数据达到设定个数（RXLVL >  RXTHR）时硬件置1
+#define UART_BAUD_RXTHRF_Pos		19		//RX FIFO Threshold Flag，RX FIFO中数据达到设定个数(RXLVL >  RXTHR)时硬件置1
 #define UART_BAUD_RXTHRF_Msk		(0x01 << UART_BAUD_RXTHRF_Pos)
-#define UART_BAUD_TXTHRF_Pos		20		//TX FIFO Threshold Flag，TX FIFO中数据少于设定个数（TXLVL <= TXTHR）时硬件置1
+#define UART_BAUD_TXTHRF_Pos		20		//TX FIFO Threshold Flag，TX FIFO中数据少于设定个数(TXLVL <= TXTHR)时硬件置1
 #define UART_BAUD_TXTHRF_Msk		(0x01 << UART_BAUD_TXTHRF_Pos)
 #define UART_BAUD_TOIF_Pos			21		//TimeOut 中断标志，超过 TOTIME/BAUDRAUD 秒没有接收到新的数据时若TOIE=1，此位由硬件置位
 #define UART_BAUD_TOIF_Msk			(0x01 << UART_BAUD_TOIF_Pos)
@@ -1526,7 +1526,7 @@ typedef struct {
 #define ADC_SEQSMP_SEQ3_Pos			12
 #define ADC_SEQSMP_SEQ3_Msk			(0x07 << ADC_SEQSMP_SEQ3_Pos)
 
-#define ADC_CR2_ENLDO_Pos			2		//该信号由0变为1后，至少需要等20us才能使能ADC（将ADC_EN置为1）
+#define ADC_CR2_ENLDO_Pos			2		//该信号由0变为1后，至少需要等20us才能使能ADC(将ADC_EN置为1)
 #define ADC_CR2_ENLDO_Msk			(0x01 << ADC_CR2_ENLDO_Pos)
 #define ADC_CR2_BITS_Pos			6		//ADC位数，0 6位   1 8位   2 10位   3 12位
 #define ADC_CR2_BITS_Msk			(0x03 << ADC_CR2_BITS_Pos)
@@ -2063,7 +2063,7 @@ typedef struct {
 #define DMA_AM_DSTAM_Msk			(0x03 << DMA_AM_DSTAM_Pos)
 #define DMA_AM_DSTBIT_Pos			2		//传输位宽，0 字节    1 半字    2 字
 #define DMA_AM_DSTBIT_Msk			(0x03 << DMA_AM_DSTBIT_Pos)
-#define DMA_AM_DSTBURST_Pos			4		//传输类型，0 Single    1 Burst（Inc4）
+#define DMA_AM_DSTBURST_Pos			4		//传输类型，0 Single    1 Burst(Inc4)
 #define DMA_AM_DSTBURST_Msk			(0x01 << DMA_AM_DSTBURST_Pos)
 #define DMA_AM_SRCAM_Pos			8
 #define DMA_AM_SRCAM_Msk			(0x03 << DMA_AM_SRCAM_Pos)
@@ -2072,9 +2072,9 @@ typedef struct {
 #define DMA_AM_SRCBURST_Pos			12
 #define DMA_AM_SRCBURST_Msk			(0x01 << DMA_AM_SRCBURST_Pos)
 
-#define DMA_MUX_DSTHSSIG_Pos		0		//目标侧握手信号（handshake signal）
+#define DMA_MUX_DSTHSSIG_Pos		0		//目标侧握手信号(handshake signal)
 #define DMA_MUX_DSTHSSIG_Msk		(0x03 << DMA_MUX_DSTHSSIG_Pos)
-#define DMA_MUX_DSTHSEN_Pos			2		//目标侧握手使能（handshake enable）
+#define DMA_MUX_DSTHSEN_Pos			2		//目标侧握手使能(handshake enable)
 #define DMA_MUX_DSTHSEN_Msk			(0x01 << DMA_MUX_DSTHSEN_Pos)
 #define DMA_MUX_SRCHSSIG_Pos		8		//源侧握手信号
 #define DMA_MUX_SRCHSSIG_Msk		(0x03 << DMA_MUX_SRCHSSIG_Pos)
@@ -2145,7 +2145,7 @@ typedef struct {
 
     uint32_t RESERVED3[16];
 
-    __IO uint32_t AMR[16];					//Acceptance Mask Register, 验收屏蔽寄存器；对应位写0，ID必须和验收寄存器匹配
+    __IO uint32_t AMR[16];					//Acceptance Mask Register, 验收屏蔽寄存器;对应位写0，ID必须和验收寄存器匹配
 } CAN_TypeDef;
 
 
@@ -2627,7 +2627,7 @@ typedef struct {
     uint32_t RESERVED;
 
     struct {
-        __IO uint32_t MAR;					//Memory Address Register，word对齐（低两位固定为0）
+        __IO uint32_t MAR;					//Memory Address Register，word对齐(低两位固定为0)
 
         __IO uint32_t OR;					//Offset Register, added at the end of each line to determine the starting address of the next line
 
@@ -2648,9 +2648,9 @@ typedef struct {
 
 #define DMA2D_CR_START_Pos			0		//开始传输
 #define DMA2D_CR_START_Msk			(0x01 << DMA2D_CR_START_Pos)
-#define DMA2D_CR_MODE_Pos			8		//0 存储器到存储器   1 存储器到存储器并执行PFC   2 存储器到存储器并执行混合   3 寄存器到存储器（仅输出阶段激合）
+#define DMA2D_CR_MODE_Pos			8		//0 存储器到存储器   1 存储器到存储器并执行PFC   2 存储器到存储器并执行混合   3 寄存器到存储器(仅输出阶段激合)
 #define DMA2D_CR_MODE_Msk			(0x03 << DMA2D_CR_MODE_Pos)
-#define DMA2D_CR_WAIT_Pos			22		//每传输一块数据（64个字），等待指定个系统周期后再传输下一个块，防止DMA2D占用过多SDRAM带宽，影响LCD读取显示数据
+#define DMA2D_CR_WAIT_Pos			22		//每传输一块数据(64个字)，等待指定个系统周期后再传输下一个块，防止DMA2D占用过多SDRAM带宽，影响LCD读取显示数据
 #define DMA2D_CR_WAIT_Msk			(0x3FFu<<DMA2D_CR_WAIT_Pos)
 
 #define DMA2D_PFCCR_CFMT_Pos		0		//Color Format, 0 ARGB8888   1 RGB8888   2 RGB565
@@ -2900,13 +2900,13 @@ typedef struct {
 
 
 #define SFC_CFG_CMDTYPE_Pos			0		//0 无地址、无数据、无WIP，用于写使能、写禁止
-//1 无地址、有数据（读1字节）、无WIP，用于读状态寄存器高8位、读状态寄存器低8位
-//2 无地址、有数据（读3字节）、无WIP，用于读Identification
-//3 有地址、有数据（读2字节）、无WIP，用于读MID、读DID
+//1 无地址、有数据(读1字节)、无WIP，用于读状态寄存器高8位、读状态寄存器低8位
+//2 无地址、有数据(读3字节)、无WIP，用于读Identification
+//3 有地址、有数据(读2字节)、无WIP，用于读MID、读DID
 //4 无地址、无数据、有WIP
-//5 无地址、无数据、有WIP（自动写使能），用于片擦
-//6 无地址、有数据（写2字节）、有WIP（自动写使能），用于写16位状态寄存器
-//7 有地址、无数据、有WIP（自动写使能），用于扇区擦
+//5 无地址、无数据、有WIP(自动写使能)，用于片擦
+//6 无地址、有数据(写2字节)、有WIP(自动写使能)，用于写16位状态寄存器
+//7 有地址、无数据、有WIP(自动写使能)，用于扇区擦
 #define SFC_CFG_CMDTYPE_Msk			(0x0F << SFC_CFG_CMDTYPE_Pos)
 #define SFC_CFG_CMDWREN_Pos			5		//SFC->CMD寄存器写使能，使能后可将命令码写入CMD寄存器
 #define SFC_CFG_CMDWREN_Msk			(0x01 << SFC_CFG_CMDWREN_Pos)
@@ -3155,7 +3155,7 @@ typedef struct {
 #define RTC_TRIM_DEC_Msk		    (0x01 << RTC_TRIM_DEC_Pos)
 
 #define RTC_TRIMM_CYCLE_Pos		    0       //用于计数周期微调，如果INC为1，则第n个计数周期调整为(32768±ADJ)+1,否则调整为(32768±ADJ)-1
-//cycles=0时，不进行微调整；cycles=1，则n为2；cycles=7，则n为8；以此类推
+//cycles=0时，不进行微调整;cycles=1，则n为2;cycles=7，则n为8;以此类推
 #define RTC_TRIMM_CYCLE_Msk		    (0x07 << RTC_TRIMM_CYCLE_Pos)
 #define RTC_TRIMM_INC_Pos		    3
 #define RTC_TRIMM_INC_Msk		    (0x01 << RTC_TRIMM_INC_Pos)

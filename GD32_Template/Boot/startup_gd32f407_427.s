@@ -46,7 +46,7 @@ Stack_Mem       SPACE   Stack_Size
 __initial_sp
 
 
-; <h> Heap Configuration
+; <h> 堆配置
 ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ; </h>
 
@@ -66,24 +66,24 @@ __heap_limit
                 EXPORT  __Vectors_End
                 EXPORT  __Vectors_Size
 
-__Vectors       DCD     __initial_sp                      ; Top of Stack
-                DCD     Reset_Handler                     ; Reset Handler
-                DCD     NMI_Handler                       ; NMI Handler
-                DCD     HardFault_Handler                 ; Hard Fault Handler
-                DCD     MemManage_Handler                 ; MPU Fault Handler
-                DCD     BusFault_Handler                  ; Bus Fault Handler
-                DCD     UsageFault_Handler                ; Usage Fault Handler
-                DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
-                DCD     SVC_Handler                       ; SVCall Handler
-                DCD     DebugMon_Handler                  ; Debug Monitor Handler
-                DCD     0                                 ; Reserved
-                DCD     PendSV_Handler                    ; PendSV Handler
-                DCD     SysTick_Handler                   ; SysTick Handler
+__Vectors       DCD     __initial_sp                      ; 栈顶
+                DCD     Reset_Handler                     ; 重置处理程序
+                DCD     NMI_Handler                       ; NMI 处理程序
+                DCD     HardFault_Handler                 ; 硬故障处理程序
+                DCD     MemManage_Handler                 ; MPU故障处理程序
+                DCD     BusFault_Handler                  ; 总线故障处理程序
+                DCD     UsageFault_Handler                ; 使用故障处理程序
+                DCD     0                                 ; 保留部分
+                DCD     0                                 ; 保留部分
+                DCD     0                                 ; 保留部分
+                DCD     0                                 ; 保留部分
+                DCD     SVC_Handler                       ; SVCall 处理程序
+                DCD     DebugMon_Handler                  ; Debug Monitor 处理程序
+                DCD     0                                 ; 保留部分
+                DCD     PendSV_Handler                    ; PendSV 处理程序
+                DCD     SysTick_Handler                   ; SysTick 处理程序
 
-;               /* external interrupts handler */
+;               /* 外部中断 handler */
                 DCD     WWDGT_IRQHandler                  ; 16:Window Watchdog Timer
                 DCD     LVD_IRQHandler                    ; 17:LVD through EXTI Line detect
                 DCD     TAMPER_STAMP_IRQHandler           ; 18:Tamper and TimeStamp through EXTI Line detect
@@ -230,7 +230,7 @@ SysTick_Handler\
                 ENDP
 
 Default_Handler PROC
-;               /* external interrupts handler */
+;               /* 外部中断 handler */
                 EXPORT  WWDGT_IRQHandler                  [WEAK]
                 EXPORT  LVD_IRQHandler                    [WEAK]                  
                 EXPORT  TAMPER_STAMP_IRQHandler           [WEAK]           
@@ -313,7 +313,7 @@ Default_Handler PROC
                 EXPORT  TRNG_IRQHandler                   [WEAK]          
                 EXPORT  FPU_IRQHandler                    [WEAK]          
 
-;/* external interrupts handler */
+;/* 外部中断 handler */
 WWDGT_IRQHandler                  
 LVD_IRQHandler                    
 TAMPER_STAMP_IRQHandler           

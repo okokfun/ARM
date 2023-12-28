@@ -49,7 +49,6 @@ extern "C" {
 /**
   * 简介:  QSPI通信配置初始化结构定义
   */
-
 typedef struct {
 
     uint32_t QSPI_ComConfig_FMode;            /* 指定功能模式
@@ -93,7 +92,6 @@ typedef struct {
 /**
   * 简介:  QSPI Init structure definition
   */
-
 typedef struct {
     uint32_t QSPI_SShift;    /* 指定样本移位
                                该参数可以是@ref QSPI_Sample_Shift 的值*/

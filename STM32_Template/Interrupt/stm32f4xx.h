@@ -61,7 +61,7 @@ extern "C" {
   * @{
   */
 
-/* Uncomment the line below according to the target STM32 device used in your
+/* Uncomment the line below 根据 the target STM32 device used in your
    application
   */
 
@@ -190,7 +190,7 @@ defined(STM32F410xx) || defined(STM32F411xE) || defined(STM32F469_479xx)
 #define __FPU_PRESENT             1       /*!< FPU present                                   */
 
 /**
- * @brief STM32F4XX Interrupt Number Definition, according to the selected device
+ * @brief STM32F4XX Interrupt Number Definition, 根据 the selected device
  *        in @ref Library_configuration_section
  */
 typedef enum IRQn {
@@ -871,7 +871,6 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
 /**
   * @brief 模数转换器
   */
-
 typedef struct {
     __IO uint32_t SR;     /*!< ADC status register,                         Address offset: 0x00 */
     __IO uint32_t CR1;    /*!< ADC control register 1,                      Address offset: 0x04 */
@@ -906,7 +905,6 @@ typedef struct {
 /**
   * @brief 控制器区域网络 TxMailBox
   */
-
 typedef struct {
     __IO uint32_t TIR;  /*!< CAN TX mailbox identifier register */
     __IO uint32_t TDTR; /*!< CAN mailbox data length control and time stamp register */
@@ -917,7 +915,6 @@ typedef struct {
 /**
   * @brief 控制器区域网络 FIFOMailBox
   */
-
 typedef struct {
     __IO uint32_t RIR;  /*!< CAN receive FIFO mailbox identifier register */
     __IO uint32_t RDTR; /*!< CAN receive FIFO mailbox data length control and time stamp register */
@@ -928,7 +925,6 @@ typedef struct {
 /**
   * @brief 控制器区域网络 FilterRegister
   */
-
 typedef struct {
     __IO uint32_t FR1; /*!< CAN Filter bank register 1 */
     __IO uint32_t FR2; /*!< CAN Filter bank register 1 */
@@ -937,7 +933,6 @@ typedef struct {
 /**
   * @brief 控制器区域网络
   */
-
 typedef struct {
     __IO uint32_t              MCR;                 /*!< CAN master control register,         Address offset: 0x00          */
     __IO uint32_t              MSR;                 /*!< CAN master status register,          Address offset: 0x04          */
@@ -980,7 +975,6 @@ typedef struct {
 /**
   * @brief CRC计算单元
   */
-
 typedef struct {
     __IO uint32_t DR;         /*!< CRC Data register,             Address offset: 0x00 */
     __IO uint8_t  IDR;        /*!< CRC Independent data register, Address offset: 0x04 */
@@ -992,7 +986,6 @@ typedef struct {
 /**
   * @brief 数模转换器
   */
-
 typedef struct {
     __IO uint32_t CR;       /*!< DAC control register,                                    Address offset: 0x00 */
     __IO uint32_t SWTRIGR;  /*!< DAC software trigger register,                           Address offset: 0x04 */
@@ -1050,7 +1043,6 @@ typedef struct {
 /**
   * @brief Debug MCU
   */
-
 typedef struct {
     __IO uint32_t IDCODE;  /*!< MCU device ID code,               Address offset: 0x00 */
     __IO uint32_t CR;      /*!< Debug MCU configuration register, Address offset: 0x04 */
@@ -1061,7 +1053,6 @@ typedef struct {
 /**
   * @brief DCMI
   */
-
 typedef struct {
     __IO uint32_t CR;       /*!< DCMI control register 1,                       Address offset: 0x00 */
     __IO uint32_t SR;       /*!< DCMI status register,                          Address offset: 0x04 */
@@ -1079,7 +1070,6 @@ typedef struct {
 /**
   * @brief DMA Controller
   */
-
 typedef struct {
     __IO uint32_t CR;     /*!< DMA stream x configuration register      */
     __IO uint32_t NDTR;   /*!< DMA stream x number of data register     */
@@ -1099,7 +1089,6 @@ typedef struct {
 /**
   * @brief DMA2D Controller
   */
-
 typedef struct {
     __IO uint32_t CR;            /*!< DMA2D Control Register,                         Address offset: 0x00 */
     __IO uint32_t ISR;           /*!< DMA2D Interrupt Status Register,                Address offset: 0x04 */
@@ -1130,7 +1119,6 @@ typedef struct {
 /**
   * @brief DSI Controller
   */
-
 typedef struct {
     __IO uint32_t VR;             /*!< DSI Host Version Register,                                 Address offset: 0x00       */
     __IO uint32_t CR;             /*!< DSI Host Control Register,                                 Address offset: 0x04       */
@@ -1211,7 +1199,6 @@ typedef struct {
 /**
   * @brief Ethernet MAC
   */
-
 typedef struct {
     __IO uint32_t MACCR;
     __IO uint32_t MACFFR;
@@ -1284,7 +1271,6 @@ typedef struct {
 /**
   * @brief External Interrupt/Event Controller
   */
-
 typedef struct {
     __IO uint32_t IMR;    /*!< EXTI Interrupt mask register,            Address offset: 0x00 */
     __IO uint32_t EMR;    /*!< EXTI Event mask register,                Address offset: 0x04 */
@@ -1297,7 +1283,6 @@ typedef struct {
 /**
   * @brief FLASH Registers
   */
-
 typedef struct {
     __IO uint32_t ACR;      /*!< FLASH access control register,   Address offset: 0x00 */
     __IO uint32_t KEYR;     /*!< FLASH key register,              Address offset: 0x04 */
@@ -1312,7 +1297,6 @@ typedef struct {
 /**
   * @brief Flexible Static Memory Controller
   */
-
 typedef struct {
     __IO uint32_t BTCR[8];    /*!< NOR/PSRAM chip-select control register(BCR) and chip-select timing register(BTR), Address offset: 0x00-1C */
 } FSMC_Bank1_TypeDef;
@@ -1320,7 +1304,6 @@ typedef struct {
 /**
   * @brief Flexible Static Memory Controller Bank1E
   */
-
 typedef struct {
     __IO uint32_t BWTR[7];    /*!< NOR/PSRAM write timing registers, Address offset: 0x104-0x11C */
 } FSMC_Bank1E_TypeDef;
@@ -1328,7 +1311,6 @@ typedef struct {
 /**
   * @brief Flexible Static Memory Controller Bank2
   */
-
 typedef struct {
     __IO uint32_t PCR2;       /*!< NAND Flash control register 2,                       Address offset: 0x60 */
     __IO uint32_t SR2;        /*!< NAND Flash FIFO status and interrupt register 2,     Address offset: 0x64 */
@@ -1341,7 +1323,6 @@ typedef struct {
 /**
   * @brief Flexible Static Memory Controller Bank3
   */
-
 typedef struct {
     __IO uint32_t PCR3;       /*!< NAND Flash control register 3,                       Address offset: 0x80 */
     __IO uint32_t SR3;        /*!< NAND Flash FIFO status and interrupt register 3,     Address offset: 0x84 */
@@ -1354,7 +1335,6 @@ typedef struct {
 /**
   * @brief Flexible Static Memory Controller Bank4
   */
-
 typedef struct {
     __IO uint32_t PCR4;       /*!< PC Card  control register 4,                       Address offset: 0xA0 */
     __IO uint32_t SR4;        /*!< PC Card  FIFO status and interrupt register 4,     Address offset: 0xA4 */
@@ -1368,7 +1348,6 @@ typedef struct {
 /**
   * @brief Flexible Memory Controller
   */
-
 typedef struct {
     __IO uint32_t BTCR[8];    /*!< NOR/PSRAM chip-select control register(BCR) and chip-select timing register(BTR), Address offset: 0x00-1C */
 } FMC_Bank1_TypeDef;
@@ -1376,7 +1355,6 @@ typedef struct {
 /**
   * @brief Flexible Memory Controller Bank1E
   */
-
 typedef struct {
     __IO uint32_t BWTR[7];    /*!< NOR/PSRAM write timing registers, Address offset: 0x104-0x11C */
 } FMC_Bank1E_TypeDef;
@@ -1384,7 +1362,6 @@ typedef struct {
 /**
   * @brief Flexible Memory Controller Bank2
   */
-
 typedef struct {
     __IO uint32_t PCR2;       /*!< NAND Flash control register 2,                       Address offset: 0x60 */
     __IO uint32_t SR2;        /*!< NAND Flash FIFO status and interrupt register 2,     Address offset: 0x64 */
@@ -1397,7 +1374,6 @@ typedef struct {
 /**
   * @brief Flexible Memory Controller Bank3
   */
-
 typedef struct {
     __IO uint32_t PCR3;       /*!< NAND Flash control register 3,                       Address offset: 0x80 */
     __IO uint32_t SR3;        /*!< NAND Flash FIFO status and interrupt register 3,     Address offset: 0x84 */
@@ -1410,7 +1386,6 @@ typedef struct {
 /**
   * @brief Flexible Memory Controller Bank4
   */
-
 typedef struct {
     __IO uint32_t PCR4;       /*!< PC Card  control register 4,                       Address offset: 0xA0 */
     __IO uint32_t SR4;        /*!< PC Card  FIFO status and interrupt register 4,     Address offset: 0xA4 */
@@ -1422,7 +1397,6 @@ typedef struct {
 /**
   * @brief Flexible Memory Controller Bank5_6
   */
-
 typedef struct {
     __IO uint32_t SDCR[2];        /*!< SDRAM Control registers ,      Address offset: 0x140-0x144  */
     __IO uint32_t SDTR[2];        /*!< SDRAM Timing registers ,       Address offset: 0x148-0x14C  */
@@ -1435,7 +1409,6 @@ typedef struct {
 /**
   * @brief General Purpose I/O
   */
-
 typedef struct {
     __IO uint32_t MODER;    /*!< GPIO port mode register,               Address offset: 0x00      */
     __IO uint32_t OTYPER;   /*!< GPIO port output type register,        Address offset: 0x04      */
@@ -1452,7 +1425,6 @@ typedef struct {
 /**
   * @brief System configuration controller
   */
-
 typedef struct {
     __IO uint32_t MEMRMP;       /*!< SYSCFG memory remap register,                      Address offset: 0x00      */
     __IO uint32_t PMC;          /*!< SYSCFG peripheral mode configuration register,     Address offset: 0x04      */
@@ -1475,7 +1447,6 @@ typedef struct {
 /**
   * @brief Inter-integrated Circuit Interface
   */
-
 typedef struct {
     __IO uint16_t CR1;        /*!< I2C Control register 1,     Address offset: 0x00 */
     uint16_t      RESERVED0;  /*!< Reserved, 0x02                                   */
@@ -1503,7 +1474,6 @@ typedef struct {
 /**
   * @brief Inter-integrated Circuit Interface
   */
-
 typedef struct {
     __IO uint32_t CR1;      /*!< FMPI2C Control register 1,            Address offset: 0x00 */
     __IO uint32_t CR2;      /*!< FMPI2C Control register 2,            Address offset: 0x04 */
@@ -1522,7 +1492,6 @@ typedef struct {
 /**
   * @brief Independent WATCHDOG
   */
-
 typedef struct {
     __IO uint32_t KR;   /*!< IWDG Key register,       Address offset: 0x00 */
     __IO uint32_t PR;   /*!< IWDG Prescaler register, Address offset: 0x04 */
@@ -1533,7 +1502,6 @@ typedef struct {
 /**
   * @brief LCD-TFT Display Controller
   */
-
 typedef struct {
     uint32_t      RESERVED0[2];  /*!< Reserved, 0x00-0x04 */
     __IO uint32_t SSCR;          /*!< LTDC Synchronization Size Configuration Register,    Address offset: 0x08 */
@@ -1557,7 +1525,6 @@ typedef struct {
 /**
   * @brief LCD-TFT Display layer x Controller
   */
-
 typedef struct {
     __IO uint32_t CR;            /*!< LTDC Layerx Control Register                                  Address offset: 0x84 */
     __IO uint32_t WHPCR;         /*!< LTDC Layerx Window Horizontal Position Configuration Register Address offset: 0x88 */
@@ -1579,7 +1546,6 @@ typedef struct {
 /**
   * @brief Power Control
   */
-
 typedef struct {
     __IO uint32_t CR;   /*!< PWR power control register,        Address offset: 0x00 */
     __IO uint32_t CSR;  /*!< PWR power control/status register, Address offset: 0x04 */
@@ -1588,7 +1554,6 @@ typedef struct {
 /**
   * @brief Reset and Clock Control
   */
-
 typedef struct {
     __IO uint32_t CR;            /*!< RCC clock control register,                                  Address offset: 0x00 */
     __IO uint32_t PLLCFGR;       /*!< RCC PLL configuration register,                              Address offset: 0x04 */
@@ -1630,7 +1595,6 @@ typedef struct {
 /**
   * @brief Real-Time Clock
   */
-
 typedef struct {
     __IO uint32_t TR;      /*!< RTC time register,                                        Address offset: 0x00 */
     __IO uint32_t DR;      /*!< RTC date register,                                        Address offset: 0x04 */
@@ -1678,7 +1642,6 @@ typedef struct {
 /**
   * @brief Serial Audio Interface
   */
-
 typedef struct {
     __IO uint32_t GCR;      /*!< SAI global configuration register,        Address offset: 0x00 */
 } SAI_TypeDef;
@@ -1697,7 +1660,6 @@ typedef struct {
 /**
   * @brief SD host Interface
   */
-
 typedef struct {
     __IO uint32_t POWER;          /*!< SDIO power control register,    Address offset: 0x00 */
     __IO uint32_t CLKCR;          /*!< SDI clock control register,     Address offset: 0x04 */
@@ -1724,7 +1686,6 @@ typedef struct {
 /**
   * @brief Serial Peripheral Interface
   */
-
 typedef struct {
     __IO uint16_t CR1;        /*!< SPI control register 1 (not used in I2S mode),      Address offset: 0x00 */
     uint16_t      RESERVED0;  /*!< Reserved, 0x02                                                           */
@@ -1806,7 +1767,6 @@ typedef struct {
 /**
   * @brief TIM
   */
-
 typedef struct {
     __IO uint16_t CR1;         /*!< TIM control register 1,              Address offset: 0x00 */
     uint16_t      RESERVED0;   /*!< Reserved, 0x02                                            */
@@ -1849,7 +1809,6 @@ typedef struct {
 /**
   * @brief Universal Synchronous Asynchronous Receiver Transmitter
   */
-
 typedef struct {
     __IO uint16_t SR;         /*!< USART Status register,                   Address offset: 0x00 */
     uint16_t      RESERVED0;  /*!< Reserved, 0x02                                                */
@@ -1870,7 +1829,6 @@ typedef struct {
 /**
   * @brief Window WATCHDOG
   */
-
 typedef struct {
     __IO uint32_t CR;   /*!< WWDG Control register,       Address offset: 0x00 */
     __IO uint32_t CFR;  /*!< WWDG Configuration register, Address offset: 0x04 */
@@ -1880,7 +1838,6 @@ typedef struct {
 /**
   * @brief 加密处理器
   */
-
 typedef struct {
     __IO uint32_t CR;         /*!< CRYP control register,                                    Address offset: 0x00 */
     __IO uint32_t SR;         /*!< CRYP status register,                                     Address offset: 0x04 */
@@ -1923,7 +1880,6 @@ typedef struct {
 /**
   * @brief HASH
   */
-
 typedef struct {
     __IO uint32_t CR;               /*!< HASH control register,          Address offset: 0x00        */
     __IO uint32_t DIN;              /*!< HASH data input register,       Address offset: 0x04        */
@@ -1938,7 +1894,6 @@ typedef struct {
 /**
   * @brief HASH_DIGEST
   */
-
 typedef struct {
     __IO uint32_t HR[8];     /*!< HASH digest registers,          Address offset: 0x310-0x32C */
 } HASH_DIGEST_TypeDef;
@@ -1946,7 +1901,6 @@ typedef struct {
 /**
   * @brief RNG
   */
-
 typedef struct {
     __IO uint32_t CR;  /*!< RNG control register, Address offset: 0x00 */
     __IO uint32_t SR;  /*!< RNG status register,  Address offset: 0x04 */
@@ -1976,7 +1930,6 @@ typedef struct {
 /** @addtogroup Peripheral_memory_map
   * @{
   */
-
 #define FLASH_BASE            ((uint32_t)0x08000000) /*!< FLASH(up to 1 MB) base address in the alias region                         */
 #define CCMDATARAM_BASE       ((uint32_t)0x10000000) /*!< CCM(core coupled memory) data RAM(64 KB) base address in the alias region  */
 #define SRAM1_BASE            ((uint32_t)0x20000000) /*!< SRAM1(112 KB) base address in the alias region                             */
@@ -5086,7 +5039,6 @@ typedef struct {
 /******************  位定义 FSMC_BCR1 寄存器  *******************/
 #define  FSMC_BCR1_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FSMC_BCR1_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
-
 #define  FSMC_BCR1_MTYP                      ((uint32_t)0x0000000C)        /*!<MTYP[1:0] bits (Memory type)           */
 #define  FSMC_BCR1_MTYP_0                    ((uint32_t)0x00000004)        /*!<Bit 0 */
 #define  FSMC_BCR1_MTYP_1                    ((uint32_t)0x00000008)        /*!<Bit 1 */
@@ -5109,7 +5061,6 @@ typedef struct {
 /******************  位定义 FSMC_BCR2 寄存器  *******************/
 #define  FSMC_BCR2_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                */
 #define  FSMC_BCR2_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
-
 #define  FSMC_BCR2_MTYP                      ((uint32_t)0x0000000C)        /*!<MTYP[1:0] bits (Memory type)           */
 #define  FSMC_BCR2_MTYP_0                    ((uint32_t)0x00000004)        /*!<Bit 0 */
 #define  FSMC_BCR2_MTYP_1                    ((uint32_t)0x00000008)        /*!<Bit 1 */
@@ -5132,7 +5083,6 @@ typedef struct {
 /******************  位定义 FSMC_BCR3 寄存器  *******************/
 #define  FSMC_BCR3_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FSMC_BCR3_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
-
 #define  FSMC_BCR3_MTYP                      ((uint32_t)0x0000000C)        /*!<MTYP[1:0] bits (Memory type)           */
 #define  FSMC_BCR3_MTYP_0                    ((uint32_t)0x00000004)        /*!<Bit 0 */
 #define  FSMC_BCR3_MTYP_1                    ((uint32_t)0x00000008)        /*!<Bit 1 */
@@ -5155,7 +5105,6 @@ typedef struct {
 /******************  位定义 FSMC_BCR4 寄存器  *******************/
 #define  FSMC_BCR4_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit */
 #define  FSMC_BCR4_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
-
 #define  FSMC_BCR4_MTYP                      ((uint32_t)0x0000000C)        /*!<MTYP[1:0] bits (Memory type)           */
 #define  FSMC_BCR4_MTYP_0                    ((uint32_t)0x00000004)        /*!<Bit 0 */
 #define  FSMC_BCR4_MTYP_1                    ((uint32_t)0x00000008)        /*!<Bit 1 */
@@ -5869,7 +5818,6 @@ typedef struct {
 /******************  位定义 FMC_BCR1 寄存器  *******************/
 #define  FMC_BCR1_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FMC_BCR1_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
-
 #define  FMC_BCR1_MTYP                      ((uint32_t)0x0000000C)        /*!<MTYP[1:0] bits (Memory type)           */
 #define  FMC_BCR1_MTYP_0                    ((uint32_t)0x00000004)        /*!<Bit 0 */
 #define  FMC_BCR1_MTYP_1                    ((uint32_t)0x00000008)        /*!<Bit 1 */
@@ -5893,7 +5841,6 @@ typedef struct {
 /******************  位定义 FMC_BCR2 寄存器  *******************/
 #define  FMC_BCR2_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FMC_BCR2_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
-
 #define  FMC_BCR2_MTYP                      ((uint32_t)0x0000000C)        /*!<MTYP[1:0] bits (Memory type)           */
 #define  FMC_BCR2_MTYP_0                    ((uint32_t)0x00000004)        /*!<Bit 0 */
 #define  FMC_BCR2_MTYP_1                    ((uint32_t)0x00000008)        /*!<Bit 1 */
@@ -5916,7 +5863,6 @@ typedef struct {
 /******************  位定义 FMC_BCR3 寄存器  *******************/
 #define  FMC_BCR3_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FMC_BCR3_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
-
 #define  FMC_BCR3_MTYP                      ((uint32_t)0x0000000C)        /*!<MTYP[1:0] bits (Memory type)           */
 #define  FMC_BCR3_MTYP_0                    ((uint32_t)0x00000004)        /*!<Bit 0 */
 #define  FMC_BCR3_MTYP_1                    ((uint32_t)0x00000008)        /*!<Bit 1 */
@@ -5939,7 +5885,6 @@ typedef struct {
 /******************  位定义 FMC_BCR4 寄存器  *******************/
 #define  FMC_BCR4_MBKEN                     ((uint32_t)0x00000001)        /*!<Memory bank enable bit                 */
 #define  FMC_BCR4_MUXEN                     ((uint32_t)0x00000002)        /*!<Address/data multiplexing enable bit   */
-
 #define  FMC_BCR4_MTYP                      ((uint32_t)0x0000000C)        /*!<MTYP[1:0] bits (Memory type)           */
 #define  FMC_BCR4_MTYP_0                    ((uint32_t)0x00000004)        /*!<Bit 0 */
 #define  FMC_BCR4_MTYP_1                    ((uint32_t)0x00000008)        /*!<Bit 1 */
@@ -6275,13 +6220,11 @@ typedef struct {
 #define  FMC_PCR2_PWAITEN                   ((uint32_t)0x00000002)        /*!<Wait feature enable bit                   */
 #define  FMC_PCR2_PBKEN                     ((uint32_t)0x00000004)        /*!<PC Card/NAND Flash memory bank enable bit */
 #define  FMC_PCR2_PTYP                      ((uint32_t)0x00000008)        /*!<Memory type                               */
-
 #define  FMC_PCR2_PWID                      ((uint32_t)0x00000030)        /*!<PWID[1:0] bits (NAND Flash databus width) */
 #define  FMC_PCR2_PWID_0                    ((uint32_t)0x00000010)        /*!<Bit 0 */
 #define  FMC_PCR2_PWID_1                    ((uint32_t)0x00000020)        /*!<Bit 1 */
 
 #define  FMC_PCR2_ECCEN                     ((uint32_t)0x00000040)        /*!<ECC computation logic enable bit          */
-
 #define  FMC_PCR2_TCLR                      ((uint32_t)0x00001E00)        /*!<TCLR[3:0] bits (CLE to RE delay)          */
 #define  FMC_PCR2_TCLR_0                    ((uint32_t)0x00000200)        /*!<Bit 0 */
 #define  FMC_PCR2_TCLR_1                    ((uint32_t)0x00000400)        /*!<Bit 1 */
@@ -6303,13 +6246,11 @@ typedef struct {
 #define  FMC_PCR3_PWAITEN                   ((uint32_t)0x00000002)        /*!<Wait feature enable bit                   */
 #define  FMC_PCR3_PBKEN                     ((uint32_t)0x00000004)        /*!<PC Card/NAND Flash memory bank enable bit */
 #define  FMC_PCR3_PTYP                      ((uint32_t)0x00000008)        /*!<Memory type                               */
-
 #define  FMC_PCR3_PWID                      ((uint32_t)0x00000030)        /*!<PWID[1:0] bits (NAND Flash databus width) */
 #define  FMC_PCR3_PWID_0                    ((uint32_t)0x00000010)        /*!<Bit 0 */
 #define  FMC_PCR3_PWID_1                    ((uint32_t)0x00000020)        /*!<Bit 1 */
 
 #define  FMC_PCR3_ECCEN                     ((uint32_t)0x00000040)        /*!<ECC computation logic enable bit          */
-
 #define  FMC_PCR3_TCLR                      ((uint32_t)0x00001E00)        /*!<TCLR[3:0] bits (CLE to RE delay)          */
 #define  FMC_PCR3_TCLR_0                    ((uint32_t)0x00000200)        /*!<Bit 0 */
 #define  FMC_PCR3_TCLR_1                    ((uint32_t)0x00000400)        /*!<Bit 1 */
@@ -6331,13 +6272,11 @@ typedef struct {
 #define  FMC_PCR4_PWAITEN                   ((uint32_t)0x00000002)        /*!<Wait feature enable bit                   */
 #define  FMC_PCR4_PBKEN                     ((uint32_t)0x00000004)        /*!<PC Card/NAND Flash memory bank enable bit */
 #define  FMC_PCR4_PTYP                      ((uint32_t)0x00000008)        /*!<Memory type                               */
-
 #define  FMC_PCR4_PWID                      ((uint32_t)0x00000030)        /*!<PWID[1:0] bits (NAND Flash databus width) */
 #define  FMC_PCR4_PWID_0                    ((uint32_t)0x00000010)        /*!<Bit 0 */
 #define  FMC_PCR4_PWID_1                    ((uint32_t)0x00000020)        /*!<Bit 1 */
 
 #define  FMC_PCR4_ECCEN                     ((uint32_t)0x00000040)        /*!<ECC computation logic enable bit          */
-
 #define  FMC_PCR4_TCLR                      ((uint32_t)0x00001E00)        /*!<TCLR[3:0] bits (CLE to RE delay)          */
 #define  FMC_PCR4_TCLR_0                    ((uint32_t)0x00000200)        /*!<Bit 0 */
 #define  FMC_PCR4_TCLR_1                    ((uint32_t)0x00000400)        /*!<Bit 1 */
@@ -8795,7 +8734,6 @@ typedef struct {
 #define  PWR_CR_CWUF                         ((uint32_t)0x00000004)     /*!< Clear Wakeup Flag                   */
 #define  PWR_CR_CSBF                         ((uint32_t)0x00000008)     /*!< Clear Standby Flag                  */
 #define  PWR_CR_PVDE                         ((uint32_t)0x00000010)     /*!< Power Voltage Detector Enable       */
-
 #define  PWR_CR_PLS                          ((uint32_t)0x000000E0)     /*!< PLS[2:0] bits (PVD Level Selection) */
 #define  PWR_CR_PLS_0                        ((uint32_t)0x00000020)     /*!< Bit 0 */
 #define  PWR_CR_PLS_1                        ((uint32_t)0x00000040)     /*!< Bit 1 */
@@ -8815,10 +8753,8 @@ typedef struct {
 #define  PWR_CR_FPDS                         ((uint32_t)0x00000200)     /*!< Flash power down in Stop mode                              */
 #define  PWR_CR_LPUDS                        ((uint32_t)0x00000400)     /*!< Low-Power Regulator in Stop under-drive mode               */
 #define  PWR_CR_MRUDS                        ((uint32_t)0x00000800)     /*!< Main regulator in Stop under-drive mode                    */
-
 #define  PWR_CR_LPLVDS                       ((uint32_t)0x00000400)     /*!< Low-power regulator Low Voltage in Deep Sleep mode         */
 #define  PWR_CR_MRLVDS                       ((uint32_t)0x00000800)     /*!< Main regulator Low Voltage in Deep Sleep mode              */
-
 #define  PWR_CR_ADCDC1                       ((uint32_t)0x00002000)     /*!< Refer to AN4073 on how to use this bit */
 
 #define  PWR_CR_VOS                          ((uint32_t)0x0000C000)     /*!< VOS[1:0] bits (Regulator voltage scaling output selection) */
@@ -8830,7 +8766,6 @@ typedef struct {
 #define  PWR_CR_UDEN                         ((uint32_t)0x000C0000)     /*!< Under Drive enable in stop mode     */
 #define  PWR_CR_UDEN_0                       ((uint32_t)0x00040000)     /*!< Bit 0                               */
 #define  PWR_CR_UDEN_1                       ((uint32_t)0x00080000)     /*!< Bit 1                               */
-
 #define  PWR_CR_FMSSR                        ((uint32_t)0x00100000)     /*!< Flash Memory Sleep System Run        */
 #define  PWR_CR_FISSR                        ((uint32_t)0x00200000)     /*!< Flash Interface Stop while System Run */
 
@@ -10188,7 +10123,6 @@ typedef struct {
 
 #define  SAI_xCR1_LSBFIRST                ((uint32_t)0x00000100)        /*!<LSB First Configuration  */
 #define  SAI_xCR1_CKSTR                   ((uint32_t)0x00000200)        /*!<ClocK STRobing edge      */
-
 #define  SAI_xCR1_SYNCEN                  ((uint32_t)0x00000C00)        /*!<SYNCEN[1:0](SYNChronization ENable) */
 #define  SAI_xCR1_SYNCEN_0                ((uint32_t)0x00000400)        /*!<Bit 0 */
 #define  SAI_xCR1_SYNCEN_1                ((uint32_t)0x00000800)        /*!<Bit 1 */
@@ -10198,7 +10132,6 @@ typedef struct {
 #define  SAI_xCR1_SAIEN                   ((uint32_t)0x00010000)        /*!<Audio Block enable         */
 #define  SAI_xCR1_DMAEN                   ((uint32_t)0x00020000)        /*!<DMA enable                 */
 #define  SAI_xCR1_NODIV                   ((uint32_t)0x00080000)        /*!<No Divider Configuration   */
-
 #define  SAI_xCR1_MCKDIV                  ((uint32_t)0x00780000)        /*!<MCKDIV[3:0] (Master ClocK Divider)  */
 #define  SAI_xCR1_MCKDIV_0                ((uint32_t)0x00080000)        /*!<Bit 0  */
 #define  SAI_xCR1_MCKDIV_1                ((uint32_t)0x00100000)        /*!<Bit 1  */
@@ -10214,7 +10147,6 @@ typedef struct {
 #define  SAI_xCR2_TRIS                    ((uint32_t)0x00000010)        /*!<TRIState Management on data line */
 #define  SAI_xCR2_MUTE                    ((uint32_t)0x00000020)        /*!<Mute mode                        */
 #define  SAI_xCR2_MUTEVAL                 ((uint32_t)0x00000040)        /*!<Muate value                      */
-
 #define  SAI_xCR2_MUTECNT                  ((uint32_t)0x00001F80)       /*!<MUTECNT[5:0] (MUTE counter) */
 #define  SAI_xCR2_MUTECNT_0               ((uint32_t)0x00000080)        /*!<Bit 0 */
 #define  SAI_xCR2_MUTECNT_1               ((uint32_t)0x00000100)        /*!<Bit 1 */
@@ -10224,7 +10156,6 @@ typedef struct {
 #define  SAI_xCR2_MUTECNT_5               ((uint32_t)0x00001000)        /*!<Bit 5 */
 
 #define  SAI_xCR2_CPL                     ((uint32_t)0x00002000)        /*!< Complement Bit             */
-
 #define  SAI_xCR2_COMP                    ((uint32_t)0x0000C000)        /*!<COMP[1:0] (Companding mode) */
 #define  SAI_xCR2_COMP_0                  ((uint32_t)0x00004000)        /*!<Bit 0 */
 #define  SAI_xCR2_COMP_1                  ((uint32_t)0x00008000)        /*!<Bit 1 */
@@ -10292,7 +10223,6 @@ typedef struct {
 #define  SAI_xSR_CNRDY                    ((uint32_t)0x00000010)         /*!<Codec not ready                                */
 #define  SAI_xSR_AFSDET                   ((uint32_t)0x00000020)         /*!<Anticipated frame synchronization detection    */
 #define  SAI_xSR_LFSDET                   ((uint32_t)0x00000040)         /*!<Late frame synchronization detection           */
-
 #define  SAI_xSR_FLVL                     ((uint32_t)0x00070000)         /*!<FLVL[2:0] (FIFO Level Threshold)               */
 #define  SAI_xSR_FLVL_0                   ((uint32_t)0x00010000)         /*!<Bit 0 */
 #define  SAI_xSR_FLVL_1                   ((uint32_t)0x00020000)         /*!<Bit 1 */
@@ -10332,13 +10262,13 @@ typedef struct {
 #define  SPDIFRX_CR_INSEL                    ((uint32_t)0x00070000)        /*!<SPDIFRX input selection */
 
 /*******************  位定义 SPDIFRX_IMR 寄存器  *******************/
-#define  SPDIFRX_IMR_RXNEIE                   ((uint32_t)0x00000001)        /*!<RXNE interrupt enable                              */
+#define  SPDIFRX_IMR_RXNEIE                   ((uint32_t)0x00000001)        /*!<RXNE中断启用                              */
 #define  SPDIFRX_IMR_CSRNEIE                  ((uint32_t)0x00000002)        /*!<Control Buffer 就绪中断 Enable              */
 #define  SPDIFRX_IMR_PERRIE                   ((uint32_t)0x00000004)        /*!<Parity error interrupt enable                      */
 #define  SPDIFRX_IMR_OVRIE                    ((uint32_t)0x00000008)        /*!<Overrun error Interrupt Enable                     */
 #define  SPDIFRX_IMR_SBLKIE                   ((uint32_t)0x00000010)        /*!<Synchronization Block Detected Interrupt Enable    */
-#define  SPDIFRX_IMR_SYNCDIE                  ((uint32_t)0x00000020)        /*!<Synchronization Done                               */
-#define  SPDIFRX_IMR_IFEIE                    ((uint32_t)0x00000040)        /*!<Serial Interface Error Interrupt Enable            */
+#define  SPDIFRX_IMR_SYNCDIE                  ((uint32_t)0x00000020)        /*!<同步完成                               */
+#define  SPDIFRX_IMR_IFEIE                    ((uint32_t)0x00000040)        /*!<串行接口错误中断启用            */
 
 /*******************  位定义 SPDIFRX_SR 寄存器  *******************/
 #define  SPDIFRX_SR_RXNE                   ((uint32_t)0x00000001)       /*!<Read data register not empty                          */
@@ -10346,7 +10276,7 @@ typedef struct {
 #define  SPDIFRX_SR_PERR                   ((uint32_t)0x00000004)       /*!<Parity error                                          */
 #define  SPDIFRX_SR_OVR                    ((uint32_t)0x00000008)       /*!<Overrun error                                         */
 #define  SPDIFRX_SR_SBD                    ((uint32_t)0x00000010)       /*!<Synchronization Block Detected                        */
-#define  SPDIFRX_SR_SYNCD                  ((uint32_t)0x00000020)       /*!<Synchronization Done                                  */
+#define  SPDIFRX_SR_SYNCD                  ((uint32_t)0x00000020)       /*!<同步完成                                  */
 #define  SPDIFRX_SR_FERR                   ((uint32_t)0x00000040)       /*!<Framing error                                         */
 #define  SPDIFRX_SR_SERR                   ((uint32_t)0x00000080)       /*!<Synchronization error                                 */
 #define  SPDIFRX_SR_TERR                   ((uint32_t)0x00000100)       /*!<Time-out error                                        */
@@ -10356,7 +10286,7 @@ typedef struct {
 #define  SPDIFRX_IFCR_PERRCF               ((uint32_t)0x00000004)       /*!<Clears the Parity error flag                         */
 #define  SPDIFRX_IFCR_OVRCF                ((uint32_t)0x00000008)       /*!<Clears the Overrun error flag                        */
 #define  SPDIFRX_IFCR_SBDCF                ((uint32_t)0x00000010)       /*!<Clears the Synchronization Block Detected flag       */
-#define  SPDIFRX_IFCR_SYNCDCF              ((uint32_t)0x00000020)       /*!<Clears the Synchronization Done flag                 */
+#define  SPDIFRX_IFCR_SYNCDCF              ((uint32_t)0x00000020)       /*!<Clears the 同步完成 flag                 */
 
 /*******************  位定义 SPDIFRX_DR register  (DRFMT = 0b00 case) *******************/
 #define  SPDIFRX_DR0_DR                    ((uint32_t)0x00FFFFFF)        /*!<Data value            */
@@ -10416,7 +10346,6 @@ typedef struct {
 
 /*******************  位定义 SDIO_CMD 寄存器  *******************/
 #define  SDIO_CMD_CMDINDEX                   ((uint16_t)0x003F)            /*!<Command Index                               */
-
 #define  SDIO_CMD_WAITRESP                   ((uint16_t)0x00C0)            /*!<WAITRESP[1:0] bits (Wait for response bits) */
 #define  SDIO_CMD_WAITRESP_0                 ((uint16_t)0x0040)            /*!< Bit 0 */
 #define  SDIO_CMD_WAITRESP_1                 ((uint16_t)0x0080)            /*!< Bit 1 */
@@ -10458,7 +10387,6 @@ typedef struct {
 #define  SDIO_DCTRL_DTDIR                    ((uint16_t)0x0002)            /*!<Data transfer direction selection */
 #define  SDIO_DCTRL_DTMODE                   ((uint16_t)0x0004)            /*!<Data transfer mode selection      */
 #define  SDIO_DCTRL_DMAEN                    ((uint16_t)0x0008)            /*!<DMA enabled bit                   */
-
 #define  SDIO_DCTRL_DBLOCKSIZE               ((uint16_t)0x00F0)            /*!<DBLOCKSIZE[3:0] bits (Data block size) */
 #define  SDIO_DCTRL_DBLOCKSIZE_0             ((uint16_t)0x0010)            /*!<Bit 0 */
 #define  SDIO_DCTRL_DBLOCKSIZE_1             ((uint16_t)0x0020)            /*!<Bit 1 */
@@ -10610,13 +10538,11 @@ typedef struct {
 #define  SPI_I2SCFGR_DATLEN_1                ((uint16_t)0x0004)            /*!<Bit 1 */
 
 #define  SPI_I2SCFGR_CKPOL                   ((uint16_t)0x0008)            /*!<steady state clock polarity               */
-
 #define  SPI_I2SCFGR_I2SSTD                  ((uint16_t)0x0030)            /*!<I2SSTD[1:0] bits (I2S standard selection) */
 #define  SPI_I2SCFGR_I2SSTD_0                ((uint16_t)0x0010)            /*!<Bit 0 */
 #define  SPI_I2SCFGR_I2SSTD_1                ((uint16_t)0x0020)            /*!<Bit 1 */
 
 #define  SPI_I2SCFGR_PCMSYNC                 ((uint16_t)0x0080)            /*!<PCM frame synchronization                 */
-
 #define  SPI_I2SCFGR_I2SCFG                  ((uint16_t)0x0300)            /*!<I2SCFG[1:0] bits (I2S configuration mode) */
 #define  SPI_I2SCFGR_I2SCFG_0                ((uint16_t)0x0100)            /*!<Bit 0 */
 #define  SPI_I2SCFGR_I2SCFG_1                ((uint16_t)0x0200)            /*!<Bit 1 */
@@ -10655,7 +10581,6 @@ typedef struct {
 #define SYSCFG_PMC_ADC1DC2              ((uint32_t)0x00010000) /*!< Refer to AN4073 on how to use this bit  */
 #define SYSCFG_PMC_ADC2DC2              ((uint32_t)0x00020000) /*!< Refer to AN4073 on how to use this bit  */
 #define SYSCFG_PMC_ADC3DC2              ((uint32_t)0x00040000) /*!< Refer to AN4073 on how to use this bit  */
-
 #define SYSCFG_PMC_MII_RMII_SEL         ((uint32_t)0x00800000) /*!<Ethernet PHY interface selection */
 /* Old MII_RMII_SEL bit definition, maintained for legacy purpose */
 #define SYSCFG_PMC_MII_RMII             SYSCFG_PMC_MII_RMII_SEL
@@ -10962,13 +10887,11 @@ typedef struct {
 #define  TIM_CR1_URS                         ((uint16_t)0x0004)            /*!<Update request source */
 #define  TIM_CR1_OPM                         ((uint16_t)0x0008)            /*!<One pulse mode        */
 #define  TIM_CR1_DIR                         ((uint16_t)0x0010)            /*!<Direction             */
-
 #define  TIM_CR1_CMS                         ((uint16_t)0x0060)            /*!<CMS[1:0] bits (Center-aligned mode selection) */
 #define  TIM_CR1_CMS_0                       ((uint16_t)0x0020)            /*!<Bit 0 */
 #define  TIM_CR1_CMS_1                       ((uint16_t)0x0040)            /*!<Bit 1 */
 
 #define  TIM_CR1_ARPE                        ((uint16_t)0x0080)            /*!<Auto-reload preload enable     */
-
 #define  TIM_CR1_CKD                         ((uint16_t)0x0300)            /*!<CKD[1:0] bits (clock division) */
 #define  TIM_CR1_CKD_0                       ((uint16_t)0x0100)            /*!<Bit 0 */
 #define  TIM_CR1_CKD_1                       ((uint16_t)0x0200)            /*!<Bit 1 */
@@ -10977,7 +10900,6 @@ typedef struct {
 #define  TIM_CR2_CCPC                        ((uint16_t)0x0001)            /*!<Capture/Compare Preloaded Control        */
 #define  TIM_CR2_CCUS                        ((uint16_t)0x0004)            /*!<Capture/Compare Control Update Selection */
 #define  TIM_CR2_CCDS                        ((uint16_t)0x0008)            /*!<Capture/Compare DMA Selection            */
-
 #define  TIM_CR2_MMS                         ((uint16_t)0x0070)            /*!<MMS[2:0] bits (Master Mode Selection) */
 #define  TIM_CR2_MMS_0                       ((uint16_t)0x0010)            /*!<Bit 0 */
 #define  TIM_CR2_MMS_1                       ((uint16_t)0x0020)            /*!<Bit 1 */
@@ -11004,7 +10926,6 @@ typedef struct {
 #define  TIM_SMCR_TS_2                       ((uint16_t)0x0040)            /*!<Bit 2 */
 
 #define  TIM_SMCR_MSM                        ((uint16_t)0x0080)            /*!<Master/slave mode                       */
-
 #define  TIM_SMCR_ETF                        ((uint16_t)0x0F00)            /*!<ETF[3:0] bits (External trigger filter) */
 #define  TIM_SMCR_ETF_0                      ((uint16_t)0x0100)            /*!<Bit 0 */
 #define  TIM_SMCR_ETF_1                      ((uint16_t)0x0200)            /*!<Bit 1 */
@@ -11066,21 +10987,18 @@ typedef struct {
 
 #define  TIM_CCMR1_OC1FE                     ((uint16_t)0x0004)            /*!<Output Compare 1 Fast enable                 */
 #define  TIM_CCMR1_OC1PE                     ((uint16_t)0x0008)            /*!<Output Compare 1 Preload enable              */
-
 #define  TIM_CCMR1_OC1M                      ((uint16_t)0x0070)            /*!<OC1M[2:0] bits (Output Compare 1 Mode)       */
 #define  TIM_CCMR1_OC1M_0                    ((uint16_t)0x0010)            /*!<Bit 0 */
 #define  TIM_CCMR1_OC1M_1                    ((uint16_t)0x0020)            /*!<Bit 1 */
 #define  TIM_CCMR1_OC1M_2                    ((uint16_t)0x0040)            /*!<Bit 2 */
 
 #define  TIM_CCMR1_OC1CE                     ((uint16_t)0x0080)            /*!<Output Compare 1Clear Enable                 */
-
 #define  TIM_CCMR1_CC2S                      ((uint16_t)0x0300)            /*!<CC2S[1:0] bits (Capture/Compare 2 Selection) */
 #define  TIM_CCMR1_CC2S_0                    ((uint16_t)0x0100)            /*!<Bit 0 */
 #define  TIM_CCMR1_CC2S_1                    ((uint16_t)0x0200)            /*!<Bit 1 */
 
 #define  TIM_CCMR1_OC2FE                     ((uint16_t)0x0400)            /*!<Output Compare 2 Fast enable                 */
 #define  TIM_CCMR1_OC2PE                     ((uint16_t)0x0800)            /*!<Output Compare 2 Preload enable              */
-
 #define  TIM_CCMR1_OC2M                      ((uint16_t)0x7000)            /*!<OC2M[2:0] bits (Output Compare 2 Mode)       */
 #define  TIM_CCMR1_OC2M_0                    ((uint16_t)0x1000)            /*!<Bit 0 */
 #define  TIM_CCMR1_OC2M_1                    ((uint16_t)0x2000)            /*!<Bit 1 */
@@ -11117,7 +11035,6 @@ typedef struct {
 
 #define  TIM_CCMR2_OC3FE                     ((uint16_t)0x0004)            /*!<Output Compare 3 Fast enable           */
 #define  TIM_CCMR2_OC3PE                     ((uint16_t)0x0008)            /*!<Output Compare 3 Preload enable        */
-
 #define  TIM_CCMR2_OC3M                      ((uint16_t)0x0070)            /*!<OC3M[2:0] bits (Output Compare 3 Mode) */
 #define  TIM_CCMR2_OC3M_0                    ((uint16_t)0x0010)            /*!<Bit 0 */
 #define  TIM_CCMR2_OC3M_1                    ((uint16_t)0x0020)            /*!<Bit 1 */
@@ -11369,7 +11286,7 @@ typedef struct {
 #define  USART_CR1_RE                        ((uint16_t)0x0004)            /*!<Receiver Enable                        */
 #define  USART_CR1_TE                        ((uint16_t)0x0008)            /*!<Transmitter Enable                     */
 #define  USART_CR1_IDLEIE                    ((uint16_t)0x0010)            /*!<IDLE Interrupt Enable                  */
-#define  USART_CR1_RXNEIE                    ((uint16_t)0x0020)            /*!<RXNE Interrupt Enable                  */
+#define  USART_CR1_RXNEIE                    ((uint16_t)0x0020)            /*!<RXNE中断启用                  */
 #define  USART_CR1_TCIE                      ((uint16_t)0x0040)            /*!<Transmission Complete Interrupt Enable */
 #define  USART_CR1_TXEIE                     ((uint16_t)0x0080)            /*!<PE Interrupt Enable                    */
 #define  USART_CR1_PEIE                      ((uint16_t)0x0100)            /*!<PE Interrupt Enable                    */
@@ -11388,7 +11305,6 @@ typedef struct {
 #define  USART_CR2_CPHA                      ((uint16_t)0x0200)            /*!<Clock Phase                          */
 #define  USART_CR2_CPOL                      ((uint16_t)0x0400)            /*!<Clock Polarity                       */
 #define  USART_CR2_CLKEN                     ((uint16_t)0x0800)            /*!<Clock Enable                         */
-
 #define  USART_CR2_STOP                      ((uint16_t)0x3000)            /*!<STOP[1:0] bits (STOP bits) */
 #define  USART_CR2_STOP_0                    ((uint16_t)0x1000)            /*!<Bit 0 */
 #define  USART_CR2_STOP_1                    ((uint16_t)0x2000)            /*!<Bit 1 */
@@ -11602,10 +11518,10 @@ typedef struct {
 #define ETH_MACMIIAR_MW   ((uint32_t)0x00000002)  /* MII write */
 #define ETH_MACMIIAR_MB   ((uint32_t)0x00000001)  /* MII busy */
 
-/* Bit definition for Ethernet MAC MII Data Register */
+/* 以太网 MAC MII 数据寄存器的位定义 */
 #define ETH_MACMIIDR_MD   ((uint32_t)0x0000FFFF)  /* MII data: read/write data from/to PHY */
 
-/* Bit definition for Ethernet MAC Flow Control Register */
+/* 以太网 MAC 流量控制寄存器的位定义 */
 #define ETH_MACFCR_PT     ((uint32_t)0xFFFF0000)  /* Pause time */
 #define ETH_MACFCR_ZQPD   ((uint32_t)0x00000080)  /* Zero-quanta pause disable */
 #define ETH_MACFCR_PLT    ((uint32_t)0x00000030)  /* Pause low threshold: 4 cases */
@@ -11618,7 +11534,7 @@ typedef struct {
 #define ETH_MACFCR_TFCE   ((uint32_t)0x00000002)  /* Transmit flow control enable */
 #define ETH_MACFCR_FCBBPA ((uint32_t)0x00000001)  /* Flow control busy/backpressure activate */
 
-/* Bit definition for Ethernet MAC VLAN Tag Register */
+/* 以太网 MAC VLAN 标记寄存器的位定义 */
 #define ETH_MACVLANTR_VLANTC ((uint32_t)0x00010000)  /* 12-bit VLAN tag comparison */
 #define ETH_MACVLANTR_VLANTI ((uint32_t)0x0000FFFF)  /* VLAN tag identifier (for receive frames) */
 
@@ -11758,7 +11674,7 @@ typedef struct {
 #define ETH_MMCRGUFCR_RGUFC  ((uint32_t)0xFFFFFFFF)  /* Number of good unicast frames received. */
 
 /******************************************************************************/
-/*               Ethernet PTP Registers bits definition                       */
+/*               以太网 PTP 寄存器位定义                                       */
 /******************************************************************************/
 
 /* Bit definition for Ethernet PTP Time Stamp Contol Register */
@@ -11810,10 +11726,10 @@ typedef struct {
 #define ETH_PTPTSSR_TSSO     ((uint32_t)0x00000010)  /* Time stamp seconds overflow */
 
 /******************************************************************************/
-/*                 Ethernet DMA Registers bits definition                     */
+/*                 以太网 DMA 寄存器位定义                     */
 /******************************************************************************/
 
-/* Bit definition for Ethernet DMA Bus Mode Register */
+/* 以太网 DMA 总线模式寄存器的位定义 */
 #define ETH_DMABMR_AAB       ((uint32_t)0x02000000)  /* Address-Aligned beats */
 #define ETH_DMABMR_FPM        ((uint32_t)0x01000000)  /* 4xPBL mode */
 #define ETH_DMABMR_USP       ((uint32_t)0x00800000)  /* Use separate PBL */
@@ -11854,19 +11770,19 @@ typedef struct {
 #define ETH_DMABMR_DA        ((uint32_t)0x00000002)  /* DMA arbitration scheme */
 #define ETH_DMABMR_SR        ((uint32_t)0x00000001)  /* Software reset */
 
-/* Bit definition for Ethernet DMA Transmit Poll Demand Register */
+/* 以太网DMA传输轮询请求寄存器的位定义 */
 #define ETH_DMATPDR_TPD      ((uint32_t)0xFFFFFFFF)  /* Transmit poll demand */
 
-/* Bit definition for Ethernet DMA Receive Poll Demand Register */
+/* 以太网 DMA 接收轮询请求寄存器的位定义 */
 #define ETH_DMARPDR_RPD      ((uint32_t)0xFFFFFFFF)  /* Receive poll demand  */
 
-/* Bit definition for Ethernet DMA Receive Descriptor List Address Register */
+/* 以太网 DMA 接收描述符列表地址寄存器的位定义 */
 #define ETH_DMARDLAR_SRL     ((uint32_t)0xFFFFFFFF)  /* Start of receive list */
 
-/* Bit definition for Ethernet DMA Transmit Descriptor List Address Register */
+/* 以太网 DMA 传输描述符列表地址寄存器的位定义 */
 #define ETH_DMATDLAR_STL     ((uint32_t)0xFFFFFFFF)  /* Start of transmit list */
 
-/* Bit definition for Ethernet DMA Status Register */
+/* 以太网 DMA 状态寄存器的位定义 */
 #define ETH_DMASR_TSTS       ((uint32_t)0x20000000)  /* Time-stamp trigger status */
 #define ETH_DMASR_PMTS       ((uint32_t)0x10000000)  /* PMT status */
 #define ETH_DMASR_MMCS       ((uint32_t)0x08000000)  /* MMC status */
@@ -11905,7 +11821,7 @@ typedef struct {
 #define ETH_DMASR_TPSS       ((uint32_t)0x00000002)  /* Transmit process stopped status */
 #define ETH_DMASR_TS         ((uint32_t)0x00000001)  /* Transmit status */
 
-/* Bit definition for Ethernet DMA Operation Mode Register */
+/* 以太网 DMA 操作模式寄存器的位定义 */
 #define ETH_DMAOMR_DTCEFD    ((uint32_t)0x04000000)  /* Disable Dropping of TCP/IP checksum error frames */
 #define ETH_DMAOMR_RSF       ((uint32_t)0x02000000)  /* Receive store and forward */
 #define ETH_DMAOMR_DFRF      ((uint32_t)0x01000000)  /* Disable flushing of received frames */
@@ -11931,7 +11847,7 @@ typedef struct {
 #define ETH_DMAOMR_OSF       ((uint32_t)0x00000004)  /* operate on second frame */
 #define ETH_DMAOMR_SR        ((uint32_t)0x00000002)  /* Start/stop receive */
 
-/* Bit definition for Ethernet DMA Interrupt Enable Register */
+/* 以太网 DMA 中断启用寄存器的位定义 */
 #define ETH_DMAIER_NISE      ((uint32_t)0x00010000)  /* Normal interrupt summary enable */
 #define ETH_DMAIER_AISE      ((uint32_t)0x00008000)  /* Abnormal interrupt summary enable */
 #define ETH_DMAIER_ERIE      ((uint32_t)0x00004000)  /* Early receive interrupt enable */
@@ -11948,22 +11864,22 @@ typedef struct {
 #define ETH_DMAIER_TPSIE     ((uint32_t)0x00000002)  /* Transmit process stopped interrupt enable */
 #define ETH_DMAIER_TIE       ((uint32_t)0x00000001)  /* Transmit interrupt enable */
 
-/* Bit definition for Ethernet DMA Missed Frame and Buffer Overflow Counter Register */
+/* 以太网 DMA 漏帧和缓冲区溢出计数器寄存器的位定义 */
 #define ETH_DMAMFBOCR_OFOC   ((uint32_t)0x10000000)  /* Overflow bit for FIFO overflow counter */
 #define ETH_DMAMFBOCR_MFA    ((uint32_t)0x0FFE0000)  /* Number of frames missed by the application */
 #define ETH_DMAMFBOCR_OMFC   ((uint32_t)0x00010000)  /* Overflow bit for missed frame counter */
 #define ETH_DMAMFBOCR_MFC    ((uint32_t)0x0000FFFF)  /* Number of frames missed by the controller */
 
-/* Bit definition for Ethernet DMA Current Host Transmit Descriptor Register */
+/* 以太网 DMA 当前主机传输描述符寄存器的位定义 */
 #define ETH_DMACHTDR_HTDAP   ((uint32_t)0xFFFFFFFF)  /* Host transmit descriptor address pointer */
 
-/* Bit definition for Ethernet DMA Current Host Receive Descriptor Register */
-#define ETH_DMACHRDR_HRDAP   ((uint32_t)0xFFFFFFFF)  /* Host receive descriptor address pointer */
+/* 以太网 DMA 当前主机接收描述符寄存器的位定义 */
+#define ETH_DMACHRDR_HRDAP   ((uint32_t)0xFFFFFFFF)  /* 主机接收描述符地址指针 */
 
-/* Bit definition for Ethernet DMA Current Host Transmit Buffer Address Register */
+/* 以太网 DMA 当前主机传输缓冲区地址寄存器的位定义 */
 #define ETH_DMACHTBAR_HTBAP  ((uint32_t)0xFFFFFFFF)  /* Host transmit buffer address pointer */
 
-/* Bit definition for Ethernet DMA Current Host Receive Buffer Address Register */
+/* 以太网 DMA 当前主机接收缓冲区地址寄存器的位定义 */
 #define ETH_DMACHRBAR_HRBAP  ((uint32_t)0xFFFFFFFF)  /* Host receive buffer address pointer */
 
 /**
@@ -11981,7 +11897,6 @@ typedef struct {
 /** @addtogroup Exported_macro
   * @{
   */
-
 #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
 
 #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))

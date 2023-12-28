@@ -187,7 +187,6 @@ typedef struct {
 /**
   * 简介:  FMC PCCARD Init 结构定义
   */
-
 typedef struct {
     uint32_t FMC_Waitfeature;    /*!< 启用或禁用存储库的等待功能。
                                     该参数可以是@ref FMC_Wait_feature 的任意值 */
@@ -209,7 +208,6 @@ typedef struct {
 /**
   * 简介:  FMC SDRAM Bank 的时序参数
   */
-
 typedef struct {
     uint32_t FMC_LoadToActiveDelay;      /*!< 以内存时钟周期数定义加载模式寄存器命令与活动或刷新命令之间的延迟。
                                             此参数可以是 1 到 16 之间的值。 */
@@ -256,7 +254,6 @@ typedef struct {
 /**
   * 简介:  FMC SDRAM Init 结构定义
   */
-
 typedef struct {
     uint32_t FMC_Bank;                   /*!< 指定将使用的 SDRAM 内存条。
 											该参数可以是@ref FMC_SDRAM_Bank 的值 */
@@ -356,7 +353,6 @@ typedef struct {
 /** @defgroup FMC_Data_Address_Bus_Multiplexing
   * @{
   */
-
 #define FMC_DataAddressMux_Disable                ((uint32_t)0x00000000)
 #define FMC_DataAddressMux_Enable                 ((uint32_t)0x00000002)
 
@@ -369,7 +365,6 @@ typedef struct {
 /** @defgroup FMC_Memory_Type
   * @{
   */
-
 #define FMC_MemoryType_SRAM                     ((uint32_t)0x00000000)
 #define FMC_MemoryType_PSRAM                    ((uint32_t)0x00000004)
 #define FMC_MemoryType_NOR                      ((uint32_t)0x00000008)
@@ -384,7 +379,6 @@ typedef struct {
 /** @defgroup FMC_NORSRAM_Data_Width
   * @{
   */
-
 #define FMC_NORSRAM_MemoryDataWidth_8b                  ((uint32_t)0x00000000)
 #define FMC_NORSRAM_MemoryDataWidth_16b                 ((uint32_t)0x00000010)
 #define FMC_NORSRAM_MemoryDataWidth_32b                 ((uint32_t)0x00000020)
@@ -399,7 +393,6 @@ typedef struct {
 /** @defgroup FMC_Burst_Access_Mode
   * @{
   */
-
 #define FMC_BurstAccessMode_Disable             ((uint32_t)0x00000000)
 #define FMC_BurstAccessMode_Enable              ((uint32_t)0x00000100)
 
@@ -496,7 +489,6 @@ typedef struct {
 /** @defgroup FMC_Write_Burst
   * @{
   */
-
 #define FMC_WriteBurst_Disable                  ((uint32_t)0x00000000)
 #define FMC_WriteBurst_Enable                   ((uint32_t)0x00080000)
 
@@ -509,7 +501,6 @@ typedef struct {
 /** @defgroup FMC_Continous_Clock
   * @{
   */
-
 #define FMC_CClock_SyncOnly                     ((uint32_t)0x00000000)
 #define FMC_CClock_SyncAsync                    ((uint32_t)0x00100000)
 

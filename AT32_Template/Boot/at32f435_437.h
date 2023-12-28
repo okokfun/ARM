@@ -159,7 +159,7 @@ defined (AT32F435CCT7) || defined (AT32F435CGT7) || defined (AT32F435CMT7)
 #define __FPU_PRESENT             1U       /*!< fpu present                                  */
 
 /**
-  * @brief at32f435_437 interrupt number definition, according to the selected device
+  * @brief at32f435_437 interrupt number definition, 根据 the selected device
   *        in @ref library_Configuration_section
   */
 typedef enum IRQn {
@@ -419,7 +419,6 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 /** @addtogroup Exported_macro
   * @{
   */
-
 #define REG8(addr)                       *(volatile uint8_t *)(addr)
 #define REG16(addr)                      *(volatile uint16_t *)(addr)
 #define REG32(addr)                      *(volatile uint32_t *)(addr)
@@ -436,7 +435,6 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 /** @addtogroup Peripheral_Memory_map
   * @{
   */
-
 #define XMC_SDRAM_Mem_BASE               ((uint32_t)0xC0000000)
 #define QSPI2_Mem_BASE                   ((uint32_t)0xB0000000)
 #define XMC_CARD_Mem_BASE                ((uint32_t)0xA8000000)

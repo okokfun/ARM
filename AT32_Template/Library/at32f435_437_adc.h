@@ -47,7 +47,6 @@ extern "C" {
   * @brief adc interrupt
   * @{
   */
-
 #define ADC_Occe_INT                     ((uint32_t)0x00000020) /*!< ordinary channels conversion end 中断 */
 #define ADC_VMOR_INT                     ((uint32_t)0x00000040) /*!< voltage monitoring out of range 中断 */
 #define ADC_PCCE_INT                     ((uint32_t)0x00000080) /*!< preempt channels conversion end 中断 */
@@ -61,7 +60,6 @@ extern "C" {
   * @brief adc flag
   * @{
   */
-
 #define ADC_VMOR_FLAG                    ((uint8_t)0x01) /*!< voltage monitoring out of range flag */
 #define ADC_Occe_FLAG                    ((uint8_t)0x02) /*!< ordinary channels conversion end flag */
 #define ADC_PCCE_FLAG                    ((uint8_t)0x04) /*!< preempt channels conversion end flag */
@@ -789,7 +787,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define ADC1                             ((ADC_Type *) ADC1_BASE)
 #define ADC2                             ((ADC_Type *) ADC2_BASE)
 #define ADC3                             ((ADC_Type *) ADC3_BASE)

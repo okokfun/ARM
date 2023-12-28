@@ -4,7 +4,7 @@
 typedef struct {
     uint8_t  FrameFormat;	//帧格式：SPI_FORMAT_SPI、SPI_FORMAT_TI_SSI
     uint8_t  SampleEdge;	//在SPI帧格式下，选择数据采样边沿：SPI_FIRST_EDGE、SPI_SECOND_EDGE
-    uint8_t  IdleLevel;		//在SPI帧格式下，选择空闲时（无数据传输时）时钟线的电平：SPI_LOW_LEVEL、SPI_HIGH_LEVEL
+    uint8_t  IdleLevel;		//在SPI帧格式下，选择空闲时(无数据传输时)时钟线的电平：SPI_LOW_LEVEL、SPI_HIGH_LEVEL
     uint8_t  WordSize;		//字长度, 有效值4-16
     uint8_t  Master;		//1 主机模式    0 从机模式
     uint8_t  clkDiv;		//SPI_CLK = SYS_CLK / clkDiv，有效值：SPI_CLKDIV_4、SPI_CLKDIV_8、... ... 、SPI_CLKDIV_512
@@ -46,9 +46,9 @@ typedef struct {
 #define SPI_IT_RX_HFULL		(1 << 2)	//RX FIFO Half Full
 #define SPI_IT_TX_EMPTY		(1 << 3)	//TX FIFO Empty
 #define SPI_IT_TX_HFULL		(1 << 4)	//TX FIFO Half Full
-#define SPI_IT_RX_THRES		(1 << 5)	//RX FIFO Threshold（接收FIFO中数据个数大于CTRL.RFTHR设定值）
-#define SPI_IT_TX_THRES		(1 << 6)	//TX FIFO Threshold（发送FIFO中数据个数小于CTRL.TFTHR设定值）
-#define SPI_IT_TX_DONE		(1 << 9)	//TX Done（发送FIFO空且发送移位寄存器空）
+#define SPI_IT_RX_THRES		(1 << 5)	//RX FIFO Threshold(接收FIFO中数据个数大于CTRL.RFTHR设定值)
+#define SPI_IT_TX_THRES		(1 << 6)	//TX FIFO Threshold(发送FIFO中数据个数小于CTRL.TFTHR设定值)
+#define SPI_IT_TX_DONE		(1 << 9)	//TX Done(发送FIFO空且发送移位寄存器空)
 #define SPI_IT_CS_FALL		(1 << 10)	//从机模式下，CS下降沿中断
 #define SPI_IT_CS_RISE		(1 << 11)	//从机模式下，CS上升沿中断
 

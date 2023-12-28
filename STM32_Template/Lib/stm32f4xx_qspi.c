@@ -25,11 +25,14 @@
 
         (#) 外设设备替代函数。
            (++)将引脚连接到所需的外设设备的替代函数(AF)。使用GPIO_PinAFConfig()
-               函数将引脚连接到所需外设的备用功能(AF)。
-           (++)通过配置所需引脚的备用功能。
+               函数将引脚连接到所需外设的复用功能(AF)。
+
+           (++)通过配置所需引脚的复用功能。
                 GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF。
+
            (++) 通过以下方法选择类型、上拉/下拉和输出速度 GPIO_PuPd、GPIO_OType 和 GPIO_Speed
                 成员选择类型、上拉/下拉和输出速度。
+
            (++)调用 GPIO_Init() 函数。
 
         (#) 使用 QSPI_Init() 函数对Flash大小、CS High Time、Sample Shift、Prescaler、Clock Mode进行编程。
@@ -45,6 +48,7 @@
 
         (#) 当使用DMA模式时
            (++) 使用 DMA_Init() 函数配置 DMA。
+           
            (++) 使用 SPI_I2S_DMACmd() 函数激活需要的通道请求。
 
         (#) 使用 QSPI_DMACmd() 函数启用 SPI。

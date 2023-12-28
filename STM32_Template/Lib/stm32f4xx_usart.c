@@ -30,8 +30,8 @@
           or/and SCLK).
 
       (#) 外设的替代函数:
-        (++) 使用GPIO_PinAFConfig()函数将管脚连接到所需外设设备的备用功能(AF)
-        (++) 通过以下方式在备用功能中配置所需引脚:
+        (++) 使用GPIO_PinAFConfig()函数将管脚连接到所需外设设备的复用功能(AF)
+        (++) 通过以下方式在复用功能中配置所需引脚:
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
         (++) 通过GPIO_PuPd、GPIO_OType和GPIO_speed成员选择类型、上拉/下拉和输出速度
         (++) 调用 GPIO_Init()函数

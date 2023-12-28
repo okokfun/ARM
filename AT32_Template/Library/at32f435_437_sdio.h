@@ -46,7 +46,6 @@ extern "C" {
   * @brief sdio interrupt
   * @{
   */
-
 #define SDIO_CMDFAIL_INT                 ((uint32_t)0x00000001) /*!< command response received check failed 中断 */
 #define SDIO_DTFAIL_INT                  ((uint32_t)0x00000002) /*!< data block sent/received check failed 中断 */
 #define SDIO_CMDTIMEOUT_INT              ((uint32_t)0x00000004) /*!< command response timerout 中断 */
@@ -79,7 +78,6 @@ extern "C" {
   * @brief sdio flag
   * @{
   */
-
 #define SDIO_CMDFAIL_FLAG                ((uint32_t)0x00000001) /*!< command response received check failed flag */
 #define SDIO_DTFAIL_FLAG                 ((uint32_t)0x00000002) /*!< data block sent/received check failed flag */
 #define SDIO_CMDTIMEOUT_FLAG             ((uint32_t)0x00000004) /*!< command response timerout flag */
@@ -517,7 +515,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define SDIO1                            ((SDIO_Type *) SDIO1_BASE)
 #define SDIO2                            ((SDIO_Type *) SDIO2_BASE)
 

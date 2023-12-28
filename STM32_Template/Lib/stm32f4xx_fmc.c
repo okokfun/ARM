@@ -101,7 +101,7 @@ const FMC_NORSRAMTimingInitTypeDef FMC_DefaultTimingStruct = {0x0F, /* FMC_Addre
    (#) FMC引脚配置
        (++)使用以下函数将所涉及的FMC引脚连接到AF12上
             GPIO_PinAFConfig(GPIOx, GPIO_PinSourcex, GPIO_AF_FMC)。
-       (++)通过调用函数在备用功能模式下配置这些FMC引脚
+       (++)通过调用函数在复用功能模式下配置这些FMC引脚
             GPIO_Init()。
 
    (#) 声明一个FMC_NORSRAMInitTypeDef结构，例如。
@@ -123,12 +123,14 @@ const FMC_NORSRAMTimingInitTypeDef FMC_DefaultTimingStruct = {0x0F, /* FMC_Addre
 
 /**
   * 简介:  解除对FMC NOR/SRAM银行寄存器的初始化，使其达到默认的复位值。
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC银行。
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank1_NORSRAM1: FMC Bank1 NOR/SRAM1
   *            @arg FMC_Bank1_NORSRAM2: FMC Bank1 NOR/SRAM2
   *            @arg FMC_Bank1_NORSRAM3: FMC Bank1 NOR/SRAM3
   *            @arg FMC_Bank1_NORSRAM4: FMC Bank1 NOR/SRAM4
+  * 
   * 返回值: 无
   */
 void FMC_NORSRAMDeInit(uint32_t FMC_Bank) {
@@ -150,8 +152,10 @@ void FMC_NORSRAMDeInit(uint32_t FMC_Bank) {
 
 /**
   * 简介:  根据 FMC_NORSRAMInitStruct 中指定的参数初始化 FMC NOR/SRAM Bank。
+  * 
   * 参数:  FMC_NORSRAMInitStruct : 指向FMC_NORSRAMUnitTypeDef结构的指针，
   *                                该结构包含FMC NOR/SRAM指定Backs的配置信息。
+  * 
   * 返回值: 无
   */
 void FMC_NORSRAMInit(FMC_NORSRAMInitTypeDef* FMC_NORSRAMInitStruct) {
@@ -261,7 +265,9 @@ void FMC_NORSRAMInit(FMC_NORSRAMInitTypeDef* FMC_NORSRAMInitStruct) {
 
 /**
   * 简介:  用默认值填充每个 FMC_NORSRAMInitStruct 成员。
+  * 
   * 参数:  FMC_NORSRAMInitStruct: 指向将被初始化的FMC_NORSRAMUnitTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void FMC_NORSRAMStructInit(FMC_NORSRAMInitTypeDef* FMC_NORSRAMInitStruct) {
@@ -287,13 +293,16 @@ void FMC_NORSRAMStructInit(FMC_NORSRAMInitTypeDef* FMC_NORSRAMInitStruct) {
 
 /**
   * 简介:  启用或禁用指定的 NOR/SRAM Memory Bank.
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC Bank
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank1_NORSRAM1: FMC Bank1 NOR/SRAM1
   *            @arg FMC_Bank1_NORSRAM2: FMC Bank1 NOR/SRAM2
   *            @arg FMC_Bank1_NORSRAM3: FMC Bank1 NOR/SRAM3
   *            @arg FMC_Bank1_NORSRAM4: FMC Bank1 NOR/SRAM4
+  * 
   * 参数:  NewState: 新状态-> FMC_Bank. 此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
@@ -329,7 +338,7 @@ void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
   (#) FMC引脚配置
       (++)使用以下函数将所涉及的FMC引脚连接到AF12上
            GPIO_PinAFConfig(GPIOx, GPIO_PinSourcex, GPIO_AF_FMC)。
-      (++)通过调用函数在备用功能模式下配置这些FMC引脚
+      (++)通过调用函数在复用功能模式下配置这些FMC引脚
            GPIO_Init()。
 
   (#) 声明一个FMC_NANDInitTypeDef结构，例如。
@@ -357,10 +366,12 @@ void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
 
 /**
   * 简介:  将 FMC NAND Banks 寄存器取消初始化为其默认复位值。
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC Bank
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
   *            @arg FMC_Bank3_NAND: FMC Bank3 NAND
+  * 
   * 返回值: 无
   */
 void FMC_NANDDeInit(uint32_t FMC_Bank) {
@@ -386,7 +397,9 @@ void FMC_NANDDeInit(uint32_t FMC_Bank) {
 
 /**
   * 简介:  根据 FMC_NANDInitStruct 中指定的参数初始化 FMC NAND Bank。
+  * 
   * 参数:  FMC_NANDInitStruct : 指向FMC_NANDInitTypeDef结构的指针。包含FMC NAND指定银行的配置信息。
+  * 
   * 返回值: 无
   */
 void FMC_NANDInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct) {
@@ -422,7 +435,7 @@ void FMC_NANDInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct) {
                            FMC_PCR2_PWID | FMC_PCR2_ECCEN | FMC_PCR2_TCLR | \
                            FMC_PCR2_TAR | FMC_PCR2_ECCPS));
 
-    /* 设置 tmppcr value according to FMC_NANDInitStruct parameters */
+    /* 设置 tmppcr value 根据 FMC_NANDInitStruct parameters */
     tmppcr |= (uint32_t)FMC_NANDInitStruct->FMC_Waitfeature |
               PCR_MEMORYTYPE_NAND |
               FMC_NANDInitStruct->FMC_MemoryDataWidth |
@@ -483,7 +496,9 @@ void FMC_NANDInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct) {
 
 /**
   * 简介:  用默认值填充每个 FMC_NANDInitStruct 成员
+  * 
   * 参数:  FMC_NANDInitStruct: 指向FMC_NANDInitTypeDef结构的指针，将被初始化。
+  * 
   * 返回值: 无
   */
 void FMC_NANDStructInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct) {
@@ -507,11 +522,14 @@ void FMC_NANDStructInit(FMC_NANDInitTypeDef* FMC_NANDInitStruct) {
 
 /**
   * 简介:  启用或禁用指定的 NAND Memory Bank.
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC Bank
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
   *            @arg FMC_Bank3_NAND: FMC Bank3 NAND
+  * 
   * 参数:  NewState: 新状态-> FMC_Bank. 此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void FMC_NANDCmd(uint32_t FMC_Bank, FunctionalState NewState) {
@@ -536,12 +554,15 @@ void FMC_NANDCmd(uint32_t FMC_Bank, FunctionalState NewState) {
 }
 /**
   * 简介:  启用或禁用FMC NAND ECC feature.
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC Bank
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
   *            @arg FMC_Bank3_NAND: FMC Bank3 NAND
+  * 
   * 参数:  NewState: FMC NAND ECC功能的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void FMC_NANDECCCmd(uint32_t FMC_Bank, FunctionalState NewState) {
@@ -567,10 +588,12 @@ void FMC_NANDECCCmd(uint32_t FMC_Bank, FunctionalState NewState) {
 
 /**
   * 简介:  返回纠错码寄存器值。
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC Bank
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
   *            @arg FMC_Bank3_NAND: FMC Bank3 NAND
+  * 
   * 返回值: 纠错代码(ECC)值。
   */
 uint32_t FMC_GetECC(uint32_t FMC_Bank) {
@@ -608,7 +631,7 @@ uint32_t FMC_GetECC(uint32_t FMC_Bank) {
   (#) FMC引脚配置
        (++)使用以下函数将所涉及的FMC引脚连接到AF12上
             GPIO_PinAFConfig(GPIOx, GPIO_PinSourcex, GPIO_AF_FMC)。
-       (++)通过调用函数在备用功能模式下配置这些FMC引脚
+       (++)通过调用函数在复用功能模式下配置这些FMC引脚
             GPIO_Init()。
 
   (#) 声明一个FMC_PCCARDInitTypeDef结构，例如。
@@ -629,7 +652,9 @@ uint32_t FMC_GetECC(uint32_t FMC_Bank) {
 
 /**
   * 简介:  将 FMC PCCARD 组寄存器取消初始化为其默认复位值。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void FMC_PCCARDDeInit(void) {
@@ -643,8 +668,10 @@ void FMC_PCCARDDeInit(void) {
 
 /**
   * 简介:  根据 FMC_PCCARDInitStruct 中指定的参数初始化 FMC PCCARD Bank。
+  * 
   * 参数:  FMC_PCCARDInitStruct : 指向FMC_PCCARDInitTypeDef结构的指针，该结构包含
   *                               FMC PCCARD银行的配置信息。
+  * 
   * 返回值: 无
   */
 void FMC_PCCARDInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct) {
@@ -733,7 +760,9 @@ void FMC_PCCARDInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct) {
 
 /**
   * 简介:  用默认值填充每个 FMC_PCCARDInitStruct 成员。
+  * 
   * 参数:  FMC_PCCARDInitStruct: 指向FMC_PCCARDInitTypeDef结构的指针，将被初始化。
+  * 
   * 返回值: 无
   */
 void FMC_PCCARDStructInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct) {
@@ -757,8 +786,10 @@ void FMC_PCCARDStructInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct) {
 
 /**
   * 简介:  启用或禁用PCCARD Memory Bank.
+  * 
   * 参数:  NewState: PCCARD内存库的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void FMC_PCCARDCmd(FunctionalState NewState) {
@@ -794,7 +825,7 @@ void FMC_PCCARDCmd(FunctionalState NewState) {
   (#) FMC引脚配置
       (++)使用以下函数将所涉及的FMC引脚连接到AF12上
            GPIO_PinAFConfig(GPIOx, GPIO_PinSourcex, GPIO_AF_FMC)。
-      (++)通过调用函数在备用功能模式下配置这些FMC引脚
+      (++)通过调用函数在复用功能模式下配置这些FMC引脚
            GPIO_Init()。
 
   (#) 声明一个FMC_SDRAMInitTypeDef结构，例如。
@@ -818,10 +849,12 @@ void FMC_PCCARDCmd(FunctionalState NewState) {
 
 /**
   * 简介:  将 FMC SDRAM 组寄存器取消初始化为其默认复位值。
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC Bank
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank1_SDRAM: FMC Bank1 SDRAM
   *            @arg FMC_Bank2_SDRAM: FMC Bank2 SDRAM
+  * 
   * 返回值: 无
   */
 void FMC_SDRAMDeInit(uint32_t FMC_Bank) {
@@ -837,8 +870,10 @@ void FMC_SDRAMDeInit(uint32_t FMC_Bank) {
 
 /**
   * 简介:  根据 FMC_SDRAMInitStruct 中指定的参数初始化 FMC SDRAM Bank
+  * 
   * 参数:  FMC_SDRAMInitStruct : 指向FMC_SDRAMInitTypeDef结构的指针，
   *                              该结构包含FMC SDRAM指定银行的配置信息。
+  * 
   * 返回值: 无
   */
 void FMC_SDRAMInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct) {
@@ -958,7 +993,9 @@ void FMC_SDRAMInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct) {
 
 /**
   * 简介:  用默认值填充每个 FMC_SDRAMInitStruct 成员。
+  * 
   * 参数:  FMC_SDRAMInitStruct: 指向FMC_SDRAMInitTypeDef结构的指针，该结构将被初始化。
+  * 
   * 返回值: 无
   */
 void FMC_SDRAMStructInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct) {
@@ -986,7 +1023,9 @@ void FMC_SDRAMStructInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct) {
 
 /**
   * 简介:  配置访问设备时发出的 SDRAM 内存命令。
+  * 
   * 参数:  FMC_SDRAMCommandStruct: 指向将被配置的FMC_SDRAMCommandTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void FMC_SDRAMCmdConfig(FMC_SDRAMCommandTypeDef* FMC_SDRAMCommandStruct) {
@@ -1010,8 +1049,10 @@ void FMC_SDRAMCmdConfig(FMC_SDRAMCommandTypeDef* FMC_SDRAMCommandStruct) {
 
 /**
   * 简介:  返回指示的 FMC SDRAM 组模式状态。
+  * 
   * 参数:  SDRAM_Bank: 定义FMC SDRAM库。
   *                    这个参数可以是FMC_Bank1_SDRAM或FMC_Bank2_SDRAM。
+  * 
   * 返回值: FMC的SDRAM库模式状态
   */
 uint32_t FMC_GetModeStatus(uint32_t SDRAM_Bank) {
@@ -1033,7 +1074,9 @@ uint32_t FMC_GetModeStatus(uint32_t SDRAM_Bank) {
 
 /**
   * 简介:  定义 SDRAM 内存刷新率
+  * 
   * 参数:  FMC_Count: 指定刷新定时器的计数。
+  * 
   * 返回值: 无
   */
 void FMC_SetRefreshCount(uint32_t FMC_Count) {
@@ -1046,7 +1089,9 @@ void FMC_SetRefreshCount(uint32_t FMC_Count) {
 
 /**
   * 简介:  设置连续 SDRAM 内存自动刷新命令的数量。
+  * 
   * 参数:  FMC_Number: 指定自动刷新号码。
+  * 
   * 返回值: 无
   */
 void FMC_SetAutoRefresh_Number(uint32_t FMC_Number) {
@@ -1058,9 +1103,13 @@ void FMC_SetAutoRefresh_Number(uint32_t FMC_Number) {
 
 /**
   * 简介:  启用或禁用对指定 FMC SDRAM Bank 的写保护。
-  * 参数:  SDRAM_Bank: 定义FMC SDRAM库。这个参数可以是FMC_Bank1_SDRAM或FMC_Bank2_SDRAM。
+  * 
+  * 参数:  SDRAM_Bank: 定义FMC SDRAM库。
+  *                    这个参数可以是FMC_Bank1_SDRAM或FMC_Bank2_SDRAM。
+  * 
   * 参数:  NewState: 写保护标志的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void FMC_SDRAMWriteProtectionConfig(uint32_t SDRAM_Bank, FunctionalState NewState) {
@@ -1094,6 +1143,7 @@ void FMC_SDRAMWriteProtectionConfig(uint32_t SDRAM_Bank, FunctionalState NewStat
 
 /**
   * 简介:  启用或禁用指定的 FMC 中断.
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC Bank
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
@@ -1101,14 +1151,17 @@ void FMC_SDRAMWriteProtectionConfig(uint32_t SDRAM_Bank, FunctionalState NewStat
   *            @arg FMC_Bank4_PCCARD: FMC Bank4 PCCARD
   *            @arg FMC_Bank1_SDRAM: FMC Bank1 SDRAM
   *            @arg FMC_Bank2_SDRAM: FMC Bank2 SDRAM
+  * 
   * 参数:  FMC_IT: 指定要启用或禁用的FMC中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg FMC_IT_RisingEdge: 上升沿检测中断。
   *            @arg FMC_IT_Level: 水平边缘检测中断。
   *            @arg FMC_IT_FallingEdge: 下降沿检测中断。
   *            @arg FMC_IT_Refresh: 刷新错误检测中断。
+  * 
   * 参数:  NewState: 指定FMC中断的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void FMC_ITConfig(uint32_t FMC_Bank, uint32_t FMC_IT, FunctionalState NewState) {
@@ -1158,6 +1211,7 @@ void FMC_ITConfig(uint32_t FMC_Bank, uint32_t FMC_IT, FunctionalState NewState) 
 
 /**
   * 简介:  检查是否设置了指定的 FMC 标志。
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC Bank
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
@@ -1166,6 +1220,7 @@ void FMC_ITConfig(uint32_t FMC_Bank, uint32_t FMC_IT, FunctionalState NewState) 
   *            @arg FMC_Bank1_SDRAM: FMC Bank1 SDRAM
   *            @arg FMC_Bank2_SDRAM: FMC Bank2 SDRAM
   *            @arg FMC_Bank1_SDRAM | FMC_Bank2_SDRAM: FMC Bank1 or Bank2 SDRAM
+  * 
   * 参数:  FMC_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
   *            @arg FMC_FLAG_RisingEdge: 上升沿检测标志。
@@ -1174,6 +1229,7 @@ void FMC_ITConfig(uint32_t FMC_Bank, uint32_t FMC_IT, FunctionalState NewState) 
   *            @arg FMC_FLAG_FEMPT: Fifo 空标志
   *            @arg FMC_FLAG_Refresh: 刷新错误标志。
   *            @arg FMC_FLAG_Busy: 忙碌状态标志。
+  * 
   * 返回值: FMC_FLAG的新状态(SET或RESET)。
   */
 FlagStatus FMC_GetFlagStatus(uint32_t FMC_Bank, uint32_t FMC_FLAG) {
@@ -1207,6 +1263,7 @@ FlagStatus FMC_GetFlagStatus(uint32_t FMC_Bank, uint32_t FMC_FLAG) {
 
 /**
   * 简介:  清除 FMC 的挂起标志。
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC Bank
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
@@ -1214,12 +1271,14 @@ FlagStatus FMC_GetFlagStatus(uint32_t FMC_Bank, uint32_t FMC_FLAG) {
   *            @arg FMC_Bank4_PCCARD: FMC Bank4 PCCARD
   *            @arg FMC_Bank1_SDRAM: FMC Bank1 SDRAM
   *            @arg FMC_Bank2_SDRAM: FMC Bank2 SDRAM
+  * 
   * 参数:  FMC_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
   *            @arg FMC_FLAG_RisingEdge: 上升沿检测标志。
   *            @arg FMC_FLAG_Level: 水平检测标志。
   *            @arg FMC_FLAG_FallingEdge: 下降边缘检测标志.
   *            @arg FMC_FLAG_Refresh: 刷新错误标志。
+  * 
   * 返回值: 无
   */
 void FMC_ClearFlag(uint32_t FMC_Bank, uint32_t FMC_FLAG) {
@@ -1243,6 +1302,7 @@ void FMC_ClearFlag(uint32_t FMC_Bank, uint32_t FMC_FLAG) {
 
 /**
   * 简介:  检查是否发生了指定的 FMC 中断。
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC Bank
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
@@ -1250,12 +1310,14 @@ void FMC_ClearFlag(uint32_t FMC_Bank, uint32_t FMC_FLAG) {
   *            @arg FMC_Bank4_PCCARD: FMC Bank4 PCCARD
   *            @arg FMC_Bank1_SDRAM: FMC Bank1 SDRAM
   *            @arg FMC_Bank2_SDRAM: FMC Bank2 SDRAM
+  * 
   * 参数:  FMC_IT: 指定要检查的FMC中断源。
   *          此参数可以是以下值之一:
   *            @arg FMC_IT_RisingEdge: 上升沿检测中断。
   *            @arg FMC_IT_Level: 水平边缘检测中断。
   *            @arg FMC_IT_FallingEdge: 下降沿检测中断。
   *            @arg FMC_IT_Refresh: 刷新错误检测中断。
+  * 
   * 返回值: FMC_IT的新状态(SET或RESET)。
   */
 ITStatus FMC_GetITStatus(uint32_t FMC_Bank, uint32_t FMC_IT) {
@@ -1303,6 +1365,7 @@ ITStatus FMC_GetITStatus(uint32_t FMC_Bank, uint32_t FMC_IT) {
 
 /**
   * 简介:  清除 FMC 的中断挂起位
+  * 
   * 参数:  FMC_Bank: 指定要使用的FMC Bank
   *          此参数可以是以下值之一:
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
@@ -1310,12 +1373,14 @@ ITStatus FMC_GetITStatus(uint32_t FMC_Bank, uint32_t FMC_IT) {
   *            @arg FMC_Bank4_PCCARD: FMC Bank4 PCCARD
   *            @arg FMC_Bank1_SDRAM: FMC Bank1 SDRAM
   *            @arg FMC_Bank2_SDRAM: FMC Bank2 SDRAM
+  * 
   * 参数:  FMC_IT: 指定要清除的中断等待位。
   *          此参数可以是以下值的任意组合:
   *            @arg FMC_IT_RisingEdge: 上升沿检测中断。
   *            @arg FMC_IT_Level: 水平边缘检测中断。
   *            @arg FMC_IT_FallingEdge: 下降沿检测中断。
   *            @arg FMC_IT_Refresh: 刷新错误检测中断。
+  * 
   * 返回值: 无
   */
 void FMC_ClearITPendingBit(uint32_t FMC_Bank, uint32_t FMC_IT) {

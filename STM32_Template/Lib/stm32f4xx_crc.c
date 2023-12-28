@@ -50,7 +50,9 @@
 
 /**
   * 简介:  重置 CRC 数据寄存器 (DR)。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void CRC_ResetDR(void) {
@@ -60,7 +62,9 @@ void CRC_ResetDR(void) {
 
 /**
   * 简介:  计算给定数据字(32 位)的 32 位 CRC。
+  * 
   * 参数:  数据:用于计算其 CRC 的数据字(32 位)
+  * 
   * 返回值: 32-bit CRC
   */
 uint32_t CRC_CalcCRC(uint32_t Data) {
@@ -71,8 +75,11 @@ uint32_t CRC_CalcCRC(uint32_t Data) {
 
 /**
   * 简介:  计算给定数据字(32 位)缓冲区的 32 位 CRC。
-  * 参数:  pBuffer:指向包含要计算的数据的缓冲区的指针
-  * 参数:  BufferLength:要计算的缓冲区的长度
+  * 
+  * 参数:  pBuffer: 指向包含要计算的数据的缓冲区的指针
+  * 
+  * 参数:  BufferLength: 要计算的缓冲区的长度
+  * 
   * 返回值: 32-bit CRC
   */
 uint32_t CRC_CalcBlockCRC(uint32_t pBuffer[], uint32_t BufferLength) {
@@ -87,7 +94,9 @@ uint32_t CRC_CalcBlockCRC(uint32_t pBuffer[], uint32_t BufferLength) {
 
 /**
   * 简介:  返回当前的 CRC 值。
+  * 
   * 参数:  无
+  * 
   * 返回值: 32-bit CRC
   */
 uint32_t CRC_GetCRC(void) {
@@ -96,7 +105,9 @@ uint32_t CRC_GetCRC(void) {
 
 /**
   * 简介:  在独立数据 (ID) 寄存器中存储 8 位数据。
+  * 
   * 参数:  IDValue:要存储在 ID 寄存器中的 8 位值
+  * 
   * 返回值: 无
   */
 void CRC_SetIDRegister(uint8_t IDValue) {
@@ -105,7 +116,9 @@ void CRC_SetIDRegister(uint8_t IDValue) {
 
 /**
   * 简介:  返回存储在独立数据(ID)寄存器中的 8 位数据
+  * 
   * 参数:  无
+  * 
   * 返回值: ID 寄存器的 8 位值
   */
 uint8_t CRC_GetIDRegister(void) {

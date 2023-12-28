@@ -150,7 +150,6 @@ typedef enum {
 #define FLASH_Sector_21    ((uint16_t)0x00C8) /*!< 扇区号 21  */
 #define FLASH_Sector_22    ((uint16_t)0x00D0) /*!< 扇区号 22  */
 #define FLASH_Sector_23    ((uint16_t)0x00D8) /*!< 扇区号 23  */
-
 #define IS_FLASH_SECTOR(SECTOR) (((SECTOR) == FLASH_Sector_0)   || ((SECTOR) == FLASH_Sector_1)   ||\
                                  ((SECTOR) == FLASH_Sector_2)   || ((SECTOR) == FLASH_Sector_3)   ||\
                                  ((SECTOR) == FLASH_Sector_4)   || ((SECTOR) == FLASH_Sector_5)   ||\
@@ -269,7 +268,6 @@ typedef enum {
 #define OB_PCROP_Sector_22       ((uint32_t)0x00000400) /*!< PC 读/写保护 Sector22     */
 #define OB_PCROP_Sector_23       ((uint32_t)0x00000800) /*!< PC 读/写保护 Sector23     */
 #define OB_PCROP_Sector_All      ((uint32_t)0x00000FFF) /*!< PC 读/写保护 all Sectors  */
-
 #define IS_OB_PCROP(SECTOR)((((SECTOR) & (uint32_t)0xFFFFF000) == 0x00000000) && ((SECTOR) != 0x00000000))
 /**
   * @}

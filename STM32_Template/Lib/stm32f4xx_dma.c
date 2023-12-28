@@ -167,7 +167,9 @@
 
 /**
   * 简介:  将 DMAy Streamx 寄存器取消初始化为其默认复位值。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2，以选择DMA, x可以是0到7，以选择DMA流。
+  * 
   * 返回值: 无
   */
 void DMA_DeInit(DMA_Stream_TypeDef* DMAy_Streamx) {
@@ -251,9 +253,13 @@ void DMA_DeInit(DMA_Stream_TypeDef* DMAy_Streamx) {
 
 /**
   * 简介:  根据 DMA_InitStruct 结构中的指定参数初始化 DMAy Streamx。
+  * 
   * 注意:   在调用此函数之前，建议使用函数DMA_GetCmdStatus()检查Stream是否实际被禁用。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  DMA_InitStruct: 指向DMA_InitTypeDef结构的指针，该结构包含指定DMA流的配置信息。
+  * 
   * 返回值: 无
   */
 void DMA_Init(DMA_Stream_TypeDef* DMAy_Streamx, DMA_InitTypeDef* DMA_InitStruct) {
@@ -335,7 +341,9 @@ void DMA_Init(DMA_Stream_TypeDef* DMAy_Streamx, DMA_InitTypeDef* DMA_InitStruct)
 
 /**
   * 简介:  用默认值填充每个 DMA_InitStruct 成员。
+  * 
   * 参数:  DMA_InitStruct : 指向将被初始化的DMA_InitTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void DMA_StructInit(DMA_InitTypeDef* DMA_InitStruct) {
@@ -388,7 +396,9 @@ void DMA_StructInit(DMA_InitTypeDef* DMA_InitStruct) {
 
 /**
   * 简介:  启用或禁用指定的 DMAy Streamx。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  NewState: DMAy Streamx的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   *
@@ -424,10 +434,12 @@ void DMA_Cmd(DMA_Stream_TypeDef* DMAy_Streamx, FunctionalState NewState) {
   * 注意:   如果禁用"外围增量"模式，则此功能无效。
   *
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  DMA_Pincos: 指定圆周增量偏移大小。
   *          此参数可以是以下值之一:
   *            @arg DMA_PINCOS_Psize: 外设地址增量根据PSIZE参数进行。
   *            @arg DMA_PINCOS_WordAligned: 外围地址增量偏移量固定为4(32位对齐地址)。
+  * 
   * 返回值: 无
   */
 void DMA_PeriphIncOffsetSizeConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_Pincos) {
@@ -451,6 +463,7 @@ void DMA_PeriphIncOffsetSizeConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DM
   * 注意:   在启用此功能之前，请检查使用的外设设备是否支持流量控制器模式。
   *
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  DMA_FlowCtrl: 指定DMA流控制器。
   *          此参数可以是以下值之一:
   *            @arg DMA_FlowCtrl_Memory: DMAy_Streamx事务流控制器是DMA控制器.
@@ -509,7 +522,9 @@ void DMA_FlowControllerConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_Flo
 
 /**
   * 简介:  写入要在 DMAy Streamx 上传输的数据单元的数量。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  Counter: 要传输的数据单元数(从0到65535)数据项数仅取决于外设设备数据格式。
   *
   * 注意:   如果外设设备数据格式为字节:数据单元数等于要传输的总字节数。
@@ -532,7 +547,9 @@ void DMA_SetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx, uint16_t Counter) 
 
 /**
   * 简介:  Returns 当前DMAy Streamx传输中剩余的数据单元数。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 返回值: 当前DMAy Streamx传输中剩余的数据单元数。
   */
 uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx) {
@@ -593,8 +610,11 @@ uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx) {
 
 /**
   * 简介:  当禁用 DMAy Streamx 时，配置双缓冲模式和当前内存目标。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  Memory1BaseAddr: 第二个缓冲区(存储器1)的基址
+  * 
   * 参数:  DMA_CurrentMemory: 指定启用流时，哪个内存将是事务的第一个缓冲区。
   *          此参数可以是以下值之一:
   *            @arg DMA_Memory_0: Memory 0 是当前缓冲区。
@@ -624,10 +644,14 @@ void DMA_DoubleBufferModeConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t Memor
 
 /**
   * 简介:  启用或禁用选定 DMA 流的双缓冲模式。
+  * 
   * 注意:   只有在禁用DMA流时才能调用此函数。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  NewState: DMAy Streamx双缓冲模式的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DMA_DoubleBufferModeCmd(DMA_Stream_TypeDef* DMAy_Streamx, FunctionalState NewState) {
@@ -647,8 +671,11 @@ void DMA_DoubleBufferModeCmd(DMA_Stream_TypeDef* DMAy_Streamx, FunctionalState N
 
 /**
   * 简介:  为双缓冲区模式下的下一个缓冲区传输配置内存地址(用于动态使用)。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  MemoryBaseAddr: 目标内存缓冲区的基地址
+  * 
   * 参数:  DMA_MemoryTarget: 下一个要使用的内存目标。
   *         此参数可以是以下值之一:
   *            @arg DMA_Memory_0: 使用内存地址0
@@ -679,7 +706,9 @@ void DMA_MemoryTargetConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t MemoryBas
 
 /**
   * 简介:  返回双缓冲区传输使用的当前内存目标。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 返回值: 内存目标数: Memory0 为 0,Memory1 为 1。
   */
 uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx) {
@@ -771,6 +800,7 @@ uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx) {
 
 /**
   * 简介:  返回指定 DMAy Streamx 的 EN 位的状态。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
   *
   * 注意:    配置DMA流(DMA_Init()函数)并启用该流后，建议检查(或等待)
@@ -799,7 +829,9 @@ FunctionalState DMA_GetCmdStatus(DMA_Stream_TypeDef* DMAy_Streamx) {
 
 /**
   * 简介:  返回当前的 DMAy Streamx FIFO 填充级别。
+
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+
   * 返回值: FIFO填充状态。
   *           -DMA_FIFOStatus_Less1QuarterFull: 当FIFO小于1/4满且不为空时。
   *           -DMA_FIFOStatus_1QuarterFull: 如果超过四分之一满。
@@ -822,7 +854,9 @@ uint32_t DMA_GetFIFOStatus(DMA_Stream_TypeDef* DMAy_Streamx) {
 
 /**
   * 简介:  检查是否设置了指定的 DMAy Streamx 标志。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  DMA_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
   *            @arg DMA_FLAG_TCIFx: Streamx 传输完成标志
@@ -831,6 +865,7 @@ uint32_t DMA_GetFIFOStatus(DMA_Stream_TypeDef* DMAy_Streamx) {
   *            @arg DMA_FLAG_DMEIFx: Streamx 直接模式错误标志
   *            @arg DMA_FLAG_FEIFx: Streamx FIFO 错误标志
   *            其中x可以是0到7，以选择DMA流。
+  * 
   * 返回值: DMA_FLAG的新状态(SET或RESET)。
   */
 FlagStatus DMA_GetFlagStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_FLAG) {
@@ -878,7 +913,9 @@ FlagStatus DMA_GetFlagStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_FLAG
 
 /**
   * 简介:  清除 DMAy Streamx 的挂起标志。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  DMA_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
   *          @arg DMA_FLAG_TCIFx: Streamx 传输完成标志
@@ -887,6 +924,7 @@ FlagStatus DMA_GetFlagStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_FLAG
   *          @arg DMA_FLAG_DMEIFx: Streamx 直接模式错误标志
   *          @arg DMA_FLAG_FEIFx: Streamx FIFO 错误标志
   *          其中x可以是0到7，以选择DMA流。
+  * 
   * 返回值: 无
   */
 void DMA_ClearFlag(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_FLAG) {
@@ -917,15 +955,19 @@ void DMA_ClearFlag(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_FLAG) {
 
 /**
   * 简介:  启用或禁用指定的 DMAy Streamx 中断。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数: DMA_IT: 指定要启用或禁用的DMA中断源。
   *          此参数可以是以下值的任意组合:
   *          @arg DMA_IT_TC: 传输完成中断掩码
   *          @arg DMA_IT_HT: 半传输完成中断掩码
   *          @arg DMA_IT_TE: 传输错误中断掩码
   *          @arg DMA_IT_FE: FIFO错误中断掩码
+  * 
   * 参数:  NewState: 指定DMA中断的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DMA_ITConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT, FunctionalState NewState) {
@@ -959,7 +1001,9 @@ void DMA_ITConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT, FunctionalS
 
 /**
   * 简介:  检查是否发生了指定的 DMAy Streamx 中断。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  DMA_IT: 指定要检查的DMA中断源。
   *          此参数可以是以下值之一:
   *          @arg DMA_IT_TCIFx: Streamx 传输完成中断
@@ -968,6 +1012,7 @@ void DMA_ITConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT, FunctionalS
   *          @arg DMA_IT_DMEIFx: Streamx 直接模式错误中断
   *          @arg DMA_IT_FEIFx: Streamx FIFO 错误中断
   *          其中x可以是0到7，以选择 DMA 流。
+  * 
   * 返回值: DMA_IT的新状态(SET或RESET)。
   */
 ITStatus DMA_GetITStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT) {
@@ -1027,7 +1072,9 @@ ITStatus DMA_GetITStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT) {
 
 /**
   * 简介:  清除 DMAy Streamx 的中断挂起位。
+  * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 
   * 参数:  DMA_IT: 指定要清除的DMA中断挂起位。
   *          此参数可以是以下值的任意组合:
   *          @arg DMA_IT_TCIFx: Streamx传输完成中断
@@ -1036,6 +1083,7 @@ ITStatus DMA_GetITStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT) {
   *          @arg DMA_IT_DMEIFx: Streamx直接模式错误中断
   *          @arg DMA_IT_FEIFx: Streamx FIFO错误中断
   *          其中x可以是0到7，以选择DMA流。
+  * 
   * 返回值: 无
   */
 void DMA_ClearITPendingBit(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT) {

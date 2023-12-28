@@ -365,7 +365,7 @@ void RCU_System_Clock_Source_Config(uint32_t ck_sys) {
     uint32_t reg;
 
     reg = RCU_CFG0;
-    /* reset the SCS bits and set according to ck_sys */
+    /* reset the SCS bits and set 根据 ck_sys */
     reg &= ~RCU_CFG0_SCS;
     RCU_CFG0 = (reg | ck_sys);
 }
@@ -395,7 +395,7 @@ void RCU_ahb_Clock_Config(uint32_t ck_ahb) {
     uint32_t reg;
 
     reg = RCU_CFG0;
-    /* reset the AHBPSC bits and set according to ck_ahb */
+    /* reset the AHBPSC bits and set 根据 ck_ahb */
     reg &= ~RCU_CFG0_AHBPSC;
     RCU_CFG0 = (reg | ck_ahb);
 }
@@ -416,7 +416,7 @@ void RCU_apb1_Clock_Config(uint32_t ck_apb1) {
     uint32_t reg;
 
     reg = RCU_CFG0;
-    /* reset the APB1PSC and set according to ck_apb1 */
+    /* reset the APB1PSC and set 根据 ck_apb1 */
     reg &= ~RCU_CFG0_APB1PSC;
     RCU_CFG0 = (reg | ck_apb1);
 }
@@ -437,7 +437,7 @@ void RCU_apb2_Clock_Config(uint32_t ck_apb2) {
     uint32_t reg;
 
     reg = RCU_CFG0;
-    /* reset the APB2PSC and set according to ck_apb2 */
+    /* reset the APB2PSC and set 根据 ck_apb2 */
     reg &= ~RCU_CFG0_APB2PSC;
     RCU_CFG0 = (reg | ck_apb2);
 }
@@ -459,7 +459,7 @@ void RCU_ckout0_Config(uint32_t ckout0_src, uint32_t ckout0_div) {
     uint32_t reg;
 
     reg = RCU_CFG0;
-    /* reset the CKOUT0SRC, CKOUT0DIV and set according to ckout0_src and ckout0_div */
+    /* reset the CKOUT0SRC, CKOUT0DIV and set 根据 ckout0_src and ckout0_div */
     reg &= ~(RCU_CFG0_CKOUT0SEL | RCU_CFG0_CKOUT0DIV);
     RCU_CFG0 = (reg | ckout0_src | ckout0_div);
 }
@@ -481,7 +481,7 @@ void RCU_ckout1_Config(uint32_t ckout1_src, uint32_t ckout1_div) {
     uint32_t reg;
 
     reg = RCU_CFG0;
-    /* reset the CKOUT1SRC, CKOUT1DIV and set according to ckout1_src and ckout1_div */
+    /* reset the CKOUT1SRC, CKOUT1DIV and set 根据 ckout1_src and ckout1_div */
     reg &= ~(RCU_CFG0_CKOUT1SEL | RCU_CFG0_CKOUT1DIV);
     RCU_CFG0 = (reg | ckout1_src | ckout1_div);
 }
@@ -593,7 +593,7 @@ void RCU_RTC_Clock_Config(uint32_t RTC_Clock_source) {
     uint32_t reg;
 
     reg = RCU_BDCTL;
-    /* reset the RTCSRC bits and set according to RTC_Clock_source */
+    /* reset the RTCSRC bits and set 根据 RTC_Clock_source */
     reg &= ~RCU_BDCTL_RTCSRC;
     RCU_BDCTL = (reg | RTC_Clock_source);
 }
@@ -611,7 +611,7 @@ void RCU_RTC_div_Config(uint32_t RTC_div) {
     uint32_t reg;
 
     reg = RCU_CFG0;
-    /* reset the RTCDIV bits and set according to RTC_div value */
+    /* reset the RTCDIV bits and set 根据 RTC_div value */
     reg &= ~RCU_CFG0_RTCDIV;
     RCU_CFG0 = (reg | RTC_div);
 }
@@ -630,7 +630,7 @@ void RCU_I2S_Clock_Config(uint32_t I2S_Clock_source) {
     uint32_t reg;
 
     reg = RCU_CFG0;
-    /* reset the I2SSEL bit and set according to I2S_Clock_source */
+    /* reset the I2SSEL bit and set 根据 I2S_Clock_source */
     reg &= ~RCU_CFG0_I2SSEL;
     RCU_CFG0 = (reg | I2S_Clock_source);
 }
@@ -648,7 +648,7 @@ void RCU_ck48m_Clock_Config(uint32_t ck48m_Clock_source) {
     uint32_t reg;
 
     reg = RCU_ADDCTL;
-    /* reset the CK48MSEL bit and set according to I2S_Clock_source */
+    /* reset the CK48MSEL bit and set 根据 I2S_Clock_source */
     reg &= ~RCU_ADDCTL_CK48MSEL;
     RCU_ADDCTL = (reg | ck48m_Clock_source);
 }
@@ -666,7 +666,7 @@ void RCU_pll48m_Clock_Config(uint32_t pll48m_Clock_source) {
     uint32_t reg;
 
     reg = RCU_ADDCTL;
-    /* reset the PLL48MSEL bit and set according to pll48m_Clock_source */
+    /* reset the PLL48MSEL bit and set 根据 pll48m_Clock_source */
     reg &= ~RCU_ADDCTL_PLL48MSEL;
     RCU_ADDCTL = (reg | pll48m_Clock_source);
 }
@@ -707,7 +707,7 @@ void RCU_tli_Clock_div_Config(uint32_t pllsai_r_div) {
     uint32_t reg;
 
     reg = RCU_CFG1;
-    /* reset the PLLSAIRDIV bit and set according to pllsai_r_div */
+    /* reset the PLLSAIRDIV bit and set 根据 pllsai_r_div */
     reg &= ~RCU_CFG1_PLLSAIRDIV;
     RCU_CFG1 = (reg | pllsai_r_div);
 }
@@ -726,7 +726,7 @@ void RCU_lxtal_drive_capability_Config(uint32_t lxtal_dricap) {
 
     reg = RCU_BDCTL;
 
-    /* reset the LXTALDRI bits and set according to lxtal_dricap */
+    /* reset the LXTALDRI bits and set 根据 lxtal_dricap */
     reg &= ~RCU_BDCTL_LXTALDRI;
     RCU_BDCTL = (reg | lxtal_dricap);
 }
@@ -1001,7 +1001,7 @@ void RCU_irc16m_adjust_Value_Set(uint32_t irc16m_adjval) {
     uint32_t reg;
 
     reg = RCU_CTL;
-    /* reset the IRC16MADJ bits and set according to irc16m_adjval */
+    /* reset the IRC16MADJ bits and set 根据 irc16m_adjval */
     reg &= ~RCU_CTL_IRC16MADJ;
     RCU_CTL = (reg | ((irc16m_adjval & RCU_IRC16M_ADJUST_MASK) << RCU_IRC16M_ADJUST_OFFSET));
 }

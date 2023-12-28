@@ -41,7 +41,6 @@ extern "C" {
 /** @addtogroup DAC
   * @{
   */
-
 #define DAC1_D1DMAUDRF                   ((uint32_t)(0x00002000))
 #define DAC2_D2DMAUDRF                   ((uint32_t)(0x20000000))
 
@@ -312,7 +311,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define DAC                              ((DAC_Type *) DAC_BASE)
 
 /** @defgroup DAC_exported_functions

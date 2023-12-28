@@ -437,7 +437,6 @@ typedef struct {
 #define RTC_FLT_2S                         TAMP_FLT(1)                                /*!< detecting tamper event using level mode.2 consecutive valid level samples will make a effective tamper event  */
 #define RTC_FLT_4S                         TAMP_FLT(2)                                /*!< detecting tamper event using level mode.4 consecutive valid level samples will make an effective tamper event */
 #define RTC_FLT_8S                         TAMP_FLT(3)                                /*!< detecting tamper event using level mode.8 consecutive valid level samples will make a effective tamper event  */
-
 #define TAMP_PRCH(regval)                  (BITS(13,14) & ((uint32_t)(regval) << 13)) /*!< write value to RTC_TAMP_PRCH bit field */
 #define RTC_PRCH_1C                        TAMP_PRCH(0)                               /*!< 1 RTC clock prechagre time before each sampling */
 #define RTC_PRCH_2C                        TAMP_PRCH(1)                               /*!< 2 RTC clock prechagre time before each sampling  */

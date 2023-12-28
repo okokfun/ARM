@@ -8,8 +8,8 @@
 ;*                      - 设置初始 SP
 ;*                      - 设置初始 PC == Reset_Handler
 ;*                      - 设置带有异常 ISR 地址的向量表条目
-;*                      - 配置系统时钟和安装在 STM324xG-EVAL 板上的外部 SRAM 用作数据存储器（可选，由用户启用）
-;*                      - 分支到 C 库中的 __main（最终调用 main()）。
+;*                      - 配置系统时钟和安装在 STM324xG-EVAL 板上的外部 SRAM 用作数据存储器(可选，由用户启用)
+;*                      - 分支到 C 库中的 __main(最终调用 main())。
 ;*                      复位后 CortexM4 处理器处于线程模式，优先级为 Privileged，栈设置为 Main。
 ;* <<< 在上下文菜单中使用配置向导 >>>   
 ;*******************************************************************************
@@ -28,7 +28,7 @@
 ; 
 ;*******************************************************************************
 
-; 为栈分配的内存量（以字节为单位）
+; 为栈分配的内存量(以字节为单位)
 ; 根据您的应用需求定制此值
 ; <h> 栈配置
 ;   <o> 栈大小 (in Bytes) <0x0-0xFFFFFFFF:8>
@@ -124,9 +124,9 @@ __Vectors       DCD     __initial_sp               ; 栈顶
                 DCD     RTC_Alarm_IRQHandler              ; RTC Alarm (A and B) through EXTI Line                  
                 DCD     OTG_FS_WKUP_IRQHandler            ; USB OTG FS Wakeup through EXTI line                        
                 DCD     TIM8_BRK_TIM12_IRQHandler         ; TIM8 Break and TIM12                  
-                DCD     TIM8_UP_TIM13_IRQHandler          ; TIM8 Update and TIM13                 
-                DCD     TIM8_TRG_COM_TIM14_IRQHandler     ; TIM8 Trigger and Commutation and TIM14
-                DCD     TIM8_CC_IRQHandler                ; TIM8 Capture Compare                                   
+                DCD     TIM8_UP_TIM13_IRQHandler          ; TIM8 更新 TIM13                 
+                DCD     TIM8_TRG_COM_TIM14_IRQHandler     ; TIM8 触发和通信与 TIM14
+                DCD     TIM8_CC_IRQHandler                ; TIM8 捕获比较                                 
                 DCD     DMA1_Stream7_IRQHandler           ; DMA1 Stream7                                           
                 DCD     FSMC_IRQHandler                   ; FSMC                                            
                 DCD     SDIO_IRQHandler                   ; SDIO                                            
@@ -152,8 +152,8 @@ __Vectors       DCD     __initial_sp               ; 栈顶
                 DCD     DMA2_Stream6_IRQHandler           ; DMA2 Stream 6                                   
                 DCD     DMA2_Stream7_IRQHandler           ; DMA2 Stream 7                                   
                 DCD     USART6_IRQHandler                 ; USART6                                           
-                DCD     I2C3_EV_IRQHandler                ; I2C3 event                                             
-                DCD     I2C3_ER_IRQHandler                ; I2C3 error                                             
+                DCD     I2C3_EV_IRQHandler                ; I2C3 事件                                             
+                DCD     I2C3_ER_IRQHandler                ; I2C3 错误                                             
                 DCD     OTG_HS_EP1_OUT_IRQHandler         ; USB OTG HS End Point 1 Out                      
                 DCD     OTG_HS_EP1_IN_IRQHandler          ; USB OTG HS End Point 1 In                       
                 DCD     OTG_HS_WKUP_IRQHandler            ; USB OTG HS Wakeup through EXTI                         
@@ -169,7 +169,7 @@ __Vectors_Size  EQU  __Vectors_End - __Vectors
 
                 AREA    |.text|, CODE, READONLY
 
-; Reset handler
+; 重置处理程序
 Reset_Handler    PROC
                  EXPORT  Reset_Handler             [WEAK]
         IMPORT  SystemInit
@@ -181,7 +181,7 @@ Reset_Handler    PROC
                  BX      R0
                  ENDP
 
-; 虚拟异常处理程序（可以修改的无限循环）
+; 虚拟异常处理程序(可以修改的无限循环)
 
 NMI_Handler     PROC
                 EXPORT  NMI_Handler                [WEAK]

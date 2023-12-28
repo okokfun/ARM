@@ -354,7 +354,6 @@ typedef struct {
 #define QSPI_FLAG_ROM_ACCESS_ERR                (QSPI_SR_RAER)  /*!< ROM access detection status in direct communication mode */
 #define QSPI_FLAG_PREFETCH_BUF_FULL             (QSPI_SR_PFFUL) /*!< Prefetch buffer is full                                  */
 #define QSPI_FLAG_PREFETCH_STOP                 (QSPI_SR_PFAN)  /*!< Prefetch function operating                              */
-
 #define QSPI_FLAG_ALL                           (QSPI_FLAG_DIRECT_COMM_BUSY | QSPI_FLAG_XIP_MD            | \
         QSPI_FLAG_ROM_ACCESS_ERR   | QSPI_FLAG_PREFETCH_BUF_FULL | \
         QSPI_FLAG_PREFETCH_STOP)

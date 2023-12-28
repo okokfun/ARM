@@ -46,7 +46,6 @@ extern "C" {
   * @brief dma interrupt
   * @{
   */
-
 #define DMA_FDT_INT                      ((uint32_t)0x00000002) /*!< dma full data transfer 中断 */
 #define DMA_HDT_INT                      ((uint32_t)0x00000004) /*!< dma half data transfer 中断 */
 #define DMA_DTERR_INT                    ((uint32_t)0x00000008) /*!< dma errorr 中断 */
@@ -59,7 +58,6 @@ extern "C" {
   * @brief edma flag
   * @{
   */
-
 #define DMA1_GL1_FLAG                    ((uint32_t)0x00000001) /*!< dma1 channel1 global flag */
 #define DMA1_FDT1_FLAG                   ((uint32_t)0x00000002) /*!< dma1 channel1 full data transfer flag */
 #define DMA1_HDT1_FLAG                   ((uint32_t)0x00000004) /*!< dma1 channel1 half data transfer flag */
@@ -647,7 +645,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define DMA1                             ((DMA_Type *) DMA1_BASE)
 #define DMA1_ChanneL1                    ((DMA_Channel_Type *) DMA1_ChanneL1_BASE)
 #define DMA1_ChanneL2                    ((DMA_Channel_Type *) DMA1_ChanneL2_BASE)

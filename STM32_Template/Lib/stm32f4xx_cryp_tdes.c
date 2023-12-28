@@ -83,14 +83,20 @@
 
 /**
   * 简介:  在 ECB 模式下使用 TDES 进行加密和解密。
+  * 
   * 参数:  Mode: 加密或解密模式。
   *           此参数可以是以下值之一:
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
+  * 
   * 参数:  Key: 用于TDES算法的密钥。
+  * 
   * 参数:  Ilength: 输入缓冲区的长度，必须是8的倍数。
+  * 
   * 参数:  Input: 指向输入缓冲区的指针。
+  * 
   * 参数:  Output: 指向返回缓冲区的指针。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: 操作已完成
   *          - ERROR: 操作失败
@@ -182,15 +188,22 @@ ErrorStatus CRYP_TDES_ECB(uint8_t Mode, uint8_t Key[24], uint8_t *Input,
 
 /**
   * 简介:  在 CBC 模式下使用 TDES 进行加密和解密。
+  * 
   * 参数:  Mode: 加密或解密模式。
   *           此参数可以是以下值之一:
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
+  * 
   * 参数:  Key: 用于TDES算法的密钥。
+  * 
   * 参数:  InitVectors: 用于TDES算法的初始化矢量。
+  * 
   * 参数:  Input: 指向输入缓冲区的指针。
+  * 
   * 参数:  Ilength: 输入缓冲区的长度，必须是8的倍数。
+  * 
   * 参数:  Output: 指向返回缓冲区的指针。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: 操作已完成
   *          - ERROR: 操作失败

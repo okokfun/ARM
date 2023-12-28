@@ -32,7 +32,7 @@ Stack_Mem       SPACE   Stack_Size
 __initial_sp
 
 
-; <h> Heap Configuration
+; <h> 堆配置
 ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ; </h>
 
@@ -53,24 +53,24 @@ __heap_limit
                 EXPORT  __Vectors_End
                 EXPORT  __Vectors_Size
 
-__Vectors       DCD     __initial_sp               ; Top of Stack
-                DCD     Reset_Handler              ; Reset Handler
-                DCD     NMI_Handler                ; NMI Handler
-                DCD     HardFault_Handler          ; Hard Fault Handler
-                DCD     MemManage_Handler          ; MPU Fault Handler
-                DCD     BusFault_Handler           ; Bus Fault Handler
-                DCD     UsageFault_Handler         ; Usage Fault Handler
-                DCD     0                          ; Reserved
-                DCD     0                          ; Reserved
-                DCD     0                          ; Reserved
-                DCD     0                          ; Reserved
-                DCD     SVC_Handler                ; SVCall Handler
-                DCD     DebugMon_Handler           ; Debug Monitor Handler
-                DCD     0                          ; Reserved
-                DCD     PendSV_Handler             ; PendSV Handler
-                DCD     SysTick_Handler            ; SysTick Handler
+__Vectors       DCD     __initial_sp               ; 栈顶
+                DCD     Reset_Handler              ; 重置处理程序
+                DCD     NMI_Handler                ; NMI 处理程序
+                DCD     HardFault_Handler          ; 硬故障处理程序
+                DCD     MemManage_Handler          ; MPU故障处理程序
+                DCD     BusFault_Handler           ; 总线故障处理程序
+                DCD     UsageFault_Handler         ; 使用故障处理程序
+                DCD     0                          ; 保留部分
+                DCD     0                          ; 保留部分
+                DCD     0                          ; 保留部分
+                DCD     0                          ; 保留部分
+                DCD     SVC_Handler                ; SVCall 处理程序
+                DCD     DebugMon_Handler           ; Debug Monitor 处理程序
+                DCD     0                          ; 保留部分
+                DCD     PendSV_Handler             ; PendSV 处理程序
+                DCD     SysTick_Handler            ; SysTick 处理程序
 
-                ; External Interrupts
+                ; 外部中断
                 DCD     UART0_Handler
                 DCD     UART1_Handler
                 DCD     TIMR0_Handler
@@ -181,7 +181,7 @@ Reset_Handler    PROC
                  BX      R0
                  ENDP
 
-; Dummy Exception Handlers (infinite loops which can be modified)
+; 伪异常处理程序(可以修改的无限循环)
 
 NMI_Handler     PROC
                 EXPORT  NMI_Handler                [WEAK]
@@ -682,7 +682,7 @@ QEI_Handler PROC
 
 
 ;*******************************************************************************
-; User Stack and Heap initialization
+; 用户栈和堆初始化
 ;*******************************************************************************
                 IF      :DEF:__MICROLIB
                 

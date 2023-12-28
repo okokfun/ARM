@@ -480,7 +480,7 @@ void OB_Erase(void) {
 
     if(FMC_READY == FMC_state) {
 
-        /* reset the OB_FWDGT, OB_DEEPSLEEP and OB_STDBY, set according to OB_fwdgt ,OB_deepsleep and OB_stdby */
+        /* reset the OB_FWDGT, OB_DEEPSLEEP and OB_STDBY, set 根据 OB_fwdgt ,OB_deepsleep and OB_stdby */
         reg |= (FMC_OBCTL0_NWDG_HW | FMC_OBCTL0_NRST_DPSLP | FMC_OBCTL0_NRST_STDBY);
         /* reset the BOR level */
         reg |= FMC_OBCTL0_Bor_TH;
@@ -664,7 +664,7 @@ void OB_security_Protection_Config(uint8_t OB_spc) {
         uint32_t reg;
 
         reg = FMC_OBCTL0;
-        /* reset the OBCTL0_SPC, set according to OB_spc */
+        /* reset the OBCTL0_SPC, set 根据 OB_spc */
         reg &= ~FMC_OBCTL0_SPC;
         reg |= ((uint32_t)OB_spc << 8U);
         FMC_OBCTL0 = reg;
@@ -698,7 +698,7 @@ void OB_User_Write(uint32_t OB_fwdgt, uint32_t OB_deepsleep, uint32_t OB_stdby) 
         uint32_t reg;
 
         reg = FMC_OBCTL0;
-        /* reset the OB_FWDGT, OB_DEEPSLEEP and OB_STDBY, set according to OB_fwdgt ,OB_deepsleep and OB_stdby */
+        /* reset the OB_FWDGT, OB_DEEPSLEEP and OB_STDBY, set 根据 OB_fwdgt ,OB_deepsleep and OB_stdby */
         reg &= ~(FMC_OBCTL0_NWDG_HW | FMC_OBCTL0_NRST_DPSLP | FMC_OBCTL0_NRST_STDBY);
         FMC_OBCTL0 = (reg | OB_fwdgt | OB_deepsleep | OB_stdby);
     }

@@ -389,7 +389,6 @@ typedef struct {
 /**
   * @brief  nand and pccard 定时参数 xmc
   */
-
 typedef struct {
     XMC_class_bank_Type                    class_bank;     /*!< xmc nand/pccard bank */
     uint32_t                               mem_Setup_time; /*!< xmc nand/pccard memory setup time */
@@ -401,7 +400,6 @@ typedef struct {
 /**
   * @brief  xmc nand init structure definition
   */
-
 typedef struct {
     XMC_class_bank_Type                    nand_bank;        /*!< xmc nand bank */
     XMC_NAND_PcCard_Wait_Type              wait_Enable;      /*!< xmc wait feature enable */
@@ -415,7 +413,6 @@ typedef struct {
 /**
   * @brief  xmc pccard init structure definition
   */
-
 typedef struct {
     XMC_NAND_PcCard_Wait_Type              enable_Wait;   /*!< xmc pccard wait feature enable */
     uint32_t                               delay_Time_cr; /*!< xmc pccard cle to re delay */
@@ -425,7 +422,6 @@ typedef struct {
 /**
   * @brief  xmc sdram init structure definition
   */
-
 typedef struct {
     XMC_SDRAM_bank_Type                    sdram_bank;       /*!< xmc sdram bank bype */
     XMC_SDRAM_inbk_Type                    internel_banks;   /*!< xmc sdram internal banks */
@@ -442,7 +438,6 @@ typedef struct {
 /**
   * @brief  xmc sdram timing structure definition
   */
-
 typedef struct {
     XMC_SDRAM_Delay_Type                   tmrd; /*!< mode register program to active delay  */
     XMC_SDRAM_Delay_Type                   txsr; /*!< exit self-refresh to active delay */
@@ -456,7 +451,6 @@ typedef struct {
 /**
   * @brief  xmc sdram command structure definition
   */
-
 typedef struct {
     XMC_Command_Type                       cmd;          /*!< sdram command */
     XMC_CMD_Bank1_2_Type                   cmd_banks;    /*!< which bank send command */
@@ -908,7 +902,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define XMC_BANK1                        ((XMC_Bank1_Type *) XMC_Bank1_REG_BASE)
 #define XMC_BANK2                        ((XMC_Bank2_Type *) XMC_Bank2_REG_BASE)
 #define XMC_BANK3                        ((XMC_bank3_Type *) XMC_BANK3_REG_BASE)

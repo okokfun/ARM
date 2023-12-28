@@ -42,7 +42,7 @@
       [..]
       每个 DAC 通道都集成了一个输出缓冲器，可用于降低输出阻抗，并直接驱动外部负载，而无需添加外部运算放大器。
       要启用，输出缓冲区使用
-       DAC_InitStructure.DAC_OutputBuffer = DAC_OutputBuffer_Enable；
+       DAC_InitStructure.DAC_OutputBuffer = DAC_OutputBuffer_Enable;
       [..]
       (@) 有关带和不带输出缓冲器的输出阻抗值的更多详细信息，请参阅器件数据表。
 
@@ -169,7 +169,9 @@
 
 /**
   * 简介:  用于将 DAC 配置设置为默认复位状态的函数
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void DAC_DeInit(void) {
@@ -181,11 +183,14 @@ void DAC_DeInit(void) {
 
 /**
   * 简介:  根据 DAC_InitStruct 中指定的参数初始化 DAC 外设。
+  * 
   * 参数:  DAC_Channel: 选定的DAC通道。
   *          此参数可以是以下值之一:
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
+  * 
   * 参数:  DAC_InitStruct: 指向 DAC_InitTypeDef 结构的指针，该结构包含了 包含指定DAC通道的配置信息。
+  * 
   * 返回值: 无
   */
 void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct) {
@@ -218,7 +223,9 @@ void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct) {
 
 /**
   * 简介:  用默认值填充每个 DAC_InitStruct 成员。
+  * 
   * 参数:  DAC_InitStruct: 指向DAC_InitTypeDef结构的指针，该结构将被初始化。
+  * 
   * 返回值: 无
   */
 void DAC_StructInit(DAC_InitTypeDef* DAC_InitStruct) {
@@ -235,13 +242,17 @@ void DAC_StructInit(DAC_InitTypeDef* DAC_InitStruct) {
 
 /**
   * 简介:  启用或停用指定的DAC通道。
+  * 
   * 参数:  DAC_Channel: 选定的DAC通道。
   *          此参数可以是以下值之一:
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
+  * 
   * 参数:  NewState: DAC通道的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 注意:   当DAC通道被启用时，触发源就不能再被修改。
+  * 
   * 返回值: 无
   */
 void DAC_Cmd(uint32_t DAC_Channel, FunctionalState NewState) {
@@ -260,12 +271,15 @@ void DAC_Cmd(uint32_t DAC_Channel, FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用选定的DAC通道软件触发。
+  * 
   * 参数:  DAC_Channel: 选定的DAC通道。
   *          此参数可以是以下值之一:
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
+  * 
   * 参数:  NewState: 所选DAC通道软件触发的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DAC_SoftwareTriggerCmd(uint32_t DAC_Channel, FunctionalState NewState) {
@@ -284,8 +298,10 @@ void DAC_SoftwareTriggerCmd(uint32_t DAC_Channel, FunctionalState NewState) {
 
 /**
   * 简介:  同时启用或禁用两个 DAC 通道软件触发。
+  * 
   * 参数:  NewState: DAC通道的新状态的软件触发。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DAC_DualSoftwareTriggerCmd(FunctionalState NewState) {
@@ -303,16 +319,20 @@ void DAC_DualSoftwareTriggerCmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用选定的 DAC 通道波形生成。
+  * 
   * 参数:  DAC_Channel: 选定的DAC通道。
   *          此参数可以是以下值之一:
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
+  * 
   * 参数:  DAC_Wave: 指定要启用或禁用的波浪类型。
   *          此参数可以是以下值之一:
   *            @arg DAC_Wave_Noise: 噪声波的产生
   *            @arg DAC_Wave_Triangle: 三角波生成
+  * 
   * 参数:  NewState: 选定的DAC通道波形生成的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DAC_WaveGenerationCmd(uint32_t DAC_Channel, uint32_t DAC_Wave, FunctionalState NewState) {
@@ -332,12 +352,15 @@ void DAC_WaveGenerationCmd(uint32_t DAC_Channel, uint32_t DAC_Wave, FunctionalSt
 
 /**
   * 简介:  为 DAC 通道 1 设置指定的数据保持寄存器值。
+  * 
   * 参数:  DAC_Align: 指定DAC通道1的数据排列。
   *          此参数可以是以下值之一:
   *            @arg DAC_Align_8b_R: 选择8位右侧数据对齐
   *            @arg DAC_Align_12b_L: 选择了12位的左边数据排列
   *            @arg DAC_Align_12b_R: 选择了12位的右边数据排列
+  * 
   * 参数:  Data: 要加载到选定的数据保持寄存器中的数据。
+  * 
   * 返回值: 无
   */
 void DAC_SetChannel1Data(uint32_t DAC_Align, uint16_t Data) {
@@ -356,12 +379,15 @@ void DAC_SetChannel1Data(uint32_t DAC_Align, uint16_t Data) {
 
 /**
   * 简介:  为 DAC 通道 2 设置指定的数据保持寄存器值。
+  * 
   * 参数:  DAC_Align: 指定DAC通道2的数据排列。
   *          此参数可以是以下值之一:
   *            @arg DAC_Align_8b_R: 选择8位右侧数据对齐
   *            @arg DAC_Align_12b_L: 选择了12位的左边数据排列
   *            @arg DAC_Align_12b_R: 选择了12位的右边数据排列
+  * 
   * 参数:  Data: 要加载到选定的数据保持寄存器中的数据。
+  * 
   * 返回值: 无
   */
 void DAC_SetChannel2Data(uint32_t DAC_Align, uint16_t Data) {
@@ -380,14 +406,19 @@ void DAC_SetChannel2Data(uint32_t DAC_Align, uint16_t Data) {
 
 /**
   * 简介:  为双通道 DAC 设置指定的数据保持寄存器值。
+  * 
   * 参数:  DAC_Align: 指定双通道DAC的数据排列。
   *          此参数可以是以下值之一:
   *            @arg DAC_Align_8b_R: 选择8位右侧数据对齐
   *            @arg DAC_Align_12b_L: 选择了12位的左边数据排列
   *            @arg DAC_Align_12b_R: 选择了12位的右边数据排列
+  * 
   * 参数:  Data2: 将DAC通道2的数据加载到选定的数据保持寄存器中。
+  * 
   * 参数:  Data1: 将DAC通道1的数据加载到选定的数据保持寄存器中。
+  * 
   * 注意:   在双模式下，需要一个独特的寄存器访问，以同时写入两个DAC通道。
+  * 
   * 返回值: 无
   */
 void DAC_SetDualChannelData(uint32_t DAC_Align, uint16_t Data2, uint16_t Data1) {
@@ -414,10 +445,12 @@ void DAC_SetDualChannelData(uint32_t DAC_Align, uint16_t Data2, uint16_t Data1) 
 
 /**
   * 简介:  返回所选 DAC 通道的最后一个数据输出值。
+  * 
   * 参数:  DAC_Channel: 选定的DAC通道。
   *          此参数可以是以下值之一:
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
+  * 
   * 返回值: 选定的DAC通道数据输出值。
   */
 uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
@@ -450,16 +483,22 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
 
 /**
   * 简介:  启用或禁用指定的 DAC 通道 DMA 请求。
+  * 
   * 注意:   当启用时，当外部触发(EXTI Line9、TIM2、TIM4、TIM5、TIM6、TIM7或TIM8，
   *         但不是软件触发)发生时产生DMA1。
+  * 
   * 参数:  DAC_Channel: 选定的DAC通道。
   *          此参数可以是以下值之一:
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
+  * 
   * 参数:  NewState: 所选DAC通道DMA请求的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 注意:   DAC通道1被映射到DMA1流5通道7上，该通道必须已经被配置。
+  * 
   * 注意:   DAC通道2被映射到DMA1流6通道7上，该通道必须已经被配置。
+  * 
   * 返回值: 无
   */
 void DAC_DMACmd(uint32_t DAC_Channel, FunctionalState NewState) {
@@ -493,16 +532,21 @@ void DAC_DMACmd(uint32_t DAC_Channel, FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用指定的 DAC 中断。
+  * 
   * 参数:  DAC_Channel: 选定的DAC通道。
   *          此参数可以是以下值之一:
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
+  * 
   * 参数:  DAC_IT: 指定要启用或禁用的DAC中断源。
   *          这个参数可以是以下值。
   *            @arg DAC_IT_DMAUDR: DMA欠运行中断掩码
+  * 
   * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
+  * 
   * 参数:  NewState: 指定 DAC 中断的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DAC_ITConfig(uint32_t DAC_Channel, uint32_t DAC_IT, FunctionalState NewState) {
@@ -522,14 +566,18 @@ void DAC_ITConfig(uint32_t DAC_Channel, uint32_t DAC_IT, FunctionalState NewStat
 
 /**
   * 简介:  检查是否设置了指定的 DAC 标志。
+  * 
   * 参数:  DAC_Channel: 选定的DAC通道。
   *          此参数可以是以下值之一:
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
+  * 
   * 参数:  DAC_FLAG: 指定要检查的标志。
   *          该参数只能是以下值:
   *            @arg DAC_FLAG_DMAUDR: DMA欠载标志
+  * 
   * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
+  * 
   * 返回值: DAC_FLAG的新状态(SET或RESET)。
   */
 FlagStatus DAC_GetFlagStatus(uint32_t DAC_Channel, uint32_t DAC_FLAG) {
@@ -553,14 +601,18 @@ FlagStatus DAC_GetFlagStatus(uint32_t DAC_Channel, uint32_t DAC_FLAG) {
 
 /**
   * 简介:  清除 DAC 通道的挂起标志。
+  * 
   * 参数:  DAC_Channel: 选定的DAC通道。
   *          此参数可以是以下值之一:
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
+  * 
   * 参数:  DAC_FLAG: 指定要清除的标志。
   *          这个参数可以是以下值:
   *            @arg DAC_FLAG_DMAUDR: DMA欠载标志
+  * 
   * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
+  * 
   * 返回值: 无
   */
 void DAC_ClearFlag(uint32_t DAC_Channel, uint32_t DAC_FLAG) {
@@ -574,14 +626,18 @@ void DAC_ClearFlag(uint32_t DAC_Channel, uint32_t DAC_FLAG) {
 
 /**
   * 简介:  检查是否发生了指定的 DAC 中断。
+  * 
   * 参数:  DAC_Channel: 选定的DAC通道。
   *          此参数可以是以下值之一:
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
+  * 
   * 参数:  DAC_IT: 指定要检查的DAC中断源。
   *          这个参数可以是以下值。
   *            @arg DAC_IT_DMAUDR: DMA欠运行中断掩码
+  * 
   * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
+  * 
   * 返回值: DAC_IT的新状态(SET或RESET)。
   */
 ITStatus DAC_GetITStatus(uint32_t DAC_Channel, uint32_t DAC_IT) {
@@ -610,14 +666,18 @@ ITStatus DAC_GetITStatus(uint32_t DAC_Channel, uint32_t DAC_IT) {
 
 /**
   * 简介:  清除 DAC 通道的中断挂起位。
+  * 
   * 参数:  DAC_Channel: 选定的DAC通道。
   *          此参数可以是以下值之一:
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
+  * 
   * 参数:  DAC_IT: 指定要清除的DAC中断等待位。
   *          这个参数可以是以下值。
   *            @arg DAC_IT_DMAUDR: DMA欠运行中断掩码
+  * 
   * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
+  * 
   * 返回值: 无
   */
 void DAC_ClearITPendingBit(uint32_t DAC_Channel, uint32_t DAC_IT) {

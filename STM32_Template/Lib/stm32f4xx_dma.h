@@ -49,7 +49,6 @@ extern "C" {
 /**
   * 简介:  DMA Init structure definition
   */
-
 typedef struct {
     uint32_t DMA_Channel;            /*!< 指定用于指定流的通道。
                                         该参数可以是@ref DMA_channel 的值 */
@@ -106,7 +105,6 @@ typedef struct {
 /** @defgroup DMA_Exported_Constants
   * @{
   */
-
 #define IS_DMA_ALL_PERIPH(PERIPH) (((PERIPH) == DMA1_Stream0) || \
                                    ((PERIPH) == DMA1_Stream1) || \
                                    ((PERIPH) == DMA1_Stream2) || \

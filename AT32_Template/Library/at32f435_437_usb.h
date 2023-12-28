@@ -46,7 +46,6 @@ extern "C" {
   * @brief usb global interrupt mask
   * @{
   */
-
 #define USB_OTG_ModeMIS_INT              ((uint32_t)0x00000002) /*!< usb otg mode mismatch 中断 */
 #define USB_OTG_OTGINT_INT               ((uint32_t)0x00000004) /*!< usb otg 中断 */
 #define USB_OTG_SOF_INT                  ((uint32_t)0x00000008) /*!< usb otg sof 中断 */
@@ -79,7 +78,6 @@ extern "C" {
   * @brief usb global interrupt flag
   * @{
   */
-
 #define USB_OTG_CURMODE                  ((uint32_t)0x00000001) /*!< usb otg current mode */
 #define USB_OTG_ModeMIS_FLAG             ((uint32_t)0x00000002) /*!< usb otg mode mismatch flag */
 #define USB_OTG_OTGINT_FLAG              ((uint32_t)0x00000004) /*!< usb otg flag */

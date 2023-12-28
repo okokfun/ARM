@@ -31,20 +31,20 @@
         VBAT引脚可以连接到电池或其他电源提供的可选备用电压。
 
  [..] 为了使RTC即使在主数字电源(VDD)关闭时也能运行，VBAT引脚为以下模块供电:
-        (#)RTC
-        (#)LSE振荡器
-        (#)启用低功率备用调节器时的备用SRAM
-        (#)PC13到PC15 I/O，加上PI8 I/O(如果可用)
+        (#) RTC
+        (#) LSE振荡器
+        (#) 启用低功率备用调节器时的备用SRAM
+        (#) PC13到PC15 I/O，加上PI8 I/O(如果可用)
 
  [..] 当备份域由VDD(连接到VDD的模拟交换机)提供时，以下功能可用:
-        (#)PC14和PC15可用作GPIO或LSE引脚
-        (#)PC13可用作GPIO或RTC_AF1引脚
-        (#)PI8可用作GPIO或RTC_AF2引脚
+        (#) PC14和PC15可用作GPIO或LSE引脚
+        (#) PC13可用作GPIO或RTC_AF1引脚
+        (#) PI8可用作GPIO或RTC_AF2引脚
 
  [..] 当备份域由VBAT(由于VDD不存在而连接到VBAT的模拟交换机)提供时，以下功能可用:
-        (#)PC14和PC15只能用作LSE引脚
-        (#)PC13可用作RTC_AF1引脚
-        (#)PI8可用作RTC_AF2引脚
+        (#) PC14和PC15只能用作LSE引脚
+        (#) PC13可用作RTC_AF1引脚
+        (#) PI8可用作RTC_AF2引脚
 
 
                    ##### 备份域重置 #####
@@ -132,7 +132,7 @@
     (+) 使用RTC_TamperCmd()函数启用RTC篡改。
     (+) 使用RTC_TamperFilterConfig()函数配置篡改过滤器计数。
     (+) 使用RTC_TamperConfig()函数，根据Tamper过滤器(如果等于0 Edge else Level)
-		值配置RTC Tamper触发器Edge或Level。
+		    值配置RTC Tamper触发器Edge或Level。
     (+) 使用RTC_TamperSamplingFreqConfig()函数配置篡改采样频率。
     (+) 使用RTC_TamperPinsPrechargeDuration()函数配置篡改预充电或放电持续时间。
     (+) 使用RTC_TamperPullUpDisableCmd()函数启用Tamper Pull-UP。
@@ -151,14 +151,14 @@
  ===================================================================
  [..] MCU可以通过RTC替代功能从低功耗模式唤醒。
  [..] RTC替代功能包括RTC警报(警报A和警报B)、RTC唤醒、RTC篡改事件检测和RTC时间戳事件检测。
-      这些RTC备用功能可将系统从停止和备用低功率模式唤醒。
+      这些RTC复用功能可将系统从停止和备用低功率模式唤醒。
  [..] 通过使用RTC警报或RTC唤醒事件，系统也可以从低功耗模式中唤醒，
       而不依赖于外部中断(自动唤醒模式)。
  [..] RTC提供了一个可编程的时基，用于定期从停止或待机模式中唤醒。
       只有当RTC时钟源为LSE或LSI时，才能从STOP和Standby模式唤醒。
 
 
-          ##### RTC_AF1备用功能的选择 #####
+          ##### RTC_AF1复用功能的选择 #####
  ===================================================================
  [..] RTC_AF1引脚(PC13)可用于以下目的:
    (+) AFO_ALARM output
@@ -195,7 +195,7 @@
    +-------------------------------------------------------------------------------------------------------------+
 
 
-        #####  RTC_AF2备用功能的选择 #####
+        #####  RTC_AF2复用功能的选择 #####
  ===================================================================
  [..] RTC_AF2引脚(PI8)可用于以下目的:
    (+) AFI_TAMPER
@@ -296,7 +296,7 @@ static uint8_t RTC_Bcd2ToByte(uint8_t Value);
  [..] 本节提供的功能允许初始化和配置RTC预分频器(同步和异步)、RTC小时格式、
       禁用RTC寄存器写保护、进入和退出RTC初始化模式、RTC寄存器同步检查和基准时钟检测启用。
 
-   (#) RTC预分频器被编程为生成RTC 1Hz时基。它分为2个可编程预分频器，以最小化功耗。
+   (#) RTC 预分频器被编程为生成RTC 1Hz时基。它分为2个可编程预分频器，以最小化功耗。
        (++) 一个7位异步预分频器和一个13位同步预分频器。
        (++) 当两个预分频器都使用时，建议将异步预分频器配置为高值，以减少消耗。
 
@@ -317,7 +317,9 @@ static uint8_t RTC_Bcd2ToByte(uint8_t Value);
 /**
   * 简介:  将 RTC 寄存器去初始化为其默认复位值。
   * 注意:   这个功能并不重置RTC时钟源和RTC备份数据寄存器。
+  * 
   * 参数:  无
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC寄存器被取消初始化
   *          - ERROR: RTC寄存器没有被反初始化
@@ -384,8 +386,10 @@ ErrorStatus RTC_DeInit(void) {
 
 /**
   * 简介:  根据RTC_InitStruct中指定的参数初始化 RTC 寄存器。
+  * 
   * 参数:  RTC_InitStruct: 指向包含RTC外设设备配置信息的RTC_InitTypeDef结构的指针。
   * 注意:   RTC预分频器寄存器有写保护，只能在初始化模式下写入。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC寄存器已初始化
   *          - ERROR: RTC寄存器未初始化
@@ -429,7 +433,9 @@ ErrorStatus RTC_Init(RTC_InitTypeDef* RTC_InitStruct) {
 
 /**
   * 简介:  用其默认值填充每个RTC_InitStruct成员。
+  * 
   * 参数:  RTC_InitStruct: 指向将被初始化的RTC_InitTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void RTC_StructInit(RTC_InitTypeDef* RTC_InitStruct) {
@@ -448,8 +454,10 @@ void RTC_StructInit(RTC_InitTypeDef* RTC_InitStruct) {
   * 注意:   除了RTC_ISR[13:8]、RTC_TAFCR和RTC_BKPxR之外，所有的RTC寄存器都有写保护。
   * 注意:   写错的键会重新激活写保护。
   * 注意:   保护机制不受系统重置的影响。
+  * 
   * 参数:  NewState: 写保护的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void RTC_WriteProtectionCmd(FunctionalState NewState) {
@@ -468,8 +476,11 @@ void RTC_WriteProtectionCmd(FunctionalState NewState) {
 
 /**
   * 简介:  进入 RTC 初始化模式。
+  * 
   * 注意:   RTC初始化模式是受写保护的，在调用此函数前请使用RTC_WriteProtectionCmd(DISABLE)。
+  * 
   * 参数:  无
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC处于初始模式
   *          - ERROR: RTC不在初始模式下
@@ -504,8 +515,10 @@ ErrorStatus RTC_EnterInitMode(void) {
 
 /**
   * 简介:  退出 RTC 初始化模式。
+  * 
   * 注意:   当初始化序列完成后，日历在4个RTCCLK周期后重新开始计数。
   * 注意:   RTC初始化模式是受写保护的，在调用此函数前请使用RTC_WriteProtectionCmd(DISABLE)。
+  * 
   * 参数:  无
   * 返回值: 无
   */
@@ -516,11 +529,15 @@ void RTC_ExitInitMode(void) {
 
 /**
   * 简介:  等到 RTC 时间和日期寄存器(RTC_TR和RTC_DR)与 RTC APB 时钟同步。
+  * 
   * 注意:   RTC重新同步模式是受写保护的，在调用此函数前请使用RTC_WriteProtectionCmd(DISABLE)。
+  * 
   * 注意:   在日历初始化、日历更新或从低功耗模式唤醒后，要通过影子寄存器读取日历，软件必须首先清除RSF标志。
   *         然后，软件必须等到它再次被设置后才能读取日历，这意味着日历寄存器已经被正确地
   *         复制到RTC_TR和RTC_DR影子寄存器中。
+  * 
   * 参数:  无
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC寄存器同步
   *          - ERROR: RTC寄存器不同步
@@ -557,8 +574,10 @@ ErrorStatus RTC_WaitForSynchro(void) {
 
 /**
   * 简介:  启用或禁用RTC参考时钟检测。
+  * 
   * 参数:  NewState: RTC基准时钟的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC参考时钟检测已启用
   *          - ERROR: RTC参考时钟检测被禁用
@@ -599,9 +618,12 @@ ErrorStatus RTC_RefClockCmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用旁路阴影功能。
+  * 
   * 注意:   启用旁路阴影时，日历值直接从日历计数器中获取。
+  * 
   * 参数:  NewState: 旁路阴影功能的新状态。
   *         此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
 */
 void RTC_BypassShadowCmd(FunctionalState NewState) {
@@ -644,11 +666,14 @@ void RTC_BypassShadowCmd(FunctionalState NewState) {
 
 /**
   * 简介:  设置 RTC 当前时间。
+  * 
   * 参数:  RTC_Format: 指定输入参数的格式。
   *          该参数可以是以下值之一:
   *            @arg RTC_Format_BIN:  二进制数据格式
   *            @arg RTC_Format_BCD:  BCD数据格式
+  * 
   * 参数:  RTC_TimeStruct: 指向RTC_TimeTypeDef结构的指针，该结构包含RTC的时间配置信息。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC时间寄存器已被配置
   *          - ERROR: RTC时间寄存器没有配置
@@ -732,7 +757,9 @@ ErrorStatus RTC_SetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct) {
 
 /**
   * 简介:  用默认值填充每个RTC_TimeStruct成员(时间 = 00h:00min:00sec)。
+  * 
   * 参数:  RTC_TimeStruct: 指向将被初始化的RTC_TimeTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void RTC_TimeStructInit(RTC_TimeTypeDef* RTC_TimeStruct) {
@@ -745,11 +772,15 @@ void RTC_TimeStructInit(RTC_TimeTypeDef* RTC_TimeStruct) {
 
 /**
   * 简介:  获取 RTC 当前时间。
+  * 
   * 参数:  RTC_Format: 指定返回参数的格式。
   *          该参数可以是以下值之一:
   *            @arg RTC_Format_BIN:  二进制数据格式
   *            @arg RTC_Format_BCD:  BCD数据格式
-  * 参数:  RTC_TimeStruct: 指向RTC_TimeTypeDef结构的指针，该结构将包含返回的当前时间配置。
+  * 
+  * 参数:  RTC_TimeStruct: 指向RTC_TimeTypeDef结构的指针，
+  *                        该结构将包含返回的当前时间配置。
+  * 
   * 返回值: 无
   */
 void RTC_GetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct) {
@@ -778,8 +809,11 @@ void RTC_GetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct) {
 
 /**
   * 简介:  获取 RTC 当前日历子秒值。
-  * 注意:   此功能在读取SSR寄存器后冻结时间和日期寄存器。
+  * 
+  * 注意:   此函数在读取SSR寄存器后冻结时间和日期寄存器。
+  * 
   * 参数:  无
+  * 
   * 返回值: RTC当前日历子秒值。
   */
 uint32_t RTC_GetSubSecond(void) {
@@ -796,11 +830,14 @@ uint32_t RTC_GetSubSecond(void) {
 
 /**
   * 简介:  设置 RTC 当前日期。
+  * 
   * 参数:  RTC_Format: 指定输入参数的格式。
   *          该参数可以是以下值之一:
   *            @arg RTC_Format_BIN:  二进制数据格式
   *            @arg RTC_Format_BCD:  BCD数据格式
+  * 
   * 参数:  RTC_DateStruct: 指向包含RTC日期配置信息的RTC_DateTypeDef结构的指针。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC日期寄存器已配置
   *          - ERROR: RTC日期寄存器未配置
@@ -877,7 +914,9 @@ ErrorStatus RTC_SetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct) {
 
 /**
   * 简介:  用默认值填充每个RTC_DateStruct成员(星期一，一月 01 xx00)。
+  * 
   * 参数:  RTC_DateStruct: 指向将被初始化的RTC_DateTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void RTC_DateStructInit(RTC_DateTypeDef* RTC_DateStruct) {
@@ -888,13 +927,16 @@ void RTC_DateStructInit(RTC_DateTypeDef* RTC_DateStruct) {
     RTC_DateStruct->RTC_Year = 0;
 }
 
-/** 获取 RTC 当前日期。
+/** 
   * 简介:  获取RTC当前日期.
+  * 
   * 参数:  RTC_Format: 指定返回参数的格式。
   *          此参数可以是以下值之一:
   *            @arg RTC_Format_BIN:二进制数据格式
   *            @arg RTC_Format_BCD:BCD数据格式
+  * 
   * 参数: RTC_DateStruct: 指向RTC_DateTypeDef结构的指针，该结构将包含返回的当前日期配置。
+  * 
   * 返回值: 无
   */
 void RTC_GetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct) {
@@ -941,16 +983,21 @@ void RTC_GetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct) {
 
 /**
   * 简介:  设置指定的 RTC 警报。
+  * 
   * 注意:   只有在禁用相应的报警时才能写入报警寄存器(使用RTC_AlarmCmd(DISABLE))。
+  * 
   * 参数:  RTC_Format: 指定返回参数的格式。
   *          此参数可以是以下值之一:
   *            @arg RTC_Format_BIN:二进制数据格式
   *            @arg RTC_Format_BCD:BCD数据格式
+  * 
   * 参数:  RTC_Alarm: 指定要配置的报警。
   *          此参数可以是以下值之一:
   *            @arg RTC_Alarm_A: 选择报警A
   *            @arg RTC_Alarm_B: 选择报警B
-  * 参数:  RTC_AlarmStruct: 指向包含报警配置参数的RTC_AlarmTypeDef结构的指针。
+  * 
+  * 参数:  RTC_AlarmStruct: 指向包含报警配置参数的 RTC_AlarmTypeDef 结构的指针。
+  * 
   * 返回值: 无
   */
 void RTC_SetAlarm(uint32_t RTC_Format, uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC_AlarmStruct) {
@@ -1038,7 +1085,9 @@ void RTC_SetAlarm(uint32_t RTC_Format, uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC
 /**
   * 简介:  用默认值填充每个RTC_AlarmStruct成员(时间 = 00h:00mn:00sec /
   *        日期 = 该月的第一天/掩码 = 所有字段都被屏蔽)。
+  * 
   * 参数:  RTC_AlarmStruct: 指向将被初始化的@ref RTC_AlarmTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void RTC_AlarmStructInit(RTC_AlarmTypeDef* RTC_AlarmStruct) {
@@ -1058,15 +1107,19 @@ void RTC_AlarmStructInit(RTC_AlarmTypeDef* RTC_AlarmStruct) {
 
 /**
   * 简介:  获取 RTC 警报值和掩码。
+  * 
   * 参数:  RTC_Format: 指定输出参数的格式。
   *          此参数可以是以下值之一:
   *            @arg RTC_Format_BIN:二进制数据格式
   *            @arg RTC_Format_BCD:BCD数据格式
+  * 
   * 参数:  RTC_Alarm: 指定要读取的报警。
   *          此参数可以是以下值之一:
   *            @arg RTC_Alarm_A: 选择报警A
   *            @arg RTC_Alarm_B: 选择报警B
+  * 
   * 参数:  RTC_AlarmStruct: 指向包含输出报警配置值的RTC_AlarmTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void RTC_GetAlarm(uint32_t RTC_Format, uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC_AlarmStruct) {
@@ -1108,12 +1161,15 @@ void RTC_GetAlarm(uint32_t RTC_Format, uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC
 
 /**
   * 简介:  启用或禁用指定的 RTC 警报。
+  * 
   * 参数:  RTC_Alarm: 指定要配置的报警。
   *          此参数可以是以下值的任意组合:
   *            @arg RTC_Alarm_A: 选择报警A
   *            @arg RTC_Alarm_B: 选择报警B
+  * 
   * 参数:  NewState: 指定报警的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC警报已启用/禁用
   *          - ERROR: RTC警报未启用/禁用
@@ -1161,13 +1217,17 @@ ErrorStatus RTC_AlarmCmd(uint32_t RTC_Alarm, FunctionalState NewState) {
 
 /**
   * 简介:  配置 RTC 警报A/B 子秒值和掩码。
+  * 
   * 注意:   这个功能只有在报警器被禁用时才会执行。
+  * 
   * 参数:  RTC_Alarm: 指定要配置的报警。
   *   此参数可以是以下值之一:
   *     @arg RTC_Alarm_A: 选择报警A
   *     @arg RTC_Alarm_B: 选择报警B
+  * 
   * 参数:  RTC_AlarmSubSecondValue: 指定子秒值。
   *   此参数可以是0到0x00007FFF之间的值。
+  * 
   * 参数:  RTC_AlarmSubSecondMask:  指定子秒屏蔽。
   *   此参数可以是以下值的任意组合:
   *     @arg RTC_AlarmSubSecondMask_All    : 所有的报警SS字段都被屏蔽了。
@@ -1201,6 +1261,7 @@ ErrorStatus RTC_AlarmCmd(uint32_t RTC_Alarm, FunctionalState NewState) {
   *     @arg RTC_AlarmSubSecondMask_SS14   : SS[14]在报警器比较中是不关心的。
   *                                          只有SS[13:0]被比较
   *     @arg RTC_AlarmSubSecondMask_None   : SS[14:0]被比较，必须匹配才能激活报警。
+  * 
   * 返回值: 无
   */
 void RTC_AlarmSubSecondConfig(uint32_t RTC_Alarm, uint32_t RTC_AlarmSubSecondValue, uint32_t RTC_AlarmSubSecondMask) {
@@ -1233,11 +1294,14 @@ void RTC_AlarmSubSecondConfig(uint32_t RTC_Alarm, uint32_t RTC_AlarmSubSecondVal
 
 /**
   * 简介:  获取 RTC 警报子秒值。
+  * 
   * 参数:  RTC_Alarm: 指定要读取的报警。
   *   此参数可以是以下值之一:
   *     @arg RTC_Alarm_A: 选择报警A
   *     @arg RTC_Alarm_B: 选择报警B
+  * 
   * 参数:  无
+  * 
   * 返回值: RTC报警子秒值。
   */
 uint32_t RTC_GetAlarmSubSecond(uint32_t RTC_Alarm) {
@@ -1273,7 +1337,9 @@ uint32_t RTC_GetAlarmSubSecond(uint32_t RTC_Alarm) {
 
 /**
   * 简介:  配置 RTC 唤醒时钟源。
+  * 
   * 注意:   只有在禁用RTC唤醒时才能更改唤醒时钟源(使用RTC_WakeUpCmd(DISABLE))。
+  * 
   * 参数:  RTC_WakeUpClock: 唤醒时钟源。
   *          此参数可以是以下值之一:
   *            @arg RTC_WakeUpClock_RTCCLK_Div16: RTC唤醒计数器时钟 = RTCCLK/16
@@ -1282,6 +1348,7 @@ uint32_t RTC_GetAlarmSubSecond(uint32_t RTC_Alarm) {
   *            @arg RTC_WakeUpClock_RTCCLK_Div2: RTC唤醒计数器时钟 = RTCCLK/2
   *            @arg RTC_WakeUpClock_CK_SPRE_16bits: RTC唤醒计数器时钟 = CK_SPRE
   *            @arg RTC_WakeUpClock_CK_SPRE_17bits: RTC唤醒计数器时钟 = CK_SPRE
+  * 
   * 返回值: 无
   */
 void RTC_WakeUpClockConfig(uint32_t RTC_WakeUpClock) {
@@ -1304,9 +1371,12 @@ void RTC_WakeUpClockConfig(uint32_t RTC_WakeUpClock) {
 
 /**
   * 简介:  配置RTC唤醒计数器。
-  * 注意:   RTC WakeUp计数器只能在禁用RTC WakeUp时写入（使用RTC_WakeUpCmd（DISABLE））。
+  * 
+  * 注意:   RTC WakeUp计数器只能在禁用RTC WakeUp时写入(使用RTC_WakeUpCmd(DISABLE))。
+  * 
   * 参数:  RTC_WakeUpCounter: 指定唤醒计数器.
   *          此参数可以是0x0000到0xFFFF之间的值。
+  * 
   * 返回值: 无
   */
 void RTC_SetWakeUpCounter(uint32_t RTC_WakeUpCounter) {
@@ -1326,7 +1396,9 @@ void RTC_SetWakeUpCounter(uint32_t RTC_WakeUpCounter) {
 
 /**
   * 简介:  返回RTC唤醒计时器计数器值。
+  * 
   * 参数:  无
+  * 
   * 返回值: RTC唤醒计数器值。
   */
 uint32_t RTC_GetWakeUpCounter(void) {
@@ -1336,8 +1408,10 @@ uint32_t RTC_GetWakeUpCounter(void) {
 
 /**
   * 简介:  启用或禁用RTC 唤醒计数器.
+  * 
   * 参数:  NewState: 新状态-> WakeUp timer.
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 ErrorStatus RTC_WakeUpCmd(FunctionalState NewState) {
@@ -1399,14 +1473,17 @@ ErrorStatus RTC_WakeUpCmd(FunctionalState NewState) {
 
 /**
   * 简介:  从当前时间相加或减去一小时。
+  * 
   * 参数:  RTC_DayLightSaveOperation: 小时调整值。
   *          此参数可以是以下值之一:
   *            @arg RTC_DayLightSaving_SUB1H: Substract one hour (winter time)
   *            @arg RTC_DayLightSaving_ADD1H: Add one hour (summer time)
+  * 
   * 参数:  RTC_StoreOperation: 指定要写入CR寄存器BCK位以存储操作的值。
   *          此参数可以是以下值之一:
   *            @arg RTC_StoreOperation_Reset: BCK位重置
   *            @arg RTC_StoreOperation_Set: BCK Bit Set
+  * 
   * 返回值: 无
   */
 void RTC_DayLightSavingConfig(uint32_t RTC_DayLightSaving, uint32_t RTC_StoreOperation) {
@@ -1430,7 +1507,9 @@ void RTC_DayLightSavingConfig(uint32_t RTC_DayLightSaving, uint32_t RTC_StoreOpe
 
 /**
   * 简介:  返回RTC日间节能存储操作。
+  * 
   * 参数:  无
+  * 
   * 返回值: RTC日间节能存储操作。
   *          - RTC_StoreOperation_Reset
   *          - RTC_StoreOperation_Set
@@ -1459,16 +1538,19 @@ uint32_t RTC_GetStoreOperation(void) {
 
 /**
   * 简介:  配置 RTC 输出源 (AFO_ALARM)。
+  * 
   * 参数:  RTC_Output: 指定将路由到RTC输出的信号。
   *          此参数可以是以下值之一:
   *            @arg RTC_Output_Disable: 未选择输出
   *            @arg RTC_Output_AlarmA: 映射到输出的AlarmA信号
   *            @arg RTC_Output_AlarmB: 映射到输出的AlarmB信号
   *            @arg RTC_Output_WakeUp: 映射到输出的唤醒信号
+  * 
   * 参数:  RTC_OutputPolarity: 指定输出信号的极性。
   *          此参数可以是以下参数之一:
   *            @arg RTC_OutputPolarity_High: 当ALRAF/ALRBF/WUTF高时，输出引脚高(取决于OSEL)
   *            @arg RTC_OutputPolarity_Low: 当ALRAF/ALRBF/WUTF高时，输出引脚低(取决于OSEL)
+  * 
   * 返回值: 无
   */
 void RTC_OutputConfig(uint32_t RTC_Output, uint32_t RTC_OutputPolarity) {
@@ -1508,10 +1590,12 @@ void RTC_OutputConfig(uint32_t RTC_Output, uint32_t RTC_OutputPolarity) {
 
 /**
   * 简介:  配置粗略校准参数。
+  * 
   * 参数:  RTC_CalibSign: 指定粗校准值的符号。
   *          该参数可以是以下值之一:
   *            @arg RTC_CalibSign_Positive: 值符号为正
   *            @arg RTC_CalibSign_Negative: 值符号为负
+  * 
   * 参数:  Value: 以ppm表示的粗校准值(编码为5位)。
   *
   * 注意:   当使用负符号和2-ppm步长时，该校准值应介于0和63之间。
@@ -1553,8 +1637,10 @@ ErrorStatus RTC_CoarseCalibConfig(uint32_t RTC_CalibSign, uint32_t Value) {
 
 /**
   * 简介:  启用或禁用粗校准过程。
+  * 
   * 参数:  NewState: 粗校准的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC粗校准已启用/禁用
   *          - ERROR: RTC粗校准未启用/禁用
@@ -1595,8 +1681,10 @@ ErrorStatus RTC_CoarseCalibCmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用通过相关引脚输出的RTC时钟。
+  * 
   * 参数:  NewState: 数字校准输出的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void RTC_CalibOutputCmd(FunctionalState NewState) {
@@ -1621,10 +1709,12 @@ void RTC_CalibOutputCmd(FunctionalState NewState) {
 
 /**
   * 简介:  配置校准引脚排列(RTC_CALIB)选择(1Hz 或 512Hz)。
+  * 
   * 参数:  RTC_CalibOutput : 选择校准输出选择。
   *   此参数可以是以下值之一:
   *     @arg RTC_CalibOutput_512Hz: 信号具有512Hz的规则波形。
   *     @arg RTC_CalibOutput_1Hz  : 信号具有1Hz的规则波形。
+  * 
   * 返回值: 无
 */
 void RTC_CalibOutputConfig(uint32_t RTC_CalibOutput) {
@@ -1647,17 +1737,21 @@ void RTC_CalibOutputConfig(uint32_t RTC_CalibOutput) {
 
 /**
   * 简介:  配置平滑校准设置。
+  * 
   * 参数:  RTC_SmoothCalibPeriod : 选择平滑校准周期。
   *   此参数可以是以下值之一:
   *     @arg RTC_SmoothCalibPeriod_32sec : 平滑校准周期为32秒。
   *     @arg RTC_SmoothCalibPeriod_16sec : 平滑校准周期为16秒。
   *     @arg RTC_SmoothCalibPeriod_8sec  : 平滑校准周期为8秒。
+  * 
   * 参数:  RTC_SmoothCalibPlusPulses : 选择以设置或重置CALP位。
   *   此参数可以是以下值之一:
   *     @arg RTC_SmoothCalibPlusPulses_Set  : 每2**11个脉冲添加一个RTCCLK脉冲。
   *     @arg RTC_SmoothCalibPlusPulses_Reset: 未添加RTCCLK脉冲。
+  * 
   * 参数:  RTC_SmouthCalibMinusPulsesValue: 选择CALM[8:0]位的值。
-  *   此参数可以是0到0x000001FF之间的任意值。
+  *        此参数可以是0到0x000001FF之间的任意值。
+  * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC校准寄存器已配置
   *          - ERROR: RTC校准寄存器未配置
@@ -1720,12 +1814,15 @@ ErrorStatus RTC_SmoothCalibConfig(uint32_t RTC_SmoothCalibPeriod,
 
 /**
   * 简介:  启用或禁用具有指定时间戳引脚刺激边缘的RTC TimeStamp功能。
+  * 
   * 参数:  RTC_TimeStampEdge: 指定激活TimeStamp的管脚边缘。
   *          此参数可以是以下参数之一:
   *            @arg RTC_TimeStampEdge_Rising: 时间戳事件发生在相关引脚的上升沿上。
   *            @arg RTC_TimeStampEdge_Falling: 时间戳事件发生在相关引脚的下降沿上。
+  * 
   * 参数:  NewState: 新状态-> TimeStamp.
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void RTC_TimeStampCmd(uint32_t RTC_TimeStampEdge, FunctionalState NewState) {
@@ -1758,12 +1855,16 @@ void RTC_TimeStampCmd(uint32_t RTC_TimeStampEdge, FunctionalState NewState) {
 
 /**
   * 简介:  获取 RTC 时间戳值和掩码。
+  * 
   * 参数:  RTC_Format: 指定输出参数的格式。
   *          此参数可以是以下值之一:
   *            @arg RTC_Format_BIN:二进制数据格式
   *            @arg RTC_Format_BCD:BCD数据格式
+  * 
   * 参数: RTC_StampTimeStruct: 指向RTC_TimeTypeDef结构的指针，该结构将包含TimeStamp时间值。
+  * 
   * 参数: RTC_StampDateStruct: 指向将包含TimeStamp日期值的RTC_DateTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void RTC_GetTimeStamp(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_StampTimeStruct,
@@ -1805,7 +1906,9 @@ void RTC_GetTimeStamp(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_StampTimeStruct,
 
 /**
   * 简介:  获取 RTC 时间戳子秒值。
+  * 
   * 参数:  无
+  * 
   * 返回值: RTC当前时间戳子秒值。
   */
 uint32_t RTC_GetTimeStampSubSecond(void) {
@@ -1831,14 +1934,17 @@ uint32_t RTC_GetTimeStampSubSecond(void) {
 
 /**
   * 简介:  配置选择篡改引脚边缘。
+  * 
   * 参数:  RTC_Tamper: 选定的防盗销。
   *          取值为RTC_Tamper_1或RTC_Tamper 2
+  * 
   * 参数:  RTC_TamperTrigger: 指定触发篡改事件的篡改pin上的触发器。
   *   此参数可以是以下值之一:
   *     @arg RTC_TamperTrigger_RisingEdge: 防篡改销的上升边缘会导致篡改事件。
   *     @arg RTC_TamperTrigger_FallingEdge: 防篡改销的下降边缘导致篡改事件。
   *     @arg RTC_TamperTrigger_LowLevel: 防篡改销液位低会导致篡改事件。
   *     @arg RTC_TamperTrigger_HighLevel: 防篡改销的高电平导致篡改事件。
+  * 
   * 返回值: 无
   */
 void RTC_TamperTriggerConfig(uint32_t RTC_Tamper, uint32_t RTC_TamperTrigger) {
@@ -1857,10 +1963,13 @@ void RTC_TamperTriggerConfig(uint32_t RTC_Tamper, uint32_t RTC_TamperTrigger) {
 
 /**
   * 简介:  启用或禁用篡改检测。
+  * 
   * 参数:  RTC_Tamper: 选定的防盗销。
   *          取值为RTC_Tamper_1或RTC_Tamper_2
+  * 
   * 参数:  NewState: 新状态-> tamper pin.
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void RTC_TamperCmd(uint32_t RTC_Tamper, FunctionalState NewState) {
@@ -1879,12 +1988,14 @@ void RTC_TamperCmd(uint32_t RTC_Tamper, FunctionalState NewState) {
 
 /**
   * 简介:  配置篡改过滤器。
+  * 
   * 参数:  RTC_TamperFilter: 指定tampers 过滤器。
   *   此参数可以是以下值之一:
   *     @arg RTC_TamperFilter_Disable: 篡改过滤器已禁用。
   *     @arg RTC_TamperFilter_2Sample: 在激活水平下连续2个样本后激活篡改
   *     @arg RTC_TamperFilter_4Sample: 在激活水平下连续4个样本后激活篡改
   *     @arg RTC_TamperFilter_8Sample: 在激活水平下连续8个样本后激活篡改
+  * 
   * 返回值: 无
   */
 void RTC_TamperFilterConfig(uint32_t RTC_TamperFilter) {
@@ -1900,6 +2011,7 @@ void RTC_TamperFilterConfig(uint32_t RTC_TamperFilter) {
 
 /**
   * 简介:  配置篡改采样频率。
+  * 
   * 参数:  RTC_TamperSamplingFreq: 指定篡改器采样频率。
   *   此参数可以是以下值之一:
   *     @arg RTC_TamperSamplingFreq_RTCCLK_Div32768: 每个篡改输入以频率 = RTCCLK / 32768 进行采样
@@ -1910,6 +2022,7 @@ void RTC_TamperFilterConfig(uint32_t RTC_TamperFilter) {
   *     @arg RTC_TamperSamplingFreq_RTCCLK_Div1024: 每个篡改输入以频率 = RTCCLK / 1024 进行采样
   *     @arg RTC_TamperSamplingFreq_RTCCLK_Div512: 每个篡改输入以频率 = RTCCLK / 512 进行采样
   *     @arg RTC_TamperSamplingFreq_RTCCLK_Div256: 每个篡改输入以频率 = RTCCLK / 256 进行采样
+  * 
   * 返回值: 无
   */
 void RTC_TamperSamplingFreqConfig(uint32_t RTC_TamperSamplingFreq) {
@@ -1925,12 +2038,14 @@ void RTC_TamperSamplingFreqConfig(uint32_t RTC_TamperSamplingFreq) {
 
 /**
   * 简介:  配置篡改引脚输入预充电持续时间。
+  * 
   * 参数:  RTC_TamperPrechargeDuration: 指定Tampers Pins输入预充电时间。
   *   此参数可以是以下值之一:
   *     @arg RTC_TamperPrechargeDuration_1RTCCLK: 在 1 个RTCCLK循环中采样之前，对防篡改引脚进行预充电
   *     @arg RTC_TamperPrechargeDuration_2RTCCLK: 在 2 个RTCCLK循环中采样之前，对防篡改引脚进行预充电
   *     @arg RTC_TamperPrechargeDuration_4RTCCLK: 在 4 个RTCCLK循环中采样之前，对防篡改引脚进行预充电
   *     @arg RTC_TamperPrechargeDuration_8RTCCLK: 在 8 个RTCCLK循环中采样之前，对防篡改引脚进行预充电
+  * 
   * 返回值: 无
   */
 void RTC_TamperPinsPrechargeDuration(uint32_t RTC_TamperPrechargeDuration) {
@@ -1946,9 +2061,12 @@ void RTC_TamperPinsPrechargeDuration(uint32_t RTC_TamperPrechargeDuration) {
 
 /**
   * 简介:  启用或禁用篡改检测事件的时间戳。
+  * 
   * 注意:   即使篡改控制寄存器中的TSE位被重置，时间戳仍然有效。
+  * 
   * 参数:  NewState: 新状态-> timestamp on tamper event.
   *         此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void RTC_TimeStampOnTamperDetectionCmd(FunctionalState NewState) {
@@ -1966,8 +2084,10 @@ void RTC_TimeStampOnTamperDetectionCmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用篡改引脚的预充电。
+  * 
   * 参数:  NewState: 新状态->  tamper pull up.
   *   此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void RTC_TamperPullUpCmd(FunctionalState NewState) {
@@ -2001,9 +2121,12 @@ void RTC_TamperPullUpCmd(FunctionalState NewState) {
 
 /**
   * 简介:  在指定的 RTC 备份数据寄存器中写入数据。
+  * 
   * 参数:  RTC_BKP_DR: RTC备份数据寄存器号。
   *          此参数可以是: RTC_BKP_DRx，其中x可以从0到19指定寄存器。
+  * 
   * 参数:  Data: 写入指定RTC备份数据寄存器的数据。
+  * 
   * 返回值: 无
   */
 void RTC_WriteBackupRegister(uint32_t RTC_BKP_DR, uint32_t Data) {
@@ -2021,8 +2144,10 @@ void RTC_WriteBackupRegister(uint32_t RTC_BKP_DR, uint32_t Data) {
 
 /**
   * 简介:  从指定的 RTC 备份数据寄存器读取数据。
+  * 
   * 参数:  RTC_BKP_DR: RTC备份数据寄存器号。
   *          此参数可以是: RTC_BKP_DRx，其中x可以从0到19指定寄存器。
+  * 
   * 返回值: 无
   */
 uint32_t RTC_ReadBackupRegister(uint32_t RTC_BKP_DR) {
@@ -2056,10 +2181,12 @@ uint32_t RTC_ReadBackupRegister(uint32_t RTC_BKP_DR) {
 
 /**
   * 简介:  选择 RTC 篡改引脚。
+  * 
   * 参数:  RTC_TamperPin: 指定RTC Tamper Pin。
   *          此参数可以是以下值之一:
   *            @arg RTC_TamperPin_Default: RTC_AF1 用作RTC篡改引脚。
   *            @arg RTC_TamperPin_Pos1: RTC_AF2 用作RTC篡改引脚。
+  * 
   * 返回值: 无
   */
 void RTC_TamperPinSelection(uint32_t RTC_TamperPin) {
@@ -2072,10 +2199,12 @@ void RTC_TamperPinSelection(uint32_t RTC_TamperPin) {
 
 /**
   * 简介:  选择 RTC 时间戳引脚。
+  * 
   * 参数:  RTC_TimeStampPin: RTC时间戳引脚。
   *          此参数可以是以下值之一:
   *            @arg RTC_TimeStampPin_PC13: PC13 被选为 RTC 时间戳引脚。
   *            @arg RTC_TimeStampPin_PI8: PI8 被选为 RTC 时间戳引脚。
+  * 
   * 返回值: 无
   */
 void RTC_TimeStampPinSelection(uint32_t RTC_TimeStampPin) {
@@ -2088,10 +2217,12 @@ void RTC_TimeStampPinSelection(uint32_t RTC_TimeStampPin) {
 
 /**
   * 简介:  配置 RTC 输出引脚模式。
+  * 
   * 参数:  RTC_OutputType: 指定RTC Output (PC13) pin mode.
   *          此参数可以是以下值之一:
-  *            @arg RTC_OutputType_OpenDrain: RTC输出（PC13）配置为开漏模式。
-  *            @arg RTC_OutputType_PushPull:  RTC输出（PC13）配置为推拉模式。
+  *            @arg RTC_OutputType_OpenDrain: RTC输出(PC13)配置为开漏模式。
+  *            @arg RTC_OutputType_PushPull:  RTC输出(PC13)配置为推拉模式。
+  * 
   * 返回值: 无
   */
 void RTC_OutputTypeConfig(uint32_t RTC_OutputType) {
@@ -2120,13 +2251,15 @@ void RTC_OutputTypeConfig(uint32_t RTC_OutputType) {
 
 /**
   * 简介:  配置同步切换控制设置。
+  * 
   * 注意:   设置REFCKON时，固件不得写入移位控制寄存器
+  * 
   * 参数:  RTC_ShiftAdd1S : 选择可在时间日历中添加或不添加1秒。
   *   此参数可以是以下值之一:
-  *     @arg RTC_ShiftAdd1S_Set  : Add one second to the clock calendar.
+  *     @arg RTC_ShiftAdd1S_Set  : 将一秒钟添加到时钟日历中。
   *     @arg RTC_ShiftAdd1S_Reset: No effect.
-  * 参数:  RTC_ShiftSubFS: Select the number of Second Fractions to Substitute.
-  *         This parameter can be one any value from 0 to 0x7FFF.
+  * 参数:  RTC_ShiftSubFS: 选择要替换的第二个分数的数量。
+  *         此参数可以是 0 到 0x7FFF 之间的任意值。
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC Shift registers are configured
   *          - ERROR: RTC Shift registers are not configured
@@ -2151,9 +2284,9 @@ ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSu
         }
     }
 
-    /* 检查 if the Shift pending is completed or if there is no Shift operation at all*/
+    /* 检查是否完成了移位挂起，或者根本没有移位操作*/
     if ((RTC->ISR & RTC_ISR_SHPF) == RESET) {
-        /* 检查 if the reference clock detection is disabled */
+        /* 检查如果参考时钟检测被禁用 */
         if((RTC->CR & RTC_CR_REFCKON) == RESET) {
             /* 配置 Shift settings */
             RTC->SHIFTR = (uint32_t)(uint32_t)(RTC_ShiftSubFS) | (uint32_t)(RTC_ShiftAdd1S);
@@ -2223,6 +2356,7 @@ ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSu
 
 /**
   * 简介:  启用或禁用指定的 RTC 中断。
+  * 
   * 参数:  RTC_IT: 指定要启用或禁用的RTC中断源。
   *          此参数可以是以下值的任意组合:
   *          @arg RTC_IT_TS:  时间戳中断掩码
@@ -2230,8 +2364,10 @@ ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSu
   *          @arg RTC_IT_ALRB: 警报B中断掩码
   *          @arg RTC_IT_ALRA: 警报A中断掩码
   *          @arg RTC_IT_TAMP: 篡改事件中断掩码
+  * 
   * 参数:  NewState: 指定的RTC中断的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void RTC_ITConfig(uint32_t RTC_IT, FunctionalState NewState) {
@@ -2261,6 +2397,7 @@ void RTC_ITConfig(uint32_t RTC_IT, FunctionalState NewState) {
 
 /**
   * 简介:  检查是否设置了指定的 RTC 标志。
+  * 
   * 参数:  RTC_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
   *            @arg RTC_FLAG_RECALPF: RECALPF事件标志。
@@ -2278,6 +2415,7 @@ void RTC_ITConfig(uint32_t RTC_IT, FunctionalState NewState) {
   *            @arg RTC_FLAG_WUTWF: 唤醒定时器写入标志
   *            @arg RTC_FLAG_ALRBWF: 警报B写入标志
   *            @arg RTC_FLAG_ALRAWF: 警报A写入标志
+  * 
   * 返回值: RTC_FLAG的新状态(SET或RESET)。
   */
 FlagStatus RTC_GetFlagStatus(uint32_t RTC_FLAG) {
@@ -2302,6 +2440,7 @@ FlagStatus RTC_GetFlagStatus(uint32_t RTC_FLAG) {
 
 /**
   * 简介:  清除 RTC 的挂起标志。
+  * 
   * 参数:  RTC_FLAG: 指定要清除的RTC标志。
   *          此参数可以是以下值的任意组合:
   *            @arg RTC_FLAG_TAMP1F: 篡改1事件标志
@@ -2312,6 +2451,7 @@ FlagStatus RTC_GetFlagStatus(uint32_t RTC_FLAG) {
   *            @arg RTC_FLAG_ALRBF: 报警B标志
   *            @arg RTC_FLAG_ALRAF: 警报A标志
   *            @arg RTC_FLAG_RSF: 寄存器同步标志
+  * 
   * 返回值: 无
   */
 void RTC_ClearFlag(uint32_t RTC_FLAG) {
@@ -2324,6 +2464,7 @@ void RTC_ClearFlag(uint32_t RTC_FLAG) {
 
 /**
   * 简介:  检查指定的 RTC 中断是否发生。
+  * 
   * 参数:  RTC_IT: 指定要检查的RTC中断源。
   *          此参数可以是以下值之一:
   *            @arg RTC_IT_TS。时间戳中断
@@ -2332,6 +2473,7 @@ void RTC_ClearFlag(uint32_t RTC_FLAG) {
   *            @arg RTC_IT_ALRA: 警报A中断
   *            @arg RTC_IT_TAMP1: Tamper 1事件中断
   *            @arg RTC_IT_TAMP2: 破坏者2事件中断
+  * 
   * 返回值: RTC_IT的新状态(SET或RESET)。
   */
 ITStatus RTC_GetITStatus(uint32_t RTC_IT) {
@@ -2362,6 +2504,7 @@ ITStatus RTC_GetITStatus(uint32_t RTC_IT) {
 
 /**
   * 简介:  清除 RTC 的中断挂起位。
+  * 
   * 参数:  RTC_IT: 指定要清除的RTC中断等待位。
   *          此参数可以是以下值的任意组合:
   *            @arg RTC_IT_TS: 时间戳中断
@@ -2370,6 +2513,7 @@ ITStatus RTC_GetITStatus(uint32_t RTC_IT) {
   *            @arg RTC_IT_ALRA: 警报A中断
   *            @arg RTC_IT_TAMP1: Tamper 1事件中断
   *            @arg RTC_IT_TAMP2: 破坏者2事件中断
+  * 
   * 返回值: 无
   */
 void RTC_ClearITPendingBit(uint32_t RTC_IT) {
@@ -2391,7 +2535,9 @@ void RTC_ClearITPendingBit(uint32_t RTC_IT) {
 
 /**
   * 简介:  将一个2位数的小数转换为BCD格式。
+  * 
   * 参数:  Value: 要转换的字节。
+  * 
   * 返回值: 转换后的字节
   */
 static uint8_t RTC_ByteToBcd2(uint8_t Value) {
@@ -2407,7 +2553,9 @@ static uint8_t RTC_ByteToBcd2(uint8_t Value) {
 
 /**
   * 简介:  从2位BCD转换为二进制。
+  * 
   * 参数:  Value: 要转换的BCD值。
+  * 
   * 返回值: 转换的字
   */
 static uint8_t RTC_Bcd2ToByte(uint8_t Value) {

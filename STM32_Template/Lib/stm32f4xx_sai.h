@@ -51,7 +51,6 @@ defined (STM32F413_423xx)
 /**
   * 简介:  SAI Block初始化结构定义
   */
-
 typedef struct {
     uint32_t SAI_AudioMode;           /*!< 指定 SAI 块音频模式。
                                           该参数可以是@ref SAI_Block_Mode 的值 */
@@ -94,7 +93,6 @@ typedef struct {
 /**
   * 简介:  SAI Block Frame Init结构定义
   */
-
 typedef struct {
 
     uint32_t SAI_FrameLength;         /*!< 指定帧长度，即每个音频帧的 SCK 时钟数。
@@ -124,7 +122,6 @@ typedef struct {
 /**
   * 简介:    SAI Block Slot Init 结构定义
   */
-
 typedef struct {
     uint32_t SAI_FirstBitOffset;      /*!< 指定槽中第一个数据传输位的位置。
                                           此参数必须是 0 到 24 之间的数字。
@@ -184,7 +181,6 @@ typedef struct {
 /** @defgroup SAI_Block_Protocol
   * @{
   */
-
 #define SAI_Free_Protocol                 ((uint32_t)0x00000000)
 #define SAI_SPDIF_Protocol                ((uint32_t)SAI_xCR1_PRTCFG_0)
 #define SAI_AC97_Protocol                 ((uint32_t)SAI_xCR1_PRTCFG_1)
@@ -198,7 +194,6 @@ typedef struct {
 /** @defgroup SAI_Block_Data_Size
   * @{
   */
-
 #define SAI_DataSize_8b                   ((uint32_t)0x00000040)
 #define SAI_DataSize_10b                  ((uint32_t)0x00000060)
 #define SAI_DataSize_16b                  ((uint32_t)0x00000080)
@@ -218,7 +213,6 @@ typedef struct {
 /** @defgroup SAI_Block_MSB_LSB_transmission
   * @{
   */
-
 #define SAI_FirstBit_MSB                  ((uint32_t)0x00000000)
 #define SAI_FirstBit_LSB                  ((uint32_t)SAI_xCR1_LSBFIRST)
 #define IS_SAI_BLOCK_FIRST_BIT(BIT) (((BIT) == SAI_FirstBit_MSB) || \
@@ -230,7 +224,6 @@ typedef struct {
 /** @defgroup SAI_Block_Clock_Strobing
   * @{
   */
-
 #define SAI_ClockStrobing_FallingEdge     ((uint32_t)0x00000000)
 #define SAI_ClockStrobing_RisingEdge      ((uint32_t)SAI_xCR1_CKSTR)
 #define IS_SAI_BLOCK_CLOCK_STROBING(CLOCK) (((CLOCK) == SAI_ClockStrobing_FallingEdge) || \
@@ -242,7 +235,6 @@ typedef struct {
 /** @defgroup SAI_Block_Synchronization
   * @{
   */
-
 #define SAI_Asynchronous                   ((uint32_t)0x00000000)
 #define SAI_Synchronous                    ((uint32_t)SAI_xCR1_SYNCEN_0)
 #define SAI_Synchronous_Ext                ((uint32_t)SAI_xCR1_SYNCEN_1)
@@ -269,7 +261,6 @@ typedef struct {
 /** @defgroup SAI_Block_Output_Drive
   * @{
   */
-
 #define SAI_OutputDrive_Disabled          ((uint32_t)0x00000000)
 #define SAI_OutputDrive_Enabled           ((uint32_t)SAI_xCR1_OUTDRIV)
 #define IS_SAI_BLOCK_OUTPUT_DRIVE(DRIVE) (((DRIVE) == SAI_OutputDrive_Disabled) || \
@@ -283,7 +274,6 @@ typedef struct {
 /** @defgroup SAI_Block_NoDivider
   * @{
   */
-
 #define SAI_MasterDivider_Enabled         ((uint32_t)0x00000000)
 #define SAI_MasterDivider_Disabled        ((uint32_t)SAI_xCR1_NODIV)
 #define IS_SAI_BLOCK_NODIVIDER(NODIVIDER) (((NODIVIDER) == SAI_MasterDivider_Enabled) || \
@@ -323,7 +313,6 @@ typedef struct {
 /** @defgroup SAI_Block_FS_Definition
   * @{
   */
-
 #define SAI_FS_StartFrame                 ((uint32_t)0x00000000)
 #define I2S_FS_ChannelIdentification      ((uint32_t)SAI_xFRCR_FSDEF)
 #define IS_SAI_BLOCK_FS_DEFINITION(DEFINITION) (((DEFINITION) == SAI_FS_StartFrame) || \
@@ -335,7 +324,6 @@ typedef struct {
 /** @defgroup SAI_Block_FS_Polarity
   * @{
   */
-
 #define SAI_FS_ActiveLow                  ((uint32_t)0x00000000)
 #define SAI_FS_ActiveHigh                 ((uint32_t)SAI_xFRCR_FSPO)
 #define IS_SAI_BLOCK_FS_POLARITY(POLARITY) (((POLARITY) == SAI_FS_ActiveLow) || \
@@ -347,7 +335,6 @@ typedef struct {
 /** @defgroup SAI_Block_FS_Offset
   * @{
   */
-
 #define SAI_FS_FirstBit                   ((uint32_t)0x00000000)
 #define SAI_FS_BeforeFirstBit             ((uint32_t)SAI_xFRCR_FSOFF)
 #define IS_SAI_BLOCK_FS_OFFSET(OFFSET) (((OFFSET) == SAI_FS_FirstBit) || \
@@ -419,7 +406,6 @@ typedef struct {
 /** @defgroup SAI_Mono_Streo_Mode
   * @{
   */
-
 #define SAI_MonoMode                      ((uint32_t)SAI_xCR1_MONO)
 #define SAI_StreoMode                     ((uint32_t)0x00000000)
 #define IS_SAI_BLOCK_MONO_STREO_MODE(MODE) (((MODE) == SAI_MonoMode) ||\
@@ -431,7 +417,6 @@ typedef struct {
 /** @defgroup SAI_TRIState_Management
   * @{
   */
-
 #define SAI_Output_NotReleased              ((uint32_t)0x00000000)
 #define SAI_Output_Released                 ((uint32_t)SAI_xCR2_TRIS)
 #define IS_SAI_BLOCK_TRISTATE_MANAGEMENT(STATE) (((STATE) == SAI_Output_NotReleased) ||\
@@ -443,7 +428,6 @@ typedef struct {
 /** @defgroup SAI_Block_Fifo_Threshold
   * @{
   */
-
 #define SAI_Threshold_FIFOEmpty           ((uint32_t)0x00000000)
 #define SAI_FIFOThreshold_1QuarterFull    ((uint32_t)0x00000001)
 #define SAI_FIFOThreshold_HalfFull        ((uint32_t)0x00000002)
@@ -461,7 +445,6 @@ typedef struct {
 /** @defgroup SAI_Block_Companding_Mode
   * @{
   */
-
 #define SAI_NoCompanding                  ((uint32_t)0x00000000)
 #define SAI_ULaw_1CPL_Companding          ((uint32_t)0x00008000)
 #define SAI_ALaw_1CPL_Companding          ((uint32_t)0x0000C000)
@@ -479,7 +462,6 @@ typedef struct {
 /** @defgroup SAI_Block_Mute_Value
   * @{
   */
-
 #define SAI_ZeroValue                     ((uint32_t)0x00000000)
 #define SAI_LastSentValue                 ((uint32_t)SAI_xCR2_MUTEVAL)
 #define IS_SAI_BLOCK_MUTE_VALUE(VALUE)    (((VALUE) == SAI_ZeroValue)     || \
@@ -491,7 +473,6 @@ typedef struct {
 /** @defgroup SAI_Block_Mute_Frame_Counter
   * @{
   */
-
 #define IS_SAI_BLOCK_MUTE_COUNTER(COUNTER) ((COUNTER) <= 63)
 
 /**
@@ -501,7 +482,6 @@ typedef struct {
 /** @defgroup SAI_Block_Interrupts_Definition
   * @{
   */
-
 #define SAI_IT_OVRUDR                     ((uint32_t)SAI_xIMR_OVRUDRIE)
 #define SAI_IT_MUTEDET                    ((uint32_t)SAI_xIMR_MUTEDETIE)
 #define SAI_IT_WCKCFG                     ((uint32_t)SAI_xIMR_WCKCFGIE)
@@ -524,7 +504,6 @@ typedef struct {
 /** @defgroup SAI_Block_Flags_Definition
   * @{
   */
-
 #define SAI_FLAG_OVRUDR                   ((uint32_t)SAI_xSR_OVRUDR)
 #define SAI_FLAG_MUTEDET                  ((uint32_t)SAI_xSR_MUTEDET)
 #define SAI_FLAG_WCKCFG                   ((uint32_t)SAI_xSR_WCKCFG)

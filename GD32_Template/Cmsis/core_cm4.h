@@ -72,7 +72,6 @@ extern "C" {
 #define __CM4_CMSIS_VERSION_SUB   (0x20)                                   /*!< [15:0]  CMSIS HAL sub version    */
 #define __CM4_CMSIS_VERSION       ((__CM4_CMSIS_VERSION_MAIN << 16) | \
                                     __CM4_CMSIS_VERSION_SUB          )     /*!< CMSIS HAL version number         */
-
 #define __CORTEX_M                (0x04)                                   /*!< Cortex-M Core                    */
 
 
@@ -1377,7 +1376,6 @@ typedef struct {
 #define SysTick_BASE        (SCS_BASE +  0x0010UL)                    /*!< SysTick Base Address               */
 #define NVIC_BASE           (SCS_BASE +  0x0100UL)                    /*!< NVIC Base Address                  */
 #define SCB_BASE            (SCS_BASE +  0x0D00UL)                    /*!< System Control Block Base Address  */
-
 #define SCnSCB              ((SCnSCB_Type    *)     SCS_BASE      )   /*!< System control Register not in SCB */
 #define SCB                 ((SCB_Type       *)     SCB_BASE      )   /*!< SCB configuration struct           */
 #define SysTick             ((SysTick_Type   *)     SysTick_BASE  )   /*!< SysTick configuration struct       */

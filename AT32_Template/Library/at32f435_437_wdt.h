@@ -47,7 +47,6 @@ extern "C" {
   * @brief wdt flag
   * @{
   */
-
 #define WDT_DIVF_Update_FLAG             ((uint16_t)0x0001) /*!< wdt division value update complete flag */
 #define WDT_RLDF_Update_FLAG             ((uint16_t)0x0002) /*!< wdt reload value update complete flag */
 #define WDT_WINF_Update_FLAG             ((uint16_t)0x0004) /*!< wdt window value update complete flag */
@@ -148,7 +147,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define WDT                             ((WDT_Type *) WDT_BASE)
 
 /** @defgroup WDT_exported_functions

@@ -9,7 +9,7 @@ typedef struct {
 
     uint16_t Period;		//周期
 
-    uint16_t HdutyA;		//占空比，高电平时长；PWM_ASYM_CENTER_ALIGNED 模式下设定前半周期的高电平时长
+    uint16_t HdutyA;		//占空比，高电平时长;PWM_ASYM_CENTER_ALIGNED 模式下设定前半周期的高电平时长
     uint16_t HdutyA2;		//只在 PWM_ASYM_CENTER_ALIGNED 模式下使用，用于设定后半周期的高电平时长
     uint16_t DeadzoneA;		//死区时长，取值0--1023
     uint8_t  IdleLevelA;	//停止状态下PWMxA输出电平

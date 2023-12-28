@@ -49,7 +49,6 @@ extern "C" {
 /**
   * 简介:  DMA2D Init 结构定义
   */
-
 typedef struct {
     uint32_t DMA2D_Mode;                           /*!< 配置 DMA2D 传输模式。
 												                           该参数可以是@ref DMA2D_MODE 的一个值 */
@@ -100,8 +99,6 @@ typedef struct {
 												                           该参数的范围必须是 0x0000 到 0x3FFF */
 } DMA2D_InitTypeDef;
 
-
-
 typedef struct {
     uint32_t DMA2D_FGMA;                           /*!< 配置 DMA2D 前台内存地址。
 												                            此参数的范围必须为 0x00000000 到 0xFFFFFFFF。*/
@@ -132,7 +129,6 @@ typedef struct {
     uint32_t DMA2D_FGCMAR;                         /*!< 配置 DMA2D 前台 CLUT 内存地址。
 												                            此参数的范围必须为 0x00000000 到 0xFFFFFFFF。 */
 } DMA2D_FG_InitTypeDef;
-
 
 typedef struct {
     uint32_t DMA2D_BGMA;                           /*!< 配置 DMA2D 后台内存地址。
@@ -165,8 +161,6 @@ typedef struct {
 												                            此参数的范围必须为 0x00000000 到 0xFFFFFFFF。 */
 } DMA2D_BG_InitTypeDef;
 
-
-
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup DMA2D_Exported_Constants
@@ -176,8 +170,6 @@ typedef struct {
 /** @defgroup DMA2D_MODE
   * @{
   */
-
-
 #define DMA2D_M2M                            ((uint32_t)0x00000000)
 #define DMA2D_M2M_PFC                        ((uint32_t)0x00010000)
 #define DMA2D_M2M_BLEND                      ((uint32_t)0x00020000)
@@ -204,7 +196,6 @@ typedef struct {
                                    ((MODE_ARGB) == DMA2D_RGB565) || ((MODE_ARGB) == DMA2D_ARGB1555) || \
                                    ((MODE_ARGB) == DMA2D_ARGB4444))
 
-
 /**
   * @}
   */
@@ -230,7 +221,6 @@ typedef struct {
 
 #define IS_DMA2D_OUTPUT_OFFSET(OOFFSET) ((OOFFSET) <= DMA2D_OUTPUT_OFFSET)
 
-
 /**
   * @}
   */
@@ -238,13 +228,11 @@ typedef struct {
 /** @defgroup DMA2D_SIZE
   * @{
   */
-
 #define DMA2D_pixel          ((uint32_t)0x00003FFF)
 #define DMA2D_Line           ((uint32_t)0x0000FFFF)
 
 #define IS_DMA2D_LINE(LINE)  ((LINE) <= DMA2D_Line)
 #define IS_DMA2D_PIXEL(PIXEL) ((PIXEL) <= DMA2D_pixel)
-
 
 /**
   * @}
@@ -267,7 +255,6 @@ typedef struct {
 /** @defgroup DMA2D_FGCM
   * @{
   */
-
 #define CM_ARGB8888        ((uint32_t)0x00000000)
 #define CM_RGB888          ((uint32_t)0x00000001)
 #define CM_RGB565          ((uint32_t)0x00000002)
@@ -301,7 +288,6 @@ typedef struct {
 /** @defgroup DMA2D_FG_CLUT_CM
   * @{
   */
-
 #define CLUT_CM_ARGB8888        ((uint32_t)0x00000000)
 #define CLUT_CM_RGB888          ((uint32_t)0x00000001)
 
@@ -316,7 +302,6 @@ typedef struct {
 /** @defgroup DMA2D_FG_COLOR_VALUE
   * @{
   */
-
 #define COLOR_VALUE             ((uint32_t)0x000000FF)
 
 #define IS_DMA2D_FG_CLUT_SIZE(FG_CLUT_SIZE) ((FG_CLUT_SIZE) <= COLOR_VALUE)
@@ -340,7 +325,6 @@ typedef struct {
 /** DMA2D_FGPFC_ALPHA_MODE
   * @{
   */
-
 #define NO_MODIF_ALPHA_VALUE       ((uint32_t)0x00000000)
 #define REPLACE_ALPHA_VALUE        ((uint32_t)0x00000001)
 #define COMBINE_ALPHA_VALUE        ((uint32_t)0x00000002)
@@ -360,7 +344,6 @@ typedef struct {
 /** @defgroup DMA2D_Interrupts
   * @{
   */
-
 #define DMA2D_IT_CE                      DMA2D_CR_CEIE
 #define DMA2D_IT_CTC                     DMA2D_CR_CTCIE
 #define DMA2D_IT_CAE                     DMA2D_CR_CAEIE
@@ -379,7 +362,6 @@ typedef struct {
 /** @defgroup DMA2D_Flag
   * @{
   */
-
 #define DMA2D_FLAG_CE                      DMA2D_ISR_CEIF
 #define DMA2D_FLAG_CTC                     DMA2D_ISR_CTCIF
 #define DMA2D_FLAG_CAE                     DMA2D_ISR_CAEIF
@@ -400,7 +382,6 @@ typedef struct {
 /** @defgroup DMA2D_DeadTime
   * @{
   */
-
 #define DEADTIME                  ((uint32_t)0x000000FF)
 
 #define IS_DMA2D_DEAD_TIME(DEAD_TIME) ((DEAD_TIME) <= DEADTIME)

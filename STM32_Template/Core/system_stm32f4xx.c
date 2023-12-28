@@ -8,22 +8,22 @@
   *          此文件包含STM32F4xx设备的系统时钟配置。
   *
   * 1.  此文件提供两个函数和一个全局变量，可从用户应用程序调用：
-  *      - SystemInit(): 根据时钟xls工具中的配置，设置系统时钟（系统时钟源、PLL乘法器和
-  *                      分频器系数、AHB/APBx预分频器和闪存设置）。此函数在复位后和分支到主程序
+  *      - SystemInit(): 根据时钟xls工具中的配置，设置系统时钟(系统时钟源、PLL乘法器和
+  *                      分频器系数、AHB/APBx预分频器和闪存设置)。此函数在复位后和分支到主程序
   *                      之前的启动时调用。
   *                      此调用在 "startup_stm32f4xx.s" 文件中进行。
   *
-  *      - SystemCoreClock variable: 包含核心时钟（HCLK），
+  *      - SystemCoreClock variable: 包含核心时钟(HCLK)，
   *                                  用户应用程序可以使用它来设置SysTick计时器或配置其他参数。
   *
   *      - SystemCoreClockUpdate(): 更新变量SystemCoreClock，
   *                                 并且必须在程序执行期间更改核心时钟时调用。
   *
-  * 2. 每次设备复位后，HSI（16 MHz）用作系统时钟源。
-  *    然后，在"startup_stm32f4xx.s"文件中调用SystemInit（）函数，以在分支到主程序之前配置系统时钟。
+  * 2. 每次设备复位后，HSI(16 MHz)用作系统时钟源。
+  *    然后，在"startup_stm32f4xx.s"文件中调用SystemInit()函数，以在分支到主程序之前配置系统时钟。
   *
-  * 3. 如果用户选择的系统时钟源无法启动，SystemInit（）函数将不执行任何操作，
-  *    HSI仍用作系统时钟源。用户可以在SetSysClock（）函数中添加一些代码来处理此问题。
+  * 3. 如果用户选择的系统时钟源无法启动，SystemInit()函数将不执行任何操作，
+  *    HSI仍用作系统时钟源。用户可以在SetSysClock()函数中添加一些代码来处理此问题。
   *
   * 4. HSE晶体的默认值设置为25MHz，请参阅"stm32f4xx.h"文件中的"HSE_value"定义。
   *    当HSE直接或通过PLL用作系统时钟源时，如果您使用不同的晶体，则必须根据您自己的配置调整HSE值。
@@ -508,22 +508,22 @@ void SystemInit(void) {
 
 /**
    * 简介:  根据时钟寄存器值更新SystemCoreClock变量。
-  *         SystemCoreClock变量包含核心时钟（HCLK），用户应用程序可以使用它来设置SysTick计时器或配置其他参数。
+  *         SystemCoreClock变量包含核心时钟(HCLK)，用户应用程序可以使用它来设置SysTick计时器或配置其他参数。
   *
-  * @note   每次核心时钟（HCLK）发生变化时，都必须调用此函数来更新SystemCoreClock
+  * @note   每次核心时钟(HCLK)发生变化时，都必须调用此函数来更新SystemCoreClock
   *         变量值。否则，基于此变量的任何配置都将是不正确的。
   *
   * @note   - 通过该函数计算的系统频率不是芯片中的实际频率。它是根据预定义的常数和选定的时钟源进行计算的：
   *
   *           - 如果 SYSCLK 源是 HSI，SystemCoreClock 将包含 HSI_VALUE(*)
   *
-  *           - 如果SYSCLK源为HSE，SystemCoreClock将包含HSE_VALUE（**）
+  *           - 如果SYSCLK源为HSE，SystemCoreClock将包含HSE_VALUE(**)
   *
-  *           - 如果SYSCLK源是PLL，则SystemCoreClock将包含HSE_VALUE（**）或HSI_VALE（*）乘以/除以PLL因子。
+  *           - 如果SYSCLK源是PLL，则SystemCoreClock将包含HSE_VALUE(**)或HSI_VALE(*)乘以/除以PLL因子。
   *
-  *         (*) HSI_VALUE是stm32f44xx.h文件中定义的常数（默认值16 MHz），但实际值可能会根据电压和温度的变化而变化。
+  *         (*) HSI_VALUE是stm32f44xx.h文件中定义的常数(默认值16 MHz)，但实际值可能会根据电压和温度的变化而变化。
   *
-  *         (**) HSE_VALUE是stm32f44xx.h文件中定义的常数（默认值25 MHz），
+  *         (**) HSE_VALUE是stm32f44xx.h文件中定义的常数(默认值25 MHz)，
   *              用户必须确保HSE_VALUE与所用晶体的实际频率相同。否则，此函数可能会产生错误的结果。
   *
   *         - 当使用 HSE 晶体的分数值时，该函数的结果可能不正确。
@@ -822,8 +822,8 @@ static void SetSysClock(void) {
 /**
   * 简介:  设置外部内存控制器。
   *         在跳转到main之前，在startup_stm32f4xx.s中调用。
-  *         此函数配置外部存储器（SRAM/SDRAM）
-  *         该SRAM/SDRAM将用作程序数据存储器（包括堆和堆栈）。
+  *         此函数配置外部存储器(SRAM/SDRAM)
+  *         该SRAM/SDRAM将用作程序数据存储器(包括堆和堆栈)。
   * 参数:  无
   * 返回值: 无
   */
@@ -839,7 +839,7 @@ void SystemInit_ExtMemCtl(void) {
     /* RCC外围时钟启用后的延迟 */
     tmp = READ_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOCEN);
 
-    /* 将 PDx 引脚连接到 FMC 备用功能 */
+    /* 将 PDx 引脚连接到 FMC 复用功能 */
     GPIOD->AFR[0]  = 0x00CCC0CC;
     GPIOD->AFR[1]  = 0xCCCCCCCC;
     /* 在复用功能模式下配置 PDx 引脚 */
@@ -875,7 +875,7 @@ void SystemInit_ExtMemCtl(void) {
     /* PFx 引脚无上拉、下拉 */
     GPIOF->PUPDR   = 0x00000000;
 
-    /* 将 PGx 引脚连接到 FMC 备用功能 */
+    /* 将 PGx 引脚连接到 FMC 复用功能 */
     GPIOG->AFR[0]  = 0xCCCCCCCC;
     GPIOG->AFR[1]  = 0xCCCCCCCC;
     /* 在复用功能模式下配置 PGx 引脚 */
@@ -986,7 +986,7 @@ void SystemInit_ExtMemCtl(void) {
   * 简介:  设置外部内存控制器。
   *         在跳转到main之前，在startup_stm32f4xx.s中调用。
   *         此功能配置安装在STM324xG_EVAL/STM324x7I板上的外部SRAM
-  *         该SRAM将用作程序数据存储器（包括堆和堆栈）。
+  *         该SRAM将用作程序数据存储器(包括堆和堆栈)。
   * 参数:  无
   * 返回值: 无
   */
@@ -1014,7 +1014,7 @@ void SystemInit_ExtMemCtl(void) {
     /* 启用 GPIOD, GPIOE, GPIOF and GPIOG 接口时钟 */
     RCC->AHB1ENR   |= 0x00000078;
 
-    /* 将 PDx 引脚连接到 FMC 备用功能 */
+    /* 将 PDx 引脚连接到 FMC 复用功能 */
     GPIOD->AFR[0]  = 0x00cc00cc;
     GPIOD->AFR[1]  = 0xcccccccc;
     /* 在复用功能模式下配置 PDx 引脚 */
@@ -1050,7 +1050,7 @@ void SystemInit_ExtMemCtl(void) {
     /* PFx 引脚无上拉、下拉 */
     GPIOF->PUPDR   = 0x00000000;
 
-    /* 将 PGx 引脚连接到 FMC 备用功能 */
+    /* 将 PGx 引脚连接到 FMC 复用功能 */
     GPIOG->AFR[0]  = 0x00cccccc;
     GPIOG->AFR[1]  = 0x000000c0;
     /* 在复用功能模式下配置 PGx 引脚 */
@@ -1164,7 +1164,7 @@ void SystemInit_ExtMemCtl(void) {
     /* No pull-up, pull-down for PCx pins */
     GPIOC->PUPDR   = 0x00500000;
 
-    /* 将 PDx 引脚连接到 FMC 备用功能 */
+    /* 将 PDx 引脚连接到 FMC 复用功能 */
     GPIOD->AFR[0]  = 0x000000CC;
     GPIOD->AFR[1]  = 0xCC000CCC;
     /* 在复用功能模式下配置 PDx 引脚 */
@@ -1200,7 +1200,7 @@ void SystemInit_ExtMemCtl(void) {
     /* PFx 引脚无上拉、下拉 */
     GPIOF->PUPDR   = 0x00000000;
 
-    /* 将 PGx 引脚连接到 FMC 备用功能 */
+    /* 将 PGx 引脚连接到 FMC 复用功能 */
     GPIOG->AFR[0]  = 0xcccccccc;
     GPIOG->AFR[1]  = 0xcccccccc;
     /* 在复用功能模式下配置 PGx 引脚 */

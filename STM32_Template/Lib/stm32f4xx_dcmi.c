@@ -24,7 +24,7 @@
       (#) DCMI 引脚配置
         (++) 使用以下函数将涉及的 DCMI 引脚连接到 AF13
             GPIO_PinAFConfig(GPIOx, GPIO_PinSourcex, GPIO_AF_DCMI);
-        (++) 通过调用函数 GPIO_Init() 将这些 DCMI 引脚配置为备用功能模式；
+        (++) 通过调用函数 GPIO_Init() 将这些 DCMI 引脚配置为复用功能模式;
 
       (#) 声明一个 DCMI_InitTypeDef 结构，例如:
           DCMI_InitTypeDef  DCMI_InitStructure;
@@ -47,7 +47,7 @@
 
       -@-  如果您只需要从接收到的图像中捕获一个矩形窗口，
 		   您必须使用 DCMI_CROPConfig() 函数来配置要捕获的窗口的坐标和大小，
-		   然后使用 DCMI_CROPCmd(ENABLE) 启用 Crop 功能；
+		   然后使用 DCMI_CROPCmd(ENABLE) 启用 Crop 功能;
            在这种情况下，应先进行 Crop 配置，以启用和启动 DCMI 界面。
 
  @endverbatim
@@ -109,7 +109,9 @@
 
 /**
   * 简介:  将 DCMI 寄存器取消初始化为其默认复位值。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void DCMI_DeInit(void) {
@@ -124,7 +126,9 @@ void DCMI_DeInit(void) {
 
 /**
   * 简介:  根据 DCMI_InitStruct 中指定的参数初始化 DCMI。
+  * 
   * 参数:  DCMI_InitStruct: 指向DCMI_InitTypeDef结构的指针，该结构包含DCMI的配置信息。
+  * 
   * 返回值: 无
   */
 void DCMI_Init(DCMI_InitTypeDef* DCMI_InitStruct) {
@@ -163,7 +167,9 @@ void DCMI_Init(DCMI_InitTypeDef* DCMI_InitStruct) {
 
 /**
   * 简介:  用默认值填充每个 DCMI_InitStruct 成员。
+  * 
   * 参数:  DCMI_InitStruct : 指向DCMI_InitTypeDef结构的指针，该结构将被初始化。
+  * 
   * 返回值: 无
   */
 void DCMI_StructInit(DCMI_InitTypeDef* DCMI_InitStruct) {
@@ -179,9 +185,12 @@ void DCMI_StructInit(DCMI_InitTypeDef* DCMI_InitStruct) {
 
 /**
   * 简介:  根据 DCMI_CROPInitStruct 中指定的参数初始化 DCMI 外设 CROP 模式。
-  * 注意:   这个函数应该在启用和启动DCMI接口之前被调用。
+  * 
+  * 注意:   这个函数应该在启用和启动DCMI接口之前被调用
+  * 。
   * 参数:  DCMI_CROPInitStruct:  指向DCMI_CROPInitTypeDef结构的指针，
   *                              该结构包含DCMI外围CROP模式的配置信息。
+  * 
   * 返回值: 无
   */
 void DCMI_CROPConfig(DCMI_CROPInitTypeDef* DCMI_CROPInitStruct) {
@@ -196,9 +205,12 @@ void DCMI_CROPConfig(DCMI_CROPInitTypeDef* DCMI_CROPInitStruct) {
 
 /**
   * 简介:  启用或禁用 DCMI 裁剪功能。
+  * 
   * 注意:   这个函数应该在启用和启动DCMI接口之前被调用。
+  * 
   * 参数:  NewState: 新状态的DCMI作物功能。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DCMI_CROPCmd(FunctionalState NewState) {
@@ -216,8 +228,10 @@ void DCMI_CROPCmd(FunctionalState NewState) {
 
 /**
   * 简介:  设置嵌入式同步代码。
+  * 
   * 参数:  DCMI_CodesInitTypeDef: 指向DCMI_CodesInitTypeDef结构的指针，
   *                               该结构包含DCMI外设的嵌入式同步代码。
+  * 
   * 返回值: 无
   */
 void DCMI_SetEmbeddedSynchroCodes(DCMI_CodesInitTypeDef* DCMI_CodesInitStruct) {
@@ -229,9 +243,12 @@ void DCMI_SetEmbeddedSynchroCodes(DCMI_CodesInitTypeDef* DCMI_CodesInitStruct) {
 
 /**
   * 简介:  启用或禁用 DCMI JPEG 格式。
+  * 
   * 注意:   裁剪和嵌入式同步功能不能在此模式下使用。
+  * 
   * 参数:  NewState: DCMI JPEG 格式的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DCMI_JPEGCmd(FunctionalState NewState) {
@@ -264,8 +281,10 @@ void DCMI_JPEGCmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 DCMI 接口。
+  * 
   * 参数:  NewState: DCMI 接口的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
+  * 
   * 返回值: 无
   */
 void DCMI_Cmd(FunctionalState NewState) {
@@ -283,8 +302,10 @@ void DCMI_Cmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 DCMI 捕获。
+  * 
   * 参数:  NewState: DCMI捕获的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DCMI_CaptureCmd(FunctionalState NewState) {
@@ -302,7 +323,9 @@ void DCMI_CaptureCmd(FunctionalState NewState) {
 
 /**
   * 简介:  读取存储在 DR 寄存器中的数据。
+  * 
   * 参数:  无
+  * 
   * 返回值: 数据寄存器值
   */
 uint32_t DCMI_ReadData(void) {
@@ -326,6 +349,7 @@ uint32_t DCMI_ReadData(void) {
 
 /**
   * 简介:  启用或禁用 DCMI 接口中断。
+  * 
   * 参数:  DCMI_IT: 指定要启用或禁用的DCMI中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg DCMI_IT_FRAME: 帧捕获完成中断掩码
@@ -333,8 +357,10 @@ uint32_t DCMI_ReadData(void) {
   *            @arg DCMI_IT_ERR: 同步错误中断掩码
   *            @arg DCMI_IT_VSYNC: VSYNC中断掩码
   *            @arg DCMI_IT_LINE: 线路中断屏蔽
+  * 
   * 参数:  NewState: 指定的DCMI中断的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DCMI_ITConfig(uint16_t DCMI_IT, FunctionalState NewState) {
@@ -353,6 +379,7 @@ void DCMI_ITConfig(uint16_t DCMI_IT, FunctionalState NewState) {
 
 /**
   * 简介:  检查是否设置了 DCMI 接口标志。
+  * 
   * 参数:  DCMI_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
   *              @arg DCMI_FLAG_FRAMERI: 帧捕获完成的原始标志面具
@@ -368,6 +395,7 @@ void DCMI_ITConfig(uint16_t DCMI_IT, FunctionalState NewState) {
   *              @arg DCMI_FLAG_HSYNC:   HSYNC标志掩码
   *              @arg DCMI_FLAG_VSYNC:   VSYNC标志掩码
   *              @arg DCMI_FLAG_FNE: Fifo 非空标志掩码
+  * 
   * 返回值。DCMI_FLAG的新状态(SET或RESET)。
   */
 FlagStatus DCMI_GetFlagStatus(uint16_t DCMI_FLAG) {
@@ -400,6 +428,7 @@ FlagStatus DCMI_GetFlagStatus(uint16_t DCMI_FLAG) {
 
 /**
   * 简介:  清除 DCMI 的挂起标志。
+  * 
   * 参数:  DCMI_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
     *           @arg DCMI_FLAG_FRAMERI: 帧捕获完成的原始标志面具
@@ -407,6 +436,7 @@ FlagStatus DCMI_GetFlagStatus(uint16_t DCMI_FLAG) {
     *           @arg DCMI_FLAG_ERRRI:   同步错误 原始标志掩码
     *           @arg DCMI_FLAG_VSYNCRI: VSYNC 原始标志掩码
     *           @arg DCMI_FLAG_LINERI:  线路原始标志掩码
+    * 
   * 返回值: 无
   */
 void DCMI_ClearFlag(uint16_t DCMI_FLAG) {
@@ -420,6 +450,7 @@ void DCMI_ClearFlag(uint16_t DCMI_FLAG) {
 
 /**
   * 简介:  检查是否发生了 DCMI 中断。
+  * 
   * 参数:  DCMI_IT: 指定要检查的DCMI中断源。
   *         此参数可以是以下值之一。
   *          @arg DCMI_IT_FRAME: 帧捕获完成的中断掩码
@@ -427,6 +458,7 @@ void DCMI_ClearFlag(uint16_t DCMI_FLAG) {
   *          @arg DCMI_IT_ERR: 同步错误中断掩码
   *          @arg DCMI_IT_VSYNC: VSYNC中断掩码
   *          @arg DCMI_IT_LINE: 线路中断掩码
+  * 
   * 返回值: DCMI_IT的新状态(SET或RESET)。
   */
 ITStatus DCMI_GetITStatus(uint16_t DCMI_IT) {
@@ -449,6 +481,7 @@ ITStatus DCMI_GetITStatus(uint16_t DCMI_IT) {
 
 /**
   * 简介:  清除 DCMI 的中断挂起位。
+  * 
   * 参数:  DCMI_IT: 指定要清除的DCMI中断等待位。
   *          此参数可以是以下值的任意组合:
     *           @arg DCMI_IT_FRAME: 帧捕获完成中断掩码
@@ -456,6 +489,7 @@ ITStatus DCMI_GetITStatus(uint16_t DCMI_IT) {
     *           @arg DCMI_IT_ERR: 同步错误中断掩码
     *           @arg DCMI_IT_VSYNC: VSYNC中断掩码
     *           @arg DCMI_IT_LINE: 线路中断屏蔽
+    * 
   * 返回值: 无
   */
 void DCMI_ClearITPendingBit(uint16_t DCMI_IT) {

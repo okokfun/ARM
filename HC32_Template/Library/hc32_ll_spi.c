@@ -448,7 +448,7 @@ static int32_t SPI_Tx(CM_SPI_TypeDef *SPIx, const void *pvTxBuf, uint32_t u32Len
  */
 
 /**
- * @brief  Initializes the SPI peripheral according to the specified parameters
+ * @brief  Initializes the SPI peripheral 根据 the specified parameters
  *         in the structure stc_spi_init.
  * @param  [in]  SPIx               SPI unit
  *   @arg CM_SPIx or CM_SPI

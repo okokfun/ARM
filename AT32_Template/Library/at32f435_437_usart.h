@@ -46,7 +46,6 @@ extern "C" {
   * @brief usart flag
   * @{
   */
-
 #define USART_PERR_FLAG                  ((uint32_t)0x00000001) /*!< usart parity error flag */
 #define USART_FERR_FLAG                  ((uint32_t)0x00000002) /*!< usart framing error flag */
 #define USART_NERR_FLAG                  ((uint32_t)0x00000004) /*!< usart noise error flag */
@@ -66,7 +65,6 @@ extern "C" {
   * @brief usart interrupt
   * @{
   */
-
 #define USART_IDLE_INT                   MAKE_VALUE(0x0C,0x04) /*!< usart idle 中断 */
 #define USART_RDBF_INT                   MAKE_VALUE(0x0C,0x05) /*!< usart receive data buffer full 中断 */
 #define USART_TDC_INT                    MAKE_VALUE(0x0C,0x06) /*!< usart transmit data complete 中断 */
@@ -316,7 +314,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define USART1                           ((USART_Type *) USART1_BASE)
 #define USART2                           ((USART_Type *) USART2_BASE)
 #define USART3                           ((USART_Type *) USART3_BASE)

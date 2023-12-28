@@ -1207,7 +1207,7 @@ void ADC_Sync_DMA_Request_After_Last_Enable(void) {
 }
 
 /*!
-    简介:      configure ADC sync DMA engine issues requests according to the SYNCDMA bits
+    简介:      configure ADC sync DMA engine issues requests 根据 the SYNCDMA bits
     参数[输入]:  无
     参数[输出]:  无
     返回值:      无

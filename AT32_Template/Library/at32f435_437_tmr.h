@@ -46,7 +46,6 @@ extern "C" {
   * @brief tmr flag
   * @{
   */
-
 #define TMR_OVF_FLAG                     ((uint32_t)0x000001) /*!< tmr flag overflow */
 #define TMR_C1_FLAG                      ((uint32_t)0x000002) /*!< tmr flag channel 1 */
 #define TMR_C2_FLAG                      ((uint32_t)0x000004) /*!< tmr flag channel 2 */
@@ -69,7 +68,6 @@ extern "C" {
   * @brief tmr interrupt select type
   * @{
   */
-
 #define TMR_OVF_INT                      ((uint32_t)0x000001) /*!< tmr interrupt overflow */
 #define TMR_C1_INT                       ((uint32_t)0x000002) /*!< tmr interrupt channel 1 */
 #define TMR_C2_INT                       ((uint32_t)0x000004) /*!< tmr interrupt channel 2 */
@@ -812,7 +810,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define TMR1                             ((TMR_Type *) TMR1_BASE)
 #define TMR2                             ((TMR_Type *) TMR2_BASE)
 #define TMR3                             ((TMR_Type *) TMR3_BASE)

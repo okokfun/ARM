@@ -185,7 +185,7 @@ static void OTS_GetDfltPara(const stc_ots_init_t *pstcOTSInit) {
  */
 
 /**
- * @brief  Initializes OTS according to the specified parameters in the structure stc_ots_init_t.
+ * @brief  Initializes OTS 根据 the specified parameters in the structure stc_ots_init_t.
  * @param  [in]  pstcOTSInit            Pointer to a stc_ots_init_t structure value that
  *                                      contains the configuration information for OTS.
  * @retval int32_t:

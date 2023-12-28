@@ -73,7 +73,6 @@ typedef enum {
 /**
   * 简介:  EXTI 初始化结构定义
   */
-
 typedef struct {
     uint32_t EXTI_Line;               /*!< 指定要启用或禁用的 EXTI 行。
 									                    该参数可以是@ref EXTI_Lines 的任意组合值 */
@@ -97,7 +96,6 @@ typedef struct {
 /** @defgroup EXTI_Lines
   * @{
   */
-
 #define EXTI_Line0       ((uint32_t)0x00001)     /*!< 外部中断线 0 */
 #define EXTI_Line1       ((uint32_t)0x00002)     /*!< 外部中断线 1 */
 #define EXTI_Line2       ((uint32_t)0x00004)     /*!< 外部中断线 2 */

@@ -72,7 +72,6 @@ extern "C" {
 #define __CM0_CMSIS_VERSION_SUB   (0x00)                                   /*!< [15:0]  CMSIS HAL sub version    */
 #define __CM0_CMSIS_VERSION       ((__CM0_CMSIS_VERSION_MAIN << 16) | \
                                    __CM0_CMSIS_VERSION_SUB          )     /*!< CMSIS HAL version number         */
-
 #define __CORTEX_M                (0x00)                                   /*!< Cortex-M Core                    */
 
 

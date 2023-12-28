@@ -46,7 +46,6 @@ extern "C" {
 /** @defgroup CAN_TimeOut_count
   * @{
   */
-
 #define FZC_TIMEOUT                      ((uint32_t)0x0000FFFF) /*!< time out for fzc bit */
 #define DZC_TIMEOUT                      ((uint32_t)0x0000FFFF) /*!< time out for dzc bit */
 
@@ -58,7 +57,6 @@ extern "C" {
   * @brief can flag
   * @{
   */
-
 #define CAN_EAF_FLAG                     ((uint32_t)0x01) /*!< error active flag */
 #define CAN_EPF_FLAG                     ((uint32_t)0x02) /*!< error passive flag */
 #define CAN_BOF_FLAG                     ((uint32_t)0x03) /*!< bus-off flag */
@@ -85,7 +83,6 @@ extern "C" {
   * @brief can interrupt
   * @{
   */
-
 #define CAN_TCIEN_INT                    ((uint32_t)0x00000001) /*!< transmission complete 中断 */
 #define CAN_RF0MIEN_INT                  ((uint32_t)0x00000002) /*!< receive fifo 0 message 中断 */
 #define CAN_RF0FIEN_INT                  ((uint32_t)0x00000004) /*!< receive fifo 0 full 中断 */
@@ -360,10 +357,10 @@ typedef struct {
     uint16_t filter_ID_low;                /*!< config the filter identification, for 32-bit configuration
                                               it's low 16 bits, for 16-bit configuration it's second. */
 
-    uint16_t filter_Mask_high;             /*!< config the filter mask or identification, according to the filtering mode,
+    uint16_t filter_Mask_high;             /*!< config the filter mask or identification, 根据 the filtering mode,
                                               for 32-bit configuration it's high 16 bits, for 16-bit configuration it's first. */
 
-    uint16_t filter_Mask_low;              /*!< config the filter mask or identification, according to the filtering mode,
+    uint16_t filter_Mask_low;              /*!< config the filter mask or identification, 根据 the filtering mode,
                                               for 32-bit configuration it's low 16 bits, for 16-bit configuration it's second. */
 } CAN_Filter_Init_Type;
 
@@ -919,7 +916,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define CAN1                             ((CAN_Type *) CAN1_BASE)
 #define CAN2                             ((CAN_Type *) CAN2_BASE)
 

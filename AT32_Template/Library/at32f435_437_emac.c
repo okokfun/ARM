@@ -82,7 +82,7 @@ void EMAC_Control_Para_Init(EMAC_Control_Config_Type *control_para) {
 }
 
 /**
-  * @brief  according to hclk to set mdc clock frequency.
+  * @brief  根据 hclk to set mdc clock frequency.
   * @param  无
   * @retval 无
   */

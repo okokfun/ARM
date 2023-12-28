@@ -45,7 +45,6 @@ extern "C" {
 /** @defgroup GPIO_Pins_Number_definition
   * @{
   */
-
 #define GPIO_Pins_0                      0x0001 /*!< gpio pins number 0 */
 #define GPIO_Pins_1                      0x0002 /*!< gpio pins number 1 */
 #define GPIO_Pins_2                      0x0004 /*!< gpio pins number 2 */
@@ -483,7 +482,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define GPIOA                            ((GPIO_Type *) GPIOA_BASE)
 #define GPIOB                            ((GPIO_Type *) GPIOB_BASE)
 #define GPIOC                            ((GPIO_Type *) GPIOC_BASE)

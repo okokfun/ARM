@@ -130,7 +130,6 @@ typedef struct {
 
 #define EFM_WAIT_CYCLE0                 (0U << EFM_FRMC_FLWT_POS)      /*!< Don't insert read wait cycle */
 #define EFM_WAIT_CYCLE1                 (1U << EFM_FRMC_FLWT_POS)      /*!< Insert 1 read wait cycle     */
-
 #define EFM_WAIT_CYCLE2                 (2U << EFM_FRMC_FLWT_POS)      /*!< Insert 2 read wait cycles    */
 #define EFM_WAIT_CYCLE3                 (3U << EFM_FRMC_FLWT_POS)      /*!< Insert 3 read wait cycles    */
 #define EFM_WAIT_CYCLE4                 (4U << EFM_FRMC_FLWT_POS)      /*!< Insert 4 read wait cycles    */
@@ -184,7 +183,6 @@ typedef struct {
 #define EFM_MD_PGM_READBACK             (0x2UL << EFM_FWMC_PEMOD_POS)   /*!< Program and read back mode   */
 #define EFM_MD_PGM_SEQ                  (0x3UL << EFM_FWMC_PEMOD_POS)   /*!< Program sequence mode        */
 #define EFM_MD_ERASE_SECTOR             (0x4UL << EFM_FWMC_PEMOD_POS)   /*!< Sector erase mode            */
-
 #define EFM_MD_ERASE_ONE_CHIP           (0x5UL << EFM_FWMC_PEMOD_POS)   /*!< A flash Chip erase mode      */
 #define EFM_MD_ERASE_ALL_CHIP           (0x6UL << EFM_FWMC_PEMOD_POS)   /*!< All chip erase mode    */
 
@@ -209,7 +207,6 @@ typedef struct {
 #define EFM_FLAG_OPTEND1                (EFM_FSR_OPTEND1)       /*!< EFM Flash1 end of operation flag.                  */
 #define EFM_FLAG_COLERR1                (EFM_FSR_COLERR1)       /*!< EFM Flash1 read collide error flag.                */
 #define EFM_FLAG_RDY1                   (EFM_FSR_RDY1)          /*!< EFM Flash1 ready flag.                             */
-
 #define EFM_FLAG_ALL                (EFM_FLAG_OTPWERR | EFM_FLAG_PEPRTERR | EFM_FLAG_PGSZERR   | EFM_FLAG_PGMISMTCH  | \
                                      EFM_FLAG_OPTEND  | EFM_FLAG_COLERR   | EFM_FLAG_PEPRTERR1 | EFM_FLAG_PGSZERR1   | \
                                      EFM_FLAG_OPTEND1 | EFM_FLAG_COLERR1  | EFM_FLAG_RDY       | EFM_FLAG_PGMISMTCH1 | \
@@ -226,7 +223,6 @@ typedef struct {
 #define EFM_INT_PEERR                   (EFM_FITE_PEERRITE)     /*!< Program/erase error Interrupt source    */
 #define EFM_INT_OPTEND                  (EFM_FITE_OPTENDITE)    /*!< End of EFM operation Interrupt source   */
 #define EFM_INT_COLERR                  (EFM_FITE_COLERRITE)    /*!< Read collide error Interrupt source     */
-
 #define EFM_INT_ALL                     (EFM_FITE_PEERRITE | EFM_FITE_OPTENDITE | EFM_FITE_COLERRITE)
 /**
  * @}

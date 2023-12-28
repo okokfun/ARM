@@ -41,7 +41,6 @@ extern "C" {
 /** @addtogroup SCFG
   * @{
   */
-
 #define SCFG_REG(value)                  PERIPH_REG(SCFG_BASE, value)
 #define SCFG_REG_BIT(value)              PERIPH_REG_BIT(value)
 
@@ -264,7 +263,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define SCFG                             ((SCFG_Type *) SCFG_BASE)
 
 /** @defgroup SCFG_exported_functions

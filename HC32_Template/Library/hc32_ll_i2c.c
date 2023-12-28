@@ -229,7 +229,7 @@ void I2C_GenerateStop(CM_I2C_TypeDef *I2Cx) {
  *                     I2cSrcClk -- I2c source clock
  *                     Baudrate -- baudrate of i2c
  *                     SclTime  -- =(SCL rising time + SCL falling time)/period of i2c clock
- *                                 according to i2c bus hardware parameter.
+ *                                 根据 i2c bus hardware parameter.
  *                     Dnfsum   -- 0 if digital filter off;
  *                                 Filter capacity if digital filter on(1 ~ 4)
  *                     Imme     -- A Immediate data, 68
@@ -338,7 +338,7 @@ void I2C_DeInit(CM_I2C_TypeDef *I2Cx) {
 }
 
 /**
- * @brief Initialize I2C peripheral according to the structure
+ * @brief Initialize I2C peripheral 根据 the structure
  * @param [in] I2Cx                 Pointer to I2C instance register base.
  *                                  This parameter can be a value of the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
@@ -348,7 +348,7 @@ void I2C_DeInit(CM_I2C_TypeDef *I2Cx) {
  *                     I2cSrcClk -- I2c source clock
  *                     Baudrate -- baudrate of i2c
  *                     SclTime  -- =(SCL rising time + SCL falling time)/period of i2c clock
- *                                 according to i2c bus hardware parameter.
+ *                                 根据 i2c bus hardware parameter.
  *                     Dnfsum   -- 0 if digital filter off;
  *                                 Filter capacity if digital filter on(1 ~ 4)
  *                     Imme     -- A Immediate data, 68

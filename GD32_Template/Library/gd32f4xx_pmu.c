@@ -69,7 +69,7 @@ void PMU_lvd_Select(uint32_t lvdt_n) {
     PMU_CTL &= ~PMU_CTL_LVDEN;
     /* clear LVDT bits */
     PMU_CTL &= ~PMU_CTL_LVDT;
-    /* set LVDT bits according to PMU_lvdt_n */
+    /* set LVDT bits 根据 PMU_lvdt_n */
     PMU_CTL |= lvdt_n;
     /* enable LVD */
     PMU_CTL |= PMU_CTL_LVDEN;
@@ -226,7 +226,7 @@ void PMU_to_deepsleepmode(uint32_t ldo, uint32_t lowdrive, uint8_t deepsleepmode
     /* clear stbmod and ldolp bits */
     PMU_CTL &= ~((uint32_t)(PMU_CTL_STBMOD | PMU_CTL_LDOLP | PMU_CTL_LDEN | PMU_CTL_LDNP | PMU_CTL_LDLP));
 
-    /* set ldolp bit according to PMU_ldo */
+    /* set ldolp bit 根据 PMU_ldo */
     PMU_CTL |= ldo;
 
     /* configure low drive mode in deep-sleep mode */

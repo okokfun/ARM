@@ -46,7 +46,6 @@ extern "C" {
   * @brief pwc flag
   * @{
   */
-
 #define PWC_WakeUp_FLAG                  ((uint32_t)0x00000001) /*!< wakeup flag */
 #define PWC_Standby_FLAG                 ((uint32_t)0x00000002) /*!< standby flag */
 #define PWC_PVM_OutPut_FLAG              ((uint32_t)0x00000004) /*!< pvm output flag */
@@ -180,7 +179,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define PWC                              ((PWC_Type *) PWC_BASE)
 
 /** @defgroup PWC_exported_functions

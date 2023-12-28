@@ -222,7 +222,7 @@
  */
 
 /**
- * @brief  Initializes the specified ADC peripheral according to the specified parameters
+ * @brief  Initializes the specified ADC peripheral 根据 the specified parameters
  *         in the structure pstcAdcInit.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
  *                                      This parameter can be a value of the following:

@@ -4,15 +4,13 @@
 ;* @version           : V1.8.0
 ;* @date              : 09-November-2016
 ;* Description        : STM32F423xx devices vector table for MDK-ARM toolchain. 
-;*                      This module performs:
-;*                      - Set the initial SP
-;*                      - Set the initial PC == Reset_Handler
-;*                      - Set the vector table entries with the exceptions ISR address
-;*                      - Branches to __main in the C library (which eventually
-;*                        calls main()).
-;*                      After Reset the CortexM4 processor is in Thread mode,
-;*                      priority is Privileged, and the Stack is set to Main.
-;* <<< Use Configuration Wizard in Context Menu >>>   
+;*                      此模块执行以下操作:
+;*                      - 设置初始 SP
+;*                      - 设置初始PC == Reset_Handler
+;*                      - 配置具有异常 ISR 地址的矢量表条目
+;*                      - 分支到C库中的__main(最终调用main())。
+;*                      重置后，CortexM4 处理器处于线程模式，优先级为特权，栈设置为主。
+;* <<< 在上下文菜单中使用配置向导 >>>   
 ;*******************************************************************************
 ; 
 ;* Redistribution and use in source and binary forms, with or without modification,
@@ -52,7 +50,7 @@ Stack_Mem       SPACE   Stack_Size
 __initial_sp
 
 
-; <h> Heap Configuration
+; <h> 堆配置
 ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ; </h>
 
@@ -73,24 +71,24 @@ __heap_limit
                 EXPORT  __Vectors_End
                 EXPORT  __Vectors_Size
 
-__Vectors       DCD     __initial_sp               ; Top of Stack
-                DCD     Reset_Handler              ; Reset Handler
-                DCD     NMI_Handler                ; NMI Handler
-                DCD     HardFault_Handler          ; Hard Fault Handler
-                DCD     MemManage_Handler          ; MPU Fault Handler
-                DCD     BusFault_Handler           ; Bus Fault Handler
-                DCD     UsageFault_Handler         ; Usage Fault Handler
-                DCD     0                          ; Reserved
-                DCD     0                          ; Reserved
-                DCD     0                          ; Reserved
-                DCD     0                          ; Reserved
-                DCD     SVC_Handler                ; SVCall Handler
-                DCD     DebugMon_Handler           ; Debug Monitor Handler
-                DCD     0                          ; Reserved
-                DCD     PendSV_Handler             ; PendSV Handler
-                DCD     SysTick_Handler            ; SysTick Handler
+__Vectors       DCD     __initial_sp               ; 栈顶
+                DCD     Reset_Handler              ; 重置处理程序
+                DCD     NMI_Handler                ; NMI 处理程序
+                DCD     HardFault_Handler          ; 硬故障处理程序
+                DCD     MemManage_Handler          ; MPU故障处理程序
+                DCD     BusFault_Handler           ; 总线故障处理程序
+                DCD     UsageFault_Handler         ; 使用故障处理程序
+                DCD     0                          ; 保留部分
+                DCD     0                          ; 保留部分
+                DCD     0                          ; 保留部分
+                DCD     0                          ; 保留部分
+                DCD     SVC_Handler                ; SVCall 处理程序
+                DCD     DebugMon_Handler           ; Debug Monitor 处理程序
+                DCD     0                          ; 保留部分
+                DCD     PendSV_Handler             ; PendSV 处理程序
+                DCD     SysTick_Handler            ; SysTick 处理程序
 
-                ; External Interrupts
+                ; 外部中断
                 DCD     WWDG_IRQHandler                   ; Window WatchDog
                 DCD     PVD_IRQHandler                    ; PVD through EXTI Line detection
                 DCD     TAMP_STAMP_IRQHandler             ; Tamper and TimeStamps through the EXTI line
@@ -122,10 +120,10 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     TIM2_IRQHandler                   ; TIM2
                 DCD     TIM3_IRQHandler                   ; TIM3
                 DCD     TIM4_IRQHandler                   ; TIM4
-                DCD     I2C1_EV_IRQHandler                ; I2C1 Event
-                DCD     I2C1_ER_IRQHandler                ; I2C1 Error
-                DCD     I2C2_EV_IRQHandler                ; I2C2 Event
-                DCD     I2C2_ER_IRQHandler                ; I2C2 Error
+                DCD     I2C1_EV_IRQHandler                ; I2C1 事件
+                DCD     I2C1_ER_IRQHandler                ; I2C1 错误
+                DCD     I2C2_EV_IRQHandler                ; I2C2 事件
+                DCD     I2C2_ER_IRQHandler                ; I2C2 错误
                 DCD     SPI1_IRQHandler                   ; SPI1
                 DCD     SPI2_IRQHandler                   ; SPI2
                 DCD     USART1_IRQHandler                 ; USART1
@@ -135,8 +133,8 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     RTC_Alarm_IRQHandler              ; RTC Alarm (A and B) through EXTI Line
                 DCD     OTG_FS_WKUP_IRQHandler            ; USB OTG FS Wakeup through EXTI line
                 DCD     TIM8_BRK_TIM12_IRQHandler         ; TIM8 Break and TIM12
-                DCD     TIM8_UP_TIM13_IRQHandler          ; TIM8 Update and TIM13
-                DCD     TIM8_TRG_COM_TIM14_IRQHandler     ; TIM8 Trigger and Commutation and TIM14
+                DCD     TIM8_UP_TIM13_IRQHandler          ; TIM8 更新 TIM13
+                DCD     TIM8_TRG_COM_TIM14_IRQHandler     ; TIM8 触发和通信与 TIM14
                 DCD     TIM8_CC_IRQHandler                ; TIM8 Capture Compare
                 DCD     DMA1_Stream7_IRQHandler           ; DMA1 Stream7
                 DCD     FSMC_IRQHandler                   ; FSMC
@@ -163,13 +161,13 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     DMA2_Stream6_IRQHandler           ; DMA2 Stream 6
                 DCD     DMA2_Stream7_IRQHandler           ; DMA2 Stream 7
                 DCD     USART6_IRQHandler                 ; USART6
-                DCD     I2C3_EV_IRQHandler                ; I2C3 event
-                DCD     I2C3_ER_IRQHandler                ; I2C3 error
+                DCD     I2C3_EV_IRQHandler                ; I2C3 事件
+                DCD     I2C3_ER_IRQHandler                ; I2C3 错误
                 DCD     CAN3_TX_IRQHandler                ; CAN3 TX
                 DCD     CAN3_RX0_IRQHandler               ; CAN3 RX0
                 DCD     CAN3_RX1_IRQHandler               ; CAN3 RX1
                 DCD     CAN3_SCE_IRQHandler               ; CAN3 SCE
-                DCD     0                                 ; Reserved
+                DCD     0                                 ; 保留部分
                 DCD     AES_IRQHandler                    ; AES
                 DCD     RNG_IRQHandler                    ; RNG
                 DCD     FPU_IRQHandler                    ; FPU
@@ -177,15 +175,15 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     UART8_IRQHandler                  ; UART8
                 DCD     SPI4_IRQHandler                   ; SPI4
                 DCD     SPI5_IRQHandler                   ; SPI5
-                DCD     0                                 ; Reserved
+                DCD     0                                 ; 保留部分
                 DCD     SAI1_IRQHandler                   ; SAI1
                 DCD     UART9_IRQHandler                  ; UART9
                 DCD     UART10_IRQHandler                 ; UART10
-                DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
+                DCD     0                                 ; 保留部分
+                DCD     0                                 ; 保留部分
                 DCD     QUADSPI_IRQHandler                ; QuadSPI
-                DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
+                DCD     0                                 ; 保留部分
+                DCD     0                                 ; 保留部分
                 DCD     FMPI2C1_EV_IRQHandler             ; FMPI2C1 Event
                 DCD     FMPI2C1_ER_IRQHandler             ; FMPI2C1 Error
                 DCD     LPTIM1_IRQHandler                 ; LPTIM1
@@ -200,7 +198,7 @@ __Vectors_Size  EQU  __Vectors_End - __Vectors
 
                 AREA    |.text|, CODE, READONLY
 
-; Reset handler
+; 重置处理程序
 Reset_Handler    PROC
                  EXPORT  Reset_Handler             [WEAK]
         IMPORT  SystemInit
@@ -212,7 +210,7 @@ Reset_Handler    PROC
                  BX      R0
                  ENDP
 
-; Dummy Exception Handlers (infinite loops which can be modified)
+; 伪异常处理程序(可以修改的无限循环)
 
 NMI_Handler     PROC
                 EXPORT  NMI_Handler                [WEAK]
@@ -460,7 +458,7 @@ DFSDM2_FLT3_IRQHandler
                 ALIGN
 
 ;*******************************************************************************
-; User Stack and Heap initialization
+; 用户栈和堆初始化
 ;*******************************************************************************
                  IF      :DEF:__MICROLIB
                 

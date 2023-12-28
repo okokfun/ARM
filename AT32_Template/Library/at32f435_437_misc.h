@@ -45,7 +45,6 @@ extern "C" {
 /** @defgroup MISC_Vector_Table_Base_Address
   * @{
   */
-
 #define NVIC_VECTTAB_RAM                 ((uint32_t)0x20000000) /*!< nvic vector table based ram address */
 #define NVIC_VECTTAB_FLASH               ((uint32_t)0x08000000) /*!< nvic vector table based flash address */
 

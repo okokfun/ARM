@@ -64,7 +64,7 @@ void XMC_NOR_SRAM_Reset(XMC_NOR_SRAM_SubBank_Type XMC_subbank) {
 }
 
 /**
-  * @brief  initialize the xmc nor/sram banks according to the specified
+  * @brief  initialize the xmc nor/sram banks 根据 the specified
   *         parameters in the XMC_norsraminitstruct.
   * @param  XMC_NORSRAM_Init_struct : pointer to a XMC_NORSRAM_Init_Type
   *         structure that contains the configuration information for
@@ -94,7 +94,7 @@ void XMC_NOR_SRAM_Init(XMC_NORSRAM_Init_Type* XMC_NORSRAM_Init_struct) {
 }
 
 /**
-  * @brief  initialize the xmc nor/sram banks according to the specified
+  * @brief  initialize the xmc nor/sram banks 根据 the specified
   *         parameters in the XMC_rw_Timing_struct and XMC_w_Timing_struct.
   * @param  XMC_rw_Timing_struct : pointer to a XMC_NORSRAM_Timing_Init_Type
   *         structure that contains the configuration information for
@@ -242,7 +242,7 @@ void XMC_NAND_Reset(XMC_class_bank_Type XMC_bank) {
 }
 
 /**
-  * @brief  initialize the xmc nand banks according to the specified
+  * @brief  initialize the xmc nand banks 根据 the specified
   *         parameters in the XMC_nandinitstruct.
   * @param  XMC_NAND_Init_struct : pointer to a XMC_NAND_Init_Type
   *         structure that contains the configuration information for the xmc
@@ -252,7 +252,7 @@ void XMC_NAND_Reset(XMC_class_bank_Type XMC_bank) {
 void XMC_NAND_Init(XMC_NAND_Init_Type* XMC_NAND_Init_struct) {
     uint32_t tempctrl = 0x0;
 
-    /* Set the tempctrl value according to XMC_NAND_Init_struct parameters */
+    /* Set the tempctrl value 根据 XMC_NAND_Init_struct parameters */
     tempctrl = (uint32_t)XMC_NAND_Init_struct->wait_Enable |
                XMC_NAND_Init_struct->bus_Type |
                XMC_NAND_Init_struct->ecc_Enable |
@@ -272,7 +272,7 @@ void XMC_NAND_Init(XMC_NAND_Init_Type* XMC_NAND_Init_struct) {
 }
 
 /**
-  * @brief  initialize the xmc nand banks according to the specified
+  * @brief  initialize the xmc nand banks 根据 the specified
   *         parameters in the XMC_nandinitstruct.
   * @param  XMC_regular_spacetiming_struct : pointer to a XMC_NAND_PcCard_TimingInit_Type
   *         structure that contains the configuration information for the xmc
@@ -286,13 +286,13 @@ void XMC_NAND_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_spaceti
                             XMC_NAND_PcCard_TimingInit_Type* XMC_special_spacetiming_struct) {
     uint32_t tempmem = 0x0, tempatt = 0x0;
 
-    /* set the tempmem value according to XMC_NAND_Init_struct parameters */
+    /* set the tempmem value 根据 XMC_NAND_Init_struct parameters */
     tempmem = (uint32_t)XMC_regular_spacetiming_struct->mem_Setup_time |
               (XMC_regular_spacetiming_struct->mem_Waite_time << 8) |
               (XMC_regular_spacetiming_struct->mem_hold_time << 16) |
               (XMC_regular_spacetiming_struct->mem_hiz_time << 24);
 
-    /* set the tempatt value according to XMC_NAND_Init_struct parameters */
+    /* set the tempatt value 根据 XMC_NAND_Init_struct parameters */
     tempatt = (uint32_t)XMC_special_spacetiming_struct->mem_Setup_time |
               (XMC_special_spacetiming_struct->mem_Waite_time << 8) |
               (XMC_special_spacetiming_struct->mem_hold_time << 16) |
@@ -428,7 +428,7 @@ void XMC_SDRAM_Reset(XMC_SDRAM_bank_Type XMC_bank) {
 }
 
 /**
-  * @brief  initialize the xmc sdram banks according to the specified
+  * @brief  initialize the xmc sdram banks 根据 the specified
   *         parameters in the XMC_SDRAM_Init_struct and XMC_SDRAM_Timing_struct.
   * @param  XMC_SDRAM_Init_struct : pointer to a XMC_SDRAM_Init_Type
   *         structure that contains the configuration information for the xmc
@@ -708,7 +708,7 @@ void XMC_PcCard_Reset(void) {
 }
 
 /**
-  * @brief  initialize the xmc pccard bank according to the specified
+  * @brief  initialize the xmc pccard bank 根据 the specified
   *         parameters in the XMC_PcCard_Init_struct.
   * @param  XMC_PcCard_Init_struct : pointer to a XMC_PcCard_Init_Type
   *         structure that contains the configuration information for the xmc
@@ -716,7 +716,7 @@ void XMC_PcCard_Reset(void) {
   * @retval 无
   */
 void XMC_PcCard_Init(XMC_PcCard_Init_Type* XMC_PcCard_Init_struct) {
-    /* set the bk4ctrl register value according to XMC_PcCard_Init_struct parameters */
+    /* set the bk4ctrl register value 根据 XMC_PcCard_Init_struct parameters */
     XMC_BANK4->bk4ctrl = (uint32_t)XMC_PcCard_Init_struct->enable_Wait |
                          XMC_BUSTYPE_16_BITS |
                          (XMC_PcCard_Init_struct->delay_Time_cr << 9) |
@@ -724,7 +724,7 @@ void XMC_PcCard_Init(XMC_PcCard_Init_Type* XMC_PcCard_Init_struct) {
 }
 
 /**
-  * @brief  initialize the xmc pccard bank according to the specified
+  * @brief  initialize the xmc pccard bank 根据 the specified
   *         parameters in the XMC_Common_spacetiming_struct/XMC_attribute_spacetiming_struct
   *         and XMC_iospace_Timing_struct.
   * @param  XMC_regular_spacetiming_struct : pointer to a XMC_PcCard_Init_Type
@@ -741,19 +741,19 @@ void XMC_PcCard_Init(XMC_PcCard_Init_Type* XMC_PcCard_Init_struct) {
 void XMC_PcCard_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_spacetiming_struct,
                               XMC_NAND_PcCard_TimingInit_Type* XMC_special_spacetiming_struct,
                               XMC_NAND_PcCard_TimingInit_Type* XMC_iospace_Timing_struct) {
-    /* set bk4tmgmem register value according to XMC_regular_spacetiming_struct parameters */
+    /* set bk4tmgmem register value 根据 XMC_regular_spacetiming_struct parameters */
     XMC_BANK4->bk4tmgmem = (uint32_t)XMC_regular_spacetiming_struct->mem_Setup_time |
                            (XMC_regular_spacetiming_struct->mem_Waite_time << 8) |
                            (XMC_regular_spacetiming_struct->mem_hold_time << 16) |
                            (XMC_regular_spacetiming_struct->mem_hiz_time << 24);
 
-    /* Set bk4tmgatt register value according to XMC_special_spacetiming_struct parameters */
+    /* Set bk4tmgatt register value 根据 XMC_special_spacetiming_struct parameters */
     XMC_BANK4->bk4tmgatt = (uint32_t)XMC_special_spacetiming_struct->mem_Setup_time |
                            (XMC_special_spacetiming_struct->mem_Waite_time << 8) |
                            (XMC_special_spacetiming_struct->mem_hold_time << 16) |
                            (XMC_special_spacetiming_struct->mem_hiz_time << 24);
 
-    /* Set bk4tmgio register value according to XMC_iospace_Timing_struct parameters */
+    /* Set bk4tmgio register value 根据 XMC_iospace_Timing_struct parameters */
     XMC_BANK4->bk4tmgio = (uint32_t)XMC_iospace_Timing_struct->mem_Setup_time |
                           (XMC_iospace_Timing_struct->mem_Waite_time << 8) |
                           (XMC_iospace_Timing_struct->mem_hold_time << 16) |

@@ -731,7 +731,7 @@ void PWR_EnterSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) {
     /* 清除PDDS和LPDS位 */
     tmpreg &= CR_DS_MASK;
 
-    /* Set LPDS, MRLVDS and LPLVDS bits according to PWR_Regulator 值 */
+    /* Set LPDS, MRLVDS and LPLVDS bits 根据 PWR_Regulator 值 */
     tmpreg |= PWR_Regulator;
 
     /* 存储新值 */

@@ -41,14 +41,12 @@ extern "C" {
 /** @addtogroup EMAC
   * @{
   */
-
 #define PHY_TIMEOUT                      (0x000FFFFF) /*!< timeout for phy response */
 
 /** @defgroup EMAC_smi_Clock_border_definition
   * @brief emac smi clock border
   * @{
   */
-
 #define EMAC_HCLK_BORDER_20MHZ           (20000000)   /*!< hclk boarder of 20 mhz */
 #define EMAC_HCLK_BORDER_35MHZ           (35000000)   /*!< hclk boarder of 35 mhz */
 #define EMAC_HCLK_BORDER_60MHZ           (60000000)   /*!< hclk boarder of 60 mhz */
@@ -65,7 +63,6 @@ extern "C" {
   * @brief emac interrupts
   * @{
   */
-
 #define EMAC_PMT_FLAG                    ((uint32_t)0x00000008) /*!< interrupt bit of pmt */
 #define EMAC_MMC_FLAG                    ((uint32_t)0x00000010) /*!< interrupt bit of mmc */
 #define EMAC_MMCR_FLAG                   ((uint32_t)0x00000020) /*!< interrupt bit of mmcr */
@@ -80,7 +77,6 @@ extern "C" {
   * @brief emac mmc flags
   * @{
   */
-
 #define MMC_RX_CRC_ERROR                 ((uint32_t)0x00000020) /*!< mmc error flag of rx crc */
 #define MMC_RX_ALIGN_ERROR               ((uint32_t)0x00000040) /*!< mmc error flag of rx alignment */
 #define MMC_RX_Good_UNICAST              ((uint32_t)0x00020000) /*!< mmc error flag of rx unicast good frames */
@@ -96,7 +92,6 @@ extern "C" {
   * @brief emac packet
   * @{
   */
-
 #define EMAC_MAX_Packet_LENGTH           1520 /*!< EMAC_header + EMAC_extra + EMAC_max_payload + EMAC_crc */
 #define EMAC_HEADER                      14   /*!< 6 byte dest addr, 6 byte src addr, 2 byte length/ept_Type */
 #define EMAC_CRC                         4    /*!< ethernet crc */
@@ -115,7 +110,6 @@ extern "C" {
   * @brief tdes0 definition
   * @{
   */
-
 #define EMAC_DMATXDESC_OWN               ((uint32_t)0x80000000) /*!< own bit: descriptor is owned by dma engine */
 #define EMAC_DMATXDESC_IC                ((uint32_t)0x40000000) /*!< interrupt on completion */
 #define EMAC_DMATXDESC_LS                ((uint32_t)0x20000000) /*!< last segment */
@@ -154,7 +148,6 @@ extern "C" {
   * @brief  tdes1 descriptor
   * @{
   */
-
 #define EMAC_DMATXDESC_TBS2              ((uint32_t)0x1FFF0000) /*!< transmit buffer2 size */
 #define EMAC_DMATXDESC_TBS1              ((uint32_t)0x00001FFF) /*!< transmit buffer1 size */
 
@@ -166,7 +159,6 @@ extern "C" {
   * @brief  tdes2 descriptor
   * @{
   */
-
 #define EMAC_DMATXDESC_B1AP              ((uint32_t)0xFFFFFFFF) /*!< buffer1 address pointer */
 
 /**
@@ -177,7 +169,6 @@ extern "C" {
   * @brief  tdes3 descriptor
   * @{
   */
-
 #define EMAC_DMATxDesc_B2AP              ((uint32_t)0xFFFFFFFF) /*!< buffer2 address pointer */
 
 /**
@@ -188,7 +179,6 @@ extern "C" {
   * @brief  rdes0 descriptor
   * @{
   */
-
 #define EMAC_DMARXDESC_OWN               ((uint32_t)0x80000000) /*!< own bit: descriptor is owned by dma engine  */
 #define EMAC_DMARXDESC_AFM               ((uint32_t)0x40000000) /*!< da filter fail for the rx frame  */
 #define EMAC_DMARXDESC_FL                ((uint32_t)0x3FFF0000) /*!< receive descriptor frame length  */
@@ -217,7 +207,6 @@ extern "C" {
   * @brief  rdes1 descriptor
   * @{
   */
-
 #define EMAC_DMARXDESC_DIC               ((uint32_t)0x80000000) /*!< disable interrupt on completion */
 #define EMAC_DMARXDESC_RBS2              ((uint32_t)0x1FFF0000) /*!< receive buffer2 size */
 #define EMAC_DMARXDESC_RER               ((uint32_t)0x00008000) /*!< receive end of ring */
@@ -232,7 +221,6 @@ extern "C" {
   * @brief  rdes2 descriptor
   * @{
   */
-
 #define EMAC_DMARXDESC_B1AP              ((uint32_t)0xFFFFFFFF) /*!< buffer1 address pointer */
 
 /**
@@ -243,7 +231,6 @@ extern "C" {
   * @brief  rdes3 descriptor
   * @{
   */
-
 #define EMAC_DMARXDESC_B2AP              ((uint32_t)0xFFFFFFFF) /*!< buffer2 address pointer */
 
 /**
@@ -1413,7 +1400,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define EMAC                             ((EMAC_Type *) EMAC_BASE)
 #define EMAC_MMC                         ((EMAC_MMC_Type *) EMAC_MMC_BASE)
 #define EMAC_PTP                         ((EMAC_PTP_Type *) EMAC_PTP_BASE)

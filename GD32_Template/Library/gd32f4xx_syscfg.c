@@ -61,7 +61,7 @@ void SYSCFG_DeInit(void) {
     返回值:      无
 */
 void SYSCFG_BootMode_Config(uint8_t SYSCFG_bootmode) {
-    /* reset the SYSCFG_CFG0_BOOT_MODE bit and set according to SYSCFG_bootmode */
+    /* reset the SYSCFG_CFG0_BOOT_MODE bit and set 根据 SYSCFG_bootmode */
     SYSCFG_CFG0 &= ~SYSCFG_CFG0_BOOT_MODE;
     SYSCFG_CFG0 |= (uint32_t)SYSCFG_bootmode;
 }
@@ -78,7 +78,7 @@ void SYSCFG_BootMode_Config(uint8_t SYSCFG_bootmode) {
 void SYSCFG_FMC_Swap_Config(uint32_t SYSCFG_FMC_swap) {
     uint32_t reg;
     reg = SYSCFG_CFG0;
-    /* reset the FMC_SWP bit and set according to SYSCFG_FMC_swap */
+    /* reset the FMC_SWP bit and set 根据 SYSCFG_FMC_swap */
     reg &= ~SYSCFG_CFG0_FMC_SWP;
     SYSCFG_CFG0 = (reg | SYSCFG_FMC_swap);
 }
@@ -96,7 +96,7 @@ void SYSCFG_EXMC_Swap_Config(uint32_t SYSCFG_EXMC_swap) {
     uint32_t reg;
 
     reg = SYSCFG_CFG0;
-    /* reset the SYSCFG_CFG0_EXMC_SWP bits and set according to SYSCFG_EXMC_swap */
+    /* reset the SYSCFG_CFG0_EXMC_SWP bits and set 根据 SYSCFG_EXMC_swap */
     reg &= ~SYSCFG_CFG0_EXMC_SWP;
     SYSCFG_CFG0 = (reg | SYSCFG_EXMC_swap);
 }
@@ -163,7 +163,7 @@ void SYSCFG_ENET_PHY_Interface_Config(uint32_t SYSCFG_ENET_PHY_interface) {
     uint32_t reg;
 
     reg = SYSCFG_CFG1;
-    /* reset the ENET_PHY_SEL bit and set according to SYSCFG_ENET_PHY_interface */
+    /* reset the ENET_PHY_SEL bit and set 根据 SYSCFG_ENET_PHY_interface */
     reg &= ~SYSCFG_CFG1_ENET_PHY_SEL;
     SYSCFG_CFG1 = (reg | SYSCFG_ENET_PHY_interface);
 }
@@ -181,7 +181,7 @@ void SYSCFG_Compensation_Config(uint32_t SYSCFG_compensation) {
     uint32_t reg;
 
     reg = SYSCFG_CPSCTL;
-    /* reset the SYSCFG_CPSCTL_CPS_EN bit and set according to SYSCFG_compensation */
+    /* reset the SYSCFG_CPSCTL_CPS_EN bit and set 根据 SYSCFG_compensation */
     reg &= ~SYSCFG_CPSCTL_CPS_EN;
     SYSCFG_CPSCTL = (reg | SYSCFG_compensation);
 }

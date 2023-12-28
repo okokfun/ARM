@@ -51,7 +51,7 @@
 #include "stm32f4xx_wwdg.h"
 #include "delay.h"
 #include "led.h"
-#include "misc.h" /* NVIC和SysTick的高级功能（CMSIS功能的附加功能） */
+#include "misc.h" /* NVIC和SysTick的高级功能(CMSIS功能的附加功能) */
 
 #if defined(STM32F429_439xx) || defined(STM32F446xx) || defined(STM32F469_479xx)
     #include "stm32f4xx_cryp.h"

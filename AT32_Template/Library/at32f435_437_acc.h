@@ -45,7 +45,6 @@ extern "C" {
 /** @defgroup ACC_exported_constants
   * @{
   */
-
 #define ACC_CAL_HICKCAL                  ((uint16_t)0x0000) /*!< acc hick calibration */
 #define ACC_CAL_HICKTRIM                 ((uint16_t)0x0002) /*!< acc hick trim */
 
@@ -149,7 +148,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define ACC                             ((ACC_Type *) ACC_BASE)
 
 /** @defgroup ACC_exported_functions

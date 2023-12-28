@@ -49,7 +49,6 @@ extern "C" {
 /**
   * 简介:  SPI初始化结构定义
   */
-
 typedef struct {
     uint16_t SPI_Direction;           /*!< 指定 SPI 单向或双向数据模式。
                                           该参数可以是@ref SPI_data_direction 的值 */
@@ -82,7 +81,6 @@ typedef struct {
 /**
   * 简介:  I2S Init 结构定义
   */
-
 typedef struct {
 
     uint16_t I2S_Mode;         /*!< 指定 I2S 操作模式。
@@ -109,7 +107,6 @@ typedef struct {
 /** @defgroup SPI_Exported_Constants
   * @{
   */
-
 #define IS_SPI_ALL_PERIPH(PERIPH) (((PERIPH) == SPI1) || \
                                    ((PERIPH) == SPI2) || \
                                    ((PERIPH) == SPI3) || \
@@ -141,7 +138,6 @@ typedef struct {
 /** @defgroup SPI_data_direction
   * @{
   */
-
 #define SPI_Direction_2Lines_FullDuplex ((uint16_t)0x0000)
 #define SPI_Direction_2Lines_RxOnly     ((uint16_t)0x0400)
 #define SPI_Direction_1Line_Rx          ((uint16_t)0x8000)
@@ -157,7 +153,6 @@ typedef struct {
 /** @defgroup SPI_mode
   * @{
   */
-
 #define SPI_Mode_Master                 ((uint16_t)0x0104)
 #define SPI_Mode_Slave                  ((uint16_t)0x0000)
 #define IS_SPI_MODE(MODE) (((MODE) == SPI_Mode_Master) || \
@@ -169,7 +164,6 @@ typedef struct {
 /** @defgroup SPI_data_size
   * @{
   */
-
 #define SPI_DataSize_16b                ((uint16_t)0x0800)
 #define SPI_DataSize_8b                 ((uint16_t)0x0000)
 #define IS_SPI_DATASIZE(DATASIZE) (((DATASIZE) == SPI_DataSize_16b) || \
@@ -181,7 +175,6 @@ typedef struct {
 /** @defgroup SPI_Clock_Polarity
   * @{
   */
-
 #define SPI_CPOL_Low                    ((uint16_t)0x0000)
 #define SPI_CPOL_High                   ((uint16_t)0x0002)
 #define IS_SPI_CPOL(CPOL) (((CPOL) == SPI_CPOL_Low) || \
@@ -193,7 +186,6 @@ typedef struct {
 /** @defgroup SPI_Clock_Phase
   * @{
   */
-
 #define SPI_CPHA_1Edge                  ((uint16_t)0x0000)
 #define SPI_CPHA_2Edge                  ((uint16_t)0x0001)
 #define IS_SPI_CPHA(CPHA) (((CPHA) == SPI_CPHA_1Edge) || \
@@ -205,7 +197,6 @@ typedef struct {
 /** @defgroup SPI_Slave_Select_management
   * @{
   */
-
 #define SPI_NSS_Soft                    ((uint16_t)0x0200)
 #define SPI_NSS_Hard                    ((uint16_t)0x0000)
 #define IS_SPI_NSS(NSS) (((NSS) == SPI_NSS_Soft) || \
@@ -217,7 +208,6 @@ typedef struct {
 /** @defgroup SPI_BaudRate_Prescaler
   * @{
   */
-
 #define SPI_BaudRatePrescaler_2         ((uint16_t)0x0000)
 #define SPI_BaudRatePrescaler_4         ((uint16_t)0x0008)
 #define SPI_BaudRatePrescaler_8         ((uint16_t)0x0010)
@@ -241,7 +231,6 @@ typedef struct {
 /** @defgroup SPI_MSB_LSB_transmission
   * @{
   */
-
 #define SPI_FirstBit_MSB                ((uint16_t)0x0000)
 #define SPI_FirstBit_LSB                ((uint16_t)0x0080)
 #define IS_SPI_FIRST_BIT(BIT) (((BIT) == SPI_FirstBit_MSB) || \
@@ -253,7 +242,6 @@ typedef struct {
 /** @defgroup SPI_I2S_Mode
   * @{
   */
-
 #define I2S_Mode_SlaveTx                ((uint16_t)0x0000)
 #define I2S_Mode_SlaveRx                ((uint16_t)0x0100)
 #define I2S_Mode_MasterTx               ((uint16_t)0x0200)
@@ -270,7 +258,6 @@ typedef struct {
 /** @defgroup SPI_I2S_Standard
   * @{
   */
-
 #define I2S_Standard_Phillips           ((uint16_t)0x0000)
 #define I2S_Standard_MSB                ((uint16_t)0x0010)
 #define I2S_Standard_LSB                ((uint16_t)0x0020)
@@ -288,7 +275,6 @@ typedef struct {
 /** @defgroup SPI_I2S_Data_Format
   * @{
   */
-
 #define I2S_DataFormat_16b              ((uint16_t)0x0000)
 #define I2S_DataFormat_16bextended      ((uint16_t)0x0001)
 #define I2S_DataFormat_24b              ((uint16_t)0x0003)
@@ -304,7 +290,6 @@ typedef struct {
 /** @defgroup SPI_I2S_MCLK_Output
   * @{
   */
-
 #define I2S_MCLKOutput_Enable           ((uint16_t)0x0200)
 #define I2S_MCLKOutput_Disable          ((uint16_t)0x0000)
 #define IS_I2S_MCLK_OUTPUT(OUTPUT) (((OUTPUT) == I2S_MCLKOutput_Enable) || \
@@ -316,7 +301,6 @@ typedef struct {
 /** @defgroup SPI_I2S_Audio_Frequency
   * @{
   */
-
 #define I2S_AudioFreq_192k               ((uint32_t)192000)
 #define I2S_AudioFreq_96k                ((uint32_t)96000)
 #define I2S_AudioFreq_48k                ((uint32_t)48000)
@@ -338,7 +322,6 @@ typedef struct {
 /** @defgroup SPI_I2S_Clock_Polarity
   * @{
   */
-
 #define I2S_CPOL_Low                    ((uint16_t)0x0000)
 #define I2S_CPOL_High                   ((uint16_t)0x0008)
 #define IS_I2S_CPOL(CPOL) (((CPOL) == I2S_CPOL_Low) || \
@@ -350,7 +333,6 @@ typedef struct {
 /** @defgroup SPI_I2S_DMA_transfer_requests
   * @{
   */
-
 #define SPI_I2S_DMAReq_Tx               ((uint16_t)0x0002)
 #define SPI_I2S_DMAReq_Rx               ((uint16_t)0x0001)
 #define IS_SPI_I2S_DMAREQ(DMAREQ) ((((DMAREQ) & (uint16_t)0xFFFC) == 0x00) && ((DMAREQ) != 0x00))
@@ -361,7 +343,6 @@ typedef struct {
 /** @defgroup SPI_NSS_internal_software_management
   * @{
   */
-
 #define SPI_NSSInternalSoft_Set         ((uint16_t)0x0100)
 #define SPI_NSSInternalSoft_Reset       ((uint16_t)0xFEFF)
 #define IS_SPI_NSS_INTERNAL(INTERNAL) (((INTERNAL) == SPI_NSSInternalSoft_Set) || \
@@ -373,7 +354,6 @@ typedef struct {
 /** @defgroup SPI_CRC_Transmit_Receive
   * @{
   */
-
 #define SPI_CRC_Tx                      ((uint8_t)0x00)
 #define SPI_CRC_Rx                      ((uint8_t)0x01)
 #define IS_SPI_CRC(CRC) (((CRC) == SPI_CRC_Tx) || ((CRC) == SPI_CRC_Rx))
@@ -384,7 +364,6 @@ typedef struct {
 /** @defgroup SPI_direction_transmit_receive
   * @{
   */
-
 #define SPI_Direction_Rx                ((uint16_t)0xBFFF)
 #define SPI_Direction_Tx                ((uint16_t)0x4000)
 #define IS_SPI_DIRECTION(DIRECTION) (((DIRECTION) == SPI_Direction_Rx) || \
@@ -396,7 +375,6 @@ typedef struct {
 /** @defgroup SPI_I2S_interrupts_definition
   * @{
   */
-
 #define SPI_I2S_IT_TXE                  ((uint8_t)0x71)
 #define SPI_I2S_IT_RXNE                 ((uint8_t)0x60)
 #define SPI_I2S_IT_ERR                  ((uint8_t)0x50)
@@ -424,7 +402,6 @@ typedef struct {
 /** @defgroup SPI_I2S_flags_definition
   * @{
   */
-
 #define SPI_I2S_FLAG_RXNE               ((uint16_t)0x0001)
 #define SPI_I2S_FLAG_TXE                ((uint16_t)0x0002)
 #define I2S_FLAG_CHSIDE                 ((uint16_t)0x0004)
@@ -448,7 +425,6 @@ typedef struct {
 /** @defgroup SPI_CRC_polynomial
   * @{
   */
-
 #define IS_SPI_CRC_POLYNOMIAL(POLYNOMIAL) ((POLYNOMIAL) >= 0x1)
 /**
   * @}
@@ -457,7 +433,6 @@ typedef struct {
 /** @defgroup SPI_I2S_Legacy
   * @{
   */
-
 #define SPI_DMAReq_Tx                SPI_I2S_DMAReq_Tx
 #define SPI_DMAReq_Rx                SPI_I2S_DMAReq_Rx
 #define SPI_IT_TXE                   SPI_I2S_IT_TXE

@@ -101,7 +101,7 @@ void SystemInit (void) {
 }
 
 /**
-  * @brief  update system_Core_clock variable according to clock register values.
+  * @brief  update system_Core_clock variable 根据 clock register values.
   *         the system_Core_clock variable contains the core clock (hclk), it can
   *         be used by the user application to setup the systick timer or configure
   *         other parameters.

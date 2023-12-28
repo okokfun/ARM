@@ -31,7 +31,7 @@
    POSSIBILITY OF SUCH DAMAGE.
    ---------------------------------------------------------------------------*/
 
-/* This file refers the CMSIS standard, some adjustments are made according to GigaDevice chips */
+/* This file refers the CMSIS standard, some adjustments are made 根据 GigaDevice chips */
 
 #ifndef SYSTEM_GD32F4XX_H
 #define SYSTEM_GD32F4XX_H

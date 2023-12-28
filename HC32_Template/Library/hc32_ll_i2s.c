@@ -398,7 +398,7 @@ int32_t I2S_Init(CM_I2S_TypeDef *I2Sx, const stc_i2s_init_t *pstcI2sInit) {
         DDL_ASSERT(IS_I2S_RECEIVE_LVL(pstcI2sInit->u32ReceiveFIFOLevel));
 
         if (I2S_AUDIO_FREQ_DEFAULT != pstcI2sInit->u32AudioFreq) {
-            /* Get I2S source Clock frequency */
+            /* 获取I2S源时钟频率 */
             if (I2S_CLK_SRC_EXT == pstcI2sInit->u32ClockSrc) {
                 /* If the external clock frequency is different from the default value,
                    you need to redefine the macro value (I2S_EXT_CLK_FREQ). */
@@ -407,7 +407,7 @@ int32_t I2S_Init(CM_I2S_TypeDef *I2Sx, const stc_i2s_init_t *pstcI2sInit) {
                 u32I2sClk = I2S_GetClockFreq(I2Sx);
             }
 
-            /* The actual frequency division value is calculated according to the output state of MCK */
+            /* The actual frequency division value is calculated 根据 the output state of MCK */
             if (I2S_CH_LEN_16BIT != pstcI2sInit->u32ChWidth) {
                 u32ChWidth = 32UL;
             } else {
@@ -610,7 +610,7 @@ int32_t I2S_SetAudioFreq(CM_I2S_TypeDef *I2Sx, uint32_t u32Freq) {
     DDL_ASSERT(IS_I2S_AUDIO_FREQ(u32Freq));
 
     if (I2S_AUDIO_FREQ_DEFAULT != u32Freq) {
-        /* Get I2S source Clock frequency */
+        /* 获取I2S源时钟频率 */
         if (I2S_CLK_SRC_EXT == READ_REG32_BIT(I2Sx->CTRL, I2S_CTRL_CLKSEL)) {
             /* If the external clock frequency is different from the default value,
                you need to redefine the macro value (I2S_EXT_CLK_FREQ). */
@@ -619,7 +619,7 @@ int32_t I2S_SetAudioFreq(CM_I2S_TypeDef *I2Sx, uint32_t u32Freq) {
             u32I2sClk = I2S_GetClockFreq(I2Sx);
         }
 
-        /* The actual frequency division value is calculated according to the output state of MCK */
+        /* The actual frequency division value is calculated 根据 the output state of MCK */
         if (I2S_CH_LEN_16BIT != READ_REG32_BIT(I2Sx->CFGR, I2S_CFGR_CHLEN)) {
             u32ChWidth = 32UL;
         } else {

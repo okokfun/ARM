@@ -9,7 +9,7 @@
 ;*                      - 设置初始PC == Reset_Handler
 ;*                      - 设置具有异常ISR地址的向量表条目
 ;*                      - 将系统时钟和安装在STM324xG EVAL板上的外部
-;*                        SRAM配置为用作数据存储器（可选，由用户启用）
+;*                        SRAM配置为用作数据存储器(可选，由用户启用)
 ;*                      - 分支到C库中的__main(它最终调用main())。
 ;*                      Reset后，CortexM4处理器处于Thread模式，
 ;*                      priority为privilege, Stack设置为Main。
@@ -108,10 +108,10 @@ __Vectors       DCD     __initial_sp               ; 栈的顶部
                 DCD     TIM2_IRQHandler                   ; TIM2                                            
                 DCD     TIM3_IRQHandler                   ; TIM3                                            
                 DCD     TIM4_IRQHandler                   ; TIM4                                            
-                DCD     I2C1_EV_IRQHandler                ; I2C1 Event                                             
-                DCD     I2C1_ER_IRQHandler                ; I2C1 Error                                             
-                DCD     I2C2_EV_IRQHandler                ; I2C2 Event                                             
-                DCD     I2C2_ER_IRQHandler                ; I2C2 Error                                               
+                DCD     I2C1_EV_IRQHandler                ; I2C1 事件                                             
+                DCD     I2C1_ER_IRQHandler                ; I2C1 错误                                             
+                DCD     I2C2_EV_IRQHandler                ; I2C2 事件                                             
+                DCD     I2C2_ER_IRQHandler                ; I2C2 错误                                               
                 DCD     SPI1_IRQHandler                   ; SPI1                                            
                 DCD     SPI2_IRQHandler                   ; SPI2                                            
                 DCD     USART1_IRQHandler                 ; USART1                                          
@@ -121,9 +121,9 @@ __Vectors       DCD     __initial_sp               ; 栈的顶部
                 DCD     RTC_Alarm_IRQHandler              ; RTC Alarm (A and B) through EXTI Line                  
                 DCD     OTG_FS_WKUP_IRQHandler            ; USB OTG FS Wakeup through EXTI line                        
                 DCD     TIM8_BRK_TIM12_IRQHandler         ; TIM8 Break and TIM12                  
-                DCD     TIM8_UP_TIM13_IRQHandler          ; TIM8 Update and TIM13                 
-                DCD     TIM8_TRG_COM_TIM14_IRQHandler     ; TIM8 Trigger and Commutation and TIM14
-                DCD     TIM8_CC_IRQHandler                ; TIM8 Capture Compare                                   
+                DCD     TIM8_UP_TIM13_IRQHandler          ; TIM8 更新 TIM13                 
+                DCD     TIM8_TRG_COM_TIM14_IRQHandler     ; TIM8 触发和通信与 TIM14
+                DCD     TIM8_CC_IRQHandler                ; TIM8 捕获比较                                 
                 DCD     DMA1_Stream7_IRQHandler           ; DMA1 Stream7                                           
                 DCD     FSMC_IRQHandler                   ; FSMC                                            
                 DCD     SDIO_IRQHandler                   ; SDIO                                            
@@ -149,8 +149,8 @@ __Vectors       DCD     __initial_sp               ; 栈的顶部
                 DCD     DMA2_Stream6_IRQHandler           ; DMA2 Stream 6                                   
                 DCD     DMA2_Stream7_IRQHandler           ; DMA2 Stream 7                                   
                 DCD     USART6_IRQHandler                 ; USART6                                           
-                DCD     I2C3_EV_IRQHandler                ; I2C3 event                                             
-                DCD     I2C3_ER_IRQHandler                ; I2C3 error                                             
+                DCD     I2C3_EV_IRQHandler                ; I2C3 事件                                             
+                DCD     I2C3_ER_IRQHandler                ; I2C3 错误                                             
                 DCD     OTG_HS_EP1_OUT_IRQHandler         ; USB OTG HS End Point 1 Out                      
                 DCD     OTG_HS_EP1_IN_IRQHandler          ; USB OTG HS End Point 1 In                       
                 DCD     OTG_HS_WKUP_IRQHandler            ; USB OTG HS Wakeup through EXTI                         

@@ -14,12 +14,15 @@
     [..] 该驱动程序提供以下功能:
 
        (#) 使用 SYSCFG_MemoryRemapConfig() 重新映射代码区中可访问的内存
+
        (#) 交换内部闪存 Bank1 和 Bank2 此功能仅对 STM32F42xxx/43xxx 设备设备可见。
+
        (#) 使用 SYSCFG_EXTILineConfig() 管理到GPIO的EXTI线路连接
+       
        (#) 使用 SYSCFG_ETH_MediaInterfaceConfig() 选择以太网媒体接口(RMII/RII)
 
        -@- 必须启用SYSCFG APB时钟，才能使用RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
-		  获得对SYSCFG寄存器的写入访问权限；
+		  获得对SYSCFG寄存器的写入访问权限;
 
  @endverbatim
   ******************************************************************************

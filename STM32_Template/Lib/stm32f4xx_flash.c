@@ -240,6 +240,7 @@
 
 /**
   * 简介:  设置代码延迟值。
+  * 
   * 参数:  FLASH_Latency: 指定FLASH Latency值。
   *          此参数可以是以下值之一:
   *            @arg FLASH_Latency_0: FLASH Zero 延迟周期
@@ -276,8 +277,10 @@ void FLASH_SetLatency(uint32_t FLASH_Latency) {
 
 /**
   * 简介:  启用或禁用预取缓冲区。
+  * 
   * 参数:  NewState: 预取缓冲区的新状态。
   *          此参数可以是: ENABLE or DISABLE.
+  * 
   * 返回值: 无
   */
 void FLASH_PrefetchBufferCmd(FunctionalState NewState) {
@@ -294,8 +297,10 @@ void FLASH_PrefetchBufferCmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用指令缓存功能。
+  * 
   * 参数:  NewState: 指令缓存的新状态。
   *          此参数可以是: ENABLE or DISABLE.
+  * 
   * 返回值: 无
   */
 void FLASH_InstructionCacheCmd(FunctionalState NewState) {
@@ -311,8 +316,10 @@ void FLASH_InstructionCacheCmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用数据缓存函数。
+  * 
   * 参数:  NewState: 数据缓存的新状态。
   *          此参数可以是: ENABLE or DISABLE.
+  * 
   * 返回值: 无
   */
 void FLASH_DataCacheCmd(FunctionalState NewState) {
@@ -328,8 +335,11 @@ void FLASH_DataCacheCmd(FunctionalState NewState) {
 
 /**
   * 简介:  重置指令缓存。
+  * 
   * 注意:   仅当"指令缓存"被禁用时，才能使用此函数。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void FLASH_InstructionCacheReset(void) {
@@ -383,7 +393,9 @@ void FLASH_DataCacheReset(void) {
 
 /**
   * 简介:  解锁 FLASH 控制寄存器访问。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void FLASH_Unlock(void) {
@@ -396,7 +408,9 @@ void FLASH_Unlock(void) {
 
 /**
   * 简介:  锁定 FLASH 控制寄存器访问。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void FLASH_Lock(void) {
@@ -658,12 +672,15 @@ FLASH_Status FLASH_EraseAllBank2Sectors(uint8_t VoltageRange) {
 
 /**
   * 简介:  在指定地址编程双字(64 位)。
+  * 
   * 注意:   当设备电压范围为 2.7V 至 3.6V 且存在外部Vpp时，必须使用此函数。
   *
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
   * 参数:  Address: 指定要编程的地址。
+  * 
   * 参数:  Data: 指定要编程的数据。
+  * 
   * 返回值: FLASH Status: 返回值可以是: FLASH_BUSY, FLASH_ERROR_PROGRAM,
   *                       FLASH_ERROR_WRP, FLASH_ERROR_OPERATION or FLASH_COMPLETE.
   */
@@ -704,7 +721,9 @@ FLASH_Status FLASH_ProgramDoubleWord(uint32_t Address, uint64_t Data) {
   *
   * 参数:  Address: 指定要编程的地址。
   *         此参数可以是程序内存区域或OTP区域中的任何地址。
+  * 
   * 参数:  Data: 指定要编程的数据。
+  * 
   * 返回值: FLASH Status: 返回值可以是: FLASH_BUSY, FLASH_ERROR_PROGRAM,
   *                       FLASH_ERROR_WRP, FLASH_ERROR_OPERATION or FLASH_COMPLETE.
   */
@@ -738,13 +757,16 @@ FLASH_Status FLASH_ProgramWord(uint32_t Address, uint32_t Data) {
 
 /**
   * 简介:  在指定地址编程半字(16 位)。
+  * 
   * 注意:   当设备电压范围为2.1V至3.6V时，必须使用此函数。
   *
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
   * 参数:  Address: 指定要编程的地址。
   *         此参数可以是程序内存区域或OTP区域中的任何地址。
+  * 
   * 参数:  Data: 指定要编程的数据。
+  * 
   * 返回值: FLASH Status: 返回值可以是: FLASH_BUSY, FLASH_ERROR_PROGRAM,
   *                       FLASH_ERROR_WRP, FLASH_ERROR_OPERATION or FLASH_COMPLETE.
   */
@@ -778,13 +800,16 @@ FLASH_Status FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data) {
 
 /**
   * 简介:  在指定地址编程一个字节(8 位)。
+  * 
   * 注意:   此功能可在所有设备电源电压范围内使用。
   *
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
   * 参数:  Address: 指定要编程的地址。
   *         此参数可以是程序内存区域或OTP区域中的任何地址。
+  * 
   * 参数:  Data: 指定要编程的数据。
+  * 
   * 返回值: FLASH Status: 返回值可以是: FLASH_BUSY, FLASH_ERROR_PROGRAM,
   *                       FLASH_ERROR_WRP, FLASH_ERROR_OPERATION or FLASH_COMPLETE.
   */
@@ -876,7 +901,9 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
 
 /**
   * 简介:  解锁闪存选项控制寄存器访问。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void FLASH_OB_Unlock(void) {
@@ -889,7 +916,9 @@ void FLASH_OB_Unlock(void) {
 
 /**
   * 简介:  上锁 FLASH 选项控制寄存器访问
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void FLASH_OB_Lock(void) {
@@ -908,8 +937,10 @@ void FLASH_OB_Lock(void) {
   *          此参数可以是以下值之一:
   *            @arg OB_WRP: OB_WRP_Sector0 和 OB_WRP _Sector11 之间的值
   *            @arg OB_WRP_Sector_All
+  * 
   * 参数:  Newstate: 写保护的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState) {
@@ -937,14 +968,17 @@ void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState) {
   *
   * 注意:   选择内存读取保护时(RDP级别=1)，如果连接了CortexM4调试功能或
   *         在RAM中执行引导代码，则无法编程或擦除闪存扇区i，即使nWRPi=1
+  * 
   * 注意:   当PCROP模式处于活动状态(SPRMOD=1)时，nWRPi位的活动值被反转。
   *
   * 参数:  OB_WRP: 指定要写保护或不保护的扇区。
   *          此参数可以是以下值之一:
   *            @arg OB_WRP: OB_WRP_Sector12和OB_WRP _Sector23之间的值
   *            @arg OB_WRP_Sector_All
+  * 
   * 参数:  Newstate: 写保护的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState) {
@@ -989,6 +1023,7 @@ void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState) {
   *          此参数可以是以下值之一:
   *            @arg OB_PcROP_Disable: nWRPi控制各个用户扇区的写保护。
   *            @arg OB_PcROP_Enable: nWRPi控制各个用户扇区的读写保护(PCROP)。
+  * 
   * 返回值: 无
   */
 void FLASH_OB_PCROPSelectionConfig(uint8_t OB_PcROP) {
@@ -1014,8 +1049,10 @@ void FLASH_OB_PCROPSelectionConfig(uint8_t OB_PcROP) {
   *                           OB_PCROP_Sector11之间的值，STM32V401xx/411xE设备的
   *                           OB-PCROP_Sector0和OB-PCROP_Sector5之间的值。
   *            @arg OB_PCROP_Sector_All
+  * 
   * 参数:  Newstate: 写保护的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void FLASH_OB_PCROPConfig(uint32_t OB_PCROP, FunctionalState NewState) {
@@ -1047,6 +1084,7 @@ void FLASH_OB_PCROPConfig(uint32_t OB_PCROP, FunctionalState NewState) {
   *            @arg OB_PCROP_Sector_All
   * 参数:  Newstate: 写保护的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void FLASH_OB_PCROP1Config(uint32_t OB_PCROP, FunctionalState NewState) {
@@ -1096,18 +1134,22 @@ void FLASH_OB_RDPConfig(uint8_t OB_RDP) {
 
 /**
   * 简介:  对 FLASH 用户选项字节进行编程:IWDG_SW / RST_STOP / RST_STDBY。
+  * 
   * 参数:  OB_IWDG: 选择IWDG模式
   *          此参数可以是以下值之一:
   *            @arg OB_IWDG_SW: 已选择软件IWDG
   *            @arg OB_IWDG_HW: 已选择硬件IWDG
+  * 
   * 参数:  OB_STOP: 进入停止模式时重置事件。
   *         此参数可以是以下值之一:
   *             @arg OB_STOP_NoRST:输入STOP时未生成重置
   *             @arg OB_STOP_RST:输入STOP时生成重置
+  * 
   * 参数:  OB_STDBY:进入待机模式时重置事件。
   *         此参数可以是以下值之一:
   *             @arg OB_STDBY_NoRST:输入STANDBY时未生成重置
   *             @arg OB_STDBY_RST:输入STANDBY时生成重置
+  * 
   * 返回值: 无
   */
 void FLASH_OB_UserConfig(uint8_t OB_IWDG, uint8_t OB_STOP, uint8_t OB_STDBY) {
@@ -1147,6 +1189,7 @@ void FLASH_OB_UserConfig(uint8_t OB_IWDG, uint8_t OB_STOP, uint8_t OB_STDBY) {
   *          此参数可以是以下值之一:
   *            @arg OB_Dual_BootEnabled: 双排启动已启用
   *            @arg OB_Dual_BootDisabled: 双排启动已禁用
+  * 
   * 返回值: 无
   */
 void FLASH_OB_BootConfig(uint8_t OB_BOOT) {
@@ -1161,12 +1204,14 @@ void FLASH_OB_BootConfig(uint8_t OB_BOOT) {
 
 /**
   * 简介:  设置 BOR 级别。
+  * 
   * 参数:  OB_BOR: 指定选项字节BOR重置级别。
   *          此参数可以是以下值之一:
   *             @arg OB_BOR_LEVEL3:电源电压范围为2.7至3.6 V
   *             @arg OB_BOR_LEVEL2:电源电压范围为2.4至2.7 V
   *             @arg OB_BOR_LEVEL1:电源电压范围为2.1至2.4 V
   *             @arg OB_BOR_OFF:电源电压范围为1.62至2.1 V
+  * 
   * 返回值: 无
   */
 void FLASH_OB_BORConfig(uint8_t OB_BOR) {
@@ -1181,7 +1226,9 @@ void FLASH_OB_BORConfig(uint8_t OB_BOR) {
 
 /**
   * 简介:  启动选项字节加载。
+  * 
   * 参数:  无
+  * 
   * 返回值: FLASH Status: 返回的值可以是:FLASH_BUSY、FLASH_ERROR_PROGRAM、
   *                       FLASH_ARROR_WRP、FLASHE_ERROR_OPERATION或FLASH_COMPLETE。
   */
@@ -1199,7 +1246,9 @@ FLASH_Status FLASH_OB_Launch(void) {
 
 /**
   * 简介:  返回 FLASH 用户选项字节值。
+  * 
   * 参数:  无
+  * 
   * 返回值: FLASH用户选项字节值:IWDG_SW(位0)、RST_STOP(位1)和RST_STDBY(位2)。
   */
 uint8_t FLASH_OB_GetUser(void) {
@@ -1209,7 +1258,9 @@ uint8_t FLASH_OB_GetUser(void) {
 
 /**
   * 简介:  返回 FLASH 写保护选项字节值。
+  * 
   * 参数:  无
+  * 
   * 返回值: 闪存写保护选项字节值
   */
 uint16_t FLASH_OB_GetWRP(void) {
@@ -1223,6 +1274,7 @@ uint16_t FLASH_OB_GetWRP(void) {
   * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
   *
   * 参数:  无
+  * 
   * 返回值: 闪存写保护选项字节值
   */
 uint16_t FLASH_OB_GetWRP1(void) {
@@ -1236,6 +1288,7 @@ uint16_t FLASH_OB_GetWRP1(void) {
   * 注意:   此函数只能用于STM32F42xxx/43xxx设备 and STM32F401xx/411xE devices.
   *
   * 参数:  无
+  * 
   * 返回值: FLASH PC读/写保护选项字节值
   */
 uint16_t FLASH_OB_GetPCROP(void) {
@@ -1249,6 +1302,7 @@ uint16_t FLASH_OB_GetPCROP(void) {
   * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
   *
   * 参数:  无
+  * 
   * 返回值: FLASH PC读/写保护选项字节值
   */
 uint16_t FLASH_OB_GetPCROP1(void) {
@@ -1258,7 +1312,9 @@ uint16_t FLASH_OB_GetPCROP1(void) {
 
 /**
   * 简介:  返回 FLASH 读保护级别。
+  * 
   * 参数:  无
+  * 
   * 返回值: 闪存读取保护状态:
   *           - SET, 当OB_RDP_Level_1或OB_RDP_Level_2被设置时。
   *           - RESET, 当OB_RDP_Level_0被设置时。
@@ -1277,7 +1333,9 @@ FlagStatus FLASH_OB_GetRDP(void) {
 
 /**
   * 简介:  返回 FLASH BOR 级别。
+  * 
   * 参数:  无
+  * 
   * 返回值: 闪存BOR级别:
   *       - OB_BOR_LEVEL3:电源电压范围为2.7至3.6 V
   *       - OB_BOR_LEVEL2:电源电压范围为2.4至2.7 V
@@ -1306,10 +1364,12 @@ uint8_t FLASH_OB_GetBOR(void) {
 
 /**
   * 简介:  启用或禁用指定的 FLASH 中断。
+  * 
   * 参数:  FLASH_IT: 指定要启用或禁用的FLASH中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg FLASH_IT_ERR: 闪存错误中断
   *            @arg FLASH_IT_EOP: 闪存操作结束中断
+  * 
   * 返回值: 无
   */
 void FLASH_ITConfig(uint32_t FLASH_IT, FunctionalState NewState) {
@@ -1328,6 +1388,7 @@ void FLASH_ITConfig(uint32_t FLASH_IT, FunctionalState NewState) {
 
 /**
   * 简介:  检查是否设置了指定的 FLASH 标志。
+  * 
   * 参数:  FLASH_FLAG: 指定要检查的FLASH标志。
   *          此参数可以是以下值之一:
   *             @arg FLASH_FLAG_EOP:FLASH操作结束标志
@@ -1338,6 +1399,7 @@ void FLASH_ITConfig(uint32_t FLASH_IT, FunctionalState NewState) {
   *             @arg FLASH_FLAG_PGSERR:FLASH编程序列错误标志
   *             @arg FLASH_FLAG_RDERR:FLASH(PCROP)读保护错误标志(STM32F42xx/43xxx和STM32F2F401xx/411xE设备)
   *             @arg FLASH_FLAG_BSY:FLASH Busy标志
+  * 
   * 返回值: FLASH_FLAG的新状态(SET或RESET)。
   */
 FlagStatus FLASH_GetFlagStatus(uint32_t FLASH_FLAG) {
@@ -1357,6 +1419,7 @@ FlagStatus FLASH_GetFlagStatus(uint32_t FLASH_FLAG) {
 
 /**
   * 简介:  清除 FLASH 的挂起标志。
+  * 
   * 参数:  FLASH_FLAG: 指定要清除的FLASH标志。
   *          此参数可以是以下值的任意组合:
   *            @arg FLASH_FLAG_EOP:FLASH操作结束标志
@@ -1366,6 +1429,7 @@ FlagStatus FLASH_GetFlagStatus(uint32_t FLASH_FLAG) {
   *            @arg FLASH_FLAG_PGPERR:FLASH编程并行性错误标志
   *            @arg FLASH_FLAG_PGSERR:FLASH编程序列错误标志
   *            @arg FLASH_FLAG_RDERR:闪存读取保护错误标志(STM32F42xx/43xxx和STM32V401xx/411xE设备)
+  * 
   * 返回值: 无
   */
 void FLASH_ClearFlag(uint32_t FLASH_FLAG) {
@@ -1378,7 +1442,9 @@ void FLASH_ClearFlag(uint32_t FLASH_FLAG) {
 
 /**
   * 简介:  返回闪存状态。
+  * 
   * 参数:  无
+  * 
   * 返回值: FLASH_Status: 返回值可以是: FLASH_BUSY, FLASH_ERROR_PROGRAM,
   *                       FLASH_ERROR_WRP, FLASH_ERROR_RD, FLASH_ERROR_OPERATION or FLASH_COMPLETE.
   */
@@ -1413,7 +1479,9 @@ FLASH_Status FLASH_GetStatus(void) {
 
 /**
   * 简介:  等待 FLASH 操作完成。
+  * 
   * 参数:  无
+  * 
   * 返回值: FLASH Status: 返回值可以是: FLASH_BUSY, FLASH_ERROR_PROGRAM,
   *                       FLASH_ERROR_WRP, FLASH_ERROR_OPERATION or FLASH_COMPLETE.
   */

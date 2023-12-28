@@ -65,7 +65,7 @@ typedef struct {
   */
 typedef struct {
     uint8_t RTC_Hours;    /*!< 指定 RTC 时间小时。
-                         如果选择 RTC_HourFormat_12，则该参数必须设置为 0-12 范围内的值；
+                         如果选择 RTC_HourFormat_12，则该参数必须设置为 0-12 范围内的值;
 						 如果选择 RTC_HourFormat_24，则该参数必须设置为 0-23 范围内的值。 */
 
     uint8_t RTC_Minutes;  /*!< 指定 RTC 时间分钟。
@@ -208,7 +208,6 @@ typedef struct {
 /** @defgroup RTC_WeekDay_Definitions
   * @{
   */
-
 #define RTC_Weekday_Monday             ((uint8_t)0x01)
 #define RTC_Weekday_Tuesday            ((uint8_t)0x02)
 #define RTC_Weekday_Wednesday          ((uint8_t)0x03)
@@ -329,7 +328,6 @@ typedef struct {
 /** @defgroup RTC_Alarm_Sub_Seconds_Value
   * @{
   */
-
 #define IS_RTC_ALARM_SUB_SECOND_VALUE(VALUE) ((VALUE) <= 0x00007FFF)
 
 /**
@@ -616,7 +614,6 @@ typedef struct {
 /** @defgroup RTC_Backup_Registers_Definitions
   * @{
   */
-
 #define RTC_BKP_DR0                       ((uint32_t)0x00000000)
 #define RTC_BKP_DR1                       ((uint32_t)0x00000001)
 #define RTC_BKP_DR2                       ((uint32_t)0x00000002)

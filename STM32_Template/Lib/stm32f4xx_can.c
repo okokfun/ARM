@@ -30,7 +30,7 @@
         (++) 使用以下函数将涉及的 CAN 引脚连接到 AF9
              GPIO_PinAFConfig(GPIOx, GPIO_PinSourcex, GPIO_AF_CANx);
 
-        (++) 通过调用函数 GPIO_Init() 将这些 CAN 引脚配置为备用功能模式；
+        (++) 通过调用函数 GPIO_Init() 将这些 CAN 引脚配置为复用功能模式;
 
       (#) 使用 CAN_Init() 和 CAN_FilterInit() 函数初始化和配置 CAN。
 
@@ -48,6 +48,7 @@
 
       (#) 要控制 CAN 事件，您可以使用以下两种方法之一:
         (++) 使用 CAN_GetFlagStatus() 函数检查 CAN 标志。
+        
         (++) 在初始化阶段通过函数 CAN_ITConfig() 和 CAN_GetITStatus() 函数在中断例程中使用 CAN 中断来检查事件是否发生。
              检查标志后，您应该使用 CAN_ClearFlag() 函数清除它。 在检查中断事件后，您应该使用 CAN_ClearITPendingBit() 函数将其清除。
 

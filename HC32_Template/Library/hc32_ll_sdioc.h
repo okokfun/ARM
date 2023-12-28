@@ -590,7 +590,6 @@ the SWITCH command                                            */
 #define SDMMC_ERR_INVD_VOLT                     (0x00000004UL)  /*!< Error in case of invalid voltage range                        */
 #define SDMMC_ERR_REQ_NOT_APPLICABLE            (0x00000002UL)  /*!< Error when command request is not applicable                  */
 #define SDMMC_ERR_UNSUPPORT_FEATURE             (0x00000001UL)  /*!< Error when feature is not insupported                         */
-
 #define SDMMC_ERR_BITS_MASK                     (0xFDFFE048UL)  /*!< SD/MMC Error status bits mask                                 */
 /**
  * @}

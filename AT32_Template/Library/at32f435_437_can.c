@@ -165,7 +165,7 @@ void CAN_Default_Para_Init(CAN_Base_Type* CAN_Base_struct) {
 }
 
 /**
-  * @brief  initialize the can peripheral according to the specified
+  * @brief  initialize the can peripheral 根据 the specified
   *         parameters in the CAN_Init_struct.
   * @param  CAN_x: select the can peripheral.
   *         该参数可以是以下值之一:
@@ -268,7 +268,7 @@ void CAN_Filter_Default_Para_Init(CAN_Filter_Init_Type* CAN_Filter_Init_struct) 
 }
 
 /**
-  * @brief  initialize the can peripheral according to the specified
+  * @brief  initialize the can peripheral 根据 the specified
   *         parameters in the CAN_Filter_Init_struct.
   * @param  CAN_x: select the can peripheral.
   *         该参数可以是以下值之一:

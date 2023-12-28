@@ -52,7 +52,9 @@
 
 /**
   * 简介:  返回设备修订标识符。
+  * 
   * 参数:  无
+  * 
   * 返回值: 设备修订标识符
   */
 uint32_t DBGMCU_GetREVID(void) {
@@ -61,7 +63,9 @@ uint32_t DBGMCU_GetREVID(void) {
 
 /**
   * 简介:  返回设备标识符。
+  * 
   * 参数:  无
+  * 
   * 返回值: 设备标识符
   */
 uint32_t DBGMCU_GetDEVID(void) {
@@ -70,13 +74,16 @@ uint32_t DBGMCU_GetDEVID(void) {
 
 /**
   * 简介:  配置 MCU 处于调试模式时的低功耗模式行为。
+  * 
   * 参数:  DBGMCU_Periph: 指定低功率模式。
   *   此参数可以是以下值的任意组合:
   *     @arg DBGMCU_SLEEP: 在SLEEP模式下保持调试器连接。
   *     @arg DBGMCU_STOP: 在STOP模式下保持调试器的连接
   *     @arg DBGMCU_STANDBY: 在STANDBY模式下保持调试器的连接。
+  * 
   * 参数:  NewState: 在调试模式下指定的低功耗模式的新状态。
   *   此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DBGMCU_Config(uint32_t DBGMCU_Periph, FunctionalState NewState) {
@@ -93,6 +100,7 @@ void DBGMCU_Config(uint32_t DBGMCU_Periph, FunctionalState NewState) {
 
 /**
   * 简介:  当 MCU 处于调试模式时配置 APB1 外设行为。
+  * 
   * 参数:  DBGMCU_Periph: 指定APB1外设。
   *   此参数可以是以下值的任意组合:
   *         @arg DBGMCU_TIM2_STOP。当 Core 停止时，TIM2 计数器停止
@@ -112,7 +120,9 @@ void DBGMCU_Config(uint32_t DBGMCU_Periph, FunctionalState NewState) {
   *         @arg DBGMCU_I2C3_SMBUS_TIMEOUT: I2C3 SMBUS 超时模式在Core 停止时停止。
   *         @arg DBGMCU_CAN2_STOP: 当 Core 停止时，停止调试CAN1。
   *         @arg DBGMCU_CAN1_STOP: 当 Core 停止时，停止调试CAN2。
-  *   此参数可以是: ENABLE 或 DISABLE。
+  * 
+  * 参数:  NewState: 此参数可以是: ENABLE 或 DISABLE。
+  * 
   * 返回值: 无
   */
 void DBGMCU_APB1PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState) {
@@ -129,6 +139,7 @@ void DBGMCU_APB1PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState) {
 
 /**
   * 简介:  当 MCU 处于调试模式时配置 APB2 外设行为。
+  * 
   * 参数:  DBGMCU_Periph: 指定APB2外设。
   *   此参数可以是以下值的任意组合:
   *     @arg DBGMCU_TIM1_STOP。当 Core 停止时，TIM1 计数器停止
@@ -136,8 +147,10 @@ void DBGMCU_APB1PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState) {
   *     @arg DBGMCU_TIM9_STOP: 当 Core 停止时，TIM9 计数器停止
   *     @arg DBGMCU_TIM10_STOP: 当 Core 停止时，TIM10 计数器停止
   *     @arg DBGMCU_TIM11_STOP: 当 Core 停止工作时，TIM11 计数器停止工作
+  * 
   * 参数:  NewState:在Debug模式下指定外设的新状态。
   *   此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void DBGMCU_APB2PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState) {

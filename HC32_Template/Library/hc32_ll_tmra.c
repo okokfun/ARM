@@ -249,7 +249,7 @@
  * @{
  */
 /**
- * @brief  Initializes the specified TMRA peripheral according to the specified parameters
+ * @brief  Initializes the specified TMRA peripheral 根据 the specified parameters
  *         in the structure stc_tmra_init_t
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
  *                                      This parameter can be a value of the following:
@@ -437,7 +437,7 @@ void TMRA_SetFunc(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t u16Func) {
 }
 
 /**
- * @brief  Initializes the PWM according to the specified parameters
+ * @brief  Initializes the PWM 根据 the specified parameters
  *         in the structure stc_tmra_pwm_init_t
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
  *                                      This parameter can be a value of the following:

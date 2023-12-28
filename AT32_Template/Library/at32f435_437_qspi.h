@@ -46,7 +46,6 @@ extern "C" {
   * @brief qspi flag
   * @{
   */
-
 #define QSPI_CMDSTS_FLAG                 ((uint32_t)0x00000001) /*!< qspi command complete status flag */
 #define QSPI_RXFIFORDY_FLAG              ((uint32_t)0x00000002) /*!< qspi rxfifo ready status flag */
 #define QSPI_TXFIFORDY_FLAG              ((uint32_t)0x00000004) /*!< qspi txfifo ready status flag */
@@ -458,7 +457,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define QSPI1                            ((QSPI_Type*)QSPI1_REG_BASE)
 #define QSPI2                            ((QSPI_Type*)QSPI2_REG_BASE)
 

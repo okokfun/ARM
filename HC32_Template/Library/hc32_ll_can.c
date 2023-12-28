@@ -355,7 +355,7 @@ static int32_t CAN_FilterConfig(CM_CAN_TypeDef *CANx, uint16_t u16FilterSelect,
 }
 
 /**
- * @brief  Configures the specified CAN FD according to the specified parameters
+ * @brief  Configures the specified CAN FD 根据 the specified parameters
  *         in a @ref stc_canfd_config_t structure.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
  *                                      This parameter can be a value of the following:
@@ -455,7 +455,7 @@ static void CAN_ReadRxBuf(const CM_CAN_TypeDef *CANx, stc_can_rx_frame_t *pstcRx
  */
 
 /**
- * @brief  Initializes the specified CAN peripheral according to the specified parameters
+ * @brief  Initializes the specified CAN peripheral 根据 the specified parameters
  *         in the structure pstcCanInit.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
  *                                      This parameter can be a value of the following:
@@ -1149,7 +1149,7 @@ int32_t CAN_TTC_StructInit(stc_can_ttc_config_t *pstcCanTtc) {
 }
 
 /**
- * @brief  Configures the specified TTCAN according to the specified parameters
+ * @brief  Configures the specified TTCAN 根据 the specified parameters
  *         in @ref stc_can_ttc_config_t type structure.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
  *                                      This parameter can be a value of the following:

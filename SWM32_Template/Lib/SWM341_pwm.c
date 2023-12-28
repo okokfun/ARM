@@ -34,7 +34,7 @@ void PWM_Init(PWM_TypeDef * PWMx, PWM_InitStructure * initStruct) {
     SYS->CLKEN0 |= (0x01 << SYS_CLKEN0_PWM_Pos);
 
     PWMx->CR = (initStruct->Mode         << PWM_CR_MODE_Pos)   |
-               (1                        << PWM_CR_MULT_Pos)   |	// 多次计数模式（即非单次）
+               (1                        << PWM_CR_MULT_Pos)   |	// 多次计数模式(即非单次)
                (0                        << PWM_CR_DIR_Pos)    |	// 向上计数
                (0                        << PWM_CR_CLKSRC_Pos) |	// 系统时钟
                ((initStruct->Clkdiv - 1) << PWM_CR_CLKDIV_Pos) |
@@ -130,7 +130,7 @@ void PWM_Restart(uint32_t pwm) {
 
 /******************************************************************************************************************************************
 * 函数名称:	PWM_ReloadEn()
-* 功能说明:	只有当 Reload Enable 时，写入 PERIOD、CMPA、CMPB、DZA、DZB 等寄存器的值才会（在计数器溢出时）加载到内部工作寄存器
+* 功能说明:	只有当 Reload Enable 时，写入 PERIOD、CMPA、CMPB、DZA、DZB 等寄存器的值才会(在计数器溢出时)加载到内部工作寄存器
 * 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其"或"
 * 输    出: 无
 * 注意事项: 如果需要保证在写 PERIOD、CMPA、CMPB、DZA、DZB 等寄存器过程中，这些寄存器的值不会被加载到内部工作寄存器，可以如下操作：
@@ -144,7 +144,7 @@ void PWM_ReloadEn(uint32_t pwm) {
 
 /******************************************************************************************************************************************
 * 函数名称:	PWM_ReloadDis()
-* 功能说明:	只有当 Reload Enable 时，写入 PERIOD、CMPA、CMPB、DZA、DZB 等寄存器的值才会（在计数器溢出时）加载到内部工作寄存器
+* 功能说明:	只有当 Reload Enable 时，写入 PERIOD、CMPA、CMPB、DZA、DZB 等寄存器的值才会(在计数器溢出时)加载到内部工作寄存器
 * 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其"或"
 * 输    出: 无
 * 注意事项: 无

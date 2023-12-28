@@ -71,7 +71,6 @@ extern "C" {
 #define __CM4_CMSIS_VERSION_SUB   (0x00)                                   /*!< [15:0] CMSIS HAL 子版本    */
 #define __CM4_CMSIS_VERSION       ((__CM4_CMSIS_VERSION_MAIN << 16) | \
     __CM4_CMSIS_VERSION_SUB          )     /*!< CMSIS HAL 版本号        */
-
 #define __CORTEX_M                (0x04)                                   /*!< Cortex-M Core                    */
 
 
@@ -231,7 +230,7 @@ extern "C" {
 #endif
 #endif
 
-/* IO 定义（外设寄存器的访问限制） */
+/* IO 定义(外设寄存器的访问限制) */
 /**
     \defgroup CMSIS_glob_defs CMSIS 全局定义
 
@@ -308,7 +307,7 @@ typedef union {
 #define APSR_GE_Msk                        (0xFUL << APSR_GE_Pos)                         /*!< APSR: GE Mask */
 
 
-/** \简介  访问中断程序状态寄存器（IPSR）的联合类型。
+/** \简介  访问中断程序状态寄存器(IPSR)的联合类型。
  */
 typedef union {
     struct {
@@ -323,7 +322,7 @@ typedef union {
 #define IPSR_ISR_Msk                       (0x1FFUL /*<< IPSR_ISR_Pos*/)                  /*!< IPSR: ISR Mask */
 
 
-/** \简介  用于访问特殊用途程序状态寄存器（xPSR）的联合类型。
+/** \简介  用于访问特殊用途程序状态寄存器(xPSR)的联合类型。
  */
 typedef union {
     struct {
@@ -371,7 +370,7 @@ typedef union {
 #define xPSR_ISR_Msk                       (0x1FFUL /*<< xPSR_ISR_Pos*/)                  /*!< xPSR: ISR Mask */
 
 
-/** \简介  用于访问控制寄存器（Control）的联合类型。
+/** \简介  用于访问控制寄存器(Control)的联合类型。
  */
 typedef union {
     struct {
@@ -686,7 +685,7 @@ typedef struct {
   @{
  */
 
-/** \简介  用于访问系统计时器（SysTick）的结构类型。
+/** \简介  用于访问系统计时器(SysTick)的结构类型。
  */
 typedef struct {
     __IO uint32_t CTRL;                    /*!< 偏移: 0x000 (R/W)  SysTick Control and Status Register */
@@ -1438,7 +1437,6 @@ typedef struct {
 #define SysTick_BASE        (SCS_BASE +  0x0010UL)                    /*!< SysTick Base Address               */
 #define NVIC_BASE           (SCS_BASE +  0x0100UL)                    /*!< NVIC Base Address                  */
 #define SCB_BASE            (SCS_BASE +  0x0D00UL)                    /*!< System Control Block Base Address  */
-
 #define SCnSCB              ((SCnSCB_Type    *)     SCS_BASE      )   /*!< System control Register not in SCB */
 #define SCB                 ((SCB_Type       *)     SCB_BASE      )   /*!< SCB configuration struct           */
 #define SysTick             ((SysTick_Type   *)     SysTick_BASE  )   /*!< SysTick configuration struct       */

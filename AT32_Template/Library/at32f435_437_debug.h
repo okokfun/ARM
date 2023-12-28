@@ -166,7 +166,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define DEBUGMCU                         ((DEBUG_Type *) DEBUG_BASE)
 
 /** @defgroup DEBUG_exported_functions

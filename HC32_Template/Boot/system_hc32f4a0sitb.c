@@ -130,7 +130,7 @@ void SystemCoreClockUpdate(void) {
     uint32_t pllm;
     uint32_t u32PllSrcFreq;
 
-    /* Select proper HRC_VALUE according to ICG1.HRCFREQSEL bit */
+    /* Select proper HRC_VALUE 根据 ICG1.HRCFREQSEL bit */
     if (1UL == (HRC_FREQ_MON() & 1UL)) {
         HRC_VALUE = HRC_16MHz_VALUE;
     } else {

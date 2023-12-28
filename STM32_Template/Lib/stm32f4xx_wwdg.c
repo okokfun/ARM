@@ -144,9 +144,9 @@ void WWDG_SetPrescaler(uint32_t WWDG_Prescaler) {
     uint32_t tmpreg = 0;
     /* 检查参数 */
     assert_param(IS_WWDG_PRESCALER(WWDG_Prescaler));
-    /* 清除WDGTB[1:0]位 */
+    /* 清除 WDGTB[1:0]位 */
     tmpreg = WWDG->CFR & CFR_WDGTB_MASK;
-    /* 根据WWDG_Prescaller值设置WDGTB[1:0]位 */
+    /* 根据 WWDG_Prescaller值设置WDGTB[1:0]位 */
     tmpreg |= WWDG_Prescaler;
     /* 存储新值 */
     WWDG->CFR = tmpreg;
@@ -193,7 +193,7 @@ void WWDG_EnableIT(void) {
 void WWDG_SetCounter(uint8_t Counter) {
     /* 检查参数 */
     assert_param(IS_WWDG_COUNTER(Counter));
-    /* 写入T[6:0]位以配置计数器值，无需进行读修改写入；将0写入WDGA位不起任何作用 */
+    /* 写入T[6:0]位以配置计数器值，无需进行读修改写入;将0写入WDGA位不起任何作用 */
     WWDG->CR = Counter & BIT_MASK;
 }
 /**

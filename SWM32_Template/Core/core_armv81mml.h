@@ -1489,12 +1489,10 @@ typedef struct {
 } PMU_Type;
 
 /** \brief PMU Event Counter Registers (0-30) Definitions  */
-
 #define PMU_EVCNTR_CNT_Pos                    0U                                           /*!< PMU EVCNTR: Counter Position */
 #define PMU_EVCNTR_CNT_Msk                   (16UL /*<< PMU_EVCNTRx_CNT_Pos*/)             /*!< PMU EVCNTR: Counter Mask */
 
 /** \brief PMU Event Type and Filter Registers (0-30) Definitions  */
-
 #define PMU_EVTYPER_EVENTTOCNT_Pos            0U                                           /*!< PMU EVTYPER: Event to Count Position */
 #define PMU_EVTYPER_EVENTTOCNT_Msk           (16UL /*<< EVTYPERx_EVENTTOCNT_Pos*/)         /*!< PMU EVTYPER: Event to Count Mask */
 

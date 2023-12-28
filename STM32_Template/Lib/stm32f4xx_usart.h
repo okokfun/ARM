@@ -49,7 +49,6 @@ extern "C" {
 /**
   * 简介:  USART 初始化结构定义
   */
-
 typedef struct {
     uint32_t USART_BaudRate;            /*!< 该成员配置 USART 通信波特率。
                                             波特率使用以下公式计算:
@@ -65,20 +64,19 @@ typedef struct {
 
     uint16_t USART_Parity;              /*!< 指定奇偶校验模式。
                                             此参数可以是 @ref USART_Parity 的值
-                                            @note 启用奇偶校验时，计算出的奇偶校验插入到传输数据的 MSB 位置(字长设置为 9 个数据位时为第 9 位；
+                                            @note 启用奇偶校验时，计算出的奇偶校验插入到传输数据的 MSB 位置(字长设置为 9 个数据位时为第 9 位;
 											字长设置为 8 个数据位时为第 8 位)。 */
 
     uint16_t USART_Mode;                /*!< 指定是启用还是禁用接收或传输模式。
                                             该参数可以是@ref USART_Mode 的值 */
 
     uint16_t USART_HardwareFlowControl; /*!< 指定是启用还是禁用硬件流控制模式。
-											该参数可以是@ref USART 硬件流控制的值 */
+											                      该参数可以是@ref USART 硬件流控制的值 */
 } USART_InitTypeDef;
 
 /**
   * 简介:  USART 时钟初始化结构定义
   */
-
 typedef struct {
 
     uint16_t USART_Clock;   /*!< 指定是启用还是禁用 USART 时钟。
@@ -100,7 +98,6 @@ typedef struct {
 /** @defgroup USART_Exported_Constants
   * @{
   */
-
 #define IS_USART_ALL_PERIPH(PERIPH) (((PERIPH) == USART1) || \
                                      ((PERIPH) == USART2) || \
                                      ((PERIPH) == USART3) || \
@@ -120,7 +117,6 @@ typedef struct {
 /** @defgroup USART_Word_Length
   * @{
   */
-
 #define USART_WordLength_8b                  ((uint16_t)0x0000)
 #define USART_WordLength_9b                  ((uint16_t)0x1000)
 
@@ -133,7 +129,6 @@ typedef struct {
 /** @defgroup USART_Stop_Bits
   * @{
   */
-
 #define USART_StopBits_1                     ((uint16_t)0x0000)
 #define USART_StopBits_0_5                   ((uint16_t)0x1000)
 #define USART_StopBits_2                     ((uint16_t)0x2000)
@@ -149,7 +144,6 @@ typedef struct {
 /** @defgroup USART_Parity
   * @{
   */
-
 #define USART_Parity_No                      ((uint16_t)0x0000)
 #define USART_Parity_Even                    ((uint16_t)0x0400)
 #define USART_Parity_Odd                     ((uint16_t)0x0600)
@@ -163,7 +157,6 @@ typedef struct {
 /** @defgroup USART_Mode
   * @{
   */
-
 #define USART_Mode_Rx                        ((uint16_t)0x0004)
 #define USART_Mode_Tx                        ((uint16_t)0x0008)
 #define IS_USART_MODE(MODE) ((((MODE) & (uint16_t)0xFFF3) == 0x00) && ((MODE) != (uint16_t)0x00))
@@ -201,7 +194,6 @@ typedef struct {
 /** @defgroup USART_Clock_Polarity
   * @{
   */
-
 #define USART_CPOL_Low                       ((uint16_t)0x0000)
 #define USART_CPOL_High                      ((uint16_t)0x0400)
 #define IS_USART_CPOL(CPOL) (((CPOL) == USART_CPOL_Low) || ((CPOL) == USART_CPOL_High))
@@ -213,7 +205,6 @@ typedef struct {
 /** @defgroup USART_Clock_Phase
   * @{
   */
-
 #define USART_CPHA_1Edge                     ((uint16_t)0x0000)
 #define USART_CPHA_2Edge                     ((uint16_t)0x0200)
 #define IS_USART_CPHA(CPHA) (((CPHA) == USART_CPHA_1Edge) || ((CPHA) == USART_CPHA_2Edge))
@@ -225,7 +216,6 @@ typedef struct {
 /** @defgroup USART_Last_Bit
   * @{
   */
-
 #define USART_LastBit_Disable                ((uint16_t)0x0000)
 #define USART_LastBit_Enable                 ((uint16_t)0x0100)
 #define IS_USART_LASTBIT(LASTBIT) (((LASTBIT) == USART_LastBit_Disable) || \
@@ -237,7 +227,6 @@ typedef struct {
 /** @defgroup USART_Interrupt_definition
   * @{
   */
-
 #define USART_IT_PE                          ((uint16_t)0x0028)
 #define USART_IT_TXE                         ((uint16_t)0x0727)
 #define USART_IT_TC                          ((uint16_t)0x0626)
@@ -258,7 +247,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define IS_USART_CONFIG_IT(IT) (((IT) == USART_IT_PE) || ((IT) == USART_IT_TXE) || \
                                 ((IT) == USART_IT_TC) || ((IT) == USART_IT_RXNE) || \
                                 ((IT) == USART_IT_IDLE) || ((IT) == USART_IT_LBD) || \
@@ -278,7 +266,6 @@ typedef struct {
 /** @defgroup USART_DMA_Requests
   * @{
   */
-
 #define USART_DMAReq_Tx                      ((uint16_t)0x0080)
 #define USART_DMAReq_Rx                      ((uint16_t)0x0040)
 #define IS_USART_DMAREQ(DMAREQ) ((((DMAREQ) & (uint16_t)0xFF3F) == 0x00) && ((DMAREQ) != (uint16_t)0x00))
@@ -290,7 +277,6 @@ typedef struct {
 /** @defgroup USART_WakeUp_methods
   * @{
   */
-
 #define USART_WakeUp_IdleLine                ((uint16_t)0x0000)
 #define USART_WakeUp_AddressMark             ((uint16_t)0x0800)
 #define IS_USART_WAKEUP(WAKEUP) (((WAKEUP) == USART_WakeUp_IdleLine) || \
@@ -302,7 +288,6 @@ typedef struct {
 /** @defgroup USART_LIN_Break_Detection_Length
   * @{
   */
-
 #define USART_LINBreakDetectLength_10b      ((uint16_t)0x0000)
 #define USART_LINBreakDetectLength_11b      ((uint16_t)0x0020)
 #define IS_USART_LIN_BREAK_DETECT_LENGTH(LENGTH) \
@@ -315,7 +300,6 @@ typedef struct {
 /** @defgroup USART_IrDA_Low_Power
   * @{
   */
-
 #define USART_IrDAMode_LowPower              ((uint16_t)0x0004)
 #define USART_IrDAMode_Normal                ((uint16_t)0x0000)
 #define IS_USART_IRDA_MODE(MODE) (((MODE) == USART_IrDAMode_LowPower) || \
@@ -327,7 +311,6 @@ typedef struct {
 /** @defgroup USART_Flags
   * @{
   */
-
 #define USART_FLAG_CTS                       ((uint16_t)0x0200)
 #define USART_FLAG_LBD                       ((uint16_t)0x0100)
 #define USART_FLAG_TXE                       ((uint16_t)0x0080)

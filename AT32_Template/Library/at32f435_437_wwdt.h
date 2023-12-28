@@ -46,7 +46,6 @@ extern "C" {
   * @brief wwdt enable bit
   * @{
   */
-
 #define WWDT_EN_BIT                      ((uint32_t)0x00000080) /*!< wwdt enable bit */
 
 /**
@@ -113,7 +112,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define WWDT                             ((wWDT_Type *) WWDT_BASE)
 
 /** @defgroup WWDT_exported_functions

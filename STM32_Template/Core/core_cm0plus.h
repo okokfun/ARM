@@ -72,7 +72,6 @@ extern "C" {
 #define __CM0PLUS_CMSIS_VERSION_SUB  (0x00)                                /*!< [15:0]  CMSIS HAL sub version    */
 #define __CM0PLUS_CMSIS_VERSION      ((__CM0PLUS_CMSIS_VERSION_MAIN << 16) | \
                                        __CM0PLUS_CMSIS_VERSION_SUB)        /*!< CMSIS HAL version number         */
-
 #define __CORTEX_M                (0x00)                                   /*!< Cortex-M Core                    */
 
 
@@ -473,7 +472,7 @@ typedef struct {
   @{
  */
 
-/** \简介  用于访问系统计时器（SysTick）的结构类型。
+/** \简介  用于访问系统计时器(SysTick)的结构类型。
  */
 typedef struct {
     __IO uint32_t CTRL;                    /*!< 偏移: 0x000 (R/W)  SysTick Control and Status Register */

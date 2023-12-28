@@ -182,7 +182,6 @@ typedef struct {
 /**
   * 简介:  FSMC PCCARD Init 结构定义
   */
-
 typedef struct {
     uint32_t FSMC_Waitfeature;    /*!< 启用或禁用存储库的等待功能。
                                      此参数可以是@ref FSMC_Wait_feature 的任何值 */
@@ -234,7 +233,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define IS_FSMC_NORSRAM_BANK(BANK) (((BANK) == FSMC_Bank1_NORSRAM1) || \
                                     ((BANK) == FSMC_Bank1_NORSRAM2) || \
                                     ((BANK) == FSMC_Bank1_NORSRAM3) || \
@@ -258,7 +256,6 @@ typedef struct {
 /** @defgroup FSMC_Data_Address_Bus_Multiplexing
   * @{
   */
-
 #define FSMC_DataAddressMux_Disable                ((uint32_t)0x00000000)
 #define FSMC_DataAddressMux_Enable                 ((uint32_t)0x00000002)
 #define IS_FSMC_MUX(MUX) (((MUX) == FSMC_DataAddressMux_Disable) || \
@@ -270,7 +267,6 @@ typedef struct {
 /** @defgroup FSMC_Memory_Type
   * @{
   */
-
 #define FSMC_MemoryType_SRAM                     ((uint32_t)0x00000000)
 #define FSMC_MemoryType_PSRAM                    ((uint32_t)0x00000004)
 #define FSMC_MemoryType_NOR                      ((uint32_t)0x00000008)
@@ -284,7 +280,6 @@ typedef struct {
 /** @defgroup FSMC_Data_Width
   * @{
   */
-
 #define FSMC_MemoryDataWidth_8b                  ((uint32_t)0x00000000)
 #define FSMC_MemoryDataWidth_16b                 ((uint32_t)0x00000010)
 #define IS_FSMC_MEMORY_WIDTH(WIDTH) (((WIDTH) == FSMC_MemoryDataWidth_8b) || \
@@ -296,7 +291,6 @@ typedef struct {
 /** @defgroup FSMC_Burst_Access_Mode
   * @{
   */
-
 #define FSMC_BurstAccessMode_Disable             ((uint32_t)0x00000000)
 #define FSMC_BurstAccessMode_Enable              ((uint32_t)0x00000100)
 #define IS_FSMC_BURSTMODE(STATE) (((STATE) == FSMC_BurstAccessMode_Disable) || \
@@ -386,7 +380,6 @@ typedef struct {
 /** @defgroup FSMC_Write_Burst
   * @{
   */
-
 #define FSMC_WriteBurst_Disable                  ((uint32_t)0x00000000)
 #define FSMC_WriteBurst_Enable                   ((uint32_t)0x00080000)
 #define IS_FSMC_WRITE_BURST(BURST) (((BURST) == FSMC_WriteBurst_Disable) || \

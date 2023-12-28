@@ -47,7 +47,6 @@ extern "C" {
   * @brief spi i2s flag
   * @{
   */
-
 #define SPI_I2S_RDBF_FLAG                0x0001 /*!< spi or i2s receive data buffer full flag */
 #define SPI_I2S_TDBE_FLAG                0x0002 /*!< spi or i2s transmit data buffer empty flag */
 #define I2S_ACS_FLAG                     0x0004 /*!< i2s audio channel state flag */
@@ -67,7 +66,6 @@ extern "C" {
   * @brief spi i2s interrupt
   * @{
   */
-
 #define SPI_I2S_Error_INT                0x0020 /*!< error 中断 */
 #define SPI_I2S_RDBF_INT                 0x0040 /*!< receive data buffer full 中断 */
 #define SPI_I2S_TDBE_INT                 0x0080 /*!< transmit data buffer empty 中断 */
@@ -410,7 +408,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define SPI1                            ((SPI_Type *) SPI1_BASE)
 #define SPI2                            ((SPI_Type *) SPI2_BASE)
 #define SPI3                            ((SPI_Type *) SPI3_BASE)

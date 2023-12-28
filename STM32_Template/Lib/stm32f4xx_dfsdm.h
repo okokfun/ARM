@@ -652,7 +652,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define IS_DFSDM_DATA_RIGHT_BIT_SHIFT(SHIFT)  ((SHIFT) < 0x20 )
 
 #define IS_DFSDM_OFFSET(OFFSET)               ((OFFSET) < 0x01000000 )

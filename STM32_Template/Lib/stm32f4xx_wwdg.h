@@ -54,7 +54,6 @@ extern "C" {
 /** @defgroup WWDG_Prescaler
   * @{
   */
-
 #define WWDG_Prescaler_1    ((uint32_t)0x00000000)
 #define WWDG_Prescaler_2    ((uint32_t)0x00000080)
 #define WWDG_Prescaler_4    ((uint32_t)0x00000100)
@@ -83,7 +82,7 @@ void WWDG_DeInit(void); // 将 WWDG 外设寄存器去初始化为其默认复�
 /* 预分频器、刷新窗口和计数器配置功能 **************/
 void WWDG_SetPrescaler(uint32_t WWDG_Prescaler); 	// 设置 WWDG 预缩放程序。
 void WWDG_SetWindowValue(uint8_t WindowValue); 		// 设置 WWDG 窗口值。
-void WWDG_EnableIT(void); 							// 启用 WWDG 早期唤醒中断 (EWI)。
+void WWDG_EnableIT(void); 							      // 启用 WWDG 早期唤醒中断 (EWI)。
 void WWDG_SetCounter(uint8_t Counter); 				// 设置 WWDG 计数器值。
 
 /* WWDG 激活功能 ***************************************************/
@@ -91,7 +90,7 @@ void WWDG_Enable(uint8_t Counter); // 启用 WWDG 并加载计数器值。
 
 /* 中断和标志管理功能 **********************************/
 FlagStatus WWDG_GetFlagStatus(void); 	// 检查是否设置了"早期唤醒中断"标志。
-void WWDG_ClearFlag(void); 				// 清除早期唤醒中断标志。
+void WWDG_ClearFlag(void); 				    // 清除早期唤醒中断标志。
 
 #ifdef __cplusplus
 }

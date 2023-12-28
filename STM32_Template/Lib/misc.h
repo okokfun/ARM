@@ -49,7 +49,6 @@ extern "C" {
 /**
   * 简介:  NVIC 初始化结构定义
   */
-
 typedef struct {
     uint8_t NVIC_IRQChannel;                    /*!< 指定要启用或禁用的 IRQ 通道。
                                                 该参数可以是@ref IRQn_Type枚举的枚举器
@@ -78,7 +77,6 @@ typedef struct {
 /** @defgroup MISC_Vector_Table_Base
   * @{
   */
-
 #define NVIC_VectTab_RAM             ((uint32_t)0x20000000)
 #define NVIC_VectTab_FLASH           ((uint32_t)0x08000000)
 #define IS_NVIC_VECTTAB(VECTTAB) (((VECTTAB) == NVIC_VectTab_RAM) || \
@@ -90,7 +88,6 @@ typedef struct {
 /** @defgroup MISC_System_Low_Power
   * @{
   */
-
 #define NVIC_LP_SEVONPEND            ((uint8_t)0x10)
 #define NVIC_LP_SLEEPDEEP            ((uint8_t)0x04)
 #define NVIC_LP_SLEEPONEXIT          ((uint8_t)0x02)
@@ -104,7 +101,6 @@ typedef struct {
 /** @defgroup MISC_Preemption_Priority_Group
   * @{
   */
-
 #define NVIC_PriorityGroup_0         ((uint32_t)0x700) /*!< 0 位用于抢占优先级 4 位用于子优先级 */
 #define NVIC_PriorityGroup_1         ((uint32_t)0x600) /*!< 1 位用于抢占优先级 3 位用于子优先级 */
 #define NVIC_PriorityGroup_2         ((uint32_t)0x500) /*!< 2 位用于抢占优先级 2 位用于子优先级 */
@@ -130,7 +126,6 @@ typedef struct {
 /** @defgroup MISC_SysTick_clock_source
   * @{
   */
-
 #define SysTick_CLKSource_HCLK_Div8    ((uint32_t)0xFFFFFFFB)
 #define SysTick_CLKSource_HCLK         ((uint32_t)0x00000004)
 #define IS_SYSTICK_CLK_SOURCE(SOURCE) (((SOURCE) == SysTick_CLKSource_HCLK) || \

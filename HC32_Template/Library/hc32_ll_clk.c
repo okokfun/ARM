@@ -60,7 +60,7 @@
 #define CLK_FREQ_32M                    (32UL*1000UL*1000UL)
 
 /**
- * @brief Be able to modify TIMEOUT according to board condition.
+ * @brief Be able to modify TIMEOUT 根据 board condition.
  */
 #define CLK_TIMEOUT                     ((uint32_t)0x1000UL)
 #define CLK_LRC_TIMEOUT                 ((uint32_t)0x200U)
@@ -1612,7 +1612,7 @@ int32_t CLK_GetPLLClockFreq(stc_pll_clock_freq_t *pstcPllClkFreq) {
  * @param  [in] u32Div specifies the clock divide factor. @ref CLK_Clock_Divider
  * @retval 无
  * @note   u32Div could choose CLK_HCLK_Divider, CLK_PCLK0_Divider, CLK_PCLK1_Divider,
- * CLK_PCLK2_Divider, CLK_PCLK3_Divider, CLK_PCLK4_Divider, CLK_EXCLK_Divider, according to the MCU
+ * CLK_PCLK2_Divider, CLK_PCLK3_Divider, CLK_PCLK4_Divider, CLK_EXCLK_Divider, 根据 the MCU
  */
 void CLK_SetClockDiv(uint32_t u32Clock, uint32_t u32Div) {
     /* Set clock divider */

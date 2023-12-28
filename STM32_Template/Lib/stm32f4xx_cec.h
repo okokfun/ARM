@@ -84,7 +84,6 @@ typedef struct {
 #define CEC_SignalFreeTime_5T           ((uint32_t)0x00000005) /*!< CEC  5.5 标称数据位周期     */
 #define CEC_SignalFreeTime_6T           ((uint32_t)0x00000006) /*!< CEC  6.5 标称数据位周期     */
 #define CEC_SignalFreeTime_7T           ((uint32_t)0x00000007) /*!< CEC  7.5 标称数据位周期     */
-
 #define IS_CEC_SIGNAL_FREE_TIME(TIME) (((TIME) == CEC_SignalFreeTime_Standard) || \
                                        ((TIME) == CEC_SignalFreeTime_1T)|| \
                                        ((TIME) == CEC_SignalFreeTime_2T)|| \
@@ -102,7 +101,6 @@ typedef struct {
   */
 #define CEC_RxTolerance_Standard        ((uint32_t)0x00000000) /*!< 标准容差            */
 #define CEC_RxTolerance_Extended        CEC_CFGR_RXTOL         /*!< 扩展容差范围            */
-
 #define IS_CEC_RX_TOLERANCE(TOLERANCE) (((TOLERANCE) == CEC_RxTolerance_Standard) || \
                                         ((TOLERANCE) == CEC_RxTolerance_Extended))
 /**
@@ -114,7 +112,6 @@ typedef struct {
   */
 #define CEC_StopReception_Off           ((uint32_t)0x00000000) /*!< 位上升错误 (BRE) 时无 RX 停止 */
 #define CEC_StopReception_On            CEC_CFGR_BRESTP        /*!< RX 停止位上升错误 (BRE)   */
-
 #define IS_CEC_STOP_RECEPTION(RECEPTION) (((RECEPTION) == CEC_StopReception_On) || \
         ((RECEPTION) == CEC_StopReception_Off))
 /**
@@ -126,7 +123,6 @@ typedef struct {
   */
 #define CEC_BitRisingError_Off          ((uint32_t)0x00000000) /*!< 位上升错误生成已关闭 */
 #define CEC_BitRisingError_On           CEC_CFGR_BREGEN        /*!< 位上升错误生成开启  */
-
 #define IS_CEC_BIT_RISING_ERROR(ERROR) (((ERROR) == CEC_BitRisingError_Off) || \
                                         ((ERROR) == CEC_BitRisingError_On))
 /**
@@ -138,7 +134,6 @@ typedef struct {
   */
 #define CEC_LongBitPeriodError_Off      ((uint32_t)0x00000000)  /*!< 长位周期错误生成已关闭 */
 #define CEC_LongBitPeriodError_On       CEC_CFGR_LREGEN         /*!< 长位周期错误生成开启  */
-
 #define IS_CEC_LONG_BIT_PERIOD_ERROR(ERROR) (((ERROR) == CEC_LongBitPeriodError_Off) || \
         ((ERROR) == CEC_LongBitPeriodError_On))
 /**
@@ -148,10 +143,8 @@ typedef struct {
 /** @defgroup CEC_BDR_No_Gen
   * @{
   */
-
 #define CEC_BRDNoGen_Off      ((uint32_t)0x00000000)  /*!< 广播位上升错误生成已关闭 */
 #define CEC_BRDNoGen_On       CEC_CFGR_BRDNOGEN       /*!< 广播比特上升错误生成开启  */
-
 #define IS_CEC_BDR_NO_GEN_ERROR(ERROR) (((ERROR) == CEC_BRDNoGen_Off) || \
                                         ((ERROR) == CEC_BRDNoGen_On))
 /**
@@ -163,7 +156,6 @@ typedef struct {
   */
 #define CEC_SFTOption_Off              ((uint32_t)0x00000000)  /*!< SFT 选项已关闭                   */
 #define CEC_SFTOption_On               CEC_CFGR_SFTOPT         /*!< SFT 选项打开                    */
-
 #define IS_CEC_SFT_OPTION(OPTION) (((OPTION) == CEC_SFTOption_Off) || \
                                    ((OPTION) == CEC_SFTOption_On))
 /**

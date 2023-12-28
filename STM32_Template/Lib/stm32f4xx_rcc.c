@@ -18,16 +18,23 @@
       重置后，设备从内部高速振荡器(HSI 16MHz)运行，Flash 0等待状态，
           Flash预取缓冲区、D-Cache和I-Cache被禁用，除内部SRAM、Flash和JTAG外，
           所有外设设备均关闭。
-      (+) 高速(AHB)和低速(APB)总线上没有预分频器；
+
+      (+) 高速(AHB)和低速(APB)总线上没有预分频器;
           这些总线上映射的所有外设设备都以HSI速度运行。
+
       (+) 除SRAM和FLASH外，所有外设设备的时钟均已关闭。
+
       (+) 所有GPIO都处于输入浮动状态，但分配用于调试目的的JTAG引脚除外。
     [..]
       一旦设备从重置启动，用户应用程序必须:
       (+) 配置用于驱动系统时钟的时钟源(如果应用程序需要更高的频率/性能)
+
       (+) 配置系统时钟频率和闪存设置
+
       (+) 配置AHB和APB总线预分频器
+
       (+) 启用要使用的外设设备的时钟
+      
       (+) 为时钟不是来自系统时钟(I2S、RTC、ADC、USB OTG FS/SDIO/RNG)的外设设备配置时钟源
  @endverbatim
   ******************************************************************************
@@ -422,7 +429,7 @@ void RCC_LSICmd(FunctionalState NewState) {
   *          必须为50 ~ 432之间的数字。
   * 注意:   您必须正确设置 PLLN 参数，以确保 VCO 输出频率在 100和 432 MHz之间。
   *
-  * 参数:  PLLP: 指定主系统时钟（SYSCLK）的分频因子
+  * 参数:  PLLP: 指定主系统时钟(SYSCLK)的分频因子
   *          此参数必须是范围{2、4、6或8}中的数字。
   * 注意:   您必须正确设置 PLLP 参数，使其在系统时钟频率上不超过 168 MHz。
   *
@@ -794,7 +801,7 @@ void RCC_ClockSecuritySystemCmd(FunctionalState NewState) {
 
 /**
   * 简介:  选择要在MCO1引脚(PA8)上输出的时钟源。
-  * 注意:   应在备用功能模式下配置PA8。
+  * 注意:   应在复用功能模式下配置PA8。
   * 参数:  RCC_MCO1Source: 指定要输出的时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_MCO1Source_HSI: 选择HSI时钟作为MCO1源
@@ -835,10 +842,10 @@ void RCC_MCO1Config(uint32_t RCC_MCO1Source, uint32_t RCC_MCO1Div) {
 
 /**
   * 简介:  选择要在MCO2引脚(PC9)上输出的时钟源。
-  * 注意:   应在备用功能模式下配置PC9。
+  * 注意:   应在复用功能模式下配置PC9。
   * 参数:  RCC_MCO2Source: 指定要输出的时钟源。
   *          此参数可以是以下值之一:
-  *            @arg RCC_MCO2Source_SYSCLK: 选择系统时钟（SYSCLK）作为MCO2源
+  *            @arg RCC_MCO2Source_SYSCLK: 选择系统时钟(SYSCLK)作为MCO2源
   *            @arg RCC_MCO2SOURCE_PLLI2SCLK: PLLI2S时钟被选为MCO2源，可用于除STM32F410xx以外的所有STM32F4设备
   *            @arg RCC_MCO2SOURCE_I2SCLK: I2SCLK时钟被选为MCO2源，仅适用于STM32F410xx设备
   *            @arg RCC_MCO2Source_HSE: 选择HSE时钟作为MCO2源
@@ -850,7 +857,7 @@ void RCC_MCO1Config(uint32_t RCC_MCO1Source, uint32_t RCC_MCO1Div) {
   *            @arg RCC_MCO2Div_3: 除以 3 应用于MCO2时钟
   *            @arg RCC_MCO2Div_4: 除以 4 应用于MCO2时钟
   *            @arg RCC_MCO2Div_5: 除以 5 应用于MCO2时钟
-  * 注意:  对于要在 MCO2 上输出 I2SCLK 时钟的 STM32F410xx 设备，您应该至少启用一个SPI时钟（SPI1、SPI2或SPI5）。
+  * 注意:  对于要在 MCO2 上输出 I2SCLK 时钟的 STM32F410xx 设备，您应该至少启用一个SPI时钟(SPI1、SPI2或SPI5)。
   * 返回值: 无
   */
 void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
@@ -1034,7 +1041,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
   *          此参数可以是以下值之一:
   *            @arg RCC_SYSCLKSource_HSI: 选择 HSI 作为系统时钟源
   *            @arg RCC_SYSCLKSource_HSE: 选择 HSE 作为系统时钟源
-  *            @arg RCC_SYSCLKSource_PLLCLK: PLL被选为系统时钟源（用于STM32F446xx设备的RCC_SYSCLKSource_PLLPCLK）
+  *            @arg RCC_SYSCLKSource_PLLCLK: PLL被选为系统时钟源(用于STM32F446xx设备的RCC_SYSCLKSource_PLLPCLK)
   *            @arg RCC_SYSCLKSource_PLLRCLK: PLL R仅被选为STM32F412xG、STM32F413_423xx和STM32F446xx设备的系统时钟源
   * 返回值: 无
   */
@@ -1362,7 +1369,7 @@ void RCC_RTCCLKCmd(FunctionalState NewState) {
 
 /**
   * 简介:  强制或释放备份域重置。
-  * 注意:   此功能重置RTC外设设备（包括备份寄存器）和RCC_CSR寄存器中的RTC时钟源选择。
+  * 注意:   此功能重置RTC外设设备(包括备份寄存器)和RCC_CSR寄存器中的RTC时钟源选择。
   * 注意:   BKPSRAM不受此重置的影响。
   * 参数:  NewState: 新状态-> 备份域重置。
   *          此参数可以是: ENABLE或DISABLE。
@@ -1820,7 +1827,7 @@ void RCC_DFSDM1ACLKConfig(uint32_t RCC_DFSDM1ACLKSource) {
     /* 清除 CKDFSDMA SEL  位 */
     tmpreg &= ~RCC_DCKCFGR_CKDFSDM1ASEL;
 
-    /* Set CKDFSDM-SEL   bt according to RCC_DFSDMCLKSource 值 */
+    /* Set CKDFSDM-SEL   bt 根据 RCC_DFSDMCLKSource 值 */
     tmpreg |= RCC_DFSDM1ACLKSource;
 
     /* 存储新值 */
@@ -1849,7 +1856,7 @@ void RCC_DFSDM2ACLKConfig(uint32_t RCC_DFSDMACLKSource) {
     /* 清除 CKDFSDMA SEL  位 */
     tmpreg &= ~RCC_DCKCFGR_CKDFSDM1ASEL;
 
-    /* Set CKDFSDM-SEL   bt according to RCC_DFSDMCLKSource 值 */
+    /* Set CKDFSDM-SEL   bt 根据 RCC_DFSDMCLKSource 值 */
     tmpreg |= RCC_DFSDMACLKSource;
 
     /* 存储新值 */

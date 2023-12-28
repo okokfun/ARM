@@ -49,7 +49,6 @@ extern "C" {
 /**
   * 简介:  DAC Init structure definition
   */
-
 typedef struct {
     uint32_t DAC_Trigger;                      /*!< 指定所选 DAC 通道的外部触发。
 												                        该参数可以是@ref DAC_trigger_selection 的值 */
@@ -73,7 +72,6 @@ typedef struct {
 /** @defgroup DAC_trigger_selection
   * @{
   */
-
 #define DAC_Trigger_None                   ((uint32_t)0x00000000) /*!< 一旦加载了 DAC1_DHRxxxx 寄存器，转换是自动的，而不是通过外部触发 */
 #define DAC_Trigger_T2_TRGO                ((uint32_t)0x00000024) /*!< 选择 TIM2 TRGO 作为 DAC 通道的外部转换触发 */
 #define DAC_Trigger_T4_TRGO                ((uint32_t)0x0000002C) /*!< 选择 TIM4 TRGO 作为 DAC 通道的外部转换触发 */
@@ -102,7 +100,6 @@ typedef struct {
 /** @defgroup DAC_wave_generation
   * @{
   */
-
 #define DAC_WaveGeneration_None            ((uint32_t)0x00000000)
 #define DAC_WaveGeneration_Noise           ((uint32_t)0x00000040)
 #define DAC_WaveGeneration_Triangle        ((uint32_t)0x00000080)
@@ -116,7 +113,6 @@ typedef struct {
 /** @defgroup DAC_lfsrunmask_triangleamplitude
   * @{
   */
-
 #define DAC_LFSRUnmask_Bit0                ((uint32_t)0x00000000) /*!< 取消屏蔽 DAC 通道 LFSR bit0 以生成噪声波 */
 #define DAC_LFSRUnmask_Bits1_0             ((uint32_t)0x00000100) /*!< 取消屏蔽 DAC 通道 LFSR 位 [1:0] 以生成噪声波 */
 #define DAC_LFSRUnmask_Bits2_0             ((uint32_t)0x00000200) /*!< 取消屏蔽 DAC 通道 LFSR 位 [2:0] 以生成噪声波 */
@@ -173,7 +169,6 @@ typedef struct {
 /** @defgroup DAC_output_buffer
   * @{
   */
-
 #define DAC_OutputBuffer_Enable            ((uint32_t)0x00000000)
 #define DAC_OutputBuffer_Disable           ((uint32_t)0x00000002)
 #define IS_DAC_OUTPUT_BUFFER_STATE(STATE) (((STATE) == DAC_OutputBuffer_Enable) || \
@@ -185,7 +180,6 @@ typedef struct {
 /** @defgroup DAC_Channel_selection
   * @{
   */
-
 #define DAC_Channel_1                      ((uint32_t)0x00000000)
 #define DAC_Channel_2                      ((uint32_t)0x00000010)
 #define IS_DAC_CHANNEL(CHANNEL) (((CHANNEL) == DAC_Channel_1) || \
@@ -197,7 +191,6 @@ typedef struct {
 /** @defgroup DAC_data_alignement
   * @{
   */
-
 #define DAC_Align_12b_R                    ((uint32_t)0x00000000)
 #define DAC_Align_12b_L                    ((uint32_t)0x00000004)
 #define DAC_Align_8b_R                     ((uint32_t)0x00000008)
@@ -211,7 +204,6 @@ typedef struct {
 /** @defgroup DAC_wave_generation
   * @{
   */
-
 #define DAC_Wave_Noise                     ((uint32_t)0x00000040)
 #define DAC_Wave_Triangle                  ((uint32_t)0x00000080)
 #define IS_DAC_WAVE(WAVE) (((WAVE) == DAC_Wave_Noise) || \
@@ -223,7 +215,6 @@ typedef struct {
 /** @defgroup DAC_data
   * @{
   */
-
 #define IS_DAC_DATA(DATA) ((DATA) <= 0xFFF0)
 /**
   * @}
@@ -242,7 +233,6 @@ typedef struct {
 /** @defgroup DAC_flags_definition
   * @{
   */
-
 #define DAC_FLAG_DMAUDR                    ((uint32_t)0x00002000)
 #define IS_DAC_FLAG(FLAG) (((FLAG) == DAC_FLAG_DMAUDR))
 

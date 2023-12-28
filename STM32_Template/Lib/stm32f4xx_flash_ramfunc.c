@@ -16,18 +16,18 @@
   [..]
     *** ARM编译器 ***
     --------------------
-    [..] RAM功能使用工具链选项定义。
+        [..] RAM功能使用工具链选项定义。
         RAM中执行的功能应位于单独的源模块中。使用"文件选项"对话框，您可以
             简单地将模块的"代码/常量"区域更改为物理RAM中的内存空间。
         可用内存区域在"目标选项"对话框的"目标"选项卡中声明。
 
     *** ICCARM 编译器 ***
     -----------------------
-    [..] RAM函数使用特定的工具链关键字"__ramfunc"定义。
+        [..] RAM函数使用特定的工具链关键字"__ramfunc"定义。
 
     *** GNU 编译器 ***
     --------------------
-    [..] RAM功能使用特定的工具链属性"__attribute__((section(".RamFunc"))"定义。
+        [..] RAM功能使用特定的工具链属性"__attribute__((section(".RamFunc"))"定义。
 
   @endverbatim
   ******************************************************************************
@@ -90,11 +90,15 @@
 
 /**
   * 简介:  开始/停止flash接口当系统运行时
+  * 
   * 注意:  这个模式只为STM32F411xx 设备.
+  * 
   * 注意:  使用闪存本身执行时无法设置此模式。
   *        它应该使用从RAM执行的特定例程来完成。
+  * 
   * 参数:  NewState: 智能卡模式的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 __RAM_FUNC FLASH_FlashInterfaceCmd(FunctionalState NewState) {
@@ -109,11 +113,15 @@ __RAM_FUNC FLASH_FlashInterfaceCmd(FunctionalState NewState) {
 
 /**
   * 简介: 使能/失能 flash 睡眠模式当系统运行时
+  * 
   * 注意:  这个模式只为STM32F411xx devices.
+  * 
   * 注意:  使用闪存本身执行时无法设置此模式。
   *        它应该使用从RAM执行的特定例程来完成。
+  * 
   * 参数:  NewState: 智能卡模式的新状态。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 __RAM_FUNC FLASH_FlashSleepModeCmd(FunctionalState NewState) {

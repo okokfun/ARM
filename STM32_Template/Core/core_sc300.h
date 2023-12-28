@@ -72,7 +72,6 @@ extern "C" {
 #define __SC300_CMSIS_VERSION_SUB   (0x00)                                   /*!< [15:0]  CMSIS HAL sub version  */
 #define __SC300_CMSIS_VERSION       ((__SC300_CMSIS_VERSION_MAIN << 16) | \
                                       __SC300_CMSIS_VERSION_SUB          )   /*!< CMSIS HAL version number       */
-
 #define __CORTEX_SC                 (300)                                     /*!< Cortex secure core             */
 
 
@@ -615,7 +614,7 @@ typedef struct {
   @{
  */
 
-/** \简介  用于访问系统计时器（SysTick）的结构类型。
+/** \简介  用于访问系统计时器(SysTick)的结构类型。
  */
 typedef struct {
     __IO uint32_t CTRL;                    /*!< 偏移: 0x000 (R/W)  SysTick Control and Status Register */
@@ -1262,7 +1261,6 @@ typedef struct {
 #define SysTick_BASE        (SCS_BASE +  0x0010UL)                    /*!< SysTick Base Address               */
 #define NVIC_BASE           (SCS_BASE +  0x0100UL)                    /*!< NVIC Base Address                  */
 #define SCB_BASE            (SCS_BASE +  0x0D00UL)                    /*!< System Control Block Base Address  */
-
 #define SCnSCB              ((SCnSCB_Type    *)     SCS_BASE      )   /*!< System control Register not in SCB */
 #define SCB                 ((SCB_Type       *)     SCB_BASE      )   /*!< SCB configuration struct           */
 #define SysTick             ((SysTick_Type   *)     SysTick_BASE  )   /*!< SysTick configuration struct       */

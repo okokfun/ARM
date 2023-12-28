@@ -280,7 +280,7 @@ uint32_t UART_RTSLineState(UART_TypeDef * UARTx) {
 * 函数名称:	UART_LINConfig()
 * 功能说明:	UART LIN功能配置
 * 输    入: UART_TypeDef * UARTx	指定要被设置的UART串口，有效值包括UART0、UART1、UART2、UART3
-*			uint32_t detectedLen	检测到Break需要的低电平长度（位数），取值1--16
+*			uint32_t detectedLen	检测到Break需要的低电平长度(位数)，取值1--16
 *			uint32_t detectedIEn	检测到Break中断使能
 *			uint32_t generatedLen	Break发送低电平长度，取值1--15
 *			uint32_t generatedIEn	Break发送完成中断使能

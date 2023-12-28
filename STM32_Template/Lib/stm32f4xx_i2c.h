@@ -49,7 +49,6 @@ extern "C" {
 /**
   * 简介:  I2C 初始化结构定义
   */
-
 typedef struct {
     uint32_t I2C_ClockSpeed;          /*!< 指定时钟频率。
                                           此参数必须设置为低于 400kHz 的值 */
@@ -82,7 +81,6 @@ typedef struct {
 /** @defgroup I2C_Digital_Filter
   * @{
   */
-
 #define IS_I2C_DIGITAL_FILTER(FILTER)   ((FILTER) <= 0x0000000F)
 /**
   * @}
@@ -92,7 +90,6 @@ typedef struct {
 /** @defgroup I2C_mode
   * @{
   */
-
 #define I2C_Mode_I2C                    ((uint16_t)0x0000)
 #define I2C_Mode_SMBusDevice            ((uint16_t)0x0002)
 #define I2C_Mode_SMBusHost              ((uint16_t)0x000A)
@@ -106,7 +103,6 @@ typedef struct {
 /** @defgroup I2C_duty_cycle_in_fast_mode
   * @{
   */
-
 #define I2C_DutyCycle_16_9              ((uint16_t)0x4000) /*!< I2C 快速模式 Tlow/Thigh = 16/9 */
 #define I2C_DutyCycle_2                 ((uint16_t)0xBFFF) /*!< I2C 快速模式 Tlow/Thigh = 2 */
 #define IS_I2C_DUTY_CYCLE(CYCLE) (((CYCLE) == I2C_DutyCycle_16_9) || \
@@ -118,7 +114,6 @@ typedef struct {
 /** @defgroup I2C_acknowledgement
   * @{
   */
-
 #define I2C_Ack_Enable                  ((uint16_t)0x0400)
 #define I2C_Ack_Disable                 ((uint16_t)0x0000)
 #define IS_I2C_ACK_STATE(STATE) (((STATE) == I2C_Ack_Enable) || \
@@ -130,7 +125,6 @@ typedef struct {
 /** @defgroup I2C_transfer_direction
   * @{
   */
-
 #define  I2C_Direction_Transmitter      ((uint8_t)0x00)
 #define  I2C_Direction_Receiver         ((uint8_t)0x01)
 #define IS_I2C_DIRECTION(DIRECTION) (((DIRECTION) == I2C_Direction_Transmitter) || \
@@ -142,7 +136,6 @@ typedef struct {
 /** @defgroup I2C_acknowledged_address
   * @{
   */
-
 #define I2C_AcknowledgedAddress_7bit    ((uint16_t)0x4000)
 #define I2C_AcknowledgedAddress_10bit   ((uint16_t)0xC000)
 #define IS_I2C_ACKNOWLEDGE_ADDRESS(ADDRESS) (((ADDRESS) == I2C_AcknowledgedAddress_7bit) || \
@@ -154,7 +147,6 @@ typedef struct {
 /** @defgroup I2C_registers
   * @{
   */
-
 #define I2C_Register_CR1                ((uint8_t)0x00)
 #define I2C_Register_CR2                ((uint8_t)0x04)
 #define I2C_Register_OAR1               ((uint8_t)0x08)
@@ -180,7 +172,6 @@ typedef struct {
 /** @defgroup I2C_NACK_position
   * @{
   */
-
 #define I2C_NACKPosition_Next           ((uint16_t)0x0800)
 #define I2C_NACKPosition_Current        ((uint16_t)0xF7FF)
 #define IS_I2C_NACK_POSITION(POSITION)  (((POSITION) == I2C_NACKPosition_Next) || \
@@ -192,7 +183,6 @@ typedef struct {
 /** @defgroup I2C_SMBus_alert_pin_level
   * @{
   */
-
 #define I2C_SMBusAlert_Low              ((uint16_t)0x2000)
 #define I2C_SMBusAlert_High             ((uint16_t)0xDFFF)
 #define IS_I2C_SMBUS_ALERT(ALERT) (((ALERT) == I2C_SMBusAlert_Low) || \
@@ -204,7 +194,6 @@ typedef struct {
 /** @defgroup I2C_PEC_position
   * @{
   */
-
 #define I2C_PECPosition_Next            ((uint16_t)0x0800)
 #define I2C_PECPosition_Current         ((uint16_t)0xF7FF)
 #define IS_I2C_PEC_POSITION(POSITION) (((POSITION) == I2C_PECPosition_Next) || \
@@ -216,7 +205,6 @@ typedef struct {
 /** @defgroup I2C_interrupts_definition
   * @{
   */
-
 #define I2C_IT_BUF                      ((uint16_t)0x0400)
 #define I2C_IT_EVT                      ((uint16_t)0x0200)
 #define I2C_IT_ERR                      ((uint16_t)0x0100)
@@ -228,7 +216,6 @@ typedef struct {
 /** @defgroup I2C_interrupts_definition
   * @{
   */
-
 #define I2C_IT_SMBALERT                 ((uint32_t)0x01008000)
 #define I2C_IT_TIMEOUT                  ((uint32_t)0x01004000)
 #define I2C_IT_PECERR                   ((uint32_t)0x01001000)
@@ -264,7 +251,6 @@ typedef struct {
 /**
   * 简介:  SR2寄存器标志
   */
-
 #define I2C_FLAG_DUALF                  ((uint32_t)0x00800000)
 #define I2C_FLAG_SMBHOST                ((uint32_t)0x00400000)
 #define I2C_FLAG_SMBDEFAULT             ((uint32_t)0x00200000)
@@ -276,7 +262,6 @@ typedef struct {
 /**
   * 简介:  SR1寄存器标志
   */
-
 #define I2C_FLAG_SMBALERT               ((uint32_t)0x10008000)
 #define I2C_FLAG_TIMEOUT                ((uint32_t)0x10004000)
 #define I2C_FLAG_PECERR                 ((uint32_t)0x10001000)
@@ -332,19 +317,19 @@ typedef struct {
 /**
   * 简介:  地址确认
   *
-  * 在检查EV5（总线上正确释放的启动条件）后，主设备发送将与之通信的从设备的地址
-  *（I2C_Send7bitAddress（）函数），它还确定通信方向：
-  * （主发射器或接收器）。然后主人必须等待奴隶确认他的地址。
+  * 在检查EV5(总线上正确释放的启动条件)后，主设备发送将与之通信的从设备的地址
+  *(I2C_Send7bitAddress()函数)，它还确定通信方向：
+  * (主发射器或接收器)。然后主人必须等待奴隶确认他的地址。
   * 如果在总线上发送确认，将设置以下事件之一：
   *
-  *  1) 在主接收器（7位寻址）的情况下：设置I2C_EVENT_Master_Receiver_MODE_SELECTED事件。
+  *  1) 在主接收器(7位寻址)的情况下：设置I2C_EVENT_Master_Receiver_MODE_SELECTED事件。
   *
-  *  2) 在主发送器（7位寻址）的情况下：设置I2C_EVENT_Master_Transmitter_MODE_SELECTED
+  *  2) 在主发送器(7位寻址)的情况下：设置I2C_EVENT_Master_Transmitter_MODE_SELECTED
   *
-  *  3) 在10位寻址模式的情况下，主机（在生成START并检查EV5之后）
-  * 必须发送10位寻址方式的标头（I2C_SendData（）函数）。那么主应该在EV9上等待。
-  * 这意味着10位寻址标头已在总线上正确发送。然后，master应该使用函数I2C_Send7bitAddress（）
-  * 发送10位地址（LSB）的第二部分。那么主控器应该等待事件EV6。
+  *  3) 在10位寻址模式的情况下，主机(在生成START并检查EV5之后)
+  * 必须发送10位寻址方式的标头(I2C_SendData()函数)。那么主应该在EV9上等待。
+  * 这意味着10位寻址标头已在总线上正确发送。然后，master应该使用函数I2C_Send7bitAddress()
+  * 发送10位地址(LSB)的第二部分。那么主控器应该等待事件EV6。
   *
   */
 
@@ -357,23 +342,23 @@ typedef struct {
 /**
   * 简介: 通信事件
   *
-  * 如果建立了通信（生成START条件并确认从属地址），
+  * 如果建立了通信(生成START条件并确认从属地址)，
   * 则主机必须检查以下事件之一的通信过程：
   *
   * 1) Master 接收器模式: 主设备必须等待事件EV7，
-       然后读取从设备接收的数据（I2C_ReceiveData（）函数）。
+       然后读取从设备接收的数据(I2C_ReceiveData()函数)。
   *
-  * 2) Master 发射器模式: 主机必须发送数据（I2C_SendData（）函数），
+  * 2) Master 发射器模式: 主机必须发送数据(I2C_SendData()函数)，
        然后等待事件EV8或EV8_2。
   *    这两个事件类似：
   *     - EV8意味着数据已经被写入数据寄存器并且正在被移出。
   *     - EV8_2意味着数据已经被物理地移出并在总线上输出。
   *     在大多数情况下，使用EV8就足够了。
   *     使用EV8_2会导致较慢的通信，但确保更可靠的测试。
-  *     EV8_2也比EV8更适合在最后一次数据传输上进行测试（在生成停止条件之前）。
+  *     EV8_2也比EV8更适合在最后一次数据传输上进行测试(在生成停止条件之前)。
   *
   *  @note 如果用户软件不能保证在当前字节传输结束之前管理此事件EV7，
-  *        则用户可以同时检查EV7和BTF标志（即（I2C_event_MASTER_byte_RECEIVED|I2C_flag_BTF））。
+  *        则用户可以同时检查EV7和BTF标志(即(I2C_event_MASTER_byte_RECEIVED|I2C_flag_BTF))。
   *		   在这种情况下，通信可能会更慢。
   *
   */
@@ -391,7 +376,7 @@ typedef struct {
 
 /**
  ===============================================================================
-               I2C从事件（按通信顺序分组的事件）
+               I2C从事件(按通信顺序分组的事件)
  ===============================================================================
  */
 
@@ -446,11 +431,11 @@ typedef struct {
   *    - EV3: 当一个字节已经被从服务器传输，并且应用程序正在等待字节传输的结束。
   *           两个事件I2C_EVENT_SLAVE_BYTE_TRANSMITTED和I2C_EVENT_SLAVE-BYTE_TRANSMITTING相似。 
   *           当用户软件不能保证在当前字节传输结束之前管理EV3时，可以选择性地使用第二个。
-  *    - EV3_2: 当主设备发送NACK以告知从设备数据传输应结束时（在发送STOP条件之前）。
+  *    - EV3_2: 当主设备发送NACK以告知从设备数据传输应结束时(在发送STOP条件之前)。
   *             在这种情况下，从设备必须停止发送数据字节，并在总线上等待"停止"条件。
   *
   *  @note 如果用户软件不能保证在当前字节传输结束之前管理事件EV2，
-  * 则用户可以同时检查EV2和BTF标志（即（I2C_EVENT_SLAVE_BYTE_RECEIVED | I2C_FLAG_BTF））。在这种情况下，通信可能会更慢。
+  * 则用户可以同时检查EV2和BTF标志(即(I2C_EVENT_SLAVE_BYTE_RECEIVED | I2C_FLAG_BTF))。在这种情况下，通信可能会更慢。
   *
   */
 
@@ -500,7 +485,6 @@ typedef struct {
 /** @defgroup I2C_own_address1
   * @{
   */
-
 #define IS_I2C_OWN_ADDRESS1(ADDRESS1) ((ADDRESS1) <= 0x3FF)
 /**
   * @}
@@ -509,7 +493,6 @@ typedef struct {
 /** @defgroup I2C_clock_speed
   * @{
   */
-
 #define IS_I2C_CLOCK_SPEED(SPEED) (((SPEED) >= 0x1) && ((SPEED) <= 400000))
 /**
   * @}

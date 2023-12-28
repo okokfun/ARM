@@ -1,3 +1,4 @@
+
 /**
   ******************************************************************************
   * 文件:    stm32f4xx_cec.c
@@ -146,7 +147,9 @@
 
 /**
   * 简介:  用于将 CEC 配置设置为默认复位状态的函数
+
   * 参数:  无
+  
   * 返回值: 无
   */
 void CEC_DeInit(void) {
@@ -488,6 +491,7 @@ FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG) {
 
 /**
   * 简介:  清除CEC的挂起标志。
+  * 
   * 参数:  CEC_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
   *            @arg CEC_FLAG_TXACKE: Tx缺失确认错误。
@@ -503,6 +507,7 @@ FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG) {
   *            @arg CEC_FLAG_RXOVR:  Rx超限
   *            @arg CEC_FLAG_RXEND:  接收结束
   *            @arg CEC_FLAG_RXBR:   接收的Rx字节
+  * 
   * 返回值: 无
   */
 void CEC_ClearFlag(uint32_t CEC_FLAG) {
@@ -514,6 +519,7 @@ void CEC_ClearFlag(uint32_t CEC_FLAG) {
 
 /**
   * 简介:  检查指定的CEC中断是否已发生。
+  * 
   * 参数:  CEC_IT: 指定要检查的CEC中断源。
   *          此参数可以是以下值之一:
   *            @arg CEC_IT_TXACKE: Tx缺失确认错误。
@@ -529,6 +535,7 @@ void CEC_ClearFlag(uint32_t CEC_FLAG) {
   *            @arg CEC_IT_RXOVR: Rx超限。
   *            @arg CEC_IT_RXEND: 接收结束.
   *            @arg CEC_IT_RXBR: 接收的Rx字节
+  * 
   * 返回值: CEC_IT的新状态(SET或RESET)。
   */
 ITStatus CEC_GetITStatus(uint16_t CEC_IT) {
@@ -556,6 +563,7 @@ ITStatus CEC_GetITStatus(uint16_t CEC_IT) {
 
 /**
   * 简介:  清除CEC的中断挂起位。
+  * 
   * 参数:  CEC_IT: 指定要清除的CEC中断挂起位。
   *          此参数可以是以下值的任意组合:
   *            @arg CEC_IT_TXACKE: Tx缺失确认错误。
@@ -571,12 +579,13 @@ ITStatus CEC_GetITStatus(uint16_t CEC_IT) {
   *            @arg CEC_IT_RXOVR: Rx超限
   *            @arg CEC_IT_RXEND: 接收结束
   *            @arg CEC_IT_RXBR: 接收的Rx字节
+  * 
   * 返回值: 无
   */
 void CEC_ClearITPendingBit(uint16_t CEC_IT) {
     assert_param(IS_CEC_IT(CEC_IT));
 
-    /* 清除 selected CEC interrupt pending 位 */
+    /* 清除所选CEC中断挂起位 */
     CEC->ISR = CEC_IT;
 }
 

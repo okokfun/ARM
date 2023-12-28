@@ -237,9 +237,9 @@ typedef struct {
   * 简介:    AF 0 选择
   */
 #define GPIO_AF_RTC_50Hz      ((uint8_t)0x00)  /* RTC_50Hz 备用函数映射 */
-#define GPIO_AF_MCO           ((uint8_t)0x00)  /* MCO(MCO1 和 MCO2)备用功能映射 */
+#define GPIO_AF_MCO           ((uint8_t)0x00)  /* MCO(MCO1 和 MCO2)复用功能映射 */
 #define GPIO_AF_TAMPER        ((uint8_t)0x00)  /* TAMPER(TAMPER_1 和 TAMPER_2)备用函数映射 */
-#define GPIO_AF_SWJ           ((uint8_t)0x00)  /* SWJ(SWD 和 JTAG)备用功能映射 */
+#define GPIO_AF_SWJ           ((uint8_t)0x00)  /* SWJ(SWD 和 JTAG)复用功能映射 */
 #define GPIO_AF_TRACE         ((uint8_t)0x00)  /* TRACE 备用函数映射 */
 #if defined(STM32F446xx)
 #define GPIO_AF0_TIM2         ((uint8_t)0x00)  /* TIM2 替代函数映射 */
@@ -528,7 +528,6 @@ typedef struct {
 /** @defgroup GPIO_Legacy
   * @{
   */
-
 #define GPIO_Mode_AIN           GPIO_Mode_AN
 
 #define GPIO_AF_OTG1_FS         GPIO_AF_OTG_FS
@@ -565,7 +564,7 @@ void GPIO_WriteBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, BitAction BitVal); //
 void GPIO_Write(GPIO_TypeDef* GPIOx, uint16_t PortVal); // 将数据写入指定的 GPIO 数据端口。
 void GPIO_ToggleBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin); // 切换指定的 GPIO 引脚。
 
-/* GPIO 备用功能配置功能 ****************************/
+/* GPIO 复用功能配置功能 ****************************/
 void GPIO_PinAFConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_PinSource, uint8_t GPIO_AF); // 更改指定引脚的映射。
 
 #ifdef __cplusplus

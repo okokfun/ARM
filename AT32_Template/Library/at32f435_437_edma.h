@@ -46,7 +46,6 @@ extern "C" {
   * @brief edma interrupt
   * @{
   */
-
 #define EDMA_DMERR_INT                   ((uint32_t)0x00000002) /* edma direct mode error intterrupt */
 #define EDMA_DTERR_INT                   ((uint32_t)0x00000004) /* edma data transfer error intterrupt */
 #define EDMA_HDT_INT                     ((uint32_t)0x00000008) /* edma half data transfer intterrupt */
@@ -61,7 +60,6 @@ extern "C" {
   * @brief edma flag
   * @{
   */
-
 #define EDMA_FERR1_FLAG                  ((uint32_t)0x10000001) /* edma stream1 fifo error flag */
 #define EDMA_DMERR1_FLAG                 ((uint32_t)0x10000004) /* edma stream1 direct mode error flag */
 #define EDMA_DTERR1_FLAG                 ((uint32_t)0x10000008) /* edma stream1 data transfer error flag */
@@ -887,7 +885,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define EDMA                             ((eDMA_Type *) EDMA_BASE)
 #define EDMA_STREAM1                     ((eDMA_Stream_Type *) EDMA_STREAM1_BASE)
 #define EDMA_STREAM2                     ((eDMA_Stream_Type *) EDMA_STREAM2_BASE)

@@ -508,7 +508,7 @@ void ADC_Sync_Delay_Config(uint32_t sample_delay);
 void ADC_Sync_DMA_Config(uint32_t DMA_mode );
 /* configure ADC sync DMA engine is disabled after the end of transfer signal from DMA controller is detected */
 void ADC_Sync_DMA_Request_After_Last_Enable(void);
-/* configure ADC sync DMA engine issues requests according to the SYNCDMA bits */
+/* configure ADC sync DMA engine issues requests 根据 the SYNCDMA bits */
 void ADC_Sync_DMA_Request_After_Last_Disable(void);
 /* read ADC sync regular data register */
 uint32_t ADC_Sync_Regular_Data_Read(void);

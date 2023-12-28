@@ -123,7 +123,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define CRC                              ((CRC_Type *) CRC_BASE)
 
 /** @defgroup CRC_exported_functions

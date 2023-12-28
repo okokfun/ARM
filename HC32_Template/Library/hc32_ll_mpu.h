@@ -256,7 +256,6 @@ typedef struct {
 #define MPU_FLAG_FMPUEAF                        (MPU_SR_FMPUEAF)    /*!< USBFS_DMA error flag    */
 #define MPU_FLAG_HMPUEAF                        (MPU_SR_HMPUEAF)    /*!< USBHS_DMA error flag    */
 #define MPU_FLAG_EMPUEAF                        (MPU_SR_EMPUEAF)    /*!< ETH_DMA error flag      */
-
 #define MPU_FLAG_ALL                            (MPU_FLAG_SMPU1EAF | MPU_FLAG_SMPU2EAF | MPU_FLAG_FMPUEAF | \
         MPU_FLAG_HMPUEAF  | MPU_FLAG_EMPUEAF)
 /**

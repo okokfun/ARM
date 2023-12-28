@@ -797,14 +797,14 @@ int32_t ETH_Init(stc_eth_handle_t *pstcEthHandle, stc_eth_init_t *pstcEthInit) {
                                 i32Ret = LL_ERR_TIMEOUT;
                             } else {
                                 /* Read the result of the auto-negotiation */
-                                /* Configure ETH duplex mode according to the result of automatic negotiation */
+                                /* Configure ETH duplex mode 根据 the result of automatic negotiation */
                                 if (0U != (u16PhyReg & (uint16_t)(PHY_100BASE_TX_FD | PHY_10BASE_T_FD))) {
                                     pstcEthHandle->stcCommInit.u32DuplexMode = ETH_MAC_DUPLEX_MD_FULL;
                                 } else {
                                     pstcEthHandle->stcCommInit.u32DuplexMode = ETH_MAC_DUPLEX_MD_HALF;
                                 }
 
-                                /* Configure ETH speed according to the result of automatic negotiation */
+                                /* Configure ETH speed 根据 the result of automatic negotiation */
                                 if (0U != (u16PhyReg & (uint16_t)(PHY_100BASE_TX_FD | PHY_100BASE_TX_HD))) {
                                     pstcEthHandle->stcCommInit.u32Speed = ETH_MAC_SPEED_100M;
                                 } else {

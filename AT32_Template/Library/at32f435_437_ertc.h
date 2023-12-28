@@ -46,7 +46,6 @@ extern "C" {
   * @brief ertc interrupt
   * @{
   */
-
 #define ERTC_TP_INT                      ((uint32_t)0x00000004) /*!< ertc tamper 中断 */
 #define ERTC_ALA_INT                     ((uint32_t)0x00001000) /*!< ertc alarm a 中断 */
 #define ERTC_ALB_INT                     ((uint32_t)0x00002000) /*!< ertc alarm b 中断 */
@@ -61,7 +60,6 @@ extern "C" {
   * @brief ertc flag
   * @{
   */
-
 #define ERTC_ALAWF_FLAG                  ((uint32_t)0x00000001) /*!< ertc alarm a register allows write flag */
 #define ERTC_ALBWF_FLAG                  ((uint32_t)0x00000002) /*!< ertc alarm b register allows write flag */
 #define ERTC_WATWF_FLAG                  ((uint32_t)0x00000004) /*!< ertc wakeup timer register allows write flag */
@@ -1005,7 +1003,6 @@ typedef struct {
 /**
   * @}
   */
-
 #define ERTC                              ((ERTC_Type *) ERTC_BASE)
 
 /** @defgroup ERTC_exported_functions

@@ -111,12 +111,12 @@ void SPDIFRX_Init(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
     tmpreg &= CR_CLEAR_MASK;
     /* Configure SPDIFRX: Input selection, Maximum allowed re-tries during synchronization phase,
     wait for activity, Channel Selection, Data samples format and stereo/mono mode */
-    /* Set INSEL bits according to SPDIFRX_InputSelection value   */
-    /* Set WFA   bit  according to SPDIFRX_WaitForActivity value  */
-    /* Set NBTR  bit  according to SPDIFRX_Retries value          */
-    /* Set CHSEL bit  according to SPDIFRX_ChannelSelection 值 */
-    /* Set DRFMT bits according to SPDIFRX_DataFormat value       */
-    /* Set RXSTEO bit according to SPDIFRX_StereoMode value       */
+    /* 设置 INSEL bits 根据 SPDIFRX_InputSelection 值   */
+    /* 设置 WFA   bit  根据 SPDIFRX_WaitForActivity 值  */
+    /* 设置 NBTR  bit  根据 SPDIFRX_Retries 值          */
+    /* 设置 CHSEL bit  根据 SPDIFRX_ChannelSelection 值 */
+    /* 设置 DRFMT bits 根据 SPDIFRX_DataFormat 值       */
+    /* 设置 RXSTEO bit 根据 SPDIFRX_StereoMode 值       */
 
     tmpreg |= (uint32_t)(SPDIFRX_InitStruct->SPDIFRX_InputSelection   | SPDIFRX_InitStruct->SPDIFRX_WaitForActivity   |
                          SPDIFRX_InitStruct->SPDIFRX_Retries          | SPDIFRX_InitStruct->SPDIFRX_ChannelSelection  |
@@ -128,9 +128,8 @@ void SPDIFRX_Init(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
 }
 
 /**
-  * 简介:  Fills each SPDIFRX_InitStruct member with its default value.
-  * 参数:  SPDIFRX_InitStruct: pointer to a SPDIFRX_InitTypeDef structure which will
-  *         be initialized.
+  * 简介:  用默认值填充每个 SPDIFRX_InitStruct 成员。
+  * 参数:  SPDIFRX_InitStruct: 指向将被初始化的 SPDIFRX_InitTypeDef 结构的指针。
   * 返回值: 无
   */
 void SPDIFRX_StructInit(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
@@ -284,17 +283,20 @@ void SPDIFRX_Cmd(uint32_t SPDIFRX_State) {
 
 /**
   * 简介:  启用或禁用指定的 SPDIFRX 块中断。
+  * 
   * 参数:  SPDIFRX_IT: 指定要启用或禁用的SPDIFRX中断源。
   *          此参数可以是以下值之一:
-  *            @arg SPDIFRX_IT_RXNE:  RXNE interrupt enable
+  *            @arg SPDIFRX_IT_RXNE:  RXNE中断启用
   *            @arg SPDIFRX_IT_CSRNE: 控制缓冲就绪中断启用
   *            @arg SPDIFRX_IT_PERRIE: 奇偶校验错误中断 enable
   *            @arg SPDIFRX_IT_OVRIE:  溢出错误中断启用
   *            @arg SPDIFRX_IT_SBLKIE: 同步块检测到中断启用
-  *            @arg SPDIFRX_IT_SYNCDIE: Synchronization Done
-  *            @arg SPDIFRX_IT_IFEIE: Serial Interface Error Interrupt Enable
-  * 参数:  NewState: 新状态-> specified SPDIFRX interrupt.
+  *            @arg SPDIFRX_IT_SYNCDIE: 同步完成
+  *            @arg SPDIFRX_IT_IFEIE: 串行接口错误中断启用
+  * 
+  * 参数:  NewState: 新状态-> 指定的 SPDIFRX 中断。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void SPDIFRX_ITConfig(uint32_t SPDIFRX_IT, FunctionalState NewState) {
@@ -315,15 +317,15 @@ void SPDIFRX_ITConfig(uint32_t SPDIFRX_IT, FunctionalState NewState) {
   * 简介:  检查是否设置了指定的SPDIFRX标志。
   * 参数:  SPDIFRX_FLAG: 指定要检查的SPDIFRX标志。
   *          此参数可以是以下值之一:
-  *            @arg SPDIFRX_FLAG_RXNE: Read data register not empty flag.
-  *            @arg SPDIFRX_FLAG_CSRNE: The Control Buffer register is not empty flag.
-  *            @arg SPDIFRX_FLAG_PERR: Parity error flag.
-  *            @arg SPDIFRX_FLAG_OVR: Overrun error flag.
-  *            @arg SPDIFRX_FLAG_SBD: Synchronization Block Detected flag.
-  *            @arg SPDIFRX_FLAG_SYNCD: Synchronization Done flag.
-  *            @arg SPDIFRX_FLAG_FERR: Framing error flag.
-  *            @arg SPDIFRX_FLAG_SERR: Synchronization error flag.
-  *            @arg SPDIFRX_FLAG_TERR: Time-out error flag.
+  *            @arg SPDIFRX_FLAG_RXNE: 读取数据寄存器非空标志。
+  *            @arg SPDIFRX_FLAG_CSRNE: 控制缓冲寄存器非空标志。
+  *            @arg SPDIFRX_FLAG_PERR: 奇偶校验错误标志。
+  *            @arg SPDIFRX_FLAG_OVR: 溢出错误标志。
+  *            @arg SPDIFRX_FLAG_SBD: 检测到同步块标志。
+  *            @arg SPDIFRX_FLAG_SYNCD: 同步完成 flag.
+  *            @arg SPDIFRX_FLAG_FERR: 帧错误标志。
+  *            @arg SPDIFRX_FLAG_SERR: 同步错误标志。
+  *            @arg SPDIFRX_FLAG_TERR: 超时错误标志。
   * 返回值: 新状态-> SPDIFRX_FLAG (SET or RESET).
   */
 FlagStatus SPDIFRX_GetFlagStatus(uint32_t SPDIFRX_FLAG) {
@@ -349,10 +351,10 @@ FlagStatus SPDIFRX_GetFlagStatus(uint32_t SPDIFRX_FLAG) {
   * 简介:  清除指定的 SPDIFRX 标志。
   * 参数:  SPDIFRX_FLAG: 指定要检查的SPDIFRX标志。
   *          此参数可以是以下值之一:
-  *            @arg SPDIFRX_FLAG_PERR: Parity error flag.
-  *            @arg SPDIFRX_FLAG_OVR: Overrun error flag.
-  *            @arg SPDIFRX_FLAG_SBD: Synchronization Block Detected flag.
-  *            @arg SPDIFRX_FLAG_SYNCD: Synchronization Done flag.
+  *            @arg SPDIFRX_FLAG_PERR: 奇偶校验错误标志。
+  *            @arg SPDIFRX_FLAG_OVR: 溢出错误标志。
+  *            @arg SPDIFRX_FLAG_SBD: 检测到同步块标志。
+  *            @arg SPDIFRX_FLAG_SYNCD: 同步完成 flag.
   *
   * 返回值: 无
   */
@@ -366,15 +368,17 @@ void SPDIFRX_ClearFlag(uint32_t SPDIFRX_FLAG) {
 
 /**
   * 简介:  检查指定的 SPDIFRX 中断是否发生。
+  * 
   * 参数:  SPDIFRX_IT: 指定要启用或禁用的SPDIFRX中断源。
   *          此参数可以是以下值之一:
-  *            @arg SPDIFRX_IT_RXNE:  RXNE interrupt enable
+  *            @arg SPDIFRX_IT_RXNE:  RXNE中断启用
   *            @arg SPDIFRX_IT_CSRNE: 控制缓冲就绪中断启用
   *            @arg SPDIFRX_IT_PERRIE: 奇偶校验错误中断 enable
   *            @arg SPDIFRX_IT_OVRIE:  溢出错误中断启用
   *            @arg SPDIFRX_IT_SBLKIE: 同步块检测到中断启用
-  *            @arg SPDIFRX_IT_SYNCDIE: Synchronization Done
-  *            @arg SPDIFRX_IT_IFEIE: Serial Interface Error Interrupt Enable
+  *            @arg SPDIFRX_IT_SYNCDIE: 同步完成
+  *            @arg SPDIFRX_IT_IFEIE: 串行接口错误中断启用
+  * 
   * 返回值: SPDIFRX_IT的新状态(SET或RESET)。
   */
 ITStatus SPDIFRX_GetITStatus(uint32_t SPDIFRX_IT) {
@@ -402,20 +406,20 @@ ITStatus SPDIFRX_GetITStatus(uint32_t SPDIFRX_IT) {
 
 /**
   * 简介:  清除 SPDIFRX 中断挂起位。
+  * 
   * 参数:  SAI_IT: 指定要清除的SPDIFRX中断挂起位。
   *          此参数可以是以下值之一:
-  *            @arg SPDIFRX_IT_MUTEDET: MUTE detection interrupt.
-  *            @arg SPDIFRX_IT_OVRUDR: overrun/underrun interrupt.
-  *            @arg SPDIFRX_IT_WCKCFG: wrong clock configuration interrupt.
+  *            @arg SPDIFRX_IT_MUTEDET: 静音检测中断。
+  *            @arg SPDIFRX_IT_OVRUDR: 超限/欠载运行中断。
+  *            @arg SPDIFRX_IT_WCKCFG: 错误的时钟配置中断。
   *            @arg SPDIFRX_IT_CNRDY: codec not 就绪中断.
-  *            @arg SPDIFRX_IT_AFSDET: anticipated frame synchronization detection interrupt.
-  *            @arg SPDIFRX_IT_LFSDET: late frame synchronization detection interrupt.
+  *            @arg SPDIFRX_IT_AFSDET: 预期的帧同步检测中断。
+  *            @arg SPDIFRX_IT_LFSDET: 后期帧同步检测中断。
   *
   * 注意:    FREQ (FIFO Request) flag is cleared :
-  *          - When the audio block is transmitter and the FIFO is full or the FIFO
-  *            has one data (one buffer mode) depending the bit FTH in the
-  *            SPDIFRX_xCR2 register.
-  *          - When the audio block is receiver and the FIFO is not empty
+  *          - 当音频块是发送器且 FIFO 已满或 FIFO 有一个数据（一个缓冲模式）时，
+  *            取决于 SPDIFRX_xCR2 寄存器中的位FTH。
+  *          - 当音频块为接收器且 FIFO 不为空时
   *
   * 返回值: 无
   */

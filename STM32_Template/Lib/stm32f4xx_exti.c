@@ -36,7 +36,7 @@
 
  [..]
    (@) 必须启用SYSCFG APB时钟，才能使用RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
-       对SYSCFG_EXTICRx寄存器进行写入访问；
+       对SYSCFG_EXTICRx寄存器进行写入访问;
 
 @endverbatim
   *
@@ -100,7 +100,9 @@
 
 /**
   * 简介:  将 EXTI 外设寄存器取消初始化为其默认复位值。
+  * 
   * 参数:  无
+  * 
   * 返回值: 无
   */
 void EXTI_DeInit(void) {
@@ -113,7 +115,9 @@ void EXTI_DeInit(void) {
 
 /**
   * 简介:  根据 EXTI_InitStruct 中指定的参数初始化 EXTI 外设。
+  * 
   * 参数:  EXTI_InitStruct: 指向包含EXTI外设设备配置信息的EXTI_InitTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct) {
@@ -161,7 +165,9 @@ void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct) {
 
 /**
   * 简介:  用其重置值填充每个 EXTI_InitStruct 成员。
+  * 
   * 参数:  EXTI_InitStruct: 指向将被初始化的EXTI_InitTypeDef结构的指针。
+  * 
   * 返回值: 无
   */
 void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct) {
@@ -173,8 +179,10 @@ void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct) {
 
 /**
   * 简介:  在选定的 EXTI 线上产生一个软件中断。
+  * 
   * 参数:  EXTI_Line: 指定将在其上生成软件中断的EXTI行。
   *         此参数可以是EXTI_Linex的任意组合，其中x可以是(0..22)
+  * 
   * 返回值: 无
   */
 void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line) {
@@ -202,8 +210,10 @@ void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line) {
 
 /**
   * 简介:  检查是否设置了指定的 EXTI 行标志。
+  * 
   * 参数:  EXTI_Line: 指定要检查的EXTI行标志。
   *          此参数可以是EXTI_Linex，其中x可以是(0..22)
+  * 
   * 返回值: EXTI_Line的新状态(SET或RESET)。
   */
 FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line) {
@@ -222,8 +232,10 @@ FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line) {
 
 /**
   * 简介:  清除 EXTI 的行挂起标志。
+  * 
   * 参数:  EXTI_Line: 指定要清除的EXTI行标志。
   *          此参数可以是EXTI_Linex的任意组合，其中x可以是(0..22)
+  * 
   * 返回值: 无
   */
 void EXTI_ClearFlag(uint32_t EXTI_Line) {
@@ -235,8 +247,10 @@ void EXTI_ClearFlag(uint32_t EXTI_Line) {
 
 /**
   * 简介:  检查指定的 EXTI 行是否被断言。
+  * 
   * 参数:  EXTI_Line: 指定要检查的EXTI行。
   *          此参数可以是EXTI_Linex，其中x可以是(0..22)
+  * 
   * 返回值: EXTI_Line的新状态(SET或RESET)。
   */
 ITStatus EXTI_GetITStatus(uint32_t EXTI_Line) {
@@ -256,8 +270,10 @@ ITStatus EXTI_GetITStatus(uint32_t EXTI_Line) {
 
 /**
   * 简介:  清除 EXTI 的行挂起位。
+  * 
   * 参数:  EXTI_Line: 指定要清除的EXTI行。
   *          此参数可以是EXTI_Linex的任意组合，其中x可以是(0..22)
+  * 
   * 返回值: 无
   */
 void EXTI_ClearITPendingBit(uint32_t EXTI_Line) {
