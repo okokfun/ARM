@@ -59,11 +59,11 @@ extern "C"
  */
 typedef struct {
     uint32_t u32StartPolarity;          /*!< Specifies the polarity of PWM output when TMR2 counting start.
-                                             This parameter can be a value of @ref TMR2_PWM_Polarity */
+                                             这个参数是其中之一 @ref TMR2_PWM_Polarity */
     uint32_t u32StopPolarity;           /*!< Specifies the polarity of PWM output when TMR2 counting stop.
-                                             This parameter can be a value of @ref TMR2_PWM_Polarity */
+                                             这个参数是其中之一 @ref TMR2_PWM_Polarity */
     uint32_t u32CompareMatchPolarity;   /*!< Specifies the polarity of PWM output when TMR2 counter matches the compare value.
-                                             This parameter can be a value of @ref TMR2_PWM_Polarity */
+                                             这个参数是其中之一 @ref TMR2_PWM_Polarity */
 } stc_tmr2_pwm_init_t;
 
 /**
@@ -71,13 +71,13 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32ClockSrc;               /*!< Specifies the clock source for TMR2 channel.
-                                             This parameter can be a value of @ref TMR2_Clock_Source */
+                                             这个参数是其中之一 @ref TMR2_Clock_Source */
     uint32_t u32ClockDiv;               /*!< Specifies the division of the 时钟源.
-                                             This parameter can be a value of @ref TMR2_Clock_Divider */
+                                             这个参数是其中之一 @ref TMR2_Clock_Divider */
     uint32_t u32Func;                   /*!< Specifies the function mode for TMR2 channel.
-                                             This parameter can be a value of @ref TMR2_Function */
+                                             这个参数是其中之一 @ref TMR2_Function */
     uint32_t u32CompareValue;           /*!< Specifies the compare value.
-                                             This parameter can be a number between 0U and 0xFFFFU, inclusive. */
+                                             这个参数必须是其中间值 0U and 0xFFFFU, inclusive. */
 } stc_tmr2_init_t;
 
 /**

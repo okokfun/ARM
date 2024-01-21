@@ -51,29 +51,29 @@
           时钟生成器使用RCC_SAIBlockACLKConfig()和RCC_SAIBlockBCLKConfig()函数配置。
 
       (#) 每个SAI Block A或B可以单独配置:
-          (++) 使用SAI_Init()函数编程主时钟分压器，音频模式，协议，数据长度，时钟匹配边缘，同步模式，输出驱动器和FIFO阈值。
+          (++) 使用 SAI_Init() 函数编程主时钟分压器，音频模式，协议，数据长度，时钟匹配边缘，同步模式，输出驱动器和FIFO阈值。
                在主模式下，使用以下公式编程主时钟分压器(MCKDIV):
                (+++) MCLK_x = SAI_CK_x / (MCKDIV * 2) with MCLK_x = 256 * FS
                (+++) FS = SAI_CK_x / (MCKDIV * 2) * 256
                (+++) MCKDIV = SAI_CK_x / FS * 512
 
-         (++) 使用SAI_FrameInit()函数编程帧长度，帧活动长度，FS定义，FS极性，FS偏移量。
+         (++) 使用 SAI_FrameInit() 函数编程帧长度，帧活动长度，FS定义，FS极性，FS偏移量。
 
-         (++) 使用SAI_SlotInit()函数编程槽位第1位偏移量，槽大小，槽号，槽活动。
+         (++) 使用 SAI_SlotInit() 函数编程槽位第1位偏移量，槽大小，槽号，槽活动。
 
-      (#) 如果需要使用中断模式，可以使用函数SAI_ITConfig()启用NVIC和相应的中断。
+      (#) 如果需要使用中断模式，可以使用函数 SAI_ITConfig() 启用 NVIC 和相应的中断。
 
       (#) 当使用DMA模式时
-          (++) 使用DMA_Init()函数配置DMA
-          (++) 使用SAI_DMACmd()函数激活所需的通道请求
+          (++) 使用 DMA_Init() 函数配置DMA
+          (++) 使用 SAI_DMACmd() 函数激活所需的通道请求
 
-      (#) 使用SAI_Cmd()函数启用SAI。
+      (#) 使用 SAI_Cmd() 函数启用SAI。
 
-      (#) 当使用DMA模式时，使用DMA_Cmd()函数启用DMA。
+      (#) 当使用 DMA 模式时，使用 DMA_Cmd() 函数启用DMA。
 
-      (#) SAI有一些特定的功能，这取决于所选的音频协议。
-          (++) 当音频块是一个发射器时，使用SAI_MuteModeCmd()函数启用静音模式，
-               并使用SAI_MuteValueConfig()配置静音期间传输的值。
+      (#) SAI 有一些特定的功能，这取决于所选的音频协议。
+          (++) 当音频块是一个发射器时，使用 SAI_MuteModeCmd() 函数启用静音模式，
+               并使用 SAI_MuteValueConfig() 配置静音期间传输的值。
 
           (++) 当音频块是接收端时，使用SAI_MuteFrameCounterConfig()检测静音模式。
           (++) 当插槽数等于2时，使用SAI_MonoModeConfig()函数启用MONO模式，不需要内存中的任何数据预处理。
@@ -202,7 +202,7 @@ void SAI_DeInit(SAI_TypeDef* SAIx) {
 			或者是从绕过PLL I2S的替代功能产生的。
   *
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
-  * 参数:  SAI_InitStruct: 指向SAI_InitTypeDef结构的指针，该结构包含指定SAI块的配置信息外设.
+  * 参数:  SAI_InitStruct: 指向 SAI_InitTypeDef 结构的指针，该结构包含指定 SAI 块的配置信息外设.
   * 返回值: 无
   */
 void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct) {
@@ -211,7 +211,7 @@ void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct) {
     /* 检查参数 */
     assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
 
-    /* 检查 the SAI Block parameters */
+    /* 检查这个 SAI Block 参数 */
     assert_param(IS_SAI_BLOCK_MODE(SAI_InitStruct->SAI_AudioMode));
     assert_param(IS_SAI_BLOCK_PROTOCOL(SAI_InitStruct->SAI_Protocol));
     assert_param(IS_SAI_BLOCK_DATASIZE(SAI_InitStruct->SAI_DataSize));
@@ -277,7 +277,7 @@ void SAI_FrameInit(SAI_Block_TypeDef* SAI_Block_x, SAI_FrameInitTypeDef* SAI_Fra
     /* 检查参数 */
     assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
 
-    /* 检查 the SAI Block frame parameters */
+    /* 检查这个 SAI Block 参数 */
     assert_param(IS_SAI_BLOCK_FRAME_LENGTH(SAI_FrameInitStruct->SAI_FrameLength));
     assert_param(IS_SAI_BLOCK_ACTIVE_FRAME(SAI_FrameInitStruct->SAI_ActiveFrameLength));
     assert_param(IS_SAI_BLOCK_FS_DEFINITION(SAI_FrameInitStruct->SAI_FSDefinition));
@@ -562,10 +562,10 @@ void SAI_MuteValueConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_MuteValue)
 /**
   * 简介:  启用或禁用选定 SAI 模块的静音模式。
   *
-  * 注意:   只有当音频块为Receiver时，此函数才有意义
+  * 注意:  只有当音频块为Receiver时，此函数才有意义
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  SAI_MuteCounter: 指定SAI block mute value.
-  *         此参数可以是0到63之间的数字。
+  *         此参数可以是 0 到 6 3之间的数字。
 
   * 返回值: 无
   */
@@ -583,7 +583,7 @@ void SAI_MuteFrameCounterConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Mut
 defined(STM32F469_479xx) || defined(STM32F413_423xx) || defined(STM32F446xx)
 /**
   * 简介:  配置 SAI Block 同步模式
-  * 参数:  SAI_InitStruct:指向SAI_InitTypeDef结构的指针，该结构包含指定SAI块的配置信息外设.
+  * 参数:  SAI_InitStruct: 指向SAI_InitTypeDef结构的指针，该结构包含指定SAI块的配置信息外设.
   * 参数:  SAIx: 选择SAIx外设设备，其中x可以是不同的实例
   * 返回值: 无
   */
@@ -655,6 +655,7 @@ void SAI_BlockSynchroConfig(SAI_InitTypeDef* SAI_InitStruct, SAI_TypeDef* SAIx) 
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   * 参数:  NewState: 新状态-> 选择 SAI TI 通信模式。
   *          此参数可以是: ENABLE或DISABLE。
+  * 
   * 返回值: 无
   */
 void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x) {
@@ -778,13 +779,13 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   ====================
   [..]
   在轮询模式下，SAI通信可以由7个标志管理:
-     (#) SAI_FLAG_FREQ : 以指示是否存在要写入或要读取的FIFO请求。
+     (#) SAI_FLAG_FREQ :    以指示是否存在要写入或要读取的FIFO请求。
      (#) SAI_FLAG_MUTEDET : 以指示是否检测到MUTE帧
-     (#) SAI_FLAG_OVRUDR : 指示是否发生溢出或不足错误
-     (#) SAI_FLAG_AFSDET : 以指示是否存在比预期更早的音频帧同步(FS)的检测
-     (#) SAI_FLAG_LFSDET : 以指示是否检测到晚于预期的音频帧同步(FS)
-     (#) SAI_FLAG_CNRDY : 以指示编解码器在接收AC97音频帧的TAG 0(slot0)期间是否未准备好通信
-     (#) SAI_FLAG_WCKCFG: 以指示主模式中的错误时钟配置是否发生错误。
+     (#) SAI_FLAG_OVRUDR :  指示是否发生溢出或不足错误
+     (#) SAI_FLAG_AFSDET :  以指示是否存在比预期更早的音频帧同步(FS)的检测
+     (#) SAI_FLAG_LFSDET :  以指示是否检测到晚于预期的音频帧同步(FS)
+     (#) SAI_FLAG_CNRDY :   以指示编解码器在接收AC97音频帧的TAG 0(slot0)期间是否未准备好通信
+     (#) SAI_FLAG_WCKCFG:   以指示主模式中的错误时钟配置是否发生错误。
   [..]
   在此模式下，建议使用以下函数:
      (+) FlagStatus SAI_GetFlagStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG);
@@ -830,7 +831,7 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
    (+) 检查SAI块启用状态
    (+) 检查FIFO状态
 
-  *** SAI Block启用状态 ***
+  *** SAI Block 启用状态 ***
   ===============================
   [..]
   禁用SAI块后，建议检查(或等待)SAI块被有效禁用。如果在音频

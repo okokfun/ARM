@@ -50,7 +50,6 @@ extern "C" {
   * 简介:  QSPI通信配置初始化结构定义
   */
 typedef struct {
-
     uint32_t QSPI_ComConfig_FMode;            /* 指定功能模式
                                            该参数可以是@ref QSPI_ComConfig_Functional_Mode 的值*/
 
@@ -84,9 +83,8 @@ typedef struct {
     uint32_t QSPI_ComConfig_IMode;            /* 指定指令模式
                                            该参数可以是@ref QSPI_ComConfig_InstructionMode 的值*/
 
-    uint32_t QSPI_ComConfig_Ins;      /* 指定指令模式
+    uint32_t QSPI_ComConfig_Ins;              /* 指定指令模式
                                            该参数可以是@ref QSPI_ComConfig_Instruction 的值*/
-
 } QSPI_ComConfig_InitTypeDef;
 
 /**
@@ -109,8 +107,10 @@ typedef struct {
                                 QSPI_FSize+1 实际上是寻址闪存所需的地址位数。
                                 间接模式下闪存容量最高可达 4GB(使用 32 位寻址)，但内存映射模式下的可寻址空间限制为 512MB
                                 此参数可以是 0x00 和 0x1F 之间的数字 */
+
     uint32_t QSPI_FSelect;   /* 指定将使用的 Flash，
                                   该参数可以是@ref QSPI_Fash_Select 的值*/
+                                  
     uint32_t QSPI_DFlash;    /* 指定双闪存模式状态
                                   该参数可以是@ref QSPI_Dual_Flash 的值*/
 } QSPI_InitTypeDef;

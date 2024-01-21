@@ -60,29 +60,29 @@ extern "C"
  */
 typedef struct {
     uint8_t u8CountSrc;                     /*!< Specifies the count source of TMRA.
-                                                 This parameter can be a value of @ref TMRA_Count_Src */
+                                                 这个参数是其中之一 @ref TMRA_Count_Src */
     union {
         struct {
             uint16_t u16ClockDiv;           /*!< Specifies the divider of software 时钟源.
-                                                 This parameter can be a value of @ref TMRA_Clock_Divider */
+                                                 这个参数是其中之一 @ref TMRA_Clock_Divider */
             uint16_t u16CountMode;          /*!< Specifies count mode.
-                                                 This parameter can be a value of @ref TMRA_Count_Mode */
+                                                 这个参数是其中之一 @ref TMRA_Count_Mode */
             uint16_t u16CountDir;           /*!< Specifies count direction.
-                                                 This parameter can be a value of @ref TMRA_Count_Dir */
+                                                 这个参数是其中之一 @ref TMRA_Count_Dir */
         } sw_count;
         struct {
 
             uint16_t u16CountUpCond;        /*!< Hardware count up condition.
-                                                 This parameter can be a value of @ref TMRA_Hard_Count_Up_Condition */
+                                                 这个参数是其中之一 @ref TMRA_Hard_Count_Up_Condition */
             uint16_t u16CountDownCond;      /*!< Hardware count down condition.
-                                                 This parameter can be a value of @ref TMRA_Hard_Count_Down_Condition */
+                                                 这个参数是其中之一 @ref TMRA_Hard_Count_Down_Condition */
             uint16_t u16Reserved;           /*!< Reserved, for future use. */
         } hw_count;
     };
     uint32_t u32PeriodValue;                /*!< Specifies the period reference value.
-                                                 This parameter can be a number between 0U and 0xFFFFU, inclusive. */
+                                                 这个参数必须是其中间值 0U and 0xFFFFU, inclusive. */
     uint16_t u16CountReload;                /*!< Continue counting or stop when counter overflow/underflow.
-                                                 This parameter can be a value of @ref TMRA_Count_Reload_En */
+                                                 这个参数是其中之一 @ref TMRA_Count_Reload_En */
 } stc_tmra_init_t;
 
 /**
@@ -90,20 +90,20 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32CompareValue;               /*!< Specifies compare value of the TMRA channel.
-                                                 This parameter can be a number between:
+                                                 这个参数必须是其中间值:
                                                  0UL and 0xFFFFFFFFUL for 32-bit TimerA units.
                                                  0UL and 0xFFFFUL for 16-bit TimerA units. */
     uint16_t u16StartPolarity;              /*!< Specifies the polarity when the counter start counting.
-                                                 This parameter can be a value of @ref TMRA_PWM_Polarity
+                                                 这个参数是其中之一 @ref TMRA_PWM_Polarity
                                                  NOTE: CAN NOT be specified as TMRA_PWM_LOW or TMRA_PWM_HIGH when
                                                        sw_count.u16ClockDiv of @ref stc_tmra_init_t is NOT specified
                                                        as @ref TMRA_CLK_DIV1 */
     uint16_t u16StopPolarity;               /*!< Specifies the polarity when the counter stop counting.
-                                                 This parameter can be a value of @ref TMRA_PWM_Polarity */
+                                                 这个参数是其中之一 @ref TMRA_PWM_Polarity */
     uint16_t u16CompareMatchPolarity;       /*!< Specifies the polarity when the counter matches the compare register.
-                                                 This parameter can be a value of @ref TMRA_PWM_Polarity */
+                                                 这个参数是其中之一 @ref TMRA_PWM_Polarity */
     uint16_t u16PeriodMatchPolarity;        /*!< Specifies the polarity when the counter matches the period register.
-                                                 This parameter can be a value of @ref TMRA_PWM_Polarity */
+                                                 这个参数是其中之一 @ref TMRA_PWM_Polarity */
 } stc_tmra_pwm_init_t;
 
 /**

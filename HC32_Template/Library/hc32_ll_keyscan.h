@@ -60,19 +60,19 @@ extern "C"
  */
 typedef struct {
     uint32_t u32HizCycle;           /*!< Specifies the KEYSCAN Hiz cycles.
-                                        This parameter can be a value of @ref KEYSCAN_Hiz_Cycle_Sel */
+                                        这个参数是其中之一 @ref KEYSCAN_Hiz_Cycle_Sel */
 
     uint32_t u32LowCycle;           /*!< Specifies the KEYSCAN low cycles.
-                                        This parameter can be a value of @ref KEYSCAN_Low_Cycle_Sel */
+                                        这个参数是其中之一 @ref KEYSCAN_Low_Cycle_Sel */
 
     uint32_t u32KeyClock;           /*!< Specifies the KEYSCAN low cycles.
-                                        This parameter can be a value of @ref KEYSCAN_Clock_Sel */
+                                        这个参数是其中之一 @ref KEYSCAN_Clock_Sel */
 
     uint32_t u32KeyOut;             /*!< Specifies the KEYSCAN low cycles.
-                                        This parameter can be a value of @ref KEYSCAN_Keyout_Sel */
+                                        这个参数是其中之一 @ref KEYSCAN_Keyout_Sel */
 
     uint32_t u32KeyIn;              /*!< Specifies the KEYSCAN low cycles.
-                                        This parameter can be a value of @ref KEYSCAN_Keyin_Sel */
+                                        这个参数是其中之一 @ref KEYSCAN_Keyin_Sel */
 } stc_keyscan_init_t;
 
 /**

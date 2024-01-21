@@ -60,15 +60,15 @@ extern "C"
  */
 typedef struct {
     uint32_t u32Mode;                   /*!< Specifies the SDIOC work mode.
-                                             This parameter can be a value of @ref SDIOC_Mode */
+                                             这个参数是其中之一 @ref SDIOC_Mode */
     uint8_t  u8CardDetect;              /*!< Specifies the SDIOC card detect way.
-                                             This parameter can be a value of @ref SDIOC_Card_Detect_Way */
+                                             这个参数是其中之一 @ref SDIOC_Card_Detect_Way */
     uint8_t  u8SpeedMode;               /*!< Specifies the SDIOC speed mode.
-                                             This parameter can be a value of @ref SDIOC_Speed_Mode */
+                                             这个参数是其中之一 @ref SDIOC_Speed_Mode */
     uint8_t  u8BusWidth;                /*!< Specifies the SDIOC bus width.
-                                             This parameter can be a value of @ref SDIOC_Bus_Width */
+                                             这个参数是其中之一 @ref SDIOC_Bus_Width */
     uint16_t u16ClockDiv;               /*!< Specifies the SDIOC clock division.
-                                             This parameter can be a value of @ref SDIOC_Clock_Division */
+                                             这个参数是其中之一 @ref SDIOC_Clock_Division */
 } stc_sdioc_init_t;
 
 /**
@@ -77,13 +77,13 @@ typedef struct {
 typedef struct {
     uint32_t u32Argument;               /*!< Specifies the SDIOC command argument. */
     uint16_t u16CmdIndex;               /*!< Specifies the SDIOC command index.
-                                             This parameter must be a number between Min_Data = 0 and Max_Data = 63 */
+                                             这个参数必须是其中间值 Min_Data = 0 and Max_Data = 63 */
     uint16_t u16CmdType;                /*!< Specifies the SDIOC command type.
-                                             This parameter can be a value of @ref SDIOC_Command_Type */
+                                             这个参数是其中之一 @ref SDIOC_Command_Type */
     uint16_t u16DataLine;               /*!< Specifies whether SDIOC uses data lines in current command.
-                                             This parameter can be a value of @ref SDIOC_Data_Line_Valid */
+                                             这个参数是其中之一 @ref SDIOC_Data_Line_Valid */
     uint16_t u16ResponseType;           /*!< Specifies the SDIOC response type.
-                                             This parameter can be a value of @ref SDIOC_Response_Type */
+                                             这个参数是其中之一 @ref SDIOC_Response_Type */
 } stc_sdioc_cmd_config_t;
 
 /**
@@ -91,17 +91,17 @@ typedef struct {
  */
 typedef struct {
     uint16_t u16BlockSize;              /*!< Specifies the SDIOC data block size.
-                                             This parameter must be a number between Min_Data = 1 and Max_Data = 512 */
+                                             这个参数必须是其中间值 Min_Data = 1 and Max_Data = 512 */
     uint16_t u16BlockCount;             /*!< Specifies the SDIOC data block count.
-                                             This parameter must be a number between Min_Data = 0 and Max_Data = 0xFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0 and Max_Data = 0xFFFF */
     uint16_t u16TransDir;               /*!< Specifies the SDIOC data transfer direction.
-                                             This parameter can be a value of @ref SDIOC_Transfer_Direction */
+                                             这个参数是其中之一 @ref SDIOC_Transfer_Direction */
     uint16_t u16AutoCmd12;              /*!< Specifies the validity of the SDIOC Auto Send CMD12.
-                                             This parameter can be a value of @ref SDIOC_Auto_Send_CMD12 */
+                                             这个参数是其中之一 @ref SDIOC_Auto_Send_CMD12 */
     uint16_t u16TransMode;              /*!< Specifies the SDIOC data transfer mode.
-                                             This parameter can be a value of @ref SDIOC_Transfer_Mode */
+                                             这个参数是其中之一 @ref SDIOC_Transfer_Mode */
     uint8_t  u16DataTimeout;            /*!< Specifies the SDIOC data timeout time.
-                                             This parameter can be a value of @ref SDIOC_Data_Timeout_Time */
+                                             这个参数是其中之一 @ref SDIOC_Data_Timeout_Time */
 } stc_sdioc_data_config_t;
 
 /**

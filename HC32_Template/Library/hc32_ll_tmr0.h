@@ -62,13 +62,13 @@ extern "C"
  */
 typedef struct {
     uint32_t u32ClockSrc;               /*!< Specifies the clock source of TMR0 channel.
-                                             This parameter can be a value of @ref TMR0_Clock_Source */
+                                             这个参数是其中之一 @ref TMR0_Clock_Source */
     uint32_t u32ClockDiv;               /*!< Specifies the clock division of TMR0 channel.
-                                             This parameter can be a value of @ref TMR0_Clock_Division */
+                                             这个参数是其中之一 @ref TMR0_Clock_Division */
     uint32_t u32Func;                   /*!< Specifies the function of TMR0 channel.
-                                             This parameter can be a value of @ref TMR0_Function */
+                                             这个参数是其中之一 @ref TMR0_Function */
     uint16_t u16CompareValue;           /*!< Specifies the compare value of TMR0 channel.
-                                             This parameter can be a value of half-word */
+                                             这个参数是其中之一 half-word */
 } stc_tmr0_init_t;
 
 /**

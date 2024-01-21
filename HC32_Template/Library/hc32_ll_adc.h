@@ -61,7 +61,7 @@ extern "C"
  */
 typedef struct {
     uint16_t u16WatchdogMode;           /*!< Specifies the ADC analog watchdog mode.
-                                             This parameter can be a value of @ref ADC_AWD_Mode */
+                                             这个参数是其中之一 @ref ADC_AWD_Mode */
     uint16_t u16LowThreshold;           /*!< Specifies the ADC analog watchdog Low threshold value. */
     uint16_t u16HighThreshold;          /*!< Specifies the ADC analog watchdog High threshold value. */
 } stc_adc_awd_config_t;
@@ -71,11 +71,11 @@ typedef struct {
  */
 typedef struct {
     uint16_t u16ScanMode;               /*!< Specifies the ADC scan convert mode.
-                                             This parameter can be a value of @ref ADC_Scan_Mode */
+                                             这个参数是其中之一 @ref ADC_Scan_Mode */
     uint16_t u16Resolution;             /*!< Specifies the ADC resolution.
-                                             This parameter can be a value of @ref ADC_Resolution */
+                                             这个参数是其中之一 @ref ADC_Resolution */
     uint16_t u16DataAlign;              /*!< Specifies ADC data alignment.
-                                             This parameter can be a value of @ref ADC_Data_Align */
+                                             这个参数是其中之一 @ref ADC_Data_Align */
 } stc_adc_init_t;
 
 /**

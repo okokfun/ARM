@@ -61,17 +61,17 @@ extern "C"
  */
 typedef struct {
     uint8_t  u8ClockSrc;                /*!< Specifies the RTC 时钟源.
-                                             This parameter can be a value of @ref RTC_Clock_Source */
+                                             这个参数是其中之一 @ref RTC_Clock_Source */
     uint8_t  u8HourFormat;              /*!< Specifies the RTC hour format.
-                                             This parameter can be a value of @ref RTC_Hour_Format */
+                                             这个参数是其中之一 @ref RTC_Hour_Format */
     uint8_t  u8IntPeriod;               /*!< Specifies the RTC interrupt period.
-                                             This parameter can be a value of @ref RTC_Interrupt_Period */
+                                             这个参数是其中之一 @ref RTC_Interrupt_Period */
     uint8_t  u8ClockCompen;             /*!< Specifies the validity of RTC clock compensation.
-                                             This parameter can be a value of @ref RTC_Clock_Compensation */
+                                             这个参数是其中之一 @ref RTC_Clock_Compensation */
     uint8_t  u8CompenMode;              /*!< Specifies the mode of RTC clock compensation.
-                                             This parameter can be a value of @ref RTC_Clock_Compensation_Mode */
+                                             这个参数是其中之一 @ref RTC_Clock_Compensation_Mode */
     uint16_t u16CompenValue;            /*!< Specifies the value of RTC clock compensation.
-                                             This parameter can be a number between Min_Data = 0 and Max_Data = 0x1FF */
+                                             这个参数必须是其中间值 Min_Data = 0 and Max_Data = 0x1FF */
 } stc_rtc_init_t;
 
 /**
@@ -79,13 +79,13 @@ typedef struct {
  */
 typedef struct {
     uint8_t u8Year;                     /*!< Specifies the RTC Year.
-                                             This parameter can be a number between Min_Data = 0 and Max_Data = 99 */
+                                             这个参数必须是其中间值 Min_Data = 0 and Max_Data = 99 */
     uint8_t u8Month;                    /*!< Specifies the RTC Month (in Decimal format).
-                                             This parameter can be a value of @ref RTC_Month */
+                                             这个参数是其中之一 @ref RTC_Month */
     uint8_t u8Day;                      /*!< Specifies the RTC Day.
-                                             This parameter can be a number between Min_Data = 1 and Max_Data = 31 */
+                                             这个参数必须是其中间值 Min_Data = 1 and Max_Data = 31 */
     uint8_t u8Weekday;                  /*!< Specifies the RTC Weekday.
-                                             This parameter can be a value of @ref RTC_Weekday */
+                                             这个参数是其中之一 @ref RTC_Weekday */
 } stc_rtc_date_t;
 
 /**
@@ -93,14 +93,14 @@ typedef struct {
  */
 typedef struct {
     uint8_t u8Hour;                     /*!< Specifies the RTC Hour.
-                                             This parameter can be a number between Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.
-                                             This parameter can be a number between Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected */
+                                             这个参数必须是其中间值 Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.
+                                             这个参数必须是其中间值 Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected */
     uint8_t u8Minute;                   /*!< Specifies the RTC Minute.
-                                             This parameter can be a number between Min_Data = 0 and Max_Data = 59 */
+                                             这个参数必须是其中间值 Min_Data = 0 and Max_Data = 59 */
     uint8_t u8Second;                   /*!< Specifies the RTC Second.
-                                             This parameter can be a number between Min_Data = 0 and Max_Data = 59 */
+                                             这个参数必须是其中间值 Min_Data = 0 and Max_Data = 59 */
     uint8_t u8AmPm;                     /*!< Specifies the RTC Am/Pm Time (in RTC_HOUR_FMT_12H mode).
-                                             This parameter can be a value of @ref RTC_Hour12_AM_PM */
+                                             这个参数是其中之一 @ref RTC_Hour12_AM_PM */
 } stc_rtc_time_t;
 
 /**
@@ -108,14 +108,14 @@ typedef struct {
  */
 typedef struct {
     uint8_t u8AlarmHour;                /*!< Specifies the RTC Alarm Hour.
-                                           This parameter can be a number between Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.
-                                           This parameter can be a number between Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected */
+                                           这个参数必须是其中间值 Min_Data = 1 and Max_Data = 12 if the RTC_HOUR_FMT_12H is selected.
+                                           这个参数必须是其中间值 Min_Data = 0 and Max_Data = 23 if the RTC_HOUR_FMT_24H is selected */
     uint8_t u8AlarmMinute;              /*!< Specifies the RTC Alarm Minute.
-                                             This parameter can be a number between Min_Data = 0 and Max_Data = 59 */
+                                             这个参数必须是其中间值 Min_Data = 0 and Max_Data = 59 */
     uint8_t u8AlarmWeekday;             /*!< Specifies the RTC Alarm Weekday.
-                                             This parameter can be a value of @ref RTC_Alarm_Weekday */
+                                             这个参数是其中之一 @ref RTC_Alarm_Weekday */
     uint8_t u8AlarmAmPm;                /*!< Specifies the RTC Alarm Am/Pm Time (in RTC_HOUR_FMT_12H mode).
-                                             This parameter can be a value of @ref RTC_Hour12_AM_PM */
+                                             这个参数是其中之一 @ref RTC_Hour12_AM_PM */
 } stc_rtc_alarm_t;
 
 /**
@@ -123,13 +123,13 @@ typedef struct {
  */
 typedef struct {
     uint8_t u8Timestamp;                /*!< Specifies the validity of RTC intrusion timestamp.
-                                             This parameter can be a value of @ref RTC_Intrusion_Timestamp */
+                                             这个参数是其中之一 @ref RTC_Intrusion_Timestamp */
     uint8_t u8ResetBackupReg;           /*!< Specifies the validity of RTC intrusion event that trigger backup registers reset.
-                                             This parameter can be a value of @ref RTC_Intrusion_Reset_Backup_Register */
+                                             这个参数是其中之一 @ref RTC_Intrusion_Reset_Backup_Register */
     uint8_t u8Filter;                   /*!< Specifies the RTC intrusion pin filter.
-                                             This parameter can be a value of @ref RTC_Intrusion_Filter */
+                                             这个参数是其中之一 @ref RTC_Intrusion_Filter */
     uint8_t u8TriggerEdge;              /*!< Specifies the RTC intrusion trigger edge.
-                                             This parameter can be a value of @ref RTC_Intrusion_Trigger_Edge */
+                                             这个参数是其中之一 @ref RTC_Intrusion_Trigger_Edge */
 } stc_rtc_intrusion_t;
 
 /**
@@ -138,9 +138,9 @@ typedef struct {
 typedef struct {
     stc_rtc_time_t stcTime;             /*!< Specifies the RTC Intrusion Timestamp Time members */
     uint8_t u8Month;                    /*!< Specifies the Month of RTC timestamp (in Decimal format).
-                                             This parameter can be a value of @ref RTC_Month */
+                                             这个参数是其中之一 @ref RTC_Month */
     uint8_t u8Day;                      /*!< Specifies the Day of RTC timestamp.
-                                             This parameter can be a number between Min_Data = 1 and Max_Data = 31 */
+                                             这个参数必须是其中间值 Min_Data = 1 and Max_Data = 31 */
 } stc_rtc_timestamp_t;
 
 /**

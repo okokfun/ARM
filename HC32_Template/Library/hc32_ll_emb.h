@@ -62,7 +62,7 @@ extern "C"
  */
 typedef struct {
     uint32_t u32OscState;           /*!< Enable or disable EMB detect OSC failure function
-                                         This parameter can be a value of @ref EMB_OSC_Selection */
+                                         这个参数是其中之一 @ref EMB_OSC_Selection */
 } stc_emb_monitor_osc_t;
 
 /**
@@ -70,13 +70,13 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32PortState;          /*!< Enable or disable EMB detect port in control function
-                                         This parameter can be a value of @ref EMB_Port_Selection */
+                                         这个参数是其中之一 @ref EMB_Port_Selection */
     uint32_t u32PortLevel;          /*!< EMB detect port level
-                                         This parameter can be a value of @ref EMB_Detect_Port_Level */
+                                         这个参数是其中之一 @ref EMB_Detect_Port_Level */
     uint32_t u32PortFilterDiv;      /*!< EMB port filter division
-                                         This parameter can be a value of @ref EMB_Port_Filter_Clock_Division */
+                                         这个参数是其中之一 @ref EMB_Port_Filter_Clock_Division */
     uint32_t u32PortFilterState;    /*!< EMB port filter division
-                                         This parameter can be a value of @ref EMB_Port_Filter_Selection */
+                                         这个参数是其中之一 @ref EMB_Port_Filter_Selection */
 } stc_emb_monitor_port_config_t;
 
 /**
@@ -84,9 +84,9 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32PwmState;   /*!< Enable or disable EMB detect timer same phase function
-                                 This parameter can be a value of @ref EMB_Detect_PWM state. */
+                                 这个参数是其中之一 @ref EMB_Detect_PWM state. */
     uint32_t u32PwmLevel;   /*!< Detect timer polarity level
-                                 This parameter can be a value of @ref EMB_Detect_PWM level */
+                                 这个参数是其中之一 @ref EMB_Detect_PWM level */
 } stc_emb_monitor_tmr_pwm_t;
 
 /**
@@ -94,13 +94,13 @@ typedef struct {
  */
 typedef struct {
     stc_emb_monitor_port_config_t stcPort1; /*!< EMB detect EMB port in function
-                                                 This parameter details refer @ref stc_emb_monitor_port_config_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_port_config_t structure */
     stc_emb_monitor_port_config_t stcPort2; /*!< EMB detect EMB port in function
-                                                 This parameter details refer @ref stc_emb_monitor_port_config_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_port_config_t structure */
     stc_emb_monitor_port_config_t stcPort3; /*!< EMB detect EMB port in function
-                                                 This parameter details refer @ref stc_emb_monitor_port_config_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_port_config_t structure */
     stc_emb_monitor_port_config_t stcPort4; /*!< EMB detect EMB port in function
-                                                 This parameter details refer @ref stc_emb_monitor_port_config_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_port_config_t structure */
 } stc_emb_monitor_port_t;
 
 /**
@@ -108,13 +108,13 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32Cmp1State;                  /*!< Enable or disable EMB detect CMP1 result function
-                                                 This parameter can be a value of @ref EMB_CMP_Selection */
+                                                 这个参数是其中之一 @ref EMB_CMP_Selection */
     uint32_t u32Cmp2State;                  /*!< Enable or disable EMB detect CMP2 result function
-                                                 This parameter can be a value of @ref EMB_CMP_Selection */
+                                                 这个参数是其中之一 @ref EMB_CMP_Selection */
     uint32_t u32Cmp3State;                  /*!< Enable or disable EMB detect CMP3 result function
-                                                 This parameter can be a value of @ref EMB_CMP_Selection */
+                                                 这个参数是其中之一 @ref EMB_CMP_Selection */
     uint32_t u32Cmp4State;                  /*!< Enable or disable EMB detect CMP4 result function
-                                                 This parameter can be a value of @ref EMB_CMP_Selection */
+                                                 这个参数是其中之一 @ref EMB_CMP_Selection */
 } stc_emb_monitor_cmp_t;
 
 /**
@@ -122,11 +122,11 @@ typedef struct {
  */
 typedef struct {
     stc_emb_monitor_tmr_pwm_t stcTmr4PwmU;  /*!< EMB detect TMR4 function
-                                                 This parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_tmr_pwm_t structure */
     stc_emb_monitor_tmr_pwm_t stcTmr4PwmV;  /*!< EMB detect TMR4 function
-                                                 This parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_tmr_pwm_t structure */
     stc_emb_monitor_tmr_pwm_t stcTmr4PwmW;  /*!< EMB detect TMR4 function
-                                                 This parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_tmr_pwm_t structure */
 } stc_emb_monitor_tmr4_t;
 
 /**
@@ -134,21 +134,21 @@ typedef struct {
  */
 typedef struct {
     stc_emb_monitor_tmr_pwm_t stcTmr6_1;    /*!< EMB detect TMR6 function
-                                                 This parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_tmr_pwm_t structure */
     stc_emb_monitor_tmr_pwm_t stcTmr6_2;    /*!< EMB detect TMR6 function
-                                                 This parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_tmr_pwm_t structure */
     stc_emb_monitor_tmr_pwm_t stcTmr6_3;    /*!< EMB detect TMR6 function
-                                                 This parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_tmr_pwm_t structure */
     stc_emb_monitor_tmr_pwm_t stcTmr6_4;    /*!< EMB detect TMR6 function
-                                                 This parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_tmr_pwm_t structure */
     stc_emb_monitor_tmr_pwm_t stcTmr6_5;    /*!< EMB detect TMR6 function
-                                                 This parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_tmr_pwm_t structure */
     stc_emb_monitor_tmr_pwm_t stcTmr6_6;    /*!< EMB detect TMR6 function
-                                                 This parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_tmr_pwm_t structure */
     stc_emb_monitor_tmr_pwm_t stcTmr6_7;    /*!< EMB detect TMR6 function
-                                                 This parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_tmr_pwm_t structure */
     stc_emb_monitor_tmr_pwm_t stcTmr6_8;    /*!< EMB detect TMR6 function
-                                                 This parameter details refer @ref stc_emb_monitor_tmr_pwm_t structure */
+                                                 这个参数细节在 @ref stc_emb_monitor_tmr_pwm_t structure */
 } stc_emb_monitor_tmr6_t;
 
 /**
@@ -156,13 +156,13 @@ typedef struct {
  */
 typedef struct {
     stc_emb_monitor_cmp_t   stcCmp;     /*!< EMB detect CMP function
-                                             This parameter details refer @ref stc_emb_monitor_cmp_t structure */
+                                             这个参数细节在 @ref stc_emb_monitor_cmp_t structure */
     stc_emb_monitor_osc_t   stcOsc;     /*!< EMB detect OSC function
-                                             This parameter details refer @ref stc_emb_monitor_osc_t structure */
+                                             这个参数细节在 @ref stc_emb_monitor_osc_t structure */
     stc_emb_monitor_port_t  stcPort;    /*!< EMB detect EMB port function
-                                             This parameter details refer @ref stc_emb_monitor_port_t structure */
+                                             这个参数细节在 @ref stc_emb_monitor_port_t structure */
     stc_emb_monitor_tmr4_t  stcTmr4;    /*!< EMB detect TMR4 function
-                                             This parameter details refer @ref stc_emb_monitor_tmr4_t structure */
+                                             这个参数细节在 @ref stc_emb_monitor_tmr4_t structure */
 } stc_emb_tmr4_init_t;
 
 /**
@@ -170,13 +170,13 @@ typedef struct {
  */
 typedef struct {
     stc_emb_monitor_cmp_t   stcCmp;     /*!< EMB detect CMP function
-                                             This parameter details refer @ref stc_emb_monitor_cmp_t structure */
+                                             这个参数细节在 @ref stc_emb_monitor_cmp_t structure */
     stc_emb_monitor_osc_t   stcOsc;     /*!< EMB detect OSC function
-                                             This parameter details refer @ref stc_emb_monitor_osc_t structure */
+                                             这个参数细节在 @ref stc_emb_monitor_osc_t structure */
     stc_emb_monitor_port_t  stcPort;    /*!< EMB detect EMB port function
-                                             This parameter details refer @ref stc_emb_monitor_port_t structure */
+                                             这个参数细节在 @ref stc_emb_monitor_port_t structure */
     stc_emb_monitor_tmr6_t  stcTmr6;    /*!< EMB detect TMR6 function
-                                             This parameter details refer @ref stc_emb_monitor_tmr6_t structure */
+                                             这个参数细节在 @ref stc_emb_monitor_tmr6_t structure */
 } stc_emb_tmr6_init_t;
 
 /**

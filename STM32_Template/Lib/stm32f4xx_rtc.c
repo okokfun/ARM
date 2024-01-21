@@ -61,41 +61,41 @@
  ===================================================================
  [..] 重置后，备份域(RTC寄存器、RTC备份数据寄存器和备份SRAM)
         将受到保护，以防可能出现不需要的写入访问。
- [..] 要启用对RTC域和RTC寄存器的访问，请执行以下操作:
-    (+) 启用电源控制器(PWR)APB1接口使用RCC_APB1PeriphClockCmd()函数。
-    (+) 使用PWR_BackupAccessCmd()函数启用对RTC域的访问。
-    (+) 使用RCC_RTCCLKConfig()函数选择RTC时钟源。
-    (+) 使用RCC_RTCCLKCmd()函数启用RTC时钟。
+ [..] 要启用对 RTC 域和 RTC 寄存器的访问，请执行以下操作:
+    (+) 启用电源控制器 (PWR)APB1 接口使用 RCC_APB1PeriphClockCmd() 函数。
+    (+) 使用 PWR_BackupAccessCmd()  函数启用对RTC域的访问。
+    (+) 使用 RCC_RTCCLKConfig() 函数选择RTC时钟源。
+    (+) 使用 RCC_RTCCLKCmd()  函数启用RTC时钟。
 
 
                   ##### 如何使用RTC驱动程序 #####
  ===================================================================
  [..]
-   (+) 启用RTC域访问(请参阅上一节中的描述)
-   (+) 使用RTC_Init()函数配置RTC预分频器(异步和同步)和RTC小时格式。
+   (+) 启用 RTC域访问(请参阅上一节中的描述)
+   (+) 使用 RTC_Init() 函数配置 RTC 预分频器(异步和同步)和RTC小时格式。
 
  *** 时间和日期配置 ***
  ===================================
  [..]
-   (+) 要配置RTC日历(时间和日期)，请使用RTC_SetTime()
-   (+) 要读取RTC日历，请使用RTC_GetTime()和RTC_GetDate()函数。
-   (+) 使用RTC_DayLightSavingConfig()函数向RTC日历添加或减少一小时。
+   (+) 要配置 RTC 日历(时间和日期)，请使用 RTC_SetTime()
+   (+) 要读取 RTC 日历，请使用 RTC_GetTime() 和 RTC_GetDate() 函数。
+   (+) 使用 RTC_DayLightSavingConfig() 函数向 RTC 日历添加或减少一小时。
 
  *** 报警配置 ***
  ===========================
  [..]
-    (+) 要配置RTC报警，请使用RTC_SetAlarm()函数。
-    (+) 使用RTC_AlarmCmd()函数启用选定的RTC报警
-    (+) 要读取RTC警报，请使用RTC_GetAlarm()函数。
-    (+) 要读取RTC报警SubSecond，请使用RTC_GetAlarmSubSecnd()函数。
+    (+) 要配置 RTC 报警，请使用 RTC_SetAlarm() 函数。
+    (+) 使用 RTC_AlarmCmd() 函数启用选定的 RTC 报警
+    (+) 要读取 RTC 警报，请使用 RTC_GetAlarm() 函数。
+    (+) 要读取 RTC 报警 SubSecond，请使用 RTC_GetAlarmSubSecnd() 函数。
 
  *** RTC唤醒配置 ***
  ================================
  [..]
-    (+) 使用RTC_WakeUpClockConfig()函数配置RTC唤醒时钟源。
-    (+) 使用RTC_SetWakeUpCounter()函数配置RTC唤醒计数器
-    (+) 使用RTC_WakeUpCmd()函数启用RTC唤醒
-    (+) 要读取RTC唤醒计数器寄存器，请使用RTC_GetWakeUpCounter()函数。
+    (+) 使用 RTC_WakeUpClockConfig() 函数配置 RTC 唤醒时钟源。
+    (+) 使用 RTC_SetWakeUpCounter() 函数配置 RTC 唤醒计数器
+    (+) 使用 RTC_WakeUpCmd()函数启用 RTC 唤醒
+    (+) 要读取 RTC 唤醒计数器寄存器，请使用 RTC_GetWakeUpCounter() 函数。
 
  *** 输出配置 ***
  =============================
@@ -129,33 +129,33 @@
  *** 篡改配置 ***
  ============================
  [..]
-    (+) 使用RTC_TamperCmd()函数启用RTC篡改。
-    (+) 使用RTC_TamperFilterConfig()函数配置篡改过滤器计数。
-    (+) 使用RTC_TamperConfig()函数，根据Tamper过滤器(如果等于0 Edge else Level)
-		    值配置RTC Tamper触发器Edge或Level。
-    (+) 使用RTC_TamperSamplingFreqConfig()函数配置篡改采样频率。
-    (+) 使用RTC_TamperPinsPrechargeDuration()函数配置篡改预充电或放电持续时间。
-    (+) 使用RTC_TamperPullUpDisableCmd()函数启用Tamper Pull-UP。
-    (+) 使用TC_TSOnTamperDetecCmd()函数启用篡改检测事件的时间戳。
-    (+) 根据RTC_TAFCR寄存器中TSINSEL位的值，TIMESTAMP替代函数可以映射到
-       RTC_AF1或RTC_AF2。您可以使用RTC_TimeStampPinSelection()函数选择相应的管脚。
+    (+) 使用 RTC_TamperCmd() 函数启用RTC篡改。
+    (+) 使用 RTC_TamperFilterConfig() 函数配置篡改过滤器计数。
+    (+) 使用 RTC_TamperConfig() 函数，根据 Tamper 过滤器(如果等于0 Edge else Level)
+		    值配置 RTC Tamper 触发器Edge或Level。
+    (+) 使用 RTC_TamperSamplingFreqConfig() 函数配置篡改采样频率。
+    (+) 使用 RTC_TamperPinsPrechargeDuration() 函数配置篡改预充电或放电持续时间。
+    (+) 使用 RTC_TamperPullUpDisableCmd() 函数启用 Tamper Pull-UP。
+    (+) 使用 TC_TSOnTamperDetecCmd() 函数启用篡改检测事件的时间戳。
+    (+) 根据 RTC_TAFCR 寄存器中 TSINSEL位 的值，TIMESTAMP 替代函数可以映射到
+       RTC_AF1 或 RTC_AF2。您可以使用 RTC_TimeStampPinSelection() 函数选择相应的管脚。
 
  *** 备份数据寄存器配置 ***
  ===========================================
  [..]
-    (+) 要写入RTC备份数据寄存器，请使用RTC_WriteBackupRegister()函数。
-    (+) 要读取RTC备份数据寄存器，请使用RTC_ReadBackupRegister()函数。
+    (+) 要写入 RTC 备份数据寄存器，请使用 RTC_WriteBackupRegister() 函数。
+    (+) 要读取 RTC 备份数据寄存器，请使用 RTC_ReadBackupRegister() 函数。
 
 
                   ##### RTC和低功耗模式 #####
  ===================================================================
- [..] MCU可以通过RTC替代功能从低功耗模式唤醒。
- [..] RTC替代功能包括RTC警报(警报A和警报B)、RTC唤醒、RTC篡改事件检测和RTC时间戳事件检测。
-      这些RTC复用功能可将系统从停止和备用低功率模式唤醒。
- [..] 通过使用RTC警报或RTC唤醒事件，系统也可以从低功耗模式中唤醒，
+ [..] MCU 可以通过RTC 替代功能从低功耗模式唤醒。
+ [..] RTC 替代功能包括 RTC 警报(警报A和警报B)、RTC 唤醒、RTC 篡改事件检测和 RTC 时间戳事件检测。
+      这些 RTC 复用功能可将系统从停止和备用低功率模式唤醒。
+ [..] 通过使用 RTC 警报或 RTC 唤醒事件，系统也可以从低功耗模式中唤醒，
       而不依赖于外部中断(自动唤醒模式)。
- [..] RTC提供了一个可编程的时基，用于定期从停止或待机模式中唤醒。
-      只有当RTC时钟源为LSE或LSI时，才能从STOP和Standby模式唤醒。
+ [..] RTC 提供了一个可编程的时基，用于定期从停止或待机模式中唤醒。
+      只有当 RTC 时钟源为 LSE 或 LSI 时，才能从 STOP 和 Standby 模式唤醒。
 
 
           ##### RTC_AF1复用功能的选择 #####
@@ -2401,20 +2401,20 @@ void RTC_ITConfig(uint32_t RTC_IT, FunctionalState NewState) {
   * 参数:  RTC_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
   *            @arg RTC_FLAG_RECALPF: RECALPF事件标志。
-  *            @arg RTC_FLAG_TAMP1F: 篡改1事件标志
-  *            @arg RTC_FLAG_TAMP2F: 篡改2事件标志
-  *            @arg RTC_FLAG_TSOVF: 时间戳溢出标志
-  *            @arg RTC_FLAG_TSF: 时间戳事件标志
-  *            @arg RTC_FLAG_WUTF: 唤醒定时器标志
-  *            @arg RTC_FLAG_ALRBF: 报警B标志
-  *            @arg RTC_FLAG_ALRAF: 警报A标志
-  *            @arg RTC_FLAG_INITF: 初始化模式标志
-  *            @arg RTC_FLAG_RSF: 寄存器同步标志
-  *            @arg RTC_FLAG_INITS: 寄存器已配置标志
-  *            @arg RTC_FLAG_SHPF: 移位操作等待标志。
-  *            @arg RTC_FLAG_WUTWF: 唤醒定时器写入标志
-  *            @arg RTC_FLAG_ALRBWF: 警报B写入标志
-  *            @arg RTC_FLAG_ALRAWF: 警报A写入标志
+  *            @arg RTC_FLAG_TAMP1F:  篡改1事件标志
+  *            @arg RTC_FLAG_TAMP2F:  篡改2事件标志
+  *            @arg RTC_FLAG_TSOVF:   时间戳溢出标志
+  *            @arg RTC_FLAG_TSF:     时间戳事件标志
+  *            @arg RTC_FLAG_WUTF:    唤醒定时器标志
+  *            @arg RTC_FLAG_ALRBF:   报警B标志
+  *            @arg RTC_FLAG_ALRAF:   警报A标志
+  *            @arg RTC_FLAG_INITF:   初始化模式标志
+  *            @arg RTC_FLAG_RSF:     寄存器同步标志
+  *            @arg RTC_FLAG_INITS:   寄存器已配置标志
+  *            @arg RTC_FLAG_SHPF:    移位操作等待标志。
+  *            @arg RTC_FLAG_WUTWF:   唤醒定时器写入标志
+  *            @arg RTC_FLAG_ALRBWF:  警报B写入标志
+  *            @arg RTC_FLAG_ALRAWF:  警报A写入标志
   * 
   * 返回值: RTC_FLAG的新状态(SET或RESET)。
   */
@@ -2445,12 +2445,12 @@ FlagStatus RTC_GetFlagStatus(uint32_t RTC_FLAG) {
   *          此参数可以是以下值的任意组合:
   *            @arg RTC_FLAG_TAMP1F: 篡改1事件标志
   *            @arg RTC_FLAG_TAMP2F: 篡改2事件标志
-  *            @arg RTC_FLAG_TSOVF: 时间戳溢出标志
-  *            @arg RTC_FLAG_TSF: 时间戳事件标志
-  *            @arg RTC_FLAG_WUTF: 唤醒定时器标志
-  *            @arg RTC_FLAG_ALRBF: 报警B标志
-  *            @arg RTC_FLAG_ALRAF: 警报A标志
-  *            @arg RTC_FLAG_RSF: 寄存器同步标志
+  *            @arg RTC_FLAG_TSOVF:  时间戳溢出标志
+  *            @arg RTC_FLAG_TSF:    时间戳事件标志
+  *            @arg RTC_FLAG_WUTF:   唤醒定时器标志
+  *            @arg RTC_FLAG_ALRBF:  报警B标志
+  *            @arg RTC_FLAG_ALRAF:  警报A标志
+  *            @arg RTC_FLAG_RSF:    寄存器同步标志
   * 
   * 返回值: 无
   */
@@ -2467,10 +2467,10 @@ void RTC_ClearFlag(uint32_t RTC_FLAG) {
   * 
   * 参数:  RTC_IT: 指定要检查的RTC中断源。
   *          此参数可以是以下值之一:
-  *            @arg RTC_IT_TS。时间戳中断
-  *            @arg RTC_IT_WUT: 唤醒定时器中断
-  *            @arg RTC_IT_ALRB: 警报B中断
-  *            @arg RTC_IT_ALRA: 警报A中断
+  *            @arg RTC_IT_TS:    时间戳中断
+  *            @arg RTC_IT_WUT:   唤醒定时器中断
+  *            @arg RTC_IT_ALRB:  警报B中断
+  *            @arg RTC_IT_ALRA:  警报A中断
   *            @arg RTC_IT_TAMP1: Tamper 1事件中断
   *            @arg RTC_IT_TAMP2: 破坏者2事件中断
   * 

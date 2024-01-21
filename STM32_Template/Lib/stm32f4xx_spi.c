@@ -33,7 +33,9 @@
        
        (++) 通过以下方式在复用功能中配置所需引脚:
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
+			
        (++) 通过GPIO_PuPd、GPIO_OType和GPIO_Speed成员选择类型、上拉/下拉和输出速度
+	   
        (++) 调用GPIO_Init()函数在I2S模式下，如果使用外部时钟源，
             则I2S的CKIN引脚也应该配置为Alternate function Push-pull - pull-up模式。
 
@@ -42,7 +44,8 @@
        MCLK输出，音频频率和极性。对于I2S模式，请确保:
        (++) I2S PLL is configured using the functions
             RCC_I2SCLKConfig(RCC_I2S2CLKSource_PLLI2S), RCC_PLLI2SCmd(ENABLE) and
-            RCC_GetFlagStatus(RCC_FLAG_PLLI2SRDY); or
+            RCC_GetFlagStatus(RCC_FLAG_PLLI2SRDY);
+			
        (++) 外部时钟源使用函数RCC_I2SCLKConfig(RCC_I2S2CLKSource_Ext)配置，
             并在stm32f4xx_conf.h文件中正确设置定义常量I2S_EXTERNAL_CLOCK_VAL之后配置。
 
@@ -60,9 +63,12 @@
        (++) 当双向模式(SPI_Direction_1Line_Rx或SPI_Direction_1Line_Tx)被编程为使用
             SPI_Init()函数的数据方向参数时，可以使用SPI_BiDirectionalLineConfig()函数
             在SPI_Direction_Tx或SPI_Direction_Rx之间切换。
+			
        (++) 当SPI_NSS_Soft被选择为使用SPI_Init()函数的Slave Select Management参数时，
             可以使用SPI_NSSInternalSoftwareConfig()函数来管理NSS内部信号。
+			
        (++) 使用SPI_DataSizeConfig()函数重新配置数据大小
+	   
        (++) 使用SPI_SSOutputCmd()函数启用或禁用SS输出
 
     (#) 要使用CRC硬件计算功能，请参阅外围CRC硬件计算小节。
@@ -440,23 +446,23 @@ void I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct) {
   */
 void SPI_StructInit(SPI_InitTypeDef* SPI_InitStruct) {
     /*--------------- 重置SPI初始化结构参数值 -----------------*/
-    /* 初始化SPI_Direction成员 */
+    /* 初始化 SPI_Direction 成员 */
     SPI_InitStruct->SPI_Direction = SPI_Direction_2Lines_FullDuplex;
-    /* 初始化SPI_Mode 成员 */
+    /* 初始化 SPI_Mode 成员 */
     SPI_InitStruct->SPI_Mode = SPI_Mode_Slave;
-    /* 初始化SPI_DataSize成员 */
+    /* 初始化 SPI_DataSize 成员 */
     SPI_InitStruct->SPI_DataSize = SPI_DataSize_8b;
-    /* 初始化SPI_CPOL成员 */
+    /* 初始化 SPI_CPOL 成员 */
     SPI_InitStruct->SPI_CPOL = SPI_CPOL_Low;
-    /* 初始化SPI_CPHA成员 */
+    /* 初始化 SPI_CPHA 成员 */
     SPI_InitStruct->SPI_CPHA = SPI_CPHA_1Edge;
-    /* 初始化SPI_NSS成员 */
+    /* 初始化 SPI_NSS 成员 */
     SPI_InitStruct->SPI_NSS = SPI_NSS_Hard;
-    /* 初始化SPI_BaudRatePrescaler成员 */
+    /* 初始化 SPI_BaudRatePrescaler 成员 */
     SPI_InitStruct->SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_2;
-    /* 初始化SPI_FirstBit成员 */
+    /* 初始化 SPI_FirstBit 成员 */
     SPI_InitStruct->SPI_FirstBit = SPI_FirstBit_MSB;
-    /* 初始化SPI_CRCPolynomial成员 */
+    /* 初始化 SPI_CRCPolynomial 成员 */
     SPI_InitStruct->SPI_CRCPolynomial = 7;
 }
 

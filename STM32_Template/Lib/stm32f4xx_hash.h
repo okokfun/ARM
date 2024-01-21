@@ -52,10 +52,13 @@ extern "C" {
 typedef struct {
     uint32_t HASH_AlgoSelection; /*!< SHA-1、SHA-224、SHA-256 或 MD5。
 									               该参数可以是@ref HASH_Algo_Selection 的值 */
+
     uint32_t HASH_AlgoMode;      /*!< 哈希或 HMAC。
 									               该参数可以是@ref HASH_processor_Algorithm_Mode 的值 */
+
     uint32_t HASH_DataType;      /*!< 32 位数据、16 位数据、8 位数据或位串。
 									               该参数可以是@ref HASH_Data_Type 的值 */
+                                 
     uint32_t HASH_HMACKeyType;   /*!< HMAC 短密钥或 HMAC 长密钥。
 									               该参数可以是@ref HASH_HMAC_Long_key_only_for_HMAC_mode 的值 */
 } HASH_InitTypeDef;

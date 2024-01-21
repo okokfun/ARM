@@ -60,11 +60,11 @@ typedef struct {
 
     uint32_t SAI_DataSize;            /*!< 指定 SAI 块数据大小。
                                          该参数可以是@ref SAI_Block_Data_Size的值。
-										 注意当选择AC'97或SPDIF协议时，该值将被忽略。*/
+										                     注意当选择AC'97或SPDIF协议时，该值将被忽略。*/
 
     uint32_t SAI_FirstBit;            /*!< 指定数据传输是从 MSB 位还是 LSB 位开始。
                                          该参数可以是@ref SAI_Block_MSB_LSB_transmission的值。
-										 注意当选择AC’97或SPDIF协议时，该值没有意义。*/
+										                     注意当选择AC’97或SPDIF协议时，该值没有意义。*/
 
     uint32_t SAI_ClockStrobing;       /*!< 指定 SAI Block 时钟选通边沿敏感度。
                                           该参数可以是@ref SAI_Block_Clock_Strobing 的值 */
@@ -74,19 +74,19 @@ typedef struct {
 
     uint32_t SAI_SynchroExt;          /*!< 指定 SAI 外部输出同步，此设置对 BlockA 和 BlockB 通用
                                           该参数可以是@ref SAI_Block_SyncExt 的值
-										  @注意:如果使用相同 SAI 的两个音频块，则该参数必须为每个音频块设置为相同的值  */
+										                      @注意:如果使用相同 SAI 的两个音频块，则该参数必须为每个音频块设置为相同的值  */
 
     uint32_t SAI_OUTDRIV;             /*!< 指定何时驱动 SAI 模块输出。
                                           此参数可以是@ref SAI_Block_Output_Drive 的值
-										  @注意此值必须在启用音频块之前但在音频块配置之后设置。 */
+										                      @注意此值必须在启用音频块之前但在音频块配置之后设置。 */
 
-    uint32_t SAI_NoDivider;            /*!< 指定主时钟是否将被分频。
+    uint32_t SAI_NoDivider;           /*!< 指定主时钟是否将被分频。
                                           该参数可以是@ref SAI_Block_NoDivider 的值 */
 
     uint32_t SAI_MasterDivider;       /*!< 指定 SAI 块主时钟分频器。
-                                          @注意主时钟频率根据以下公式计算:MCLK_x = SAI_CK_x/(MCKDIV[3:0]*2)*/
+                                          @注意主时钟频率根据以下公式计算: MCLK_x = SAI_CK_x/(MCKDIV[3:0]*2)*/
 
-    uint32_t SAI_FIFOThreshold;      /*!< 指定 SAI 块 FIFO 阈值。
+    uint32_t SAI_FIFOThreshold;       /*!< 指定 SAI 块 FIFO 阈值。
                                           该参数可以是@ref SAI_Block_Fifo_Threshold 的值 */
 } SAI_InitTypeDef;
 
@@ -94,29 +94,27 @@ typedef struct {
   * 简介:  SAI Block Frame Init结构定义
   */
 typedef struct {
-
     uint32_t SAI_FrameLength;         /*!< 指定帧长度，即每个音频帧的 SCK 时钟数。
                                           此参数必须是 8 到 256 之间的数字。
                                           @note 如果主时钟 MCLK_x 引脚声明为输出，则帧长度应对齐到等于 2 的幂的数字，以便在音频帧中保持整数个 MCLK 脉冲按位时钟。
-                                          @note选择AC'97或SPDIF协议时，该值将被忽略。*/
+                                          @note 选择AC'97或SPDIF协议时，该值将被忽略。*/
 
     uint32_t SAI_ActiveFrameLength;   /*!< 指定帧同步活动电平长度。
                                           此参数指定音频帧中 FS 信号有效电平的比特时钟数 (SCK + 1) 长度。
                                           此参数必须是 1 到 128 之间的数字。
-                                          @note选择AC'97或SPDIF协议时，该值将被忽略。*/
+                                          @note 选择AC'97或SPDIF协议时，该值将被忽略。*/
 
     uint32_t SAI_FSDefinition;        /*!< 指定帧同步定义。
-                                          该参数可以是@ref SAI_Block_FS_Definition 的值
-                                          @note选择AC'97或SPDIF协议时，该值将被忽略。*/
+                                          该参数可以是 @ref SAI_Block_FS_Definition 的值
+                                          @note 选择AC'97或SPDIF协议时，该值将被忽略。*/
 
     uint32_t SAI_FSPolarity;          /*!< 指定帧同步极性。
-                                          该参数可以是@ref SAI_Block_FS_Polarity 的值
-                                          @note选择AC'97或SPDIF协议时，该值将被忽略。*/
+                                          该参数可以是 @ref SAI_Block_FS_Polarity 的值
+                                          @note 选择AC'97或SPDIF协议时，该值将被忽略。*/
 
     uint32_t SAI_FSOffset;            /*!< 指定帧同步偏移。
-                                          该参数可以是@ref SAI_Block_FS_Offset 的值
-                                          @note选择AC'97或SPDIF协议时，该值将被忽略。*/
-
+                                          该参数可以是 @ref SAI_Block_FS_Offset 的值
+                                          @note 选择AC'97或SPDIF协议时，该值将被忽略。*/
 } SAI_FrameInitTypeDef;
 
 /**
@@ -125,19 +123,19 @@ typedef struct {
 typedef struct {
     uint32_t SAI_FirstBitOffset;      /*!< 指定槽中第一个数据传输位的位置。
                                           此参数必须是 0 到 24 之间的数字。
-                                          @note选择AC'97或SPDIF协议时，该值将被忽略。*/
+                                          @note 选择AC'97或SPDIF协议时，该值将被忽略。*/
 
     uint32_t SAI_SlotSize;            /*!< 指定插槽大小。
                                           该参数可以是@ref SAI_Block_Slot_Size 的值
-                                          @note选择AC'97或SPDIF协议时，该值将被忽略。*/
+                                          @note 选择AC'97或SPDIF协议时，该值将被忽略。*/
 
     uint32_t SAI_SlotNumber;          /*!< 指定音频帧中的槽数。
                                           此参数必须是 1 到 16 之间的数字。
-                                          @note选择AC'97或SPDIF协议时，该值将被忽略。*/
+                                          @note 选择AC'97或SPDIF协议时，该值将被忽略。*/
 
     uint32_t SAI_SlotActive;          /*!< 指定音频帧中将被激活的插槽。
                                           这个参数可以是@ref SAI_Block_Slot_Active的值
-                                          @note选择AC'97或SPDIF协议时，该值将被忽略。*/
+                                          @note 选择AC'97或SPDIF协议时，该值将被忽略。*/
 } SAI_SlotInitTypeDef;
 
 /* Exported constants --------------------------------------------------------*/

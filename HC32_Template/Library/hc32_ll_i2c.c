@@ -147,7 +147,7 @@
 /**
  * @brief Try to wait a status of specified flags
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *        @arg CM_I2C or CM_I2Cx:   I2C instance register base.
  * @param [in] u32Flag              Specify the flags to check, This parameter can be any combination of the member from
  *                                  @ref I2C_Flag values:
@@ -185,7 +185,7 @@ int32_t I2C_WaitStatus(const CM_I2C_TypeDef *I2Cx, uint32_t u32Flag, en_flag_sta
 /**
  * @brief I2C generate start condition
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *        @arg CM_I2C or CM_I2Cx:   I2C instance register base.
  * @retval 无
  */
@@ -197,7 +197,7 @@ void I2C_GenerateStart(CM_I2C_TypeDef *I2Cx) {
 /**
  * @brief I2C generate restart condition
  * @param [in]  I2Cx                Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *   @arg CM_I2C or CM_I2Cx:        I2C instance register base.
  * @retval 无
  */
@@ -209,7 +209,7 @@ void I2C_GenerateRestart(CM_I2C_TypeDef *I2Cx) {
 /**
  * @brief I2C generate stop condition
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @retval 无
  */
@@ -221,7 +221,7 @@ void I2C_GenerateStop(CM_I2C_TypeDef *I2Cx) {
 /**
  * @brief Set the baudrate for I2C peripheral.
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] pstcI2cInit          Pointer to I2C config structure  @ref stc_i2c_init_t
  *         @arg pstcI2cInit->u32ClockDiv: Division of i2c source clock, reference as:
@@ -324,7 +324,7 @@ int32_t I2C_BaudrateConfig(CM_I2C_TypeDef *I2Cx, const stc_i2c_init_t *pstcI2cIn
 /**
  * @brief De-initialize I2C unit
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @retval 无
  */
@@ -340,7 +340,7 @@ void I2C_DeInit(CM_I2C_TypeDef *I2Cx) {
 /**
  * @brief Initialize I2C peripheral 根据 the structure
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] pstcI2cInit          Pointer to I2C config structure  @ref stc_i2c_init_t
  *         @arg pstcI2cInit->u32ClockDiv: Division of i2c source clock, reference as:
@@ -396,7 +396,7 @@ int32_t I2C_Init(CM_I2C_TypeDef *I2Cx, const stc_i2c_init_t *pstcI2cInit, float3
 /**
  * @brief I2C slave address config
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32AddrNum           I2C address 0 or address 1 @ref I2C_Address_Num
  * @param [in] u32AddrMode          Address mode configuration @ref I2C_Addr_Config
@@ -426,7 +426,7 @@ void I2C_SlaveAddrConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32AddrNum, uint32_t u32
 /**
  * @brief I2C slave address config
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32AddrNum           I2C address 0 or address 1 @ref I2C_Address_Num
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
@@ -445,7 +445,7 @@ void I2C_SlaveAddrCmd(CM_I2C_TypeDef *I2Cx, uint32_t u32AddrNum, en_functional_s
 /**
  * @brief I2C function command
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -461,7 +461,7 @@ void I2C_Cmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
 /**
  * @brief I2C fast ACK config
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -480,7 +480,7 @@ void I2C_FastAckCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
 /**
  * @brief I2C bus wait function command
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -499,7 +499,7 @@ void I2C_BusWaitCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
 /**
  * @brief I2C SMBUS function configuration
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32SmbusConfig       Indicate the SMBUS address match function configuration. @ref I2C_Smbus_Match_Config
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
@@ -520,7 +520,7 @@ void I2C_SmbusConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32SmbusConfig, en_functiona
 /**
  * @brief I2C SMBUS function command
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -535,7 +535,7 @@ void I2C_SmbusCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
 /**
  * @brief I2C digital filter function configuration
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32FilterClock       Chose the digital filter clock, @ref I2C_Digital_Filter_Clock
  * @retval 无
@@ -550,7 +550,7 @@ void I2C_DigitalFilterConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32FilterClock) {
 /**
  * @brief I2C digital filter command
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -565,7 +565,7 @@ void I2C_DigitalFilterCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState
 /**
  * @brief I2C analog filter function command
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -580,7 +580,7 @@ void I2C_AnalogFilterCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState)
 /**
  * @brief I2C general call command
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -594,7 +594,7 @@ void I2C_GeneralCallCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) 
 /**
  * @brief I2C flags status get
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32Flag              Specify the flags to check, This parameter can be any combination of the member from
  *                                  @ref I2C_Flag
@@ -610,7 +610,7 @@ en_flag_status_t I2C_GetStatus(const CM_I2C_TypeDef *I2Cx, uint32_t u32Flag) {
 /**
  * @brief Clear I2C flags
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32Flag              Specifies the flag to clear, This parameter
  *                                  can be any combination of the following values
@@ -639,7 +639,7 @@ void I2C_ClearStatus(CM_I2C_TypeDef *I2Cx, uint32_t u32Flag) {
 /**
  * @brief I2C software reset function command
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -654,7 +654,7 @@ void I2C_SWResetCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
 /**
  * @brief I2C interrupt command
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32IntType           Specifies the I2C interrupts @ref I2C_Int_Flag
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
@@ -675,7 +675,7 @@ void I2C_IntCmd(CM_I2C_TypeDef *I2Cx, uint32_t u32IntType, en_functional_state_t
 /**
  * @brief I2C send data
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u8Data               The data to be send
  * @retval 无
@@ -689,7 +689,7 @@ void I2C_WriteData(CM_I2C_TypeDef *I2Cx, uint8_t u8Data) {
 /**
  * @brief I2C read data from register
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @retval uint8_t                  The value of the received data
  */
@@ -702,7 +702,7 @@ uint8_t I2C_ReadData(const CM_I2C_TypeDef *I2Cx) {
 /**
  * @brief I2C ACK status configuration
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32AckConfig         I2C ACK configurate. @ref I2C_Ack_Config
  * @retval 无
@@ -717,7 +717,7 @@ void I2C_AckConfig(CM_I2C_TypeDef *I2Cx, uint32_t u32AckConfig) {
 /**
  * @brief I2C SCL high level timeout configuration
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u16TimeoutH          Clock timeout period for high level
  * @retval 无
@@ -731,7 +731,7 @@ void I2C_SCLHighTimeoutConfig(CM_I2C_TypeDef *I2Cx, uint16_t u16TimeoutH) {
 /**
  * @brief I2C SCL low level timeout configuration
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u16TimeoutL          Clock timeout period for low level
  * @retval 无
@@ -744,7 +744,7 @@ void I2C_SCLLowTimeoutConfig(CM_I2C_TypeDef *I2Cx, uint16_t u16TimeoutL) {
 /**
  * @brief Enable or disable I2C SCL high level timeout function
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -763,7 +763,7 @@ void I2C_SCLHighTimeoutCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewStat
 /**
  * @brief Enable or disable I2C SCL low level timeout function
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -782,7 +782,7 @@ void I2C_SCLLowTimeoutCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState
 /**
  * @brief Enable or disable I2C SCL timeout function
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -801,7 +801,7 @@ void I2C_SCLTimeoutCmd(CM_I2C_TypeDef *I2Cx, en_functional_state_t enNewState) {
 /**
  * @brief I2Cx start
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32Timeout           Maximum count of trying to get a status of a flag in status register
  * @retval int32_t
@@ -828,7 +828,7 @@ int32_t I2C_Start(CM_I2C_TypeDef *I2Cx, uint32_t u32Timeout) {
 /**
  * @brief I2Cx restart
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32Timeout           Maximum count of trying to get a status of a flag in status register
  * @retval int32_t
@@ -853,7 +853,7 @@ int32_t I2C_Restart(CM_I2C_TypeDef *I2Cx, uint32_t u32Timeout) {
 /**
  * @brief I2Cx send address
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u16Addr              The address to be sent
  * @param [in] u8Dir                Transfer direction, @ref I2C_Trans_Dir
@@ -897,7 +897,7 @@ int32_t I2C_TransAddr(CM_I2C_TypeDef *I2Cx, uint16_t u16Addr, uint8_t u8Dir, uin
 /**
  * @brief I2Cx send 10 bit address
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u16Addr              The address to be sent
  * @param [in] u8Dir                Transfer direction @ref I2C_Trans_Dir
@@ -966,7 +966,7 @@ int32_t I2C_Trans10BitAddr(CM_I2C_TypeDef *I2Cx, uint16_t u16Addr, uint8_t u8Dir
 /**
  * @brief I2Cx send data
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] au8TxData            The data array to be sent
  * @param [in] u32Size              Number of data in array pau8TxData
@@ -1012,7 +1012,7 @@ int32_t I2C_TransData(CM_I2C_TypeDef *I2Cx, uint8_t const au8TxData[], uint32_t 
 /**
  * @brief I2Cx receive data
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [out] au8RxData           Array to hold the received data
  * @param [in] u32Size              Number of data to be received
@@ -1065,7 +1065,7 @@ int32_t I2C_ReceiveData(CM_I2C_TypeDef *I2Cx, uint8_t au8RxData[], uint32_t u32S
 /**
  * @brief I2Cx receive data and stop(for master)
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *        @arg CM_I2C or CM_I2Cx:   I2C instance register base.
  * @param [out] au8RxData           Array to hold the received data
  * @param [in] u32Size              Number of data to be received
@@ -1129,7 +1129,7 @@ int32_t I2C_MasterReceiveDataAndStop(CM_I2C_TypeDef *I2Cx, uint8_t au8RxData[], 
 /**
  * @brief I2Cx stop
  * @param [in] I2Cx                 Pointer to I2C instance register base.
- *                                  This parameter can be a value of the following:
+ *                                  这个参数是其中之一 the following:
  *         @arg CM_I2C or CM_I2Cx:  I2C instance register base.
  * @param [in] u32Timeout           Maximum count of trying to get a status of a flag in status register
  * @retval int32_t

@@ -61,9 +61,9 @@ extern "C"
  */
 typedef struct {
     uint32_t u32Protocol;   /*!< Specifies CRC Protocol.
-                                 This parameter can be a value of @ref CRC_Protocol_Control_Bit */
+                                 这个参数是其中之一 @ref CRC_Protocol_Control_Bit */
     uint32_t u32InitValue;  /*!< Specifies initial CRC value and value upper 16 bit is ignored when using CRC16.
-                                 This parameter can be a value of @ref CRC_Initial_Value */
+                                 这个参数是其中之一 @ref CRC_Initial_Value */
 } stc_crc_init_t;
 
 /**

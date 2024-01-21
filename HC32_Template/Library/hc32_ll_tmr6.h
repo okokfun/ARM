@@ -107,9 +107,9 @@ typedef struct {
  * @brief Timer6 buffer function configuration structure definition
  */
 typedef struct {
-    uint32_t u32BufNum;             /*!< The buffer number, and this parameter can be a value of \
+    uint32_t u32BufNum;             /*!< The buffer number, and 这个参数是其中之一 \
                                          @ref TMR6_Buf_Num_Define */
-    uint32_t u32BufTransCond;       /*!< The buffer send time, and this parameter can be a value of \
+    uint32_t u32BufTransCond;       /*!< The buffer send time, and 这个参数是其中之一 \
                                          @ref TMR6_Buf_Trans_Cond_Define */
 } stc_tmr6_buf_config_t;
 
@@ -117,7 +117,7 @@ typedef struct {
  * @brief Timer6 Valid period function configuration structure definition
  */
 typedef struct {
-    uint32_t u32CountCond;          /*!< The count condition, and this parameter can be a value of \
+    uint32_t u32CountCond;          /*!< The count condition, and 这个参数是其中之一 \
                                           @ref TMR6_Valid_Period_Count_Cond_Define */
     uint32_t u32PeriodInterval;     /*!< The interval of the valid period @ref TMR6_Valid_Period_Count_Define */
 } stc_tmr6_valid_period_config_t;

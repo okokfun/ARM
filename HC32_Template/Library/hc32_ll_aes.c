@@ -122,7 +122,7 @@ static void AES_ReadData(uint8_t *pu8Result) {
 /**
  * @brief  Write the input buffer in key register.
  * @param  [in]  pu8Key                 Pointer to the key buffer.
- * @param  [in]  u8KeySize              AES key size. This parameter can be a value of @ref AES_Key_Size
+ * @param  [in]  u8KeySize              AES key size. 这个参数是其中之一 @ref AES_Key_Size
  * @retval 无
  */
 static void AES_WriteKey(const uint8_t *pu8Key, uint8_t u8KeySize) {
@@ -187,7 +187,7 @@ static int32_t AES_WaitDone(void) {
  * @param  [in]  pu8Plaintext           Buffer of the plaintext(the source data which will be encrypted).
  * @param  [in]  u32PlaintextSize       Length of plaintext in bytes.
  * @param  [in]  pu8Key                 Pointer to the AES key.
- * @param  [in]  u8KeySize              AES key size. This parameter can be a value of @ref AES_Key_Size
+ * @param  [in]  u8KeySize              AES key size. 这个参数是其中之一 @ref AES_Key_Size
  * @param  [out] pu8Ciphertext          Buffer of the ciphertext.
  * @retval int32_t:
  *           - LL_OK:                   Encrypt successfully.
@@ -233,7 +233,7 @@ int32_t AES_Encrypt(const uint8_t *pu8Plaintext, uint32_t u32PlaintextSize,
  * @param  [in]  pu8Ciphertext          Buffer of the Ciphertext(the source data which will be decrypted).
  * @param  [in]  u32CiphertextSize      Length of ciphertext in bytes.
  * @param  [in]  pu8Key                 Pointer to the AES key.
- * @param  [in]  u8KeySize              AES key size. This parameter can be a value of @ref AES_Key_Size
+ * @param  [in]  u8KeySize              AES key size. 这个参数是其中之一 @ref AES_Key_Size
  * @param  [out] pu8Plaintext           Buffer of the plaintext.
  * @retval int32_t:
  *           - LL_OK:                   Decrypt successfully.

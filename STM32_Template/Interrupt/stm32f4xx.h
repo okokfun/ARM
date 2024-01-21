@@ -194,7 +194,7 @@ defined(STM32F410xx) || defined(STM32F411xE) || defined(STM32F469_479xx)
  *        in @ref Library_configuration_section
  */
 typedef enum IRQn {
-    /******  Cortex-M4 Processor Exceptions Numbers ****************************************************************/
+    /******  Cortex-M4 处理器异常数 ****************************************************************/
     NonMaskableInt_IRQn         = -14,    /*!< 2 Non Maskable Interrupt                                          */
     MemoryManagement_IRQn       = -12,    /*!< 4 Cortex-M4 Memory Management Interrupt                           */
     BusFault_IRQn               = -11,    /*!< 5 Cortex-M4 Bus Fault Interrupt                                   */
@@ -203,7 +203,7 @@ typedef enum IRQn {
     DebugMonitor_IRQn           = -4,     /*!< 12 Cortex-M4 Debug Monitor Interrupt                              */
     PendSV_IRQn                 = -2,     /*!< 14 Cortex-M4 Pend SV Interrupt                                    */
     SysTick_IRQn                = -1,     /*!< 15 Cortex-M4 System Tick Interrupt                                */
-    /******  STM32 specific Interrupt Numbers **********************************************************************/
+    /******  STM32特定的中断编号 **********************************************************************/
     WWDG_IRQn                   = 0,      /*!< 窗口看门狗中断                                         */
     PVD_IRQn                    = 1,      /*!< PVD through EXTI Line detection Interrupt                         */
     TAMP_STAMP_IRQn             = 2,      /*!< Tamper and TimeStamp interrupts through the EXTI line             */
@@ -291,521 +291,521 @@ typedef enum IRQn {
 #endif /* STM32F40_41xxx */
 
 #if defined(STM32F427_437xx)
-                                  CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
-                                  CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
-                                  CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
-                                  CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
-                                  EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
-                                  TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
-                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
-                                  TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                  TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
-                                  TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
-                                  TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
-                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
-                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
-                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
-                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
-                                  SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
-                                  SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
-                                  USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
-                                  USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
-                                  USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
-                                  EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
-                                  RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
-                                  OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                  TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
-                                  TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
-                                  TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
-                                  TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
-                                  DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                  FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
-                                  SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
-                                  TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
-                                  SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
-                                  UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
-                                  UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
-                                  TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
-                                  TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
-                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
-                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
-                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
-                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
-                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
-                                  ETH_IRQn                    = 61,     /*!< Ethernet 全局中断                                         */
-                                  ETH_WKUP_IRQn               = 62,     /*!< Ethernet Wakeup through EXTI line Interrupt                       */
-                                  CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
-                                  CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
-                                  CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
-                                  CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
-                                  OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
-                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
-                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
-                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
-                                  USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
-                                  I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
-                                  I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
-                                  OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
-                                  OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
-                                  OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
-                                  OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
-                                  DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
-                                  CRYP_IRQn                   = 79,     /*!< CRYP crypto 全局中断                                      */
-                                  HASH_RNG_IRQn               = 80,     /*!< Hash and Rng 全局中断                                     */
-                                  FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
-                                  UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
-                                  UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
-                                  SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
-                                  SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
-                                  SPI6_IRQn                   = 86,     /*!< SPI6 全局中断                                             */
-                                  SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
-                                  DMA2D_IRQn                  = 90      /*!< DMA2D 全局中断                                            */
+    CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+    CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+    CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+    CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
+    EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
+    TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+    TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
+    TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
+    TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
+    TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+    TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+    TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+    I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+    I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+    I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+    I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+    SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+    SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+    USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+    USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+    USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
+    EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
+    RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
+    OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
+    TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+    TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
+    TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
+    TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
+    DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
+    FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
+    SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+    TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+    SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+    UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
+    UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
+    TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
+    TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+    DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+    DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+    DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+    DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+    DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+    ETH_IRQn                    = 61,     /*!< Ethernet 全局中断                                         */
+    ETH_WKUP_IRQn               = 62,     /*!< Ethernet Wakeup through EXTI line Interrupt                       */
+    CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+    CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+    CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+    CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+    OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+    DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+    DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+    DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+    USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+    I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+    I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+    OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
+    OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
+    OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
+    OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
+    DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
+    CRYP_IRQn                   = 79,     /*!< CRYP crypto 全局中断                                      */
+    HASH_RNG_IRQn               = 80,     /*!< Hash and Rng 全局中断                                     */
+    FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+    UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
+    UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
+    SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+    SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
+    SPI6_IRQn                   = 86,     /*!< SPI6 全局中断                                             */
+    SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
+    DMA2D_IRQn                  = 90      /*!< DMA2D 全局中断                                            */
 #endif /* STM32F427_437xx */
 
 #if defined(STM32F429_439xx)
-                                          CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
-                                          CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
-                                          CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
-                                          CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
-                                          EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
-                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
-                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
-                                          TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                          TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
-                                          TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
-                                          TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
-                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
-                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
-                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
-                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
-                                          SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
-                                          SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
-                                          USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
-                                          USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
-                                          USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
-                                          EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
-                                          RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
-                                          OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                          TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
-                                          TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
-                                          TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
-                                          TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
-                                          DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                          FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
-                                          SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
-                                          TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
-                                          SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
-                                          UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
-                                          UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
-                                          TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
-                                          TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
-                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
-                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
-                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
-                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
-                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
-                                          ETH_IRQn                    = 61,     /*!< Ethernet 全局中断                                         */
-                                          ETH_WKUP_IRQn               = 62,     /*!< Ethernet Wakeup through EXTI line Interrupt                       */
-                                          CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
-                                          CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
-                                          CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
-                                          CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
-                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
-                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
-                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
-                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
-                                          USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
-                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
-                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
-                                          OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
-                                          OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
-                                          OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
-                                          OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
-                                          DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
-                                          CRYP_IRQn                   = 79,     /*!< CRYP crypto 全局中断                                      */
-                                          HASH_RNG_IRQn               = 80,     /*!< Hash and Rng 全局中断                                     */
-                                          FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
-                                          UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
-                                          UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
-                                          SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
-                                          SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
-                                          SPI6_IRQn                   = 86,     /*!< SPI6 全局中断                                             */
-                                          SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
-                                          LTDC_IRQn                   = 88,     /*!< LTDC 全局中断                                             */
-                                          LTDC_ER_IRQn                = 89,     /*!< LTDC Error 全局中断                                       */
-                                          DMA2D_IRQn                  = 90      /*!< DMA2D 全局中断                                            */
+    CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+    CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+    CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+    CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
+    EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
+    TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+    TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
+    TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
+    TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
+    TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+    TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+    TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+    I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+    I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+    I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+    I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+    SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+    SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+    USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+    USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+    USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
+    EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
+    RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
+    OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
+    TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+    TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
+    TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
+    TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
+    DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
+    FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
+    SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+    TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+    SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+    UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
+    UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
+    TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
+    TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+    DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+    DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+    DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+    DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+    DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+    ETH_IRQn                    = 61,     /*!< Ethernet 全局中断                                         */
+    ETH_WKUP_IRQn               = 62,     /*!< Ethernet Wakeup through EXTI line Interrupt                       */
+    CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+    CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+    CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+    CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+    OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+    DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+    DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+    DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+    USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+    I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+    I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+    OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
+    OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
+    OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
+    OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
+    DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
+    CRYP_IRQn                   = 79,     /*!< CRYP crypto 全局中断                                      */
+    HASH_RNG_IRQn               = 80,     /*!< Hash and Rng 全局中断                                     */
+    FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+    UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
+    UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
+    SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+    SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
+    SPI6_IRQn                   = 86,     /*!< SPI6 全局中断                                             */
+    SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
+    LTDC_IRQn                   = 88,     /*!< LTDC 全局中断                                             */
+    LTDC_ER_IRQn                = 89,     /*!< LTDC Error 全局中断                                       */
+    DMA2D_IRQn                  = 90      /*!< DMA2D 全局中断                                            */
 #endif /* STM32F429_439xx */
 
 #if defined(STM32F410xx)
-                                                  EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
-                                                  TIM1_UP_IRQn                = 25,     /*!< TIM1 Update Interrupt                                             */
-                                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
-                                                  TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
-                                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
-                                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
-                                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
-                                                  SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
-                                                  SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
-                                                  USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
-                                                  USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
-                                                  EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
-                                                  RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
-                                                  DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                  TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
-                                                  TIM6_DAC_IRQn               = 54,     /*!< TIM6 global Interrupt and DAC 全局中断                    */
-                                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
-                                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
-                                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
-                                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
-                                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
-                                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
-                                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
-                                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
-                                                  USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
-                                                  RNG_IRQn                    = 80,     /*!< RNG 全局中断                                              */
-                                                  FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
-                                                  SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
-                                                  FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 事件中断                                           */
-                                                  FMPI2C1_ER_IRQn             = 96,     /*!< FMPI2C1 错误中断                                           */
-                                                  LPTIM1_IRQn                 = 97      /*!< LPTIM1 interrupt                                                  */
+    EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
+    TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+    TIM1_UP_IRQn                = 25,     /*!< TIM1 Update Interrupt                                             */
+    TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
+    TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
+    I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+    I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+    I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+    I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+    SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+    SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+    USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+    USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+    EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
+    RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
+    DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
+    TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+    TIM6_DAC_IRQn               = 54,     /*!< TIM6 global Interrupt and DAC 全局中断                    */
+    DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+    DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+    DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+    DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+    DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+    DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+    DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+    DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+    USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+    RNG_IRQn                    = 80,     /*!< RNG 全局中断                                              */
+    FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+    SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
+    FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 事件中断                                           */
+    FMPI2C1_ER_IRQn             = 96,     /*!< FMPI2C1 错误中断                                           */
+    LPTIM1_IRQn                 = 97      /*!< LPTIM1 interrupt                                                  */
 #endif /* STM32F410xx */
 
 #if defined(STM32F401xx) || defined(STM32F411xE)
-                                                          EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
-                                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
-                                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
-                                                          TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                          TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
-                                                          TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
-                                                          TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
-                                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
-                                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
-                                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
-                                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
-                                                          SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
-                                                          SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
-                                                          USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
-                                                          USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
-                                                          EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
-                                                          RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
-                                                          OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                                          DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                          SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
-                                                          TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
-                                                          SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
-                                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
-                                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
-                                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
-                                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
-                                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
-                                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
-                                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
-                                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
-                                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
-                                                          USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
-                                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
-                                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
-                                                          FPU_IRQn                    = 81,      /*!< FPU 全局中断                                             */
+    EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
+    TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+    TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
+    TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
+    TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
+    TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+    TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+    TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+    I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+    I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+    I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+    I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+    SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+    SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+    USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+    USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+    EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
+    RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
+    OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
+    DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
+    SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+    TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+    SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+    DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+    DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+    DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+    DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+    DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+    OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+    DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+    DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+    DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+    USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+    I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+    I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+    FPU_IRQn                    = 81,      /*!< FPU 全局中断                                             */
 #if defined(STM32F401xx)
-                                                          SPI4_IRQn                   = 84       /*!< SPI4 全局中断                                            */
+    SPI4_IRQn                   = 84       /*!< SPI4 全局中断                                            */
 #endif /* STM32F411xE */
 #if defined(STM32F411xE)
-                                                                  SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
-                                                                  SPI5_IRQn                   = 85      /*!< SPI5 全局中断                                             */
+    SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+    SPI5_IRQn                   = 85      /*!< SPI5 全局中断                                             */
 #endif /* STM32F411xE */
 #endif /* STM32F401xx || STM32F411xE */
 
 #if defined(STM32F469_479xx)
-                                                                          CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
-                                                                          CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
-                                                                          CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
-                                                                          CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
-                                                                          EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
-                                                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
-                                                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
-                                                                          TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                                          TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
-                                                                          TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
-                                                                          TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
-                                                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
-                                                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
-                                                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
-                                                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
-                                                                          SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
-                                                                          SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
-                                                                          USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
-                                                                          USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
-                                                                          USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
-                                                                          EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
-                                                                          RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
-                                                                          OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                                                          TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
-                                                                          TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
-                                                                          TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
-                                                                          TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
-                                                                          DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                                          FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
-                                                                          SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
-                                                                          TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
-                                                                          SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
-                                                                          UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
-                                                                          UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
-                                                                          TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
-                                                                          TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
-                                                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
-                                                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
-                                                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
-                                                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
-                                                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
-                                                                          ETH_IRQn                    = 61,     /*!< Ethernet 全局中断                                         */
-                                                                          ETH_WKUP_IRQn               = 62,     /*!< Ethernet Wakeup through EXTI line Interrupt                       */
-                                                                          CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
-                                                                          CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
-                                                                          CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
-                                                                          CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
-                                                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
-                                                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
-                                                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
-                                                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
-                                                                          USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
-                                                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
-                                                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
-                                                                          OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
-                                                                          OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
-                                                                          OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
-                                                                          OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
-                                                                          DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
-                                                                          CRYP_IRQn                   = 79,     /*!< CRYP crypto 全局中断                                      */
-                                                                          HASH_RNG_IRQn               = 80,     /*!< Hash and Rng 全局中断                                     */
-                                                                          FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
-                                                                          UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
-                                                                          UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
-                                                                          SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
-                                                                          SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
-                                                                          SPI6_IRQn                   = 86,     /*!< SPI6 全局中断                                             */
-                                                                          SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
-                                                                          LTDC_IRQn                   = 88,     /*!< LTDC 全局中断                                             */
-                                                                          LTDC_ER_IRQn                = 89,     /*!< LTDC Error 全局中断                                       */
-                                                                          DMA2D_IRQn                  = 90,     /*!< DMA2D 全局中断                                            */
-                                                                          QUADSPI_IRQn                = 91,     /*!< QUADSPI 全局中断                                          */
-                                                                          DSI_IRQn                    = 92      /*!< DSI 全局中断                                              */
+    CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+    CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+    CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+    CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
+    EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
+    TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+    TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
+    TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
+    TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
+    TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+    TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+    TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+    I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+    I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+    I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+    I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+    SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+    SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+    USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+    USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+    USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
+    EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
+    RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
+    OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
+    TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+    TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
+    TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
+    TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
+    DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
+    FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
+    SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+    TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+    SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+    UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
+    UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
+    TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
+    TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+    DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+    DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+    DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+    DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+    DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+    ETH_IRQn                    = 61,     /*!< Ethernet 全局中断                                         */
+    ETH_WKUP_IRQn               = 62,     /*!< Ethernet Wakeup through EXTI line Interrupt                       */
+    CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+    CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+    CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+    CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+    OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+    DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+    DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+    DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+    USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+    I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+    I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+    OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
+    OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
+    OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
+    OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
+    DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
+    CRYP_IRQn                   = 79,     /*!< CRYP crypto 全局中断                                      */
+    HASH_RNG_IRQn               = 80,     /*!< Hash and Rng 全局中断                                     */
+    FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+    UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
+    UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
+    SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+    SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
+    SPI6_IRQn                   = 86,     /*!< SPI6 全局中断                                             */
+    SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
+    LTDC_IRQn                   = 88,     /*!< LTDC 全局中断                                             */
+    LTDC_ER_IRQn                = 89,     /*!< LTDC Error 全局中断                                       */
+    DMA2D_IRQn                  = 90,     /*!< DMA2D 全局中断                                            */
+    QUADSPI_IRQn                = 91,     /*!< QUADSPI 全局中断                                          */
+    DSI_IRQn                    = 92      /*!< DSI 全局中断                                              */
 #endif /* STM32F469_479xx */
 
 #if defined(STM32F446xx)
-                                                                                  CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
-                                                                                  CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
-                                                                                  CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
-                                                                                  CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
-                                                                                  EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
-                                                                                  TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
-                                                                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
-                                                                                  TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                                                  TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
-                                                                                  TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
-                                                                                  TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
-                                                                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
-                                                                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
-                                                                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
-                                                                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
-                                                                                  SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
-                                                                                  SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
-                                                                                  USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
-                                                                                  USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
-                                                                                  USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
-                                                                                  EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
-                                                                                  RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
-                                                                                  OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                                                                  TIM8_BRK_IRQn               = 43,     /*!< TIM8 Break Interrupt                                              */
-                                                                                  TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
-                                                                                  TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
-                                                                                  TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
-                                                                                  DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                                                  FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
-                                                                                  SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
-                                                                                  TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
-                                                                                  SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
-                                                                                  UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
-                                                                                  UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
-                                                                                  TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
-                                                                                  TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
-                                                                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
-                                                                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
-                                                                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
-                                                                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
-                                                                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
-                                                                                  CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
-                                                                                  CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
-                                                                                  CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
-                                                                                  CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
-                                                                                  OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
-                                                                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
-                                                                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
-                                                                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
-                                                                                  USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
-                                                                                  I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
-                                                                                  I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
-                                                                                  OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
-                                                                                  OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
-                                                                                  OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
-                                                                                  OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
-                                                                                  DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
-                                                                                  FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
-                                                                                  SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
-                                                                                  SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
-                                                                                  SAI2_IRQn                   = 91,     /*!< SAI2 全局中断                                             */
-                                                                                  QUADSPI_IRQn                = 92,     /*!< QuadSPI 全局中断                                          */
-                                                                                  CEC_IRQn                    = 93,     /*!< QuadSPI 全局中断                                          */
-                                                                                  SPDIF_RX_IRQn               = 94,     /*!< QuadSPI 全局中断                                          */
-                                                                                  FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C 事件中断                                            */
-                                                                                  FMPI2C1_ER_IRQn             = 96      /*!< FMPCI2C 错误中断                                           */
+    CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+    CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+    CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+    CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
+    EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
+    TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+    TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
+    TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
+    TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
+    TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+    TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+    TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+    I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+    I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+    I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+    I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+    SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+    SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+    USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+    USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+    USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
+    EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
+    RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
+    OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
+    TIM8_BRK_IRQn               = 43,     /*!< TIM8 Break Interrupt                                              */
+    TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+    TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
+    TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
+    DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
+    FMC_IRQn                    = 48,     /*!< FMC 全局中断                                              */
+    SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+    TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+    SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+    UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
+    UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
+    TIM6_DAC_IRQn               = 54,     /*!< TIM6 global and DAC1&2 underrun error  interrupts                 */
+    TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+    DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+    DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+    DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+    DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+    DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+    CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+    CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+    CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+    CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+    OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+    DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+    DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+    DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+    USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+    I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+    I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+    OTG_HS_EP1_OUT_IRQn         = 74,     /*!< USB OTG HS End Point 1 Out 全局中断                       */
+    OTG_HS_EP1_IN_IRQn          = 75,     /*!< USB OTG HS End Point 1 In 全局中断                        */
+    OTG_HS_WKUP_IRQn            = 76,     /*!< USB OTG HS Wakeup through EXTI interrupt                          */
+    OTG_HS_IRQn                 = 77,     /*!< USB OTG HS 全局中断                                       */
+    DCMI_IRQn                   = 78,     /*!< DCMI 全局中断                                             */
+    FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+    SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+    SAI1_IRQn                   = 87,     /*!< SAI1 全局中断                                             */
+    SAI2_IRQn                   = 91,     /*!< SAI2 全局中断                                             */
+    QUADSPI_IRQn                = 92,     /*!< QuadSPI 全局中断                                          */
+    CEC_IRQn                    = 93,     /*!< QuadSPI 全局中断                                          */
+    SPDIF_RX_IRQn               = 94,     /*!< QuadSPI 全局中断                                          */
+    FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C 事件中断                                            */
+    FMPI2C1_ER_IRQn             = 96      /*!< FMPCI2C 错误中断                                           */
 #endif /* STM32F446xx */
 
 #if defined(STM32F412xG)
-                                                                                          CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
-                                                                                          CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
-                                                                                          CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
-                                                                                          CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
-                                                                                          EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                                                          TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
-                                                                                          TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
-                                                                                          TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
-                                                                                          TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                                                          TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
-                                                                                          TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
-                                                                                          TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
-                                                                                          I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
-                                                                                          I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
-                                                                                          I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
-                                                                                          I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
-                                                                                          SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
-                                                                                          SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
-                                                                                          USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
-                                                                                          USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
-                                                                                          USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
-                                                                                          EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
-                                                                                          RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
-                                                                                          OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                                                                          TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
-                                                                                          TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
-                                                                                          TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
-                                                                                          TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
-                                                                                          DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                                                          FSMC_IRQn                   = 48,     /*!< FSMC 全局中断                                              */
-                                                                                          SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
-                                                                                          TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
-                                                                                          SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
-                                                                                          TIM6_IRQn                   = 54,     /*!< TIM6 全局中断                                             */
-                                                                                          TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
-                                                                                          DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
-                                                                                          DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
-                                                                                          DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
-                                                                                          DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
-                                                                                          DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
-                                                                                          DFSDM1_FLT0_IRQn            = 61,     /*!< DFSDM1 Filter 0 全局中断                                  */
-                                                                                          DFSDM1_FLT1_IRQn            = 62,     /*!< DFSDM1 Filter 1 全局中断                                  */
-                                                                                          CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
-                                                                                          CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
-                                                                                          CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
-                                                                                          CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
-                                                                                          OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
-                                                                                          DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
-                                                                                          DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
-                                                                                          DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
-                                                                                          USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
-                                                                                          I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
-                                                                                          I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
-                                                                                          RNG_IRQn                    = 80,     /*!< RNG 全局中断                                              */
-                                                                                          FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
-                                                                                          SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
-                                                                                          SPI5_IRQn                   = 85,      /*!< SPI5 全局中断                                            */
-                                                                                          QUADSPI_IRQn                = 92,     /*!< QuadSPI 全局中断                                          */
-                                                                                          FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 事件中断                                           */
-                                                                                          FMPI2C1_ER_IRQn             = 96      /*!< FMPI2C1 错误中断                                           */
+    CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+    CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+    CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+    CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
+    EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
+    TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+    TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
+    TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
+    TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
+    TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+    TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+    TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+    I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+    I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+    I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+    I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+    SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+    SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+    USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+    USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+    USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
+    EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
+    RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
+    OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
+    TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+    TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
+    TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
+    TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
+    DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
+    FSMC_IRQn                   = 48,     /*!< FSMC 全局中断                                              */
+    SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+    TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+    SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+    TIM6_IRQn                   = 54,     /*!< TIM6 全局中断                                             */
+    TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+    DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+    DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+    DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+    DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+    DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+    DFSDM1_FLT0_IRQn            = 61,     /*!< DFSDM1 Filter 0 全局中断                                  */
+    DFSDM1_FLT1_IRQn            = 62,     /*!< DFSDM1 Filter 1 全局中断                                  */
+    CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+    CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+    CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+    CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+    OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+    DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+    DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+    DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+    USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+    I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+    I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+    RNG_IRQn                    = 80,     /*!< RNG 全局中断                                              */
+    FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+    SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+    SPI5_IRQn                   = 85,      /*!< SPI5 全局中断                                            */
+    QUADSPI_IRQn                = 92,     /*!< QuadSPI 全局中断                                          */
+    FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 事件中断                                           */
+    FMPI2C1_ER_IRQn             = 96      /*!< FMPI2C1 错误中断                                           */
 #endif /* STM32F412xG */
 
 #if defined(STM32F413_423xx)
-                                                                                                  CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
-                                                                                                  CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
-                                                                                                  CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
-                                                                                                  CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
-                                                                                                  EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
-                                                                                                  TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
-                                                                                                  TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
-                                                                                                  TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
-                                                                                                  TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
-                                                                                                  TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
-                                                                                                  TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
-                                                                                                  TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
-                                                                                                  I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
-                                                                                                  I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
-                                                                                                  I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
-                                                                                                  I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
-                                                                                                  SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
-                                                                                                  SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
-                                                                                                  USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
-                                                                                                  USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
-                                                                                                  USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
-                                                                                                  EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
-                                                                                                  RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
-                                                                                                  OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
-                                                                                                  TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
-                                                                                                  TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
-                                                                                                  TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
-                                                                                                  TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
-                                                                                                  DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
-                                                                                                  SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
-                                                                                                  TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
-                                                                                                  SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
-                                                                                                  UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
-                                                                                                  UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
-                                                                                                  TIM6_DAC_IRQn               = 54,     /*!< TIM6 and DAC1&2 全局中断                                  */
-                                                                                                  TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
-                                                                                                  DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
-                                                                                                  DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
-                                                                                                  DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
-                                                                                                  DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
-                                                                                                  DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
-                                                                                                  DFSDM1_FLT0_IRQn            = 61,     /*!< DFSDM1 Filter 0 全局中断                                  */
-                                                                                                  DFSDM1_FLT1_IRQn            = 62,     /*!< DFSDM1 Filter 1 全局中断                                  */
-                                                                                                  CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
-                                                                                                  CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
-                                                                                                  CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
-                                                                                                  CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
-                                                                                                  OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
-                                                                                                  DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
-                                                                                                  DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
-                                                                                                  DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
-                                                                                                  USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
-                                                                                                  I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
-                                                                                                  I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
-                                                                                                  CAN3_TX_IRQn                = 74,     /*!< CAN3 TX Interrupt                                                 */
-                                                                                                  CAN3_RX0_IRQn               = 75,     /*!< CAN3 RX0 Interrupt                                                */
-                                                                                                  CAN3_RX1_IRQn               = 76,     /*!< CAN3 RX1 Interrupt                                                */
-                                                                                                  CAN3_SCE_IRQn               = 77,     /*!< CAN3 SCE Interrupt                                                */
-                                                                                                  RNG_IRQn                    = 80,     /*!< RNG 全局中断                                              */
-                                                                                                  FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
-                                                                                                  UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
-                                                                                                  UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
-                                                                                                  SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
-                                                                                                  SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
-                                                                                                  SAI1_IRQn                   = 87,     /*!< Serial Audio Interface 1 全局中断                         */
-                                                                                                  UART9_IRQn                  = 88,     /*!< UART9 全局中断                                            */
-                                                                                                  UART10_IRQn                 = 89,     /*!< UART10 全局中断                                           */
-                                                                                                  QUADSPI_IRQn                = 92,     /*!< QuadSPI 全局中断                                          */
-                                                                                                  FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 事件中断                                           */
-                                                                                                  FMPI2C1_ER_IRQn             = 96,     /*!< FMPI2C1 错误中断                                           */
-                                                                                                  LPTIM1_IRQn                 = 97,     /*!< LP TIM1 interrupt                                                 */
-                                                                                                  DFSDM2_FLT0_IRQn            = 98,     /*!< DFSDM2 Filter 0 全局中断                                  */
-                                                                                                  DFSDM2_FLT1_IRQn            = 99,     /*!< DFSDM2 Filter 1 全局中断                                  */
-                                                                                                  DFSDM2_FLT2_IRQn            = 100,    /*!< DFSDM2 Filter 2 全局中断                                  */
-                                                                                                  DFSDM2_FLT3_IRQn            = 101     /*!< DFSDM2 Filter 3 全局中断                                  */
+    CAN1_TX_IRQn                = 19,     /*!< CAN1 TX 中断                                                 */
+    CAN1_RX0_IRQn               = 20,     /*!< CAN1 RX0 中断                                                */
+    CAN1_RX1_IRQn               = 21,     /*!< CAN1 RX1 中断                                                */
+    CAN1_SCE_IRQn               = 22,     /*!< CAN1 SCE 中断                                                */
+    EXTI9_5_IRQn                = 23,     /*!< External Line[9:5] Interrupts                                     */
+    TIM1_BRK_TIM9_IRQn          = 24,     /*!< TIM1 Break interrupt and TIM9 全局中断                    */
+    TIM1_UP_TIM10_IRQn          = 25,     /*!< TIM1 Update Interrupt and TIM10 全局中断                  */
+    TIM1_TRG_COM_TIM11_IRQn     = 26,     /*!< TIM1 Trigger and Commutation Interrupt and TIM11 global 中断 */
+    TIM1_CC_IRQn                = 27,     /*!< TIM1 Capture Compare Interrupt                                    */
+    TIM2_IRQn                   = 28,     /*!< TIM2 全局中断                                             */
+    TIM3_IRQn                   = 29,     /*!< TIM3 全局中断                                             */
+    TIM4_IRQn                   = 30,     /*!< TIM4 全局中断                                             */
+    I2C1_EV_IRQn                = 31,     /*!< I2C1 事件中断                                              */
+    I2C1_ER_IRQn                = 32,     /*!< I2C1 错误中断                                              */
+    I2C2_EV_IRQn                = 33,     /*!< I2C2 事件中断                                              */
+    I2C2_ER_IRQn                = 34,     /*!< I2C2 错误中断                                              */
+    SPI1_IRQn                   = 35,     /*!< SPI1 全局中断                                             */
+    SPI2_IRQn                   = 36,     /*!< SPI2 全局中断                                             */
+    USART1_IRQn                 = 37,     /*!< USART1 全局中断                                           */
+    USART2_IRQn                 = 38,     /*!< USART2 全局中断                                           */
+    USART3_IRQn                 = 39,     /*!< USART3 全局中断                                           */
+    EXTI15_10_IRQn              = 40,     /*!< External Line[15:10] Interrupts                                   */
+    RTC_Alarm_IRQn              = 41,     /*!< RTC Alarm (A and B) through EXTI Line Interrupt                   */
+    OTG_FS_WKUP_IRQn            = 42,     /*!< USB OTG FS Wakeup through EXTI line interrupt                     */
+    TIM8_BRK_TIM12_IRQn         = 43,     /*!< TIM8 Break Interrupt and TIM12 全局中断                   */
+    TIM8_UP_TIM13_IRQn          = 44,     /*!< TIM8 Update Interrupt and TIM13 全局中断                  */
+    TIM8_TRG_COM_TIM14_IRQn     = 45,     /*!< TIM8 Trigger and Commutation Interrupt and TIM14 global 中断 */
+    TIM8_CC_IRQn                = 46,     /*!< TIM8 Capture Compare Interrupt                                    */
+    DMA1_Stream7_IRQn           = 47,     /*!< DMA1 Stream7 Interrupt                                            */
+    SDIO_IRQn                   = 49,     /*!< SDIO 全局中断                                             */
+    TIM5_IRQn                   = 50,     /*!< TIM5 全局中断                                             */
+    SPI3_IRQn                   = 51,     /*!< SPI3 全局中断                                             */
+    UART4_IRQn                  = 52,     /*!< UART4 全局中断                                            */
+    UART5_IRQn                  = 53,     /*!< UART5 全局中断                                            */
+    TIM6_DAC_IRQn               = 54,     /*!< TIM6 and DAC1&2 全局中断                                  */
+    TIM7_IRQn                   = 55,     /*!< TIM7 全局中断                                             */
+    DMA2_Stream0_IRQn           = 56,     /*!< DMA2 Stream 0 全局中断                                    */
+    DMA2_Stream1_IRQn           = 57,     /*!< DMA2 Stream 1 全局中断                                    */
+    DMA2_Stream2_IRQn           = 58,     /*!< DMA2 Stream 2 全局中断                                    */
+    DMA2_Stream3_IRQn           = 59,     /*!< DMA2 Stream 3 全局中断                                    */
+    DMA2_Stream4_IRQn           = 60,     /*!< DMA2 Stream 4 全局中断                                    */
+    DFSDM1_FLT0_IRQn            = 61,     /*!< DFSDM1 Filter 0 全局中断                                  */
+    DFSDM1_FLT1_IRQn            = 62,     /*!< DFSDM1 Filter 1 全局中断                                  */
+    CAN2_TX_IRQn                = 63,     /*!< CAN2 TX 中断                                                 */
+    CAN2_RX0_IRQn               = 64,     /*!< CAN2 RX0 中断                                                */
+    CAN2_RX1_IRQn               = 65,     /*!< CAN2 RX1 中断                                                */
+    CAN2_SCE_IRQn               = 66,     /*!< CAN2 SCE 中断                                                */
+    OTG_FS_IRQn                 = 67,     /*!< USB OTG FS 全局中断                                       */
+    DMA2_Stream5_IRQn           = 68,     /*!< DMA2 Stream 5 全局中断                                    */
+    DMA2_Stream6_IRQn           = 69,     /*!< DMA2 Stream 6 全局中断                                    */
+    DMA2_Stream7_IRQn           = 70,     /*!< DMA2 Stream 7 全局中断                                    */
+    USART6_IRQn                 = 71,     /*!< USART6 全局中断                                           */
+    I2C3_EV_IRQn                = 72,     /*!< I2C3 事件中断                                              */
+    I2C3_ER_IRQn                = 73,     /*!< I2C3 错误中断                                              */
+    CAN3_TX_IRQn                = 74,     /*!< CAN3 TX Interrupt                                                 */
+    CAN3_RX0_IRQn               = 75,     /*!< CAN3 RX0 Interrupt                                                */
+    CAN3_RX1_IRQn               = 76,     /*!< CAN3 RX1 Interrupt                                                */
+    CAN3_SCE_IRQn               = 77,     /*!< CAN3 SCE Interrupt                                                */
+    RNG_IRQn                    = 80,     /*!< RNG 全局中断                                              */
+    FPU_IRQn                    = 81,     /*!< FPU 全局中断                                              */
+    UART7_IRQn                  = 82,     /*!< UART7 全局中断                                            */
+    UART8_IRQn                  = 83,     /*!< UART8 全局中断                                            */
+    SPI4_IRQn                   = 84,     /*!< SPI4 全局中断                                             */
+    SPI5_IRQn                   = 85,     /*!< SPI5 全局中断                                             */
+    SAI1_IRQn                   = 87,     /*!< Serial Audio Interface 1 全局中断                         */
+    UART9_IRQn                  = 88,     /*!< UART9 全局中断                                            */
+    UART10_IRQn                 = 89,     /*!< UART10 全局中断                                           */
+    QUADSPI_IRQn                = 92,     /*!< QuadSPI 全局中断                                          */
+    FMPI2C1_EV_IRQn             = 95,     /*!< FMPI2C1 事件中断                                           */
+    FMPI2C1_ER_IRQn             = 96,     /*!< FMPI2C1 错误中断                                           */
+    LPTIM1_IRQn                 = 97,     /*!< LP TIM1 interrupt                                                 */
+    DFSDM2_FLT0_IRQn            = 98,     /*!< DFSDM2 Filter 0 全局中断                                  */
+    DFSDM2_FLT1_IRQn            = 99,     /*!< DFSDM2 Filter 1 全局中断                                  */
+    DFSDM2_FLT2_IRQn            = 100,    /*!< DFSDM2 Filter 2 全局中断                                  */
+    DFSDM2_FLT3_IRQn            = 101     /*!< DFSDM2 Filter 3 全局中断                                  */
 #endif /* STM32F413_423xx */
 } IRQn_Type;
 
@@ -11431,7 +11431,7 @@ typedef struct {
 #define  DBGMCU_APB1_FZ_DBG_I2C3_SMBUS_TIMEOUT   ((uint32_t)0x00800000)
 #define  DBGMCU_APB1_FZ_DBG_CAN1_STOP            ((uint32_t)0x02000000)
 #define  DBGMCU_APB1_FZ_DBG_CAN2_STOP            ((uint32_t)0x04000000)
-/* Old IWDGSTOP bit definition, maintained for legacy purpose */
+/* 旧的 IWDGSTOP 位定义，出于遗留目的而维护 */
 #define  DBGMCU_APB1_FZ_DBG_IWDEG_STOP           DBGMCU_APB1_FZ_DBG_IWDG_STOP
 
 /* ERROR lines */
@@ -11451,10 +11451,10 @@ typedef struct {
 
 /******************************************************************************/
 /*                                                                            */
-/*                Ethernet MAC Registers bits definitions                     */
+/*                                以太网MAC寄存器位定义                        */
 /*                                                                            */
 /******************************************************************************/
-/* Bit definition for Ethernet MAC Control Register register */
+/* 以太网 MAC 控制寄存器的位定义 */
 #define ETH_MACCR_WD      ((uint32_t)0x00800000)  /* Watchdog disable */
 #define ETH_MACCR_JD      ((uint32_t)0x00400000)  /* Jabber disable */
 #define ETH_MACCR_IFG     ((uint32_t)0x000E0000)  /* Inter-frame gap */
@@ -11484,7 +11484,7 @@ typedef struct {
 #define ETH_MACCR_TE      ((uint32_t)0x00000008)  /* Transmitter enable */
 #define ETH_MACCR_RE      ((uint32_t)0x00000004)  /* Receiver enable */
 
-/* Bit definition for Ethernet MAC Frame Filter Register */
+/* 以太网 MAC 帧滤波器寄存器的位定义 */
 #define ETH_MACFFR_RA     ((uint32_t)0x80000000)  /* Receive all */
 #define ETH_MACFFR_HPF    ((uint32_t)0x00000400)  /* Hash or perfect filter */
 #define ETH_MACFFR_SAF    ((uint32_t)0x00000200)  /* Source address filter enable */
@@ -11500,13 +11500,13 @@ typedef struct {
 #define ETH_MACFFR_HU     ((uint32_t)0x00000002)  /* Hash unicast */
 #define ETH_MACFFR_PM     ((uint32_t)0x00000001)  /* Promiscuous mode */
 
-/* Bit definition for Ethernet MAC Hash Table High Register */
+/* 以太网 MAC 哈希表高寄存器的位定义 */
 #define ETH_MACHTHR_HTH   ((uint32_t)0xFFFFFFFF)  /* Hash table high */
 
-/* Bit definition for Ethernet MAC Hash Table Low Register */
+/* 以太网 MAC 哈希表低寄存器的位定义 */
 #define ETH_MACHTLR_HTL   ((uint32_t)0xFFFFFFFF)  /* Hash table low */
 
-/* Bit definition for Ethernet MAC MII Address Register */
+/* 以太网 MAC MII 地址寄存器的位定义 */
 #define ETH_MACMIIAR_PA   ((uint32_t)0x0000F800)  /* Physical layer address */
 #define ETH_MACMIIAR_MR   ((uint32_t)0x000007C0)  /* MII register in the selected PHY */
 #define ETH_MACMIIAR_CR   ((uint32_t)0x0000001C)  /* CR clock range: 6 cases */
@@ -11538,7 +11538,7 @@ typedef struct {
 #define ETH_MACVLANTR_VLANTC ((uint32_t)0x00010000)  /* 12-bit VLAN tag comparison */
 #define ETH_MACVLANTR_VLANTI ((uint32_t)0x0000FFFF)  /* VLAN tag identifier (for receive frames) */
 
-/* Bit definition for Ethernet MAC Remote Wake-UpFrame Filter Register */
+/* 以太网 MAC 远程唤醒上行帧滤波器寄存器的位定义 */
 #define ETH_MACRWUFFR_D   ((uint32_t)0xFFFFFFFF)  /* Wake-up frame filter register data */
 /* Eight sequential Writes to this address (offset 0x28) will write all Wake-UpFrame Filter Registers.
    Eight sequential Reads from this address (offset 0x28) will read all Wake-UpFrame Filter Registers. */
@@ -11624,7 +11624,7 @@ typedef struct {
 #define ETH_MACA3LR_MACA3L   ((uint32_t)0xFFFFFFFF)  /* MAC address3 low */
 
 /******************************************************************************/
-/*                Ethernet MMC Registers bits definition                      */
+/*                以太网 MMC 寄存器位定义                                      */
 /******************************************************************************/
 
 /* Bit definition for Ethernet MMC Contol Register */
@@ -11645,39 +11645,39 @@ typedef struct {
 #define ETH_MMCTIR_TGFMSCS   ((uint32_t)0x00008000)  /* Set when Tx good multi col counter reaches half the maximum value */
 #define ETH_MMCTIR_TGFSCS    ((uint32_t)0x00004000)  /* Set when Tx good single col counter reaches half the maximum value */
 
-/* Bit definition for Ethernet MMC Receive Interrupt Mask Register */
+/* 以太网 MMC 接收中断掩码寄存器的位定义 */
 #define ETH_MMCRIMR_RGUFM    ((uint32_t)0x00020000)  /* Mask the interrupt when Rx good unicast frames counter reaches half the maximum value */
 #define ETH_MMCRIMR_RFAEM    ((uint32_t)0x00000040)  /* Mask the interrupt when when Rx alignment error counter reaches half the maximum value */
 #define ETH_MMCRIMR_RFCEM    ((uint32_t)0x00000020)  /* Mask the interrupt when Rx crc error counter reaches half the maximum value */
 
-/* Bit definition for Ethernet MMC Transmit Interrupt Mask Register */
+/* 以太网 MMC 传输中断掩码寄存器的位定义 */
 #define ETH_MMCTIMR_TGFM     ((uint32_t)0x00200000)  /* Mask the interrupt when Tx good frame count counter reaches half the maximum value */
 #define ETH_MMCTIMR_TGFMSCM  ((uint32_t)0x00008000)  /* Mask the interrupt when Tx good multi col counter reaches half the maximum value */
 #define ETH_MMCTIMR_TGFSCM   ((uint32_t)0x00004000)  /* Mask the interrupt when Tx good single col counter reaches half the maximum value */
 
-/* Bit definition for Ethernet MMC Transmitted Good Frames after Single Collision Counter Register */
+/* 单碰撞计数器寄存器后以太网 MMC 传输好帧的位定义 */
 #define ETH_MMCTGFSCCR_TGFSCC     ((uint32_t)0xFFFFFFFF)  /* Number of successfully transmitted frames after a single collision in Half-duplex mode. */
 
-/* Bit definition for Ethernet MMC Transmitted Good Frames after More than a Single Collision Counter Register */
+/* 以太网 MMC 在多个碰撞计数器寄存器后传输良好帧的位定义 */
 #define ETH_MMCTGFMSCCR_TGFMSCC   ((uint32_t)0xFFFFFFFF)  /* Number of successfully transmitted frames after more than a single collision in Half-duplex mode. */
 
-/* Bit definition for Ethernet MMC Transmitted Good Frames Counter Register */
+/* 以太网 MMC 传输好帧计数器寄存器的位定义 */
 #define ETH_MMCTGFCR_TGFC    ((uint32_t)0xFFFFFFFF)  /* Number of good frames transmitted. */
 
-/* Bit definition for Ethernet MMC Received Frames with CRC Error Counter Register */
+/* 用 CRC 错误计数器寄存器的以太网 MMC 接收帧的位定义 */
 #define ETH_MMCRFCECR_RFCEC  ((uint32_t)0xFFFFFFFF)  /* Number of frames received with CRC error. */
 
-/* Bit definition for Ethernet MMC Received Frames with Alignement Error Counter Register */
+/* 带对齐错误计数器寄存器的以太网 MMC 接收帧的位定义 */
 #define ETH_MMCRFAECR_RFAEC  ((uint32_t)0xFFFFFFFF)  /* Number of frames received with alignment (dribble) error */
 
-/* Bit definition for Ethernet MMC Received Good Unicast Frames Counter Register */
+/* 以太网 MMC 接收良好单播帧计数器寄存器的位定义 */
 #define ETH_MMCRGUFCR_RGUFC  ((uint32_t)0xFFFFFFFF)  /* Number of good unicast frames received. */
 
 /******************************************************************************/
 /*               以太网 PTP 寄存器位定义                                       */
 /******************************************************************************/
 
-/* Bit definition for Ethernet PTP Time Stamp Contol Register */
+/* 以太网 PTP 时间戳控制寄存器的位定义 */
 #define ETH_PTPTSCR_TSCNT       ((uint32_t)0x00030000)  /* Time stamp clock node type */
 #define ETH_PTPTSSR_TSSMRME     ((uint32_t)0x00008000)  /* Time stamp snapshot for message relevant to master enable */
 #define ETH_PTPTSSR_TSSEME      ((uint32_t)0x00004000)  /* Time stamp snapshot for event message enable */
@@ -11695,34 +11695,34 @@ typedef struct {
 #define ETH_PTPTSCR_TSFCU    ((uint32_t)0x00000002)  /* Time stamp fine or coarse update */
 #define ETH_PTPTSCR_TSE      ((uint32_t)0x00000001)  /* Time stamp enable */
 
-/* Bit definition for Ethernet PTP Sub-Second Increment Register */
+/* 以太网 PTP 亚秒增量寄存器的位定义 */
 #define ETH_PTPSSIR_STSSI    ((uint32_t)0x000000FF)  /* System time Sub-second increment value */
 
-/* Bit definition for Ethernet PTP Time Stamp High Register */
+/* 以太网 PTP 时间戳高寄存器的位定义 */
 #define ETH_PTPTSHR_STS      ((uint32_t)0xFFFFFFFF)  /* System Time second */
 
-/* Bit definition for Ethernet PTP Time Stamp Low Register */
+/* 以太网 PTP 时间戳低寄存器的位定义 */
 #define ETH_PTPTSLR_STPNS    ((uint32_t)0x80000000)  /* System Time Positive or negative time */
 #define ETH_PTPTSLR_STSS     ((uint32_t)0x7FFFFFFF)  /* System Time sub-seconds */
 
-/* Bit definition for Ethernet PTP Time Stamp High Update Register */
+/* 以太网PTP时间戳高更新寄存器的位定义 */
 #define ETH_PTPTSHUR_TSUS    ((uint32_t)0xFFFFFFFF)  /* Time stamp update seconds */
 
-/* Bit definition for Ethernet PTP Time Stamp Low Update Register */
+/* 以太网 PTP 时间戳低更新寄存器的位定义 */
 #define ETH_PTPTSLUR_TSUPNS  ((uint32_t)0x80000000)  /* Time stamp update Positive or negative time */
 #define ETH_PTPTSLUR_TSUSS   ((uint32_t)0x7FFFFFFF)  /* Time stamp update sub-seconds */
 
-/* Bit definition for Ethernet PTP Time Stamp Addend Register */
+/* 以太网 PTP 时间戳添加寄存器的位定义 */
 #define ETH_PTPTSAR_TSA      ((uint32_t)0xFFFFFFFF)  /* Time stamp addend */
 
-/* Bit definition for Ethernet PTP Target Time High Register */
+/* 以太网 PTP 目标时间高寄存器的位定义 */
 #define ETH_PTPTTHR_TTSH     ((uint32_t)0xFFFFFFFF)  /* Target time stamp high */
 
-/* Bit definition for Ethernet PTP Target Time Low Register */
-#define ETH_PTPTTLR_TTSL     ((uint32_t)0xFFFFFFFF)  /* Target time stamp low */
+/* 以太网 PTP 目标时间低寄存器的位定义 */
+#define ETH_PTPTTLR_TTSL     ((uint32_t)0xFFFFFFFF)  /* 目标时间戳低 */
 
-/* Bit definition for Ethernet PTP Time Stamp Status Register */
-#define ETH_PTPTSSR_TSTTR    ((uint32_t)0x00000020)  /* Time stamp target time reached */
+/* 以太网 PTP 时间戳状态寄存器的位定义 */
+#define ETH_PTPTSSR_TSTTR    ((uint32_t)0x00000020)  /* 时间戳目标时间到达 */
 #define ETH_PTPTSSR_TSSO     ((uint32_t)0x00000010)  /* Time stamp seconds overflow */
 
 /******************************************************************************/
@@ -11734,18 +11734,18 @@ typedef struct {
 #define ETH_DMABMR_FPM        ((uint32_t)0x01000000)  /* 4xPBL mode */
 #define ETH_DMABMR_USP       ((uint32_t)0x00800000)  /* Use separate PBL */
 #define ETH_DMABMR_RDP       ((uint32_t)0x007E0000)  /* RxDMA PBL */
-#define ETH_DMABMR_RDP_1Beat    ((uint32_t)0x00020000)  /* maximum number of beats to be transferred in one RxDMA transaction is 1 */
-#define ETH_DMABMR_RDP_2Beat    ((uint32_t)0x00040000)  /* maximum number of beats to be transferred in one RxDMA transaction is 2 */
-#define ETH_DMABMR_RDP_4Beat    ((uint32_t)0x00080000)  /* maximum number of beats to be transferred in one RxDMA transaction is 4 */
-#define ETH_DMABMR_RDP_8Beat    ((uint32_t)0x00100000)  /* maximum number of beats to be transferred in one RxDMA transaction is 8 */
-#define ETH_DMABMR_RDP_16Beat   ((uint32_t)0x00200000)  /* maximum number of beats to be transferred in one RxDMA transaction is 16 */
-#define ETH_DMABMR_RDP_32Beat   ((uint32_t)0x00400000)  /* maximum number of beats to be transferred in one RxDMA transaction is 32 */
-#define ETH_DMABMR_RDP_4xPBL_4Beat   ((uint32_t)0x01020000)  /* maximum number of beats to be transferred in one RxDMA transaction is 4 */
-#define ETH_DMABMR_RDP_4xPBL_8Beat   ((uint32_t)0x01040000)  /* maximum number of beats to be transferred in one RxDMA transaction is 8 */
-#define ETH_DMABMR_RDP_4xPBL_16Beat  ((uint32_t)0x01080000)  /* maximum number of beats to be transferred in one RxDMA transaction is 16 */
-#define ETH_DMABMR_RDP_4xPBL_32Beat  ((uint32_t)0x01100000)  /* maximum number of beats to be transferred in one RxDMA transaction is 32 */
-#define ETH_DMABMR_RDP_4xPBL_64Beat  ((uint32_t)0x01200000)  /* maximum number of beats to be transferred in one RxDMA transaction is 64 */
-#define ETH_DMABMR_RDP_4xPBL_128Beat ((uint32_t)0x01400000)  /* maximum number of beats to be transferred in one RxDMA transaction is 128 */
+#define ETH_DMABMR_RDP_1Beat    ((uint32_t)0x00020000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 1 */
+#define ETH_DMABMR_RDP_2Beat    ((uint32_t)0x00040000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 2 */
+#define ETH_DMABMR_RDP_4Beat    ((uint32_t)0x00080000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 4 */
+#define ETH_DMABMR_RDP_8Beat    ((uint32_t)0x00100000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 8 */
+#define ETH_DMABMR_RDP_16Beat   ((uint32_t)0x00200000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 16 */
+#define ETH_DMABMR_RDP_32Beat   ((uint32_t)0x00400000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 32 */
+#define ETH_DMABMR_RDP_4xPBL_4Beat   ((uint32_t)0x01020000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 4 */
+#define ETH_DMABMR_RDP_4xPBL_8Beat   ((uint32_t)0x01040000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 8 */
+#define ETH_DMABMR_RDP_4xPBL_16Beat  ((uint32_t)0x01080000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 16 */
+#define ETH_DMABMR_RDP_4xPBL_32Beat  ((uint32_t)0x01100000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 32 */
+#define ETH_DMABMR_RDP_4xPBL_64Beat  ((uint32_t)0x01200000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 64 */
+#define ETH_DMABMR_RDP_4xPBL_128Beat ((uint32_t)0x01400000)  /* 在一个 RxDMA 事务中传输的最大节拍数为 128 */
 #define ETH_DMABMR_FB        ((uint32_t)0x00010000)  /* Fixed Burst */
 #define ETH_DMABMR_RTPR      ((uint32_t)0x0000C000)  /* Rx Tx priority ratio */
 #define ETH_DMABMR_RTPR_1_1     ((uint32_t)0x00000000)  /* Rx Tx priority ratio */
@@ -11753,18 +11753,18 @@ typedef struct {
 #define ETH_DMABMR_RTPR_3_1     ((uint32_t)0x00008000)  /* Rx Tx priority ratio */
 #define ETH_DMABMR_RTPR_4_1     ((uint32_t)0x0000C000)  /* Rx Tx priority ratio */
 #define ETH_DMABMR_PBL    ((uint32_t)0x00003F00)  /* Programmable burst length */
-#define ETH_DMABMR_PBL_1Beat    ((uint32_t)0x00000100)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 1 */
-#define ETH_DMABMR_PBL_2Beat    ((uint32_t)0x00000200)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 2 */
-#define ETH_DMABMR_PBL_4Beat    ((uint32_t)0x00000400)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 4 */
-#define ETH_DMABMR_PBL_8Beat    ((uint32_t)0x00000800)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 8 */
-#define ETH_DMABMR_PBL_16Beat   ((uint32_t)0x00001000)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 16 */
-#define ETH_DMABMR_PBL_32Beat   ((uint32_t)0x00002000)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 32 */
-#define ETH_DMABMR_PBL_4xPBL_4Beat   ((uint32_t)0x01000100)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 4 */
-#define ETH_DMABMR_PBL_4xPBL_8Beat   ((uint32_t)0x01000200)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 8 */
-#define ETH_DMABMR_PBL_4xPBL_16Beat  ((uint32_t)0x01000400)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 16 */
-#define ETH_DMABMR_PBL_4xPBL_32Beat  ((uint32_t)0x01000800)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 32 */
-#define ETH_DMABMR_PBL_4xPBL_64Beat  ((uint32_t)0x01001000)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 64 */
-#define ETH_DMABMR_PBL_4xPBL_128Beat ((uint32_t)0x01002000)  /* maximum number of beats to be transferred in one TxDMA (or both) transaction is 128 */
+#define ETH_DMABMR_PBL_1Beat    ((uint32_t)0x00000100)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 1 */
+#define ETH_DMABMR_PBL_2Beat    ((uint32_t)0x00000200)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 2 */
+#define ETH_DMABMR_PBL_4Beat    ((uint32_t)0x00000400)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 4 */
+#define ETH_DMABMR_PBL_8Beat    ((uint32_t)0x00000800)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 8 */
+#define ETH_DMABMR_PBL_16Beat   ((uint32_t)0x00001000)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 16 */
+#define ETH_DMABMR_PBL_32Beat   ((uint32_t)0x00002000)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 32 */
+#define ETH_DMABMR_PBL_4xPBL_4Beat   ((uint32_t)0x01000100)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 4 */
+#define ETH_DMABMR_PBL_4xPBL_8Beat   ((uint32_t)0x01000200)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 8 */
+#define ETH_DMABMR_PBL_4xPBL_16Beat  ((uint32_t)0x01000400)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 16 */
+#define ETH_DMABMR_PBL_4xPBL_32Beat  ((uint32_t)0x01000800)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 32 */
+#define ETH_DMABMR_PBL_4xPBL_64Beat  ((uint32_t)0x01001000)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 64 */
+#define ETH_DMABMR_PBL_4xPBL_128Beat ((uint32_t)0x01002000)  /* 在一个 TxDMA (或两者)事务中传输的最大节拍数为 128 */
 #define ETH_DMABMR_EDE       ((uint32_t)0x00000080)  /* Enhanced Descriptor Enable */
 #define ETH_DMABMR_DSL       ((uint32_t)0x0000007C)  /* Descriptor Skip Length */
 #define ETH_DMABMR_DA        ((uint32_t)0x00000002)  /* DMA arbitration scheme */

@@ -187,7 +187,7 @@ void WWDG_EnableIT(void) {
 /**
   * 简介:  设置WWDG计数器值。
   * 参数:  Counter: 指定看门狗计数器值。
-  *   此参数必须是0x40和0x7F之间的数字(以防止生成立即重置)
+  *        此参数必须是 0x40 和 0x7F 之间的数字(以防止生成立即重置)
   * 返回值: 无
   */
 void WWDG_SetCounter(uint8_t Counter) {
@@ -215,7 +215,7 @@ void WWDG_SetCounter(uint8_t Counter) {
 /**
   * 简介:  启用WWDG并加载计数器值。
   * 参数:  Counter: 指定看门狗计数器值。
-  *   此参数必须是0x40和0x7F之间的数字(以防止生成立即重置)
+  *        此参数必须是 0x40 和 0x7F 之间的数字(以防止生成立即重置)
   * 返回值: 无
   */
 void WWDG_Enable(uint8_t Counter) {

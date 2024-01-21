@@ -357,7 +357,7 @@ uint16_t TMR0_GetCompareValue(const CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch) {
  *         This parameter can be one of the following values:
  *           @arg @ref TMR0_Channel
  * @param  [in] u32Src                  Specifies the clock source
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *           @arg @ref TMR0_Clock_Source
  * @retval 无
  */
@@ -379,7 +379,7 @@ void TMR0_SetClockSrc(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, uint32_t u32Src) {
  *         This parameter can be one of the following values:
  *           @arg @ref TMR0_Channel
  * @param  [in] u32Div                  Specifies the clock source division
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *           @arg TMR0_CLK_DIV1:        Clock source / 1
  *           @arg TMR0_CLK_DIV2:        Clock source / 2
  *           @arg TMR0_CLK_DIV4:        Clock source / 4
@@ -411,7 +411,7 @@ void TMR0_SetClockDiv(CM_TMR0_TypeDef *TMR0x, uint32_t u32Ch, uint32_t u32Div) {
  *         This parameter can be one of the following values:
  *           @arg @ref TMR0_Channel
  * @param  [in] u32Func                 Select TMR0 function
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *           @arg TMR0_FUNC_CMP:        Select the Compare function
  *           @arg TMR0_FUNC_CAPT:       Select the Capture function
  * @retval 无

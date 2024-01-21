@@ -52,11 +52,14 @@ extern "C" {
 typedef struct {
     uint32_t CRYP_AlgoDir;   /*!< 加密或解密。 
                              该参数可以是@ref CRYP_Algorithm_Direction 的值 */
+
     uint32_t CRYP_AlgoMode;  /*!< TDES-ECB、TDES-CBC、DES-ECB、DES-CBC、AES-ECB、
                                 AES-CBC、AES-CTR、AES-Key、AES-GCM 和 AES-CCM。
 								             该参数可以是@ref CRYP_Algorithm_Mode 的值 */
+
     uint32_t CRYP_DataType;  /*!< 32 位数据、16 位数据、位数据或位串。
 								             该参数可以是@ref CRYP_Data_Type 的值 */
+                             
     uint32_t CRYP_KeySize;   /*!< 仅在 AES 模式下使用:128、192 或 256 位密钥长度。 
                              此参数可以是 @ref CRYP_Key_Size_for_AES_only 的值 */
 } CRYP_InitTypeDef;

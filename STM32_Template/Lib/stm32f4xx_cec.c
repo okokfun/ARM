@@ -48,7 +48,7 @@
            (#) 外设交替函数。
                (++) 使用 GPIO_PinAFConfig() 函数将引脚连接到所需外设的备用函数 (AF)。
                (++) 通过在备用函数中配置所需的引脚:
-					GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF.
+					          GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF.
                (++) 通过 GPIO_OType 和 GPIO_Speed 成员选择开漏类型和输出速度。
                (++) 调用 GPIO_Init() 函数。
 
@@ -361,46 +361,46 @@ void CEC_EndOfMessage(void) {
 
     [..] 在轮询模式下，CEC可以通过以下标志进行管理:
             (+) CEC_FLAG_TXACKE : 表示在传输模式下有一个丢失的确认。
-            (+) CEC_FLAG_TXERR : 表示在传输模式中发生错误。
+            (+) CEC_FLAG_TXERR :  表示在传输模式中发生错误。
                                   启动器检测到CEC线路的低阻抗。
-            (+) CEC_FLAG_TXUDR : 指示在传输模式下是否发生了欠运行错误。
+            (+) CEC_FLAG_TXUDR :  指示在传输模式下是否发生了欠运行错误。
                                   当软件还没有将任何数值加载到TXDR寄存器时，传输被启用。启用时，软件尚未将任何数值加载到TXDR寄存器中。
-            (+) CEC_FLAG_TXEND : 指示成功传输的结束。
-            (+) CEC_FLAG_TXBR : 指示下一个传输数据必须写入TXDR。
+            (+) CEC_FLAG_TXEND :  指示成功传输的结束。
+            (+) CEC_FLAG_TXBR :   指示下一个传输数据必须写入TXDR。
             (+) CEC_FLAG_ARBLST : 在两个CEC设备同时启动的情况下表示仲裁失败。同时启动的情况下，表示仲裁失败。
             (+) CEC_FLAG_RXACKE : 表示在接收模式下缺少确认。
-            (+) CEC_FLAG_LBPE : 指示在接收模式下产生的长比特周期错误。
-            (+) CEC_FLAG_SBPE : 指示在接收模式下产生的短比特周期错误。
-            (+) CEC_FLAG_BRE : 表示在接收模式下产生的一个位上升错误。
-            (+) CEC_FLAG_RXOVR : 指示是否在接收CEC信息时发生超限错误。
+            (+) CEC_FLAG_LBPE :   指示在接收模式下产生的长比特周期错误。
+            (+) CEC_FLAG_SBPE :   指示在接收模式下产生的短比特周期错误。
+            (+) CEC_FLAG_BRE :    表示在接收模式下产生的一个位上升错误。
+            (+) CEC_FLAG_RXOVR :  指示是否在接收CEC信息时发生超限错误。
                                   在RXDR寄存器中存储一个新的字节时，尚未收到一个字节。
-            (+) CEC_FLAG_RXEND : 指示是否发生超限错误。
-            (+) CEC_FLAG_RXBR : 表示已经从CEC线路上收到一个新的字节，并存储到RXDR缓冲器中。
+            (+) CEC_FLAG_RXEND :  指示是否发生超限错误。
+            (+) CEC_FLAG_RXBR :   表示已经从CEC线路上收到一个新的字节，并存储到RXDR缓冲器中。
     [..]
            (@)在这种模式下，建议使用以下函数:
               FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG);
               void CEC_ClearFlag(uint16_t CEC_FLAG);
 
     [..] 在中断模式下，CEC可通过以下中断源进行管理:
-           (+)CEC_IT_TXACKE : 表示一个TX缺失确认。
-           (+) CEC_IT_TXACKE : 表示在传输模式下的确认丢失。
-           (+) CEC_IT_TXERR : 表示在传输模式中发生错误。
-                               启动器检测到CEC线路的低阻抗。
-           (+) CEC_IT_TXUDR : 表示在传输模式下发生了欠载错误。
-                               当软件还没有将任何数值加载到TXDR寄存器时，传输被启用。
-                               启用时，软件尚未将任何数值加载到TXDR寄存器中。
-           (+) CEC_IT_TXEND : 表示传输成功结束。
-           (+) CEC_IT_TXBR : 指示下一个传输数据必须写入TXDR寄存器。
-           (+) CEC_IT_ARBLST : 在两个CEC设备同时启动的情况下表示仲裁失败。
-           (+) CEC_IT_ARBLST : 在两个CEC设备同时启动的情况下，表示仲裁失败。
-           (+) CEC_IT_RXACKE : 表示在接收模式下的确认丢失。
-           (+) CEC_IT_LBPE : 指示在接收模式下产生的长比特周期错误。
-           (+) CEC_IT_SBPE : 指示在接收模式下产生的短比特周期错误。
-           (+) CEC_IT_BRE : 表示在接收模式下产生的一个位上升错误。
-           (+) CEC_IT_RXOVR : 指示在接收CEC信息时是否发生超限错误。
-                               在RXDR寄存器中存储一个新的字节时，尚未收到一个字节。
-           (+) CEC_IT_RXEND : 表示接收结束。
-           (+) CEC_IT_RXBR : 表示已经从CEC线路接收到一个新的字节，并存储到RXDR缓冲器。
+           (+)CEC_IT_TXACKE :   表示一个TX缺失确认。
+           (+) CEC_IT_TXACKE :  表示在传输模式下的确认丢失。
+           (+) CEC_IT_TXERR :   表示在传输模式中发生错误。
+                                启动器检测到CEC线路的低阻抗。
+           (+) CEC_IT_TXUDR :   表示在传输模式下发生了欠载错误。
+                                当软件还没有将任何数值加载到TXDR寄存器时，传输被启用。
+                                启用时，软件尚未将任何数值加载到TXDR寄存器中。
+           (+) CEC_IT_TXEND :   表示传输成功结束。
+           (+) CEC_IT_TXBR :    指示下一个传输数据必须写入TXDR寄存器。
+           (+) CEC_IT_ARBLST :  在两个CEC设备同时启动的情况下表示仲裁失败。
+           (+) CEC_IT_ARBLST :  在两个CEC设备同时启动的情况下，表示仲裁失败。
+           (+) CEC_IT_RXACKE :  表示在接收模式下的确认丢失。
+           (+) CEC_IT_LBPE :    指示在接收模式下产生的长比特周期错误。
+           (+) CEC_IT_SBPE :    指示在接收模式下产生的短比特周期错误。
+           (+) CEC_IT_BRE :     表示在接收模式下产生的一个位上升错误。
+           (+) CEC_IT_RXOVR :   指示在接收CEC信息时是否发生超限错误。
+                                在RXDR寄存器中存储一个新的字节时，尚未收到一个字节。
+           (+) CEC_IT_RXEND :   表示接收结束。
+           (+) CEC_IT_RXBR :    表示已经从CEC线路接收到一个新的字节，并存储到RXDR缓冲器。
     [..]
            (@)在这种模式下，建议使用以下函数:
               void CEC_ITConfig( uint16_t CEC_IT, FunctionalState NewState);
@@ -417,22 +417,22 @@ void CEC_EndOfMessage(void) {
   * 
   * 参数:  CEC_IT: 指定要启用的CEC中断源。
   *          此参数可以是以下值的任意组合:
-  *            @arg CEC_IT_TXACKE: Tx缺失确认错误。
-  *            @arg CEC_IT_TXERR: Tx错误。
-  *            @arg CEC_IT_TXUDR: Tx缓冲区不足。
-  *            @arg CEC_IT_TXEND: 传输结束(成功传输最后一个字节)。
-  *            @arg CEC_IT_TXBR: Tx字节请求。
-  *            @arg CEC_IT_ARBLST: 仲裁丢失.
-  *            @arg CEC_IT_RXACKE: Rx缺少确认.
-  *            @arg CEC_IT_LBPE: Rx长周期错误.
-  *            @arg CEC_IT_SBPE: Rx短周期错误
-  *            @arg CEC_IT_BRE: Rx位上升错误
-  *            @arg CEC_IT_RXOVR: Rx超限。
-  *            @arg CEC_IT_RXEND: 接收结束
-  *            @arg CEC_IT_RXBR: 接收的Rx字节
+  *            @arg CEC_IT_TXACKE:  Tx缺失确认错误。
+  *            @arg CEC_IT_TXERR:   Tx错误。
+  *            @arg CEC_IT_TXUDR:   Tx缓冲区不足。
+  *            @arg CEC_IT_TXEND:   传输结束(成功传输最后一个字节)。
+  *            @arg CEC_IT_TXBR:    Tx字节请求。
+  *            @arg CEC_IT_ARBLST:  仲裁丢失.
+  *            @arg CEC_IT_RXACKE:  Rx缺少确认.
+  *            @arg CEC_IT_LBPE:    Rx长周期错误.
+  *            @arg CEC_IT_SBPE:    Rx短周期错误
+  *            @arg CEC_IT_BRE:     Rx位上升错误
+  *            @arg CEC_IT_RXOVR:   Rx超限。
+  *            @arg CEC_IT_RXEND:   接收结束
+  *            @arg CEC_IT_RXBR:    接收的Rx字节
   * 
-  * 参数:  NewState:选定的CEC中断的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 选定的CEC中断的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -523,18 +523,18 @@ void CEC_ClearFlag(uint32_t CEC_FLAG) {
   * 参数:  CEC_IT: 指定要检查的CEC中断源。
   *          此参数可以是以下值之一:
   *            @arg CEC_IT_TXACKE: Tx缺失确认错误。
-  *            @arg CEC_IT_TXERR: Tx错误。
-  *            @arg CEC_IT_TXUDR: Tx缓冲区不足。
-  *            @arg CEC_IT_TXEND: 传输结束(成功传输最后一个字节)。
-  *            @arg CEC_IT_TXBR: Tx字节请求。
+  *            @arg CEC_IT_TXERR:  Tx错误。
+  *            @arg CEC_IT_TXUDR:  Tx缓冲区不足。
+  *            @arg CEC_IT_TXEND:  传输结束(成功传输最后一个字节)。
+  *            @arg CEC_IT_TXBR:   Tx字节请求。
   *            @arg CEC_IT_ARBLST: 仲裁丢失..
   *            @arg CEC_IT_RXACKE: Rx缺少确认..
-  *            @arg CEC_IT_LBPE: Rx长周期错误..
-  *            @arg CEC_IT_SBPE: Rx短周期错误.
-  *            @arg CEC_IT_BRE: Rx位上升错误.
-  *            @arg CEC_IT_RXOVR: Rx超限。
-  *            @arg CEC_IT_RXEND: 接收结束.
-  *            @arg CEC_IT_RXBR: 接收的Rx字节
+  *            @arg CEC_IT_LBPE:   Rx长周期错误..
+  *            @arg CEC_IT_SBPE:   Rx短周期错误.
+  *            @arg CEC_IT_BRE:    Rx位上升错误.
+  *            @arg CEC_IT_RXOVR:  Rx超限。
+  *            @arg CEC_IT_RXEND:  接收结束.
+  *            @arg CEC_IT_RXBR:   接收的Rx字节
   * 
   * 返回值: CEC_IT的新状态(SET或RESET)。
   */
@@ -567,18 +567,18 @@ ITStatus CEC_GetITStatus(uint16_t CEC_IT) {
   * 参数:  CEC_IT: 指定要清除的CEC中断挂起位。
   *          此参数可以是以下值的任意组合:
   *            @arg CEC_IT_TXACKE: Tx缺失确认错误。
-  *            @arg CEC_IT_TXERR: Tx 错误
-  *            @arg CEC_IT_TXUDR: Tx缓冲区不足。
-  *            @arg CEC_IT_TXEND: 传输结束
-  *            @arg CEC_IT_TXBR: Tx字节请求
+  *            @arg CEC_IT_TXERR:  Tx 错误
+  *            @arg CEC_IT_TXUDR:  Tx缓冲区不足。
+  *            @arg CEC_IT_TXEND:  传输结束
+  *            @arg CEC_IT_TXBR:   Tx字节请求
   *            @arg CEC_IT_ARBLST: 仲裁丢失.
   *            @arg CEC_IT_RXACKE: Rx缺少确认.
-  *            @arg CEC_IT_LBPE: Rx长周期错误.
-  *            @arg CEC_IT_SBPE: Rx短周期错误
-  *            @arg CEC_IT_BRE: Rx位上升错误
-  *            @arg CEC_IT_RXOVR: Rx超限
-  *            @arg CEC_IT_RXEND: 接收结束
-  *            @arg CEC_IT_RXBR: 接收的Rx字节
+  *            @arg CEC_IT_LBPE:   Rx长周期错误.
+  *            @arg CEC_IT_SBPE:   Rx短周期错误
+  *            @arg CEC_IT_BRE:    Rx位上升错误
+  *            @arg CEC_IT_RXOVR:  Rx超限
+  *            @arg CEC_IT_RXEND:  接收结束
+  *            @arg CEC_IT_RXBR:   接收的Rx字节
   * 
   * 返回值: 无
   */

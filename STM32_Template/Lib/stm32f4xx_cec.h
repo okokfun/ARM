@@ -52,19 +52,24 @@ extern "C" {
 typedef struct {
     uint32_t CEC_SignalFreeTime;     /*!< 指定 CEC 信号空闲时间配置。
 								   该参数可以是@ref CEC_Signal_Free_Time 的值 */
+
     uint32_t CEC_RxTolerance;        /*!< 指定 CEC 接收容差。
 								   此参数可以是 @ref CEC_RxTolerance 的值 */
+
     uint32_t CEC_StopReception;      /*!< 指定 CEC 停止接收。
 								   该参数可以是@ref CEC_Stop_Reception 的值 */
+
     uint32_t CEC_BitRisingError;     /*!< 指定 CEC 位上升错误生成。
 								   该参数可以是@ref CEC_Bit_Rising_Error_Generation 的值 */
+
     uint32_t CEC_LongBitPeriodError; /*!< 指定 CEC 长位错误生成。
 								   该参数可以是@ref CEC_Long_Bit_Error_Generation 的值 */
+
     uint32_t CEC_BRDNoGen;           /*!< 指定 CEC 广播错误生成。
 								   该参数可以是@ref CEC_BDR_No_Gen 的值 */
+
     uint32_t CEC_SFTOption;          /*!< 指定 CEC 信号空闲时间选项。
 								   该参数可以是@ref CEC_SFT_Option 的值 */
-
 } CEC_InitTypeDef;
 
 /* Exported constants --------------------------------------------------------*/

@@ -320,17 +320,17 @@ FlagStatus SYSCFG_GetCompensationCellStatus(void); // 检查是否设置了 I/O 
 void    SYSCFG_BreakConfig(uint32_t SYSCFG_Break); // 将所选参数连接到 TIM1 的中断输入。
 #endif /* STM32F410xx || STM32F412xG || STM32F413_423xx */
 #if defined(STM32F413_423xx)
-void DFSDM_BitstreamClock_SourceSelection(uint32_t source); // 选择 DFSDM2 或 TIM2_OC1 作为比特流时钟的时钟源。
-void DFSDM_DisableDelayClock(uint32_t MCHDLY); 	// 禁用 DFSDM1/2 的延迟时钟。
-void DFSDM_EnableDelayClock(uint32_t MCHDLY); 	// 启用 DFSDM1/2 的延迟时钟。
-void DFSDM_ClockIn_SourceSelection(uint32_t source); 	// 选择 DFSDM1/2 的 CKin 信号源。
-void DFSDM_ClockOut_SourceSelection(uint32_t source); 	// 为 DFSDM1/2 选择 CKOut 信号源。
-void DFSDM_DataIn0_SourceSelection(uint32_t source); 	// 选择 DFSDM1/2 的 DataIn0 信号源。
-void DFSDM_DataIn2_SourceSelection(uint32_t source); 	// 为 DFSDM1/2 选择 DataIn2 信号源。
-void DFSDM_DataIn4_SourceSelection(uint32_t source); 	// 为 DFSDM2 选择 DataIn4 信号源。
-void DFSDM_DataIn6_SourceSelection(uint32_t source); 	// 为 DFSDM2 选择 DataIn6 信号源。
-void DFSDM1_BitStreamClk_Config(uint32_t source); 		// 配置从 TIM4 门控的比特流时钟的分布。
-void DFSDM2_BitStreamClk_Config(uint32_t source); 		// 配置从 TIM3 门控的比特流时钟的分布。
+void    DFSDM_BitstreamClock_SourceSelection(uint32_t source); // 选择 DFSDM2 或 TIM2_OC1 作为比特流时钟的时钟源。
+void    DFSDM_DisableDelayClock(uint32_t MCHDLY); 	// 禁用 DFSDM1/2 的延迟时钟。
+void    DFSDM_EnableDelayClock(uint32_t MCHDLY); 	// 启用 DFSDM1/2 的延迟时钟。
+void    DFSDM_ClockIn_SourceSelection(uint32_t source); 	// 选择 DFSDM1/2 的 CKin 信号源。
+void    DFSDM_ClockOut_SourceSelection(uint32_t source); 	// 为 DFSDM1/2 选择 CKOut 信号源。
+void    DFSDM_DataIn0_SourceSelection(uint32_t source); 	// 选择 DFSDM1/2 的 DataIn0 信号源。
+void    DFSDM_DataIn2_SourceSelection(uint32_t source); 	// 为 DFSDM1/2 选择 DataIn2 信号源。
+void    DFSDM_DataIn4_SourceSelection(uint32_t source); 	// 为 DFSDM2 选择 DataIn4 信号源。
+void    DFSDM_DataIn6_SourceSelection(uint32_t source); 	// 为 DFSDM2 选择 DataIn6 信号源。
+void    DFSDM1_BitStreamClk_Config(uint32_t source); 		// 配置从 TIM4 门控的比特流时钟的分布。
+void    DFSDM2_BitStreamClk_Config(uint32_t source); 		// 配置从 TIM3 门控的比特流时钟的分布。
 #endif /* STM32F413_423xx */
 #ifdef __cplusplus
 }

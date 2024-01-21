@@ -60,13 +60,13 @@ extern "C"
  */
 typedef struct {
     uint8_t u8State;            /*!< The new state of the XTAL.
-                                     This parameter can be a value of @ref CLK_XTAL_Config   */
+                                     这个参数是其中之一 @ref CLK_XTAL_Config   */
     uint8_t u8Drv;              /*!< The XTAL drive ability.
-                                     This parameter can be a value of @ref CLK_XTAL_Config   */
+                                     这个参数是其中之一 @ref CLK_XTAL_Config   */
     uint8_t u8Mode;             /*!< The XTAL mode selection osc or exclk.
-                                     This parameter can be a value of @ref CLK_XTAL_Config   */
+                                     这个参数是其中之一 @ref CLK_XTAL_Config   */
     uint8_t u8StableTime;       /*!< The XTAL stable time selection.
-                                     This parameter can be a value of @ref CLK_XTAL_Config   */
+                                     这个参数是其中之一 @ref CLK_XTAL_Config   */
 } stc_clock_xtal_init_t;
 
 /**
@@ -74,13 +74,13 @@ typedef struct {
  */
 typedef struct {
     uint8_t u8State;            /*!< Specifies the new state of XTALSTD.
-                                     This parameter can be a value of @ref CLK_XTALSTD_Config    */
+                                     这个参数是其中之一 @ref CLK_XTALSTD_Config    */
     uint8_t u8Mode;             /*!< Specifies the XTALSTD mode.
-                                     This parameter can be a value of @ref CLK_XTALSTD_Config    */
+                                     这个参数是其中之一 @ref CLK_XTALSTD_Config    */
     uint8_t u8Int;              /*!< Specifies the XTALSTD interrupt on or off.
-                                     This parameter can be a value of @ref CLK_XTALSTD_Config    */
+                                     这个参数是其中之一 @ref CLK_XTALSTD_Config    */
     uint8_t u8Reset;            /*!< Specifies the XTALSTD reset on or off.
-                                     This parameter can be a value of @ref CLK_XTALSTD_Config    */
+                                     这个参数是其中之一 @ref CLK_XTALSTD_Config    */
 } stc_clock_xtalstd_init_t;
 
 /**

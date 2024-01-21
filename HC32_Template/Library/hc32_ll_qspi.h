@@ -61,23 +61,23 @@ extern "C"
  */
 typedef struct {
     uint32_t u32ClockDiv;               /*!< Specifies the clock division.
-                                             This parameter can be a value of @ref QSPI_Clock_Division */
+                                             这个参数是其中之一 @ref QSPI_Clock_Division */
     uint32_t u32SpiMode;                /*!< Specifies the SPI mode.
-                                             This parameter can be a value of @ref QSPI_SPI_Mode */
+                                             这个参数是其中之一 @ref QSPI_SPI_Mode */
     uint32_t u32PrefetchMode;           /*!< Specifies the prefetch mode.
-                                             This parameter can be a value of @ref QSPI_Prefetch_Mode */
+                                             这个参数是其中之一 @ref QSPI_Prefetch_Mode */
     uint32_t u32ReadMode;               /*!< Specifies the read mode.
-                                             This parameter can be a value of @ref QSPI_Read_Mode */
+                                             这个参数是其中之一 @ref QSPI_Read_Mode */
     uint32_t u32DummyCycle;             /*!< Specifies the number of dummy cycles.
-                                             This parameter can be a value of @ref QSPI_Dummy_Cycle */
+                                             这个参数是其中之一 @ref QSPI_Dummy_Cycle */
     uint32_t u32AddrWidth;              /*!< Specifies the address width.
-                                             This parameter can be a value of @ref QSPI_Addr_Width */
+                                             这个参数是其中之一 @ref QSPI_Addr_Width */
     uint32_t u32SetupTime;              /*!< Specifies the advance time of QSSN setup.
-                                             This parameter can be a value of @ref QSPI_QSSN_Setup_Time */
+                                             这个参数是其中之一 @ref QSPI_QSSN_Setup_Time */
     uint32_t u32ReleaseTime;            /*!< Specifies the delay time of QSSN release.
-                                             This parameter can be a value of @ref QSPI_QSSN_Release_Time */
+                                             这个参数是其中之一 @ref QSPI_QSSN_Release_Time */
     uint32_t u32IntervalTime;           /*!< Specifies the minimum interval time of QSSN.
-                                             This parameter can be a value of @ref QSPI_QSSN_Interval_Time */
+                                             这个参数是其中之一 @ref QSPI_QSSN_Interval_Time */
 } stc_qspi_init_t;
 
 /**
@@ -85,13 +85,13 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32InstrProtocol;          /*!< Specifies the instruction stage protocol.
-                                             This parameter can be a value of @ref QSPI_Instruction_Protocol */
+                                             这个参数是其中之一 @ref QSPI_Instruction_Protocol */
     uint32_t u32AddrProtocol;           /*!< Specifies the address stage protocol.
-                                             This parameter can be a value of @ref QSPI_Addr_Protocol */
+                                             这个参数是其中之一 @ref QSPI_Addr_Protocol */
     uint32_t u32DataProtocol;           /*!< Specifies the data stage protocol.
-                                             This parameter can be a value of @ref QSPI_Data_Protocol */
+                                             这个参数是其中之一 @ref QSPI_Data_Protocol */
     uint8_t  u8InstrCode;               /*!< Specifies the instruction code in custom read mode.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFF */
 } stc_qspi_custom_mode_t;
 
 /**

@@ -29,10 +29,10 @@
  ===============================================================================
 
  [..] 为了将I/O引脚用作外部中断源，请执行以下步骤:
-   (#) 使用GPIO_Init()在输入模式下配置I/O
-   (#) 使用SYSCFG_EXTILineConfig()为EXTI线选择输入源引脚
-   (#) 使用EXTI_Init()选择模式(中断、事件)并配置触发器选择(上升、下降或两者)
-   (#) 使用NVIC_Init()配置映射到EXTI行的NVIC IRQ通道
+   (#) 使用 GPIO_Init() 在输入模式下配置I/O
+   (#) 使用 SYSCFG_EXTILineConfig() 为EXTI线选择输入源引脚
+   (#) 使用 EXTI_Init() 选择模式(中断、事件)并配置触发器选择(上升、下降或两者)
+   (#) 使用 NVIC_Init() 配置映射到 EXTI 行的 NVIC IRQ 通道
 
  [..]
    (@) 必须启用SYSCFG APB时钟，才能使用RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)

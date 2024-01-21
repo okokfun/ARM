@@ -101,14 +101,14 @@
 /**
  * @brief  Set DAC data source for specified channel
  * @param  [in] DACx       Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] u16Ch      Specify the DAC channel @ref DAC_CH.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg DAC_CH1
  *         @arg DAC_CH2
  * @param  [in] u16Src     Specify the data source.
- *         This parameter can be a value of @ref DAC_DATA_SRC
+ *         这个参数是其中之一 @ref DAC_DATA_SRC
  *         - DAC_DATA_SRC_DATAREG:   convert source is from data register
  *         - DAC_DATA_SRC_DCU:       convert source is from DCU
  * @retval 无
@@ -124,10 +124,10 @@ void DAC_SetDataSrc(CM_DAC_TypeDef *DACx, uint16_t u16Ch, uint16_t u16Src) {
 /**
  * @brief  DAC data register's data alignment pattern configuration
  * @param  [in] DACx       Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] u16Align   Specify the data alignment.
- *         This parameter can be a value of @ref DAC_DATAREG_ALIGN_PATTERN
+ *         这个参数是其中之一 @ref DAC_DATAREG_ALIGN_PATTERN
  *         - DAC_DATA_ALIGN_LEFT:  left alignment
  *         - DAC_DATA_ALIGN_RIGHT:  right alignment
  * @retval 无
@@ -142,10 +142,10 @@ void DAC_DataRegAlignConfig(CM_DAC_TypeDef *DACx, uint16_t u16Align) {
 /**
  * @brief  DAC output function command
  * @param  [in] DACx   Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] u16Ch      Specify DAC channel @ref DAC_CH.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg DAC_CH1
  *         @arg DAC_CH2
  * @param  [in] enNewState           An @ref en_functional_state_t enumeration value.
@@ -170,10 +170,10 @@ void DAC_OutputCmd(CM_DAC_TypeDef *DACx, uint16_t u16Ch, en_functional_state_t e
 /**
  * @brief  DAC AMP function command
  * @param  [in] DACx   Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] u16Ch      Specify DAC channel @ref DAC_CH.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg DAC_CH1
  *         @arg DAC_CH2
  * @param  [in] enNewState           An @ref en_functional_state_t enumeration value.
@@ -198,7 +198,7 @@ void DAC_AMPCmd(CM_DAC_TypeDef *DACx, uint16_t u16Ch, en_functional_state_t enNe
 /**
  * @brief  DAC ADC priority function command
  * @param  [in] DACx   Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] enNewState           An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -219,7 +219,7 @@ void DAC_ADCPrioCmd(CM_DAC_TypeDef *DACx, en_functional_state_t enNewState) {
 /**
  * @brief  Enable or Disable the ADC priority for the selected ADCx
  * @param  [in] DACx   Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] u16ADCxPrio  ADCx priority to be enabled or disabled.
  *         This parameter can be one or any combination of the following values:
@@ -245,10 +245,10 @@ void DAC_ADCPrioConfig(CM_DAC_TypeDef *DACx, uint16_t u16ADCxPrio, en_functional
 /**
  * @brief  Start the specified DAC channel
  * @param  [in] DACx   Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] u16Ch  Specify DAC channel @ref DAC_CH.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg DAC_CH1
  *         @arg DAC_CH2
  * @retval int32_t:
@@ -277,10 +277,10 @@ int32_t DAC_Start(CM_DAC_TypeDef *DACx, uint16_t u16Ch) {
 /**
  * @brief  Stop the specified DAC channel
  * @param  [in] DACx   Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] u16Ch  Specify DAC channel @ref DAC_CH.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg DAC_CH1
  *         @arg DAC_CH2
  * @retval int32_t:
@@ -309,7 +309,7 @@ int32_t DAC_Stop(CM_DAC_TypeDef *DACx, uint16_t u16Ch) {
 /**
  * @brief  Start DAC channel 1 and channel 2
  * @param  [in] DACx   Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @retval 无
  */
@@ -322,7 +322,7 @@ void DAC_StartDualCh(CM_DAC_TypeDef *DACx) {
 /**
  * @brief  Stop DAC channel 1 and channel 2
  * @param  [in] DACx   Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @retval 无
  */
@@ -335,10 +335,10 @@ void DAC_StopDualCh(CM_DAC_TypeDef *DACx) {
 /**
  * @brief  Set the specified data to the data holding register of specified DAC channel
  * @param  [in] DACx   Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] u16Ch  Specify DAC channel @ref DAC_CH.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg DAC_CH1
  *         @arg DAC_CH2
  * @param  [in] u16Data   Data to be loaded into data holding register of specified channel
@@ -363,7 +363,7 @@ void DAC_SetChData(CM_DAC_TypeDef *DACx, uint16_t u16Ch, uint16_t u16Data) {
 /**
  * @brief  Set the specified data to the data holding register of DAC channel 1 and channel 2
  * @param  [in] DACx   Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  u16Data1:    Data to be loaded into data holding register of channel 1
  * @param  u16Data2:    Data to be loaded into data holding register of channel 2
@@ -391,10 +391,10 @@ void DAC_SetDualChData(CM_DAC_TypeDef *DACx, uint16_t u16Data1, uint16_t u16Data
 /**
  * @brief  Get convert status of specified channel in ADC priority mode
  * @param  [in] DACx   Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] u16Ch  Specify DAC channel @ref DAC_CH.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg DAC_CH1
  *         @arg DAC_CH2
  * @retval int32_t:
@@ -443,10 +443,10 @@ int32_t DAC_StructInit(stc_dac_init_t *pstcDacInit) {
  * @brief  Initialize the DAC peripheral 根据 the specified parameters
  *         in the stc_dac_init_t
  * @param  [in] DACx       Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @param  [in] u16Ch      Specify the DAC channel @ref DAC_CH.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg DAC_CH or DAC_CH_x
  * @param  [in] pstcDacInit   pointer to a stc_dac_init_t structure that contains
  *         the configuration information for the specified DAC channel.
@@ -474,7 +474,7 @@ int32_t DAC_Init(CM_DAC_TypeDef *DACx, uint16_t u16Ch, const stc_dac_init_t *pst
 /**
  * @brief  Deinitialize the DAC peripheral registers to their default reset values.
  * @param  [in] DACx       Pointer to the DAC peripheral register.
- *         This parameter can be a value of the following:
+ *         这个参数是其中之一 the following:
  *         @arg CM_DAC or CM_DACx
  * @retval 无
  */

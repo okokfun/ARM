@@ -174,10 +174,10 @@ void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct) {
    * 
    * 参数: NVIC_VectTab: 指定向量表是在 RAM 还是 FLASH 存储器中。
    * 此参数可以是以下值之一:
-   * 	@arg NVIC_VectTab_RAM:内部 SRAM 中的向量表。
-   * 	@arg NVIC_VectTab_FLASH:内部 FLASH 中的向量表。
+   * 	@arg NVIC_VectTab_RAM: 内部 SRAM 中的向量表。
+   * 	@arg NVIC_VectTab_FLASH: 内部 FLASH 中的向量表。
    * 
-   * 参数: Offset:向量表基本偏移字段。 
+   * 参数: Offset: 向量表基本偏移字段。 
    *       该值必须是 0x200 的倍数。
    * 
    * 返回值: 无
@@ -219,7 +219,7 @@ void NVIC_SystemLPConfig(uint8_t LowPowerMode, FunctionalState NewState) {
 /**
   * 简介: 配置 SysTick 时钟源。
   * 
-  * 参数:  sysTick_CLKSource:指定 SysTick 时钟源。
+  * 参数:  sysTick_CLKSource: 指定 SysTick 时钟源。
   *  此参数可以是以下值之一:
   * 	@arg SysTick_CLKSource_HCLK_Div8: AHB 时钟除以 8 被选为 SysTick 时钟源。
   * 	@arg SysTick_CLKSource_HCLK: 选择 AHB 时钟作为 SysTick 时钟源。

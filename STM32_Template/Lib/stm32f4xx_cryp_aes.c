@@ -90,8 +90,8 @@
   * 
   * 参数:  Mode: 加密或解密模式。
   *          此参数可以是以下值之一:
-  *            @arg MODE_ENCRYPT:加密
-  *            @arg MODE_DECRYPT:解密
+  *            @arg MODE_ENCRYPT: 加密
+  *            @arg MODE_DECRYPT: 解密
   * 
   * 参数:  Key: 用于AES算法的密钥。
   * 
@@ -1085,8 +1085,8 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
   * 
   * 参数:  Mode: 加密或解密模式。
   *          此参数可以是以下值之一:
-  *            @arg MODE_ENCRYPT:加密
-  *            @arg MODE_DECRYPT:解密
+  *            @arg MODE_ENCRYPT: 加密
+  *            @arg MODE_DECRYPT: 解密
   * 
   * 参数:  Nonce: 用于 AES 算法的 nonce。它对每一次处理都应是唯一的。
   * 

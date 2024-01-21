@@ -347,7 +347,7 @@
  *         This parameter can be one of the following values:
  *           @arg CM_USARTx:            USART unit instance register base
  * @param  [in] u32Flag                 USART flag
- *         This parameter can be a value of @ref USART_Flag
+ *         这个参数是其中之一 @ref USART_Flag
  * @param  [in] enStatus                Expected status
  *         This parameter can be one of the following values:
  *           @arg  SET:                 Wait flag set

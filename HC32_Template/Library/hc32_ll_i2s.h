@@ -61,25 +61,25 @@ extern "C"
  */
 typedef struct {
     uint32_t u32ClockSrc;               /*!< Specifies the clock source of I2S.
-                                             This parameter can be a value of @ref I2S_Clock_Source */
+                                             这个参数是其中之一 @ref I2S_Clock_Source */
     uint32_t u32Mode;                   /*!< Specifies the master/slave mode of I2S.
-                                             This parameter can be a value of @ref I2S_Mode */
+                                             这个参数是其中之一 @ref I2S_Mode */
     uint32_t u32Protocol;               /*!< Specifies the communication protocol of I2S.
-                                             This parameter can be a value of @ref I2S_Protocol */
+                                             这个参数是其中之一 @ref I2S_Protocol */
     uint32_t u32TransMode;              /*!< Specifies the transmission mode for the I2S communication.
-                                             This parameter can be a value of @ref I2S_Trans_Mode */
+                                             这个参数是其中之一 @ref I2S_Trans_Mode */
     uint32_t u32AudioFreq;              /*!< Specifies the frequency selected for the I2S communication.
-                                             This parameter can be a value of @ref I2S_Audio_Frequency */
+                                             这个参数是其中之一 @ref I2S_Audio_Frequency */
     uint32_t u32ChWidth;                /*!< Specifies the channel length for the I2S communication.
-                                             This parameter can be a value of @ref I2S_Channel_Length */
+                                             这个参数是其中之一 @ref I2S_Channel_Length */
     uint32_t u32DataWidth;              /*!< Specifies the data length for the I2S communication.
-                                             This parameter can be a value of @ref I2S_Data_Length */
+                                             这个参数是其中之一 @ref I2S_Data_Length */
     uint32_t u32MCKOutput;              /*!< Specifies the validity of the MCK output for I2S.
-                                             This parameter can be a value of @ref I2S_MCK_Output */
+                                             这个参数是其中之一 @ref I2S_MCK_Output */
     uint32_t u32TransFIFOLevel;         /*!< Specifies the level of transfer FIFO.
-                                             This parameter can be a value of @ref I2S_Trans_Level */
+                                             这个参数是其中之一 @ref I2S_Trans_Level */
     uint32_t u32ReceiveFIFOLevel;       /*!< Specifies the level of receive FIFO.
-                                             This parameter can be a value of @ref I2S_Receive_Level */
+                                             这个参数是其中之一 @ref I2S_Receive_Level */
 } stc_i2s_init_t;
 
 /**

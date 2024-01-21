@@ -96,13 +96,13 @@
 
 /**
  * @brief  Initializes TRNG.
- * @param  [in] u32ShiftCount           TRNG shift control. This parameter can be a value of @ref TRNG_Shift_Ctrl
+ * @param  [in] u32ShiftCount           TRNG shift control. 这个参数是其中之一 @ref TRNG_Shift_Ctrl
  *   @arg  TRNG_SHIFT_CNT32:            Shift 32 times when capturing random noise.
  *   @arg  TRNG_SHIFT_CNT64:            Shift 64 times when capturing random noise.
  *   @arg  TRNG_SHIFT_CNT128:           Shift 128 times when capturing random noise.
  *   @arg  TRNG_SHIFT_CNT256:           Shift 256 times when capturing random noise.
  * @param  [in] u32ReloadInitValueEn    Enable or disable load new initial value.
- *                                      This parameter can be a value of @ref TRNG_Reload_Init_Value
+ *                                      这个参数是其中之一 @ref TRNG_Reload_Init_Value
  *   @arg  TRNG_RELOAD_INIT_VAL_ENABLE:  Enable load new initial value.
  *   @arg  TRNG_RELOAD_INIT_VAL_DISABLE: Disable load new initial value.
  * @retval 无

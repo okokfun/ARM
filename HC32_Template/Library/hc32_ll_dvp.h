@@ -61,19 +61,19 @@ extern "C"
  */
 typedef struct {
     uint32_t u32SyncMode;           /*!< The DVP sync mode.
-                                         This parameter can be a value of @ref DVP_Sync_Mode. */
+                                         这个参数是其中之一 @ref DVP_Sync_Mode. */
     uint32_t u32DataWidth;          /*!< The DVP data interface width.
-                                         This parameter can be a value of @ref DVP_Data_Width. */
+                                         这个参数是其中之一 @ref DVP_Data_Width. */
     uint32_t u32CaptureMode;        /*!< The DVP capture mode.
-                                         This parameter can be a value of @ref DVP_Capture_Mode. */
+                                         这个参数是其中之一 @ref DVP_Capture_Mode. */
     uint32_t u32CaptureFreq;        /*!< The DVP capture frequency.
-                                         This parameter can be a value of @ref DVP_Capture_Frequency. */
+                                         这个参数是其中之一 @ref DVP_Capture_Frequency. */
     uint32_t u32PIXCLKPolarity;     /*!< The DVP_PIXCLK Polarity.
-                                         This parameter can be a value of @ref DVP_PIXCLK_Polarity. */
+                                         这个参数是其中之一 @ref DVP_PIXCLK_Polarity. */
     uint32_t u32HSYNCPolarity;      /*!< The DVP_HSYNC Polarity.
-                                         This parameter can be a value of @ref DVP_HSYNC_Polarity. */
+                                         这个参数是其中之一 @ref DVP_HSYNC_Polarity. */
     uint32_t u32VSYNCPolarity;      /*!< The DVP_VSYNC Polarity.
-                                         This parameter can be a value of @ref DVP_VSYNC_Polarity. */
+                                         这个参数是其中之一 @ref DVP_VSYNC_Polarity. */
 } stc_dvp_init_t;
 
 /**
@@ -81,13 +81,13 @@ typedef struct {
  */
 typedef struct {
     uint16_t u16RowStartLine;       /*!< The DVP window row start line.
-                                         This parameter can be a value between 0x00 and 0x3FFF */
+                                         这个参数是其中间 0x00 and 0x3FFF */
     uint16_t u16ColoumStartLine;    /*!< The DVP window coloum start line.
-                                         This parameter can be a value between 0x00 and 0x3FFF */
+                                         这个参数是其中间 0x00 and 0x3FFF */
     uint16_t u16RowLineSize;        /*!< The DVP window row line size.
-                                         This parameter can be a value between 0x04 and 0x3FFF */
+                                         这个参数是其中间 0x04 and 0x3FFF */
     uint16_t u16ColoumLineSize;     /*!< The DVP window coloum line size.
-                                         This parameter can be a value between 0x00 and 0x3FFF */
+                                         这个参数是其中间 0x00 and 0x3FFF */
 } stc_dvp_crop_window_config_t;
 
 /**
@@ -95,13 +95,13 @@ typedef struct {
  */
 typedef struct {
     uint8_t u8FrameStartSyncCode;   /*!< The sync code of the frame start delimiter.
-                                         This parameter can be a value between 0x00 and 0xFF */
+                                         这个参数是其中间 0x00 and 0xFF */
     uint8_t u8LineStartSyncCode;    /*!< The sync code of the line start delimiter.
-                                         This parameter can be a value between 0x00 and 0xFF */
+                                         这个参数是其中间 0x00 and 0xFF */
     uint8_t u8LineEndSyncCode;      /*!< The sync code of the line end delimiter.
-                                         This parameter can be a value between 0x00 and 0xFF */
+                                         这个参数是其中间 0x00 and 0xFF */
     uint8_t u8FrameEndSyncCode;     /*!< The sync code of the frame end delimiter.
-                                         This parameter can be a value between 0x00 and 0xFF */
+                                         这个参数是其中间 0x00 and 0xFF */
 } stc_dvp_sw_sync_code_t;
 
 /**
@@ -109,13 +109,13 @@ typedef struct {
  */
 typedef struct {
     uint8_t u8FrameStartMaskCode;   /*!< The mask code of the frame start delimiter.
-                                         This parameter can be a value between between 0x00 and 0xFF */
+                                         这个参数是其中间 between 0x00 and 0xFF */
     uint8_t u8LineStartMaskCode;    /*!< The mask code of the line start delimiter.
-                                         This parameter can be a value between between 0x00 and 0xFF */
+                                         这个参数是其中间 between 0x00 and 0xFF */
     uint8_t u8LineEndMaskCode;      /*!< The mask code of the line end delimiter.
-                                         This parameter can be a value between between 0x00 and 0xFF */
+                                         这个参数是其中间 between 0x00 and 0xFF */
     uint8_t u8FrameEndMaskCode;     /*!< The mask code of the frame end delimiter.
-                                         This parameter can be a value between between 0x00 and 0xFF */
+                                         这个参数是其中间 between 0x00 and 0xFF */
 } stc_dvp_sw_mask_code_t;
 
 /**

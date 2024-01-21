@@ -127,7 +127,6 @@ typedef struct {
                                            该参数仅通过 FMC_BCR1 寄存器启用，与 FMC_BCR2..4 寄存器无关。
                                            该参数可以是@ref FMC_Continous_Clock 的值 */
 
-
     FMC_NORSRAMTimingInitTypeDef* FMC_ReadWriteTimingStruct; /*!< 如果不使用扩展模式，则用于写入和读取访问的时序参数*/
 
     FMC_NORSRAMTimingInitTypeDef* FMC_WriteTimingStruct;     /*!< 使用扩展模式时写访问的时序参数*/
@@ -138,19 +137,19 @@ typedef struct {
   */
 typedef struct {
     uint32_t FMC_SetupTime;      /*!< 定义在命令断言之前设置地址的 HCLK 周期数，
-									以便对公共/属性或 I/O 内存空间进行 NAND 闪存读取或写入访问(取决于要配置的内存空间时序)。
+									                  以便对公共/属性或 I/O 内存空间进行 NAND 闪存读取或写入访问(取决于要配置的内存空间时序)。
                                     此参数可以是 0 到 255 之间的值。*/
 
     uint32_t FMC_WaitSetupTime;  /*!< 定义最小的 HCLK 周期数，以断言 NAND 闪存读取或写入访问公共/属性或 I/O 内存空间的命令(取决于要配置的内存空间时序)。
                                     此参数可以是 0 到 255 之间的数字 */
 
     uint32_t FMC_HoldSetupTime;  /*!< 定义 HCLK 时钟周期数以在命令取消断言后保持地址(和用于写访问的数据)，
-									以便对公共/属性或 I/O 存储空间进行 NAND
-									闪存读取或写入访问(取决于要存储的存储空间时序) 配置)。
+									                  以便对公共/属性或 I/O 存储空间进行 NAND
+									                  闪存读取或写入访问(取决于要存储的存储空间时序) 配置)。
                                     此参数可以是 0 到 255 之间的数字 */
 
     uint32_t FMC_HiZSetupTime;   /*!< 定义在对公共/属性或 I/O 存储器空间进行 NAND
-									闪存写入访问后数据总线保持在 HiZ 的 HCLK 时钟周期数(取决于要配置的存储器空间时序)。
+									                  闪存写入访问后数据总线保持在 HiZ 的 HCLK 时钟周期数(取决于要配置的存储器空间时序)。
                                     此参数可以是 0 到 255 之间的数字 */
 } FMC_NAND_PCCARDTimingInitTypeDef;
 
@@ -229,7 +228,6 @@ typedef struct {
 
     uint32_t FMC_RCDDelay;               /*!< 以内存时钟周期数定义激活命令和读/写命令之间的延迟。
                                              此参数可以是 1 到 16 之间的值。 */
-
 } FMC_SDRAMTimingInitTypeDef;
 
 /**
@@ -248,7 +246,6 @@ typedef struct {
                                             此参数可以是 1 到 16 之间的值。 */
 
     uint32_t FMC_ModeRegisterDefinition; /*!< 定义 SDRAM 模式寄存器内容 */
-
 } FMC_SDRAMCommandTypeDef;
 
 /**
@@ -286,7 +283,6 @@ typedef struct {
                                             此参数可以是@ref FMC_ReadPipe_Delay 的值。 */
 
     FMC_SDRAMTimingInitTypeDef* FMC_SDRAMTimingStruct;   /*!< 写入和读取访问的时序参数*/
-
 } FMC_SDRAMInitTypeDef;
 
 

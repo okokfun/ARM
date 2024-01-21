@@ -66,25 +66,25 @@ extern "C"
  */
 typedef struct {
     uint32_t u32ReadMode;       /*!< Defines the read sync enable.
-                                     This parameter can be a value of @ref EXMC_SMC_Memory_Read_Mode */
+                                     这个参数是其中之一 @ref EXMC_SMC_Memory_Read_Mode */
     uint32_t u32WriteMode;      /*!< Defines the write sync enable.
-                                     This parameter can be a value of @ref EXMC_SMC_Memory_Write_Mode */
+                                     这个参数是其中之一 @ref EXMC_SMC_Memory_Write_Mode */
     uint32_t u32ReadBurstLen;   /*!< Defines the number of read data access.
-                                     This parameter can be a value of @ref EXMC_SMC_Memory_Read_Burst_Length. */
+                                     这个参数是其中之一 @ref EXMC_SMC_Memory_Read_Burst_Length. */
     uint32_t u32WriteBurstLen;  /*!< Defines the number of write data access.
-                                     This parameter can be a value of @ref EXMC_SMC_Memory_Write_Burst_Length. */
+                                     这个参数是其中之一 @ref EXMC_SMC_Memory_Write_Burst_Length. */
     uint32_t u32MemoryWidth;    /*!< Defines the SMC memory width.
-                                     This parameter can be a value of @ref EXMC_SMC_Memory_Width. */
+                                     这个参数是其中之一 @ref EXMC_SMC_Memory_Width. */
     uint32_t u32BAA;            /*!< Defines the SMC BAA signal enable.
-                                     This parameter can be a value of @ref EXMC_SMC_BAA_Port_Selection. */
+                                     这个参数是其中之一 @ref EXMC_SMC_BAA_Port_Selection. */
     uint32_t u32ADV;            /*!< Defines the SMC ADVS signal enable.
-                                     This parameter can be a value of @ref EXMC_SMC_ADV_Port_Selection. */
+                                     这个参数是其中之一 @ref EXMC_SMC_ADV_Port_Selection. */
     uint32_t u32BLS;            /*!< Defines the SMC BLS signal selection.
-                                     This parameter can be a value of @ref EXMC_SMC_BLS_Synchronization_Selection. */
+                                     这个参数是其中之一 @ref EXMC_SMC_BLS_Synchronization_Selection. */
     uint32_t u32AddrMatch;      /*!< Defines the address match.
-                                     This parameter can be a value between Min_Data = 0x60 and Max_Data = 0x7F */
+                                     这个参数是其中间 Min_Data = 0x60 and Max_Data = 0x7F */
     uint32_t u32AddrMask;       /*!< Defines the address mask.
-                                     This parameter can be a value of @ref EXMC_SMC_Mask_Address. */
+                                     这个参数是其中之一 @ref EXMC_SMC_Mask_Address. */
 } stc_exmc_smc_chip_config_t;
 
 /**
@@ -92,17 +92,17 @@ typedef struct {
  */
 typedef struct {
     uint8_t u8RC;               /*!< Defines the RC in memory clock cycles.
-                                     This parameter can be a value between Min_Data = 0 and Max_Data = 0x0F */
+                                     这个参数是其中间 Min_Data = 0 and Max_Data = 0x0F */
     uint8_t u8WC;               /*!< Defines the WC in memory clock cycles.
-                                     This parameter can be a value between Min_Data = 0 and Max_Data = 0x0F */
+                                     这个参数是其中间 Min_Data = 0 and Max_Data = 0x0F */
     uint8_t u8CEOE;             /*!< Defines the CEOE in memory clock cycles.
-                                     This parameter can be a value between Min_Data = 0 and Max_Data = 7 */
+                                     这个参数是其中间 Min_Data = 0 and Max_Data = 7 */
     uint8_t u8WP;               /*!< Defines the WP in memory clock cycles.
-                                     This parameter can be a value between Min_Data = 0 and Max_Data = 7 */
+                                     这个参数是其中间 Min_Data = 0 and Max_Data = 7 */
     uint8_t u8PC;               /*!< Defines the PC in memory clock cycles.
-                                     This parameter can be a value between Min_Data = 0 and Max_Data = 7 */
+                                     这个参数是其中间 Min_Data = 0 and Max_Data = 7 */
     uint8_t u8TR;               /*!< Defines the TR in memory clock cycles.
-                                     This parameter can be a value between Min_Data = 0 and Max_Data = 7 */
+                                     这个参数是其中间 Min_Data = 0 and Max_Data = 7 */
 } stc_exmc_smc_timing_config_t;
 
 /**

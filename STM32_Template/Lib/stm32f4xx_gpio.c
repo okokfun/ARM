@@ -24,7 +24,7 @@
        (++) 输出:推拉(向上拉、向下拉或无拉)打开排水管(向上、向下拉或者无拉)。
 				  在输出模式下，速度可配置:2 MHz、25 MHz、50 MHz或100 MHz。
 
-       (++) Alternate Function: Push-Pull (Pull-up, Pull-down or no Pull) Open
+       (++) 复用功能: Push-Pull (Pull-up, Pull-down or no Pull) Open
             Drain (Pull-up, Pull-down or no Pull).
 
        (++) 模拟:引脚用作ADC通道或DAC输出时所需的模式。
@@ -470,11 +470,11 @@ void GPIO_Write(GPIO_TypeDef* GPIOx, uint16_t PortVal) {
 /**
   * 简介:  切换指定的GPIO引脚。
   * 
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
+  * 参数:  GPIOx: 其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
   *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
   *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
   * 
-  * 参数:  GPIO_Pin:指定要切换的管脚。
+  * 参数:  GPIO_Pin: 指定要切换的管脚。
   * 
   * 返回值: 无
   */
@@ -514,52 +514,52 @@ void GPIO_ToggleBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
   * 参数:  GPIO_AFS选择:选择要用作复用功能的管脚。(重置后默认)
   *          此参数可以是以下值之一:
   *            @arg GPIO_AF_RTC_50Hz : 将RTC_50Hz pin to AF0 (重置后默认)
-  *            @arg GPIO_AF_MCO : 将MCO pin (MCO1 and MCO2) to AF0 (重置后默认)
-  *            @arg GPIO_AF_TAMPER : 将TAMPER pins (TAMPER_1 and TAMPER_2) to AF0 (重置后默认)
-  *            @arg GPIO_AF_SWJ : 将SWJ引脚(SWD and JTAG)to AF0 (重置后默认)
-  *            @arg GPIO_AF_TRACE : 将TRACE引脚连接到AF0 (重置后默认)
-  *            @arg GPIO_AF_TIM1: 将TIM1引脚连接到AF1
-  *            @arg GPIO_AF_TIM2: 将TIM2引脚连接到AF1
-  *            @arg GPIO_AF_TIM3: 将TIM3引脚连接到AF2
-  *            @arg GPIO_AF_TIM4: 将TIM4引脚连接到AF2
-  *            @arg GPIO_AF_TIM5: 将TIM5引脚连接到AF2
-  *            @arg GPIO_AF_TIM8: 将TIM8引脚连接到AF3
-  *            @arg GPIO_AF_TIM9: 将TIM9引脚连接到AF3
-  *            @arg GPIO_AF_TIM10: 将TIM10引脚连接到AF3
-  *            @arg GPIO_AF_TIM11: 将TIM11引脚连接到AF3
-  *            @arg GPIO_AF_I2C1: 将I2C1引脚连接到AF4
-  *            @arg GPIO_AF_I2C2: 将I2C2引脚连接到AF4
-  *            @arg GPIO_AF_I2C3: 将I2C3引脚连接到AF4
-  *            @arg GPIO_AF_SPI1: 将SPI1引脚连接到AF5
-  *            @arg GPIO_AF_SPI2: 将SPI2/I2S2引脚连接到AF5
-  *            @arg GPIO_AF_SPI4: 将SPI4引脚连接到AF5
-  *            @arg GPIO_AF_SPI5: 将SPI5引脚连接到AF5
-  *            @arg GPIO_AF_SPI6: 将SPI6引脚连接到AF5
-  *            @arg GPIO_AF_SAI1: 将SAI1引脚连接到STM32F42xxx/43xxx设备的AF6。
-  *            @arg GPIO_AF_SPI3: 将SPI3/I2S3引脚连接到AF6
-  *            @arg GPIO_AF_I2S3ext : 将I2S3ext引脚连接到AF7
-  *            @arg GPIO_AF_USART1 : 将USART1引脚连接到AF7
-  *            @arg GPIO_AF_USART2 : 将USART2引脚连接到AF7
-  *            @arg GPIO_AF_USART3 : 将USART3引脚连接到AF7
-  *            @arg GPIO_AF_UART4 : 将UART4引脚连接到AF8
-  *            @arg GPIO_AF_UART5 : 将UART5引脚连接到AF8
-  *            @arg GPIO_AF_USART6 : 将USART6引脚连接到AF8
-  *            @arg GPIO_AF_UART7 : 将UART7引脚连接到AF8
-  *            @arg GPIO_AF_UART8 : 将UART8引脚连接到AF8
-  *            @arg GPIO_AF_CAN1 : 将CAN1引脚连接到AF9
-  *            @arg GPIO_AF_CAN2 : 将CAN2引脚连接到AF9
-  *            @arg GPIO_AF_TIM12 : 将TIM12引脚连接到AF9
-  *            @arg GPIO_AF_TIM13 : 将TIM13引脚连接到AF9
-  *            @arg GPIO_AF_TIM14 : 将TIM14引脚连接到AF9
-  *            @arg GPIO_AF_OTG_FS : 将OTG_FS引脚连接到AF10
-  *            @arg GPIO_AF_OTG_HS : 将OTG_HS引脚连接到AF10
-  *            @arg GPIO_AF_ETH : 将ETHERNET引脚连接到AF11
-  *            @arg GPIO_AF_FSMC : 将FSMC引脚连接到AF12
-  *            @arg GPIO_AF_FMC : 将FMC引脚连接到AF12 for STM32F42xxx/43xxx devices.
-  *            @arg GPIO_AF_OTG_HS_FS : 将OTG HS (configured in FS)引脚连接到AF12
-  *            @arg GPIO_AF_SDIO : 将SDIO引脚连接到AF12
-  *            @arg GPIO_AF_DCMI : 将DCMI引脚连接到AF13
-  *            @arg GPIO_AF_LTDC : 将LTDC引脚连接到AF14 for STM32F429xx/439xx devices.
+  *            @arg GPIO_AF_MCO :      将MCO pin (MCO1 and MCO2) to AF0 (重置后默认)
+  *            @arg GPIO_AF_TAMPER :   将TAMPER pins (TAMPER_1 and TAMPER_2) to AF0 (重置后默认)
+  *            @arg GPIO_AF_SWJ:      将SWJ引脚(SWD and JTAG)to AF0 (重置后默认)
+  *            @arg GPIO_AF_TRACE:    将TRACE引脚连接到AF0 (重置后默认)
+  *            @arg GPIO_AF_TIM1:      将TIM1引脚连接到AF1
+  *            @arg GPIO_AF_TIM2:      将TIM2引脚连接到AF1
+  *            @arg GPIO_AF_TIM3:      将TIM3引脚连接到AF2
+  *            @arg GPIO_AF_TIM4:      将TIM4引脚连接到AF2
+  *            @arg GPIO_AF_TIM5:      将TIM5引脚连接到AF2
+  *            @arg GPIO_AF_TIM8:      将TIM8引脚连接到AF3
+  *            @arg GPIO_AF_TIM9:      将TIM9引脚连接到AF3
+  *            @arg GPIO_AF_TIM10:     将TIM10引脚连接到AF3
+  *            @arg GPIO_AF_TIM11:     将TIM11引脚连接到AF3
+  *            @arg GPIO_AF_I2C1:      将I2C1引脚连接到AF4
+  *            @arg GPIO_AF_I2C2:      将I2C2引脚连接到AF4
+  *            @arg GPIO_AF_I2C3:      将I2C3引脚连接到AF4
+  *            @arg GPIO_AF_SPI1:      将SPI1引脚连接到AF5
+  *            @arg GPIO_AF_SPI2:      将SPI2/I2S2引脚连接到AF5
+  *            @arg GPIO_AF_SPI4:      将SPI4引脚连接到AF5
+  *            @arg GPIO_AF_SPI5:      将SPI5引脚连接到AF5
+  *            @arg GPIO_AF_SPI6:      将SPI6引脚连接到AF5
+  *            @arg GPIO_AF_SAI1:      将SAI1引脚连接到STM32F42xxx/43xxx设备的AF6。
+  *            @arg GPIO_AF_SPI3:      将SPI3/I2S3引脚连接到AF6
+  *            @arg GPIO_AF_I2S3ext :  将I2S3ext引脚连接到AF7
+  *            @arg GPIO_AF_USART1 :   将USART1引脚连接到AF7
+  *            @arg GPIO_AF_USART2 :   将USART2引脚连接到AF7
+  *            @arg GPIO_AF_USART3 :   将USART3引脚连接到AF7
+  *            @arg GPIO_AF_UART4 :    将UART4引脚连接到AF8
+  *            @arg GPIO_AF_UART5 :    将UART5引脚连接到AF8
+  *            @arg GPIO_AF_USART6 :   将USART6引脚连接到AF8
+  *            @arg GPIO_AF_UART7 :    将UART7引脚连接到AF8
+  *            @arg GPIO_AF_UART8 :    将UART8引脚连接到AF8
+  *            @arg GPIO_AF_CAN1 :     将CAN1引脚连接到AF9
+  *            @arg GPIO_AF_CAN2 :     将CAN2引脚连接到AF9
+  *            @arg GPIO_AF_TIM12 :    将TIM12引脚连接到AF9
+  *            @arg GPIO_AF_TIM13 :    将TIM13引脚连接到AF9
+  *            @arg GPIO_AF_TIM14 :    将TIM14引脚连接到AF9
+  *            @arg GPIO_AF_OTG_FS :   将OTG_FS引脚连接到AF10
+  *            @arg GPIO_AF_OTG_HS :   将OTG_HS引脚连接到AF10
+  *            @arg GPIO_AF_ETH :      将ETHERNET引脚连接到AF11
+  *            @arg GPIO_AF_FSMC :     将FSMC引脚连接到AF12
+  *            @arg GPIO_AF_FMC :      将FMC引脚连接到AF12 for STM32F42xxx/43xxx devices.
+  *            @arg GPIO_AF_OTG_HS_FS :将OTG HS (configured in FS)引脚连接到AF12
+  *            @arg GPIO_AF_SDIO :     将SDIO引脚连接到AF12
+  *            @arg GPIO_AF_DCMI :     将DCMI引脚连接到AF13
+  *            @arg GPIO_AF_LTDC :     将LTDC引脚连接到AF14 for STM32F429xx/439xx devices.
   *            @arg GPIO_AF_EVENTOUT : 将EVENTOUT引脚连接到AF15
   * 
   * 返回值: 无

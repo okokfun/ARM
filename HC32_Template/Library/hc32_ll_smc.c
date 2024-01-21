@@ -355,7 +355,7 @@ void EXMC_SMC_SetSampleClock(uint32_t u32SampleClock) {
 /**
  * @brief  Set SMC refresh period value
  * @param  [in] u8PeriodVal             The SMC refresh period value
- *           @arg This parameter can be a value between Min_Data = 0 and Max_Data = 0x0F
+ *           @arg 这个参数是其中间 Min_Data = 0 and Max_Data = 0x0F
  * @retval 无
  */
 void EXMC_SMC_SetRefreshPeriod(uint8_t u8PeriodVal) {

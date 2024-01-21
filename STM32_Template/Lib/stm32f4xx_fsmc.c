@@ -91,9 +91,9 @@ const FSMC_NORSRAMTimingInitTypeDef FSMC_DefaultTimingStruct = {0x0F, /* FSMC_Ad
           RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE)。
 
    (#) FSMC引脚配置
-       (++)使用以下函数将所涉及的FSMC引脚连接到AF12上
-            GPIO_PinAFConfig(GPIOx, GPIO_PinSourcex, GPIO_AF_FSMC)。
-       (++)通过调用函数GPIO_Init()在复用功能模式下配置这些FSMC引脚。
+       (++) 使用以下函数将所涉及的FSMC引脚连接到AF12上
+             GPIO_PinAFConfig(GPIOx, GPIO_PinSourcex, GPIO_AF_FSMC)。
+       (++) 通过调用函数GPIO_Init()在复用功能模式下配置这些FSMC引脚。
 
    (#) 声明一个FSMC_NORSRAMInitTypeDef结构，例如。
           FSMC_NORSRAMInitTypeDef FSMC_NORSRAMInitStructure;
@@ -808,14 +808,14 @@ void FSMC_PCCARDCmd(FunctionalState NewState) {
   * 
   * 参数:  FSMC_Bank: 指定要使用的FSMC Back
   *          此参数可以是以下值之一:
-  *            @arg FSMC_Bank2_NAND: FSMC Bank2 NAND
-  *            @arg FSMC_Bank3_NAND: FSMC Bank3 NAND
+  *            @arg FSMC_Bank2_NAND:   FSMC Bank2 NAND
+  *            @arg FSMC_Bank3_NAND:   FSMC Bank3 NAND
   *            @arg FSMC_Bank4_PCCARD: FSMC Bank4 PCCARD
   * 
   * 参数:  FSMC_IT: 指定要启用或禁用的FSMC中断源。
   *          此参数可以是以下值的任意组合:
-  *            @arg FSMC_IT_RisingEdge: 上升沿检测中断。
-  *            @arg FSMC_IT_Level: 水平边缘检测中断。
+  *            @arg FSMC_IT_RisingEdge:  上升沿检测中断。
+  *            @arg FSMC_IT_Level:       水平边缘检测中断。
   *            @arg FSMC_IT_FallingEdge: 下降沿检测中断。
   * 
   * 参数:  NewState: 指定的FSMC中断的新状态。
@@ -863,16 +863,16 @@ void FSMC_ITConfig(uint32_t FSMC_Bank, uint32_t FSMC_IT, FunctionalState NewStat
   * 
   * 参数:  FSMC_Bank: 指定要使用的FSMC Back
   *          此参数可以是以下值之一:
-  *            @arg FSMC_Bank2_NAND: FSMC Bank2 NAND
-  *            @arg FSMC_Bank3_NAND: FSMC Bank3 NAND
-  *            @arg FSMC_Bank4_PCCARD: FSMC Bank4 PCCARD
+  *            @arg FSMC_Bank2_NAND:    FSMC Bank2 NAND
+  *            @arg FSMC_Bank3_NAND:    FSMC Bank3 NAND
+  *            @arg FSMC_Bank4_PCCARD:  FSMC Bank4 PCCARD
   * 
   * 参数:  FSMC_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
-  *            @arg FSMC_FLAG_RisingEdge: 上升沿检测标志。
-  *            @arg FSMC_FLAG_Level: 水平检测标志。
+  *            @arg FSMC_FLAG_RisingEdge:  上升沿检测标志。
+  *            @arg FSMC_FLAG_Level:       水平检测标志。
   *            @arg FSMC_FLAG_FallingEdge: 下降边缘检测标志.
-  *            @arg FSMC_FLAG_FEMPT: Fifo 空标志
+  *            @arg FSMC_FLAG_FEMPT:       Fifo 空标志
   * 
   * 返回值: 新状态-> FSMC_FLAG (SET or RESET).
   */

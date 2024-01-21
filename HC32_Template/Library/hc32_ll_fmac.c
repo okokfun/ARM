@@ -120,7 +120,7 @@ int32_t FMAC_StructInit(stc_fmac_init_t *pstcFmacInit) {
 /**
  * @brief  De-Initialize FMAC function
  * @param  [in] FMACx            Pointer to FMAC instance register base.
- * This parameter can be a value of the following:
+ * 这个参数是其中之一 the following:
  *   @arg  CM_FMAC1:             FMAC unit 1 instance register base
  *   @arg  CM_FMAC2:             FMAC unit 2 instance register base
  *   @arg  CM_FMAC3:             FMAC unit 3 instance register base
@@ -141,7 +141,7 @@ void FMAC_DeInit(CM_FMAC_TypeDef *FMACx) {
 /**
  * @brief  FMAC peripheral function initialize
  * @param  [in] FMACx            Pointer to FMAC instance register base.
- * This parameter can be a value of the following:
+ * 这个参数是其中之一 the following:
  *   @arg  CM_FMAC1:             FMAC unit 1 instance register base
  *   @arg  CM_FMAC2:             FMAC unit 2 instance register base
  *   @arg  CM_FMAC3:             FMAC unit 3 instance register base
@@ -184,7 +184,7 @@ int32_t FMAC_Init(CM_FMAC_TypeDef *FMACx, const stc_fmac_init_t *pstcFmacInit) {
 /**
  * @brief  Enable or Disable FMAC
  * @param  [in] FMACx           Pointer to FMAC instance register base.
- * This parameter can be a value of the following:
+ * 这个参数是其中之一 the following:
  *   @arg  CM_FMAC1:            FMAC unit 1 instance register base
  *   @arg  CM_FMAC2:            FMAC unit 2 instance register base
  *   @arg  CM_FMAC3:            FMAC unit 3 instance register base
@@ -202,7 +202,7 @@ void FMAC_Cmd(CM_FMAC_TypeDef *FMACx, en_functional_state_t enNewState) {
 /**
  * @brief  Set Filter result shift bits.
  * @param  [in] FMACx           Pointer to FMAC instance register base.
- * This parameter can be a value of the following:
+ * 这个参数是其中之一 the following:
  *   @arg  CM_FMAC1:             FMAC unit 1 instance register base
  *   @arg  CM_FMAC2:             FMAC unit 2 instance register base
  *   @arg  CM_FMAC3:             FMAC unit 3 instance register base
@@ -221,7 +221,7 @@ void FMAC_SetResultShift(CM_FMAC_TypeDef *FMACx, uint32_t u32ShiftNum) {
 /**
  * @brief  Set filter stage and filter factor.
  * @param  [in] FMACx           Pointer to FMAC instance register base.
- * This parameter can be a value of the following:
+ * 这个参数是其中之一 the following:
  *   @arg  CM_FMAC1:            FMAC unit 1 instance register base
  *   @arg  CM_FMAC2:            FMAC unit 2 instance register base
  *   @arg  CM_FMAC3:            FMAC unit 3 instance register base
@@ -252,7 +252,7 @@ void FMAC_SetStageFactor(CM_FMAC_TypeDef *FMACx, uint32_t u32FilterStage, int16_
 /**
  * @brief  Configure interrupt command.
  * @param  [in] FMACx           Pointer to FMAC instance register base.
- * This parameter can be a value of the following:
+ * 这个参数是其中之一 the following:
  *   @arg  CM_FMAC1:            FMAC unit 1 instance register base
  *   @arg  CM_FMAC2:            FMAC unit 2 instance register base
  *   @arg  CM_FMAC3:            FMAC unit 3 instance register base
@@ -270,7 +270,7 @@ void FMAC_IntCmd(CM_FMAC_TypeDef *FMACx, en_functional_state_t enNewState) {
 /**
  * @brief  Data input.
  * @param  [in] FMACx           Pointer to FMAC instance register base.
- * This parameter can be a value of the following:
+ * 这个参数是其中之一 the following:
  *   @arg  CM_FMAC1:            FMAC unit 1 instance register base
  *   @arg  CM_FMAC2:            FMAC unit 2 instance register base
  *   @arg  CM_FMAC3:            FMAC unit 3 instance register base
@@ -286,7 +286,7 @@ void FMAC_FIRInput(CM_FMAC_TypeDef *FMACx, int16_t i16Factor) {
 /**
  * @brief  Get FMAC status.
  * @param  [in] FMACx           Pointer to FMAC instance register base.
- * This parameter can be a value of the following:
+ * 这个参数是其中之一 the following:
  *   @arg  CM_FMAC1:            FMAC unit 1 instance register base
  *   @arg  CM_FMAC2:            FMAC unit 2 instance register base
  *   @arg  CM_FMAC3:            FMAC unit 3 instance register base
@@ -303,7 +303,7 @@ en_flag_status_t FMAC_GetStatus(const CM_FMAC_TypeDef *FMACx) {
 /**
  * @brief  Get calculation results.
  * @param  [in] FMACx           Pointer to FMAC instance register base.
- * This parameter can be a value of the following:
+ * 这个参数是其中之一 the following:
  *   @arg  CM_FMAC1:            FMAC unit 1 instance register base
  *   @arg  CM_FMAC2:            FMAC unit 2 instance register base
  *   @arg  CM_FMAC3:            FMAC unit 3 instance register base

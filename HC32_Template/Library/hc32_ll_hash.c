@@ -172,7 +172,7 @@ static void HASH_MemSet(uint8_t *pu8Mem, uint8_t u8Value, uint32_t u32Size) {
 
 /**
  * @brief  Wait for the HASH to stop
- * @param  [in]  u32Action              HASH action. This parameter can be a value of @ref HASH_Action.
+ * @param  [in]  u32Action              HASH action. 这个参数是其中之一 @ref HASH_Action.
  * @retval int32_t:
  *           - LL_OK:                   No errors occurred
  *           - LL_ERR_TIMEOUT:          Works timeout
@@ -433,7 +433,7 @@ int32_t HASH_IntCmd(uint32_t u32HashInt, en_functional_state_t enNewState) {
 /**
  * @brief  Get the status of the specified HASH flag.
  * @param  [in] u32Flag                 HASH status flag.
- *                                      This parameter can be a value of @ref HASH_Status_Flag
+ *                                      这个参数是其中之一 @ref HASH_Status_Flag
  *   @arg  HASH_FLAG_START:             Operation in progress.
  *   @arg  HASH_FLAG_BUSY:              Operation in progress.
  *   @arg  HASH_FLAG_CYC_END:           key or message operation completed.
@@ -455,7 +455,7 @@ en_flag_status_t HASH_GetStatus(uint32_t u32Flag) {
 /**
  * @brief  Clear the status of the specified HASH flag.
  * @param  [in] u32Flag                 HASH status flag.
- *                                      This parameter can be a value of @ref HASH_Status_Flag
+ *                                      这个参数是其中之一 @ref HASH_Status_Flag
  *   @arg  HASH_FLAG_CYC_END:           Clear the key or message operation completed flag
  *   @arg  HASH_FLAG_HMAC_END:          Clear the HMAC operation completed flag
  * @retval int32_t:
@@ -479,7 +479,7 @@ int32_t HASH_ClearStatus(uint32_t u32Flag) {
 /**
  * @brief  Specifies HASH mode: SHA256 mode or HMAC mode.
  * @param  [in] u32HashMode             HASH mode selection.
- *                                      This parameter can be a value of @ref HASH_Mode
+ *                                      这个参数是其中之一 @ref HASH_Mode
  *   @arg  HASH_MD_SHA256:              SHA256 mode
  *   @arg  HASH_MD_HMAC:                HMAC mode
  * @retval int32_t:
@@ -502,7 +502,7 @@ int32_t HASH_SetMode(uint32_t u32HashMode) {
 
 /**
  * @brief  Set HASH key size mode.
- * @param  [in] u32SizeMode             Key size mode. This parameter can be a value of @ref HASH_Key_Size_Mode
+ * @param  [in] u32SizeMode             Key size mode. 这个参数是其中之一 @ref HASH_Key_Size_Mode
  *   @arg  HASH_KEY_MD_LONG_SIZE:       Key size > 64 Bytes
  *   @arg  HASH_KEY_MD_SHORT_SIZE:      Key size <= 64 Bytes
  * @retval int32_t:
@@ -526,7 +526,7 @@ int32_t HASH_SetKeySizeMode(uint32_t u32SizeMode) {
 /**
  * @brief  Set message group.
  * @param  [in] u32MsgGroup         First group or Last group of messages.
- *                                  This parameter can be a value of @ref HASH_Msg_Group
+ *                                  这个参数是其中之一 @ref HASH_Msg_Group
 
  *   @arg  HASH_MSG_GRP_FIRST:      The first group of messages or keys
  *   @arg  HASH_MSG_GRP_END:        The last group of messages or keys

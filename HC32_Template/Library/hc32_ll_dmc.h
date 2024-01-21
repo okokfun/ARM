@@ -66,11 +66,11 @@ extern "C"
  */
 typedef struct {
     uint32_t u32AddrMask;           /*!< Defines the address mask.
-                                         This parameter can be a value of @ref EXMC_DMC_Mask_Address. */
+                                         这个参数是其中之一 @ref EXMC_DMC_Mask_Address. */
     uint32_t u32AddrMatch;          /*!< Defines the address match.
-                                         This parameter can be a value between Min_Data = 0x80 and Max_Data = 0x87 */
+                                         这个参数是其中间 Min_Data = 0x80 and Max_Data = 0x87 */
     uint32_t u32AddrDecodeMode;     /*!< Defines the address decode mode.
-                                         This parameter can be a value of @ref EXMC_DMC_Address_Decode_Mode. */
+                                         这个参数是其中之一 @ref EXMC_DMC_Address_Decode_Mode. */
 } stc_exmc_dmc_chip_config_t;
 
 /**
@@ -78,62 +78,62 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32SampleClock;        /*!< DMC sample clock.
-                                         This parameter can be a value of @ref EXMC_DMC_Sample_Clock. */
+                                         这个参数是其中之一 @ref EXMC_DMC_Sample_Clock. */
     uint32_t u32MemoryWidth;        /*!< DMC memory width.
-                                         This parameter can be a value of @ref EXMC_DMC_Memory_Width. */
+                                         这个参数是其中之一 @ref EXMC_DMC_Memory_Width. */
     uint32_t u32RefreshPeriod;      /*!< DMC memory refresh period.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 0x7FFF */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 0x7FFF */
     uint32_t u32ColumnBitsNumber;   /*!< Defines the number of bits of column address.
-                                         This parameter can be a value of @ref EXMC_DMC_Column_Bits_Number. */
+                                         这个参数是其中之一 @ref EXMC_DMC_Column_Bits_Number. */
     uint32_t u32RowBitsNumber;      /*!< Defines the number of bits of row address.
-                                         This parameter can be a value of @ref EXMC_DMC_Row_Bits_Number. */
+                                         这个参数是其中之一 @ref EXMC_DMC_Row_Bits_Number. */
     uint32_t u32AutoPrechargePin;   /*!< Defines the auto-precharge pin.
-                                         This parameter can be a value of @ref EXMC_DMC_Auto_Precharge_Pin. */
+                                         这个参数是其中之一 @ref EXMC_DMC_Auto_Precharge_Pin. */
     uint32_t u32MemClockSel;        /*!< Defines the memory clock selection.
-                                         This parameter can be a value of @ref EXMC_DMC_Clock_Selection */
+                                         这个参数是其中之一 @ref EXMC_DMC_Clock_Selection */
     uint32_t u32CkeOutputSel;       /*!< Defines the CKE output selection.
-                                         This parameter can be a value of @ref EXMC_DMC_CKE_Output_Selection */
+                                         这个参数是其中之一 @ref EXMC_DMC_CKE_Output_Selection */
     uint32_t u32CkeDisablePeriod;   /*!< Defines the CKE disable period.
-                                         This parameter can be a value between Min_Data = 0x00 and Max_Data = 0x3F */
+                                         这个参数是其中间 Min_Data = 0x00 and Max_Data = 0x3F */
     uint32_t u32MemBurst;           /*!< Defines the number of data accesses.
-                                         This parameter can be a value of @ref EXMC_DMC_Memory_Burst. */
+                                         这个参数是其中之一 @ref EXMC_DMC_Memory_Burst. */
     uint32_t u32AutoRefreshChips;   /*!< Defines the refresh command generation for the number of memory chips.
-                                         This parameter can be a value of @ref EXMC_DMC_Auto_Refresh_Chips. */
+                                         这个参数是其中之一 @ref EXMC_DMC_Auto_Refresh_Chips. */
     struct {
         uint8_t u8CASL;             /*!< Defines the CAS latency in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 7 */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 7 */
         uint8_t u8DQSS;             /*!< Defines the DQSS in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 3 */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 3 */
         uint8_t u8MRD;              /*!< Defines the the mode register command time in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 0x7F */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 0x7F */
         uint8_t u8RAS;              /*!< Defines the RAS in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 0x0F */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 0x0F */
         uint8_t u8RC;               /*!< Defines the RC in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 0x0F */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 0x0F */
         uint8_t u8RCD_B;            /*!< Defines the RCD base value in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 7 */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 7 */
         uint8_t u8RCD_P;            /*!< Defines the RCD append value in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 7 */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 7 */
         uint8_t u8RFC_B;            /*!< Defines the RFC base value in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 0x1F */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 0x1F */
         uint8_t u8RFC_P;            /*!< Defines the RFC append value in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 0x1F */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 0x1F */
         uint8_t u8RP_B;             /*!< Defines the RP base value in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 7 */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 7 */
         uint8_t u8RP_P;             /*!< Defines the RP append value in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 7 */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 7 */
         uint8_t u8RRD;              /*!< Defines the RRD in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 0x0F */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 0x0F */
         uint8_t u8WR;               /*!< Defines the WR in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 7 */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 7 */
         uint8_t u8WTR;              /*!< Defines the WTR in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 7 */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 7 */
         uint8_t u8XP;               /*!< Defines the XP in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
         uint8_t u8XSR;              /*!< Defines the XSR in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
         uint8_t u8ESR;              /*!< Defines the ESR in memory clock cycles.
-                                         This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                         这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
     } stcTimingConfig;
 } stc_exmc_dmc_init_t;
 

@@ -63,13 +63,13 @@ extern "C"
  */
 typedef struct {
     uint16_t u16ClockSrc;       /*!< TMR4 counter 时钟源.
-                                     This parameter can be a value of @ref TMR4_Count_Clock_Source */
+                                     这个参数是其中之一 @ref TMR4_Count_Clock_Source */
     uint16_t u16ClockDiv;       /*!< TMR4 counter internal clock division.
-                                     This parameter can be a value of @ref TMR4_Count_Clock_Division. */
+                                     这个参数是其中之一 @ref TMR4_Count_Clock_Division. */
     uint16_t u16CountMode;      /*!< TMR4 counter mode.
-                                     This parameter can be a value of @ref TMR4_Count_Mode */
+                                     这个参数是其中之一 @ref TMR4_Count_Mode */
     uint16_t u16PeriodValue;    /*!< TMR4 counter period value.
-                                     This parameter can be a value of half-word */
+                                     这个参数是其中之一 half-word */
 } stc_tmr4_init_t;
 
 /**
@@ -80,25 +80,25 @@ typedef union {
 
     struct {                    /*!< OCMRxH(x=U/V/W) register struct field bit */
         uint16_t OCFDCH : 1;    /*!< OCMRxh b0 High channel's OCF status when high channel match occurs at the condition that counter is counting down
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_OCF_State */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_OCF_State */
         uint16_t OCFPKH : 1;    /*!< OCMRxh b1 High channel's OCF status when high channel match occurs at the condition that counter count=Peak
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_OCF_State */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_OCF_State */
         uint16_t OCFUCH : 1;    /*!< OCMRxh b2 High channel's OCF status when high channel match occurs at the condition that counter is counting up
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_OCF_State */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_OCF_State */
         uint16_t OCFZRH : 1;    /*!< OCMRxh b3 High channel's OCF status when high channel match occurs at the condition that counter count=0x0000
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_OCF_State */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_OCF_State */
         uint16_t OPDCH  : 2;    /*!< OCMRxh b5~b4 High channel's OP output status when high channel match occurs at the condition that counter is counting down
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint16_t OPPKH  : 2;    /*!< OCMRxh b7~b6 High channel's OP output status when high channel match occurs at the condition that counter count=Peak
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint16_t OPUCH  : 2;    /*!< OCMRxh b9~b8 High channel's OP output status when high channel match occurs at the condition that counter is counting up
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint16_t OPZRH  : 2;    /*!< OCMRxh b11~b10 High channel's OP output status when high channel match occurs at the condition that counter count=0x0000
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint16_t OPNPKH : 2;    /*!< OCMRxh b13~b12 High channel's OP output status when high channel match doesn't occur at the condition that counter count=Peak
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint16_t OPNZRH : 2;    /*!< OCMRxh b15~b14 High channel's OP output status when high channel match doesn't occur at the condition that counter count=0x0000
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
     } OCMRx_f;
 } un_tmr4_oc_ocmrh_t;
 
@@ -110,41 +110,41 @@ typedef union {
 
     struct {                    /*!< OCMRxL(x=U/V/W) register struct field bit*/
         uint32_t OCFDCL  : 1;   /*!< OCMRxl b0 Low channel's OCF status when low channel match occurs at the condition that counter is counting down
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_OCF_State */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_OCF_State */
         uint32_t OCFPKL  : 1;   /*!< OCMRxl b1 Low channel's OCF status when low channel match occurs at the condition that counter count=Peak
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_OCF_State */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_OCF_State */
         uint32_t OCFUCL  : 1;   /*!< OCMRxl b2 Low channel's OCF status when low channel match occurs at the condition that counter is counting up
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_OCF_State */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_OCF_State */
         uint32_t OCFZRL  : 1;   /*!< OCMRxl b3 Low channel's OCF status when low channel match occurs at the condition that counter count=0x0000
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_OCF_State */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_OCF_State */
         uint32_t OPDCL   : 2;   /*!< OCMRxl b5~b4 Low channel's OP output status when high channel not match and low channel match occurs at the condition that counter is counting down
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t OPPKL   : 2;   /*!< OCMRxl b7~b6 Low channel's OP output status when high channel not match and low channel match occurs at the condition that counter count=Peak
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t OPUCL   : 2;   /*!< OCMRxl b9~b8 Low channel's OP output status when high channel not match and low channel match occurs at the condition that counter is counting up
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t OPZRL   : 2;   /*!< OCMRxl b11~b10 Low channel's OP output status when high channel not match and low channel match occurs at the condition that counter count=0x0000
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t OPNPKL  : 2;   /*!< OCMRxl b13~b12 Low channel's OP output status when high channel not match and low channel not match occurs at the condition that counter count=Peak
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t OPNZRL  : 2;   /*!< OCMRxl b15~b14 Low channel's OP output status when high channel not match and low channel not match occurs at the condition that counter count=0x0000
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t EOPNDCL : 2;   /*!< OCMRxl b17~b16 Low channel's OP output status when high channel match and low channel not match occurs at the condition that counter is coutning down
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t EOPNUCL : 2;   /*!< OCMRxl b19~b18 Low channel's OP output status when high channel match and low channel not match occurs at the condition that counter is counting up
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t EOPDCL  : 2;   /*!< OCMRxl b21~b20 Low channel's OP output status when high channel and low channel match occurs at the condition that counter is counting down
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t EOPPKL  : 2;   /*!< OCMRxl b23~b22 Low channel's OP output status when high channel and low channel match occurs at the condition that counter count=Peak
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t EOPUCL  : 2;   /*!< OCMRxl b25~b24 Low channel's OP output status when high channel and low channel match occurs at the condition that counter is counting up
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t EOPZRL  : 2;   /*!< OCMRxl b27~b26 Low channel's OP output status when high channel and low channel match occurs at the condition that counter count=0x0000
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t EOPNPKL : 2;   /*!< OCMRxl b29~b28 Low channel's OP output status when high channel match and low channel not match occurs at the condition that counter count=Peak
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
         uint32_t EOPNZRL : 2;   /*!< OCMRxl b31~b30 Low channel's OP output status when high channel match and low channel not match occurs at the condition that counter count=0x0000
-                                     This parameter can be a value of @ref TMR4_OC_Count_Match_Output_Polarity */
+                                     这个参数是其中之一 @ref TMR4_OC_Count_Match_Output_Polarity */
     } OCMRx_f;
 } un_tmr4_oc_ocmrl_t;
 
@@ -153,15 +153,15 @@ typedef union {
  */
 typedef struct {
     uint16_t u16CompareValue;           /*!< TMR4 OC compare match value.
-                                             This parameter can be a value of half-word. */
+                                             这个参数是其中之一 half-word. */
     uint16_t u16OcInvalidPolarity;      /*!< Port output polarity when OC is disabled.
-                                             This parameter can be a value of @ref TMR4_OC_Invalid_Output_Polarity. */
+                                             这个参数是其中之一 @ref TMR4_OC_Invalid_Output_Polarity. */
     uint16_t u16CompareModeBufCond;     /*!< Register OCMR buffer transfer condition.
-                                             This parameter can be a value of @ref TMR4_OC_Buffer_Transfer_Condition. */
+                                             这个参数是其中之一 @ref TMR4_OC_Buffer_Transfer_Condition. */
     uint16_t u16CompareValueBufCond;    /*!< Register OCCR buffer transfer condition.
-                                             This parameter can be a value of @ref TMR4_OC_Buffer_Transfer_Condition. */
+                                             这个参数是其中之一 @ref TMR4_OC_Buffer_Transfer_Condition. */
     uint16_t u16BufLinkTransObject;     /*!< Enable the specified object(OCMR/OCCR) register buffer linked transfer with the counter interrupt mask.
-                                             This parameter can be a value of @ref TMR4_OC_Buffer_Object. */
+                                             这个参数是其中之一 @ref TMR4_OC_Buffer_Object. */
 } stc_tmr4_oc_init_t;
 
 /**
@@ -170,11 +170,11 @@ typedef struct {
  */
 typedef struct {
     uint16_t u16Mode;                   /*!< Select PWM mode
-                                             This parameter can be a value of @ref TMR4_PWM_Mode */
+                                             这个参数是其中之一 @ref TMR4_PWM_Mode */
     uint16_t u16ClockDiv;               /*!< The internal clock division of PWM timer.
-                                             This parameter can be a value of @ref TMR4_PWM_Clock_Division. */
+                                             这个参数是其中之一 @ref TMR4_PWM_Clock_Division. */
     uint16_t u16Polarity;               /*!< TMR4 PWM polarity
-                                             This parameter can be a value of @ref TMR4_PWM_Polarity */
+                                             这个参数是其中之一 @ref TMR4_PWM_Polarity */
 } stc_tmr4_pwm_init_t;
 
 /**
@@ -182,13 +182,13 @@ typedef struct {
  */
 typedef struct {
     uint16_t u16Mode;                   /*!< TMR4 event mode
-                                             This parameter can be a value of @ref TMR4_Event_Mode */
+                                             这个参数是其中之一 @ref TMR4_Event_Mode */
     uint16_t u16CompareValue;           /*!< TMR4 event compare match value.
-                                             This parameter can be a value of half-word */
+                                             这个参数是其中之一 half-word */
     uint16_t u16OutputEvent;            /*!< TMR4 event output event when match count compare condition.
-                                             This parameter can be a value of @ref TMR4_Event_Output_Event */
+                                             这个参数是其中之一 @ref TMR4_Event_Output_Event */
     uint16_t u16MatchCond;              /*!< Enable the specified count compare type with counter count to generate event.
-                                             This parameter can be a value of @ref TMR4_Event_Match_Condition */
+                                             这个参数是其中之一 @ref TMR4_Event_Match_Condition */
 } stc_tmr4_evt_init_t;
 
 /**

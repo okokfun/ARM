@@ -61,27 +61,27 @@ extern "C"
  */
 typedef struct {
     uint32_t u32WireMode;           /*!< SPI wire mode, 3 wire mode or 4 wire mode.
-                                         This parameter can be a value of @ref SPI_Wire_Mode_Define */
+                                         这个参数是其中之一 @ref SPI_Wire_Mode_Define */
     uint32_t u32TransMode;          /*!< SPI transfer mode, send only or full duplex.
-                                         This parameter can be a value of @ref SPI_Trans_Mode_Define */
+                                         这个参数是其中之一 @ref SPI_Trans_Mode_Define */
     uint32_t u32MasterSlave;        /*!< SPI master/slave mode.
-                                         This parameter can be a value of @ref SPI_Master_Slave_Mode_Define */
+                                         这个参数是其中之一 @ref SPI_Master_Slave_Mode_Define */
     uint32_t u32ModeFaultDetect;    /*!< SPI mode fault detect command.
-                                         This parameter can be a value of @ref SPI_Mode_Fault_Detect_Command_Define */
+                                         这个参数是其中之一 @ref SPI_Mode_Fault_Detect_Command_Define */
     uint32_t u32Parity;             /*!< SPI parity check selection.
-                                         This parameter can be a value of @ref SPI_Parity_Check_Define */
+                                         这个参数是其中之一 @ref SPI_Parity_Check_Define */
     uint32_t u32SpiMode;            /*!< SPI mode.
-                                         This parameter can be a value of @ref SPI_Mode_Define */
+                                         这个参数是其中之一 @ref SPI_Mode_Define */
     uint32_t u32BaudRatePrescaler;  /*!< SPI baud rate prescaler.
-                                         This parameter can be a value of @ref SPI_Baud_Rate_Prescaler_Define */
+                                         这个参数是其中之一 @ref SPI_Baud_Rate_Prescaler_Define */
     uint32_t u32DataBits;           /*!< SPI data bits, 4 bits ~ 32 bits.
-                                         This parameter can be a value of @ref SPI_Data_Size_Define */
+                                         这个参数是其中之一 @ref SPI_Data_Size_Define */
     uint32_t u32FirstBit;           /*!< MSB first or LSB first.
-                                         This parameter can be a value of @ref SPI_First_Bit_Define */
+                                         这个参数是其中之一 @ref SPI_First_Bit_Define */
     uint32_t u32SuspendMode;        /*!< SPI communication suspend function.
-                                         This parameter can be a value of @ref SPI_Com_Suspend_Func_Define */
+                                         这个参数是其中之一 @ref SPI_Com_Suspend_Func_Define */
     uint32_t u32FrameLevel;         /*!< SPI frame level, SPI_1_FRAME ~ SPI_4_FRAME.
-                                         This parameter can be a value of @ref SPI_Frame_Level_Define */
+                                         这个参数是其中之一 @ref SPI_Frame_Level_Define */
 } stc_spi_init_t;
 
 /**
@@ -89,11 +89,11 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32IntervalDelay;      /*!< SPI interval time delay (Next access delay time)
-                                         This parameter can be a value of @ref SPI_Interval_Delay_Time_define */
+                                         这个参数是其中之一 @ref SPI_Interval_Delay_Time_define */
     uint32_t u32ReleaseDelay;       /*!< SPI release time delay (SCK invalid delay time)
-                                         This parameter can be a value of @ref SPI_Release_Delay_Time_define */
+                                         这个参数是其中之一 @ref SPI_Release_Delay_Time_define */
     uint32_t u32SetupDelay;         /*!< SPI Setup time delay (SCK valid delay time) define
-                                         This parameter can be a value of @ref SPI_Setup_Delay_Time_define */
+                                         这个参数是其中之一 @ref SPI_Setup_Delay_Time_define */
 } stc_spi_delay_t;
 
 /**

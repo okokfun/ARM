@@ -225,7 +225,7 @@
  * @brief  Initializes the specified ADC peripheral 根据 the specified parameters
  *         in the structure pstcAdcInit.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  pstcAdcInit            Pointer to a @ref stc_adc_init_t structure that contains the
  *                                      configuration information for the specified ADC.
@@ -253,7 +253,7 @@ int32_t ADC_Init(CM_ADC_TypeDef *ADCx, const stc_adc_init_t *pstcAdcInit) {
 /**
  * @brief  Deinitializes the specified ADC peripheral registers to their default reset values.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @retval 无
  */
@@ -349,10 +349,10 @@ int32_t ADC_StructInit(stc_adc_init_t *pstcAdcInit) {
 /**
  * @brief  Enable or disable the specified ADC channel.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8Seq                  The sequence whose channel specified by 'u8Ch' will be enabled or disabled.
- *                                      This parameter can be a value of @ref ADC_Sequence
+ *                                      这个参数是其中之一 @ref ADC_Sequence
  *   @arg  ADC_SEQ_A:                   ADC sequence A.
  *   @arg  ADC_SEQ_B:                   ADC sequence B.
  * @param  [in]  u8Ch                   The ADC channel.
@@ -385,7 +385,7 @@ void ADC_ChCmd(CM_ADC_TypeDef *ADCx, uint8_t u8Seq, uint8_t u8Ch, en_functional_
 /**
  * @brief  Set sampling time for the specified channel.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8Ch                   The channel to be set sampling time.
  *                                      This parameter can be values of @ref ADC_Channel
@@ -410,10 +410,10 @@ void ADC_SetSampleTime(CM_ADC_TypeDef *ADCx, uint8_t u8Ch, uint8_t u8SampleTime)
 /**
  * @brief  Set scan-average count.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u16AverageCount        Scan-average count.
- *                                      This parameter can be a value of @ref ADC_Average_Count
+ *                                      这个参数是其中之一 @ref ADC_Average_Count
  *   @arg  ADC_AVG_CNT2:                2 consecutive average conversions.
  *   @arg  ADC_AVG_CNT4:                4 consecutive average conversions.
  *   @arg  ADC_AVG_CNT8:                8 consecutive average conversions.
@@ -433,7 +433,7 @@ void ADC_ConvDataAverageConfig(CM_ADC_TypeDef *ADCx, uint16_t u16AverageCount) {
 /**
  * @brief  Enable or disable conversion data average calculation channel.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8Ch                   The ADC channel.
  *                                      This parameter can be values of @ref ADC_Channel
@@ -454,7 +454,7 @@ void ADC_ConvDataAverageChCmd(CM_ADC_TypeDef *ADCx, uint8_t u8Ch, en_functional_
 /**
  * @brief  Specifies the analog input source of extended channel.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8ExtChSrc             The analog input source of extended channel.
  *                                      This paramter can be a value of @ref ADC_Ext_Ch_Analog_Src
@@ -469,13 +469,13 @@ void ADC_SetExtChSrc(CM_ADC_TypeDef *ADCx, uint8_t u8ExtChSrc) {
 /**
  * @brief  Specifies the hard trigger for the specified ADC sequence.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADCx or CM_ADC
  * @param  [in]  u8Seq                  The sequence to be configured.
- *                                      This parameter can be a value of @ref ADC_Sequence
+ *                                      这个参数是其中之一 @ref ADC_Sequence
  *   @arg  ADC_SEQ_A:                   Sequence A.
  *   @arg  ADC_SEQ_B:                   Sequence B.
- * @param  [in]  u16TriggerSel          Hard trigger selection. This parameter can be a value of @ref ADC_Hard_Trigger_Sel
+ * @param  [in]  u16TriggerSel          Hard trigger selection. 这个参数是其中之一 @ref ADC_Hard_Trigger_Sel
  *   @arg  ADC_HARDTRIG_ADTRG_PIN:      Selects the following edge of pin ADTRG as the trigger of ADC sequence.
  *   @arg  ADC_HARDTRIG_EVT0:           Selects an internal event as the trigger of ADC sequence.
                                         This event is specified by register ADCx_ITRGSELR0(x=(null), 1, 2, 3).
@@ -499,10 +499,10 @@ void ADC_TriggerConfig(CM_ADC_TypeDef *ADCx, uint8_t u8Seq, uint16_t u16TriggerS
 /**
  * @brief  Enable or disable the hard trigger of the specified ADC sequence.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADCx or CM_ADC
  * @param  [in]  u8Seq                  The sequence to be configured.
- *                                      This parameter can be a value of @ref ADC_Sequence
+ *                                      这个参数是其中之一 @ref ADC_Sequence
  *   @arg  ADC_SEQ_A:                   Sequence A.
  *   @arg  ADC_SEQ_B:                   Sequence B.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
@@ -524,7 +524,7 @@ void ADC_TriggerCmd(CM_ADC_TypeDef *ADCx, uint8_t u8Seq, en_functional_state_t e
 /**
  * @brief  Enable or disable ADC interrupts.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8IntType              ADC interrupt.
  *                                      This parameter can be values of @ref ADC_Int_Type
@@ -548,7 +548,7 @@ void ADC_IntCmd(CM_ADC_TypeDef *ADCx, uint8_t u8IntType, en_functional_state_t e
 /**
  * @brief  Start sequence A conversion.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @retval 无
  */
@@ -560,7 +560,7 @@ void ADC_Start(CM_ADC_TypeDef *ADCx) {
 /**
  * @brief  Stop ADC conversion, both sequence A and sequence B.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @retval 无
  */
@@ -572,7 +572,7 @@ void ADC_Stop(CM_ADC_TypeDef *ADCx) {
 /**
  * @brief  Get the ADC value of the specified channel.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8Ch                   The ADC channel.
  *                                      This parameter can be values of @ref ADC_Channel
@@ -587,10 +587,10 @@ uint16_t ADC_GetValue(const CM_ADC_TypeDef *ADCx, uint8_t u8Ch) {
 /**
  * @brief  Get the status of the specified ADC flag.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8Flag                 ADC status flag.
- *                                      This parameter can be a value of @ref ADC_Status_Flag
+ *                                      这个参数是其中之一 @ref ADC_Status_Flag
  * @retval An @ref en_flag_status_t enumeration type value.
  */
 en_flag_status_t ADC_GetStatus(const CM_ADC_TypeDef *ADCx, uint8_t u8Flag) {
@@ -609,7 +609,7 @@ en_flag_status_t ADC_GetStatus(const CM_ADC_TypeDef *ADCx, uint8_t u8Flag) {
 /**
  * @brief  Clear the status of the specified ADC flag.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8Flag                 ADC status flag.
  *                                      This parameter can be valueS of @ref ADC_Status_Flag
@@ -625,10 +625,10 @@ void ADC_ClearStatus(CM_ADC_TypeDef *ADCx, uint8_t u8Flag) {
 /**
  * @brief  Remap the correspondence between ADC channel and analog input pins.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8Ch                   This parameter can be values of @ref ADC_Channel
- * @param  [in]  u8AdcPin               This parameter can be a value of @ref ADC_Remap_Pin
+ * @param  [in]  u8AdcPin               这个参数是其中之一 @ref ADC_Remap_Pin
  * @retval 无
  */
 void ADC_ChRemap(CM_ADC_TypeDef *ADCx, uint8_t u8Ch, uint8_t u8AdcPin) {
@@ -648,7 +648,7 @@ void ADC_ChRemap(CM_ADC_TypeDef *ADCx, uint8_t u8Ch, uint8_t u8AdcPin) {
 /**
  * @brief  Get the ADC pin corresponding to the specified ADC channel.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8Ch                   ADC channel.
  *                                      This parameter can be one of the following values of @ref ADC_Channel
@@ -673,7 +673,7 @@ uint8_t ADC_GetChPin(const CM_ADC_TypeDef *ADCx, uint8_t u8Ch) {
 /**
  * @brief  Reset channel-pin mapping.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @retval 无
  */
@@ -689,9 +689,9 @@ void ADC_ResetChMapping(CM_ADC_TypeDef *ADCx) {
 /**
  * @brief  Configures synchronous mode.
  * @param  [in]  u16SyncUnit            Specify the ADC units which work synchronously.
- *                                      This parameter can be a value of @ref ADC_Sync_Unit
+ *                                      这个参数是其中之一 @ref ADC_Sync_Unit
  * @param  [in]  u16SyncMode            Synchronous mode.
- *                                      This parameter can be a value of @ref ADC_Sync_Mode
+ *                                      这个参数是其中之一 @ref ADC_Sync_Mode
  *   @arg  ADC_SYNC_SINGLE_DELAY_TRIG:  Single shot delayed trigger mode.
  *                                      When the trigger condition occurs, ADC1 starts first, then ADC2, last ADC3(if has).
  *                                      All ADCs scan once.
@@ -728,12 +728,12 @@ void ADC_SyncModeCmd(en_functional_state_t enNewState) {
 /**
  * @brief  Configures analog watchdog.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8AwdUnit              AWD unit that is going to be configured.
- *                                      This parameter can be a value of @ref ADC_AWD_Unit
+ *                                      这个参数是其中之一 @ref ADC_AWD_Unit
  * @param  [in]  u8Ch                   The channel that to be used as an analog watchdog channel.
- *                                      This parameter can be a value of @ref ADC_Channel
+ *                                      这个参数是其中之一 @ref ADC_Channel
  * @param  [in]  pstcAwd                Pointer to a @ref stc_adc_awd_config_t structure value that
  *                                      contains the configuration information of the AWD.
  * @retval int32_t:
@@ -773,10 +773,10 @@ int32_t ADC_AWD_Config(CM_ADC_TypeDef *ADCx, uint8_t u8AwdUnit, uint8_t u8Ch, co
 /**
  * @brief  Specifies combination mode of analog watchdog.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u16CombMode            Combination mode of analog watchdog.
- *                                      This parameter can be a value of @ref ADC_AWD_Comb_Mode
+ *                                      这个参数是其中之一 @ref ADC_AWD_Comb_Mode
  *   @arg  ADC_AWD_COMB_INVD            Combination mode is invalid.
  *   @arg  ADC_AWD_COMB_OR:             The status of AWD0 is set or the status of AWD1 is set, the status of combination mode is set.
  *   @arg  ADC_AWD_COMB_AND:            The status of AWD0 is set and the status of AWD1 is set, the status of combination mode is set.
@@ -792,12 +792,12 @@ void ADC_AWD_SetCombMode(CM_ADC_TypeDef *ADCx, uint16_t u16CombMode) {
 /**
  * @brief  Specifies the comapre mode of analog watchdog.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8AwdUnit              AWD unit that is going to be configured.
- *                                      This parameter can be a value of @ref ADC_AWD_Unit
+ *                                      这个参数是其中之一 @ref ADC_AWD_Unit
  * @param  [in]  u16WatchdogMode        Analog watchdog comapre mode.
- *                                      This parameter can be a value of @ref ADC_AWD_Mode
+ *                                      这个参数是其中之一 @ref ADC_AWD_Mode
  *   @arg  ADC_AWD_MD_CMP_OUT:          ADCValue > HighThreshold or ADCValue < LowThreshold
  *   @arg  ADC_AWD_MD_CMP_IN:           LowThreshold < ADCValue < HighThreshold
  * @retval 无
@@ -818,10 +818,10 @@ void ADC_AWD_SetMode(CM_ADC_TypeDef *ADCx, uint8_t u8AwdUnit, uint16_t u16Watchd
 /**
  * @brief  Get the comapre mode of analog watchdog.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8AwdUnit              AWD unit that is going to be configured.
- *                                      This parameter can be a value of @ref ADC_AWD_Unit
+ *                                      这个参数是其中之一 @ref ADC_AWD_Unit
  * @retval Analog watchdog compare mode. A value of @ref ADC_AWD_Mode
  *         - ADC_AWD_MD_CMP_OUT:        ADCValue > HighThreshold or ADCValue < LowThreshold
  *         - ADC_AWD_MD_CMP_IN:         LowThreshold < ADCValue < HighThreshold
@@ -845,10 +845,10 @@ uint16_t ADC_AWD_GetMode(CM_ADC_TypeDef *ADCx, uint8_t u8AwdUnit) {
 /**
  * @brief  Specifies the low threshold and high threshold of analog watchdog.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8AwdUnit              AWD unit that is going to be configured.
- *                                      This parameter can be a value of @ref ADC_AWD_Unit
+ *                                      这个参数是其中之一 @ref ADC_AWD_Unit
  * @param  [in]  u16LowThreshold        Low threshold of analog watchdog.
  * @param  [in]  u16HighThreshold       High threshold of analog watchdog.
  * @retval 无
@@ -869,12 +869,12 @@ void ADC_AWD_SetThreshold(CM_ADC_TypeDef *ADCx, uint8_t u8AwdUnit, uint16_t u16L
 /**
  * @brief  Select the specified ADC channel as an analog watchdog channel.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8AwdUnit              AWD unit that is going to be configured.
- *                                      This parameter can be a value of @ref ADC_AWD_Unit
+ *                                      这个参数是其中之一 @ref ADC_AWD_Unit
  * @param  [in]  u8Ch                   The channel that to be used as an analog watchdog channel.
- *                                      This parameter can be a value of @ref ADC_Channel
+ *                                      这个参数是其中之一 @ref ADC_Channel
  * @retval 无
  */
 void ADC_AWD_SelectCh(CM_ADC_TypeDef *ADCx, uint8_t u8AwdUnit, uint8_t u8Ch) {
@@ -889,10 +889,10 @@ void ADC_AWD_SelectCh(CM_ADC_TypeDef *ADCx, uint8_t u8AwdUnit, uint8_t u8Ch) {
 /**
  * @brief  Enable or disable the specified analog watchdog.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8AwdUnit              AWD unit that is going to be enabled or disabled.
- *                                      This parameter can be a value of @ref ADC_AWD_Unit
+ *                                      这个参数是其中之一 @ref ADC_AWD_Unit
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
  */
@@ -911,10 +911,10 @@ void ADC_AWD_Cmd(CM_ADC_TypeDef *ADCx, uint8_t u8AwdUnit, en_functional_state_t 
 /**
  * @brief  Enable or disable the specified analog watchdog interrupts.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u16IntType             Interrupt of AWD.
- *                                      This parameter can be a value of @ref ADC_AWD_Int_Type
+ *                                      这个参数是其中之一 @ref ADC_AWD_Int_Type
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
  */
@@ -933,7 +933,7 @@ void ADC_AWD_IntCmd(CM_ADC_TypeDef *ADCx, uint16_t u16IntType, en_functional_sta
 /**
  * @brief  Get the status of the specified analog watchdog flag.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u32Flag                AWD status flag.
  *                                      This parameter can be values of @ref ADC_AWD_Status_Flag
@@ -955,7 +955,7 @@ en_flag_status_t ADC_AWD_GetStatus(const CM_ADC_TypeDef *ADCx, uint32_t u32Flag)
 /**
  * @brief  Clear the status of the specified analog watchdog flag.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u32Flag                AWD status flag.
  *                                      This parameter can be values of @ref ADC_AWD_Status_Flag
@@ -970,7 +970,7 @@ void ADC_AWD_ClearStatus(CM_ADC_TypeDef *ADCx, uint32_t u32Flag) {
 /**
  * @brief  Specifies sampling time of sample-hold.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8SampleTime           Sampling time of sample hold.
  * @retval 无
@@ -984,7 +984,7 @@ void ADC_SH_SetSampleTime(CM_ADC_TypeDef *ADCx, uint8_t u8SampleTime) {
 /**
  * @brief  Enable or disable sample-hold channel.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8Ch                   Sample hold channel.
  *                                      This parameter can be ADC_CH0, ADC_CH1 and ADC_CH2 of @ref ADC_Channel
@@ -1006,12 +1006,12 @@ void ADC_SH_ChCmd(CM_ADC_TypeDef *ADCx, uint8_t u8Ch, en_functional_state_t enNe
 /**
  * @brief  Configures the specified programmable gain amplifier.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8PgaUnit              The PGA unit.
- *                                      This parameter can be a value of @ref ADC_PGA_Unit
+ *                                      这个参数是其中之一 @ref ADC_PGA_Unit
  * @param  [in]  u8Gain                 Gain of the specified PGA.
- *                                      This parameter can be a value of @ref ADC_PGA_Gain
+ *                                      这个参数是其中之一 @ref ADC_PGA_Gain
  *   @arg  ADC_PGA_GAIN_2:              PGA gain factor is 2.
  *   @arg  ADC_PGA_GAIN_2P133:          PGA gain factor is 2.133.
  *   @arg  ADC_PGA_GAIN_2P286:          PGA gain factor is 2.286.
@@ -1028,7 +1028,7 @@ void ADC_SH_ChCmd(CM_ADC_TypeDef *ADCx, uint8_t u8Ch, en_functional_state_t enNe
  *   @arg  ADC_PGA_GAIN_16:             PGA gain factor is 16.
  *   @arg  ADC_PGA_GAIN_32:             PGA gain factor is 32.
  * @param  [in]  u8PgaVss               VSS for the specified PGA.
- *                                      This parameter can be a value of @ref ADC_PGA_VSS
+ *                                      这个参数是其中之一 @ref ADC_PGA_VSS
  *   @arg  ADC_PGA_VSS_PGAVSS:          Use pin PGAx_VSS as the reference GND of PGAx
  *   @arg  ADC_PGA_VSS_AVSS:            Use AVSS as the reference GND of PGAx.
  * @retval 无
@@ -1053,10 +1053,10 @@ void ADC_PGA_Config(CM_ADC_TypeDef *ADCx, uint8_t u8PgaUnit, uint8_t u8Gain, uin
 /**
  * @brief  Enable the specified programmable gain amplifier.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u8PgaUnit              The PGA unit.
- *                                      This parameter can be a value of @ref ADC_PGA_Unit
+ *                                      这个参数是其中之一 @ref ADC_PGA_Unit
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
  */
@@ -1079,7 +1079,7 @@ void ADC_PGA_Cmd(CM_ADC_TypeDef *ADCx, uint8_t u8PgaUnit, en_functional_state_t 
  * @brief  Enable or disable automatically clear data register.
  *         The automatic clearing function is mainly used to detect whether the data register is updated.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -1098,10 +1098,10 @@ void ADC_DataRegAutoClearCmd(CM_ADC_TypeDef *ADCx, en_functional_state_t enNewSt
 /**
  * @brief  Sequence A restart channel selection.
  * @param  [in]  ADCx                   Pointer to ADC instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_ADC or CM_ADCx:           ADC instance register base.
  * @param  [in]  u16SeqAResumeMode      Sequence A resume mode.
- *                                      This parameter can be a value of @ref ADC_SeqA_Resume_Mode
+ *                                      这个参数是其中之一 @ref ADC_SeqA_Resume_Mode
  *   @arg  ADC_SEQA_RESUME_SCAN_CONT:   Scanning will continue from the interrupted channel.
  *   @arg  ADC_SEQA_RESUME_SCAN_RESTART: Scanning will start from the first channel.
  * @retval 无

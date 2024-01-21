@@ -61,20 +61,20 @@ extern "C"
  */
 typedef struct {
     uint16_t u16AutoNego;               /*!< Specifies the Auto Negotiation mode for the external PHY.
-                                             This parameter can be a value of @ref ETH_Auto_Negotiation */
+                                             这个参数是其中之一 @ref ETH_Auto_Negotiation */
     uint16_t u16PhyAddr;                /*!< Specifies the Ethernet PHY address.
-                                             This parameter must be a number between Min_Data = 0 and Max_Data = 31 */
+                                             这个参数必须是其中间值 Min_Data = 0 and Max_Data = 31 */
     uint8_t  au8MacAddr[6];             /*!< Specifies the MAC Address of used Hardware */
     uint32_t u32Interface;              /*!< Specifies the media interface.
-                                             This parameter can be a value of @ref ETH_Interface */
+                                             这个参数是其中之一 @ref ETH_Interface */
     uint32_t u32Speed;                  /*!< Specifies the Ethernet speed.
-                                             This parameter can be a value of @ref ETH_Speed */
+                                             这个参数是其中之一 @ref ETH_Speed */
     uint32_t u32DuplexMode;             /*!< Specifies the MAC duplex mode.
-                                             This parameter can be a value of @ref ETH_Duplex_Mode */
+                                             这个参数是其中之一 @ref ETH_Duplex_Mode */
     uint32_t u32ChecksumMode;           /*!< Specifies the checksum check by hardware or by software.
-                                             This parameter can be a value of @ref ETH_Checksum_Mode */
+                                             这个参数是其中之一 @ref ETH_Checksum_Mode */
     uint32_t u32ReceiveMode;            /*!< Specifies the Ethernet Rx mode.
-                                             This parameter can be a value of @ref ETH_Receive_Mode */
+                                             这个参数是其中之一 @ref ETH_Receive_Mode */
 } stc_eth_comm_init_t;
 
 /**
@@ -82,81 +82,81 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32TxClockPolarity;        /*!< Specifies the Tx clock polarity.
-                                             This parameter can be a value of @ref ETH_TX_CLK_POLARITY */
+                                             这个参数是其中之一 @ref ETH_TX_CLK_POLARITY */
     uint32_t u32RxClockPolarity;        /*!< Specifies the Rx/Ref clock polarity.
-                                             This parameter can be a value of @ref ETH_RX_CLK_POLARITY */
+                                             这个参数是其中之一 @ref ETH_RX_CLK_POLARITY */
     uint32_t u32SrcAddrMode;            /*!< Specifies the Source Address Insert or Replace Mode.
-                                             This parameter can be a value of @ref ETH_SRC_ADDR_Mode */
+                                             这个参数是其中之一 @ref ETH_SRC_ADDR_Mode */
     uint32_t u32TypeFrameStripFCS;      /*!< Specifies the validity of stripping FCS for type frame.
-                                             This parameter can be a value of @ref ETH_TypeFrame_Strip_FCS */
+                                             这个参数是其中之一 @ref ETH_TypeFrame_Strip_FCS */
     uint32_t u32Watchdog;               /*!< Specifies the validity of the Watchdog timer.
-                                             This parameter can be a value of @ref ETH_Watchdog */
+                                             这个参数是其中之一 @ref ETH_Watchdog */
     uint32_t u32Jabber;                 /*!< Specifies the validity of the Jabber timer.
-                                             This parameter can be a value of @ref ETH_Jabber */
+                                             这个参数是其中之一 @ref ETH_Jabber */
     uint32_t u32InterframeGap;          /*!< Specifies the minimum gap between frames during transmission.
-                                             This parameter can be a value of @ref ETH_Interframe_Gap */
+                                             这个参数是其中之一 @ref ETH_Interframe_Gap */
     uint32_t u32CarrierSense;           /*!< Specifies the validity of the Carrier Sense (Half-Duplex mode).
-                                             This parameter can be a value of @ref ETH_Carrier_Sense */
+                                             这个参数是其中之一 @ref ETH_Carrier_Sense */
     uint32_t u32ReceiveOwn;             /*!< Specifies the validity of the Receive Own (Half-Duplex mode).
-                                             This parameter can be a value of @ref ETH_Receive_Own */
+                                             这个参数是其中之一 @ref ETH_Receive_Own */
     uint32_t u32ChecksumOffload;        /*!< Specifies the validity of the IPv4 checksum Offload.
-                                             This parameter can be a value of @ref ETH_Checksum_Offload */
+                                             这个参数是其中之一 @ref ETH_Checksum_Offload */
     uint32_t u32RetryTrans;             /*!< Specifies the validity of the MAC attempt to retry Transmit (Half-Duplex mode).
-                                             This parameter can be a value of @ref ETH_Retry_Transmit */
+                                             这个参数是其中之一 @ref ETH_Retry_Transmit */
     uint32_t u32AutoStripPadFCS;        /*!< Specifies the validity of the Automatic Stripping Pad/FCS of MAC.
-                                             This parameter can be a value of @ref ETH_Auto_Strip_Pad_FCS */
+                                             这个参数是其中之一 @ref ETH_Auto_Strip_Pad_FCS */
     uint32_t u32BackOffLimit;           /*!< Specifies the BackOff limit value (Half-Duplex mode).
-                                             This parameter can be a value of @ref ETH_Back_Off_Limit */
+                                             这个参数是其中之一 @ref ETH_Back_Off_Limit */
     uint32_t u32DeferralCheck;          /*!< Specifies the validity of the deferral check (Half-Duplex mode).
-                                             This parameter can be a value of @ref ETH_Deferral_Check */
+                                             这个参数是其中之一 @ref ETH_Deferral_Check */
     uint16_t u16PauseTime;              /*!< Specifies the Pause Time in the transmit control frame.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFF */
     uint32_t u32ZeroQuantaPause;        /*!< Specifies the validity of the automatic generation Zero-Quanta Pause Control frame.
-                                             This parameter can be a value of @ref ETH_Zero_Quanta_Pause */
+                                             这个参数是其中之一 @ref ETH_Zero_Quanta_Pause */
     uint32_t u32PauseLowThreshold;      /*!< Specifies the PAUSE Frame threshold.
-                                             This parameter can be a value of @ref ETH_Pause_Low_Threshold */
+                                             这个参数是其中之一 @ref ETH_Pause_Low_Threshold */
     uint32_t u32UnicastPauseFrame;      /*!< Specifies the validity of the detection unicast Pause frame.
-                                             This parameter can be a value of @ref ETH_Unicast_Pause_Frame_Detect */
+                                             这个参数是其中之一 @ref ETH_Unicast_Pause_Frame_Detect */
     uint32_t u32ReceiveFlowControl;     /*!< Specifies the validity of the decoding function that receive Pause frame.
-                                             This parameter can be a value of @ref ETH_Receive_Flow_Control */
+                                             这个参数是其中之一 @ref ETH_Receive_Flow_Control */
     uint32_t u32TransFlowControl;       /*!< Specifies the validity of the MAC transmit Pause frame (Full-Duplex mode) or the MAC back-pressure operation (Half-Duplex mode).
-                                             This parameter can be a value of @ref ETH_Transmit_Flow_Control */
+                                             这个参数是其中之一 @ref ETH_Transmit_Flow_Control */
     uint32_t u32ReceiveAll;             /*!< Specifies the validity of the all frames reception by the MAC (No filtering).
-                                             This parameter can be a value of @ref ETH_Receive_All */
+                                             这个参数是其中之一 @ref ETH_Receive_All */
     uint32_t u32DropNotTcpUdp;          /*!< Specifies the validity of Dropping all IP datagram without TCP/UDP field.
-                                             This parameter can be a value of @ref ETH_Drop_Not_TcpUdp */
+                                             这个参数是其中之一 @ref ETH_Drop_Not_TcpUdp */
     uint32_t u32VlanTagFilter;          /*!< Specifies the validity of the VLAN Tag Filter.
-                                             This parameter can be a value of @ref ETH_VLAN_Tag_Filter */
+                                             这个参数是其中之一 @ref ETH_VLAN_Tag_Filter */
     uint32_t u32SrcAddrFilter;          /*!< Specifies the Source Address Filter mode.
-                                             This parameter can be a value of @ref ETH_Source_Addr_Filter */
+                                             这个参数是其中之一 @ref ETH_Source_Addr_Filter */
     uint32_t u32PassControlFrame;       /*!< Specifies the forwarding mode of the control frame.
-                                             This parameter can be a value of @ref ETH_Pass_Control_Frame */
+                                             这个参数是其中之一 @ref ETH_Pass_Control_Frame */
     uint32_t u32BroadcastFrame;         /*!< Specifies the validity of the reception Broadcast Frame.
-                                             This parameter can be a value of @ref ETH_Reception_Broadcast_Frame */
+                                             这个参数是其中之一 @ref ETH_Reception_Broadcast_Frame */
     uint32_t u32DestAddrFilter;         /*!< Specifies the destination filter mode for both unicast and multicast frame.
-                                             This parameter can be a value of @ref ETH_Destination_Addr_Filter */
+                                             这个参数是其中之一 @ref ETH_Destination_Addr_Filter */
     uint32_t u32MulticastFrameFilter;   /*!< Specifies the Multicast Frame filter mode.
-                                             This parameter can be a value of @ref ETH_Multicast_Frame_Filter */
+                                             这个参数是其中之一 @ref ETH_Multicast_Frame_Filter */
     uint32_t u32UnicastFrameFilter;     /*!< Specifies the Unicast Frame filter mode.
-                                             This parameter can be a value of @ref ETH_Unicast_Frame_Filter */
+                                             这个参数是其中之一 @ref ETH_Unicast_Frame_Filter */
     uint32_t u32PromiscuousMode;        /*!< Specifies the validity of the Promiscuous Mode.
-                                             This parameter can be a value of @ref ETH_Promiscuous_Mode */
+                                             这个参数是其中之一 @ref ETH_Promiscuous_Mode */
     uint32_t u32HashTableHigh;          /*!< Specifies the higher 32 bits of Hash table.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
     uint32_t u32HashTableLow;           /*!< Specifies the lower 32 bits of Hash table.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
     uint32_t u32TxVlanMode;             /*!< Specifies the VLAN insert mode in Transmit frame.
-                                             This parameter can be a value of @ref ETH_Tx_VLAN_Insert_Mode */
+                                             这个参数是其中之一 @ref ETH_Tx_VLAN_Insert_Mode */
     uint16_t u16TxVlanTag;              /*!< Specifies the VLAN tag value.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFF */
     uint32_t u32RxVlanFilter;           /*!< Specifies the VLAN filter mode in Receive frame.
-                                             This parameter can be a value of @ref ETH_Rx_VLAN_Filter */
+                                             这个参数是其中之一 @ref ETH_Rx_VLAN_Filter */
     uint32_t u32RxVlanCompare;          /*!< Specifies the bits for compare VLAN tag.
-                                             This parameter can be a value of @ref ETH_Rx_VLAN_Compare */
+                                             这个参数是其中之一 @ref ETH_Rx_VLAN_Compare */
     uint16_t u16RxVlanTag;              /*!< Specifies the VLAN tag value.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFF */
     uint16_t u16RxVlanHashTable;        /*!< Specifies the lower 16 bits of VLAN Hash table.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFF */
 } stc_eth_mac_init_t;
 
 /**
@@ -164,39 +164,39 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32BurstMode;              /*!< Specifies the AHB Master interface burst transmission Mode.
-                                             This parameter can be a value of @ref ETH_Burst_Mode */
+                                             这个参数是其中之一 @ref ETH_Burst_Mode */
     uint32_t u32AddrAlign;              /*!< Specifies the validity of the Address Align.
-                                             This parameter can be a value of @ref ETH_Address_Align */
+                                             这个参数是其中之一 @ref ETH_Address_Align */
     uint32_t u32RxBurstLen;             /*!< Specifies the maximum number of beats to be transferred in one Rx DMA transaction.
-                                             This parameter can be a value of @ref ETH_Rx_DMA_Burst_Length */
+                                             这个参数是其中之一 @ref ETH_Rx_DMA_Burst_Length */
     uint32_t u32TxBurstLen;             /*!< Specifies the maximum number of beats to be transferred in one Tx DMA transaction.
-                                             This parameter can be a value of @ref ETH_Tx_DMA_Burst_Length */
+                                             这个参数是其中之一 @ref ETH_Tx_DMA_Burst_Length */
     uint32_t u32EnhanceDesc;            /*!< Specifies the validity of the enhance descriptor format.
-                                             This parameter can be a value of @ref ETH_DMA_Enhance_Descriptor */
+                                             这个参数是其中之一 @ref ETH_DMA_Enhance_Descriptor */
     uint32_t u32DescSkipLen;            /*!< Specifies the number of word to skip between two unchain descriptors (Ring mode)
-                                             This parameter must be a number between Min_Data = 0 and Max_Data = 31 */
+                                             这个参数必须是其中间值 Min_Data = 0 and Max_Data = 31 */
     uint32_t u32Arbitration;            /*!< Specifies the DMA Tx/Rx arbitration.
-                                             This parameter can be a value of @ref ETH_DMA_Arbitration */
+                                             这个参数是其中之一 @ref ETH_DMA_Arbitration */
     uint32_t u32DropChecksumErrorFrame; /*!< Specifies the validity of Dropping TCP/IP Checksum Error Frame.
-                                             This parameter can be a value of @ref ETH_Drop_TCPIP_Checksum_Error_Frame */
+                                             这个参数是其中之一 @ref ETH_Drop_TCPIP_Checksum_Error_Frame */
     uint32_t u32ReceiveStoreForward;    /*!< Specifies the validity of the Receive store and forward mode.
-                                             This parameter can be a value of @ref ETH_Receive_Store_Forward */
+                                             这个参数是其中之一 @ref ETH_Receive_Store_Forward */
     uint32_t u32FlushReceiveFrame;      /*!< Specifies the validity of the flushing receive frame.
-                                             This parameter can be a value of @ref ETH_Flush_Receive_Frame */
+                                             这个参数是其中之一 @ref ETH_Flush_Receive_Frame */
     uint32_t u32TransStoreForward;      /*!< Specifies the validity of the Transmit store and forward mode.
-                                             This parameter can be a value of @ref ETH_Transmit_Store_Forward */
+                                             这个参数是其中之一 @ref ETH_Transmit_Store_Forward */
     uint32_t u32TransThreshold;      /*!< Specifies the Transmit Threshold.
-                                             This parameter can be a value of @ref ETH_Transmit_Threshold */
+                                             这个参数是其中之一 @ref ETH_Transmit_Threshold */
     uint32_t u32ForwardErrorFrame;      /*!< Specifies the validity of the forward erroneous frame.
-                                             This parameter can be a value of @ref ETH_Forward_Error_Frame */
+                                             这个参数是其中之一 @ref ETH_Forward_Error_Frame */
     uint32_t u32ForwardUndersizeFrame;  /*!< Specifies the validity of the Rx FIFO to forward Un dersize frame.
-                                             This parameter can be a value of @ref ETH_Forward_Undersize_Good_Frame */
+                                             这个参数是其中之一 @ref ETH_Forward_Undersize_Good_Frame */
     uint32_t u32DropJumboFrame;         /*!< Specifies the validity of Dropping jumbo Frame.
-                                             This parameter can be a value of @ref ETH_Drop_Jumbo_Frame */
+                                             这个参数是其中之一 @ref ETH_Drop_Jumbo_Frame */
     uint32_t u32ReceiveThreshold;       /*!< Specifies the threshold level of the Receive FIFO.
-                                             This parameter can be a value of @ref ETH_Receive_Threshold */
+                                             这个参数是其中之一 @ref ETH_Receive_Threshold */
     uint32_t u32SecFrameOperate;        /*!< Specifies the validity of the Operate on second frame mode.
-                                             This parameter can be a value of @ref ETH_Second_Frame_Operate */
+                                             这个参数是其中之一 @ref ETH_Second_Frame_Operate */
 } stc_eth_dma_init_t;
 
 /**
@@ -204,11 +204,11 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32PresetMode;             /*!< Specifies the MMC Counter preset mode.
-                                             This parameter can be a value of @ref ETH_MMC_Counter_Preset_Mode */
+                                             这个参数是其中之一 @ref ETH_MMC_Counter_Preset_Mode */
     uint32_t u32ReadReset;              /*!< Specifies the validity of the MMC Reset on read.
-                                             This parameter can be a value of @ref ETH_MMC_Read_Reset */
+                                             这个参数是其中之一 @ref ETH_MMC_Read_Reset */
     uint32_t u32Reload;                 /*!< Specifies the validity of the MMC Counter reload.
-                                             This parameter can be a value of @ref ETH_MMC_Counter_Reload */
+                                             这个参数是其中之一 @ref ETH_MMC_Counter_Reload */
 } stc_eth_mmc_init_t;
 
 /**
@@ -216,25 +216,25 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32DestAddrFilter;         /*!< Specifies the validity of the Destination address filter for the PTP frame.
-                                             This parameter can be a value of @ref ETH_PTP_Frame_Dest_Addr_Filter */
+                                             这个参数是其中之一 @ref ETH_PTP_Frame_Dest_Addr_Filter */
     uint32_t u32SnapDatagramType;       /*!< Specifies the PTP snapshot datagram type.
-                                             This parameter can be a value of @ref ETH_PTP_Snapshot_Datagram_Type */
+                                             这个参数是其中之一 @ref ETH_PTP_Snapshot_Datagram_Type */
     uint32_t u32SnapFrameType;          /*!< Specifies the PTP snapshot frame type.
                                              This parameter can be any combination of @ref ETH_PTP_Snapshot_Frame_Type */
     uint32_t u32DatagramVersion;        /*!< Specifies the PTP datagram version.
-                                             This parameter can be a value of @ref ETH_PTP_Datagram_Version */
+                                             这个参数是其中之一 @ref ETH_PTP_Datagram_Version */
     uint32_t u32SubsecScale;            /*!< Specifies the PTP Time Stamp subsecond scale.
-                                             This parameter can be a value of @ref ETH_PTP_Subsecond_Scale */
+                                             这个参数是其中之一 @ref ETH_PTP_Subsecond_Scale */
     uint32_t u32CalibMode;              /*!< Specifies the PTP Time Stamp calibration mode.
-                                             This parameter can be a value of @ref ETH_PTP_Calibration_Mode */
+                                             这个参数是其中之一 @ref ETH_PTP_Calibration_Mode */
     uint32_t u32BasicAddend;            /*!< Specifies the PTP Time Stamp Basic addend.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
     uint8_t  u8SubsecAddend;            /*!< Specifies the PTP Time Stamp Subsecond addend.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFF */
     uint32_t u32SecInitValue;           /*!< Specifies the PTP Time Stamp Second Initial value.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
     uint32_t u32SubsecInitValue;        /*!< Specifies the PTP Time Stamp Subsecond Initial value.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0x7FFFFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0x7FFFFFFF */
 } stc_eth_ptp_init_t;
 
 /**
@@ -242,15 +242,15 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32TriggerFunc;            /*!< Specifies the arrival time trigger the function.
-                                             This parameter can be a value of @ref ETH_PPS_Trigger_Function */
+                                             这个参数是其中之一 @ref ETH_PPS_Trigger_Function */
     uint32_t u32OutputMode;             /*!< Specifies the PPS output mode.
-                                             This parameter can be a value of @ref ETH_PPS_Output_Mode */
+                                             这个参数是其中之一 @ref ETH_PPS_Output_Mode */
     uint32_t u32OutputFreq;             /*!< Specifies the PPS outout frequency.
                                              This parameter can be any combination of @ref ETH_PPS_Output_Frequency */
     uint32_t u32SecValue;               /*!< Specifies the PPS Target Time for Second.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
     uint32_t u32SubsecValue;            /*!< Specifies the PPS Target Time for Subsecond.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0x7FFFFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0x7FFFFFFF */
 } stc_eth_pps_config_t;
 
 /**
@@ -302,9 +302,9 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32MacAddrFilter;          /*!< Specifies the MAC Address filter mode.
-                                             This parameter can be a value of @ref ETH_MAC_Address_Filter */
+                                             这个参数是其中之一 @ref ETH_MAC_Address_Filter */
     uint32_t u32MacAddrMask;            /*!< Specifies the MAC Address filter Mask.
-                                             This parameter can be a value of @ref ETH_MAC_Address_Filter_Mask */
+                                             这个参数是其中之一 @ref ETH_MAC_Address_Filter_Mask */
     uint8_t  au8MacAddr[6];             /*!< Specifies the MAC Address of used Hardware */
 } stc_eth_mac_addr_config_t;
 
@@ -313,33 +313,33 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32DestPortFilter;         /*!< Specifies the L4 Destination port filter mode.
-                                             This parameter can be a value of @ref ETH_L4_Dest_Port_Filter */
+                                             这个参数是其中之一 @ref ETH_L4_Dest_Port_Filter */
     uint32_t u32SrcPortFilter;          /*!< Specifies the L4 Source port filter mode.
-                                             This parameter can be a value of @ref ETH_L4_Source_Port_Filter */
+                                             这个参数是其中之一 @ref ETH_L4_Source_Port_Filter */
     uint32_t u32PortFilterProtocol;     /*!< Specifies the L4 protocol for port filter operation.
-                                             This parameter can be a value of @ref ETH_L4_Port_Filter_Protocol */
+                                             这个参数是其中之一 @ref ETH_L4_Port_Filter_Protocol */
     uint16_t u16DestProtFilterValue;    /*!< Specifies the L4 Destination port filter value.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFF */
     uint16_t u16SrcProtFilterValue;     /*!< Specifies the L4 Source port filter value.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFF */
     uint32_t u32Ip4DestAddrFilterMask;  /*!< Specifies the L3 Destination Address filter mask in IPv4.
-                                             This parameter can be a value of @ref ETH_L3_Dest_Addr_Filter_Mask */
+                                             这个参数是其中之一 @ref ETH_L3_Dest_Addr_Filter_Mask */
     uint32_t u32Ip4SrcAddrFilterMask;   /*!< Specifies the L3 Source Address filter Mask in IPv4.
-                                             This parameter can be a value of @ref ETH_L3_Source_Addr_Filter_Mask */
+                                             这个参数是其中之一 @ref ETH_L3_Source_Addr_Filter_Mask */
     uint32_t u32Ip6AddrFilterMask;      /*!< Specifies the L3 Destination/Source Address filter Mask in IPv6.
-                                             This parameter can be a value of @ref ETH_L3_Dest_Source_Addr_Filter_Mask */
+                                             这个参数是其中之一 @ref ETH_L3_Dest_Source_Addr_Filter_Mask */
     uint32_t u32DestAddrFilter;         /*!< Specifies the L3 Destination Address filter mode.
-                                             This parameter can be a value of @ref ETH_L3_Dest_Addr_Filter */
+                                             这个参数是其中之一 @ref ETH_L3_Dest_Addr_Filter */
     uint32_t u32SrcAddrFilter;          /*!< Specifies the L3 Source Address filter mode.
-                                             This parameter can be a value of @ref ETH_L3_Source_Addr_Filter */
+                                             这个参数是其中之一 @ref ETH_L3_Source_Addr_Filter */
     uint32_t u32AddrFilterProtocol;     /*!< Specifies the L3 protocol for address filter operation.
-                                             This parameter can be a value of @ref ETH_L3_Addr_Filter_Protocol */
+                                             这个参数是其中之一 @ref ETH_L3_Addr_Filter_Protocol */
     uint32_t u32Ip4DestAddrFilterValue; /*!< Specifies the L3 Destination Address filter value in IPv4.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
     uint32_t u32Ip4SrcAddrFilterValue;  /*!< Specifies the L3 Source Address filter value in IPv4.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
     uint32_t au32Ip6AddrFilterValue[4]; /*!< Specifies the L3 Destination/Source Address filter value in IPv6.
-                                             This parameter must be a number between Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
+                                             这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
 } stc_eth_l3l4_filter_config_t;
 
 /**

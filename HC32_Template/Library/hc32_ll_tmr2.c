@@ -190,10 +190,10 @@
  * @brief  Initializes the specified TMR2 channel 根据 the specified parameters
  *         in the structure stc_tmr2_init_t
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  pstcTmr2Init           Pointer to a stc_tmr2_init_t structure value that
  *                                      contains the configuration information for the TMR2 channel.
  * @retval int32_t:
@@ -252,7 +252,7 @@ int32_t TMR2_StructInit(stc_tmr2_init_t *pstcTmr2Init) {
 /**
  * @brief  De-initializes the specified TMR2 unit.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @retval 无
  */
@@ -275,12 +275,12 @@ void TMR2_DeInit(CM_TMR2_TypeDef *TMR2x) {
 /**
  * @brief  Specifies the function mode for the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  u32Func                Function mode.
- *                                      This parameter can be a value of @ref TMR2_Function
+ *                                      这个参数是其中之一 @ref TMR2_Function
  *   @arg  TMR2_FUNC_CMP:               The function of TMR2 channel is ouput compare.
  *   @arg  TMR2_FUNC_CAPT:              The function of TMR2 channel is input capture.
  * @retval 无
@@ -298,12 +298,12 @@ void TMR2_SetFunc(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Func) {
 /**
  * @brief  Specifies the clock source for the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  u32Src                 时钟源.
- *                                      This parameter can be a value of @ref TMR2_Clock_Source
+ *                                      这个参数是其中之一 @ref TMR2_Clock_Source
  * @retval 无
  */
 void TMR2_SetClockSrc(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Src) {
@@ -319,12 +319,12 @@ void TMR2_SetClockSrc(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Src) {
 /**
  * @brief  Specifies the clock divider for the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  u32Div                 Clock divider.
- *                                      This parameter can be a value of @ref TMR2_Clock_Divider
+ *                                      这个参数是其中之一 @ref TMR2_Clock_Divider
  * @retval 无
  */
 void TMR2_SetClockDiv(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Div) {
@@ -362,10 +362,10 @@ int32_t TMR2_PWM_StructInit(stc_tmr2_pwm_init_t *pstPwmInit) {
  * @brief  Configures the PWM of the specified TMR2 channel
  *         根据 the specified parameters in the structure @ref stc_tmr2_pwm_init_t
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  pstPwmInit             Pointer to a @ref stc_tmr2_pwm_init_t structure value that
  *                                      contains the configuration information for the TMR2 PWM.
  * @retval int32_t:
@@ -398,10 +398,10 @@ int32_t TMR2_PWM_Init(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, const stc_tmr2_pwm
 /**
  * @brief  Enable or disable PWM output of the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
  */
@@ -419,12 +419,12 @@ void TMR2_PWM_OutputCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, en_functional_st
 /**
  * @brief  Enable or disable the specified hardware capture condition.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  u32Cond                Hardware capture condition.
- *                                      This parameter can be a value of @ref TMR2_Capture_Condition
+ *                                      这个参数是其中之一 @ref TMR2_Capture_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
  */
@@ -446,12 +446,12 @@ void TMR2_HWCaptureCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32C
 /**
  * @brief  Enable or disable the specified hardware start condition.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  u32Cond                Hardware start condition.
- *                                      This parameter can be a value of @ref TMR2_Start_Condition
+ *                                      这个参数是其中之一 @ref TMR2_Start_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
  */
@@ -473,12 +473,12 @@ void TMR2_HWStartCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Con
 /**
  * @brief  Enable or disable the specified hardware stop condition.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  u32Cond                Hardware stop condition.
- *                                      This parameter can be a value of @ref TMR2_Stop_Condition
+ *                                      这个参数是其中之一 @ref TMR2_Stop_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
  */
@@ -500,12 +500,12 @@ void TMR2_HWStopCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Cond
 /**
  * @brief  Enable or disable the specified hardware clear condition.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  u32Cond                Hardware clear condition.
- *                                      This parameter can be a value of @ref TMR2_Clear_Condition
+ *                                      这个参数是其中之一 @ref TMR2_Clear_Condition
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
  */
@@ -527,12 +527,12 @@ void TMR2_HWClearCondCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Con
 /**
  * @brief  Specifies the clock divider of filter.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  u32Div                 The clock source divider of the filter.
- *                                      This parameter can be a value of @ref TMR2_Filter_Clock_Divider
+ *                                      这个参数是其中之一 @ref TMR2_Filter_Clock_Divider
  *   @arg  TMR2_FILTER_CLK_DIV1:        The filter clock is the clock of timer2 / 1.
  *   @arg  TMR2_FILTER_CLK_DIV4:        The filter clock is the clock of timer2 / 4.
  *   @arg  TMR2_FILTER_CLK_DIV16:       The filter clock is the clock of timer2 / 16.
@@ -551,10 +551,10 @@ void TMR2_SetFilterClockDiv(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32
 /**
  * @brief  Enable or disable the filter of the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
  */
@@ -572,7 +572,7 @@ void TMR2_FilterCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, en_functional_state_
 /**
  * @brief  Enable or disable the interrupt of the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32IntType             The interrupt type.
  *                                      This parameter can be values of @ref TMR2_Interrupt_Type
@@ -594,10 +594,10 @@ void TMR2_IntCmd(CM_TMR2_TypeDef *TMR2x, uint32_t u32IntType, en_functional_stat
 /**
  * @brief  Start the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @retval 无
  */
 void TMR2_Start(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
@@ -610,10 +610,10 @@ void TMR2_Start(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
 /**
  * @brief  Stop the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @retval 无
  */
 void TMR2_Stop(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
@@ -626,7 +626,7 @@ void TMR2_Stop(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
 /**
  * @brief  Get the status of the specified TMR2 flag.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Flag                TMR2 status flag.
  *                                      This parameter can be values of @ref TMR2_Status_Flag
@@ -648,7 +648,7 @@ en_flag_status_t TMR2_GetStatus(const CM_TMR2_TypeDef *TMR2x, uint32_t u32Flag) 
 /**
  * @brief  Clear the status of the specified TMR2 flag.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Flag                TMR2 status flag.
  *                                      This parameter can be values of @ref TMR2_Status_Flag
@@ -663,12 +663,12 @@ void TMR2_ClearStatus(CM_TMR2_TypeDef *TMR2x, uint32_t u32Flag) {
 /**
  * @brief  Set compare value for the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  The TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  u32Value               The compare reference value of the specified TMR2 channel.
- *                                      This parameter can be a number between 0U and 0xFFFFU, inclusive.
+ *                                      这个参数必须是其中间值 0U and 0xFFFFU, inclusive.
  * @retval 无
  */
 void TMR2_SetCompareValue(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Value) {
@@ -684,10 +684,10 @@ void TMR2_SetCompareValue(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Va
 /**
  * @brief  Get compare value of the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                The TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @retval The compare value of the specified TMR2 channel. A number between 0U and 0xFFFFU, inclusive.
  */
 uint32_t TMR2_GetCompareValue(const CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
@@ -703,12 +703,12 @@ uint32_t TMR2_GetCompareValue(const CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
 /**
  * @brief  Set counter value for the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  The TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @param  [in]  u32Value               The counter value for the specified TMR2 channel.
- *                                      This parameter can be a number between 0U and 0xFFFFU, inclusive.
+ *                                      这个参数必须是其中间值 0U and 0xFFFFU, inclusive.
  * @retval 无
  */
 void TMR2_SetCountValue(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Value) {
@@ -725,10 +725,10 @@ void TMR2_SetCountValue(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint32_t u32Valu
 /**
  * @brief  Get counter value of the specified TMR2 channel.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  The TMR2 channel.
- *                                      This parameter can be a value of @ref TMR2_Channel
+ *                                      这个参数是其中之一 @ref TMR2_Channel
  * @retval The counter value of the specified TMR2 channel. A number between 0U and 0xFFFFU, inclusive.
  */
 uint32_t TMR2_GetCountValue(const CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
@@ -744,7 +744,7 @@ uint32_t TMR2_GetCountValue(const CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch) {
 /**
  * @brief  Specifies the ouput polarity of the PWM at the specified state of counter.
  * @param  [in]  TMR2x                  Pointer to TMR2 instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMR2_x or CM_TMR2
  * @param  [in]  u32Ch                  TMR2 channel.
  *                                      This parameter can be a value @ref TMR2_Channel

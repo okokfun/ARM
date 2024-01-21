@@ -62,9 +62,9 @@ extern "C"
 typedef struct {
     uint16_t u16ClockFreq;                  /*!< Frequency(MHz) of clock sources that OTS is going to use. */
     uint8_t u8T1;                           /*!< Temperature value T1 for the default parameter.
-                                                 This parameter can be a value of @ref OTS_Param_Temp_Cond */
+                                                 这个参数是其中之一 @ref OTS_Param_Temp_Cond */
     uint8_t u8T2;                           /*!< Temperature value T2 for the default parameter.
-                                                 This parameter can be a value of @ref OTS_Param_Temp_Cond */
+                                                 这个参数是其中之一 @ref OTS_Param_Temp_Cond */
 } stc_para_temp_cond_t;
 
 /**
@@ -72,9 +72,9 @@ typedef struct {
  */
 typedef struct {
     uint16_t u16ClockSrc;                   /*!< Specifies clock source for OTS.
-                                                 This parameter can be a value of @ref OTS_Clock_Source */
+                                                 这个参数是其中之一 @ref OTS_Clock_Source */
     uint16_t u16AutoOffEn;                  /*!< Enable or disable OTS automatic-off(after sampled temperature).
-                                                 This parameter can be a value of @ref OTS_Auto_Off_En */
+                                                 这个参数是其中之一 @ref OTS_Auto_Off_En */
     float32_t f32SlopeK;                    /*!< K: Temperature slope (calculated by calibration experiment).
                                                  If you want to use the default parameters(slope K and offset M),
                                                  specify both 'f32SlopeK' and 'f32OffsetM' as ZERO. */

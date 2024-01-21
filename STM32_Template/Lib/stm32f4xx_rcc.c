@@ -1987,35 +1987,35 @@ void RCC_AHB3PeriphClockCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState) {
   * 注意:   重置后，外围时钟(用于寄存器读/写访问)被禁用，应用软件必须在使用该时钟之前启用该时钟。
   * 参数:  RCC_APB1Periph: 指定APB1外设设备选通其时钟。
   *          此参数可以是以下值的任意组合:
-  *            @arg RCC_APB1Periph_TIM2:   TIM2 时钟
-  *            @arg RCC_APB1Periph_TIM3:   TIM3 时钟
-  *            @arg RCC_APB1Periph_TIM4:   TIM4 时钟
-  *            @arg RCC_APB1Periph_TIM5:   TIM5 时钟
-  *            @arg RCC_APB1Periph_TIM6:   TIM6 时钟
-  *            @arg RCC_APB1Periph_TIM7:   TIM7 时钟
-  *            @arg RCC_APB1Periph_TIM12:  TIM12 时钟
-  *            @arg RCC_APB1Periph_TIM13:  TIM13 时钟
-  *            @arg RCC_APB1Periph_TIM14:  TIM14 时钟
-  *            @arg RCC_APB1Periph_LPTIM1: LPTIM1 时钟 (STM32F410xx and STM32F413_423xx devices)
-  *            @arg RCC_APB1Periph_WWDG:   WWDG 时钟
-  *            @arg RCC_APB1Periph_SPI2:   SPI2 时钟
-  *            @arg RCC_APB1Periph_SPI3:   SPI3 时钟
-  *            @arg RCC_APB1Periph_SPDIF:  SPDIF RX 时钟 (STM32F446xx devices)
-  *            @arg RCC_APB1Periph_USART2: USART2 时钟
-  *            @arg RCC_APB1Periph_USART3: USART3 时钟
-  *            @arg RCC_APB1Periph_UART4:  UART4 时钟
-  *            @arg RCC_APB1Periph_UART5:  UART5 时钟
-  *            @arg RCC_APB1Periph_I2C1:   I2C1 时钟
-  *            @arg RCC_APB1Periph_I2C2:   I2C2 时钟
-  *            @arg RCC_APB1Periph_I2C3:   I2C3 时钟
-  *            @arg RCC_APB1Periph_FMPI2C1:FMPI2C1 时钟
-  *            @arg RCC_APB1Periph_CAN1:   CAN1 时钟
-  *            @arg RCC_APB1Periph_CAN2:   CAN2 时钟
-  *            @arg RCC_APB1Periph_CEC:    CEC 时钟 (STM32F446xx devices)
-  *            @arg RCC_APB1Periph_PWR:    PWR 时钟
-  *            @arg RCC_APB1Periph_DAC:    DAC 时钟
-  *            @arg RCC_APB1Periph_UART7:  UART7 时钟
-  *            @arg RCC_APB1Periph_UART8:  UART8 时钟
+  *            @arg RCC_APB1Periph_TIM2:    TIM2 时钟
+  *            @arg RCC_APB1Periph_TIM3:    TIM3 时钟
+  *            @arg RCC_APB1Periph_TIM4:    TIM4 时钟
+  *            @arg RCC_APB1Periph_TIM5:    TIM5 时钟
+  *            @arg RCC_APB1Periph_TIM6:    TIM6 时钟
+  *            @arg RCC_APB1Periph_TIM7:    TIM7 时钟
+  *            @arg RCC_APB1Periph_TIM12:   TIM12 时钟
+  *            @arg RCC_APB1Periph_TIM13:   TIM13 时钟
+  *            @arg RCC_APB1Periph_TIM14:   TIM14 时钟
+  *            @arg RCC_APB1Periph_LPTIM1:  LPTIM1 时钟 (STM32F410xx and STM32F413_423xx devices)
+  *            @arg RCC_APB1Periph_WWDG:    WWDG 时钟
+  *            @arg RCC_APB1Periph_SPI2:    SPI2 时钟
+  *            @arg RCC_APB1Periph_SPI3:    SPI3 时钟
+  *            @arg RCC_APB1Periph_SPDIF:   SPDIF RX 时钟 (STM32F446xx devices)
+  *            @arg RCC_APB1Periph_USART2:  USART2 时钟
+  *            @arg RCC_APB1Periph_USART3:  USART3 时钟
+  *            @arg RCC_APB1Periph_UART4:   UART4 时钟
+  *            @arg RCC_APB1Periph_UART5:   UART5 时钟
+  *            @arg RCC_APB1Periph_I2C1:    I2C1 时钟
+  *            @arg RCC_APB1Periph_I2C2:    I2C2 时钟
+  *            @arg RCC_APB1Periph_I2C3:    I2C3 时钟
+  *            @arg RCC_APB1Periph_FMPI2C1: FMPI2C1 时钟
+  *            @arg RCC_APB1Periph_CAN1:    CAN1 时钟
+  *            @arg RCC_APB1Periph_CAN2:    CAN2 时钟
+  *            @arg RCC_APB1Periph_CEC:     CEC 时钟 (STM32F446xx devices)
+  *            @arg RCC_APB1Periph_PWR:     PWR 时钟
+  *            @arg RCC_APB1Periph_DAC:     DAC 时钟
+  *            @arg RCC_APB1Periph_UART7:   UART7 时钟
+  *            @arg RCC_APB1Periph_UART8:   UART8 时钟
   * 参数:  NewState: 指定外围时钟的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无

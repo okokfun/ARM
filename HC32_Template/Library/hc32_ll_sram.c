@@ -144,9 +144,9 @@ void SRAM_DeInit(void) {
  * @param  [in]  u32SramSel             The SRAM selection.
  *                                      This parameter can be values of @ref SRAM_Sel
  * @param  [in]  u32WriteCycle          The write access wait cycle for the specified SRAM
- *                                      This parameter can be a value of @ref SRAM_Access_Wait_Cycle
+ *                                      这个参数是其中之一 @ref SRAM_Access_Wait_Cycle
  * @param  [in]  u32ReadCycle           The read access wait cycle for the specified SRAM.
- *                                      This parameter can be a value of @ref SRAM_Access_Wait_Cycle
+ *                                      这个参数是其中之一 @ref SRAM_Access_Wait_Cycle
  *   @arg  SRAM_WAIT_CYCLE0:            Wait 0 CPU cycle.
  *   @arg  SRAM_WAIT_CYCLE1:            Wait 1 CPU cycle.
  *   @arg  SRAM_WAIT_CYCLE2:            Wait 2 CPU cycles.
@@ -187,7 +187,7 @@ void SRAM_SetWaitCycle(uint32_t u32SramSel, uint32_t u32WriteCycle, uint32_t u32
  * @param  [in]  u32SramSel             The SRAM selection. This function is used to specify the
  *                                      ECC mode for members SRAM_ECC_XXXX of @ref SRAM_Sel
  * @param  [in]  u32EccMode             The ECC mode.
- *                                      This parameter can be a value of @ref SRAM_ECC_Mode
+ *                                      这个参数是其中之一 @ref SRAM_ECC_Mode
  *   @arg  SRAM_ECC_MD_INVD:            The ECC mode is invalid.
  *   @arg  SRAM_ECC_MD1:                When 1-bit error occurred:
  *                                      ECC error corrects.
@@ -229,7 +229,7 @@ void SRAM_SetEccMode(uint32_t u32SramSel, uint32_t u32EccMode) {
  * @param  [in]  u32SramSel             The SRAM selection.
  *                                      This parameter can be values of @ref SRAM_Sel
  * @param  [out] u32ErrMode             The operation after check error occurred.
- *                                      This parameter can be a value of @ref SRAM_Err_Mode
+ *                                      这个参数是其中之一 @ref SRAM_Err_Mode
  *   @arg  SRAM_ERR_MD_NMI:             Check error generates NMI(non-maskable interrupt).
  *   @arg  SRAM_ERR_MD_RST:             Check error generates system reset.
  * @retval 无
@@ -256,7 +256,7 @@ void SRAM_SetErrorMode(uint32_t u32SramSel, uint32_t u32ErrMode) {
 /**
  * @brief  Get the status of the specified flag of SRAM.
  * @param  [in]  u32Flag                The flag of SRAM.
- *                                      This parameter can be a value of @ref SRAM_Err_Status_Flag
+ *                                      这个参数是其中之一 @ref SRAM_Err_Status_Flag
  * @retval An @ref en_flag_status_t enumeration type value.
  */
 en_flag_status_t SRAM_GetStatus(uint32_t u32Flag) {

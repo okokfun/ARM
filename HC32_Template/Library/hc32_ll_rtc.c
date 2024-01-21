@@ -444,7 +444,7 @@ void RTC_SetClockSrc(uint8_t u8Src) {
 /**
  * @brief  Set RTC clock compensation value.
  * @param  [in] u16Value                Specifies the clock compensation value of RTC.
- *           @arg This parameter can be a number between Min_Data = 0 and Max_Data = 0x1FF.
+ *           @arg 这个参数必须是其中间值 Min_Data = 0 and Max_Data = 0x1FF.
  * @retval 无
  */
 void RTC_SetClockCompenValue(uint16_t u16Value) {

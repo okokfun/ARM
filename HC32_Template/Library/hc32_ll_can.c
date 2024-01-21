@@ -215,7 +215,7 @@ const static uint8_t m_au8DLC2Size[16U] = {
 /**
  * @brief  Initialization parameter check.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  pstcCanInit            Pointer to a stc_can_init_t structure value that
  *                                      contains the configuration information for the CAN.
@@ -263,10 +263,10 @@ static void CAN_InitParameterCheck(CM_CAN_TypeDef *CANx, const stc_can_init_t *p
 /**
  * @brief  Specifies work mode for the specified CAN unit.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u8WorkMode             Work mode of CAN.
- *                                      This parameter can be a value of @ref CAN_Work_Mode
+ *                                      这个参数是其中之一 @ref CAN_Work_Mode
  *   @arg  CAN_WORK_MD_NORMAL:          Normal work mode.
  *   @arg  CAN_WORK_MD_SILENT:          Silent work mode. Prohibit data transmission.
  *   @arg  CAN_WORK_MD_ILB:             Internal loop back mode, just for self-test while developing.
@@ -311,7 +311,7 @@ static void CAN_SetWorkMode(CM_CAN_TypeDef *CANx, uint8_t u8WorkMode) {
 /**
  * @brief  Configures acceptance filter. Set ID and ID mask for the specified acceptance filters.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u16FilterSelect        Acceptance filters selection.
  *                                      This parameter can be values of @ref CAN_Acceptance_Filter
@@ -358,7 +358,7 @@ static int32_t CAN_FilterConfig(CM_CAN_TypeDef *CANx, uint16_t u16FilterSelect,
  * @brief  Configures the specified CAN FD 根据 the specified parameters
  *         in a @ref stc_canfd_config_t structure.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  pstcCanFd              Pointer to a @ref stc_canfd_config_t structure.
  * @retval int32_t:
@@ -396,7 +396,7 @@ static int32_t CAN_FD_Config(CM_CAN_TypeDef *CANx, const stc_canfd_config_t *pst
 /**
  * @brief  Write TX buffer register in bytes.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  pstcTx                 Pointer to a @ref stc_can_tx_frame_t structure.
  * @retval 无
@@ -423,7 +423,7 @@ static void CAN_WriteTxBuf(CM_CAN_TypeDef *CANx, const stc_can_tx_frame_t *pstcT
 /**
  * @brief  Read RX buffer register in bytes.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  pstcRx                 Pointer to a @ref stc_can_rx_frame_t structure.
  * @retval 无
@@ -458,7 +458,7 @@ static void CAN_ReadRxBuf(const CM_CAN_TypeDef *CANx, stc_can_rx_frame_t *pstcRx
  * @brief  Initializes the specified CAN peripheral 根据 the specified parameters
  *         in the structure pstcCanInit.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  pstcCanInit            Pointer to a @ref stc_can_init_t structure value that
  *                                      contains the configuration information for the CAN.
@@ -579,7 +579,7 @@ int32_t CAN_StructInit(stc_can_init_t *pstcCanInit) {
 /**
  * @brief  Deinitializes the specified CAN peripheral registers to their default reset values.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @retval 无
  */
@@ -619,7 +619,7 @@ void CAN_DeInit(CM_CAN_TypeDef *CANx) {
 /**
  * @brief  Enable or disable specified interrupts.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u32IntType             Interrupt of CAN.
  *                                      This parameter can be values of @ref CAN_Interrupt_Type
@@ -659,10 +659,10 @@ void CAN_IntCmd(CM_CAN_TypeDef *CANx, uint32_t u32IntType, en_functional_state_t
 /**
  * @brief  Fills transmit frame.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u8TxBufType            CAN transmit buffer type.
- *                                      This parameter can be a value of @ref CAN_Tx_Buf_Type
+ *                                      这个参数是其中之一 @ref CAN_Tx_Buf_Type
  * @param  [in]  pstcTx                 Pointer to a @ref stc_can_tx_frame_t structure.
  *   @arg  CAN_TX_BUF_PTB:              Primary transmit buffer.
  *   @arg  CAN_TX_BUF_STB:              Secondary transmit buffer.
@@ -733,7 +733,7 @@ int32_t CAN_FillTxFrame(CM_CAN_TypeDef *CANx, uint8_t u8TxBufType, const stc_can
 /**
  * @brief  Starts transmission.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u8TxRequest            The transmit buffer to be transmitted.
  *                                      This parameter can be values of @ref CAN_Tx_Request
@@ -752,10 +752,10 @@ void CAN_StartTx(CM_CAN_TypeDef *CANx, uint8_t u8TxRequest) {
 /**
  * @brief  Abort the transmission of the specified transmit buffer.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u8TxBufType            The transmit buffer to be aborted.
- *                                      This parameter can be a value of @ref CAN_Tx_Buf_Type
+ *                                      这个参数是其中之一 @ref CAN_Tx_Buf_Type
  *   @arg  CAN_TX_BUF_PTB:              Abort PTB transmission.
  *   @arg  CAN_TX_BUF_STB:              Abort STB transmission.
  * @retval 无
@@ -772,7 +772,7 @@ void CAN_AbortTx(CM_CAN_TypeDef *CANx, uint8_t u8TxBufType) {
 /**
  * @brief  Get one received frame.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [out] pstcRx                 Pointer to a @ref stc_can_rx_frame_t structure.
  * @retval int32_t:
@@ -803,10 +803,10 @@ int32_t CAN_GetRxFrame(CM_CAN_TypeDef *CANx, stc_can_rx_frame_t *pstcRx) {
 /**
  * @brief  Get the status of specified flag.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u32Flag                CAN status flag.
- *                                      This parameter can be a value of @ref CAN_Status_Flag
+ *                                      这个参数是其中之一 @ref CAN_Status_Flag
  *   @arg  CAN_FLAG_BUS_OFF:            Register bit CFG_STAT.BUSOFF. CAN bus off.
  *   @arg  CAN_FLAG_TX_GOING:           Register bit CFG_STAT.TACTIVE. CAN bus is transmitting.
  *   @arg  CAN_FLAG_RX_GOING:           Register bit CFG_STAT.RACTIVE. CAN bus is receiving.
@@ -866,7 +866,7 @@ en_flag_status_t CAN_GetStatus(const CM_CAN_TypeDef *CANx, uint32_t u32Flag) {
 /**
  * @brief  Clear the status of specified flags.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u32Flag                CAN status flag.
  *                                      This parameter can be values of @ref CAN_Status_Flag
@@ -911,7 +911,7 @@ void CAN_ClearStatus(CM_CAN_TypeDef *CANx, uint32_t u32Flag) {
 /**
  * @brief  Get the value of CAN status.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @retval An uint32_t type value that includes the flowing status flags.
  *         - CAN_FLAG_BUS_OFF:          Register bit CFG_STAT.BUSOFF. CAN bus off.
@@ -963,7 +963,7 @@ uint32_t CAN_GetStatusValue(const CM_CAN_TypeDef *CANx) {
 /**
  * @brief  Get the information of CAN errors.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [out] pstcErr                Pointer to a @ref stc_can_error_info_t structure.
  * @retval int32_t:
@@ -990,7 +990,7 @@ int32_t CAN_GetErrorInfo(const CM_CAN_TypeDef *CANx, stc_can_error_info_t *pstcE
 /**
  * @brief  Get status(full or empty) of transmit buffer.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @retval An uint8_t type value of status of transmit buffer. It can be a value of @ref CAN_Tx_Buf_Status
  *     - CAN_TX_BUF_EMPTY:              TTCAN is disabled(TTEN == 0): STB is empty.
@@ -1011,7 +1011,7 @@ uint8_t CAN_GetTxBufStatus(const CM_CAN_TypeDef *CANx) {
 /**
  * @brief  Get status(full or empty) of receive buffer.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @retval An uint8_t type value of status of receive buffer. It can be a value of @ref CAN_Rx_Buf_Status
  *          - CAN_RX_BUF_EMPTY:         Receive buffer is empty.
@@ -1027,7 +1027,7 @@ uint8_t CAN_GetRxBufStatus(const CM_CAN_TypeDef *CANx) {
 /**
  * @brief  Enable or disable the specified acceptance filters.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u16FilterSelect        Acceptance filters selection.
  *                                      This parameter can be values of @ref CAN_Acceptance_Filter
@@ -1049,7 +1049,7 @@ void CAN_FilterCmd(CM_CAN_TypeDef *CANx, uint16_t u16FilterSelect, en_functional
 /**
  * @brief  Set receive buffer full warning limit.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in] u8RxWarnLimit:          Receive buffer full warning limit.
  *                                      When the number of received frames reaches the value specified by
@@ -1066,7 +1066,7 @@ void CAN_SetRxWarnLimit(CM_CAN_TypeDef *CANx, uint8_t u8RxWarnLimit) {
 /**
  * @brief  Set error warning limit.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u8ErrorWarnLimit       Programmable error warning limit. Range is [0, 15].
  *                                      Error warning limit = (u8ErrorWarnLimit + 1) * 8.
@@ -1152,7 +1152,7 @@ int32_t CAN_TTC_StructInit(stc_can_ttc_config_t *pstcCanTtc) {
  * @brief  Configures the specified TTCAN 根据 the specified parameters
  *         in @ref stc_can_ttc_config_t type structure.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  pstcCanTtc             Pointer to a @ref stc_can_ttc_config_t structure value that
  *                                      contains the configuration information for TTCAN.
@@ -1197,7 +1197,7 @@ int32_t CAN_TTC_Config(CM_CAN_TypeDef *CANx, const stc_can_ttc_config_t *pstcCan
 /**
  * @brief  Enable or disable the specified interrupts of TTCAN.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u8IntType              Interrupt of TTCAN.
  *                                      This parameter can be values of @ref TTCAN_Interrupt_Type
@@ -1221,7 +1221,7 @@ void CAN_TTC_IntCmd(CM_CAN_TypeDef *CANx, uint8_t u8IntType, en_functional_state
 /**
  * @brief  Enable or disable TTCAN of the specified CAN unit.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -1240,7 +1240,7 @@ void CAN_TTC_Cmd(CM_CAN_TypeDef *CANx, en_functional_state_t enNewState) {
 /**
  * @brief  Get status of the sepcified TTCAN flag.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u8Flag                 Status flag of TTCAN.
  *                                      This parameter can be values of @ref TTCAN_Status_Flag
@@ -1265,10 +1265,10 @@ en_flag_status_t CAN_TTC_GetStatus(const CM_CAN_TypeDef *CANx, uint8_t u8Flag) {
 /**
  * @brief  Clear the status of TTCAN flags.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u8Flag                 Status flag of TTCAN.
- *                                      This parameter can be a value of @ref TTCAN_Status_Flag except CAN_TTC_FLAG_TRIG_ERR.
+ *                                      这个参数是其中之一 @ref TTCAN_Status_Flag except CAN_TTC_FLAG_TRIG_ERR.
  *   @arg  CAN_TTC_FLAG_TIME_TRIG:      Time trigger interrupt flag.
  *   @arg  CAN_TTC_FLAG_WATCH_TRIG:     Watch trigger interrupt flag.
  * @retval 无
@@ -1288,7 +1288,7 @@ void CAN_TTC_ClearStatus(CM_CAN_TypeDef *CANx, uint8_t u8Flag) {
 /**
  * @brief  Get the status value of TTCAN.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @retval An uint8_t type value that includes the flowing status flags.
  *         - CAN_TTC_FLAG_TIME_TRIG:    Time trigger interrupt flag.
@@ -1303,10 +1303,10 @@ uint8_t CAN_TTC_GetStatusValue(const CM_CAN_TypeDef *CANx) {
 /**
  * @brief  Specifies trigger type of TTCAN.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u16TriggerType         TTCAN trigger type.
- *                                      This parameter can be a value of @ref TTCAN_Trigger_Type
+ *                                      这个参数是其中之一 @ref TTCAN_Trigger_Type
  *   @arg  CAN_TTC_TRIG_IMMED_TRIG:     Immediate trigger for immediate transmission.
  *   @arg  CAN_TTC_TRIG_TIME_TRIG:      Time trigger for receive triggers.
  *   @arg  CAN_TTC_TRIG_SINGLESHOT_TX_TRIG: Single shot transmit trigger for exclusive time windows.
@@ -1323,7 +1323,7 @@ void CAN_TTC_SetTriggerType(CM_CAN_TypeDef *CANx, uint16_t u16TriggerType) {
 /**
  * @brief  Specifies transmit enable window time of TTCAN.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u16TxEnableWindow      Number of NTU. Time period within which the transmit of a message may be started.
  * @retval 无
@@ -1337,7 +1337,7 @@ void CAN_TTC_SetTxEnableWindow(CM_CAN_TypeDef *CANx, uint16_t u16TxEnableWindow)
 /**
  * @brief  Specifies transmit trigger time of TTCAN.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u16TxTriggerTime       Transmit trigger time(number of NTU).
  * @retval 无
@@ -1350,7 +1350,7 @@ void CAN_TTC_SetTxTriggerTime(CM_CAN_TypeDef *CANx, uint16_t u16TxTriggerTime) {
 /**
  * @brief  TTCAN specifies watch-trigger time.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u16WatchTriggerTime    Watch trigger time(number of NTU).
  * @retval 无
@@ -1363,10 +1363,10 @@ void CAN_TTC_SetWatchTriggerTime(CM_CAN_TypeDef *CANx, uint16_t u16WatchTriggerT
 /**
  * @brief  TTCAN fill transmit frame.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [in]  u8CANTTCTxBuf          TTCAN transmit buffer selection.
- *                                      This parameter can be a value of @ref TTCAN_Tx_Buf_Sel
+ *                                      这个参数是其中之一 @ref TTCAN_Tx_Buf_Sel
  * @param  [in]  pstcTx                 Pointer to a @ref stc_can_tx_frame_t structure.
  * @retval int32_t:
  *           - LL_OK:                   No error occurred.
@@ -1405,7 +1405,7 @@ int32_t CAN_TTC_FillTxFrame(CM_CAN_TypeDef *CANx, uint8_t u8CANTTCTxBuf, const s
 /**
  * @brief  Get the configuration of TTCAN.
  * @param  [in]  CANx                   Pointer to CAN instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_CAN or CM_CANx:           CAN instance register base.
  * @param  [out] pstcCanTtc             Pointer to a @ref stc_can_ttc_config_t structure.
  * @retval int32_t:

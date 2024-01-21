@@ -64,12 +64,11 @@ typedef struct {
 
     uint8_t SDIO_ClockDiv;              /*!< 指定 SDIO 控制器的时钟频率。
                                             此参数可以是 0x00 和 0xFF 之间的值。 */
-
 } SDIO_InitTypeDef;
 
 typedef struct {
     uint32_t SDIO_Argument;  /*!< 指定作为命令消息的一部分发送到卡的 SDIO 命令参数。
-								如果命令包含参数，则必须在将命令写入命令寄存器之前将其加载到该寄存器中 */
+								             如果命令包含参数，则必须在将命令写入命令寄存器之前将其加载到该寄存器中 */
 
     uint32_t SDIO_CmdIndex;  /*!< 指定 SDIO 命令索引。 它必须低于 0x40。 */
 

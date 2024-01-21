@@ -97,10 +97,10 @@ typedef struct {
   */
 typedef struct {
     uint16_t CAN_FilterIdHigh;         /*!< 指定过滤器标识号(MSB 用于 32 位配置，第一个用于 16 位配置)。
-											                 此参数可以是 0x0000 和 0xFFFF 之间的值 */
+										此参数可以是 0x0000 和 0xFFFF 之间的值 */
 
     uint16_t CAN_FilterIdLow;          /*!< 指定过滤器标识号(32 位配置的 LSB，16 位配置的第二个)。
-										                   此参数可以是 0x0000 和 0xFFFF 之间的值 */
+										此参数可以是 0x0000 和 0xFFFF 之间的值 */
 
     uint16_t CAN_FilterMaskIdHigh;     /*!< 根据模式指定过滤器掩码号或标识号(MSB 用于 32 位配置，第一个用于 16 位配置)。
                                        此参数可以是 0x0000 和 0xFFFF 之间的值*/
@@ -399,7 +399,7 @@ typedef struct {
   * @{
   */
 #define CAN_TxStatus_Failed         ((uint8_t)0x00)/*!< CAN 传输失败 */
-#define CAN_TxStatus_Ok             ((uint8_t)0x01) /*!< CAN传输成功 */
+#define CAN_TxStatus_Ok             ((uint8_t)0x01) /*!< CAN 传输成功 */
 #define CAN_TxStatus_Pending        ((uint8_t)0x02) /*!< CAN 传输未决 */
 #define CAN_TxStatus_NoMailBox      ((uint8_t)0x04) /*!< CAN 单元未提供空邮箱 */
 /* Legacy defines */

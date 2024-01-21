@@ -61,15 +61,15 @@ extern "C"
  */
 typedef struct {
     uint32_t u32CountPeriod;            /*!< Specifies the counting period of SWDT.
-                                             This parameter can be a value of @ref SWDT_Count_Period */
+                                             这个参数是其中之一 @ref SWDT_Count_Period */
     uint32_t u32ClockDiv;               /*!< Specifies the clock division factor of SWDT.
-                                             This parameter can be a value of @ref SWDT_Clock_Division */
+                                             这个参数是其中之一 @ref SWDT_Clock_Division */
     uint32_t u32RefreshRange;           /*!< Specifies the allow refresh range of SWDT.
-                                             This parameter can be a value of @ref SWDT_Refresh_Range */
+                                             这个参数是其中之一 @ref SWDT_Refresh_Range */
     uint32_t u32LPMCount;               /*!< Specifies the count state in Low Power Mode (Sleep/Stop Mode).
-                                             This parameter can be a value of @ref SWDT_LPM_Count */
+                                             这个参数是其中之一 @ref SWDT_LPM_Count */
     uint32_t u32ExceptionType;          /*!< Specifies the type of exception response for SWDT.
-                                             This parameter can be a value of @ref SWDT_Exception_Type */
+                                             这个参数是其中之一 @ref SWDT_Exception_Type */
 } stc_swdt_init_t;
 
 /**

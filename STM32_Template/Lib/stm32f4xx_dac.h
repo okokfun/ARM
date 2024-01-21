@@ -51,16 +51,16 @@ extern "C" {
   */
 typedef struct {
     uint32_t DAC_Trigger;                      /*!< 指定所选 DAC 通道的外部触发。
-												                        该参数可以是@ref DAC_trigger_selection 的值 */
+												                        该参数可以是 @ref DAC_trigger_selection 的值 */
 
     uint32_t DAC_WaveGeneration;               /*!< 指定是否生成 DAC 通道噪声波或三角波，或者是否不生成波。
-												                        该参数可以是@ref DAC_wave_generation 的值 */
+												                        该参数可以是 @ref DAC_wave_generation 的值 */
 
     uint32_t DAC_LFSRUnmask_TriangleAmplitude; /*!< 为 DAC 通道指定噪声波生成或最大幅度三角形生成的 LFSR 掩码。
-												                        此参数可以是@ref DAC_lfsrunmask_triangleamplitude 的值 */
+												                        此参数可以是 @ref DAC_lfsrunmask_triangleamplitude 的值 */
 
     uint32_t DAC_OutputBuffer;                 /*!< 指定是启用还是禁用 DAC 通道输出缓冲器。
-												                        该参数可以是@ref DAC_output_buffer 的值 */
+												                        该参数可以是 @ref DAC_output_buffer 的值 */
 } DAC_InitTypeDef;
 
 /* Exported constants --------------------------------------------------------*/

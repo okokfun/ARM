@@ -62,11 +62,11 @@ extern "C"
  */
 typedef struct {
     uint32_t u32ExceptionType;          /*!< Specifies the type of exception that occurs when the unit accesses a protected region.
-                                             This parameter can be a value of @ref MPU_Exception_Type           */
+                                             这个参数是其中之一 @ref MPU_Exception_Type           */
     uint32_t u32BackgroundWrite;        /*!< Specifies the unit's write permission for the background space.
-                                             This parameter can be a value of @ref MPU_Background_Write_Permission */
+                                             这个参数是其中之一 @ref MPU_Background_Write_Permission */
     uint32_t u32BackgroundRead;         /*!< Specifies the unit's read permission for the background space
-                                             This parameter can be a value of @ref MPU_Background_Read_Permission  */
+                                             这个参数是其中之一 @ref MPU_Background_Read_Permission  */
 } stc_mpu_unit_config_t;
 
 /**
@@ -85,9 +85,9 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32RegionWrite;            /*!< Specifies the unit's write permission for the region.
-                                             This parameter can be a value of @ref MPU_Region_Write_Permission */
+                                             这个参数是其中之一 @ref MPU_Region_Write_Permission */
     uint32_t u32RegionRead;             /*!< Specifies the unit's read permission  for the region.
-                                             This parameter can be a value of @ref MPU_Region_Read_Permission */
+                                             这个参数是其中之一 @ref MPU_Region_Read_Permission */
 } stc_mpu_region_permission_t;
 
 /**
@@ -97,9 +97,9 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32BaseAddr;                       /*!< Specifies the base address of the region.
-                                                     This parameter can be a number between 0UL and 0xFFFFFFE0UL */
+                                                     这个参数必须是其中间值 0UL and 0xFFFFFFE0UL */
     uint32_t u32Size;                           /*!< Specifies the size of the region.
-                                                     This parameter can be a value of @ref MPU_Region_Size       */
+                                                     这个参数是其中之一 @ref MPU_Region_Size       */
     stc_mpu_region_permission_t stcDma1;        /*!< Specifies the DMA1 access permission for the region         */
     stc_mpu_region_permission_t stcDma2;        /*!< Specifies the DMA2 access permission for the region         */
     stc_mpu_region_permission_t stcUsbFSDma;    /*!< Specifies the USBFS_DMA access permission for the region    */

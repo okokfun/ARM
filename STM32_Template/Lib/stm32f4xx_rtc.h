@@ -66,7 +66,7 @@ typedef struct {
 typedef struct {
     uint8_t RTC_Hours;    /*!< 指定 RTC 时间小时。
                          如果选择 RTC_HourFormat_12，则该参数必须设置为 0-12 范围内的值;
-						 如果选择 RTC_HourFormat_24，则该参数必须设置为 0-23 范围内的值。 */
+						             如果选择 RTC_HourFormat_24，则该参数必须设置为 0-23 范围内的值。 */
 
     uint8_t RTC_Minutes;  /*!< 指定 RTC 时间分钟。
                          此参数必须设置为 0-59 范围内的值。 */

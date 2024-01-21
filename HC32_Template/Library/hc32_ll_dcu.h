@@ -62,9 +62,9 @@ extern "C"
  */
 typedef struct {
     uint32_t u32Mode;         /*!< Specifies DCU operation.
-                                   This parameter can be a value of @ref DCU_Mode */
+                                   这个参数是其中之一 @ref DCU_Mode */
     uint32_t u32DataWidth;    /*!< Specifies DCU data width.
-                                   This parameter can be a value of @ref DCU_Data_Width */
+                                   这个参数是其中之一 @ref DCU_Data_Width */
 } stc_dcu_init_t;
 
 /**
@@ -72,11 +72,11 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32LowerLimit;   /*!< Defines the wave lower limit of the wave amplitude.
-                                   This parameter can be a value between Min_Data = 0 and Max_Data = 0xFFF */
+                                   这个参数是其中间 Min_Data = 0 and Max_Data = 0xFFF */
     uint32_t u32UpperLimit;   /*!< Defines the upper limit of the wave amplitude.
-                                   This parameter can be a value between Min_Data = 0 and Max_Data = 0xFFF */
+                                   这个参数是其中间 Min_Data = 0 and Max_Data = 0xFFF */
     uint32_t u32Step;         /*!< Defines the increasing/decreasing step.
-                                   This parameter can be a value between Min_Data = 0 and Max_Data = 0xFFF */
+                                   这个参数是其中间 Min_Data = 0 and Max_Data = 0xFFF */
 } stc_dcu_wave_config_t;
 /**
  * @}

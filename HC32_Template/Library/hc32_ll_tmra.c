@@ -252,7 +252,7 @@
  * @brief  Initializes the specified TMRA peripheral 根据 the specified parameters
  *         in the structure stc_tmra_init_t
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  pstcTmraInit           Pointer to a stc_tmra_init_t structure value that
  *                                      contains the configuration information for the TMRA.
@@ -325,10 +325,10 @@ int32_t TMRA_StructInit(stc_tmra_init_t *pstcTmraInit) {
 /**
  * @brief  Specifies the counting mode for the specified TMRA unit.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u16Mode                Count mode.
- *                                      This parameter can be a value of @ref TMRA_Count_Mode
+ *                                      这个参数是其中之一 @ref TMRA_Count_Mode
  *   @arg  TMRA_MD_SAWTOOTH:            Count mode is sawtooth wave.
  *   @arg  TMRA_MD_TRIANGLE:            Count mode is triangle wave.
  * @retval 无
@@ -342,10 +342,10 @@ void TMRA_SetCountMode(CM_TMRA_TypeDef *TMRAx, uint16_t u16Mode) {
 /**
  * @brief  Specifies the counting direction for the specified TMRA unit.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u16Dir                 Count direction.
- *                                      This parameter can be a value of @ref TMRA_Count_Dir
+ *                                      这个参数是其中之一 @ref TMRA_Count_Dir
  *   @arg  TMRA_DIR_DOWN:               TMRA count down.
  *   @arg  TMRA_DIR_UP:                 TMRA count up.
  * @retval 无
@@ -359,10 +359,10 @@ void TMRA_SetCountDir(CM_TMRA_TypeDef *TMRAx, uint16_t u16Dir) {
 /**
  * @brief  Specifies the clcok divider for the specified TMRA unit.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u16Div                 Clcok divider.
- *                                      This parameter can be a value of @ref TMRA_Clock_Divider
+ *                                      这个参数是其中之一 @ref TMRA_Clock_Divider
  * @retval 无
  */
 void TMRA_SetClockDiv(CM_TMRA_TypeDef *TMRAx, uint16_t u16Div) {
@@ -374,7 +374,7 @@ void TMRA_SetClockDiv(CM_TMRA_TypeDef *TMRAx, uint16_t u16Div) {
 /**
  * @brief  Enable or disable the specified hardware count up condition.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u16Cond                Hardware count up condition.
  *                                      This parameter can be values of @ref TMRA_Hard_Count_Up_Condition
@@ -396,7 +396,7 @@ void TMRA_HWCountUpCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_function
 /**
  * @brief  Enable or disable the specified hardware count down condition.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u16Cond                Hardware count down condition.
  *                                      This parameter can be values of @ref TMRA_Hard_Count_Down_Condition
@@ -418,12 +418,12 @@ void TMRA_HWCountDownCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functi
 /**
  * @brief  Specifies function mode of TMRA.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u16Func                Function mode of TRMA.
- *                                      This parameter can be a value of @ref TMRA_Function_Mode
+ *                                      这个参数是其中之一 @ref TMRA_Function_Mode
  * @param  [in]  u32Ch                  TMRA channel.
- *                                      This parameter can be a value of @ref TMRA_Channel
+ *                                      这个参数是其中之一 @ref TMRA_Channel
  * @retval 无
  */
 void TMRA_SetFunc(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t u16Func) {
@@ -440,12 +440,12 @@ void TMRA_SetFunc(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t u16Func) {
  * @brief  Initializes the PWM 根据 the specified parameters
  *         in the structure stc_tmra_pwm_init_t
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  pstcPwmInit            Pointer to a stc_tmra_pwm_init_t structure value that
  *                                      contains the configuration information for PWM.
  * @param  [in]  u32Ch                  TMRA channel.
- *                                      This parameter can be a value of @ref TMRA_Channel
+ *                                      这个参数是其中之一 @ref TMRA_Channel
  * @retval int32_t:
  *           - LL_OK:                   No error occurred.
  *           - LL_ERR_INVD_PARAM:       pstcPwmInit == NULL.
@@ -504,10 +504,10 @@ int32_t TMRA_PWM_StructInit(stc_tmra_pwm_init_t *pstcPwmInit) {
 /**
  * @brief  Enable or disable the PWM ouput of the specified channel.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Ch                  TMRA channel.
- *                                      This parameter can be a value of @ref TMRA_Channel
+ *                                      这个参数是其中之一 @ref TMRA_Channel
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
  */
@@ -524,7 +524,7 @@ void TMRA_PWM_OutputCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, en_functional_st
 /**
  * @brief  Specifies the ouput polarity of the PWM at the specified state of counter.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Ch                  TMRA channel.
  *                                      This parameter can be a value @ref TMRA_Channel
@@ -550,7 +550,7 @@ void TMRA_PWM_SetPolarity(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint8_t u8Coun
 /**
  * @brief  Specifies the force polarity of the PWM.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Ch                  TMRA channel.
  *                                      This parameter can be a value @ref TMRA_Channel
@@ -571,7 +571,7 @@ void TMRA_PWM_SetForcePolarity(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t 
 /**
  * @brief  Enable or disable the specified capture condition.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Ch                  TMRA channel.
  *                                      This parameter can be a value @ref TMRA_Channel
@@ -606,7 +606,7 @@ void TMRA_HWCaptureCondCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t u16C
 /**
  * @brief  Enable or disable hardware start condition.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u16Cond                Hardware start condition.
  *                                      This parameter can be a value @ref TMRA_Hardware_Start_Condition
@@ -628,7 +628,7 @@ void TMRA_HWStartCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functional
 /**
  * @brief  Enable or disable hardware stop condition.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u16Cond                Hardware stop condition.
  *                                      This parameter can be a value @ref TMRA_Hardware_Stop_Condition
@@ -650,7 +650,7 @@ void TMRA_HWStopCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functional_
 /**
  * @brief  Enable or disable hardware clear condition.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u16Cond                Hardware clear condition.
  *                                      This parameter can be a value @ref TMRA_Hardware_Clear_Condition
@@ -672,12 +672,12 @@ void TMRA_HWClearCondCmd(CM_TMRA_TypeDef *TMRAx, uint16_t u16Cond, en_functional
 /**
  * @brief  Specifies the clock divider of filter.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Pin                 The pin with filter of TMRA.
- *                                      This parameter can be a value of @ref TMRA_Filter_Pin
+ *                                      这个参数是其中之一 @ref TMRA_Filter_Pin
  * @param  [in]  u16Div                 The clock source divider of the filter.
- *                                      This parameter can be a value of @ref TMRA_Filter_Clock_Divider
+ *                                      这个参数是其中之一 @ref TMRA_Filter_Clock_Divider
  *   @arg  TMRA_FILTER_CLK_DIV1:        The filter clock is the clock of timerA / 1.
  *   @arg  TMRA_FILTER_CLK_DIV4:        The filter clock is the clock of timerA / 4.
  *   @arg  TMRA_FILTER_CLK_DIV16:       The filter clock is the clock of timerA / 16.
@@ -710,7 +710,7 @@ void TMRA_SetFilterClockDiv(CM_TMRA_TypeDef *TMRAx, uint32_t u32Pin, uint16_t u1
 /**
  * @brief  Enable or disable the filter function of the specified TMRA input pin.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Pin                 The pin with filter of TMRA.
  *                                      This parameter can be values of @ref TMRA_Filter_Pin
@@ -743,7 +743,7 @@ void TMRA_FilterCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32Pin, en_functional_state
 /**
  * @brief  De-initializes the TMRA peripheral. Reset all registers of the specified TMRA unit.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @retval 无
  */
@@ -789,7 +789,7 @@ void TMRA_DeInit(CM_TMRA_TypeDef *TMRAx) {
 /**
  * @brief  Get the counting direction of the specified TMRA unit.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @retval An uint16_t type value of counting direction.
  *          -TMRA_DIR_DOWN:             TMRA count down.
@@ -803,10 +803,10 @@ uint16_t TMRA_GetCountDir(const CM_TMRA_TypeDef *TMRAx) {
 /**
  * @brief  Set period value.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Value               The period value to be set.
- *                                      This parameter can be a number between:
+ *                                      这个参数必须是其中间值:
  *                                      0UL and 0xFFFFFFFFUL for 32-bit TimerA units.
  *                                      0UL and 0xFFFFUL for 16-bit TimerA units.
  * @retval 无
@@ -822,7 +822,7 @@ void TMRA_SetPeriodValue(CM_TMRA_TypeDef *TMRAx, uint32_t u32Value) {
 /**
  * @brief  Get period value.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @retval An uint32_t type type value of period value between:
  *         - 0UL and 0xFFFFFFFFUL for 32-bit TimerA units.
@@ -836,10 +836,10 @@ uint32_t TMRA_GetPeriodValue(const CM_TMRA_TypeDef *TMRAx) {
 /**
  * @brief  Set general counter value.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Value               The general counter value to be set.
- *                                      This parameter can be a number between:
+ *                                      这个参数必须是其中间值:
  *                                      0UL and 0xFFFFFFFFUL for 32-bit TimerA units.
  *                                      0UL and 0xFFFFUL for 16-bit TimerA units.
  * @retval 无
@@ -855,7 +855,7 @@ void TMRA_SetCountValue(CM_TMRA_TypeDef *TMRAx, uint32_t u32Value) {
 /**
  * @brief  Get general counter value.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @retval An uint32_t type type value of counter value between:
  *         - 0UL and 0xFFFFFFFFUL for 32-bit TimerA units.
@@ -869,12 +869,12 @@ uint32_t TMRA_GetCountValue(const CM_TMRA_TypeDef *TMRAx) {
 /**
  * @brief  Set comparison value.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Ch                  TMRA channel.
- *                                      This parameter can be a value of @ref TMRA_Channel
+ *                                      这个参数是其中之一 @ref TMRA_Channel
  * @param  [in]  u32Value               The comparison value to be set.
- *                                      This parameter can be a number between:
+ *                                      这个参数必须是其中间值:
  *                                      0UL and 0xFFFFFFFFUL for 32-bit TimerA units.
  *                                      0UL and 0xFFFFUL for 16-bit TimerA units.
  * @retval 无
@@ -891,10 +891,10 @@ void TMRA_SetCompareValue(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint32_t u32Va
 /**
  * @brief  Get comparison value.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Ch                  TMRA channel.
- *                                      This parameter can be a value of @ref TMRA_Channel
+ *                                      这个参数是其中之一 @ref TMRA_Channel
  * @retval An uint32_t type type value of comparison value value between:
  *         - 0UL and 0xFFFFFFFFUL for 32-bit TimerA units.
  *         - 0UL and 0xFFFFUL for 16-bit TimerA units.
@@ -912,7 +912,7 @@ uint32_t TMRA_GetCompareValue(const CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch) {
  * @brief  Enable or disable synchronous-start. When an even unit enables synchronous-start function,
  *         start the symmetric odd unit can start the even unit at the same time.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x(x is an even number)
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -930,7 +930,7 @@ void TMRA_SyncStartCmd(CM_TMRA_TypeDef *TMRAx, en_functional_state_t enNewState)
 /**
  * @brief  Enable or disable reload and continue counting when overflow/underflow.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  enNewState             An @ref en_functional_state_t enumeration value.
  * @retval 无
@@ -949,12 +949,12 @@ void TMRA_CountReloadCmd(CM_TMRA_TypeDef *TMRAx, en_functional_state_t enNewStat
 /**
  * @brief  Specifies the condition of compare value buffer transmission.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Ch                  TMRA channel.
  *                                      This parameter can be one of the odd channels of @ref TMRA_Channel
  * @param  [in]  u16Cond                Buffer condition of the specified TMRA unit.
- *                                      This parameter can be a value of @ref TMRA_Cmp_Value_Buf_Trans_Cond
+ *                                      这个参数是其中之一 @ref TMRA_Cmp_Value_Buf_Trans_Cond
  *   @arg  TMRA_BUF_TRANS_COND_OVF_UDF_CLR: This configuration value applies to non-triangular wave counting mode.
  *                                      When counting overflow or underflow or counting register was cleared,
  *                                      transfer CMPARm(m=2,4,6,8,...) to CMPARn(n=1,3,5,7,...).
@@ -978,7 +978,7 @@ void TMRA_SetCompareBufCond(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, uint16_t u16
 /**
  * @brief  Enable or disable compare value buffer.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Ch                  TMRA channel.
  *                                      This parameter can be one of the odd channels of @ref TMRA_Channel
@@ -999,10 +999,10 @@ void TMRA_CompareBufCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32Ch, en_functional_st
 /**
  * @brief  Get the status of the specified flag.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Flag                The status flags of TMRA.
- *                                      This parameter can be a value of @ref TMRA_Status_Flag
+ *                                      这个参数是其中之一 @ref TMRA_Status_Flag
  * @retval An @ref en_flag_status_t enumeration type value.
  */
 en_flag_status_t TMRA_GetStatus(const CM_TMRA_TypeDef *TMRAx, uint32_t u32Flag) {
@@ -1027,7 +1027,7 @@ en_flag_status_t TMRA_GetStatus(const CM_TMRA_TypeDef *TMRAx, uint32_t u32Flag) 
 /**
  * @brief  Clear the status of the specified flags.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32Flag                The status flags of TMRA.
  *                                      This parameter can be values of @ref TMRA_Status_Flag
@@ -1043,7 +1043,7 @@ void TMRA_ClearStatus(CM_TMRA_TypeDef *TMRAx, uint32_t u32Flag) {
 /**
  * @brief  Enable of disable the specified interrupts of the specified TMRA unit.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32IntType             The interrupt type of TMRA.
  *                                      This parameter can be values of @ref TMRA_Interrupt_Type
@@ -1072,7 +1072,7 @@ void TMRA_IntCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32IntType, en_functional_stat
 /**
  * @brief  Enable of disable the specified event of the specified TMRA unit.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @param  [in]  u32EventType           The event type of TMRA.
  *                                      This parameter can be values of @ref TMRA_Event_Type
@@ -1093,7 +1093,7 @@ void TMRA_EventCmd(CM_TMRA_TypeDef *TMRAx, uint32_t u32EventType, en_functional_
 /**
  * @brief  Start the specified TMRA unit.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @retval 无
  */
@@ -1105,7 +1105,7 @@ void TMRA_Start(CM_TMRA_TypeDef *TMRAx) {
 /**
  * @brief  Stop the specified TMRA unit.
  * @param  [in]  TMRAx                  Pointer to TMRA instance register base.
- *                                      This parameter can be a value of the following:
+ *                                      这个参数是其中之一 the following:
  *   @arg  CM_TMRA_x or CM_TMRA
  * @retval 无
  */

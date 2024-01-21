@@ -17,7 +17,7 @@
  ===================================================================
  [..]
    (#) 使用启用 CRYP 控制器时钟
-       RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_CRYP, ENABLE); function.
+       RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_CRYP, ENABLE) 函数.
 
    (#) 使用 CRYP_Init()、CRYP_KeyInit() 和如果需要 CRYP_IVInit() 初始化 CRYP。
 
@@ -47,8 +47,9 @@
         (++) 配置密钥大小(128、192 或 256 位，仅在 AES 中)
         (++) 输入对称密钥
         (++) 配置数据类型
-        (++) AES-ECB或AES-CBC解密时，必须准备密钥:配置密钥准备模式。 然后使用 CRYP_Cmd() 函数启用 CRYP 外设:设置 BUSY 标志。
-             等到 BUSY 标志被重置:密钥已准备好解密
+        (++) AES-ECB或AES-CBC解密时，必须准备密钥:  配置密钥准备模式。 
+             然后使用 CRYP_Cmd() 函数启用 CRYP 外设: 设置 BUSY 标志。
+             等到 BUSY 标志被重置: 密钥已准备好解密
         (++) 配置算法和链接(ECB/CBC 中的 DES/TDES，ECB/CBC/CTR 中的 AES)
         (++) 配置方向(加密/解密)。
         (++) 编写初始化向量(仅在 CBC 或 CTR 模式下)
@@ -172,10 +173,10 @@
                     AES-ECB, AES-CBC, AES-CTR, AES-Key, AES-GCM, AES-CCM
        (++) 数据类型 :  32-bit data, 16-bit data, bit data or bit-string
        (++) 密钥大小 (仅在AES模式下)
-   (+) 使用CRYP_KeyInit()函数配置加密或解密密钥
-   (+) 配置初始化使用CRYP_IVInit()函数的CBC和CTR模式的矢量(IV)。
-   (+) 使用CRYP_FIFOFlush()函数刷新输入和输出FIFO。
-   (+) 使用CRYP_Cmd()函数启用或禁用CRYP处理器
+   (+) 使用 CRYP_KeyInit() 函数配置加密或解密密钥
+   (+) 配置初始化使用 CRYP_IVInit() 函数的 CBC 和 CTR 模式的矢量(IV)。
+   (+) 使用 CRYP_FIFOFlush() 函数刷新输入和输出 FIFO。
+   (+) 使用 CRYP_Cmd() 函数启用或禁用 CRYP 处理器
 
 @endverbatim
   * @{
@@ -198,7 +199,7 @@ void CRYP_DeInit(void) {
 /**
   * 简介:  根据 CRYP_InitStruct 中指定的参数初始化 CRYP 外设。
   * 
-  * 参数:  CRYP_InitStruct: 指向包含CRYP外设设备配置信息的CRYP_InitTypeDef结构的指针。
+  * 参数:  CRYP_InitStruct: 指向包含 CRYP 外设设备配置信息的 CRYP_InitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -234,7 +235,7 @@ void CRYP_Init(CRYP_InitTypeDef* CRYP_InitStruct) {
 /**
   * 简介:  用默认值填充每个 CRYP_InitStruct 成员。
   * 
-  * 参数:  CRYP_InitStruct: 指向将被初始化的CRYP_InitTypeDef结构的指针。
+  * 参数:  CRYP_InitStruct: 指向将被初始化的 CRYP_InitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -255,7 +256,7 @@ void CRYP_StructInit(CRYP_InitTypeDef* CRYP_InitStruct) {
 /**
   * 简介:  根据 CRYP_KeyInitStruct 中指定的参数初始化 CRYP 密钥。
   * 
-  * 参数:  CRYP_KeyInitStruct: 指向包含CRYP密钥配置信息的CRYP_KeyInitTypeDef结构的指针。
+  * 参数:  CRYP_KeyInitStruct: 指向包含CRYP密钥配置信息的 CRYP_KeyInitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -274,7 +275,7 @@ void CRYP_KeyInit(CRYP_KeyInitTypeDef* CRYP_KeyInitStruct) {
 /**
   * 简介:  用默认值填充每个 CRYP_KeyInitStruct 成员。
   * 
-  * 参数:  CRYP_KeyInitStruct: 指向将被初始化的CRYP_KeyInitTypeDef结构的指针。
+  * 参数:  CRYP_KeyInitStruct: 指向将被初始化的 CRYP_KeyInitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -291,7 +292,7 @@ void CRYP_KeyStructInit(CRYP_KeyInitTypeDef* CRYP_KeyInitStruct) {
 /**
   * 简介:  根据 CRYP_IVInitStruct 中指定的参数初始化 CRYP 初始化向量 (IV)。
   * 
-  * 参数:  CRYP_IVInitStruct: 指向包含CRYP配置信息的CRYP_IVInitTypeDef结构的指针初始化矢量(IV)。
+  * 参数:  CRYP_IVInitStruct: 指向包含CRYP配置信息的 CRYP_IVInitTypeDef 结构的指针初始化矢量(IV)。
   * 
   * 返回值: 无
   */
@@ -305,7 +306,7 @@ void CRYP_IVInit(CRYP_IVInitTypeDef* CRYP_IVInitStruct) {
 /**
   * 简介:  用默认值填充每个 CRYP_IVInitStruct 成员。
   * 
-  * 参数:  CRYP_IVInitStruct: 指向将被初始化的CRYP_IVInitTypeDef初始化向量(IV)结构的指针。
+  * 参数:  CRYP_IVInitStruct: 指向将被初始化的 CRYP_IVInitTypeDef 初始化向量(IV)结构的指针。
   * 
   * 返回值: 无
   */
@@ -319,14 +320,14 @@ void CRYP_IVStructInit(CRYP_IVInitTypeDef* CRYP_IVInitStruct) {
 /**
   * 简介:  配置 AES-CCM 和 AES-GCM 阶段。
   * 
-  * 注意:   此函数仅用于AES-CCM或AES-GCM算法
+  * 注意:   此函数仅用于 AES-CCM 或 AES-GCM 算法
   * 
-  * 参数:  CRYP_Phase: 指定要配置的CRYP AES-CCM和AES-GCM阶段。
+  * 参数:  CRYP_Phase: 指定要配置的 CRYP AES-CCM 和 AES-GCM 阶段。
   *           此参数可以是以下值之一:
-  *            @arg CRYP_Phase_Init: 初始化阶段
-  *            @arg CRYP_Phase_Header: 头部阶段
+  *            @arg CRYP_Phase_Init:    初始化阶段
+  *            @arg CRYP_Phase_Header:  头部阶段
   *            @arg CRYP_Phase_Payload: 有效载荷阶段
-  *            @arg CRYP_Phase_Final: 最后阶段
+  *            @arg CRYP_Phase_Final:   最后阶段
   * 
   * 返回值: 无
   */
@@ -351,7 +352,7 @@ void CRYP_PhaseConfig(uint32_t CRYP_Phase) {
 /**
   * 简介:  刷新 IN 和 OUT FIFO(即 FIFO 的读写指针被复位)
   * 
-  * 注意:   只有当BUSY标志被重置时，FIFO必须被刷新。
+  * 注意:   只有当BUSY标志被重置时，FIFO 必须被刷新。
   * 
   * 参数:  无
   * 
@@ -365,8 +366,8 @@ void CRYP_FIFOFlush(void) {
 /**
   * 简介:  启用或禁用CRYP外设设备。
   * 
-  * 参数:  NewState: CRYP外围的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: CRYP 外围的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -545,10 +546,10 @@ ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
 /**
   * 简介:  恢复 CRYP 外设设备上下文。
   * 
-  * 注意:   由于DMA传输在CRYP_SaveContext()函数中被停止，
-  *         在恢复上下文后，你必须再次启用DMA(如果以前使用过DMA)。
+  * 注意:   由于 DMA 传输在 CRYP_SaveContext() 函数中被停止，
+  *         在恢复上下文后，你必须再次启用 DMA(如果以前使用过DMA)。
   * 
-  * 参数:  CRYP_ContextRestore: 指向包含已保存上下文的存储库的CRYP_Context结构的指针。
+  * 参数:  CRYP_ContextRestore: 指向包含已保存上下文的存储库的 CRYP_Context 结构的指针。
   * 
   * 注意:   上下文保存期间保存的数据必须重写到IN FIFO中。
   * 
@@ -608,11 +609,11 @@ void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore) {
  ===============================================================================
              ##### CRYP的DMA接口配置功能 #####
  ===============================================================================
- [..] 本节提供的功能允许 为CRYP数据输入和输出传输配置DMA接口。
+ [..] 本节提供的功能允许 为 CRYP 数据输入和输出传输配置DMA接口。
 
- [..] 当DMA模式被启用时(使用CRYP_DMACmd()函数)，数据可以被传输。
-   (+) 通过启用CRYP_DMAReq_DataIN请求，使用DMA外设从内存到CRYP IN FIFO。
-   (+) 通过启用CRYP_DMAReq_DataOUT请求，从CRYP OUT FIFO到使用DMA外设的存储器。
+ [..] 当 DMA 模式被启用时(使用 CRYP_DMACmd() 函数)，数据可以被传输。
+   (+) 通过启用 CRYP_DMAReq_DataIN 请求，使用 DMA 外设从内存到 CRYP IN FIFO。
+   (+) 通过启用 CRYP_DMAReq_DataOUT 请求，从 CRYP OUT FIFO 到使用 DMA 外设的存储器。
 
 @endverbatim
   * @{
@@ -621,13 +622,13 @@ void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore) {
 /**
   * 简介:  启用或禁用 CRYP DMA 接口。
   * 
-  * 参数:  CRYP_DMAReq: 指定要启用或禁用的CRYP DMA传输请求。
+  * 参数:  CRYP_DMAReq: 指定要启用或禁用的 CRYP DMA 传输请求。
   *           此参数可以是以下值的任意组合:
   *            @arg CRYP_DMAReq_DataOUT: 用于传出(Tx)数据传输的DMA
-  *            @arg CRYP_DMAReq_DataIN: 用于传入(Rx)数据传输的DMA
+  *            @arg CRYP_DMAReq_DataIN:  用于传入(Rx)数据传输的DMA
   * 
-  * 参数:  NewState: 所选CRYP DMA传输请求的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 所选 CRYP DMA 传输请求的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -721,15 +722,15 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
   */
 
 /**
-  * 简介:  启用或禁用指定的CRYP中断。
+  * 简介:  启用或禁用指定的 CRYP 中断。
   * 
-  * 参数:  CRYP_IT: 指定要启用或禁用的CRYP中断源。
+  * 参数:  CRYP_IT: 指定要启用或禁用的 CRYP 中断源。
   *          此参数可以是以下值的任意组合:
-  *            @arg CRYP_IT_INI: 输入FIFO中断
-  *            @arg CRYP_IT_OUTI: 输出FIFO中断
+  *            @arg CRYP_IT_INI:  输入 FIFO 中断
+  *            @arg CRYP_IT_OUTI: 输出 FIFO 中断
   * 
-  * 参数:  NewState: 指定CRYP中断的新状态。
-  *           此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 指定 CRYP 中断的新状态。
+  *           此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -752,10 +753,10 @@ void CRYP_ITConfig(uint8_t CRYP_IT, FunctionalState NewState) {
   * 
   * 注意:   该函数检查被屏蔽的中断的状态(即该中断应该是先前启用的)。
   * 
-  * 参数:  CRYP_IT: 指定要检查的CRYP(屏蔽的)中断源。
+  * 参数:  CRYP_IT: 指定要检查的 CRYP(屏蔽的)中断源。
   *           此参数可以是以下值之一:
-  *            @arg CRYP_IT_INI: 输入FIFO中断
-  *            @arg CRYP_IT_OUTI: 输出FIFO中断
+  *            @arg CRYP_IT_INI:  输入 FIFO 中断
+  *            @arg CRYP_IT_OUTI: 输出 FIFO 中断
   * 
   * 返回值: CRYP_IT的新状态(SET或RESET)。
   */
@@ -803,13 +804,13 @@ FunctionalState CRYP_GetCmdStatus(void) {
   * 
   * 参数:  CRYP_FLAG: 指定要检查的CRYP标志。
   *          此参数可以是以下值之一:
-  *            @arg CRYP_FLAG_IFEM: 输入FIFO空标志。
-  *            @arg CRYP_FLAG_IFNF: 输入FIFO未满标志。
-  *            @arg CRYP_FLAG_OFNE: 输出FIFO非空标志。
-  *            @arg CRYP_FLAG_OFFU: 输出FIFO满标志。
-  *            @arg CRYP_FLAG_BUSY: 忙碌标志.
-  *            @arg CRYP_FLAG_OUTRIS: 输出FIFO原始中断标志.
-  *            @arg CRYP_FLAG_INRIS: 输入FIFO原始中断标志.
+  *            @arg CRYP_FLAG_IFEM:   输入 FIFO 空标志。
+  *            @arg CRYP_FLAG_IFNF:   输入 FIFO 未满标志。
+  *            @arg CRYP_FLAG_OFNE:   输出 FIFO 非空标志。
+  *            @arg CRYP_FLAG_OFFU:   输出 FIFO 满标志。
+  *            @arg CRYP_FLAG_BUSY:   忙碌标志.
+  *            @arg CRYP_FLAG_OUTRIS: 输出 FIFO 原始中断标志.
+  *            @arg CRYP_FLAG_INRIS:  输入 FIFO 原始中断标志.
   * 
   * 返回值。CRYP_FLAG的新状态(SET或RESET)。
   */

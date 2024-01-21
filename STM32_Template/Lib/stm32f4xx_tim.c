@@ -170,7 +170,7 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
 
         (#) 调用 TIM_Cmd(ENABLE) 函数以启用TIM计数器。
 
-       -@- 如果需要，可以单独使用所有其他功能来修改计时器的特定功能。
+       -@- 如果需要，可以单独使用所有其他函数来修改计时器的特定功能。
 
 @endverbatim
   * @{

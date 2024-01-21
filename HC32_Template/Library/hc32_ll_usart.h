@@ -62,15 +62,15 @@ extern "C"
  */
 typedef struct {
     uint32_t u32ClockSrc;               /*!< 时钟源.
-                                             This parameter can be a value of @ref USART_Clock_Source */
+                                             这个参数是其中之一 @ref USART_Clock_Source */
     uint32_t u32ClockDiv;               /*!< Clock division.
-                                             This parameter can be a value of @ref USART_Clock_Division. */
+                                             这个参数是其中之一 @ref USART_Clock_Division. */
     uint32_t u32Baudrate;               /*!< USART baudrate.
                                              This parameter is valid when clock source is the internal clock. */
     uint32_t u32FirstBit;               /*!< Significant bit.
-                                             This parameter can be a value of @ref USART_First_Bit */
+                                             这个参数是其中之一 @ref USART_First_Bit */
     uint32_t u32HWFlowControl;          /*!< Hardware flow control.
-                                             This parameter can be a value of @ref USART_Hardware_Flow_Control */
+                                             这个参数是其中之一 @ref USART_Hardware_Flow_Control */
 } stc_usart_clocksync_init_t;
 
 /**
@@ -79,25 +79,25 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32ClockSrc;               /*!< 时钟源.
-                                             This parameter can be a value of @ref USART_Clock_Source */
+                                             这个参数是其中之一 @ref USART_Clock_Source */
     uint32_t u32ClockDiv;               /*!< Clock division.
-                                             This parameter can be a value of @ref USART_Clock_Division. */
+                                             这个参数是其中之一 @ref USART_Clock_Division. */
     uint32_t u32CKOutput;               /*!< USART_CK output selection.
-                                             This parameter can be a value of @ref USART_CK_Output_Selection. */
+                                             这个参数是其中之一 @ref USART_CK_Output_Selection. */
     uint32_t u32Baudrate;               /*!< USART baudrate.
                                              This parameter is valid when clock source is the internal clock. */
     uint32_t u32DataWidth;              /*!< Data width.
-                                             This parameter can be a value of @ref USART_Data_Width_Bit */
+                                             这个参数是其中之一 @ref USART_Data_Width_Bit */
     uint32_t u32StopBit;                /*!< Stop Bits.
-                                             This parameter can be a value of @ref USART_Stop_Bit */
+                                             这个参数是其中之一 @ref USART_Stop_Bit */
     uint32_t u32OverSampleBit;          /*!< Oversampling Bits.
-                                             This parameter can be a value of @ref USART_Over_Sample_Bit */
+                                             这个参数是其中之一 @ref USART_Over_Sample_Bit */
     uint32_t u32FirstBit;               /*!< Significant bit.
-                                             This parameter can be a value of @ref USART_First_Bit */
+                                             这个参数是其中之一 @ref USART_First_Bit */
     uint32_t u32StartBitPolarity;       /*!< Start Bit Detect Polarity.
-                                             This parameter can be a value of @ref USART_Start_Bit_Polarity */
+                                             这个参数是其中之一 @ref USART_Start_Bit_Polarity */
     uint32_t u32HWFlowControl;          /*!< Hardware flow control.
-                                             This parameter can be a value of @ref USART_Hardware_Flow_Control */
+                                             这个参数是其中之一 @ref USART_Hardware_Flow_Control */
 } stc_usart_multiprocessor_init_t;
 
 /**
@@ -106,27 +106,27 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32ClockSrc;               /*!< 时钟源.
-                                             This parameter can be a value of @ref USART_Clock_Source */
+                                             这个参数是其中之一 @ref USART_Clock_Source */
     uint32_t u32ClockDiv;               /*!< Clock division.
-                                             This parameter can be a value of @ref USART_Clock_Division. */
+                                             这个参数是其中之一 @ref USART_Clock_Division. */
     uint32_t u32CKOutput;               /*!< USART_CK output selection.
-                                             This parameter can be a value of @ref USART_CK_Output_Selection. */
+                                             这个参数是其中之一 @ref USART_CK_Output_Selection. */
     uint32_t u32Baudrate;               /*!< USART baudrate.
                                              This parameter is valid when clock source is the internal clock. */
     uint32_t u32DataWidth;              /*!< Data width.
-                                             This parameter can be a value of @ref USART_Data_Width_Bit */
+                                             这个参数是其中之一 @ref USART_Data_Width_Bit */
     uint32_t u32StopBit;                /*!< Stop Bits.
-                                             This parameter can be a value of @ref USART_Stop_Bit */
+                                             这个参数是其中之一 @ref USART_Stop_Bit */
     uint32_t u32Parity;                 /*!< Parity format.
-                                             This parameter can be a value of @ref USART_Parity_Control */
+                                             这个参数是其中之一 @ref USART_Parity_Control */
     uint32_t u32OverSampleBit;          /*!< Oversampling Bits.
-                                             This parameter can be a value of @ref USART_Over_Sample_Bit */
+                                             这个参数是其中之一 @ref USART_Over_Sample_Bit */
     uint32_t u32FirstBit;               /*!< Significant bit.
-                                             This parameter can be a value of @ref USART_First_Bit */
+                                             这个参数是其中之一 @ref USART_First_Bit */
     uint32_t u32StartBitPolarity;       /*!< Start Bit Detect Polarity.
-                                             This parameter can be a value of @ref USART_Start_Bit_Polarity */
+                                             这个参数是其中之一 @ref USART_Start_Bit_Polarity */
     uint32_t u32HWFlowControl;          /*!< Hardware flow control.
-                                             This parameter can be a value of @ref USART_Hardware_Flow_Control */
+                                             这个参数是其中之一 @ref USART_Hardware_Flow_Control */
 } stc_usart_uart_init_t;
 
 /**
@@ -135,40 +135,40 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32ClockSrc;               /*!< 时钟源.
-                                             This parameter can be a value of @ref USART_Clock_Source */
+                                             这个参数是其中之一 @ref USART_Clock_Source */
     uint32_t u32ClockDiv;               /*!< Clock division.
-                                             This parameter can be a value of @ref USART_Clock_Division. */
+                                             这个参数是其中之一 @ref USART_Clock_Division. */
     uint32_t u32CKOutput;               /*!< USART_CK output selection.
-                                             This parameter can be a value of @ref USART_CK_Output_Selection. */
+                                             这个参数是其中之一 @ref USART_CK_Output_Selection. */
     uint32_t u32Baudrate;               /*!< USART baudrate.
                                              This parameter is valid when clock source is the internal clock. */
     uint32_t u32OverSampleBit;          /*!< Oversampling Bits.
-                                             This parameter can be a value of @ref USART_Over_Sample_Bit */
+                                             这个参数是其中之一 @ref USART_Over_Sample_Bit */
     uint32_t u32BmcClockDiv;            /*!< BMC clock division.
-                                             This parameter can be a value of @ref USART_LIN_BMC_Clock_Division.
+                                             这个参数是其中之一 @ref USART_LIN_BMC_Clock_Division.
                                              @note The clock division is valid when clock source is the internal clock. */
     uint32_t u32DetectBreakLen;         /*!< Detect break length.
-                                             This parameter can be a value of @ref USART_LIN_Detect_Break_Length */
+                                             这个参数是其中之一 @ref USART_LIN_Detect_Break_Length */
     uint32_t u32SendBreakLen;           /*!< Send break length.
-                                             This parameter can be a value of @ref USART_LIN_Send_Break_Length */
+                                             这个参数是其中之一 @ref USART_LIN_Send_Break_Length */
     uint32_t u32SendBreakMode;          /*!< Send break mode.
-                                             This parameter can be a value of @ref USART_LIN_Send_Break_Mode */
+                                             这个参数是其中之一 @ref USART_LIN_Send_Break_Mode */
 } stc_usart_lin_init_t;
 
 /**
  * @brief Smartcard mode initialization structure definition
  */
 typedef struct {
-    uint32_t u32ClockDiv;               /*!< Clock division. This parameter can be a value of @ref USART_Clock_Division.
+    uint32_t u32ClockDiv;               /*!< Clock division. 这个参数是其中之一 @ref USART_Clock_Division.
                                              @note This parameter is valid when clock source is the internal clock. */
-    uint32_t u32CKOutput;               /*!< USART_CK output selection. This parameter can be a value of @ref USART_CK_Output_Selection.
+    uint32_t u32CKOutput;               /*!< USART_CK output selection. 这个参数是其中之一 @ref USART_CK_Output_Selection.
                                              @note This parameter is valid when clock source is the internal clock. */
     uint32_t u32Baudrate;               /*!< USART baudrate.
                                              This parameter is calculated according with smartcard default ETU and clock. */
     uint32_t u32StopBit;                /*!< Stop Bits.
-                                             This parameter can be a value of @ref USART_Stop_Bit */
+                                             这个参数是其中之一 @ref USART_Stop_Bit */
     uint32_t u32FirstBit;               /*!< Significant bit.
-                                             This parameter can be a value of @ref USART_First_Bit */
+                                             这个参数是其中之一 @ref USART_First_Bit */
 } stc_usart_smartcard_init_t;
 
 /**

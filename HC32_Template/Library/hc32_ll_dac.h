@@ -62,9 +62,9 @@ extern "C"
  */
 typedef struct {
     uint16_t u16Src;                 /*!< Data source to be converted
-                                     This parameter can be a value of @ref DAC_DATA_SRC */
+                                     这个参数是其中之一 @ref DAC_DATA_SRC */
     en_functional_state_t enOutput;  /*!< Enable or disable analog output
-                                     This parameter can be a value of @ref en_functional_state_t */
+                                     这个参数是其中之一 @ref en_functional_state_t */
 } stc_dac_init_t;
 
 /**

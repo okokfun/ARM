@@ -61,15 +61,15 @@ extern "C"
  */
 typedef struct {
     uint32_t u32CountPeriod;            /*!< Specifies the counting period of WDT.
-                                             This parameter can be a value of @ref WDT_Count_Period */
+                                             这个参数是其中之一 @ref WDT_Count_Period */
     uint32_t u32ClockDiv;               /*!< Specifies the clock division factor of WDT.
-                                             This parameter can be a value of @ref WDT_Clock_Division */
+                                             这个参数是其中之一 @ref WDT_Clock_Division */
     uint32_t u32RefreshRange;           /*!< Specifies the allow refresh range of WDT.
-                                             This parameter can be a value of @ref WDT_Refresh_Range */
+                                             这个参数是其中之一 @ref WDT_Refresh_Range */
     uint32_t u32LPMCount;               /*!< Specifies the count state in Low Power Mode (Sleep Mode).
-                                             This parameter can be a value of @ref WDT_LPM_Count */
+                                             这个参数是其中之一 @ref WDT_LPM_Count */
     uint32_t u32ExceptionType;          /*!< Specifies the type of exception response for WDT.
-                                             This parameter can be a value of @ref WDT_Exception_Type */
+                                             这个参数是其中之一 @ref WDT_Exception_Type */
 } stc_wdt_init_t;
 
 /**

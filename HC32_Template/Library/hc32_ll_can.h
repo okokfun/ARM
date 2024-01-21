@@ -80,7 +80,7 @@ typedef struct {
 typedef struct {
     uint32_t u32ID;                         /*!< Specifies the identifier(ID). 11 bits standard ID or 29 bits extended ID, depending on IDE. */
     uint32_t u32IDMask;                     /*!< Specifies the identifier(ID) mask. The mask bits of ID will be ignored by the acceptance filter. */
-    uint32_t u32IDType;                     /*!< Specifies the identifier(ID) type. This parameter can be a value of @ref CAN_ID_Type */
+    uint32_t u32IDType;                     /*!< Specifies the identifier(ID) type. 这个参数是其中之一 @ref CAN_ID_Type */
 } stc_can_filter_config_t;
 
 /**
@@ -89,9 +89,9 @@ typedef struct {
 typedef struct {
     stc_can_bit_time_config_t stcBitCfg;    /*!< Bit time configuration of flexible data-rate bit. */
     uint8_t u8Mode;                         /*!< CAN-FD mode, Bosch CAN-FD or ISO 11898-1:2015 CAN-FD.
-                                                 This parameter can be a value of @ref CAN_FD_Mode */
+                                                 这个参数是其中之一 @ref CAN_FD_Mode */
     uint8_t u8TDC;                          /*!< Enable or disable Transmitter Delay Compensation.
-                                                 This parameter can be a value of @ref CAN_FD_TDC_En */
+                                                 这个参数是其中之一 @ref CAN_FD_TDC_En */
     uint8_t u8SSPOffset;                    /*!< Specifies Secondary Sample Point offset.
                                                  The transmitter delay plus u8SSPOffset defines the time of the secondary sample point for TDC.
                                                  u8SSPOffset is given as a number of TQ. Range is [0, 127] */
@@ -106,11 +106,11 @@ typedef struct {
                                                  '1' to set the ID which is specified by parameter 'u32RefMsgID' as an extended ID while
                                                  '0' to set it as a standard ID. */
     uint8_t u8NTUPrescaler;                 /*!< Prescaler of NTU(network time unit). The source is the bit time which is defined by SBT.
-                                                 This parameter can be a value of @ref TTCAN_NTU_Prescaler */
+                                                 这个参数是其中之一 @ref TTCAN_NTU_Prescaler */
     uint8_t u8TxBufMode;                    /*!< TTCAN Transmit Buffer Mode.
-                                                 This parameter can be a value of @ref TTCAN_Tx_Buf_Mode */
+                                                 这个参数是其中之一 @ref TTCAN_Tx_Buf_Mode */
     uint16_t u16TriggerType;                /*!< Trigger type of TTCAN.
-                                                 This parameter can be a value of @ref TTCAN_Trigger_Type */
+                                                 这个参数是其中之一 @ref TTCAN_Trigger_Type */
     uint16_t u16TxEnableWindow;             /*!< Tx_Enable window. Time period within which the transmission of a message may be started. Range is [1, 16] */
     uint16_t u16TxTriggerTime;              /*!< Specifies for the referred message the time window of the matrix cycle at which it is to be transmitted. Range is [0, 65535] */
     uint16_t u16WatchTriggerTime;           /*!< Time mark used to check whether the time since the last valid reference message has been too long. Range is [0, 65535] */
@@ -126,13 +126,13 @@ typedef struct {
     uint16_t u16FilterSelect;               /*!< Selects acceptance filters.
                                                  This parameter can be values of @ref CAN_Acceptance_Filter */
     uint8_t u8WorkMode;                     /*!< Specifies the work mode of CAN.
-                                                 This parameter can be a value of @ref CAN_Work_Mode */
+                                                 这个参数是其中之一 @ref CAN_Work_Mode */
     uint8_t u8PTBSingleShotTx;              /*!< Enable or disable single shot transmission of PTB.
-                                                 This parameter can be a value of @ref PTB_SingleShot_Tx_En */
+                                                 这个参数是其中之一 @ref PTB_SingleShot_Tx_En */
     uint8_t u8STBSingleShotTx;              /*!< Enable or disable single shot transmission of STB.
-                                                 This parameter can be a value of @ref STB_SingleShot_Tx_En */
+                                                 这个参数是其中之一 @ref STB_SingleShot_Tx_En */
     uint8_t u8STBPrioMode;                  /*!< Enable or disable the priority decision mode of STB.
-                                                 This parameter can be a value of @ref CAN_STB_Prio_Mode_En
+                                                 这个参数是其中之一 @ref CAN_STB_Prio_Mode_En
                                                  NOTE: A frame in the PTB has always the highest priority regardless of the ID. */
     uint8_t u8RxWarnLimit;                  /*!< Specifies receive buffer almost full warning limit. Rang is [1, 8].
                                                  Each CAN unit has 8 receive buffers. When the number of received frames reaches
@@ -141,11 +141,11 @@ typedef struct {
     uint8_t u8ErrorWarnLimit;               /*!< Specifies programmable error warning limit. Range is [0, 15].
                                                  Error warning limit = (u8ErrorWarnLimit + 1) * 8. */
     uint8_t u8RxAllFrame;                   /*!< Enable or disable receive all frames(includes frames with error).
-                                                 This parameter can be a value of @ref CAN_Rx_All_En */
+                                                 这个参数是其中之一 @ref CAN_Rx_All_En */
     uint8_t u8RxOvfMode;                    /*!< Receive buffer overflow mode. In case of a full receive buffer when a new frame is received.
-                                                 This parameter can be a value of @ref CAN_Rx_Ovf_Mode */
+                                                 这个参数是其中之一 @ref CAN_Rx_Ovf_Mode */
     uint8_t u8SelfAck;                      /*!< Enable or disable self-acknowledge.
-                                                 This parameter can be a value of @ref CAN_Self_ACK_En */
+                                                 这个参数是其中之一 @ref CAN_Self_ACK_En */
     stc_canfd_config_t *pstcCanFd;          /*!< Pointer to a CAN-FD configuration structure. @ref stc_canfd_config_t
                                                  Set it to NULL if not needed CAN-FD. */
 
@@ -158,7 +158,7 @@ typedef struct {
  */
 typedef struct {
     uint8_t u8ArbitrLostPos;                /*!< Bit position in the frame where the arbitration has been lost.  */
-    uint8_t u8ErrorType;                    /*!< CAN error type. This parameter can be a value of @ref CAN_Err_Type */
+    uint8_t u8ErrorType;                    /*!< CAN error type. 这个参数是其中之一 @ref CAN_Err_Type */
     uint8_t u8RxErrorCount;                 /*!< Receive error count. */
     uint8_t u8TxErrorCount;                 /*!< Transmit error count. */
 } stc_can_error_info_t;
@@ -173,7 +173,7 @@ typedef struct {
         struct {
             uint32_t DLC: 4;                /*!< Data length code. Length of the data segment of data frame.
                                                  It should be zero while the frame is remote frame.
-                                                 This parameter can be a value of @ref CAN_Data_Length_Code */
+                                                 这个参数是其中之一 @ref CAN_Data_Length_Code */
             uint32_t BRS: 1;                /*!< Bit rate switch. */
             uint32_t FDF: 1;                /*!< CAN FD frame. */
             uint32_t RTR: 1;                /*!< Remote transmission request bit.
@@ -197,7 +197,7 @@ typedef struct {
         struct {
             uint32_t DLC: 4;                /*!< Data length code. Length of the data segment of data frame.
                                                  It should be zero while the frame is remote frame.
-                                                 This parameter can be a value of @ref CAN_Data_Length_Code */
+                                                 这个参数是其中之一 @ref CAN_Data_Length_Code */
             uint32_t BRS: 1;                /*!< Bit rate switch. */
             uint32_t FDF: 1;                /*!< CAN FD frame. */
             uint32_t RTR: 1;                /*!< Remote transmission request bit.

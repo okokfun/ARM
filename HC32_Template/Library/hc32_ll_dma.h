@@ -60,17 +60,17 @@ extern "C"
  */
 typedef struct {
     uint32_t u32IntEn;          /*!< Specifies the DMA interrupt function.
-                                    This parameter can be a value of @ref DMA_Int_Config                */
+                                    这个参数是其中之一 @ref DMA_Int_Config                */
     uint32_t u32SrcAddr;        /*!< Specifies the DMA source address.                                  */
     uint32_t u32DestAddr;       /*!< Specifies the DMA destination address.                             */
     uint32_t u32DataWidth;      /*!< Specifies the DMA transfer data width.
-                                    This parameter can be a value of @ref DMA_DataWidth_Sel             */
+                                    这个参数是其中之一 @ref DMA_DataWidth_Sel             */
     uint32_t u32BlockSize;      /*!< Specifies the DMA block size.                                      */
     uint32_t u32TransCount;     /*!< Specifies the DMA transfer count.                                  */
     uint32_t u32SrcAddrInc;     /*!< Specifies the source address increment mode.
-                                    This parameter can be a value of @ref DMA_SrcAddr_Incremented_Mode  */
+                                    这个参数是其中之一 @ref DMA_SrcAddr_Incremented_Mode  */
     uint32_t u32DestAddrInc;    /*!< Specifies the destination address increment mode.
-                                    This parameter can be a value of @ref DMA_DesAddr_Incremented_Mode  */
+                                    这个参数是其中之一 @ref DMA_DesAddr_Incremented_Mode  */
 } stc_dma_init_t;
 
 /**
@@ -78,7 +78,7 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32Mode;       /*!< Specifies the DMA source repeat function.
-                                This parameter can be a value of @ref DMA_Repeat_Config */
+                                这个参数是其中之一 @ref DMA_Repeat_Config */
     uint32_t u32SrcCount;   /*!< Specifies the DMA source repeat size. */
     uint32_t u32DestCount;  /*!< Specifies the DMA destination repeat size. */
 } stc_dma_repeat_init_t;
@@ -88,7 +88,7 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32Mode;        /*!< Specifies the DMA source non-sequence function.
-                                        This parameter can be a value of @ref DMA_NonSeq_Config */
+                                        这个参数是其中之一 @ref DMA_NonSeq_Config */
     uint32_t u32SrcCount;     /*!< Specifies the DMA source non-sequence function count. */
     uint32_t u32SrcOffset;    /*!< Specifies the DMA source non-sequence function offset. */
     uint32_t u32DestCount;    /*!< Specifies the DMA destination non-sequence function count. */
@@ -100,9 +100,9 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32State;      /*!< Specifies the DMA LLP function.
-                                This parameter can be a value of @ref DMA_Llp_En */
+                                这个参数是其中之一 @ref DMA_Llp_En */
     uint32_t u32Mode;       /*!< Specifies the DMA LLP auto or wait REQ.
-                                This parameter can be a value of @ref DMA_Llp_Mode */
+                                这个参数是其中之一 @ref DMA_Llp_Mode */
     uint32_t u32Addr;       /*!< Specifies the DMA list pointer address for LLP function. */
 } stc_dma_llp_init_t;
 
@@ -111,11 +111,11 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32CountMode;          /*!< Specifies the DMA reconfig function count mode.
-                                      This parameter can be a value of @ref DMA_Reconfig_Count_Sel */
+                                      这个参数是其中之一 @ref DMA_Reconfig_Count_Sel */
     uint32_t u32DestAddrMode;       /*!< Specifies the DMA reconfig function destination address mode.
-                                        This parameter can be a value of @ref DMA_Reconfig_DestAddr_Sel */
+                                        这个参数是其中之一 @ref DMA_Reconfig_DestAddr_Sel */
     uint32_t u32SrcAddrMode;        /*!< Specifies the DMA reconfig function source address mode.
-                                        This parameter can be a value of @ref DMA_Reconfig_SrcAddr_Sel */
+                                        这个参数是其中之一 @ref DMA_Reconfig_SrcAddr_Sel */
 } stc_dma_reconfig_init_t;
 
 /**

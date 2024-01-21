@@ -487,29 +487,29 @@ void ADC_AnalogWatchdogThresholdsConfig(ADC_TypeDef* ADCx, uint16_t HighThreshol
 /**
   * 简介:  配置模拟看门狗保护的单通道
   * 
-  * 参数:  ADCx:其中 x 可以是 1、2 或 3，以选择 ADC 外设。
+  * 参数:  ADCx: 其中 x 可以是 1、2 或 3，以选择 ADC 外设。
   * 
-  * 参数:  ADC_Channel:为模拟看门狗配置的 ADC 通道。
+  * 参数:  ADC_Channel: 为模拟看门狗配置的 ADC 通道。
   *          此参数可以是以下值之一:
-  *            @arg ADC_Channel_0: 已选择ADC通道0
-  *            @arg ADC_Channel_1: 已选择ADC通道1
-  *            @arg ADC_Channel_2: 已选择ADC通道2
-  *            @arg ADC_Channel_3: 已选择ADC通道3
-  *            @arg ADC_Channel_4: 已选择ADC通道4
-  *            @arg ADC_Channel_5: 已选择ADC通道5
-  *            @arg ADC_Channel_6: 已选择ADC通道6
-  *            @arg ADC_Channel_7: 已选择ADC通道7
-  *            @arg ADC_Channel_8: 已选择ADC通道8
-  *            @arg ADC_Channel_9: 已选择ADC通道9
-  *            @arg ADC_Channel_10: 已选择ADC通道10
-  *            @arg ADC_Channel_11: 已选择ADC通道11
-  *            @arg ADC_Channel_12: 已选择ADC通道12
-  *            @arg ADC_Channel_13: 已选择ADC通道13
-  *            @arg ADC_Channel_14: 已选择ADC通道14
-  *            @arg ADC_Channel_15: 已选择ADC通道15
-  *            @arg ADC_Channel_16: 已选择ADC通道16
-  *            @arg ADC_Channel_17: 已选择ADC通道17
-  *            @arg ADC_Channel_18: 已选择ADC通道18
+  *            @arg ADC_Channel_0:  已选择 ADC 通道 0
+  *            @arg ADC_Channel_1:  已选择 ADC 通道 1
+  *            @arg ADC_Channel_2:  已选择 ADC 通道 2
+  *            @arg ADC_Channel_3:  已选择 ADC 通道 3
+  *            @arg ADC_Channel_4:  已选择 ADC 通道 4
+  *            @arg ADC_Channel_5:  已选择 ADC 通道 5
+  *            @arg ADC_Channel_6:  已选择 ADC 通道 6
+  *            @arg ADC_Channel_7:  已选择 ADC 通道 7
+  *            @arg ADC_Channel_8:  已选择 ADC 通道 8
+  *            @arg ADC_Channel_9:  已选择 ADC 通道 9
+  *            @arg ADC_Channel_10: 已选择 ADC 通道 10
+  *            @arg ADC_Channel_11: 已选择 ADC 通道 11
+  *            @arg ADC_Channel_12: 已选择 ADC 通道 12
+  *            @arg ADC_Channel_13: 已选择 ADC 通道 13
+  *            @arg ADC_Channel_14: 已选择 ADC 通道 14
+  *            @arg ADC_Channel_15: 已选择 ADC 通道 15
+  *            @arg ADC_Channel_16: 已选择 ADC 通道 16
+  *            @arg ADC_Channel_17: 已选择 ADC 通道 17
+  *            @arg ADC_Channel_18: 已选择 ADC 通道 18
   * 
   * 返回值: 无
   */
@@ -545,15 +545,15 @@ void ADC_AnalogWatchdogSingleChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channe
     [..] 本节提供允许启用/禁用ADC与温度传感器、Vrefint和Vbat源之间的内部连接的功能。
 
     [..] 获取温度传感器和Vrefint通道电压的典型配置如下步骤:
-      (#) 使用 ADC_TempSensorVrefintCmd() 函数启用温度传感器和Vrefint源与 ADC 通道的内部连接。
-      (#) 使用 ADC_RegularChannelConfig()  或 ADC_InjectedChannelConfiguration() 函数
-          选择 ADC_Channel_TempSensor 和/或 ADC_Cannel_Refint
-      (#) 使用 ADC_GetConversionValue() 或 ADC_GetInjectedConversionValue() 获取电压值。
+      (#) 使用 ADC_TempSensorVrefintCmd()  函数启用温度传感器和Vrefint源与 ADC 通道的内部连接。
+      (#) 使用 ADC_RegularChannelConfig()  或    ADC_InjectedChannelConfiguration() 函数
+          选择 ADC_Channel_TempSensor      和/或 ADC_Cannel_Refint
+      (#) 使用 ADC_GetConversionValue()    或    ADC_GetInjectedConversionValue() 获取电压值。
 
     [..] 按照以下步骤完成获取VBAT信道电压的典型配置:
-      (#) 使用ADC_VBATCmd()函数启用VBAT源与ADC通道的内部连接。
-      (#) 使用ADC_RegularChannelConfig()或ADC_InjectedChannelConfiguration()函数选择ADC_Channel_Vbat
-      (#) 使用ADC_GetConversionValue()或ADC_GetInjectedConversionValue()获取电压值。
+      (#) 使用 ADC_VBATCmd() 函数启用VBAT源与ADC通道的内部连接。
+      (#) 使用 ADC_RegularChannelConfig() 或 ADC_InjectedChannelConfiguration() 函数选择 ADC_Channel_Vbat
+      (#) 使用 ADC_GetConversionValue() 或 ADC_GetInjectedConversionValue() 获取电压值。
 
 @endverbatim
   * {
@@ -650,39 +650,39 @@ void ADC_VBATCmd(FunctionalState NewState) {
   * 
   * 参数:  ADC_Channel: 要配置的ADC通道。
   *          此参数可以是以下值之一:
-  *            @arg ADC_Channel_0: 已选择ADC通道0
-  *            @arg ADC_Channel_1: 已选择ADC通道1
-  *            @arg ADC_Channel_2: 已选择ADC通道2
-  *            @arg ADC_Channel_3: 已选择ADC通道3
-  *            @arg ADC_Channel_4: 已选择ADC通道4
-  *            @arg ADC_Channel_5: 已选择ADC通道5
-  *            @arg ADC_Channel_6: 已选择ADC通道6
-  *            @arg ADC_Channel_7: 已选择ADC通道7
-  *            @arg ADC_Channel_8: 已选择ADC通道8
-  *            @arg ADC_Channel_9: 已选择ADC通道9
-  *            @arg ADC_Channel_10: 已选择ADC通道10
-  *            @arg ADC_Channel_11: 已选择ADC通道11
-  *            @arg ADC_Channel_12: 已选择ADC通道12
-  *            @arg ADC_Channel_13: 已选择ADC通道13
-  *            @arg ADC_Channel_14: 已选择ADC通道14
-  *            @arg ADC_Channel_15: 已选择ADC通道15
-  *            @arg ADC_Channel_16: 已选择ADC通道16
-  *            @arg ADC_Channel_17: 已选择ADC通道17
-  *            @arg ADC_Channel_18: 已选择ADC通道18
+  *            @arg ADC_Channel_0:  已选择 ADC 通道 0
+  *            @arg ADC_Channel_1:  已选择 ADC 通道 1
+  *            @arg ADC_Channel_2:  已选择 ADC 通道 2
+  *            @arg ADC_Channel_3:  已选择 ADC 通道 3
+  *            @arg ADC_Channel_4:  已选择 ADC 通道 4
+  *            @arg ADC_Channel_5:  已选择 ADC 通道 5
+  *            @arg ADC_Channel_6:  已选择 ADC 通道 6
+  *            @arg ADC_Channel_7:  已选择 ADC 通道 7
+  *            @arg ADC_Channel_8:  已选择 ADC 通道 8
+  *            @arg ADC_Channel_9:  已选择 ADC 通道 9
+  *            @arg ADC_Channel_10: 已选择 ADC 通道 10
+  *            @arg ADC_Channel_11: 已选择 ADC 通道 11
+  *            @arg ADC_Channel_12: 已选择 ADC 通道 12
+  *            @arg ADC_Channel_13: 已选择 ADC 通道 13
+  *            @arg ADC_Channel_14: 已选择 ADC 通道 14
+  *            @arg ADC_Channel_15: 已选择 ADC 通道 15
+  *            @arg ADC_Channel_16: 已选择 ADC 通道 16
+  *            @arg ADC_Channel_17: 已选择 ADC 通道 17
+  *            @arg ADC_Channel_18: 已选择 ADC 通道 18
   * 
   * 参数:  Rank: 常规组序列器中的秩。
   *          此参数必须介于1到16之间。
   * 
   * 参数:  ADC_SampleTime: 要为选定通道设置的采样时间值。
   *          此参数可以是以下值之一:
-  *            @arg ADC_SampleTime_3Cycles: 采样时间等于3个周期
-  *            @arg ADC_SampleTime_15Cycles: 采样时间等于15个周期
-  *            @arg ADC_SampleTime_28Cycles: 采样时间等于28个周期
-  *            @arg ADC_SampleTime_56Cycles: 采样时间等于56个周期
-  *            @arg ADC_SampleTime_84Cycles: 采样时间等于84个周期
-  *            @arg ADC_SampleTime_112Cycles: 采样时间等于112个周期
-  *            @arg ADC_SampleTime_144Cycles: 采样时间等于144个周期
-  *            @arg ADC_SampleTime_480Cycles: 采样时间等于480个周期
+  *            @arg ADC_SampleTime_3Cycles:   采样时间等于 3   个周期
+  *            @arg ADC_SampleTime_15Cycles:  采样时间等于 15  个周期
+  *            @arg ADC_SampleTime_28Cycles:  采样时间等于 28  个周期
+  *            @arg ADC_SampleTime_56Cycles:  采样时间等于 56  个周期
+  *            @arg ADC_SampleTime_84Cycles:  采样时间等于 84  个周期
+  *            @arg ADC_SampleTime_112Cycles: 采样时间等于 112 个周期
+  *            @arg ADC_SampleTime_144Cycles: 采样时间等于 144 个周期
+  *            @arg ADC_SampleTime_480Cycles: 采样时间等于 480 个周期
   * 
   * 返回值: 无
   */

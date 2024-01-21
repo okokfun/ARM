@@ -24,16 +24,16 @@
             BK2_IO2, BK2_IO3 和 BK2_NCS 的 GPIO 时钟，使用 RCC_AHB1PeriphClockCmd()函数。
 
         (#) 外设设备替代函数。
-           (++)将引脚连接到所需的外设设备的替代函数(AF)。使用GPIO_PinAFConfig()
-               函数将引脚连接到所需外设的复用功能(AF)。
+           (++) 将引脚连接到所需的外设设备的替代函数(AF)。使用GPIO_PinAFConfig()
+                函数将引脚连接到所需外设的复用功能(AF)。
 
-           (++)通过配置所需引脚的复用功能。
+           (++) 通过配置所需引脚的复用功能。
                 GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF。
 
            (++) 通过以下方法选择类型、上拉/下拉和输出速度 GPIO_PuPd、GPIO_OType 和 GPIO_Speed
                 成员选择类型、上拉/下拉和输出速度。
 
-           (++)调用 GPIO_Init() 函数。
+           (++) 调用 GPIO_Init() 函数。
 
         (#) 使用 QSPI_Init() 函数对Flash大小、CS High Time、Sample Shift、Prescaler、Clock Mode进行编程。
             值，使用 QSPI_Init() 函数。

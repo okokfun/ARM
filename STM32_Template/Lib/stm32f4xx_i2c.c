@@ -36,29 +36,29 @@
       (#) 对模式、占空比、自己的地址、Ack、速度和Acknowledged地址进行编程。
           使用I2C_Init()函数对模式、占空比、自身地址、Ack、速度和确认地址进行编程。
 
-      (#) 你可以选择启用/配置以下参数而不需要重新初始化(即不需要再次调用I2C_Init()函数)。
-        (++) 使用I2C_AcknowledgeConfig()函数启用确认功能。
-        (++) 使用I2C_DualAddressCmd()函数启用双寻址模式。
-        (++) 使用I2C_GeneralCallCmd()函数启用一般调用功能
-        (++) 使用I2C_StretchClockCmd()函数启用时钟拉伸功能
-        (++) 使用I2C_FastModeDutyCycleConfig()函数启用快速模式占空比。
-        (++) 使用I2C_NACKPositionConfig()函数配置主接收模式下的NACK位置，即2个字节的接收情况。
-        (++) 使用I2C_CalculatePEC()函数启用PEC计算。
-        (++) 对于SMBus模式。
-        (++) 使用I2C_ARPCmd()函数启用地址解析协议(ARP)。
-        (++) 使用I2C_SMBusAlertConfig()函数配置SMBusAlert引脚
+      (#) 你可以选择启用/配置以下参数而不需要重新初始化(即不需要再次调用 I2C_Init() 函数)。
+        (++) 使用 I2C_AcknowledgeConfig() 函数启用确认功能。
+        (++) 使用 I2C_DualAddressCmd() 函数启用双寻址模式。
+        (++) 使用 I2C_GeneralCallCmd() 函数启用一般调用功能
+        (++) 使用 I2C_StretchClockCmd() 函数启用时钟拉伸功能
+        (++) 使用 I2C_FastModeDutyCycleConfig() 函数启用快速模式占空比。
+        (++) 使用 I2C_NACKPositionConfig() 函数配置主接收模式下的 NACK 位置，即 2 个字节的接收情况。
+        (++) 使用 I2C_CalculatePEC() 函数启用 PEC 计算。
+        (++) 对于 SMBus 模式。
+        (++) 使用 I2C_ARPCmd() 函数启用地址解析协议(ARP)。
+        (++) 使用 I2C_SMBusAlertConfig() 函数配置 SMBusAlert 引脚
 
-      (#) 如果需要使用中断模式，使用函数I2C_ITConfig()启用NVIC和相应的中断。
+      (#) 如果需要使用中断模式，使用函数 I2C_ITConfig() 启用 NVIC 和相应的中断。
 
-      (#) 当使用DMA模式时
-        (++) 使用DMA_Init()函数配置DMA
-        (++)使用I2C_DMACmd()函数激活所需的通道请求，或使用
-             I2C_DMALastTransferCmd()函数激活需要的通道请求。
-        -@@- 当使用DMA模式时，可以同时使用I2C中断来控制通信流(开始/停止/确认...事件和错误)。
+      (#) 当使用 DMA 模式时
+        (++) 使用 DMA_Init() 函数配置DMA
+        (++) 使用 I2C_DMACmd() 函数激活所需的通道请求，或使用
+             I2C_DMALastTransferCmd() 函数激活需要的通道请求。
+        -@@- 当使用DMA模式时，可以同时使用 I2C 中断来控制通信流(开始/停止/确认...事件和错误)。
 
-      (#) 使用I2C_Cmd()函数启用I2C。
+      (#) 使用 I2C_Cmd() 函数启用 I2C。
 
-      (#) 在传输中使用DMA模式时，使用DMA_Cmd()函数启用DMA。
+      (#) 在传输中使用DMA模式时，使用 DMA_Cmd() 函数启用 DMA。
 
     @endverbatim
   ******************************************************************************
@@ -156,10 +156,9 @@ void I2C_DeInit(I2C_TypeDef* I2Cx) {
 /**
   * 简介:  根据I2C_InitStruct中的指定参数初始化I2Cx外设。
   *
-  * 注意:   要在400KHz(快速模式)下使用I2C，PCLK1的频率(I2C外围输入时钟)必须是10MHz的倍数。
+  * 注意:  要在400KHz(快速模式)下使用I2C，PCLK1的频率(I2C外围输入时钟)必须是10MHz的倍数。
   *
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
-  * 
   * 参数:  I2C_InitStruct: 指向I2C_InitTypeDef结构的指针，该结构包含指定I2C外设的配置信息。
   * 
   * 返回值: 无

@@ -518,7 +518,7 @@ uint32_t EXMC_DMC_GetChipEndAddr(uint32_t u32Chip) {
  *           @arg EXMC_DMC_CMD_MDREG_CONFIG: Set memory device mode register
  *           @arg EXMC_DMC_CMD_NOP:          NOP
  * @param  [in] u32Addr                 The address parameter for CMD MdRegConfig only.
- *         This parameter can be a value between Min_Data = 0 and Max_Data = 0x7FFFUL
+ *         这个参数是其中间 Min_Data = 0 and Max_Data = 0x7FFFUL
  * @retval 无
  */
 void EXMC_DMC_SetCommand(uint32_t u32Chip, uint32_t u32Bank, uint32_t u32Cmd, uint32_t u32Addr) {

@@ -1,4 +1,4 @@
-/**
+ /**
   ******************************************************************************
   * 文件:    stm32f4xx_fmpi2c.c
   * 作者:    MCD Application Team
@@ -19,44 +19,44 @@
                      ##### 如何使用这个驱动程序 #####
  ============================================================================
    [..]
-   (#) 使用RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2Cx, ENABLE)函数为FMPI2C外设启用外围时钟。
-   (#) 使用RCC_AHBPeriph函数启用SDA、SCL和SMBA(如果使用)GPIO时钟。
-       RCC_AHBPeriphClockCmd()函数。
+   (#) 使用 RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2Cx, ENABLE) 函数为 FMPI2C 外设启用外围时钟。
+   (#) 使用 RCC_AHBPeriph 函数启用 SDA、SCL 和 SMBA(如果使用) GPIO时钟。
+       RCC_AHBPeriphClockCmd() 函数。
 
    (#) 外设设备替代函数。
-       (++)将引脚连接到所需的外设设备的替代函数。使用GPIO_PinAFConfig()
+       (++)将引脚连接到所需的外设设备的替代函数。使用 GPIO_PinAFConfig()
            函数将引脚连接到所需外设的复用功能(AF)。
 
        (++)通过配置所需引脚的复用功能。
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
 
        (++) 通过以下方式选择类型，OpenDrain和速度
-            GPIO_PuPd, GPIO_OType和GPIO_Speed成员选择类型、OpenDrain和速度。
+            GPIO_PuPd, GPIO_OType 和 GPIO_Speed 成员选择类型、OpenDrain 和速度。
             
        (++) 调用GPIO_Init()函数。
 
-   (#) 使用FMPI2C_Init()函数对模式、时序、自身地址、Ack和Acknowledged Address进行编程。
+   (#) 使用 FMPI2C_Init() 函数对模式、时序、自身地址、Ack和Acknowledged Address进行编程。
 
-   (#) 你可以选择启用/配置以下参数，而不需要重新初始化(即不需要再次调用FMPI2C_Init()函数)。
-       (++) 使用FMPI2C_AcknowledgeConfig()函数启用确认功能。
-       (++) 使用FMPI2C_DualAddressCmd()函数启用双地址模式。
-       (++) 使用FMPI2C_GeneralCallCmd()函数启用一般调用功能。
-       (++) 使用FMPI2C_StretchClockCmd()函数启用时钟拉伸功能。
-       (++) 使用FMPI2C_CalculatePEC()函数启用PEC计算。
-       (++) 对于SMBus模式。
-       (++) 使用FMPI2C_SMBusAlertCmd()函数启用SMBusAlert引脚。
+   (#) 你可以选择启用/配置以下参数，而不需要重新初始化(即不需要再次调用 FMPI2C_Init() 函数)。
+       (++) 使用 FMPI2C_AcknowledgeConfig() 函数启用确认功能。
+       (++) 使用 FMPI2C_DualAddressCmd() 函数启用双地址模式。
+       (++) 使用 FMPI2C_GeneralCallCmd() 函数启用一般调用功能。
+       (++) 使用 FMPI2C_StretchClockCmd() 函数启用时钟拉伸功能。
+       (++) 使用 FMPI2C_CalculatePEC() 函数启用 PEC 计算。
+       (++) 对于 SMBus模式。
+       (++) 使用 FMPI2C_SMBusAlertCmd() 函数启用 SMBusAlert 引脚。
 
    (#) 如果需要使用中断模式，使用函数FMPI2C_ITConfig()启用NVIC和相应的中断。
 
-   (#) 当使用DMA模式时
-      (++) 使用DMA_Init()函数配置DMA。
-      (++) 使用FMPI2C_DMACmd()函数激活需要的通道请求。
-   (#) 使用FMPI2C_Cmd()函数启用FMPI2C。
+   (#) 当使用 DMA 模式时
+      (++) 使用 DMA_Init() 函数配置 DMA。
+      (++) 使用 FMPI2C_DMACmd() 函数激活需要的通道请求。
+   (#) 使用 FMPI2C_Cmd() 函数启用 FMPI2C。
 
-   (#) 在传输中使用DMA模式时，使用DMA_Cmd()函数启用DMA。
+   (#) 在传输中使用 DMA 模式时，使用 DMA_Cmd() 函数启用 DMA。
    [..]
-   (@) 当在快速模式下使用FMPI2C时，必须通过设置SYSCFG中的驱动能力
-       控制位来启用SCL和SDA引脚20mA电流驱动能力。
+   (@) 当在快速模式下使用 FMPI2C 时，必须通过设置 SYSCFG 中的驱动能力
+       控制位来启用 SCL 和 SDA 引脚 20mA 电流驱动能力。
 
     @endverbatim
   ******************************************************************************
@@ -244,7 +244,7 @@ void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct)
 /**
   * 简介:  用默认值填充每个 FMPI2C_InitStruct 成员。
   * 
-  * 参数:  FMPI2C_InitStruct: 指向FMPI2C_InitTypeDef结构的指针，将被初始化。
+  * 参数:  FMPI2C_InitStruct: 指向 FMPI2C_InitTypeDef 结构的指针，将被初始化。
   * 
   * 返回值: 无
   */

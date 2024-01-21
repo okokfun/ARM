@@ -60,12 +60,12 @@ extern "C"
  */
 typedef struct {
     uint32_t u32Stage;                  /*!< FMAC filter stage number config.
-                                             This parameter can be a value of @ref FMAC_Filter_Stage.*/
+                                             这个参数是其中之一 @ref FMAC_Filter_Stage.*/
     uint32_t u32Shift;                  /*!< FMAC filter result right shift bits.
-                                             This parameter can be a value of @ref FMAC_Filter_Shift.*/
+                                             这个参数是其中之一 @ref FMAC_Filter_Shift.*/
     int16_t *pi16Factor;                /*!< FMAC filter factor config. FIR factor array */
     uint32_t u32IntCmd;                 /*!< Enable or disable FMAC interrupt.
-                                             This parameter can be a value of @ref FMAC_Interrupt_Selection.*/
+                                             这个参数是其中之一 @ref FMAC_Interrupt_Selection.*/
 } stc_fmac_init_t;
 
 /**

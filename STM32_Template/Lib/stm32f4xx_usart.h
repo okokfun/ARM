@@ -65,7 +65,7 @@ typedef struct {
     uint16_t USART_Parity;              /*!< 指定奇偶校验模式。
                                             此参数可以是 @ref USART_Parity 的值
                                             @note 启用奇偶校验时，计算出的奇偶校验插入到传输数据的 MSB 位置(字长设置为 9 个数据位时为第 9 位;
-											字长设置为 8 个数据位时为第 8 位)。 */
+											                      字长设置为 8 个数据位时为第 8 位)。 */
 
     uint16_t USART_Mode;                /*!< 指定是启用还是禁用接收或传输模式。
                                             该参数可以是@ref USART_Mode 的值 */
@@ -348,50 +348,50 @@ typedef struct {
 void USART_DeInit(USART_TypeDef* USARTx); // 将 USARTx 外设寄存器去初始化为其默认复位值。
 
 /* 初始化和配置功能 *********************************/
-void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct); // 根据 USART_InitStruct 中的指定参数初始化 USARTx 外设。
-void USART_StructInit(USART_InitTypeDef* USART_InitStruct); // 用每个USART_InitStruct成员的默认值填充该成员。
+void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct);  // 根据 USART_InitStruct 中的指定参数初始化 USARTx 外设。
+void USART_StructInit(USART_InitTypeDef* USART_InitStruct);                   // 用每个USART_InitStruct成员的默认值填充该成员。
 void USART_ClockInit(USART_TypeDef* USARTx, USART_ClockInitTypeDef* USART_ClockInitStruct); // 根据 USART_ClockInitStruct 中的指定参数初始化 USARTx 外设时钟。
-void USART_ClockStructInit(USART_ClockInitTypeDef* USART_ClockInitStruct); // 用其默认值填充每个USART_ClockInitStruct成员。
-void USART_Cmd(USART_TypeDef* USARTx, FunctionalState NewState); // 启用或禁用指定的 USART 外设。
-void USART_SetPrescaler(USART_TypeDef* USARTx, uint8_t USART_Prescaler); // 设置系统时钟预分频器。
+void USART_ClockStructInit(USART_ClockInitTypeDef* USART_ClockInitStruct);    // 用其默认值填充每个USART_ClockInitStruct成员。
+void USART_Cmd(USART_TypeDef* USARTx, FunctionalState NewState);              // 启用或禁用指定的 USART 外设。
+void USART_SetPrescaler(USART_TypeDef* USARTx, uint8_t USART_Prescaler);      // 设置系统时钟预分频器。
 void USART_OverSampling8Cmd(USART_TypeDef* USARTx, FunctionalState NewState); // 启用或禁用 USART 的 8x 过采样模式。
-void USART_OneBitMethodCmd(USART_TypeDef* USARTx, FunctionalState NewState); // 启用或禁用 USART 的一位采样方法。
+void USART_OneBitMethodCmd(USART_TypeDef* USARTx, FunctionalState NewState);  // 启用或禁用 USART 的一位采样方法。
 
 /* 数据传输功能 ***************************************************/
 void USART_SendData(USART_TypeDef* USARTx, uint16_t Data); // 通过 USARTx 外设传输单个数据。
-uint16_t USART_ReceiveData(USART_TypeDef* USARTx); // 返回 USARTx 外设最近接收到的数据。
+uint16_t USART_ReceiveData(USART_TypeDef* USARTx);         // 返回 USARTx 外设最近接收到的数据。
 
 /* 多处理器通讯功能 ************************************/
-void USART_SetAddress(USART_TypeDef* USARTx, uint8_t USART_Address); // 设置 USART 节点的地址。
-void USART_WakeUpConfig(USART_TypeDef* USARTx, uint16_t USART_WakeUp); // 选择 USART 唤醒方法。
+void USART_SetAddress(USART_TypeDef* USARTx, uint8_t USART_Address);    // 设置 USART 节点的地址。
+void USART_WakeUpConfig(USART_TypeDef* USARTx, uint16_t USART_WakeUp);  // 选择 USART 唤醒方法。
 void USART_ReceiverWakeUpCmd(USART_TypeDef* USARTx, FunctionalState NewState); // 确定 USART 是否处于静音模式。
 
 /* LIN 模式功能 *********************************************************/
 void USART_LINBreakDetectLengthConfig(USART_TypeDef* USARTx, uint16_t USART_LINBreakDetectLength); // 设置 USART LIN 中断检测长度。
 void USART_LINCmd(USART_TypeDef* USARTx, FunctionalState NewState); // 启用或禁用 USART 的 LIN 模式。
-void USART_SendBreak(USART_TypeDef* USARTx); // 传输中断字符。
+void USART_SendBreak(USART_TypeDef* USARTx);                        // 传输中断字符。
 
 /* 半双工模式功能 **************************************************/
 void USART_HalfDuplexCmd(USART_TypeDef* USARTx, FunctionalState NewState); // 启用或禁用 USART 的半双工通信。
 
 /* 智能卡模式功能 ***************************************************/
-void USART_SmartCardCmd(USART_TypeDef* USARTx, FunctionalState NewState); // 启用或禁用 USART 的智能卡模式。
+void USART_SmartCardCmd(USART_TypeDef* USARTx, FunctionalState NewState);     // 启用或禁用 USART 的智能卡模式。
 void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState); // 启用或禁用 NACK 传输。
-void USART_SetGuardTime(USART_TypeDef* USARTx, uint8_t USART_GuardTime); // 设置指定的 USART 保护时间。
+void USART_SetGuardTime(USART_TypeDef* USARTx, uint8_t USART_GuardTime);      // 设置指定的 USART 保护时间。
 
 /* IrDA 模式功能 ********************************************************/
-void USART_IrDAConfig(USART_TypeDef* USARTx, uint16_t USART_IrDAMode); // 配置 USART 的 IrDA 接口。
-void USART_IrDACmd(USART_TypeDef* USARTx, FunctionalState NewState); // 启用或禁用 USART 的 IrDA 接口。
+void USART_IrDAConfig(USART_TypeDef* USARTx, uint16_t USART_IrDAMode);  // 配置 USART 的 IrDA 接口。
+void USART_IrDACmd(USART_TypeDef* USARTx, FunctionalState NewState);    // 启用或禁用 USART 的 IrDA 接口。
 
 /* DMA 传输管理功能 *****************************************/
 void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState NewState); // 启用或禁用 USART 的 DMA 接口。
 
 /* 中断和标志管理功能 **********************************/
 void USART_ITConfig(USART_TypeDef* USARTx, uint16_t USART_IT, FunctionalState NewState); // 启用或禁用指定的 USART 中断。
-FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG); // 检查是否设置了指定的 USART 标志。
-void USART_ClearFlag(USART_TypeDef* USARTx, uint16_t USART_FLAG); // 清除 USARTx 的挂起标志。
-ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT); // 检查指定的 USART 中断是否发生。
-void USART_ClearITPendingBit(USART_TypeDef* USARTx, uint16_t USART_IT); // 清除 USARTx 的中断挂起位。
+FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG);              // 检查是否设置了指定的 USART 标志。
+void USART_ClearFlag(USART_TypeDef* USARTx, uint16_t USART_FLAG);                        // 清除 USARTx 的挂起标志。
+ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT);                    // 检查指定的 USART 中断是否发生。
+void USART_ClearITPendingBit(USART_TypeDef* USARTx, uint16_t USART_IT);                  // 清除 USARTx 的中断挂起位。
 
 #ifdef __cplusplus
 }

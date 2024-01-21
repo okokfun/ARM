@@ -63,13 +63,13 @@ typedef struct {
     uint32_t  u32RefClockFreq;      /*!< Reference clock frequency
                                          This parameter should refer user manual recommended values */
     uint32_t  u32RefClockSrc;       /*!< Reference clock source selection
-                                         This parameter can be a value of @ref CTC_Continuous_Trim_Reference_Clock_Source */
+                                         这个参数是其中之一 @ref CTC_Continuous_Trim_Reference_Clock_Source */
     uint32_t  u32RefClockDiv;       /*!< Reference clock division
-                                         This parameter can be a value of @ref CTC_Reference_Clock_Division */
+                                         这个参数是其中之一 @ref CTC_Reference_Clock_Division */
     float32_t f32TolerantErrRate;   /*!< CTC tolerance deviation
-                                         This parameter can be a value between Min_Data=0.0 and Max_Data=1.0(100%) */
+                                         这个参数是其中间 Min_Data=0.0 and Max_Data=1.0(100%) */
     uint8_t   u8TrimValue;          /*!< CTC TRMVAL value
-                                         This parameter can be a value between Min_Data=0 and Max_Data=0x3F */
+                                         这个参数是其中间 Min_Data=0 and Max_Data=0x3F */
 } stc_ctc_ct_init_t;
 
 /**

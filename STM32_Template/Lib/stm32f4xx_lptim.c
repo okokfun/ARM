@@ -19,19 +19,26 @@
            --------------------
            - 通过填充 "LPTIM_InitTypeDef "结构并调用LPTIM_Init来配置时
              钟源、预分频器、波形形状和输出极性。
+
            - 如果选择了ULPTIM源作为时钟源，则通过LPTIM_ConfigClockGlitch
              过滤器设置要检测的连续样本数来配置数字Glitch过滤器。
+
            - 使用LPTIM_SelectSoftwareStart来选择一个软件启动。
+
            - 要为计数器的启动选择一个外部触发器，通过调用LPTIM_ConfigExternalTrigger
              来配置源和它的有效边沿极性。通过使用LPTIM_ConfigTriggerGlitch过滤器
              设置要检测的连续样本数来配置外部触发器的数字突波滤波器。
+
            - 通过LPTIM_SelectOperatingMode来选择外设的工作模式，有两种模式可以选择。
                + 连续模式:定时器是自由运行的，定时器从一个触发事件开始，永不停止，直到定时器被禁用。
                + 一次性模式:计时器从一个触发事件开始，当达到自动重载值时停止。
+
            - 使用LPTIM_SetAutoreloadValue来设置自动重载值，LPTIM_SetCompareValue来设置比较值。
+
            - 通过使用LPTIM_ConfigUpdate函数配置预加载模式。有2种模式可供选择。
                + 自动加载和比较寄存器在APB写入后立即更新。
                + 自动加载和比较寄存器在计数器周期结束时被更新。
+               
             - 通过调用LPTIM_Cmd启用外设。
 
            编码器模式。

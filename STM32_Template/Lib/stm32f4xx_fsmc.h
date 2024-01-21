@@ -133,8 +133,8 @@ typedef struct {
   */
 typedef struct {
     uint32_t FSMC_SetupTime;      /*!< 定义在命令断言之前设置地址的 HCLK 周期数，
-									 以便对公共/属性或 I/O 存储空间进行 NAND
-									 闪存读取或写入访问(取决于要配置的存储空间时序)。
+									                以便对公共/属性或 I/O 存储空间进行 NAND
+									                闪存读取或写入访问(取决于要配置的存储空间时序)。
                                      此参数可以是 0 到 0xFF 之间的值。*/
 
     uint32_t FSMC_WaitSetupTime;  /*!< 定义最小 HCLK 周期数，以断言 NAND 闪存读取或写入访问公共/属性或 I/O 存储空间的命令(取决于要配置的存储空间时序)。
@@ -144,8 +144,8 @@ typedef struct {
                                       此参数可以是 0x00 到 0xFF 之间的数字 */
 
     uint32_t FSMC_HiZSetupTime;   /*!< 定义在对公共/属性或 I/O 存储器空间进行
-									  NAND 闪存写入访问后数据总线保持在 HiZ 的
-									  HCLK 时钟周期数(取决于要配置的存储器空间时序)。
+									                NAND 闪存写入访问后数据总线保持在 HiZ 的
+									                HCLK 时钟周期数(取决于要配置的存储器空间时序)。
                                       此参数可以是 0x00 到 0xFF 之间的数字 */
 } FSMC_NAND_PCCARDTimingInitTypeDef;
 

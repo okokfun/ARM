@@ -110,7 +110,7 @@ typedef enum {
 /** @defgroup FLASH_Voltage_Range
   * @{
   */
-#define VoltageRange_1        ((uint8_t)0x00)  /*!< 器件工作范围:1.8V 至 2.1V */
+#define VoltageRange_1        ((uint8_t)0x00)  /*!< 器件工作范围: 1.8V 至 2.1V */
 #define VoltageRange_2        ((uint8_t)0x01)  /*!< 器件工作范围: 2.1V to 2.7V */
 #define VoltageRange_3        ((uint8_t)0x02)  /*!< 器件工作范围: 2.7V to 3.6V */
 #define VoltageRange_4        ((uint8_t)0x03)  /*!< 器件工作范围: 2.7V 至 3.6V + 外部 Vpp */

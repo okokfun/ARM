@@ -1108,7 +1108,7 @@ en_flag_status_t PWC_BKR_GetStatus(uint8_t u8Flag) {
 /**
  * @brief  Write Backup register.
  * @param  [in] u8RegNum                Backup register number.
- *  @arg    This parameter can be a number between Min_Data = 0 and Max_Data = 127.
+ *  @arg    这个参数必须是其中间值 Min_Data = 0 and Max_Data = 127.
  * @param  [in] u8RegVal                Value written to register
  * @retval 无
  */
@@ -1126,7 +1126,7 @@ void PWC_BKR_Write(uint8_t u8RegNum, uint8_t u8RegVal) {
 /**
  * @brief  Read Backup register.
  * @param  [in] u8RegNum                Backup register number.
- *  @arg    This parameter can be a number between Min_Data = 0 and Max_Data = 127.
+ *  @arg    这个参数必须是其中间值 Min_Data = 0 and Max_Data = 127.
  * @retval uint8_t                      Register value
  */
 uint8_t PWC_BKR_Read(uint8_t u8RegNum) {
@@ -1149,7 +1149,7 @@ uint8_t PWC_BKR_Read(uint8_t u8RegNum) {
  *  @arg    PWC_WKT_CLK_SRC_XTAL32:   XTAL32 Clock
  *  @arg    PWC_WKT_CLK_SRC_RTCLRC:   RTCLRC Clock
  * @param  [in] u16CmpVal               Comparison value of the Counter.
- *  @arg    This parameter can be a number between Min_Data = 0 and Max_Data = 0xFFF.
+ *  @arg    这个参数必须是其中间值 Min_Data = 0 and Max_Data = 0xFFF.
  * @retval 无
  */
 void PWC_WKT_Config(uint16_t u16ClkSrc, uint16_t u16CmpVal) {
@@ -1166,7 +1166,7 @@ void PWC_WKT_Config(uint16_t u16ClkSrc, uint16_t u16CmpVal) {
 /**
  * @brief  SET WKT Timer compare value.
  * @param  [in] u16CmpVal               Comparison value of the Counter.
- *  @arg    This parameter can be a number between Min_Data = 0 and Max_Data = 0xFFF.
+ *  @arg    这个参数必须是其中间值 Min_Data = 0 and Max_Data = 0xFFF.
  * @retval 无
  */
 void PWC_WKT_SetCompareValue(uint16_t u16CmpVal) {

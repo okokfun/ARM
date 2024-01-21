@@ -66,21 +66,21 @@ extern "C"
  */
 typedef struct {
     uint32_t u32CapacitySize;           /*!< Defines the capacity size.
-                                             This parameter can be a value of @ref EXMC_NFC_BANK_Memory_Capacity. */
+                                             这个参数是其中之一 @ref EXMC_NFC_BANK_Memory_Capacity. */
     uint32_t u32MemoryWidth;            /*!< Defines the memory width.
-                                             This parameter can be a value of @ref EXMC_NFC_Memory_Width. */
+                                             这个参数是其中之一 @ref EXMC_NFC_Memory_Width. */
     uint32_t u32BankNum;                /*!< Defines the bank number.
-                                             This parameter can be a value of @ref EXMC_NFC_Bank_Number */
+                                             这个参数是其中之一 @ref EXMC_NFC_Bank_Number */
     uint32_t u32PageSize;               /*!< Defines the page size.
-                                             This parameter can be a value of @ref EXMC_NFC_Page_Size. */
+                                             这个参数是其中之一 @ref EXMC_NFC_Page_Size. */
     uint32_t u32WriteProtect;           /*!< Defines the write protect.
-                                             This parameter can be a value of @ref EXMC_NFC_Write_Protect. */
+                                             这个参数是其中之一 @ref EXMC_NFC_Write_Protect. */
     uint32_t u32EccMode;                /*!< Defines the ECC mode.
-                                             This parameter can be a value of @ref EXMC_NFC_ECC_Mode. */
+                                             这个参数是其中之一 @ref EXMC_NFC_ECC_Mode. */
     uint32_t u32RowAddrCycle;           /*!< Defines the row address cycle.
-                                             This parameter can be a value of @ref EXMC_NFC_Row_Address_Cycle. */
+                                             这个参数是其中之一 @ref EXMC_NFC_Row_Address_Cycle. */
     uint8_t  u8SpareSizeForUserData;    /*!< Defines the spare column size for user data.
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
 } stc_exmc_nfc_base_config_t;
 
 /**
@@ -88,13 +88,13 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32TS;                     /*!< Defines the CLE/ALE/CE setup time in memory clock cycles(tALS/tCS/tCLS).
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
     uint32_t u32TWP;                    /*!< Defines the WE# pulse width time in memory clock cycles(tWP).
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
     uint32_t u32TRP;                    /*!< Defines the RE# pulse width time in memory clock cycles(tRP).
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
     uint32_t u32TH;                     /*!< Defines the CLE/ALE/CE hold time in memory clock cycles(tALH/tCH/tCLH).
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
 } stc_exmc_nfc_timing_reg0_config_t;
 
 /**
@@ -102,13 +102,13 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32TWH;                    /*!< Defines the WE# pulse width HIGH time in memory clock cycles(tWH).
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
     uint32_t u32TRH;                    /*!< Defines the RE# HIGH hold time in memory clock cycles(tREH).
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
     uint32_t u32TRR;                    /*!< Defines the Ready to RE# LOW time in memory clock cycles(tRR).
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
     uint32_t u32TWB;                    /*!< Defines the WE# HIGH to busy time in memory clock cycles(tWB).
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
 } stc_exmc_nfc_timing_reg1_config_t;
 
 /**
@@ -116,13 +116,13 @@ typedef struct {
  */
 typedef struct {
     uint32_t u32TCCS;                   /*!< Defines the command(change read/write column) delay time in memory clock cycles.
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
     uint32_t u32TWTR;                   /*!< Defines the WE# HIGH to RE# LOW time in memory clock cycles(tWHR).
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
     uint32_t u32TRTW;                   /*!< Defines the RE# HIGH to WE# LOW time in memory clock cycles(tRHW).
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
     uint32_t u32TADL;                   /*!< Defines the Address to Data Loading time in memory clock cycles(tADL).
-                                             This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF */
+                                             这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF */
 } stc_exmc_nfc_timing_reg2_config_t;
 
 /**
@@ -480,7 +480,7 @@ __STATIC_INLINE void EXMC_NFC_WriteCmdReg(uint32_t u32Value) {
 /**
  * @brief  Set EXMC_NFC Index register value.
  * @param  [in] u32Value            The value of NFC_IDXR0.
- *         This parameter can be a value between Min_Data = 0 and Max_Data = 0xFFFFFFFF
+ *         这个参数是其中间 Min_Data = 0 and Max_Data = 0xFFFFFFFF
  * @retval 无
  */
 __STATIC_INLINE void EXMC_NFC_WriteIDXR0(uint32_t u32Value) {
@@ -490,7 +490,7 @@ __STATIC_INLINE void EXMC_NFC_WriteIDXR0(uint32_t u32Value) {
 /**
  * @brief  Set EXMC_NFC Index register value.
  * @param  [in] u8Value             The value of NFC_IDXR1.
- *         This parameter can be a value between Min_Data = 0 and Max_Data = 0xFF
+ *         这个参数是其中间 Min_Data = 0 and Max_Data = 0xFF
  * @retval 无
  */
 __STATIC_INLINE void EXMC_NFC_WriteIDXR1(uint8_t u8Value) {
