@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_HRPWM HRPWM
  * @brief HRPWM Driver Library
- * @{
  */
 
 #if (LL_HRPWM_ENABLE == DDL_ON)
@@ -47,7 +45,6 @@
  ******************************************************************************/
 /**
  * @defgroup HRPWM_Local_Macros HRPWM Local Macros
- * @{
  */
 
 /* About 1mS timeout */
@@ -66,7 +63,6 @@
 
 /**
  * @defgroup HRPWM_Check_Param_Validity HRPWM Check Parameters Validity
- * @{
  */
 /*! Parameter valid check for HRPWM output channel */
 #define IS_VALID_HRPWM_CH(x)                                                   \
@@ -78,13 +74,9 @@
     (   (HRPWM_CAL_UNIT0 == (x))                    ||                             \
         (HRPWM_CAL_UNIT1 == (x)))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -104,7 +96,6 @@
 
 /**
  * @defgroup HRPWM_Global_Functions HRPWM Global Functions
- * @{
  */
 
 /**
@@ -366,15 +357,11 @@ en_functional_state_t HRPWM_CondConfirm(void) {
     return enRet;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_HRPWM_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

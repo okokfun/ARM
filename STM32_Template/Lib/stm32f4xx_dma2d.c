@@ -13,7 +13,7 @@
                       ##### 如何使用这个驱动程序 #####
  ===============================================================================
     [..]
-        (#)启用DMA2D时钟使用
+        (#)启用 DMA2D时钟使用
             RCC_APB2PeriphResetCmd(RCC_ABP2PeripH_DMA2D，ENABLE) 函数。
             (#) 配置DMA2D
             (++) 传输模式
@@ -28,7 +28,7 @@
             (++) alpha值
             (++) 偏移和默认颜色
 
-         (#) 调用DMA2D_Start()以启用DMA2D控制器。
+         (#) 调用 DMA2D_Start()以启用 DMA2D控制器。
 
     @endverbatim
 
@@ -57,12 +57,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup DMA2D
   * 简介: DMA2D 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -77,7 +75,6 @@
 #define DEAD_MASK                   ((uint32_t)0xFFFF00FE)  /* DMA2D DEAD Mask */
 
 /** @defgroup DMA2D_Private_Functions
-  * @{
   */
 
 /** @defgroup DMA2D_Group1 初始化和配置函数
@@ -94,13 +91,12 @@
 
       (+) 初始化、配置和设置前景和背景
 
-      (+) 配置并启用DeadTime
+      (+) 配置并启用 DeadTime
       
       (+) 配置线条水印
 
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -110,7 +106,6 @@
   * 
   * 返回值: 无
   */
-
 void DMA2D_DeInit(void) {
     /* 使能 DMA2D 复位状态 */
     RCC_AHB1PeriphResetCmd(RCC_AHB1Periph_DMA2D, ENABLE);
@@ -231,7 +226,6 @@ void DMA2D_StructInit(DMA2D_InitTypeDef* DMA2D_InitStruct) {
   * 
   * 返回值: 无
   */
-
 void DMA2D_StartTransfer(void) {
     /* 通过 START 位启动 DMA2D 传输 */
     DMA2D->CR |= (uint32_t)DMA2D_CR_START;
@@ -244,7 +238,6 @@ void DMA2D_StartTransfer(void) {
   * 
   * 返回值: 无
   */
-
 void DMA2D_AbortTransfer(void) {
     /* 通过 START 位启动 DMA2D 传输 */
     DMA2D->CR |= (uint32_t)DMA2D_CR_ABORT;
@@ -349,7 +342,7 @@ void DMA2D_FG_StructInit(DMA2D_FG_InitTypeDef* DMA2D_FG_InitStruct) {
     /*!< 初始化 DMA2D 前台 CLUT 大小 */
     DMA2D_FG_InitStruct->DMA2D_FG_CLUT_SIZE = 0x00;
 
-    /*!< 初始化DMA2D前景alpha模式 */
+    /*!< 初始化DMA2D前景alphA 模式 */
     DMA2D_FG_InitStruct->DMA2D_FGPFC_ALPHA_MODE = NO_MODIF_ALPHA_VALUE;
 
     /*!< 初始化DMA2D前景alpha值 */
@@ -474,7 +467,6 @@ void DMA2D_BG_StructInit(DMA2D_BG_InitTypeDef* DMA2D_BG_InitStruct) {
   * 
   * 返回值: 无
   */
-
 void DMA2D_FGStart(FunctionalState NewState) {
     /* 检查参数 */
     assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -496,7 +488,6 @@ void DMA2D_FGStart(FunctionalState NewState) {
   * 
   * 返回值: 无
   */
-
 void DMA2D_BGStart(FunctionalState NewState) {
     /* 检查参数 */
     assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -514,7 +505,7 @@ void DMA2D_BGStart(FunctionalState NewState) {
   * 简介:  配置 DMA2D 死区时间。
   * 
   * 参数:  DMA2D_DeadTime: 指定DMA2D死区时间。
-  *   此参数可以是以下值之一:
+  *        此参数可以是以下值之一:
   * 
   * 返回值: 无
   */
@@ -542,7 +533,6 @@ void DMA2D_DeadTimeConfig(uint32_t DMA2D_DeadTime, FunctionalState NewState) {
   * 
   * 返回值: 无
   */
-
 void DMA2D_LineWatermarkConfig(uint32_t DMA2D_LWatermarkConfig) {
     /* 检查参数 */
     assert_param(IS_DMA2D_LineWatermark(DMA2D_LWatermarkConfig));
@@ -551,9 +541,6 @@ void DMA2D_LineWatermarkConfig(uint32_t DMA2D_LWatermarkConfig) {
     DMA2D->LWR = (uint32_t)DMA2D_LWatermarkConfig;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup DMA2D_Group2 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -569,24 +556,23 @@ void DMA2D_LineWatermarkConfig(uint32_t DMA2D_LWatermarkConfig) {
     *** 标志 ***
     =============
     [..]
-        (+)DMA2D_FLAG_CE: 配置错误中断标志
-        (+)DMA2D_FLAG_CAE: CLUT访问错误中断标志
-        (+)DMA2D_FLAG_TW: 传输水印中断标志
-        (+)DMA2D_FLAG_TC: 传输完成中断标志
-        (+)DMA2D_FLAG_TE: 传输错误中断标志
-        (+)DMA2D_FLAG_CTC: CLUT传输完成中断标志
+        (+) DMA2D_FLAG_CE: 配置错误中断标志
+        (+) DMA2D_FLAG_CAE: CLUT访问错误中断标志
+        (+) DMA2D_FLAG_TW: 传输水印中断标志
+        (+) DMA2D_FLAG_TC: 传输完成中断标志
+        (+) DMA2D_FLAG_TE: 传输错误中断标志
+        (+) DMA2D_FLAG_CTC: CLUT传输完成中断标志
 
     *** 中断 ***
     ==================
     [..]
-        (+)DMA2D_IT_CE: 错误时生成配置错误中断检测到配置
-        (+)DMA2D_IT_CAE: CLUT访问错误中断
-        (+)DMA2D_IT_TW: 传输水印中断在以下情况下生成达到编程水印
-        (+)DMA2D_IT_TE: CPU尝试时生成传输错误中断在 CLUT 加载或 DMA2D1 传输时访问 CLUT 正在进行中
-        (+)DMA2D_IT_CTC: CLUT传输完成中断
-        (+)DMA2D_IT_TC: 传输完成中断
+        (+) DMA2D_IT_CE: 错误时生成配置错误中断检测到配置
+        (+) DMA2D_IT_CAE: CLUT访问错误中断
+        (+) DMA2D_IT_TW: 传输水印中断在以下情况下生成达到编程水印
+        (+) DMA2D_IT_TE: CPU尝试时生成传输错误中断在 CLUT 加载或 DMA2D1 传输时访问 CLUT 正在进行中
+        (+) DMA2D_IT_CTC: CLUT传输完成中断
+        (+) DMA2D_IT_TC: 传输完成中断
 @endverbatim
-  * @{
   */
 /**
   * 简介:  启用或禁用指定的 DMA2D's 中断
@@ -732,21 +718,5 @@ void DMA2D_ClearITPendingBit(uint32_t DMA2D_IT) {
     /* 清除相应的DMA2D中断 */
     DMA2D->IFCR = (uint32_t)DMA2D_IT;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

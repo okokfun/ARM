@@ -35,28 +35,20 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup DMA
-  * @{
   */
 
 /** @defgroup DMA_Interrupts_definition
   * @brief dma interrupt
-  * @{
   */
 #define DMA_FDT_INT                      ((uint32_t)0x00000002) /*!< dma full data transfer 中断 */
 #define DMA_HDT_INT                      ((uint32_t)0x00000004) /*!< dma half data transfer 中断 */
 #define DMA_DTERR_INT                    ((uint32_t)0x00000008) /*!< dma errorr 中断 */
 
-/**
-  * @}
-  */
-
 /** @defgroup DMA_flags_definition
   * @brief edma flag
-  * @{
   */
 #define DMA1_GL1_FLAG                    ((uint32_t)0x00000001) /*!< dma1 channel1 global flag */
 #define DMA1_FDT1_FLAG                   ((uint32_t)0x00000002) /*!< dma1 channel1 full data transfer flag */
@@ -132,12 +124,7 @@ extern "C" {
 #define DMAMUX_Gen_Trig_OV3_FLAG         ((uint32_t)0x00000004) /*!< dmamux generator channel3 overrun event flag */
 #define DMAMUX_Gen_Trig_OV4_FLAG         ((uint32_t)0x00000008) /*!< dmamux generator channel4 overrun event flag */
 
-/**
-  * @}
-  */
-
 /** @defgroup DMA_exported_Types
-  * @{
   */
 
 /**
@@ -641,10 +628,6 @@ typedef struct {
         } gctrl_bit;
     };
 } DMAMUX_Generator_Type;
-
-/**
-  * @}
-  */
 #define DMA1                             ((DMA_Type *) DMA1_BASE)
 #define DMA1_ChanneL1                    ((DMA_Channel_Type *) DMA1_ChanneL1_BASE)
 #define DMA1_ChanneL2                    ((DMA_Channel_Type *) DMA1_ChanneL2_BASE)
@@ -690,7 +673,6 @@ typedef struct {
 #define DMA2MUX_GENERATOR4               ((DMAMUX_Generator_Type *) DMA2MUX_GENERATOR4_BASE)
 
 /** @defgroup DMA_exported_functions
-  * @{
   */
 
 /* dma controller function */
@@ -718,18 +700,6 @@ flag_status DMAMUX_Sync_Flag_Get(DMA_Type *DMA_x, uint32_t flag);
 void DMAMUX_Sync_Flag_Clear(DMA_Type *DMA_x, uint32_t flag);
 flag_status DMAMUX_Generator_Flag_Get(DMA_Type *DMA_x, uint32_t flag);
 void DMAMUX_Generator_Flag_Clear(DMA_Type *DMA_x, uint32_t flag);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

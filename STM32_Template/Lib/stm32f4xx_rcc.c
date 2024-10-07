@@ -7,7 +7,7 @@
   * 简介:    此文件提供固件功能，以管理重置和时钟控制(RCC)外设设备的以下功能:
   *           + 内部/外部时钟、PLL、CSS 和 MCO 配置
   *           + 系统、AHB 和 APB 总线时钟配置
-  *           + 外围时钟配置
+  *           + 外设时钟配置
   *           + 中断和标志管理
   *
  @verbatim
@@ -61,12 +61,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup RCC
   * 简介: RCC 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -158,7 +156,6 @@ static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup RCC_Private_Functions
-  * @{
   */
 
 /** @defgroup RCC_Group1 内部和外部时钟、PLL、CSS和MCO配置功能
@@ -195,7 +192,6 @@ static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6
       (#) MCO2(微控制器时钟输出)，用于在PC9引脚上输出HSE、PLL、SYSCLK或PLLI2S时钟(通过一个可配置的预分频器)。
 
  @endverbatim
-  * @{
   */
 
 /**
@@ -439,7 +435,7 @@ void RCC_LSICmd(FunctionalState NewState) {
   * 参数:  PLLR: 指定STM32F446xx设备中I2S、SAI、SYSTEM、SPDIF的分频因子
   *          此参数必须是介于2和7之间的数字。
   *
-  * 注意:   如果您的应用程序中使用USB OTG FS，则必须正确设置PLLQ参数，
+  * 注意:   如果您的应用程序中使用 USB OTG FS，则必须正确设置PLLQ参数，
   *        使USB具有48 MHz时钟。然而，SDIO和RNG需要低于或等于48MHz的频率才能正常工作。
   *
   * 返回值: 无
@@ -487,7 +483,7 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
   *
   * 参数:  PLLQ: 指定OTG FS、SDIO和RNG时钟的分频因子
   *          此参数必须是介于 4 and 15.
-  * 注意:   如果您的应用程序中使用USB OTG FS，
+  * 注意:   如果您的应用程序中使用 USB OTG FS，
 			则必须正确设置PLLQ参数，使USB具有48 MHz时钟。
 			然而，SDIO和RNG需要低于或等于48MHz的频率才能正常工作。
   *
@@ -883,9 +879,6 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
     #endif /* STM32F410xx */
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RCC_Group2 系统、AHB和APB总线时钟配置功能
  *  简介   系统、AHB和APB总线时钟配置功能
@@ -904,9 +897,9 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
 
       -@- 所有的外围时钟都来源于系统时钟(SYSCLK)，除了:
         (+@) I2S: I2S时钟可以从特定的锁相环(PLLI2S)或映射在I2S_CKIN引脚上的外部时钟派生。
-             您必须使用RCC_I2SCLKConfig()函数来配置此时钟。
+             您必须使用RCC_I2SCLKConfig() 函数来配置此时钟。
         (+@) RTC: RTC时钟可由LSI、LSE或HSE时钟除以2 ~ 31得到。
-             你必须使用RCC_RTCCLKConfig()和RCC_RTCCLKCmd()函数来配置这个时钟。
+             你必须使用RCC_RTCCLKConfig()和RCC_RTCCLKCmd() 函数来配置这个时钟。
         (+@) USB OTG FS, SDIO和RTC: USB OTG FS需要等于48 MHz的频率才能正常工作，
              而SDIO需要等于或低于48的频率。该时钟由主锁相环通过锁相环q分频器派生而来。
         (+@) IWDG时钟，总是LSI时钟。
@@ -1027,7 +1020,6 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
        您可以使用 PWR_MainRegulatorModelConfig() 函数来控制VOS位。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1036,7 +1028,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
   *         或者在HSE故障时直接或间接作为系统时钟(时钟安全系统CSS开启)。
   * 注意:   从一个时钟源切换到另一个时钟源只有在目标时钟源准备就绪(启动延迟或锁相锁紧后时钟稳定)时才会发生。
   *          如果选择了一个尚未就绪的时钟源，则在时钟源准备就绪时进行切换。
-  *         您可以使用RCC_GetSYSCLKSource()函数来了解当前使用哪个时钟作为系统时钟源。
+  *         您可以使用RCC_GetSYSCLKSource() 函数来了解当前使用哪个时钟作为系统时钟源。
   * 参数:  RCC_SYSCLKSource: 指定用作系统时钟的时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_SYSCLKSource_HSI: 选择 HSI 作为系统时钟源
@@ -1184,7 +1176,7 @@ void RCC_PCLK2Config(uint32_t RCC_HCLK) {
   *              用户必须确保 HSE_VALU 与所用晶体的实际频率相同。
   *              否则，此函数可能会产生错误的结果。
   *
-  * 注意:   当使用HSE晶体的分数值时，该函数的结果可能不正确。
+  * 注意:   当使用 HSE晶体的分数值时，该函数的结果可能不正确。
   *
   * 参数:  RCC_Clocks: 指向RCC_ClocksTypeDef结构的指针，该结构将保持时钟频率。
   *
@@ -1283,9 +1275,6 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks) {
     RCC_Clocks->PCLK2_Frequency = RCC_Clocks->HCLK_Frequency >> presc;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RCC_Group3 外围时钟配置函数
  *  简介   外围时钟配置函数
@@ -1306,17 +1295,16 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks) {
           RCC_AHBPeriphResetCmd()、RCC_APB2PeriphResetCmd()和RCC_APB1PeriphResedCmd() 函数。
 
       (#) 为了进一步降低SLEEP模式下的功耗，可以在执行WFI或WFE指令之前禁用外围时钟。
-          可以使用RCC_AHBPeriphClockLPModeCmd()、RCC_APB2PeriphClockLPModeCmd()和RCC_APB1PeriphClockLPModeCmd()函数执行此操作。
+          可以使用RCC_AHBPeriphClockLPModeCmd()、RCC_APB2PeriphClockLPModeCmd()和RCC_APB1PeriphClockLPModeCmd() 函数执行此操作。
 
 @endverbatim
-  * @{
   */
 
 /**
   * 简介:  配置 RTC 时钟 (RTCCLK)。
   * 注意:   由于RTC时钟配置位在备份域中，并且重置后对此域的写入访问被拒绝，
   *         因此您必须在配置RTC时钟源之前使用 PWR_BackupAccessCmd(enable) 功能启用写入访问(重置后执行一次)。
-  * 注意:   配置RTC时钟后，除非使用RCC_BackupResetCmd()函数或通电重置(POR)重置备份域，否则无法更改。
+  * 注意:   配置RTC时钟后，除非使用RCC_BackupResetCmd() 函数或通电重置(POR)重置备份域，否则无法更改。
   *
   * 参数:  RCC_RTCCLKSource: 指定RTC时钟源。
   *          此参数可以是以下值之一:
@@ -1326,7 +1314,7 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks) {
   *
   * 注意:   如果LSE或LSI用作RTC时钟源，RTC将继续在STOP和STANDBY模式下工作，并可用作唤醒源。
   *          然而，当HSE时钟用作RTC时钟源时，RTC不能在STOP和STANDBY模式下使用。
-  * 注意:   RTC的最大输入时钟频率为1MHz(当使用HSE作为RTC时钟源时)。
+  * 注意:   RTC的最大输入时钟频率为1MHz(当使用 HSE作为RTC时钟源时)。
   *
   * 返回值: 无
   */
@@ -1780,7 +1768,7 @@ void RCC_LTDCCLKDivConfig(uint32_t RCC_PLLSAIDivR) {
 #if defined(STM32F412xG) || defined(STM32F413_423xx)
 /**
   * 简介:  配置DFSDM时钟源(DFSDMCLK)。
-  * 注意:   在启用DFSDM APB时钟之前，必须调用此函数。
+  * 注意:   在启用 DFSDM APB时钟之前，必须调用此函数。
   * 参数:  RCC_DFSDMCLKSource: 指定DFSDM时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_DFSDMCLKSource_APB: APB 时钟用作 DFSDM 时钟源。
@@ -1808,7 +1796,7 @@ void RCC_DFSDM1CLKConfig(uint32_t RCC_DFSDMCLKSource) {
 
 /**
   * 简介:  配置 DFSDM 音频时钟源(DFSDMACLK)。
-  * 注意:   在启用DFSDM APB时钟之前，必须调用此函数。
+  * 注意:   在启用 DFSDM APB时钟之前，必须调用此函数。
   * 参数:  RCC_DFSDM1ACLKSource: 指定 DFSDM 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_DFSDM1AUDIOCLKSOURCE_I2SAPB1: APB 时钟用作 DFSDM 时钟源。
@@ -1837,7 +1825,7 @@ void RCC_DFSDM1ACLKConfig(uint32_t RCC_DFSDM1ACLKSource) {
 #if defined(STM32F413_423xx)
 /**
   * 简介:  配置DFSDM音频时钟源(DFSDMACLK)。
-  * 注意:   在启用DFSDM APB时钟之前，必须调用此函数。
+  * 注意:   在启用 DFSDM APB时钟之前，必须调用此函数。
   * 参数:  RCC_DFSDM2ACLKSource: 指定 DFSDM 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_DFSDM2AUDIOCLKSOURCE_I2SAPB1: APB 时钟用作 DFSDM 时钟源。
@@ -2690,9 +2678,6 @@ void RCC_FMPI2C1ClockSourceConfig(uint32_t RCC_ClockSource) {
     RCC->DCKCFGR2 |= RCC_ClockSource;
 }
 #endif /* STM32F410xx || STM32F412xG || STM32F413_423xx || STM32F446xx */
-/**
-  * @}
-  */
 
 #if defined(STM32F410xx)
 /**
@@ -2731,7 +2716,6 @@ void RCC_MCO2Cmd(FunctionalState NewState) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2879,21 +2863,5 @@ void RCC_ClearITPendingBit(uint8_t RCC_IT) {
     /* 对RCC_CIR[23:16]位执行字节访问，以清除所选的挂起中断位 */
     *(__IO uint8_t *) CIR_BYTE3_ADDRESS = RCC_IT;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

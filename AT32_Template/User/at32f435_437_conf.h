@@ -32,11 +32,9 @@ extern "C" {
 
 
 /** @addtogroup AT32F437_Periph_template
-  * @{
   */
 
 /** @addtogroup 437_Library_Configuration Library_Configuration
-  * @{
   */
 
 /**
@@ -174,10 +172,6 @@ extern "C" {
 #ifdef USB_MODULE_EnableD
 #include "at32f435_437_usb.h"
 #endif
-
-/**
-  * @}
-  */
 
 /**
 * @}

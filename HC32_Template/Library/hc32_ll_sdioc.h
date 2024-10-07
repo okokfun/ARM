@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_SDIOC
- * @{
  */
 
 #if (LL_SDIOC_ENABLE == DDL_ON)
@@ -52,7 +50,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup SDIOC_Global_Types SDIOC Global Types
- * @{
  */
 
 /**
@@ -104,72 +101,53 @@ typedef struct {
                                              这个参数是其中之一 @ref SDIOC_Data_Timeout_Time */
 } stc_sdioc_data_config_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup SDIOC_Global_Macros SDIOC Global Macros
- * @{
  */
 
 /**
  * @defgroup SDIOC_Mode SDIOC Mode
- * @{
  */
 #define SDIOC_MD_SD                             (0x00UL)    /*!< SDIOCx selects SD mode  */
 #define SDIOC_MD_MMC                            (0x01UL)    /*!< SDIOCx selects MMC mode */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Card_Detect_Way SDIOC Card Detect Way
- * @{
  */
 #define SDIOC_CARD_DETECT_CD_PIN_LVL            (0x00U)                 /*!< SDIOCx_CD(x=1~2) line is selected (for normal use)       */
 #define SDIOC_CARD_DETECT_TEST_SIGNAL           (SDIOC_HOSTCON_CDSS)    /*!< The Card Detect Test Level is selected(for test purpose) */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Card_Detect_Test_Level SDIOC Card Detect Test Level
- * @{
  */
 #define SDIOC_CARD_DETECT_TEST_LVL_LOW          (0x00U)                 /*!< Card identification test signal is low level (with device insertion) */
 #define SDIOC_CARD_DETECT_TEST_LVL_HIGH         (SDIOC_HOSTCON_CDTL)    /*!< Card identification test signal is high level (no device insertion)  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Speed_Mode SDIOC Speed Mode
- * @{
  */
 #define SDIOC_SPEED_MD_NORMAL                   (0x00U)                 /*!< Normal speed mode */
 #define SDIOC_SPEED_MD_HIGH                     (SDIOC_HOSTCON_HSEN)    /*!< High speed mode   */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Bus_Width SDIOC Bus Width
- * @{
  */
 #define SDIOC_BUS_WIDTH_1BIT                    (0x00U)               /*!< The Bus width is 1 bit */
 #define SDIOC_BUS_WIDTH_4BIT                    (SDIOC_HOSTCON_DW)    /*!< The Bus width is 4 bit */
 #define SDIOC_BUS_WIDTH_8BIT                    (SDIOC_HOSTCON_EXDW)  /*!< The Bus width is 8 bit */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Clock_Division SDIOC Clock Division
- * @{
  */
 #define SDIOC_CLK_DIV1                          (0x00U)               /*!< CLK1/1   */
 #define SDIOC_CLK_DIV2                          (SDIOC_CLKCON_FS_0)   /*!< CLK1/2   */
@@ -180,67 +158,49 @@ typedef struct {
 #define SDIOC_CLK_DIV64                         (SDIOC_CLKCON_FS_5)   /*!< CLK1/64  */
 #define SDIOC_CLK_DIV128                        (SDIOC_CLKCON_FS_6)   /*!< CLK1/128 */
 #define SDIOC_CLK_DIV256                        (SDIOC_CLKCON_FS_7)   /*!< CLK1/256 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Command_Type SDIOC Command Type
- * @{
  */
 #define SDIOC_CMD_TYPE_NORMAL                   (0x00U)               /*!< Other commands                               */
 #define SDIOC_CMD_TYPE_SUSPEND                  (SDIOC_CMD_TYP_0)     /*!< CMD52 for writing "Bus Suspend" in CCCR      */
 #define SDIOC_CMD_TYPE_RESUME                   (SDIOC_CMD_TYP_1)     /*!< CMD52 for writing "Function Select" in CCCR  */
 #define SDIOC_CMD_TYPE_ABORT                    (SDIOC_CMD_TYP)       /*!< CMD12, CMD52 for writing "I/O Abort" in CCCR */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Data_Line_Valid SDIOC Data Line Valid
- * @{
  */
 #define SDIOC_DATA_LINE_DISABLE                 (0x00U)               /*!< The current command uses only SDIOCx_CMD(x=1~2) command line       */
 #define SDIOC_DATA_LINE_ENABLE                  (SDIOC_CMD_DAT)       /*!< The current command requires the use of SDIOCx_Dy(x=1~2) data line */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Transfer_Direction SDIOC Transfer Direction
- * @{
  */
 #define SDIOC_TRANS_DIR_TO_CARD                 (0x00U)                 /*!< Write (Host to Card) */
 #define SDIOC_TRANS_DIR_TO_HOST                 (SDIOC_TRANSMODE_DDIR)  /*!< Read (Card to Host)  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Auto_Send_CMD12 SDIOC Auto Send CMD12
- * @{
  */
 #define SDIOC_AUTO_SEND_CMD12_DISABLE           (0x00U)                    /*!< Do not send autocommands                                   */
 #define SDIOC_AUTO_SEND_CMD12_ENABLE            (SDIOC_TRANSMODE_ATCEN_0)  /*!< CMD12 is automatically sent after multiple block transfers */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Transfer_Mode SDIOC Transfer Mode
- * @{
  */
 #define SDIOC_TRANS_MD_SINGLE                   (0x00U)                                         /*!< Single Block transfer        */
 #define SDIOC_TRANS_MD_INFINITE                 (SDIOC_TRANSMODE_MULB)                          /*!< Infinite Block transfer      */
 #define SDIOC_TRANS_MD_MULTI                    (SDIOC_TRANSMODE_MULB | SDIOC_TRANSMODE_BCE)    /*!< Multiple Block transfer      */
 #define SDIOC_TRANS_MD_STOP_MULTI               (0x8000U | SDIOC_TRANS_MD_MULTI)                /*!< Stop Multiple Block transfer */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Data_Timeout_Time SDIOC Data Timeout Time
- * @{
  */
 #define SDIOC_DATA_TIMEOUT_CLK_2E13             (0x00U)     /*!< Timeout time: CLK1*2^13 */
 #define SDIOC_DATA_TIMEOUT_CLK_2E14             (0x01U)     /*!< Timeout time: CLK1*2^14 */
@@ -257,49 +217,37 @@ typedef struct {
 #define SDIOC_DATA_TIMEOUT_CLK_2E25             (0x0CU)     /*!< Timeout time: CLK1*2^25 */
 #define SDIOC_DATA_TIMEOUT_CLK_2E26             (0x0DU)     /*!< Timeout time: CLK1*2^26 */
 #define SDIOC_DATA_TIMEOUT_CLK_2E27             (0x0EU)     /*!< Timeout time: CLK1*2^27 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Response_Register SDIOC Response Register
- * @{
  */
 #define SDIOC_RESP_REG_BIT0_31                  (0x00U)  /*!< Command Response Register 0-31bit   */
 #define SDIOC_RESP_REG_BIT32_63                 (0x04U)  /*!< Command Response Register 32-63bit  */
 #define SDIOC_RESP_REG_BIT64_95                 (0x08U)  /*!< Command Response Register 64-95bit  */
 #define SDIOC_RESP_REG_BIT96_127                (0x0CU)  /*!< Command Response Register 96-127bit */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Software_Reset_Type SDIOC Software Reset Type
- * @{
  */
 #define SDIOC_SW_RST_DATA_LINE                  (SDIOC_SFTRST_RSTD)  /*!< Only part of data circuit is reset                                     */
 #define SDIOC_SW_RST_CMD_LINE                   (SDIOC_SFTRST_RSTC)  /*!< Only part of command circuit is reset                                  */
 #define SDIOC_SW_RST_ALL                        (SDIOC_SFTRST_RSTA)  /*!< Reset the entire Host Controller except for the card detection circuit */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Output_Clock_Frequency SDIOC Output Clock Frequency
- * @{
  */
 #define SDIOC_OUTPUT_CLK_FREQ_400K              (400000UL)    /*!< SDIOC clock: 400KHz */
 #define SDIOC_OUTPUT_CLK_FREQ_25M               (25000000UL)  /*!< SDIOC clock: 25MHz  */
 #define SDIOC_OUTPUT_CLK_FREQ_26M               (26000000UL)  /*!< SDIOC clock: 26MHz  */
 #define SDIOC_OUTPUT_CLK_FREQ_50M               (50000000UL)  /*!< SDIOC clock: 50MHz  */
 #define SDIOC_OUTPUT_CLK_FREQ_52M               (52000000UL)  /*!< SDIOC clock: 52MHz  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Host_Flag SDIOC Host Flag
- * @{
  */
 #define SDIOC_HOST_FLAG_CMDL                    (SDIOC_PSTAT_CMDL)    /*!< CMD Line Level status            */
 #define SDIOC_HOST_FLAG_DATL                    (SDIOC_PSTAT_DATL)    /*!< DAT[3:0] Line Level status       */
@@ -323,13 +271,10 @@ typedef struct {
         SDIOC_HOST_FLAG_BRE  | SDIOC_HOST_FLAG_BWE  | SDIOC_HOST_FLAG_RTA | \
         SDIOC_HOST_FLAG_WTA  | SDIOC_HOST_FLAG_DA   | SDIOC_HOST_FLAG_CID | \
         SDIOC_HOST_FLAG_CIC)
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Interrupt_Flag SDIOC Interrupt Flag
- * @{
  */
 #define SDIOC_INT_FLAG_EI                       (SDIOC_NORINTST_EI)     /*!< Error Interrupt Status     */
 #define SDIOC_INT_FLAG_CINT                     (SDIOC_NORINTST_CINT)   /*!< Card Interrupt status      */
@@ -362,13 +307,10 @@ typedef struct {
 #define SDIOC_INT_FLAG_CLR_ALL                  (SDIOC_INT_FLAG_CRM | SDIOC_INT_FLAG_CIST | SDIOC_INT_FLAG_BRR | \
         SDIOC_INT_FLAG_BWR | SDIOC_INT_FLAG_BGE  | SDIOC_INT_FLAG_TC  | \
         SDIOC_INT_FLAG_CC  | SDIOC_ERR_INT_FLAG_ALL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Interrupt SDIOC Interrupt
- * @{
  */
 #define SDIOC_INT_CINTSEN                       (SDIOC_NORINTSGEN_CINTSEN)   /*!< Card Interrupt                */
 #define SDIOC_INT_CRMSEN                        (SDIOC_NORINTSGEN_CRMSEN)    /*!< Card Removal Interrupt        */
@@ -393,13 +335,10 @@ typedef struct {
         SDIOC_INT_DTOESEN | SDIOC_INT_CIESEN  | SDIOC_INT_CEBESEN | \
         SDIOC_INT_CCESEN  | SDIOC_INT_CTOESEN)
 #define SDIOC_INT_ALL                           (SDIOC_NORMAL_INT_ALL | SDIOC_ERR_INT_ALL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Auto_CMD_Error_Flag SDIOC Auto CMD Error Flag
- * @{
  */
 #define SDIOC_AUTO_CMD_ERR_FLAG_CMDE            (SDIOC_ATCERRST_CMDE)   /*!< Command Not Issued By Auto CMD12 Error Status  */
 #define SDIOC_AUTO_CMD_ERR_FLAG_IE              (SDIOC_ATCERRST_IE)     /*!< Auto CMD12 Index Error status                  */
@@ -410,13 +349,10 @@ typedef struct {
 #define SDIOC_AUTO_CMD_ERR_FLAG_ALL             (SDIOC_AUTO_CMD_ERR_FLAG_CMDE | SDIOC_AUTO_CMD_ERR_FLAG_IE | \
         SDIOC_AUTO_CMD_ERR_FLAG_EBE  | SDIOC_AUTO_CMD_ERR_FLAG_CE | \
         SDIOC_AUTO_CMD_ERR_FLAG_TOE  | SDIOC_AUTO_CMD_ERR_FLAG_NE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Force_Auto_CMD_Error SDIOC Force Auto CMD Error
- * @{
  */
 #define SDIOC_FORCE_AUTO_CMD_ERR_FCMDE          (SDIOC_FEA_FCMDE)   /*!< Force Event for Command Not Issued By Auto CMD12 Error */
 #define SDIOC_FORCE_AUTO_CMD_ERR_FIE            (SDIOC_FEA_FIE)     /*!< Force Event for Auto CMD12 Index Error                 */
@@ -427,13 +363,10 @@ typedef struct {
 #define SDIOC_FORCE_AUTO_CMD_ERR_ALL            (SDIOC_FORCE_AUTO_CMD_ERR_FCMDE | SDIOC_FORCE_AUTO_CMD_ERR_FIE | \
         SDIOC_FORCE_AUTO_CMD_ERR_FEBE  | SDIOC_FORCE_AUTO_CMD_ERR_FCE | \
         SDIOC_FORCE_AUTO_CMD_ERR_FTOE  | SDIOC_FORCE_AUTO_CMD_ERR_FNE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Force_Error_Interrupt SDIOC Force Error Interrupt
- * @{
  */
 #define SDIOC_FORCE_ERR_INT_FACE                (SDIOC_FEE_FACE)    /*!< Force Event for Auto CMD12 Error       */
 #define SDIOC_FORCE_ERR_INT_FDEBE               (SDIOC_FEE_FDEBE)   /*!< Force Event for Data End Bit Error     */
@@ -447,22 +380,17 @@ typedef struct {
         SDIOC_FORCE_ERR_INT_FDCE | SDIOC_FORCE_ERR_INT_FDTOE | \
         SDIOC_FORCE_ERR_INT_FCIE | SDIOC_FORCE_ERR_INT_FCEBE | \
         SDIOC_FORCE_ERR_INT_FCCE | SDIOC_FORCE_ERR_INT_FCTOE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDIOC_Response_Type SDIOC Response Type
- * @{
  */
 #define SDIOC_RESP_TYPE_NO                      (0x00U)                                               /*!< No Response                        */
 #define SDIOC_RESP_TYPE_R2                      (SDIOC_CMD_RESTYP_0)                                  /*!< Command Response 2                 */
 #define SDIOC_RESP_TYPE_R3_R4                   (SDIOC_CMD_RESTYP_1)                                  /*!< Command Response 3, 4              */
 #define SDIOC_RESP_TYPE_R1_R5_R6_R7             (SDIOC_CMD_RESTYP_1 | SDIOC_CMD_ICE | SDIOC_CMD_CCE)  /*!< Command Response 1, 5, 6, 7        */
 #define SDIOC_RESP_TYPE_R1B_R5B                 (SDIOC_CMD_RESTYP   | SDIOC_CMD_ICE | SDIOC_CMD_CCE)  /*!< Command Response 1 and 5 with busy */
-/**
- * @}
- */
+
 
 #define SDIOC_CMD0_GO_IDLE_STATE                (0U)    /*!< Resets the SD memory card. */
 #define SDIOC_CMD1_SEND_OP_COND                 (1U)    /*!< Sends host capacity support information and activates the card's initialization process. */
@@ -552,7 +480,6 @@ send its operating condition register (OCR) content in the response on the CMD l
 
 /**
  * @defgroup SDMMC_Error_Code SDMMC Error Code
- * @{
  */
 #define SDMMC_ERR_NONE                          (0x00000000UL)  /*!< No error                                                      */
 #define SDMMC_ERR_ADDR_OUT_OF_RANGE             (0x80000000UL)  /*!< Error when addressed block is out of range                    */
@@ -591,13 +518,10 @@ the SWITCH command                                            */
 #define SDMMC_ERR_REQ_NOT_APPLICABLE            (0x00000002UL)  /*!< Error when command request is not applicable                  */
 #define SDMMC_ERR_UNSUPPORT_FEATURE             (0x00000001UL)  /*!< Error when feature is not insupported                         */
 #define SDMMC_ERR_BITS_MASK                     (0xFDFFE048UL)  /*!< SD/MMC Error status bits mask                                 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDMMC_Card_Status_Bit SDMMC Card Status Bit
- * @{
  */
 #define SDMMC_STATUS_CARD_IS_LOCKED_POS         (24U)
 #define SDMMC_STATUS_CARD_IS_LOCKED             (0x02000000UL)  /*!< When set, signals that the card is locked by the host */
@@ -607,56 +531,40 @@ the SWITCH command                                            */
 #define SDMMC_STATUS_RDY_FOR_DATA               (0x00000100UL)  /*!< Corresponds to buffer empty signaling on the bus */
 #define SDMMC_STATUS_APP_CMD_POS                (5U)
 #define SDMMC_STATUS_APP_CMD                    (0x00000020UL)  /*!< The card will expect ACMD, or an indication that the command has been interpreted as ACMD */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDMMC_SCR_Register SDMMC SCR Register
- * @{
  */
 #define SDMMC_SCR_PHY_SPEC_VER_1P0              (0x00000000UL)
 #define SDMMC_SCR_PHY_SPEC_VER_1P1              (0x01000000UL)
 #define SDMMC_SCR_PHY_SPEC_VER_2P0              (0x02000000UL)
 #define SDMMC_SCR_BUS_WIDTH_4BIT                (0x00040000UL)
 #define SDMMC_SCR_BUS_WIDTH_1BIT                (0x00010000UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDMMC_OCR_Register SDMMC OCR Register
- * @{
  */
 #define SDMMC_OCR_HIGH_CAPACITY                 (0x40000000UL)
 #define SDMMC_OCR_STD_CAPACITY                  (0x00000000UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDMMC_CSD_Register SDMMC CSD Register
- * @{
  */
 /* Command Class supported */
 #define SDMMC_CSD_SUPPORT_CLASS5_ERASE          (0x00000020UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup SDMMC_Common_Parameter SDMMC Common Parameter
- * @{
  */
 #define SDMMC_DATA_TIMEOUT                      (0x0000FFFFUL)
 #define SDMMC_MAX_VOLT_TRIAL                    (0x0000FFFFUL)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -667,7 +575,6 @@ the SWITCH command                                            */
  ******************************************************************************/
 /**
  * @addtogroup SDIOC_Global_Functions
- * @{
  */
 int32_t SDIOC_DeInit(CM_SDIOC_TypeDef *SDIOCx);
 int32_t SDIOC_Init(CM_SDIOC_TypeDef *SDIOCx, const stc_sdioc_init_t *pstcSdiocInit);
@@ -738,19 +645,13 @@ int32_t SDMMC_CMD1_SendOperatCond(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32Argument
 int32_t SDMMC_CMD35_EraseGroupStartAddr(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32StartAddr, uint32_t *pu32ErrStatus);
 int32_t SDMMC_CMD36_EraseGroupEndAddr(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32EndAddr, uint32_t *pu32ErrStatus);
 
-/**
- * @}
- */
+
 
 #endif /* LL_SDIOC_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

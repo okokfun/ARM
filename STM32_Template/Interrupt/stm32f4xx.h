@@ -43,11 +43,9 @@
   */
 
 /** @addtogroup CMSIS
-  * @{
   */
 
 /** @addtogroup stm32f4xx
-  * @{
   */
 
 #ifndef __STM32F4xx_H
@@ -58,7 +56,6 @@ extern "C" {
 #endif /* __cplusplus */
 
 /** @addtogroup Library_configuration_section
-  * @{
   */
 
 /* Uncomment the line below 根据 the target STM32 device used in your
@@ -172,12 +169,8 @@ defined(STM32F410xx) || defined(STM32F411xE) || defined(STM32F469_479xx)
         |(__STM32F4XX_STDPERIPH_VERSION_SUB2 << 8)\
         |(__STM32F4XX_STDPERIPH_VERSION_RC))
 
-/**
-  * @}
-  */
 
 /** @addtogroup Configuration_section_for_CMSIS
-  * @{
   */
 
 /**
@@ -809,16 +802,12 @@ typedef enum IRQn {
 #endif /* STM32F413_423xx */
 } IRQn_Type;
 
-/**
-  * @}
-  */
 
 #include "core_cm4.h"             /* Cortex-M4 processor and core peripherals */
 #include "system_stm32f4xx.h"
 #include <stdint.h>
 
 /** @addtogroup Exported_types
-  * @{
   */
 /*!< STM32F10x Standard Peripheral Library old types (maintained for legacy purpose) */
 typedef int32_t  s32;
@@ -860,12 +849,8 @@ typedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;
 
 typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
 
-/**
-  * @}
-  */
 
 /** @addtogroup Peripheral_registers_structures
-  * @{
   */
 
 /**
@@ -1923,12 +1908,8 @@ typedef struct {
     __IO uint32_t OR;          /*!< LPTIM Option register,                              Address offset: 0x20 */
 } LPTIM_TypeDef;
 #endif /* STM32F410xx || STM32F413_423xx */
-/**
-  * @}
-  */
 
 /** @addtogroup Peripheral_memory_map
-  * @{
   */
 #define FLASH_BASE            ((uint32_t)0x08000000) /*!< FLASH(up to 1 MB) base address in the alias region                         */
 #define CCMDATARAM_BASE       ((uint32_t)0x10000000) /*!< CCM(core coupled memory) data RAM(64 KB) base address in the alias region  */
@@ -2168,12 +2149,8 @@ typedef struct {
 /* Debug MCU registers base address */
 #define DBGMCU_BASE           ((uint32_t )0xE0042000)
 
-/**
-  * @}
-  */
 
 /** @addtogroup Peripheral_declaration
-  * @{
   */
 #if defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx) || defined(STM32F469_479xx)
 #define QUADSPI             ((QUADSPI_TypeDef *) QSPI_R_BASE)
@@ -2337,12 +2314,8 @@ typedef struct {
 
 #define DBGMCU              ((DBGMCU_TypeDef *) DBGMCU_BASE)
 
-/**
-  * @}
-  */
 
 /** @addtogroup Exported_constants
-  * @{
   */
 
 /** @addtogroup Peripheral_Registers_Bits_Definition
@@ -11886,16 +11859,13 @@ typedef struct {
   *
   */
 
-/**
- * @}
- */
+
 
 #ifdef USE_STDPERIPH_DRIVER
 #include "stm32f4xx_conf.h"
 #endif /* USE_STDPERIPH_DRIVER */
 
 /** @addtogroup Exported_macro
-  * @{
   */
 #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
 
@@ -11911,9 +11881,6 @@ typedef struct {
 
 #define MODIFY_REG(REG, CLEARMASK, SETMASK)  WRITE_REG((REG), (((READ_REG(REG)) & (~(CLEARMASK))) | (SETMASK)))
 
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }
@@ -11921,12 +11888,8 @@ typedef struct {
 
 #endif /* __STM32F4xx_H */
 
-/**
-  * @}
-  */
 
 /**
 * @}
 */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

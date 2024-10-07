@@ -16,25 +16,25 @@
                     ##### 如何使用这个驱动程序 #####
  ===============================================================================
     [..]
-      (#) 使用RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2Cx, ENABLE)函数为I2C1、I2C2或I2C3启用外围时钟。
+      (#) 使用 RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2Cx, ENABLE) 函数为 I2C1、I2C2 或 I2C3 启用外围时钟。
 
-      (#) 使用以下方法启用SDA、SCL和SMBA(当使用时)的GPIO时钟
-          RCC_AHBPeriphClockCmd()函数。
+      (#) 使用以下方法启用 SDA、SCL 和 SMBA(当使用时)的 GPIO 时钟
+          RCC_AHBPeriphClockCmd() 函数。
 
       (#) 外设设备替代函数。
-        (++) 使用GPIO_PinAFConfig()函数将引脚连接到所需的外设设备的替代功能(AF)。
+        (++) 使用 GPIO_PinAFConfig() 函数将引脚连接到所需的外设设备的替代功能(AF)。
 
         (++) 通过配置所需引脚的复用功能。
              GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
 
-        (++) 通过GPIO_PuPd、GPIO_OType和GPIO_Speed成员选择类型、上拉/下拉和输出速度
+        (++) 通过 GPIO_PuPd、GPIO_OType 和 GPIO_Speed 成员选择类型、上拉/下拉和输出速度
         
-        (++) 调用GPIO_Init()函数
+        (++) 调用 GPIO_Init() 函数
              建议配置为推挽、拉升、开漏。
              如果有必要的话，可以添加一个外部拉高(通常是4.7KOhm)。
 
-      (#) 对模式、占空比、自己的地址、Ack、速度和Acknowledged地址进行编程。
-          使用I2C_Init()函数对模式、占空比、自身地址、Ack、速度和确认地址进行编程。
+      (#) 对模式、占空比、自己的地址、Ack、速度和 Acknowledged 地址进行编程。
+          使用 I2C_Init() 函数对模式、占空比、自身地址、Ack、速度和确认地址进行编程。
 
       (#) 你可以选择启用/配置以下参数而不需要重新初始化(即不需要再次调用 I2C_Init() 函数)。
         (++) 使用 I2C_AcknowledgeConfig() 函数启用确认功能。
@@ -54,11 +54,11 @@
         (++) 使用 DMA_Init() 函数配置DMA
         (++) 使用 I2C_DMACmd() 函数激活所需的通道请求，或使用
              I2C_DMALastTransferCmd() 函数激活需要的通道请求。
-        -@@- 当使用DMA模式时，可以同时使用 I2C 中断来控制通信流(开始/停止/确认...事件和错误)。
+        -@@- 当使用 DMA 模式时，可以同时使用 I2C 中断来控制通信流(开始/停止/确认...事件和错误)。
 
       (#) 使用 I2C_Cmd() 函数启用 I2C。
 
-      (#) 在传输中使用DMA模式时，使用 DMA_Cmd() 函数启用 DMA。
+      (#) 在传输中使用 DMA 模式时，使用 DMA_Cmd() 函数启用 DMA。
 
     @endverbatim
   ******************************************************************************
@@ -86,12 +86,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup I2C
   * 简介: I2C 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -107,7 +105,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup I2C_Private_Functions
-  * @{
   */
 
 /** @defgroup I2C_Group1 初始化和配置函数
@@ -119,7 +116,6 @@
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -709,9 +705,6 @@ void I2C_ARPCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_ENARP);
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup I2C_Group2 数据传输函数
  *  简介   数据传输函数
@@ -722,7 +715,6 @@ void I2C_ARPCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -755,9 +747,6 @@ uint8_t I2C_ReceiveData(I2C_TypeDef* I2Cx) {
     return (uint8_t)I2Cx->DR;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup I2C_Group3 PEC 管理函数
  *  简介   PEC 管理函数
@@ -768,7 +757,6 @@ uint8_t I2C_ReceiveData(I2C_TypeDef* I2Cx) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -862,9 +850,6 @@ uint8_t I2C_GetPEC(I2C_TypeDef* I2Cx) {
     return ((I2Cx->SR2) >> 8);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup I2C_Group4 DMA传输管理函数
  *  简介   DMA传输管理函数
@@ -876,7 +861,6 @@ uint8_t I2C_GetPEC(I2C_TypeDef* I2Cx) {
   本节提供的功能允许配置I2C DMA信道请求。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -927,9 +911,6 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     }
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup I2C_Group5 中断、事件和标志管理功能
  *  简介   中断、事件和标志管理功能
@@ -940,7 +921,7 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
  ===============================================================================
     [..]
     本节提供的功能允许 配置I2C中断源，并检查或清除标志位或待定位状态。
-    用户应该确定在他的应用程序中使用哪种模式来管理通信。轮询模式、中断模式或DMA模式。
+    用户应该确定在他的应用程序中使用哪种模式来管理通信。轮询模式、中断模式或DMA 模式。
 
 
                 ##### I2C状态监测功能 #####
@@ -949,7 +930,7 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 该I2C驱动提供了三种不同的I2C状态监测方式，这取决于应用的要求和限制。
 
 
-     (#) 基本状态监测(使用I2C_CheckEvent()函数)
+     (#) 基本状态监测(使用I2C_CheckEvent() 函数)
 
         它将状态寄存器(SR1和SR2)的内容与一个给定的事件(可以是一个或多个标志的组合)进行比较。
         如果当前状态包括给定的标志，它将返回SUCCESS，如果当前状态中缺少一个或多个标志，则返回ERROR。
@@ -959,14 +940,14 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
              (++) 它也适用于需要定义自己的事件的用户。
 
           (++)局限性
-               如果发生错误(即除了被监控的标志外还设置了错误标志)，I2C_CheckEvent()函数可能会返回SUCCESS，尽管通信保持或现实状态被破坏。
+               如果发生错误(即除了被监控的标志外还设置了错误标志)，I2C_CheckEvent() 函数可能会返回SUCCESS，尽管通信保持或现实状态被破坏。
                在这种情况下，建议使用错误中断来监测错误事件，并在中断IRQ处理程序中处理它们。
 
      -@@- 对于错误管理，建议使用以下函数。
         (+@@) I2C_ITConfig() 配置并启用错误中断(I2C_IT_ERR)。
         (+@@) I2Cx_ER_IRQHandler()，当错误中断发生时被调用。
               其中x是外设实例(I2C1, I2C2 ...)。
-        (+@@) I2C_GetFlagStatus()或I2C_GetITStatus()被调用到I2Cx_ER_IRQHandler()函数中，以确定哪个错误发生。
+        (+@@) I2C_GetFlagStatus()或I2C_GetITStatus()被调用到I2Cx_ER_IRQHandler() 函数中，以确定哪个错误发生。
         (+@@) I2C_ClearFlag() 或 I2C_ClearITPendingBit() 和/或 I2C_SoftwareResetCmd() 和/或 I2C_GenerateStop() ，以便清除错误标志和来源，返回到正确的通信状态。
 
 
@@ -975,10 +956,10 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
         使用函数I2C_GetLastEvent()，它在一个字(uint32_t)中返回两个状态寄存器的图像(状态寄存器2的值被左移16位并与状态寄存器1连接)。
 
           (++)何时使用
-             (++) 该函数适用于上述相同的应用，但它可以克服I2C_GetFlagStatus()函数的上述限制。
+             (++) 该函数适用于上述相同的应用，但它可以克服I2C_GetFlagStatus() 函数的上述限制。
              (++) 返回的值可以与库中已经定义的事件(stm32f4xx_i2c.h)或用户定义的自定义值相比较。
                这个函数适用于同时监测多个标志的情况。
-             (++) 与I2C_CheckEvent()函数相反，该函数允许用户选择何时接受一个事件(当所有的事件标志被设置且没有其他标志被设置时，或者像I2C_CheckEvent()函数那样只设置需要的标志。
+             (++) 与I2C_CheckEvent() 函数相反，该函数允许用户选择何时接受一个事件(当所有的事件标志被设置且没有其他标志被设置时，或者像I2C_CheckEvent() 函数那样只设置需要的标志。
 
           (++)局限性
              (++) 用户可能需要定义自己的事件。
@@ -1001,7 +982,6 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
    关于事件的详细描述，请参考I2C_Events章节。stm32f4xx_i2c.h文件中的I2C_Events部分。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1380,21 +1360,5 @@ void I2C_ClearITPendingBit(I2C_TypeDef* I2Cx, uint32_t I2C_IT) {
     /* 清除被选择的 I2C 标志 */
     I2Cx->SR1 = (uint16_t)~flagpos;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

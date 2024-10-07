@@ -35,16 +35,13 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup TMR
-  * @{
   */
 
 /** @defgroup TMR_flags_definition
   * @brief tmr flag
-  * @{
   */
 #define TMR_OVF_FLAG                     ((uint32_t)0x000001) /*!< tmr flag overflow */
 #define TMR_C1_FLAG                      ((uint32_t)0x000002) /*!< tmr flag channel 1 */
@@ -60,13 +57,8 @@ extern "C" {
 #define TMR_C3_RECAPTURE_FLAG            ((uint32_t)0x000800) /*!< tmr flag channel 3 recapture */
 #define TMR_C4_RECAPTURE_FLAG            ((uint32_t)0x001000) /*!< tmr flag channel 4 recapture */
 
-/**
-  * @}
-  */
-
 /** @defgroup TMR_Interrupt_Select_Type_definition
   * @brief tmr interrupt select type
-  * @{
   */
 #define TMR_OVF_INT                      ((uint32_t)0x000001) /*!< tmr interrupt overflow */
 #define TMR_C1_INT                       ((uint32_t)0x000002) /*!< tmr interrupt channel 1 */
@@ -77,12 +69,7 @@ extern "C" {
 #define TMR_Trigger_INT                  ((uint32_t)0x000040) /*!< tmr interrupt trigger */
 #define TMR_BRK_INT                      ((uint32_t)0x000080) /*!< tmr interrupt brake */
 
-/**
-  * @}
-  */
-
 /** @defgroup TMR_exported_Types
-  * @{
   */
 
 /**
@@ -806,10 +793,6 @@ typedef struct {
         } c5dt_bit;
     };
 } TMR_Type;
-
-/**
-  * @}
-  */
 #define TMR1                             ((TMR_Type *) TMR1_BASE)
 #define TMR2                             ((TMR_Type *) TMR2_BASE)
 #define TMR3                             ((TMR_Type *) TMR3_BASE)
@@ -827,9 +810,7 @@ typedef struct {
 #define TMR20                            ((TMR_Type *) TMR20_BASE)
 
 /** @defgroup TMR_exported_functions
-  * @{
   */
-
 void TMR_Reset(TMR_Type *TMR_x);
 void TMR_Counter_Enable(TMR_Type *TMR_x, confirm_state new_state);
 void TMR_OutPut_Default_Para_Init(TMR_OutPut_Config_Type *TMR_OutPut_struct);
@@ -904,18 +885,6 @@ void TMR_DMA_Control_Config(TMR_Type *TMR_x, TMR_DMA_Transfer_Length_Type DMA_le
                             TMR_DMA_Address_Type DMA_Base_Address);
 void TMR_Brkdt_Config(TMR_Type *TMR_x, TMR_Brkdt_Config_Type *brkdt_struct);
 void TMR_Iremap_Config(TMR_Type *TMR_x, TMR_Input_remap_Type input_remap);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

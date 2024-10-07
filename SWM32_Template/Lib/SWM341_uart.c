@@ -202,7 +202,7 @@ uint32_t UART_IsTXFIFOFull(UART_TypeDef * UARTx) {
 * 输    入: UART_TypeDef * UARTx	指定要被设置的UART串口，有效值包括UART0、UART1、UART2、UART3
 *			uint32_t baudrate		要设置的波特率
 * 输    出: 无
-* 注意事项: 不要在串口工作时更改波特率，使用此函数前请先调用UART_Close()关闭串口
+* 注意事项: 不要在串口工作时更改波特率，使用此函数前请先调用 UART_Close()关闭串口
 ******************************************************************************************************************************************/
 void UART_SetBaudrate(UART_TypeDef * UARTx, uint32_t baudrate) {
     UARTx->BAUD &= ~(UART_BAUD_BAUD_Msk | UART_BAUD_FRAC_Msk);

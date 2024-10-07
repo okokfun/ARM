@@ -14,7 +14,7 @@
                   ##### 如何使用此驱动程序 #####
  ===================================================================
  [..]
-   (#) 使用 RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_CRYP, ENABLE) 启用 CRYP 控制器时钟; 函数。
+   (#) 使用 RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_CRYP, ENABLE) 启用 CRYP 控制器时钟.
 
    (#) 使用 CRYP_AES_ECB() 函数在 ECB 模式下使用 AES 进行加密和解密。
 
@@ -52,12 +52,10 @@
 #include "stm32f4xx_cryp.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup CRYP
   * 简介: CRYP 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -70,7 +68,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup CRYP_Private_Functions
-  * @{
   */
 
 /** @defgroup CRYP_Group6 高水平的AES功能
@@ -82,7 +79,6 @@
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1626,22 +1622,6 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
 
     return status;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 

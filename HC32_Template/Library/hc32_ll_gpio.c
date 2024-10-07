@@ -28,13 +28,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_GPIO GPIO
  * @brief GPIO Driver Library
- * @{
  */
 
 #if (LL_GPIO_ENABLE == DDL_ON)
@@ -44,7 +42,6 @@
  ******************************************************************************/
 /**
  * @defgroup GPIO_Local_Types GPIO Local Typedefs
- * @{
  */
 /**
  * @brief  GPIO port pin table definition
@@ -53,20 +50,16 @@ typedef struct {
     uint8_t u8Port;             /*!< GPIO Port Source, @ref GPIO_Port_Source for details       */
     uint16_t u16PinMask;        /*!< Pin active or inactive, @ref GPIO_All_Pins_Define for details       */
 } stc_gpio_port_pin_tbl_t;
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Local pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup GPIO_Local_Macros GPIO Local Macros
- * @{
  */
 /**
  * @defgroup GPIO_Registers_Setting_definition GPIO Registers setting definition
- * @{
  */
 #define GPIO_PSPCR_RST_VALUE            (0x001FU)
 #define GPIO_PCCR_RST_VALUE             (0x1000U)
@@ -93,13 +86,10 @@ typedef struct {
 #define POER_REG(x)     (*(__IO GPIO_REG_TYPE *)(GPIO_POER_BASE + GPIO_REG_OFFSET * (x)))
 #define PCR_REG(x, y)   (*(__IO uint16_t *)(GPIO_PCR_BASE +  (uint32_t)((x) * GPIO_PORT_OFFSET) + (y) * GPIO_PIN_OFFSET))
 #define PFSR_REG(x, y)  (*(__IO uint16_t *)(GPIO_PFSR_BASE + (uint32_t)((x) * GPIO_PORT_OFFSET) + (y) * GPIO_PIN_OFFSET))
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_Check_Parameters_Validity GPIO Check Parameters Validity
- * @{
  */
 /*! Parameter validity check for pin state. */
 #define IS_GPIO_PIN_STATE(state)                                                \
@@ -193,13 +183,9 @@ typedef struct {
 /*  Check GPIO register lock status. */
 #define IS_GPIO_UNLOCK()      (GPIO_PWPR_WE == (CM_GPIO->PWPR & GPIO_PWPR_WE))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -214,7 +200,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @defgroup GPIO_Local_Variables GPIO Local Variables
- * @{
  */
 static const stc_gpio_port_pin_tbl_t m_astcGpioPortPinTbl[] = {
     {GPIO_PORT_A, GPIO_PIN_A_ALL},
@@ -228,16 +213,13 @@ static const stc_gpio_port_pin_tbl_t m_astcGpioPortPinTbl[] = {
     {GPIO_PORT_I, GPIO_PIN_I_ALL},
 
 };
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Function implementation - global ('extern') and local ('static')
  ******************************************************************************/
 /**
  * @defgroup GPIO_Global_Functions GPIO Global Functions
- * @{
  */
 
 /**
@@ -671,15 +653,11 @@ void GPIO_ExIntCmd(uint8_t u8Port, uint16_t u16Pin, en_functional_state_t enNewS
         }
     }
 }
-/**
- * @}
- */
+
 
 #endif /* LL_GPIO_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

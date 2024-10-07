@@ -26,18 +26,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup MISC
   * @brief MISC driver modules
-  * @{
   */
 
 #ifdef MISC_MODULE_EnableD
 
 /** @defgroup MISC_private_functions
-  * @{
   */
 #define AIRCR_VECTKEY_MASK    ((uint32_t)0x05FA0000)
 
@@ -140,18 +137,6 @@ void Systick_Clock_Source_Config(Systick_Clock_Source_Type source) {
     }
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 

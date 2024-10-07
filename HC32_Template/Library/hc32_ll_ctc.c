@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_CTC CTC
  * @brief CTC Driver Library
- * @{
  */
 
 #if (LL_CTC_ENABLE == DDL_ON)
@@ -47,12 +45,10 @@
  ******************************************************************************/
 /**
  * @defgroup CTC_Local_Macros CTC Local Macros
- * @{
  */
 
 /**
  * @defgroup CTC_Check_Parameters_Validity CTC Check Parameters Validity
- * @{
  */
 #define IS_CTC_REF_CLK_SRC(x)                                                  \
     (   ((x) == CTC_REF_CLK_SRC_XTAL)           ||                                 \
@@ -83,22 +79,15 @@
     (   ((x) != 0UL)                            &&                                 \
         (((x) | CTC_FLAG_ALL) ==  CTC_FLAG_ALL))
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup CTC_Tolerant_Error_Max CTC Tolerant Error Max
- * @{
  */
 #define CTC_TOLERANT_ERR_MAX                (1.0F)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -118,7 +107,6 @@
 
 /**
  * @defgroup CTC_Local_Functions CTC Local Functions
- * @{
  */
 
 /**
@@ -148,13 +136,10 @@ static uint32_t CTC_GetRefClockDiv(uint32_t u32Cr1RefPsc) {
     return u32RefclkDiv;
 }
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup CTC_Global_Functions CTC Global Functions
- * @{
  */
 
 /**
@@ -352,15 +337,11 @@ uint8_t CTC_GetOffsetValue(void) {
     return (uint8_t)(READ_REG32_BIT(CM_CTC->CR2, CTC_CR2_OFSVAL) >> CTC_CR2_OFSVAL_POS);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_CTC_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

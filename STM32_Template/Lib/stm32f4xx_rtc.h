@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup RTC
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -51,7 +49,7 @@ extern "C" {
   */
 typedef struct {
     uint32_t RTC_HourFormat;   /*!< 指定 RTC 小时格式。
-                              该参数可以是@ref RTC_Hour_Formats 的值 */
+                              该参数可以是 @ref RTC_Hour_Formats 的值 */
 
     uint32_t RTC_AsynchPrediv; /*!< 指定 RTC 异步预分频器值。
                               此参数必须设置为低于 0x7F 的值 */
@@ -75,7 +73,7 @@ typedef struct {
                          此参数必须设置为 0-59 范围内的值。 */
 
     uint8_t RTC_H12;      /*!< 指定 RTC AM/PM 时间.
-                        此参数可以是@ref RTC_AM_PM_Definitions 的值 */
+                        此参数可以是 @ref RTC_AM_PM_Definitions 的值 */
 } RTC_TimeTypeDef;
 
 /**
@@ -102,7 +100,7 @@ typedef struct {
     RTC_TimeTypeDef RTC_AlarmTime;     /*!< 指定 RTC 警报时间成员。 */
 
     uint32_t RTC_AlarmMask;            /*!< 指定 RTC 警报掩码。
-                                      该参数可以是@ref RTC_AlarmMask_Definitions 的值 */
+                                      该参数可以是 @ref RTC_AlarmMask_Definitions 的值 */
 
     uint32_t RTC_AlarmDateWeekDaySel;  /*!< 指定 RTC 警报在日期或工作日。
                                       此参数可以是 @ref RTC_AlarmDateWeekDay_Definitions 的值 */
@@ -115,74 +113,48 @@ typedef struct {
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup RTC_Exported_Constants
-  * @{
   */
 
 
 /** @defgroup RTC_Hour_Formats
-  * @{
   */
 #define RTC_HourFormat_24              ((uint32_t)0x00000000)
 #define RTC_HourFormat_12              ((uint32_t)0x00000040)
 #define IS_RTC_HOUR_FORMAT(FORMAT)     (((FORMAT) == RTC_HourFormat_12) || \
                                         ((FORMAT) == RTC_HourFormat_24))
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Asynchronous_Predivider
-  * @{
   */
 #define IS_RTC_ASYNCH_PREDIV(PREDIV)   ((PREDIV) <= 0x7F)
 
-/**
-  * @}
-  */
 
 
 /** @defgroup RTC_Synchronous_Predivider
-  * @{
   */
 #define IS_RTC_SYNCH_PREDIV(PREDIV)    ((PREDIV) <= 0x7FFF)
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Time_Definitions
-  * @{
   */
 #define IS_RTC_HOUR12(HOUR)            (((HOUR) > 0) && ((HOUR) <= 12))
 #define IS_RTC_HOUR24(HOUR)            ((HOUR) <= 23)
 #define IS_RTC_MINUTES(MINUTES)        ((MINUTES) <= 59)
 #define IS_RTC_SECONDS(SECONDS)        ((SECONDS) <= 59)
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_AM_PM_Definitions
-  * @{
   */
 #define RTC_H12_AM                     ((uint8_t)0x00)
 #define RTC_H12_PM                     ((uint8_t)0x40)
 #define IS_RTC_H12(PM) (((PM) == RTC_H12_AM) || ((PM) == RTC_H12_PM))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Year_Date_Definitions
-  * @{
   */
 #define IS_RTC_YEAR(YEAR)              ((YEAR) <= 99)
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Month_Date_Definitions
-  * @{
   */
 
 /* Coded in BCD format */
@@ -201,12 +173,8 @@ typedef struct {
 #define IS_RTC_MONTH(MONTH)            (((MONTH) >= 1) && ((MONTH) <= 12))
 #define IS_RTC_DATE(DATE)              (((DATE) >= 1) && ((DATE) <= 31))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_WeekDay_Definitions
-  * @{
   */
 #define RTC_Weekday_Monday             ((uint8_t)0x01)
 #define RTC_Weekday_Tuesday            ((uint8_t)0x02)
@@ -222,13 +190,9 @@ typedef struct {
                                  ((WEEKDAY) == RTC_Weekday_Friday) || \
                                  ((WEEKDAY) == RTC_Weekday_Saturday) || \
                                  ((WEEKDAY) == RTC_Weekday_Sunday))
-/**
-  * @}
-  */
 
 
 /** @defgroup RTC_Alarm_Definitions
-  * @{
   */
 #define IS_RTC_ALARM_DATE_WEEKDAY_DATE(DATE) (((DATE) > 0) && ((DATE) <= 31))
 #define IS_RTC_ALARM_DATE_WEEKDAY_WEEKDAY(WEEKDAY) (((WEEKDAY) == RTC_Weekday_Monday) || \
@@ -239,13 +203,9 @@ typedef struct {
         ((WEEKDAY) == RTC_Weekday_Saturday) || \
         ((WEEKDAY) == RTC_Weekday_Sunday))
 
-/**
-  * @}
-  */
 
 
 /** @defgroup RTC_AlarmDateWeekDay_Definitions
-  * @{
   */
 #define RTC_AlarmDateWeekDaySel_Date      ((uint32_t)0x00000000)
 #define RTC_AlarmDateWeekDaySel_WeekDay   ((uint32_t)0x40000000)
@@ -253,13 +213,9 @@ typedef struct {
 #define IS_RTC_ALARM_DATE_WEEKDAY_SEL(SEL) (((SEL) == RTC_AlarmDateWeekDaySel_Date) || \
         ((SEL) == RTC_AlarmDateWeekDaySel_WeekDay))
 
-/**
-  * @}
-  */
 
 
 /** @defgroup RTC_AlarmMask_Definitions
-  * @{
   */
 #define RTC_AlarmMask_None                ((uint32_t)0x00000000)
 #define RTC_AlarmMask_DateWeekDay         ((uint32_t)0x80000000)
@@ -269,21 +225,14 @@ typedef struct {
 #define RTC_AlarmMask_All                 ((uint32_t)0x80808080)
 #define IS_ALARM_MASK(MASK)  (((MASK) & 0x7F7F7F7F) == (uint32_t)RESET)
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Alarms_Definitions
-  * @{
   */
 #define RTC_Alarm_A                       ((uint32_t)0x00000100)
 #define RTC_Alarm_B                       ((uint32_t)0x00000200)
 #define IS_RTC_ALARM(ALARM)     (((ALARM) == RTC_Alarm_A) || ((ALARM) == RTC_Alarm_B))
 #define IS_RTC_CMD_ALARM(ALARM) (((ALARM) & (RTC_Alarm_A | RTC_Alarm_B)) != (uint32_t)RESET)
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Alarm_Sub_Seconds_Masks_Definitions
 * @{
@@ -321,21 +270,13 @@ typedef struct {
         ((MASK) == RTC_AlarmSubSecondMask_SS14_13) || \
         ((MASK) == RTC_AlarmSubSecondMask_SS14) || \
         ((MASK) == RTC_AlarmSubSecondMask_None))
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Alarm_Sub_Seconds_Value
-  * @{
   */
 #define IS_RTC_ALARM_SUB_SECOND_VALUE(VALUE) ((VALUE) <= 0x00007FFF)
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Wakeup_Timer_Definitions
-  * @{
   */
 #define RTC_WakeUpClock_RTCCLK_Div16        ((uint32_t)0x00000000)
 #define RTC_WakeUpClock_RTCCLK_Div8         ((uint32_t)0x00000001)
@@ -350,23 +291,15 @@ typedef struct {
                                     ((CLOCK) == RTC_WakeUpClock_CK_SPRE_16bits) || \
                                     ((CLOCK) == RTC_WakeUpClock_CK_SPRE_17bits))
 #define IS_RTC_WAKEUP_COUNTER(COUNTER)  ((COUNTER) <= 0xFFFF)
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Time_Stamp_Edges_definitions
-  * @{
   */
 #define RTC_TimeStampEdge_Rising          ((uint32_t)0x00000000)
 #define RTC_TimeStampEdge_Falling         ((uint32_t)0x00000008)
 #define IS_RTC_TIMESTAMP_EDGE(EDGE) (((EDGE) == RTC_TimeStampEdge_Rising) || \
                                      ((EDGE) == RTC_TimeStampEdge_Falling))
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Output_selection_Definitions
-  * @{
   */
 #define RTC_Output_Disable             ((uint32_t)0x00000000)
 #define RTC_Output_AlarmA              ((uint32_t)0x00200000)
@@ -378,24 +311,16 @@ typedef struct {
                                ((OUTPUT) == RTC_Output_AlarmB) || \
                                ((OUTPUT) == RTC_Output_WakeUp))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Output_Polarity_Definitions
-  * @{
   */
 #define RTC_OutputPolarity_High           ((uint32_t)0x00000000)
 #define RTC_OutputPolarity_Low            ((uint32_t)0x00100000)
 #define IS_RTC_OUTPUT_POL(POL) (((POL) == RTC_OutputPolarity_High) || \
                                 ((POL) == RTC_OutputPolarity_Low))
-/**
-  * @}
-  */
 
 
 /** @defgroup RTC_Digital_Calibration_Definitions
-  * @{
   */
 #define RTC_CalibSign_Positive            ((uint32_t)0x00000000)
 #define RTC_CalibSign_Negative            ((uint32_t)0x00000080)
@@ -403,23 +328,15 @@ typedef struct {
                                  ((SIGN) == RTC_CalibSign_Negative))
 #define IS_RTC_CALIB_VALUE(VALUE) ((VALUE) < 0x20)
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Calib_Output_selection_Definitions
- * @{
  */
 #define RTC_CalibOutput_512Hz            ((uint32_t)0x00000000)
 #define RTC_CalibOutput_1Hz              ((uint32_t)0x00080000)
 #define IS_RTC_CALIB_OUTPUT(OUTPUT)  (((OUTPUT) == RTC_CalibOutput_512Hz) || \
                                       ((OUTPUT) == RTC_CalibOutput_1Hz))
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Smooth_calib_period_Definitions
-  * @{
   */
 #define RTC_SmoothCalibPeriod_32sec   ((uint32_t)0x00000000) /*!<  如果 RTCCLK = 32768 Hz，平滑校准周期为 32s，否则为 2exp20 RTCCLK 秒 */
 #define RTC_SmoothCalibPeriod_16sec   ((uint32_t)0x00002000) /*!<  如果 RTCCLK = 32768 Hz，平滑校准周期为 16 秒，否则为 2exp19 RTCCLK 秒 */
@@ -428,12 +345,8 @@ typedef struct {
         ((PERIOD) == RTC_SmoothCalibPeriod_16sec) || \
         ((PERIOD) == RTC_SmoothCalibPeriod_8sec))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Smooth_calib_Plus_pulses_Definitions
-  * @{
   */
 #define RTC_SmoothCalibPlusPulses_Set    ((uint32_t)0x00008000) /*!<  在 X 秒窗口期间添加的 RTCCLK 脉冲数 = Y - CALM[8:0]。 
 																	  当 X = 32、16、8 时，Y = 512、256、128 */
@@ -441,21 +354,13 @@ typedef struct {
 #define IS_RTC_SMOOTH_CALIB_PLUS(PLUS) (((PLUS) == RTC_SmoothCalibPlusPulses_Set) || \
                                         ((PLUS) == RTC_SmoothCalibPlusPulses_Reset))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Smooth_calib_Minus_pulses_Definitions
-  * @{
   */
 #define  IS_RTC_SMOOTH_CALIB_MINUS(VALUE) ((VALUE) <= 0x000001FF)
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_DayLightSaving_Definitions
-  * @{
   */
 #define RTC_DayLightSaving_SUB1H   ((uint32_t)0x00020000)
 #define RTC_DayLightSaving_ADD1H   ((uint32_t)0x00010000)
@@ -466,12 +371,8 @@ typedef struct {
 #define RTC_StoreOperation_Set          ((uint32_t)0x00040000)
 #define IS_RTC_STORE_OPERATION(OPERATION) (((OPERATION) == RTC_StoreOperation_Reset) || \
         ((OPERATION) == RTC_StoreOperation_Set))
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Tamper_Trigger_Definitions
-  * @{
   */
 #define RTC_TamperTrigger_RisingEdge            ((uint32_t)0x00000000)
 #define RTC_TamperTrigger_FallingEdge           ((uint32_t)0x00000001)
@@ -482,12 +383,8 @@ typedef struct {
                                         ((TRIGGER) == RTC_TamperTrigger_LowLevel) || \
                                         ((TRIGGER) == RTC_TamperTrigger_HighLevel))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Tamper_Filter_Definitions
-  * @{
   */
 #define RTC_TamperFilter_Disable   ((uint32_t)0x00000000) /*!< 篡改过滤器已禁用 */
 
@@ -498,12 +395,8 @@ typedef struct {
                                       ((FILTER) == RTC_TamperFilter_2Sample) || \
                                       ((FILTER) == RTC_TamperFilter_4Sample) || \
                                       ((FILTER) == RTC_TamperFilter_8Sample))
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Tamper_Sampling_Frequencies_Definitions
-  * @{
   */
 #define RTC_TamperSamplingFreq_RTCCLK_Div32768  ((uint32_t)0x00000000) /*!< 每个篡改输入的采样频率 = RTCCLK / 32768 */
 #define RTC_TamperSamplingFreq_RTCCLK_Div16384  ((uint32_t)0x000000100) /*!< 每个篡改输入的采样频率 = RTCCLK / 16384 */
@@ -522,9 +415,6 @@ typedef struct {
         ((FREQ) ==RTC_TamperSamplingFreq_RTCCLK_Div512) || \
         ((FREQ) ==RTC_TamperSamplingFreq_RTCCLK_Div256))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Tamper_Pin_Precharge_Duration_Definitions
 * @{
@@ -538,23 +428,15 @@ typedef struct {
         ((DURATION) == RTC_TamperPrechargeDuration_2RTCCLK) || \
         ((DURATION) == RTC_TamperPrechargeDuration_4RTCCLK) || \
         ((DURATION) == RTC_TamperPrechargeDuration_8RTCCLK))
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Tamper_Pins_Definitions
-  * @{
   */
 #define RTC_Tamper_1 RTC_TAFCR_TAMP1E
 #define RTC_Tamper_2 RTC_TAFCR_TAMP2E
 #define IS_RTC_TAMPER(TAMPER) (((TAMPER) == RTC_Tamper_1) || ((TAMPER) == RTC_Tamper_2))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Tamper_Pin_Selection
-  * @{
   */
 #define RTC_TamperPin_Default       ((uint32_t)0x00000000)
 #define RTC_TamperPin_Pos1          ((uint32_t)0x00010000)
@@ -563,56 +445,36 @@ typedef struct {
 /* Legacy Defines */
 #define RTC_TamperPin_PC13           RTC_TamperPin_Default
 #define RTC_TamperPin_PI8            RTC_TamperPin_Pos1
-/**
-  * @}
-  */
 
 /** @defgroup RTC_TimeStamp_Pin_Selection
-  * @{
   */
 #define RTC_TimeStampPin_PC13              ((uint32_t)0x00000000)
 #define RTC_TimeStampPin_PI8               ((uint32_t)0x00020000)
 #define IS_RTC_TIMESTAMP_PIN(PIN) (((PIN) == RTC_TimeStampPin_PC13) || \
                                    ((PIN) == RTC_TimeStampPin_PI8))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Output_Type_ALARM_OUT
-  * @{
   */
 #define RTC_OutputType_OpenDrain           ((uint32_t)0x00000000)
 #define RTC_OutputType_PushPull            ((uint32_t)0x00040000)
 #define IS_RTC_OUTPUT_TYPE(TYPE) (((TYPE) == RTC_OutputType_OpenDrain) || \
                                   ((TYPE) == RTC_OutputType_PushPull))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Add_1_Second_Parameter_Definitions
-  * @{
   */
 #define RTC_ShiftAdd1S_Reset      ((uint32_t)0x00000000)
 #define RTC_ShiftAdd1S_Set        ((uint32_t)0x80000000)
 #define IS_RTC_SHIFT_ADD1S(SEL) (((SEL) == RTC_ShiftAdd1S_Reset) || \
                                  ((SEL) == RTC_ShiftAdd1S_Set))
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Substract_Fraction_Of_Second_Value
-  * @{
   */
 #define IS_RTC_SHIFT_SUBFS(FS) ((FS) <= 0x00007FFF)
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Backup_Registers_Definitions
-  * @{
   */
 #define RTC_BKP_DR0                       ((uint32_t)0x00000000)
 #define RTC_BKP_DR1                       ((uint32_t)0x00000001)
@@ -654,23 +516,15 @@ typedef struct {
         ((BKP) == RTC_BKP_DR17) || \
         ((BKP) == RTC_BKP_DR18) || \
         ((BKP) == RTC_BKP_DR19))
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Input_parameter_format_definitions
-  * @{
   */
 #define RTC_Format_BIN                    ((uint32_t)0x000000000)
 #define RTC_Format_BCD                    ((uint32_t)0x000000001)
 #define IS_RTC_FORMAT(FORMAT) (((FORMAT) == RTC_Format_BIN) || ((FORMAT) == RTC_Format_BCD))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Flags_Definitions
-  * @{
   */
 #define RTC_FLAG_RECALPF                  ((uint32_t)0x00010000)
 #define RTC_FLAG_TAMP1F                   ((uint32_t)0x00002000)
@@ -695,12 +549,8 @@ typedef struct {
                                ((FLAG) == RTC_FLAG_TAMP1F) || ((FLAG) == RTC_FLAG_RECALPF) || \
                                ((FLAG) == RTC_FLAG_TAMP2F) ||((FLAG) == RTC_FLAG_SHPF))
 #define IS_RTC_CLEAR_FLAG(FLAG) (((FLAG) != (uint32_t)RESET) && (((FLAG) & 0xFFFF00DF) == (uint32_t)RESET))
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Interrupts_Definitions
-  * @{
   */
 #define RTC_IT_TS                         ((uint32_t)0x00008000)
 #define RTC_IT_WUT                        ((uint32_t)0x00004000)
@@ -716,23 +566,13 @@ typedef struct {
                            ((IT) == RTC_IT_TAMP1) || ((IT) == RTC_IT_TAMP2))
 #define IS_RTC_CLEAR_IT(IT) (((IT) != (uint32_t)RESET) && (((IT) & 0xFFF90FFF) == (uint32_t)RESET))
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Legacy
-  * @{
   */
 #define RTC_DigitalCalibConfig  RTC_CoarseCalibConfig
 #define RTC_DigitalCalibCmd     RTC_CoarseCalibCmd
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -830,12 +670,5 @@ void RTC_ClearITPendingBit(uint32_t RTC_IT); // 清除 RTC 的中断挂起位。
 
 #endif /*__STM32F4xx_RTC_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

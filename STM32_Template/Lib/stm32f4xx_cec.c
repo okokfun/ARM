@@ -102,12 +102,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup CEC
   * 简介: CEC 驱动模块
-  * @{
   */
 #if defined(STM32F446xx)
 /* Private typedef -----------------------------------------------------------*/
@@ -121,7 +119,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup CEC_Private_Functions
-  * @{
   */
 
 /** @defgroup CEC_Group1 初始化和配置函数
@@ -142,7 +139,6 @@
       [..] 本节还提供了在侦听模式下配置 CEC 外设的功能。
             启用侦听模式后，可以接收发往不同目的地的消息，而不会干扰 CEC 总线。
 @endverbatim
-  * @{
   */
 
 /**
@@ -280,9 +276,6 @@ void CEC_OwnAddressClear(void) {
     CEC->CFGR = 0x0;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup CEC_Group2 数据传输函数
  *  简介    数据传输函数
@@ -292,10 +285,9 @@ void CEC_OwnAddressClear(void) {
                             ##### 数据传输函数 #####
  ===============================================================================
     [..] 本节提供了允许CEC数据传输的功能。CEC_RXDR寄存器的读取访问可以使用
-         CEC_ReceiveData()函数完成，并返回Rx缓冲值。
-         而对CEC_TXDR的写访问可以使用CEC_SendData()函数完成。
+         CEC_ReceiveData() 函数完成，并返回Rx缓冲值。
+         而对CEC_TXDR的写访问可以使用CEC_SendData() 函数完成。
 @endverbatim
-  * @{
   */
 
 /**
@@ -345,9 +337,6 @@ void CEC_EndOfMessage(void) {
     CEC->CR |= CEC_CR_TXEOM;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup CEC_Group3 中断和标记管理函数
  *  简介    中断和标记管理函数
@@ -409,7 +398,6 @@ void CEC_EndOfMessage(void) {
 
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -589,21 +577,8 @@ void CEC_ClearITPendingBit(uint16_t CEC_IT) {
     CEC->ISR = CEC_IT;
 }
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 #endif /* STM32F446xx */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

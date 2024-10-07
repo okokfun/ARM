@@ -37,22 +37,18 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup PWR
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup PWR_Exported_Constants
-  * @{
   */
 
 /** @defgroup PWR_PVD_detection_level
-  * @{
   */
 #define PWR_PVDLevel_0                  PWR_CR_PLS_LEV0
 #define PWR_PVDLevel_1                  PWR_CR_PLS_LEV1
@@ -67,13 +63,9 @@ extern "C" {
                                  ((LEVEL) == PWR_PVDLevel_2) || ((LEVEL) == PWR_PVDLevel_3)|| \
                                  ((LEVEL) == PWR_PVDLevel_4) || ((LEVEL) == PWR_PVDLevel_5)|| \
                                  ((LEVEL) == PWR_PVDLevel_6) || ((LEVEL) == PWR_PVDLevel_7))
-/**
-  * @}
-  */
 
 
 /** @defgroup PWR_Regulator_state_in_STOP_mode
-  * @{
   */
 #define PWR_MainRegulator_ON                        ((uint32_t)0x00000000)
 #define PWR_LowPowerRegulator_ON                    PWR_CR_LPDS
@@ -85,12 +77,8 @@ extern "C" {
 #define IS_PWR_REGULATOR(REGULATOR) (((REGULATOR) == PWR_MainRegulator_ON) || \
                                      ((REGULATOR) == PWR_LowPowerRegulator_ON))
 
-/**
-  * @}
-  */
 
 /** @defgroup PWR_Regulator_state_in_UnderDrive_mode
-  * @{
   */
 #define PWR_MainRegulator_UnderDrive_ON               PWR_CR_MRUDS
 #define PWR_LowPowerRegulator_UnderDrive_ON           ((uint32_t)(PWR_CR_LPDS | PWR_CR_LPUDS))
@@ -98,12 +86,8 @@ extern "C" {
 #define IS_PWR_REGULATOR_UNDERDRIVE(REGULATOR) (((REGULATOR) == PWR_MainRegulator_UnderDrive_ON) || \
         ((REGULATOR) == PWR_LowPowerRegulator_UnderDrive_ON))
 
-/**
-  * @}
-  */
 #if defined(STM32F410xx) || defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx)
 /** @defgroup PWR_Wake_Up_Pin
-  * @{
   */
 #define PWR_WakeUp_Pin1           ((uint32_t)0x00)
 #define PWR_WakeUp_Pin2           ((uint32_t)0x01)
@@ -118,23 +102,15 @@ extern "C" {
 #define IS_PWR_WAKEUP_PIN(PIN) (((PIN) == PWR_WakeUp_Pin1) || ((PIN) == PWR_WakeUp_Pin2) || \
                                 ((PIN) == PWR_WakeUp_Pin3))
 #endif /* STM32F446xx */
-/**
-  * @}
-  */
 #endif /* STM32F410xx || STM32F412xG || STM32F413_423xx || STM32F446xx */
 
 /** @defgroup PWR_STOP_mode_entry
-  * @{
   */
 #define PWR_STOPEntry_WFI               ((uint8_t)0x01)
 #define PWR_STOPEntry_WFE               ((uint8_t)0x02)
 #define IS_PWR_STOP_ENTRY(ENTRY) (((ENTRY) == PWR_STOPEntry_WFI) || ((ENTRY) == PWR_STOPEntry_WFE))
-/**
-  * @}
-  */
 
 /** @defgroup PWR_Regulator_Voltage_Scale
-  * @{
   */
 #define PWR_Regulator_Voltage_Scale1    ((uint32_t)0x0000C000)
 #define PWR_Regulator_Voltage_Scale2    ((uint32_t)0x00008000)
@@ -142,12 +118,8 @@ extern "C" {
 #define IS_PWR_REGULATOR_VOLTAGE(VOLTAGE) (((VOLTAGE) == PWR_Regulator_Voltage_Scale1) || \
         ((VOLTAGE) == PWR_Regulator_Voltage_Scale2) || \
         ((VOLTAGE) == PWR_Regulator_Voltage_Scale3))
-/**
-  * @}
-  */
 
 /** @defgroup PWR_Flag
-  * @{
   */
 #define PWR_FLAG_WU                     PWR_CSR_WUF
 #define PWR_FLAG_SB                     PWR_CSR_SBF
@@ -170,13 +142,7 @@ extern "C" {
 #define IS_PWR_CLEAR_FLAG(FLAG) (((FLAG) == PWR_FLAG_WU) || ((FLAG) == PWR_FLAG_SB) || \
                                  ((FLAG) == PWR_FLAG_UDRDY))
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -188,7 +154,7 @@ void PWR_DeInit(void); // 将压水堆外设寄存器去初始化为其默认复
 void PWR_BackupAccessCmd(FunctionalState NewState); // 启用或禁用对备份域(RTC 寄存器、RTC 备份数据寄存器和备份 SRAM)的访问。
 
 /* PVD配置功能 ************************************************/
-void PWR_PVDLevelConfig(uint32_t PWR_PVDLevel); // 配置电源电压检测器(PVD)检测到的电压阈值。
+void PWR_PVDLevelConfig(uint32_t PWR_PVDLevel); // 配置电源电压检测器(PVD) 检测到的电压阈值。
 void PWR_PVDCmd(FunctionalState NewState); // 启用或禁用电源电压检测器 (PVD)。
 
 /* 唤醒管脚配置功能 ****************************************/
@@ -233,12 +199,5 @@ void PWR_ClearFlag(uint32_t PWR_FLAG); // 清除 PWR 的挂起标志。
 
 #endif /* __STM32F4xx_PWR_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -35,15 +35,12 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup  CRC
-  * @{
   */
 
 /** @defgroup CRC_exported_Types
-  * @{
   */
 
 /**
@@ -119,16 +116,10 @@ typedef struct {
     };
 
 } CRC_Type;
-
-/**
-  * @}
-  */
 #define CRC                              ((CRC_Type *) CRC_BASE)
 
 /** @defgroup CRC_exported_functions
-  * @{
   */
-
 void CRC_Data_Reset(void);
 uint32_t CRC_ONE_Word_Calculate(uint32_t data);
 uint32_t CRC_Block_Calculate(uint32_t *pbuffer, uint32_t length);
@@ -138,18 +129,6 @@ uint8_t CRC_Common_Data_Get(void);
 void CRC_Init_Data_Set(uint32_t value);
 void CRC_Reverse_Input_Data_Set(CRC_Reverse_Input_Type value);
 void CRC_Reverse_OutPut_Data_Set(CRC_Reverse_OutPut_Type value);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

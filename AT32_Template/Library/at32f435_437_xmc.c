@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup XMC
   * @brief XMC driver modules
-  * @{
   */
 
 #ifdef XMC_MODULE_EnableD
 
 /** @defgroup XMC_private_functions
-  * @{
   */
 
 /**
@@ -815,16 +812,4 @@ void XMC_PcCard_Enable(confirm_state new_state) {
     XMC_BANK4->bk4ctrl_bit.en = new_state;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

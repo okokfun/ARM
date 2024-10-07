@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup I2C
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -54,41 +52,35 @@ typedef struct {
                                           此参数必须设置为低于 400kHz 的值 */
 
     uint16_t I2C_Mode;                /*!< 指定 I2C 模式。
-                                          该参数可以是@ref I2C_mode 的值 */
+                                          该参数可以是 @ref I2C_mode 的值 */
 
     uint16_t I2C_DutyCycle;           /*!< 指定 I2C 快速模式占空比。
-                                          该参数可以是@ref I2C_duty_cycle_in_fast_mode 的值 */
+                                          该参数可以是 @ref I2C_duty_cycle_in_fast_mode 的值 */
 
     uint16_t I2C_OwnAddress1;         /*!< 指定第一个设备自己的地址。
                                           该参数可以是 7 位或 10 位地址。 */
 
     uint16_t I2C_Ack;                 /*!< 启用或禁用确认。
-                                          该参数可以是@ref I2C_acknowledgement 的值*/
+                                          该参数可以是 @ref I2C_acknowledgement 的值*/
 
     uint16_t I2C_AcknowledgedAddress; /*!< 指定是否确认 7 位或 10 位地址。
-                                          该参数可以是@ref I2C_acknowledged_address 的值 */
+                                          该参数可以是 @ref I2C_acknowledged_address 的值 */
 } I2C_InitTypeDef;
 
 /* Exported constants --------------------------------------------------------*/
 
 
 /** @defgroup I2C_Exported_Constants
-  * @{
   */
 #define IS_I2C_ALL_PERIPH(PERIPH) (((PERIPH) == I2C1) || \
                                    ((PERIPH) == I2C2) || \
                                    ((PERIPH) == I2C3))
 /** @defgroup I2C_Digital_Filter
-  * @{
   */
 #define IS_I2C_DIGITAL_FILTER(FILTER)   ((FILTER) <= 0x0000000F)
-/**
-  * @}
-  */
 
 
 /** @defgroup I2C_mode
-  * @{
   */
 #define I2C_Mode_I2C                    ((uint16_t)0x0000)
 #define I2C_Mode_SMBusDevice            ((uint16_t)0x0002)
@@ -96,56 +88,36 @@ typedef struct {
 #define IS_I2C_MODE(MODE) (((MODE) == I2C_Mode_I2C) || \
                            ((MODE) == I2C_Mode_SMBusDevice) || \
                            ((MODE) == I2C_Mode_SMBusHost))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_duty_cycle_in_fast_mode
-  * @{
   */
 #define I2C_DutyCycle_16_9              ((uint16_t)0x4000) /*!< I2C 快速模式 Tlow/Thigh = 16/9 */
 #define I2C_DutyCycle_2                 ((uint16_t)0xBFFF) /*!< I2C 快速模式 Tlow/Thigh = 2 */
 #define IS_I2C_DUTY_CYCLE(CYCLE) (((CYCLE) == I2C_DutyCycle_16_9) || \
                                   ((CYCLE) == I2C_DutyCycle_2))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_acknowledgement
-  * @{
   */
 #define I2C_Ack_Enable                  ((uint16_t)0x0400)
 #define I2C_Ack_Disable                 ((uint16_t)0x0000)
 #define IS_I2C_ACK_STATE(STATE) (((STATE) == I2C_Ack_Enable) || \
                                  ((STATE) == I2C_Ack_Disable))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_transfer_direction
-  * @{
   */
 #define  I2C_Direction_Transmitter      ((uint8_t)0x00)
 #define  I2C_Direction_Receiver         ((uint8_t)0x01)
 #define IS_I2C_DIRECTION(DIRECTION) (((DIRECTION) == I2C_Direction_Transmitter) || \
                                      ((DIRECTION) == I2C_Direction_Receiver))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_acknowledged_address
-  * @{
   */
 #define I2C_AcknowledgedAddress_7bit    ((uint16_t)0x4000)
 #define I2C_AcknowledgedAddress_10bit   ((uint16_t)0xC000)
 #define IS_I2C_ACKNOWLEDGE_ADDRESS(ADDRESS) (((ADDRESS) == I2C_AcknowledgedAddress_7bit) || \
         ((ADDRESS) == I2C_AcknowledgedAddress_10bit))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_registers
-  * @{
   */
 #define I2C_Register_CR1                ((uint8_t)0x00)
 #define I2C_Register_CR2                ((uint8_t)0x04)
@@ -165,56 +137,36 @@ typedef struct {
                                    ((REGISTER) == I2C_Register_SR2) || \
                                    ((REGISTER) == I2C_Register_CCR) || \
                                    ((REGISTER) == I2C_Register_TRISE))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_NACK_position
-  * @{
   */
 #define I2C_NACKPosition_Next           ((uint16_t)0x0800)
 #define I2C_NACKPosition_Current        ((uint16_t)0xF7FF)
 #define IS_I2C_NACK_POSITION(POSITION)  (((POSITION) == I2C_NACKPosition_Next) || \
         ((POSITION) == I2C_NACKPosition_Current))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_SMBus_alert_pin_level
-  * @{
   */
 #define I2C_SMBusAlert_Low              ((uint16_t)0x2000)
 #define I2C_SMBusAlert_High             ((uint16_t)0xDFFF)
 #define IS_I2C_SMBUS_ALERT(ALERT) (((ALERT) == I2C_SMBusAlert_Low) || \
                                    ((ALERT) == I2C_SMBusAlert_High))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_PEC_position
-  * @{
   */
 #define I2C_PECPosition_Next            ((uint16_t)0x0800)
 #define I2C_PECPosition_Current         ((uint16_t)0xF7FF)
 #define IS_I2C_PEC_POSITION(POSITION) (((POSITION) == I2C_PECPosition_Next) || \
                                        ((POSITION) == I2C_PECPosition_Current))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_interrupts_definition
-  * @{
   */
 #define I2C_IT_BUF                      ((uint16_t)0x0400)
 #define I2C_IT_EVT                      ((uint16_t)0x0200)
 #define I2C_IT_ERR                      ((uint16_t)0x0100)
 #define IS_I2C_CONFIG_IT(IT) ((((IT) & (uint16_t)0xF8FF) == 0x00) && ((IT) != 0x00))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_interrupts_definition
-  * @{
   */
 #define I2C_IT_SMBALERT                 ((uint32_t)0x01008000)
 #define I2C_IT_TIMEOUT                  ((uint32_t)0x01004000)
@@ -240,12 +192,8 @@ typedef struct {
                            ((IT) == I2C_IT_RXNE) || ((IT) == I2C_IT_STOPF) || \
                            ((IT) == I2C_IT_ADD10) || ((IT) == I2C_IT_BTF) || \
                            ((IT) == I2C_IT_ADDR) || ((IT) == I2C_IT_SB))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_flags_definition
-  * @{
   */
 
 /**
@@ -290,12 +238,8 @@ typedef struct {
                                ((FLAG) == I2C_FLAG_STOPF) || ((FLAG) == I2C_FLAG_ADD10) || \
                                ((FLAG) == I2C_FLAG_BTF) || ((FLAG) == I2C_FLAG_ADDR) || \
                                ((FLAG) == I2C_FLAG_SB))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_Events
-  * @{
   */
 
 /**
@@ -318,7 +262,7 @@ typedef struct {
   * 简介:  地址确认
   *
   * 在检查EV5(总线上正确释放的启动条件)后，主设备发送将与之通信的从设备的地址
-  *(I2C_Send7bitAddress()函数)，它还确定通信方向：
+  *(I2C_Send7bitAddress() 函数)，它还确定通信方向：
   * (主发射器或接收器)。然后主人必须等待奴隶确认他的地址。
   * 如果在总线上发送确认，将设置以下事件之一：
   *
@@ -327,7 +271,7 @@ typedef struct {
   *  2) 在主发送器(7位寻址)的情况下：设置I2C_EVENT_Master_Transmitter_MODE_SELECTED
   *
   *  3) 在10位寻址模式的情况下，主机(在生成START并检查EV5之后)
-  * 必须发送10位寻址方式的标头(I2C_SendData()函数)。那么主应该在EV9上等待。
+  * 必须发送10位寻址方式的标头(I2C_SendData() 函数)。那么主应该在EV9上等待。
   * 这意味着10位寻址标头已在总线上正确发送。然后，master应该使用函数I2C_Send7bitAddress()
   * 发送10位地址(LSB)的第二部分。那么主控器应该等待事件EV6。
   *
@@ -346,9 +290,9 @@ typedef struct {
   * 则主机必须检查以下事件之一的通信过程：
   *
   * 1) Master 接收器模式: 主设备必须等待事件EV7，
-       然后读取从设备接收的数据(I2C_ReceiveData()函数)。
+       然后读取从设备接收的数据(I2C_ReceiveData() 函数)。
   *
-  * 2) Master 发射器模式: 主机必须发送数据(I2C_SendData()函数)，
+  * 2) Master 发射器模式: 主机必须发送数据(I2C_SendData() 函数)，
        然后等待事件EV8或EV8_2。
   *    这两个事件类似：
   *     - EV8意味着数据已经被写入数据寄存器并且正在被移出。
@@ -478,29 +422,15 @@ typedef struct {
                              ((EVENT) == I2C_EVENT_MASTER_BYTE_TRANSMITTING) || \
                              ((EVENT) == I2C_EVENT_MASTER_MODE_ADDRESS10) || \
                              ((EVENT) == I2C_EVENT_SLAVE_ACK_FAILURE))
-/**
-  * @}
-  */
 
 /** @defgroup I2C_own_address1
-  * @{
   */
 #define IS_I2C_OWN_ADDRESS1(ADDRESS1) ((ADDRESS1) <= 0x3FF)
-/**
-  * @}
-  */
 
 /** @defgroup I2C_clock_speed
-  * @{
   */
 #define IS_I2C_CLOCK_SPEED(SPEED) (((SPEED) >= 0x1) && ((SPEED) <= 400000))
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -553,7 +483,7 @@ void I2C_ITConfig(I2C_TypeDef* I2Cx, uint16_t I2C_IT, FunctionalState NewState);
   此 I2C 驱动程序根据应用要求和约束提供三种不同的 I2C 状态监控方式:
 
 
-     1.基本状态监控(使用I2C_CheckEvent()函数)
+     1.基本状态监控(使用I2C_CheckEvent() 函数)
      -------------------------------------------------- ---------
         它将状态寄存器(SR1 和 SR2)的内容与给定事件(可以是一个或多个标志的组合)进行比较。
         如果当前状态包含给定标志，则返回 SUCCESS，如果当前状态中缺少一个或多个标志，则返回 ERROR。
@@ -635,12 +565,5 @@ void I2C_ClearITPendingBit(I2C_TypeDef* I2Cx, uint32_t I2C_IT); // 清除 I2Cx �
 
 #endif /*__STM32F4xx_I2C_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

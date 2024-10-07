@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup DMA2D
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -51,15 +49,15 @@ extern "C" {
   */
 typedef struct {
     uint32_t DMA2D_Mode;                           /*!< 配置 DMA2D 传输模式。
-												                           该参数可以是@ref DMA2D_MODE 的一个值 */
+												                           该参数可以是 @ref DMA2D_MODE 的一个值 */
 
     uint32_t DMA2D_CMode;                          /*!< 配置输出图像的颜色格式。
-												                           该参数可以是@ref DMA2D_CMODE 的一个值 */
+												                           该参数可以是 @ref DMA2D_CMODE 的一个值 */
 
     uint32_t DMA2D_OutputBlue;                     /*!< 配置输出图像的蓝色值。
                           												 此参数必须范围:
                                                    - 如果选择 ARGB8888 颜色模式，则从 0x00 到 0xFF
-                          												 - 如果选择 RGB888 颜色模式，则从 0x00 到 0xFF
+                          												 - 如果选择 RGB888   颜色模式，则从 0x00 到 0xFF
                           												 - 如果选择 RGB565 颜色模式，则从 0x00 到 0x1F
                           												 - 如果选择 ARGB1555 颜色模式，则从 0x00 到 0x1F
                           												 - 如果选择 ARGB4444 颜色模式，则从 0x00 到 0x0F  */
@@ -96,7 +94,7 @@ typedef struct {
 												                           此参数的范围必须为 0x0000 到 0xFFFF */
 
     uint32_t DMA2D_PixelPerLine;                   /*!< 配置要传输的区域的每行像素数。
-												                           该参数的范围必须是 0x0000 到 0x3FFF */
+ 												                           该参数的范围必须是 0x0000 到 0x3FFF */
 } DMA2D_InitTypeDef;
 
 typedef struct {
@@ -107,16 +105,16 @@ typedef struct {
 												                            该参数的范围必须是 0x0000 到 0x3FFF。 */
 
     uint32_t DMA2D_FGCM;                           /*!< 配置 DMA2D 前景色模式。
-												                            该参数可以是@ref DMA2D_FGCM 的一个值 */
+												                            该参数可以是 @ref DMA2D_FGCM 的一个值 */
 
     uint32_t DMA2D_FG_CLUT_CM;                     /*!< 配置 DMA2D 前景 CLUT 颜色模式。
-												                            该参数可以是@ref DMA2D_FG_CLUT_CM 的一个值 */
+												                            该参数可以是 @ref DMA2D_FG_CLUT_CM 的一个值 */
 
     uint32_t DMA2D_FG_CLUT_SIZE;                   /*!< 配置 DMA2D 前台 CLUT 大小。
 												                            此参数的范围必须为 0x00 到 0xFF。 */
 
     uint32_t DMA2D_FGPFC_ALPHA_MODE;               /*!< 配置 DMA2D 前景 alpha 模式。
-												                            该参数可以是@ref DMA2D_FGPFC_ALPHA_MODE 的一个值 */
+												                            该参数可以是 @ref DMA2D_FGPFC_ALPHA_MODE 的一个值 */
 
     uint32_t DMA2D_FGPFC_ALPHA_VALUE;              /*!< 指定 DMA2D 前景 alpha 值必须在 0x00 到 0xFF 的范围内。 */
 
@@ -138,16 +136,16 @@ typedef struct {
 												                            该参数的范围必须是 0x0000 到 0x3FFF。 */
 
     uint32_t DMA2D_BGCM;                           /*!< 配置 DMA2D 背景颜色模式。
-												                            该参数可以是@ref DMA2D_FGCM 的一个值 */
+												                            该参数可以是 @ref DMA2D_FGCM 的一个值 */
 
     uint32_t DMA2D_BG_CLUT_CM;                     /*!< 配置 DMA2D 背景 CLUT 颜色模式。
-												                            该参数可以是@ref DMA2D_FG_CLUT_CM 的一个值 */
+												                            该参数可以是 @ref DMA2D_FG_CLUT_CM 的一个值 */
 
     uint32_t DMA2D_BG_CLUT_SIZE;                   /*!< 配置 DMA2D 背景 CLUT 大小。
 												                            此参数的范围必须为 0x00 到 0xFF。 */
 
     uint32_t DMA2D_BGPFC_ALPHA_MODE;               /*!< 配置 DMA2D 背景 alpha 模式。
-												                            该参数可以是@ref DMA2D_FGPFC_ALPHA_MODE 的一个值 */
+												                            该参数可以是 @ref DMA2D_FGPFC_ALPHA_MODE 的一个值 */
 
     uint32_t DMA2D_BGPFC_ALPHA_VALUE;              /*!< 指定 DMA2D 背景 alpha 值必须在 0x00 到 0xFF 的范围内。 */
 
@@ -164,11 +162,9 @@ typedef struct {
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup DMA2D_Exported_Constants
-  * @{
   */
 
 /** @defgroup DMA2D_MODE
-  * @{
   */
 #define DMA2D_M2M                            ((uint32_t)0x00000000)
 #define DMA2D_M2M_PFC                        ((uint32_t)0x00010000)
@@ -179,12 +175,8 @@ typedef struct {
                              ((MODE) == DMA2D_M2M_BLEND) || ((MODE) == DMA2D_R2M))
 
 
-/**
-  * @}
-  */
 
 /** @defgroup DMA2D_CMODE
-  * @{
   */
 #define DMA2D_ARGB8888                       ((uint32_t)0x00000000)
 #define DMA2D_RGB888                         ((uint32_t)0x00000001)
@@ -196,12 +188,8 @@ typedef struct {
                                    ((MODE_ARGB) == DMA2D_RGB565) || ((MODE_ARGB) == DMA2D_ARGB1555) || \
                                    ((MODE_ARGB) == DMA2D_ARGB4444))
 
-/**
-  * @}
-  */
 
 /** @defgroup DMA2D_OUTPUT_COLOR
-  * @{
   */
 #define DMA2D_Output_Color                 ((uint32_t)0x000000FF)
 
@@ -210,23 +198,15 @@ typedef struct {
 #define IS_DMA2D_OBLUE(OBLUE)   ((OBLUE) <= DMA2D_Output_Color)
 #define IS_DMA2D_OALPHA(OALPHA) ((OALPHA) <= DMA2D_Output_Color)
 
-/**
-  * @}
-  */
 
 /** @defgroup DMA2D_OUTPUT_OFFSET
-  * @{
   */
 #define DMA2D_OUTPUT_OFFSET      ((uint32_t)0x00003FFF)
 
 #define IS_DMA2D_OUTPUT_OFFSET(OOFFSET) ((OOFFSET) <= DMA2D_OUTPUT_OFFSET)
 
-/**
-  * @}
-  */
 
 /** @defgroup DMA2D_SIZE
-  * @{
   */
 #define DMA2D_pixel          ((uint32_t)0x00003FFF)
 #define DMA2D_Line           ((uint32_t)0x0000FFFF)
@@ -234,12 +214,8 @@ typedef struct {
 #define IS_DMA2D_LINE(LINE)  ((LINE) <= DMA2D_Line)
 #define IS_DMA2D_PIXEL(PIXEL) ((PIXEL) <= DMA2D_pixel)
 
-/**
-  * @}
-  */
 
 /** @defgroup DMA2D_OFFSET
-  * @{
   */
 #define OFFSET               ((uint32_t)0x00003FFF)
 
@@ -247,13 +223,9 @@ typedef struct {
 
 #define IS_DMA2D_BGO(BGO)  ((BGO) <= OFFSET)
 
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA2D_FGCM
-  * @{
   */
 #define CM_ARGB8888        ((uint32_t)0x00000000)
 #define CM_RGB888          ((uint32_t)0x00000001)
@@ -281,12 +253,8 @@ typedef struct {
                              ((BGCM) == CM_L4) || ((BGCM) == CM_A8) || \
                              ((BGCM) == CM_A4))
 
-/**
-  * @}
-  */
 
 /** @defgroup DMA2D_FG_CLUT_CM
-  * @{
   */
 #define CLUT_CM_ARGB8888        ((uint32_t)0x00000000)
 #define CLUT_CM_RGB888          ((uint32_t)0x00000001)
@@ -295,12 +263,8 @@ typedef struct {
 
 #define IS_DMA2D_BG_CLUT_CM(BG_CLUT_CM) (((BG_CLUT_CM) == CLUT_CM_ARGB8888) || ((BG_CLUT_CM) == CLUT_CM_RGB888))
 
-/**
-  * @}
-  */
 
 /** @defgroup DMA2D_FG_COLOR_VALUE
-  * @{
   */
 #define COLOR_VALUE             ((uint32_t)0x000000FF)
 
@@ -318,12 +282,8 @@ typedef struct {
 #define IS_DMA2D_BGC_GREEN(BGC_GREEN) ((BGC_GREEN) <= COLOR_VALUE)
 #define IS_DMA2D_BGC_RED(BGC_RED) ((BGC_RED) <= COLOR_VALUE)
 
-/**
-  * @}
-  */
 
 /** DMA2D_FGPFC_ALPHA_MODE
-  * @{
   */
 #define NO_MODIF_ALPHA_VALUE       ((uint32_t)0x00000000)
 #define REPLACE_ALPHA_VALUE        ((uint32_t)0x00000001)
@@ -337,12 +297,8 @@ typedef struct {
         ((BG_ALPHA_MODE) == REPLACE_ALPHA_VALUE) || \
         ((BG_ALPHA_MODE) == COMBINE_ALPHA_VALUE))
 
-/**
-  * @}
-  */
 
 /** @defgroup DMA2D_Interrupts
-  * @{
   */
 #define DMA2D_IT_CE                      DMA2D_CR_CEIE
 #define DMA2D_IT_CTC                     DMA2D_CR_CTCIE
@@ -355,12 +311,8 @@ typedef struct {
                          ((IT) == DMA2D_IT_TW) || ((IT) == DMA2D_IT_TC) || \
                          ((IT) == DMA2D_IT_TE) || ((IT) == DMA2D_IT_CE))
 
-/**
-  * @}
-  */
 
 /** @defgroup DMA2D_Flag
-  * @{
   */
 #define DMA2D_FLAG_CE                      DMA2D_ISR_CEIF
 #define DMA2D_FLAG_CTC                     DMA2D_ISR_CTCIF
@@ -375,12 +327,8 @@ typedef struct {
                                  ((FLAG) == DMA2D_FLAG_TE) || ((FLAG) == DMA2D_FLAG_CE))
 
 
-/**
-  * @}
-  */
 
 /** @defgroup DMA2D_DeadTime
-  * @{
   */
 #define DEADTIME                  ((uint32_t)0x000000FF)
 
@@ -391,13 +339,7 @@ typedef struct {
 
 #define IS_DMA2D_LineWatermark(LineWatermark) ((LineWatermark) <= LINE_WATERMARK)
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
@@ -433,12 +375,5 @@ void DMA2D_ClearITPendingBit(uint32_t DMA2D_IT); // 清除 DMA2D 的中断挂起
 
 #endif /* __STM32F4xx_DMA2D_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

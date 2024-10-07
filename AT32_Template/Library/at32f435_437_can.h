@@ -35,27 +35,19 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup CAN
-  * @{
   */
 
 
 /** @defgroup CAN_TimeOut_count
-  * @{
   */
 #define FZC_TIMEOUT                      ((uint32_t)0x0000FFFF) /*!< time out for fzc bit */
 #define DZC_TIMEOUT                      ((uint32_t)0x0000FFFF) /*!< time out for dzc bit */
 
-/**
-  * @}
-  */
-
 /** @defgroup CAN_flags_definition
   * @brief can flag
-  * @{
   */
 #define CAN_EAF_FLAG                     ((uint32_t)0x01) /*!< error active flag */
 #define CAN_EPF_FLAG                     ((uint32_t)0x02) /*!< error passive flag */
@@ -75,13 +67,8 @@ extern "C" {
 #define CAN_EDZC_FLAG                    ((uint32_t)0x10) /*!< enter doze mode confirm flag */
 #define CAN_TMEF_FLAG                    ((uint32_t)0x11) /*!< transmit mailbox empty flag */
 
-/**
-  * @}
-  */
-
 /** @defgroup CAN_Interrupts_definition
   * @brief can interrupt
-  * @{
   */
 #define CAN_TCIEN_INT                    ((uint32_t)0x00000001) /*!< transmission complete 中断 */
 #define CAN_RF0MIEN_INT                  ((uint32_t)0x00000002) /*!< receive fifo 0 message 中断 */
@@ -97,10 +84,6 @@ extern "C" {
 #define CAN_EOIEN_INT                    ((uint32_t)0x00008000) /*!< error occur 中断 */
 #define CAN_QDZIEN_INT                   ((uint32_t)0x00010000) /*!< quit doze mode 中断 */
 #define CAN_EDZIEN_INT                   ((uint32_t)0x00020000) /*!< enter doze mode confirm 中断 */
-
-/**
-  * @}
-  */
 
 /**
   * @brief  can flag clear operation macro definition val
@@ -122,7 +105,6 @@ extern "C" {
 #define CAN_RF1_RF1R_VAL                 ((uint32_t)0x00000020) /*!< rf1r bit value, it clear by writing 1 */
 
 /** @defgroup CAN_exported_Types
-  * @{
   */
 
 /**
@@ -912,17 +894,11 @@ typedef struct {
       */
     CAN_Filter_Register_Type ffb[28];
 } CAN_Type;
-
-/**
-  * @}
-  */
 #define CAN1                             ((CAN_Type *) CAN1_BASE)
 #define CAN2                             ((CAN_Type *) CAN2_BASE)
 
 /** @defgroup CAN_exported_functions
-  * @{
   */
-
 void CAN_Reset(CAN_Type* CAN_x);
 void CAN_Baudrate_Default_Para_Init(CAN_Baudrate_Type* CAN_Baudrate_struct);
 error_status CAN_Baudrate_Set(CAN_Type* CAN_x, CAN_Baudrate_Type* CAN_Baudrate_struct);
@@ -947,18 +923,6 @@ uint8_t CAN_Transmit_Error_Counter_Get(CAN_Type* CAN_x);
 void CAN_Interrupt_Enable(CAN_Type* CAN_x, uint32_t CAN_int, confirm_state new_state);
 flag_status CAN_Flag_Get(CAN_Type* CAN_x, uint32_t CAN_flag);
 void CAN_Flag_Clear(CAN_Type* CAN_x, uint32_t CAN_flag);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

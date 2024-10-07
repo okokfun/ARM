@@ -28,13 +28,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_USB USB
  * @brief USB Driver Library
- * @{
  */
 
 #if (LL_USB_ENABLE == DDL_ON)
@@ -72,7 +70,6 @@
  ******************************************************************************/
 /**
  * @defgroup USB_Global_Functions USB Global Functions
- * @{
  */
 
 /**

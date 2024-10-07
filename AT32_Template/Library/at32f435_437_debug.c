@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup DEBUG
   * @brief DEBUG driver modules
-  * @{
   */
 
 #ifdef DEBUG_MODULE_EnableD
 
 /** @defgroup DEBUG_private_functions
-  * @{
   */
 
 /**
@@ -105,16 +102,4 @@ void DEBUG_APB2_Periph_Mode_Set(uint32_t apb2_periph, confirm_state new_state) {
     }
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

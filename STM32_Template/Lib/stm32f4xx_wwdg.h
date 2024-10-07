@@ -37,22 +37,18 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup WWDG
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup WWDG_Exported_Constants
-  * @{
   */
 
 /** @defgroup WWDG_Prescaler
-  * @{
   */
 #define WWDG_Prescaler_1    ((uint32_t)0x00000000)
 #define WWDG_Prescaler_2    ((uint32_t)0x00000080)
@@ -65,13 +61,7 @@ extern "C" {
 #define IS_WWDG_WINDOW_VALUE(VALUE) ((VALUE) <= 0x7F)
 #define IS_WWDG_COUNTER(COUNTER) (((COUNTER) >= 0x40) && ((COUNTER) <= 0x7F))
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -98,12 +88,5 @@ void WWDG_ClearFlag(void); 				    // 清除早期唤醒中断标志。
 
 #endif /* __STM32F4xx_WWDG_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

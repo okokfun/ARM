@@ -136,12 +136,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup CRYP
   * 简介: CRYP 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -155,7 +153,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup CRYP_Private_Functions
-  * @{
   */
 
 /** @defgroup CRYP_Group1 初始化和配置函数
@@ -166,7 +163,7 @@
              ##### 初始化和配置函数 #####
  ===============================================================================
  [..] 本节提供的功能允许
-   (+) 使用CRYP_Init()函数初始化加密处理器
+   (+) 使用CRYP_Init() 函数初始化加密处理器
        (++)  加密或解密
        (++)  模式 : TDES-ECB, TDES-CBC,
                     DES-ECB, DES-CBC,
@@ -179,7 +176,6 @@
    (+) 使用 CRYP_Cmd() 函数启用或禁用 CRYP 处理器
 
 @endverbatim
-  * @{
   */
 /**
   * 简介:  用于将 CRYP 配置设置为默认复位状态的函数
@@ -383,9 +379,6 @@ void CRYP_Cmd(FunctionalState NewState) {
         CRYP->CR &= ~CRYP_CR_CRYPEN;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_Group2 CRYP 数据处理功能
  *  简介    CRYP 数据处理功能
@@ -395,17 +388,16 @@ void CRYP_Cmd(FunctionalState NewState) {
                     ##### CRYP 数据处理功能 #####
  ===============================================================================
  [..] 本节提供了允许进行加密和解密操作的函数。
-   (+) 在IN FIFO中输入要处理的数据:使用CRYP_DataIn()函数。
-   (+) 从OUT FIFO获取数据结果:使用CRYP_DataOut()函数。
+   (+) 在IN FIFO中输入要处理的数据:使用CRYP_DataIn() 函数。
+   (+) 从OUT FIFO获取数据结果:使用CRYP_DataOut() 函数。
 
 @endverbatim
-  * @{
   */
 
 /**
   * 简介:  将数据写入数据输入寄存器(DIN)。
   * 
-  * 注意:   在DIN寄存器被读过一次或几次之后,FIFO必须被刷新(使用CRYP_FIFOFlush()函数)。
+  * 注意:   在DIN寄存器被读过一次或几次之后,FIFO必须被刷新(使用CRYP_FIFOFlush() 函数)。
   * 
   * 参数:  Data: 要写入数据输入寄存器的数据
   * 
@@ -425,9 +417,6 @@ void CRYP_DataIn(uint32_t Data) {
 uint32_t CRYP_DataOut(void) {
     return CRYP->DOUT;
 }
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_Group3 上下文交换函数
  *  简介   上下文交换函数
@@ -443,17 +432,16 @@ uint32_t CRYP_DataOut(void) {
         必须将被中断的任务的上下文从CRYP寄存器中保存到内存中，然后再从内存中恢复到CRYP寄存器中。
 
    (#) 要保存当前上下文，请使用 CRYP_SaveContext() 函数
-   (#) 要恢复保存的上下文，请使用CRYP_RestoreContext()函数
+   (#) 要恢复保存的上下文，请使用CRYP_RestoreContext() 函数
 
 @endverbatim
-  * @{
   */
 
 /**
   * 简介:  保存CRYP外设上下文。
   * 
   * 注意:   该函数在保存上下文之前停止DMA传输。在 恢复上下文后，
-  *         你必须再次启用DMA(如果以前使用过DMA)。
+  *         你必须再次启用 DMA(如果以前使用过DMA)。
   * 
   * 参数:  CRYP_ContextSave: 指向CRYP_Context结构的指针，该结构含有 当前上下文的存储库。
   * 
@@ -598,9 +586,6 @@ void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore) {
     /* 启用 cryptographic 处理器 */
     CRYP->CR |= CRYP_CR_CRYPEN;
 }
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_Group4 CRYP的DMA接口配置功能
  *  简介   CRYP的DMA接口配置功能
@@ -616,7 +601,6 @@ void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore) {
    (+) 通过启用 CRYP_DMAReq_DataOUT 请求，从 CRYP OUT FIFO 到使用 DMA 外设的存储器。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -645,9 +629,6 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
         CRYP->DMACR &= (uint8_t)~CRYP_DMAReq;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_Group5 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -718,7 +699,6 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
        -@@- CRYPT中断没有等待位，一旦相关事件被重置，中断就会被清除。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -841,21 +821,5 @@ FlagStatus CRYP_GetFlagStatus(uint8_t CRYP_FLAG) {
     /* 返回CRYP_FLAG 状态 */
     return  bitstatus;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

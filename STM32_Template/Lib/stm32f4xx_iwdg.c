@@ -72,12 +72,10 @@
 #include "stm32f4xx_iwdg.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup IWDG
   * 简介: IWDG 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -93,7 +91,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup IWDG_Private_Functions
-  * @{
   */
 
 /** @defgroup IWDG_Group1 预分频器和计数器配置功能
@@ -105,7 +102,6 @@
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -171,9 +167,6 @@ void IWDG_ReloadCounter(void) {
     IWDG->KR = KR_KEY_RELOAD;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup IWDG_Group2 IWDG激活函数
  *  简介   IWDG激活函数
@@ -184,7 +177,6 @@ void IWDG_ReloadCounter(void) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -198,9 +190,6 @@ void IWDG_Enable(void) {
     IWDG->KR = KR_KEY_ENABLE;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup IWDG_Group3 标志管理功能
  *  简介  标志管理功能
@@ -211,7 +200,6 @@ void IWDG_Enable(void) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -238,21 +226,5 @@ FlagStatus IWDG_GetFlagStatus(uint16_t IWDG_FLAG) {
     /* 返回标志状态 */
     return bitstatus;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

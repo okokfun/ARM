@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_SWDT SWDT
  * @brief Specialized Watch Dog Timer
- * @{
  */
 
 #if (LL_SWDT_ENABLE == DDL_ON)
@@ -47,7 +45,6 @@
  ******************************************************************************/
 /**
  * @defgroup SWDT_Local_Macros SWDT Local Macros
- * @{
  */
 
 /* SWDT Refresh Key */
@@ -63,7 +60,6 @@
 
 /**
  * @defgroup SWDT_Check_Parameters_Validity SWDT Check Parameters Validity
- * @{
  */
 
 #define IS_SWDT_CNT_PERIOD(x)                                                  \
@@ -110,13 +106,9 @@
     (   ((x) != 0UL)                                &&                             \
         (((x) | SWDT_FLAG_ALL) == SWDT_FLAG_ALL))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -135,7 +127,6 @@
  ******************************************************************************/
 /**
  * @addtogroup SWDT_Global_Functions
- * @{
  */
 
 /**
@@ -235,15 +226,11 @@ int32_t SWDT_ClearStatus(uint32_t u32Flag) {
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_SWDT_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

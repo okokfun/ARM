@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup CRYP
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -51,14 +49,14 @@ extern "C" {
   */
 typedef struct {
     uint32_t CRYP_AlgoDir;   /*!< 加密或解密。 
-                             该参数可以是@ref CRYP_Algorithm_Direction 的值 */
+                             该参数可以是 @ref CRYP_Algorithm_Direction 的值 */
 
     uint32_t CRYP_AlgoMode;  /*!< TDES-ECB、TDES-CBC、DES-ECB、DES-CBC、AES-ECB、
                                 AES-CBC、AES-CTR、AES-Key、AES-GCM 和 AES-CCM。
-								             该参数可以是@ref CRYP_Algorithm_Mode 的值 */
+								             该参数可以是 @ref CRYP_Algorithm_Mode 的值 */
 
     uint32_t CRYP_DataType;  /*!< 32 位数据、16 位数据、位数据或位串。
-								             该参数可以是@ref CRYP_Data_Type 的值 */
+								             该参数可以是 @ref CRYP_Data_Type 的值 */
                              
     uint32_t CRYP_KeySize;   /*!< 仅在 AES 模式下使用:128、192 或 256 位密钥长度。 
                              此参数可以是 @ref CRYP_Key_Size_for_AES_only 的值 */
@@ -115,23 +113,17 @@ typedef struct {
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup CRYP_Exported_Constants
-  * @{
   */
 
 /** @defgroup CRYP_Algorithm_Direction
-  * @{
   */
 #define CRYP_AlgoDir_Encrypt      ((uint16_t)0x0000)
 #define CRYP_AlgoDir_Decrypt      ((uint16_t)0x0004)
 #define IS_CRYP_ALGODIR(ALGODIR) (((ALGODIR) == CRYP_AlgoDir_Encrypt) || \
                                   ((ALGODIR) == CRYP_AlgoDir_Decrypt))
 
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_Algorithm_Mode
-  * @{
   */
 
 /*!< TDES Modes */
@@ -160,12 +152,8 @@ typedef struct {
                                     ((ALGOMODE) == CRYP_AlgoMode_AES_Key) || \
                                     ((ALGOMODE) == CRYP_AlgoMode_AES_GCM) || \
                                     ((ALGOMODE) == CRYP_AlgoMode_AES_CCM))
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_Phase
-  * @{
   */
 
 /*!< 相位仅对 AES-GCM 和 AES-CCM 模式有效 */
@@ -179,12 +167,8 @@ typedef struct {
                               ((PHASE) == CRYP_Phase_Payload) || \
                               ((PHASE) == CRYP_Phase_Final))
 
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_Data_Type
-  * @{
   */
 #define CRYP_DataType_32b         ((uint16_t)0x0000)
 #define CRYP_DataType_16b         ((uint16_t)0x0040)
@@ -194,12 +178,8 @@ typedef struct {
                                     ((DATATYPE) == CRYP_DataType_16b)|| \
                                     ((DATATYPE) == CRYP_DataType_8b)|| \
                                     ((DATATYPE) == CRYP_DataType_1b))
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_Key_Size_for_AES_only
-  * @{
   */
 #define CRYP_KeySize_128b         ((uint16_t)0x0000)
 #define CRYP_KeySize_192b         ((uint16_t)0x0100)
@@ -207,12 +187,8 @@ typedef struct {
 #define IS_CRYP_KEYSIZE(KEYSIZE) (((KEYSIZE) == CRYP_KeySize_128b)|| \
                                   ((KEYSIZE) == CRYP_KeySize_192b)|| \
                                   ((KEYSIZE) == CRYP_KeySize_256b))
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_flags_definition
-  * @{
   */
 #define CRYP_FLAG_BUSY            ((uint8_t)0x10)  /*!< CRYP 核心当前正在处理数据块或密钥准备(用于 AES 解密)。 */
 #define CRYP_FLAG_IFEM            ((uint8_t)0x01)  /*!< 输入先进先出空 */
@@ -229,45 +205,27 @@ typedef struct {
                                 ((FLAG) == CRYP_FLAG_BUSY)  || \
                                 ((FLAG) == CRYP_FLAG_OUTRIS)|| \
                                 ((FLAG) == CRYP_FLAG_INRIS))
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_interrupts_definition
-  * @{
   */
 #define CRYP_IT_INI               ((uint8_t)0x01) /*!< IN FIFO 中断 */
 #define CRYP_IT_OUTI              ((uint8_t)0x02) /*!< OUT 先进先出中断 */
 #define IS_CRYP_CONFIG_IT(IT) ((((IT) & (uint8_t)0xFC) == 0x00) && ((IT) != 0x00))
 #define IS_CRYP_GET_IT(IT) (((IT) == CRYP_IT_INI) || ((IT) == CRYP_IT_OUTI))
 
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_Encryption_Decryption_modes_definition
-  * @{
   */
 #define MODE_ENCRYPT             ((uint8_t)0x01)
 #define MODE_DECRYPT             ((uint8_t)0x00)
 
-/**
-  * @}
-  */
 
 /** @defgroup CRYP_DMA_transfer_requests
-  * @{
   */
 #define CRYP_DMAReq_DataIN             ((uint8_t)0x01)
 #define CRYP_DMAReq_DataOUT            ((uint8_t)0x02)
 #define IS_CRYP_DMAREQ(DMAREQ) ((((DMAREQ) & (uint8_t)0xFC) == 0x00) && ((DMAREQ) != 0x00))
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -365,12 +323,5 @@ ErrorStatus CRYP_DES_CBC(uint8_t Mode,
 
 #endif /*__STM32F4xx_CRYP_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

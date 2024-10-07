@@ -26,13 +26,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_HASH HASH
  * @brief HASH Driver Library
- * @{
  */
 
 #if (LL_HASH_ENABLE == DDL_ON)
@@ -46,12 +44,10 @@
  ******************************************************************************/
 /**
  * @defgroup HASH_Local_Macros HASH Local Macros
- * @{
  */
 
 /**
  * @defgroup HASH_Miscellaneous_Macros HASH Miscellaneous Macros
- * @{
  */
 #define HASH_GROUP_SIZE                 (64U)
 #define HASH_GROUP_SIZE_WORD            (HASH_GROUP_SIZE / 4U)
@@ -60,23 +56,17 @@
 #define HASH_MSG_DIGEST_SIZE_WORD       (8U)
 
 #define HASH_KEY_LONG_SIZE              (64U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup HASH_Action HASH Action
- * @{
  */
 #define HASH_ACTION_START               (HASH_CR_START)
 #define HASH_ACTION_HMAC_END            (HASH_CR_HMAC_END)
-/**
- * @}
- */
+
 
 /**
  * @defgroup HASH_Check_Parameters_Validity HASH Check Parameters Validity
- * @{
  */
 #define IS_HASH_BIT_MASK(x, mask)   (((x) != 0U) && (((x) | (mask)) == (mask)))
 
@@ -95,13 +85,9 @@
         ((x) == HASH_MSG_GRP_END)                   ||                             \
         ((x) == HASH_MSG_GRP_ONLY_ONE))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -120,7 +106,6 @@
  ******************************************************************************/
 /**
  * @defgroup HASH_Local_Functions HASH Local Functions
- * @{
  */
 
 /**
@@ -297,13 +282,10 @@ static void HASH_ReadMsgDigest(uint8_t *pu8MsgDigest) {
     }
 }
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup HASH_Global_Functions HASH Global Functions
- * @{
  */
 
 /**
@@ -579,15 +561,11 @@ void HASH_GetMsgDigest(uint8_t *pu8MsgDigest) {
     HASH_ReadMsgDigest(pu8MsgDigest);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_HASH_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_DCU DCU
  * @brief DCU Driver Library
- * @{
  */
 
 #if (LL_DCU_ENABLE == DDL_ON)
@@ -49,12 +47,10 @@
  ******************************************************************************/
 /**
  * @defgroup DCU_Local_Macros DCU Local Macros
- * @{
  */
 
 /**
  * @defgroup DCU_Check_Parameters_Validity DCU Check Parameters Validity
- * @{
  */
 
 #define IS_DCU_WAVE_FUNC_UNIT(x)                                               \
@@ -134,33 +130,24 @@
 #define IS_DCU_WAVE_LOWER_LIMIT(x)      ((x) <= 0xFFFUL)
 
 #define IS_DCU_WAVE_STEP(x)             ((x) <= 0xFFFUL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup DCU_Flag_Mask DCU Flag Mask
- * @{
  */
 #define DCU_BASE_FUNC_UNIT_FLAG_MASK    (0x0E7FUL)
 #define DCU_WAVE_FUNC_UNIT_FLAG_MASK    (DCU_BASE_FUNC_UNIT_FLAG_MASK | 0x0E00UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup DCU_DATA1_Limit_Position DCU_DATA1 Limit Position
- * @{
  */
 #define DCU_DATA1_LOWER_LIMIT_POS       (0UL)
 #define DCU_DATA1_UPPER_LIMIT_POS       (16UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup DCU_Register_Address DCU Register Address
- * @{
  */
 #define DCU_REG_ADDR(_REG_)                 ((uint32_t)(&(_REG_)))
 #define DCU_DATA_REG_ADDR(_UNITx_, _IDX_)   (DCU_REG_ADDR((_UNITx_)->DATA0) + ((_IDX_) << 2UL))
@@ -168,13 +155,9 @@
 #define DCU_DATA_REG8(_UNITx_, _IDX_)       (*(__IO uint8_t *)DCU_DATA_REG_ADDR(_UNITx_, _IDX_))
 #define DCU_DATA_REG16(_UNITx_, _IDX_)      (*(__IO uint16_t *)DCU_DATA_REG_ADDR(_UNITx_, _IDX_))
 #define DCU_DATA_REG32(_UNITx_, _IDX_)      (*(__IO uint32_t *)DCU_DATA_REG_ADDR(_UNITx_, _IDX_))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -193,7 +176,6 @@
  ******************************************************************************/
 /**
  * @defgroup DCU_Global_Functions DCU Global Functions
- * @{
  */
 
 /**
@@ -567,15 +549,11 @@ void DCU_WriteData32(CM_DCU_TypeDef *DCUx, uint32_t u32DataIndex, uint32_t u32Da
     WRITE_REG32(*DATA, u32Data);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_DCU_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

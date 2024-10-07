@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_ETH
- * @{
  */
 
 #if (LL_ETH_ENABLE == DDL_ON)
@@ -53,7 +51,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup ETH_Global_Types ETH Global Types
- * @{
  */
 
 /**
@@ -342,21 +339,17 @@ typedef struct {
                                              这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFFFFFFFF */
 } stc_eth_l3l4_filter_config_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup ETH_Global_Macros ETH Global Macros
- * @{
  */
 
 /**
  * @defgroup ETH_Buffer_Define ETH Buffer Define
- * @{
  */
 #define ETH_MAX_PACKET_SIZE             (1524U)     /*!< ETH_HEADER + ETH_EXTRA + ETH_VLAN_TAG + ETH_MAX_PAYLOAD + ETH_CRC */
 #define ETH_HEADER                      (14U)       /*!< 6 byte Dest addr, 6 byte Src addr, 2 byte length/type */
@@ -397,13 +390,10 @@ typedef struct {
 #define ETH_RX_BUF_NUM                  (4U)    /* 4 Rx buffers of size ETH_RX_BUF_SIZE */
 #endif
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_TX_Descriptor ETH DMA TX Descriptor
- * @{
  */
 
 /*
@@ -509,13 +499,10 @@ typedef struct {
  */
 #define ETH_DMA_TXDESC_TTSH                        (0xFFFFFFFFUL)  /*!< Transmit Time Stamp High */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_RX_Descriptor ETH DMA RX Descriptor
- * @{
  */
 
 /*
@@ -638,136 +625,97 @@ typedef struct {
  */
 #define ETH_DMA_RXDESC_RTSH                         (0xFFFFFFFFUL)  /*!< Receive Time Stamp High */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Auto_Negotiation ETH Auto Negotiation
- * @{
  */
 #define ETH_AUTO_NEGO_DISABLE                       (0x0000U)
 #define ETH_AUTO_NEGO_ENABLE                        (0x0001U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Interface ETH Interface
- * @{
  */
 #define ETH_MAC_IF_MII                              (0UL)
 #define ETH_MAC_IF_RMII                             (ETH_MAC_IFCONFR_IFSEL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Speed ETH Speed
- * @{
  */
 #define ETH_MAC_SPEED_10M                           (0UL)
 #define ETH_MAC_SPEED_100M                          (ETH_MAC_CONFIGR_FES)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Duplex_Mode ETH Duplex Mode
- * @{
  */
 #define ETH_MAC_DUPLEX_MD_HALF                      (0UL)
 #define ETH_MAC_DUPLEX_MD_FULL                      (ETH_MAC_CONFIGR_DM)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Checksum_Mode ETH Checksum Mode
- * @{
  */
 #define ETH_MAC_CHECKSUM_MD_SW                      (0UL)
 #define ETH_MAC_CHECKSUM_MD_HW                      (0x00000001UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Receive_Mode ETH Receive Mode
- * @{
  */
 #define ETH_RX_MD_POLLING                           (0UL)
 #define ETH_RX_MD_INT                               (0x00000001UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_TX_CLK_POLARITY ETH TX Clock Polarity
- * @{
  */
 #define ETH_MAC_TX_CLK_POLARITY_KEEP                (0UL)
 #define ETH_MAC_TX_CLK_POLARITY_INVERSE             (ETH_MAC_IFCONFR_TCKINV)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_RX_CLK_POLARITY ETH RX Clock Polarity
- * @{
  */
 #define ETH_MAC_RX_CLK_POLARITY_KEEP                (0UL)
 #define ETH_MAC_RX_CLK_POLARITY_INVERSE             (ETH_MAC_IFCONFR_RCKINV)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_SRC_ADDR_Mode ETH Source Address Mode
- * @{
  */
 #define ETH_MAC_SRC_ADDR_MD_BY_DMA_TXDESC           (0UL)                                   /*!< Configure the Insert mode by Tx Descriptor of DMA */
 #define ETH_MAC_SRC_ADDR_MD_INSTER_MACADDR0         (0x02UL << ETH_MAC_CONFIGR_SAIRC_POS)   /*!< Insert address value in MAC address register 0 into transmit frame as source address */
 #define ETH_MAC_SRC_ADDR_MD_REPLACE_MACADDR0        (0x03UL << ETH_MAC_CONFIGR_SAIRC_POS)   /*!< Replace source address in transmit frame with address value in MAC address register 0 */
 #define ETH_MAC_SRC_ADDR_MD_INSTER_MACADDR1         (0x06UL << ETH_MAC_CONFIGR_SAIRC_POS)   /*!< Insert address value in MAC address register 1 into transmit frame as source address */
 #define ETH_MAC_SRC_ADDR_MD_REPLACE_MACADDR1        (0x07UL << ETH_MAC_CONFIGR_SAIRC_POS)   /*!< Replace source address in transmit frame with address value in MAC address register 1 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_TypeFrame_Strip_FCS ETH Type Frame Strip FCS
- * @{
  */
 #define ETH_MAC_TYPE_FRAME_STRIP_FCS_DISABLE        (0UL)
 #define ETH_MAC_TYPE_FRAME_STRIP_FCS_ENABLE         (ETH_MAC_CONFIGR_CST)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Watchdog ETH Watchdog
- * @{
  */
 #define ETH_MAC_WATCHDOG_DISABLE                    (ETH_MAC_CONFIGR_MWD)
 #define ETH_MAC_WATCHDOG_ENABLE                     (0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Jabber ETH Jabber
- * @{
  */
 #define ETH_MAC_JABBER_DISABLE                      (ETH_MAC_CONFIGR_MJB)
 #define ETH_MAC_JABBER_ENABLE                       (0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Interframe_Gap ETH Interframe Gap
- * @{
  */
 #define ETH_MAC_INTERFRAME_GAP_96BIT                (0UL)
 #define ETH_MAC_INTERFRAME_GAP_88BIT                (0x01UL << ETH_MAC_CONFIGR_IFG_POS)
@@ -777,311 +725,224 @@ typedef struct {
 #define ETH_MAC_INTERFRAME_GAP_56BIT                (0x05UL << ETH_MAC_CONFIGR_IFG_POS)
 #define ETH_MAC_INTERFRAME_GAP_48BIT                (0x06UL << ETH_MAC_CONFIGR_IFG_POS)
 #define ETH_MAC_INTERFRAME_GAP_40BIT                (0x07UL << ETH_MAC_CONFIGR_IFG_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Carrier_Sense ETH Carrier Sense
- * @{
  */
 #define ETH_MAC_CARRIER_SENSE_DISABLE               (ETH_MAC_CONFIGR_DCRS)
 #define ETH_MAC_CARRIER_SENSE_ENABLE                (0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Receive_Own ETH Receive Own
- * @{
  */
 #define ETH_MAC_RX_OWN_DISABLE                      (ETH_MAC_CONFIGR_DO)
 #define ETH_MAC_RX_OWN_ENABLE                       (0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Checksum_Offload ETH Checksum Offload
- * @{
  */
 #define ETH_MAC_CHECKSUM_OFFLOAD_DISABLE            (0UL)
 #define ETH_MAC_CHECKSUM_OFFLOAD_ENABLE             (ETH_MAC_CONFIGR_IPCO)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Retry_Transmit ETH Retry Transmit
- * @{
  */
 #define ETH_MAC_RETRY_TRANS_DISABLE                 (ETH_MAC_CONFIGR_DRTY)
 #define ETH_MAC_RETRY_TRANS_ENABLE                  (0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Auto_Strip_Pad_FCS ETH Auto Strip Pad FCS
- * @{
  */
 #define ETH_MAC_AUTO_STRIP_PAD_FCS_DISABLE          (0UL)
 #define ETH_MAC_AUTO_STRIP_PAD_FCS_ENABLE           (ETH_MAC_CONFIGR_ACS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Back_Off_Limit ETH Back Off Limit
- * @{
  */
 #define ETH_MAC_BACKOFF_LIMIT10                     (0UL)
 #define ETH_MAC_BACKOFF_LIMIT8                      (ETH_MAC_CONFIGR_BL_0)
 #define ETH_MAC_BACKOFF_LIMIT4                      (ETH_MAC_CONFIGR_BL_1)
 #define ETH_MAC_BACKOFF_LIMIT1                      (ETH_MAC_CONFIGR_BL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Deferral_Check ETH Deferral Check
- * @{
  */
 #define ETH_MAC_DEFERRAL_CHECK_DISABLE              (0UL)
 #define ETH_MAC_DEFERRAL_CHECK_ENABLE               (ETH_MAC_CONFIGR_DC)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Zero_Quanta_Pause ETH Zero Quanta Pause
- * @{
  */
 #define ETH_MAC_ZERO_QUANTA_PAUSE_DISABLE           (ETH_MAC_FLOCTLR_DZPQ)
 #define ETH_MAC_ZERO_QUANTA_PAUSE_ENABLE            (0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Pause_Low_Threshold ETH Pause Low Threshold
- * @{
  */
 #define ETH_MAC_PAUSE_LOW_THRESHOLD_MINUS4          (0UL)                   /*!< Pause time minus 4 slot times */
 #define ETH_MAC_PAUSE_LOW_THRESHOLD_MINUS28         (ETH_MAC_FLOCTLR_PLT_0) /*!< Pause time minus 28 slot times */
 #define ETH_MAC_PAUSE_LOW_THRESHOLD_MINUS144        (ETH_MAC_FLOCTLR_PLT_1) /*!< Pause time minus 144 slot times */
 #define ETH_MAC_PAUSE_LOW_THRESHOLD_MINUS256        (ETH_MAC_FLOCTLR_PLT)   /*!< Pause time minus 256 slot times */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Unicast_Pause_Frame_Detect ETH Unicast Pause Frame Detect
- * @{
  */
 #define ETH_MAC_UNICAST_PAUSE_FRAME_DETECT_DISABLE  (0UL)
 #define ETH_MAC_UNICAST_PAUSE_FRAME_DETECT_ENABLE   (ETH_MAC_FLOCTLR_UNP)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Receive_Flow_Control ETH Receive Flow Control
- * @{
  */
 #define ETH_MAC_RX_FLOW_CTRL_DISABLE                (0UL)
 #define ETH_MAC_RX_FLOW_CTRL_ENABLE                 (ETH_MAC_FLOCTLR_RFE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Transmit_Flow_Control ETH Transmit Flow Control
- * @{
  */
 #define ETH_MAC_TRANS_FLOW_CTRL_DISABLE             (0UL)
 #define ETH_MAC_TRANS_FLOW_CTRL_ENABLE              (ETH_MAC_FLOCTLR_TFE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Receive_All ETH Receive All
- * @{
  */
 #define ETH_MAC_RX_ALL_DISABLE                      (0UL)
 #define ETH_MAC_RX_ALL_ENABLE                       (ETH_MAC_FLTCTLR_RA)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Drop_Not_TcpUdp ETH Drop Not TcpUdp
- * @{
  */
 #define ETH_MAC_DROP_NOT_TCPUDP_DISABLE             (0UL)
 #define ETH_MAC_DROP_NOT_TCPUDP_ENABLE              (ETH_MAC_FLTCTLR_DNTU)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_VLAN_Tag_Filter ETH VLAN Tag Filter
- * @{
  */
 #define ETH_MAC_VLAN_TAG_FILTER_DISABLE             (0UL)
 #define ETH_MAC_VLAN_TAG_FILTER_ENABLE              (ETH_MAC_FLTCTLR_VTFE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Source_Addr_Filter ETH Source Addr Filter
- * @{
  */
 #define ETH_MAC_SRC_ADDR_FILTER_DISABLE             (0UL)
 #define ETH_MAC_SRC_ADDR_FILTER_NORMAL              (ETH_MAC_FLTCTLR_SAF)
 #define ETH_MAC_SRC_ADDR_FILTER_INVERSE             (ETH_MAC_FLTCTLR_SAF | ETH_MAC_FLTCTLR_SAIF)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Pass_Control_Frame ETH Pass Control Frame
- * @{
  */
 #define ETH_MAC_PASS_CTRL_FRAME_BLOCK_ALL                   (0UL)                   /*!< MAC filter all control frame from reaching the application */
 #define ETH_MAC_PASS_CTRL_FRAME_FORWARD_NOT_PAUSE           (ETH_MAC_FLTCTLR_PCF_0) /*!< MAC forward all control frame except pause control frame to application even if they fail the address filter */
 #define ETH_MAC_PASS_CTRL_FRAME_FORWARD_ALL                 (ETH_MAC_FLTCTLR_PCF_1) /*!< MAC forward all control frame to application even if they fail the address filter */
 #define ETH_MAC_PASS_CTRL_FRAME_FORWARD_PASS_FILTER         (ETH_MAC_FLTCTLR_PCF)   /*!< MAC forward control frame that pass the address filter. */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Reception_Broadcast_Frame ETH Reception Broadcast Frame
- * @{
  */
 #define ETH_MAC_RX_BROADCAST_FRAME_DISABLE                  (ETH_MAC_FLTCTLR_DBF)
 #define ETH_MAC_RX_BROADCAST_FRAME_ENABLE                   (0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Destination_Addr_Filter ETH Destination Addr Filter
- * @{
  */
 #define ETH_MAC_DEST_ADDR_FILTER_NORMAL             (0UL)
 #define ETH_MAC_DEST_ADDR_FILTER_INVERSE            (ETH_MAC_FLTCTLR_DAIF)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Multicast_Frame_Filter ETH Multicast Frame Filter
- * @{
  */
 #define ETH_MAC_MULTICAST_FRAME_FILTER_NONE                 (ETH_MAC_FLTCTLR_PMF)
 #define ETH_MAC_MULTICAST_FRAME_FILTER_PERFECT              (0UL)
 #define ETH_MAC_MULTICAST_FRAME_FILTER_HASHTABLE            (ETH_MAC_FLTCTLR_HMC)
 #define ETH_MAC_MULTICAST_FRAME_FILTER_PERFECT_HASHTABLE    (ETH_MAC_FLTCTLR_HPF | ETH_MAC_FLTCTLR_HMC)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Unicast_Frame_Filter ETH Unicast Frame Filter
- * @{
  */
 #define ETH_MAC_UNICAST_FRAME_FILTER_PERFECT                (0UL)
 #define ETH_MAC_UNICAST_FRAME_FILTER_HASHTABLE              (ETH_MAC_FLTCTLR_HUC)
 #define ETH_MAC_UNICAST_FRAME_FILTER_PERFECT_HASHTABLE      (ETH_MAC_FLTCTLR_HPF | ETH_MAC_FLTCTLR_HUC)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Promiscuous_Mode ETH Promiscuous Mode
- * @{
  */
 #define ETH_MAC_PROMISCUOUS_MD_DISABLE              (0UL)
 #define ETH_MAC_PROMISCUOUS_MD_ENABLE               (ETH_MAC_FLTCTLR_PR)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Tx_VLAN_Insert_Mode ETH Tx VLAN Insert Mode
- * @{
  */
 #define ETH_MAC_TXVLAN_MD_BY_DMA_TXDESC             (0UL)                                               /*!< Configure the Tx VLAN mode by Tx Descriptor of DMA */
 #define ETH_MAC_TXVLAN_MD_BYPASS                    (ETH_MAC_VTACTLR_VLANS)                             /*!< Do Nothing: VLAN Insertion is bypassed */
 #define ETH_MAC_TXVLAN_MD_REMOVE_TAG                (ETH_MAC_VTACTLR_VLANS | ETH_MAC_VTACTLR_VLANC_0)   /*!< Remove Tag and Type fields in VLAN frame */
 #define ETH_MAC_TXVLAN_MD_INSERT_TAG                (ETH_MAC_VTACTLR_VLANS | ETH_MAC_VTACTLR_VLANC_1)   /*!< Insert VLAN Tag value in ETH_MAC_VTACTLR Register into transmit frame */
 #define ETH_MAC_TXVLAN_MD_REPLACE_TAG               (ETH_MAC_VTACTLR_VLANS | ETH_MAC_VTACTLR_VLANC)     /*!< Replace VLAN tag value in transmit frame with VLAN tag value in ETH_MAC_VTACTLR register */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Rx_VLAN_Filter ETH Rx VLAN Filter
- * @{
  */
 #define ETH_MAC_RXVLAN_FILTER_NORMAL                (0UL)
 #define ETH_MAC_RXVLAN_FILTER_INVERSE               (ETH_MAC_VTAFLTR_VTIM)
 #define ETH_MAC_RXVLAN_FILTER_NORMAL_HASHTABLE      (ETH_MAC_VTAFLTR_VTHM)
 #define ETH_MAC_RXVLAN_FILTER_INVERSE_HASHTABLE     (ETH_MAC_VTAFLTR_VTHM | ETH_MAC_VTAFLTR_VTIM)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Rx_VLAN_Compare ETH Rx VLAN Compare
- * @{
  */
 #define ETH_MAC_RXVLAN_CMP_16BIT                    (0UL)
 #define ETH_MAC_RXVLAN_CMP_12BIT                    (ETH_MAC_VTAFLTR_VTAL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_L4_Dest_Port_Filter ETH L4 Dest Port Filter
- * @{
  */
 #define ETH_MAC_L4_DEST_PORT_FILTER_DISABLE         (0UL)
 #define ETH_MAC_L4_DEST_PORT_FILTER_NORMAL          (ETH_MAC_L34CTLR_L4DPM)
 #define ETH_MAC_L4_DEST_PORT_FILTER_INVERSE         (ETH_MAC_L34CTLR_L4DPIM | ETH_MAC_L34CTLR_L4DPM)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_L4_Source_Port_Filter ETH L4 Source Port Filter
- * @{
  */
 #define ETH_MAC_L4_SRC_PORT_FILTER_DISABLE          (0UL)
 #define ETH_MAC_L4_SRC_PORT_FILTER_NORMAL           (ETH_MAC_L34CTLR_L4SPM)
 #define ETH_MAC_L4_SRC_PORT_FILTER_INVERSE          (ETH_MAC_L34CTLR_L4SPIM | ETH_MAC_L34CTLR_L4SPM)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_L4_Port_Filter_Protocol ETH L4 Port Filter Protocol
- * @{
  */
 #define ETH_MAC_L4_PORT_FILTER_PROTOCOL_TCP         (0UL)                   /*!< Port filter for TCP frame */
 #define ETH_MAC_L4_PORT_FILTER_PROTOCOL_UDP         (ETH_MAC_L34CTLR_L4PEN) /*!< Port filter for UDP frame */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_L3_Dest_Addr_Filter_Mask ETH L3 Destination Addr Filter Mask
  * @note The following definitions apply to IPv4.
- * @{
  */
 #define ETH_MAC_L3_DEST_ADDR_FILTER_MASK_NONE       (0x00000000UL)
 #define ETH_MAC_L3_DEST_ADDR_FILTER_MASK_BIT0       (0x01UL << ETH_MAC_L34CTLR_L3HDBM_POS)
@@ -1115,14 +976,11 @@ typedef struct {
 #define ETH_MAC_L3_DEST_ADDR_FILTER_MASK_BIT28_0    (0x1DUL << ETH_MAC_L34CTLR_L3HDBM_POS)
 #define ETH_MAC_L3_DEST_ADDR_FILTER_MASK_BIT29_0    (0x1EUL << ETH_MAC_L34CTLR_L3HDBM_POS)
 #define ETH_MAC_L3_DEST_ADDR_FILTER_MASK_BIT30_0    (0x1FUL << ETH_MAC_L34CTLR_L3HDBM_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_L3_Source_Addr_Filter_Mask ETH L3 Source Addr Filter Mask
  * @note The following definitions apply to IPv4
- * @{
  */
 #define ETH_MAC_L3_SRC_ADDR_FILTER_MASK_NONE        (0x00000000UL)
 #define ETH_MAC_L3_SRC_ADDR_FILTER_MASK_BIT0        (0x01UL << ETH_MAC_L34CTLR_L3HSBM_POS)
@@ -1156,14 +1014,11 @@ typedef struct {
 #define ETH_MAC_L3_SRC_ADDR_FILTER_MASK_BIT28_0     (0x1DUL << ETH_MAC_L34CTLR_L3HSBM_POS)
 #define ETH_MAC_L3_SRC_ADDR_FILTER_MASK_BIT29_0     (0x1EUL << ETH_MAC_L34CTLR_L3HSBM_POS)
 #define ETH_MAC_L3_SRC_ADDR_FILTER_MASK_BIT30_0     (0x1FUL << ETH_MAC_L34CTLR_L3HSBM_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_L3_Dest_Source_Addr_Filter_Mask ETH L3 Destination Source Address Filter Mask
  * @note The following definitions apply to IPv6.
- * @{
  */
 #define ETH_MAC_L3_DEST_SRC_ADDR_FILTER_MASK_NONE           (0x00000000UL)
 #define ETH_MAC_L3_DEST_SRC_ADDR_FILTER_MASK_BIT0           (0x01UL << ETH_MAC_L34CTLR_L3HSBM_POS)
@@ -1293,71 +1148,53 @@ typedef struct {
 #define ETH_MAC_L3_DEST_SRC_ADDR_FILTER_MASK_BIT124_0       (0x7DUL << ETH_MAC_L34CTLR_L3HSBM_POS)
 #define ETH_MAC_L3_DEST_SRC_ADDR_FILTER_MASK_BIT125_0       (0x7EUL << ETH_MAC_L34CTLR_L3HSBM_POS)
 #define ETH_MAC_L3_DEST_SRC_ADDR_FILTER_MASK_BIT126_0       (0x7FUL << ETH_MAC_L34CTLR_L3HSBM_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_L3_Dest_Addr_Filter ETH L3 Destination Addr Filter
- * @{
  */
 #define ETH_MAC_L3_DEST_ADDR_FILTER_DISABLE         (0UL)
 #define ETH_MAC_L3_DEST_ADDR_FILTER_NORMAL          (ETH_MAC_L34CTLR_L3DAM)
 #define ETH_MAC_L3_DEST_ADDR_FILTER_INVERSE         (ETH_MAC_L34CTLR_L3DAIM | ETH_MAC_L34CTLR_L3DAM)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_L3_Source_Addr_Filter ETH L3 Source Addr Filter
- * @{
  */
 #define ETH_MAC_L3_SRC_ADDR_FILTER_DISABLE          (0UL)
 #define ETH_MAC_L3_SRC_ADDR_FILTER_NORMAL           (ETH_MAC_L34CTLR_L3SAM)
 #define ETH_MAC_L3_SRC_ADDR_FILTER_INVERSE          (ETH_MAC_L34CTLR_L3SAIM | ETH_MAC_L34CTLR_L3SAM)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_L3_Addr_Filter_Protocol ETH L3 Addr Filter Protocol
- * @{
  */
 #define ETH_MAC_L3_ADDR_FILTER_PROTOCOL_IPV4        (0UL)                   /*!< Ip Address filter for IPv4 */
 #define ETH_MAC_L3_ADDR_FILTER_PROTOCOL_IPV6        (ETH_MAC_L34CTLR_L3PEN) /*!< Ip Address filter for IPv6 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MAC_Address_Index ETH MAC Address Index
- * @{
  */
 #define ETH_MAC_ADDR_IDX0                           (0x00000000UL)
 #define ETH_MAC_ADDR_IDX1                           (0x00000008UL)
 #define ETH_MAC_ADDR_IDX2                           (0x00000010UL)
 #define ETH_MAC_ADDR_IDX3                           (0x00000018UL)
 #define ETH_MAC_ADDR_IDX4                           (0x00000020UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MAC_Address_Filter ETH MAC Address Filter
  * @note The parameter is invalid in ETH_MAC_ADDR_IDX0.
- * @{
  */
 #define ETH_MAC_ADDR_FILTER_DISABLE                 (0UL)                                           /*!< Disable perfect filter with MAC address. */
 #define ETH_MAC_ADDR_FILTER_PERFECT_DEST_ADDR       (ETH_MAC_MACADHR1_AE1)                          /*!< Filter the Destination address of the received frame with MAC address. */
 #define ETH_MAC_ADDR_FILTER_PERFECT_SRC_ADDR        (ETH_MAC_MACADHR1_AE1 | ETH_MAC_MACADHR1_SA1)   /*!< Filter the source address of the received frame with MAC address. */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MAC_Address_Filter_Mask ETH MAC Address Filter Mask
  * @note The parameter is invalid in ETH_MAC_ADDR_IDX0.
- * @{
  */
 #define ETH_MAC_ADDR_MASK_DISABLE                   (0UL)                       /*!< Disable MAC Address Mask */
 #define ETH_MAC_ADDR_MASK_BYTE6                     (ETH_MAC_MACADHR1_MBC1_5)   /*!< Mask MAC Address high reg bits [15:8] */
@@ -1367,13 +1204,10 @@ typedef struct {
 #define ETH_MAC_ADDR_MASK_BYTE2                     (ETH_MAC_MACADHR1_MBC1_1)   /*!< Mask MAC Address low reg bits [15:8] */
 #define ETH_MAC_ADDR_MASK_BYTE1                     (ETH_MAC_MACADHR1_MBC1_0)   /*!< Mask MAC Address low reg bits [7:0] */
 #define ETH_MAC_ADDR_MASK_ALL                       (ETH_MAC_MACADHR1_MBC1)     /*!< Mask MAC Address low reg bits [31:0] and low high bits [15:0] */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MAC_INT_Flag ETH MAC Interrupt Flag
- * @{
  */
 #define ETH_MAC_INT_FLAG_TSPIS                      (ETH_MAC_INTSTSR_TSPIS)     /*!< Time stamp trigger flag (on MAC) */
 #define ETH_MAC_INT_FLAG_MMCTXIS                    (ETH_MAC_INTSTSR_MMCTXIS)   /*!< MMC transmit flag  */
@@ -1383,45 +1217,33 @@ typedef struct {
 #define ETH_MAC_INT_FLAG_ALL                        (ETH_MAC_INT_FLAG_TSPIS   | ETH_MAC_INT_FLAG_MMCTXIS | \
         ETH_MAC_INT_FLAG_MMCRXIS | ETH_MAC_INT_FLAG_MMCIS   | \
         ETH_MAC_INT_FLAG_PMTIS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MAC_Interrupt ETH MAC Interrupt
- * @{
  */
 #define ETH_MAC_INT_TSPIM                           (ETH_MAC_INTMSKR_TSPIM)   /*!< Time stamp trigger interrupt (on MAC) */
 #define ETH_MAC_INT_PMTIM                           (ETH_MAC_INTMSKR_PMTIM)   /*!< PMT interrupt (on MAC) */
 #define ETH_MAC_INT_ALL                             (ETH_MAC_INT_TSPIM | ETH_MAC_INT_PMTIM)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Burst_Mode ETH Burst Mode
- * @{
  */
 #define ETH_DMA_BURST_MD_NORMAL                     (0UL)                     /*!< DMA master interface only use SINGLE and INCR access type */
 #define ETH_DMA_BURST_MD_FIXED                      (ETH_DMA_BUSMODR_FBST)    /*!< DMA master interface use SINGLE and INCR, INCR8, INCR16 access type */
 #define ETH_DMA_BURST_MD_MIXED                      (ETH_DMA_BUSMODR_MBST)    /*!< DMA master interface will start all burst transmission with INCR length greater than 16 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Address_Align ETH Address Align
- * @{
  */
 #define ETH_DMA_ADDR_ALIGN_DISABLE                  (0UL)
 #define ETH_DMA_ADDR_ALIGN_ENABLE                   (ETH_DMA_BUSMODR_AAL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Rx_DMA_Burst_Length ETH Rx DMA Burst Length
- * @{
  */
 #define ETH_DMA_RX_BURST_LEN_1BEAT                  (ETH_DMA_BUSMODR_RPBL_0)                          /*!< Maximum number of beats to be transferred in one RxDMA transaction is 1 */
 #define ETH_DMA_RX_BURST_LEN_2BEAT                  (ETH_DMA_BUSMODR_RPBL_1)                          /*!< Maximum number of beats to be transferred in one RxDMA transaction is 2 */
@@ -1435,13 +1257,10 @@ typedef struct {
 #define ETH_DMA_RX_BURST_LEN_8XPBL_64BEAT           (ETH_DMA_BUSMODR_M8PBL | ETH_DMA_BUSMODR_RPBL_3)  /*!< Maximum number of beats to be transferred in one RxDMA transaction is 64 */
 #define ETH_DMA_RX_BURST_LEN_8XPBL_128BEAT          (ETH_DMA_BUSMODR_M8PBL | ETH_DMA_BUSMODR_RPBL_4)  /*!< Maximum number of beats to be transferred in one RxDMA transaction is 128 */
 #define ETH_DMA_RX_BURST_LEN_8XPBL_256BEAT          (ETH_DMA_BUSMODR_M8PBL | ETH_DMA_BUSMODR_RPBL_5)  /*!< Maximum number of beats to be transferred in one RxDMA transaction is 256 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Tx_DMA_Burst_Length ETH Tx DMA Burst Length
- * @{
  */
 #define ETH_DMA_TX_BURST_LEN_1BEAT                  (ETH_DMA_BUSMODR_TPBL_0)                          /*!< Maximum number of beats to be transferred in one TxDMA (or both) transaction is 1 */
 #define ETH_DMA_TX_BURST_LEN_2BEAT                  (ETH_DMA_BUSMODR_TPBL_1)                          /*!< Maximum number of beats to be transferred in one TxDMA (or both) transaction is 2 */
@@ -1455,23 +1274,17 @@ typedef struct {
 #define ETH_DMA_TX_BURST_LEN_8XPBL_64BEAT           (ETH_DMA_BUSMODR_M8PBL | ETH_DMA_BUSMODR_TPBL_3)  /*!< Maximum number of beats to be transferred in one TxDMA (or both) transaction is 64 */
 #define ETH_DMA_TX_BURST_LEN_8XPBL_128BEAT          (ETH_DMA_BUSMODR_M8PBL | ETH_DMA_BUSMODR_TPBL_4)  /*!< Maximum number of beats to be transferred in one TxDMA (or both) transaction is 128 */
 #define ETH_DMA_TX_BURST_LEN_8XPBL_256BEAT          (ETH_DMA_BUSMODR_M8PBL | ETH_DMA_BUSMODR_TPBL_5)  /*!< Maximum number of beats to be transferred in one TxDMA (or both) transaction is 256 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Enhance_Descriptor ETH DMA Enhance Descriptor
- * @{
  */
 #define ETH_DMA_ENHANCE_DESC_DISABLE                (0UL)
 #define ETH_DMA_ENHANCE_DESC_ENABLE                 (ETH_DMA_BUSMODR_DSEN)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Arbitration ETH DMA Arbitration
- * @{
  */
 #define ETH_DMA_ARBITRATION_LOOP_RXTX_1_1           (0UL)
 #define ETH_DMA_ARBITRATION_LOOP_RXTX_2_1           (ETH_DMA_BUSMODR_PRAT_0)
@@ -1483,53 +1296,38 @@ typedef struct {
 #define ETH_DMA_ARBITRATION_LOOP_TXRX_4_1           (ETH_DMA_BUSMODR_TXPR | ETH_DMA_BUSMODR_PRAT)
 #define ETH_DMA_ARBITRATION_FIXED_RX_PRIOR_TX       (ETH_DMA_BUSMODR_DMAA)
 #define ETH_DMA_ARBITRATION_FIXED_TX_PRIOR_RX       (ETH_DMA_BUSMODR_TXPR | ETH_DMA_BUSMODR_DMAA)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Drop_TCPIP_Checksum_Error_Frame ETH Drop TCPIP Checksum Error Frame
- * @{
  */
 #define ETH_DMA_DROP_CHECKSUM_ERR_FRAME_DISABLE     (ETH_DMA_OPRMODR_DTCOE)
 #define ETH_DMA_DROP_CHECKSUM_ERR_FRAME_ENABLE      (0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Receive_Store_Forward ETH Receive Store Forward
- * @{
  */
 #define ETH_DMA_RX_STORE_FORWARD_DISABLE            (0UL)
 #define ETH_DMA_RX_STORE_FORWARD_ENABLE             (ETH_DMA_OPRMODR_RSF)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Flush_Receive_Frame ETH Flush Receive Frame
- * @{
  */
 #define ETH_DMA_FLUSH_RX_FRAME_DISABLE              (ETH_DMA_OPRMODR_DFRF)
 #define ETH_DMA_FLUSH_RX_FRAME_ENABLE               (0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Transmit_Store_Forward ETH Transmit Store Forward
- * @{
  */
 #define ETH_DMA_TRANS_STORE_FORWARD_DISABLE         (0UL)
 #define ETH_DMA_TRANS_STORE_FORWARD_ENABLE          (ETH_DMA_OPRMODR_TSF)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Transmit_Threshold ETH Transmit Threshold
- * @{
  */
 #define ETH_DMA_TRANS_THRESHOLD_64BYTE              (0UL)                               /*!< Threshold level of the Transmit FIFO is 64 Bytes  */
 #define ETH_DMA_TRANS_THRESHOLD_128BYTE             (0x01UL << ETH_DMA_OPRMODR_TTC_POS) /*!< Threshold level of the Transmit FIFO is 128 Bytes */
@@ -1539,65 +1337,47 @@ typedef struct {
 #define ETH_DMA_TRANS_THRESHOLD_32BYTE              (0x05UL << ETH_DMA_OPRMODR_TTC_POS) /*!< Threshold level of the Transmit FIFO is 32 Bytes  */
 #define ETH_DMA_TRANS_THRESHOLD_24BYTE              (0x06UL << ETH_DMA_OPRMODR_TTC_POS) /*!< Threshold level of the Transmit FIFO is 24 Bytes  */
 #define ETH_DMA_TRANS_THRESHOLD_16BYTE              (0x07UL << ETH_DMA_OPRMODR_TTC_POS) /*!< Threshold level of the Transmit FIFO is 16 Bytes  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Forward_Error_Frame ETH Forward Error Frame
- * @{
  */
 #define ETH_DMA_FORWARD_ERR_FRAME_DISABLE           (0UL)
 #define ETH_DMA_FORWARD_ERR_FRAME_ENABLE            (ETH_DMA_OPRMODR_FEF)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Forward_Undersize_Good_Frame ETH Forward Undersize Good Frame
- * @{
  */
 #define ETH_DMA_FORWARD_UNDERSIZE_FRAME_DISABLE     (0UL)
 #define ETH_DMA_FORWARD_UNDERSIZE_FRAME_ENABLE      (ETH_DMA_OPRMODR_FUF)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Drop_Jumbo_Frame ETH Drop Jumbo Frame
- * @{
  */
 #define ETH_DMA_DROP_JUMBO_FRAME_DISABLE            (0UL)
 #define ETH_DMA_DROP_JUMBO_FRAME_ENABLE             (ETH_DMA_OPRMODR_DGF)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Receive_Threshold ETH Receive Threshold
- * @{
  */
 #define ETH_DMA_RX_THRESHOLD_64BYTE                 (0UL)                   /*!< Threshold level of the Receive FIFO is 64 Bytes */
 #define ETH_DMA_RX_THRESHOLD_32BYTE                 (ETH_DMA_OPRMODR_RTC_0) /*!< Threshold level of the Receive FIFO is 32 Bytes */
 #define ETH_DMA_RX_THRESHOLD_96BYTE                 (ETH_DMA_OPRMODR_RTC_1) /*!< Threshold level of the Receive FIFO is 96 Bytes */
 #define ETH_DMA_RX_THRESHOLD_128BYTE                (ETH_DMA_OPRMODR_RTC)   /*!< Threshold level of the Receive FIFO is 128 Bytes */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_Second_Frame_Operate ETH Second Frame Operate
- * @{
  */
 #define ETH_DMA_SEC_FRAME_OPERA_DISABLE             (0UL)
 #define ETH_DMA_SEC_FRAME_OPERA_ENABLE              (ETH_DMA_OPRMODR_OSF)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Flag ETH DMA Flag
- * @{
  */
 #define ETH_DMA_FLAG_PTPS                           (ETH_DMA_DMASTSR_PTPS)  /*!< Time-stamp trigger status */
 #define ETH_DMA_FLAG_PMTS                           (ETH_DMA_DMASTSR_PMTS)  /*!< PMT trigger status */
@@ -1631,13 +1411,10 @@ typedef struct {
         ETH_DMA_FLAG_RSS  | ETH_DMA_FLAG_RUS  | ETH_DMA_FLAG_RIS  | \
         ETH_DMA_FLAG_UNS  | ETH_DMA_FLAG_OVS  | ETH_DMA_FLAG_TJS  | \
         ETH_DMA_FLAG_TUS  | ETH_DMA_FLAG_TSS  | ETH_DMA_FLAG_TIS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Error_State ETH DMA Error State
- * @{
  */
 #define ETH_DMA_ERR_STATE_RX_WR_DATA                (0UL)                                   /*!< RxDMA generates error while writing data */
 #define ETH_DMA_ERR_STATE_TX_RD_DATA                (0x03UL << ETH_DMA_DMASTSR_EBUS_POS)    /*!< TxDMA generates error while reading data */
@@ -1645,13 +1422,10 @@ typedef struct {
 #define ETH_DMA_ERR_STATE_TX_WR_DESC                (0x05UL << ETH_DMA_DMASTSR_EBUS_POS)    /*!< TxDMA generates error while writing descriptor */
 #define ETH_DMA_ERR_STATE_RX_RD_DESC                (0x06UL << ETH_DMA_DMASTSR_EBUS_POS)    /*!< RxDMA generates error while reading descriptor */
 #define ETH_DMA_ERR_STATE_TX_RD_DESC                (0x07UL << ETH_DMA_DMASTSR_EBUS_POS)    /*!< TxDMA generates error while reading descriptor */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Transmit_State ETH DMA Transmit State
- * @{
  */
 #define ETH_DMA_TRANS_STATE_STOPPED                 (0UL)                                   /*!< Stopped - Reset or Stop Tx Command issued */
 #define ETH_DMA_TRANS_STATE_FETCHING                (0x01UL << ETH_DMA_DMASTSR_TSTS_POS)    /*!< Running - Fetching the Tx descriptor */
@@ -1660,13 +1434,10 @@ typedef struct {
 #define ETH_DMA_TRANS_STATE_WRITING                 (0x04UL << ETH_DMA_DMASTSR_TSTS_POS)    /*!< Running - Writing the time stamp */
 #define ETH_DMA_TRANS_STATE_SUSPENDED               (0x06UL << ETH_DMA_DMASTSR_TSTS_POS)    /*!< Suspended - Tx Descriptor unavailable */
 #define ETH_DMA_TRANS_STATE_CLOSING                 (0x07UL << ETH_DMA_DMASTSR_TSTS_POS)    /*!< Running - Closing Rx descriptor */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Receive_State ETH DMA Receive State
- * @{
  */
 #define ETH_DMA_RX_STATE_STOPPED                    (0UL)                                   /*!< Stopped - Reset or Stop Rx Command issued */
 #define ETH_DMA_RX_STATE_FETCHING                   (0x01UL << ETH_DMA_DMASTSR_RSTS_POS)    /*!< Running - Fetching the Rx descriptor */
@@ -1675,13 +1446,10 @@ typedef struct {
 #define ETH_DMA_RX_STATE_CLOSING                    (0x05UL << ETH_DMA_DMASTSR_RSTS_POS)    /*!< Running - Closing descriptor */
 #define ETH_DMA_RX_STATE_WRITING                    (0x06UL << ETH_DMA_DMASTSR_RSTS_POS)    /*!< Running - Writing the time stamp */
 #define ETH_DMA_RX_STATE_QUEUING                    (0x07UL << ETH_DMA_DMASTSR_RSTS_POS)    /*!< Running - Queuing the receive frame into host memory */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Interrupt ETH DMA Interrupt
- * @{
  */
 #define ETH_DMA_INT_NIE                             (ETH_DMA_INTENAR_NIE)   /*!< Normal interrupt summary */
 #define ETH_DMA_INT_AIE                             (ETH_DMA_INTENAR_AIE)   /*!< Abnormal interrupt summary */
@@ -1703,92 +1471,68 @@ typedef struct {
         ETH_DMA_INT_RSE | ETH_DMA_INT_RUE | ETH_DMA_INT_RIE | \
         ETH_DMA_INT_UNE | ETH_DMA_INT_OVE | ETH_DMA_INT_TJE | \
         ETH_DMA_INT_TUE | ETH_DMA_INT_TSE | ETH_DMA_INT_TIE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Overflow ETH DMA Overflow
- * @{
  */
 #define ETH_DMA_OVF_RXFIFO_CNT                      (ETH_DMA_RFRCNTR_OVFOVF)  /*!< Overflow bit for FIFO overflow counter */
 #define ETH_DMA_OVF_MISS_FRAME_CNT                  (ETH_DMA_RFRCNTR_UNAOVF)  /*!< Overflow bit for miss frame counter */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Descriptor_Own ETH DMA Descriptor Own
- * @{
  */
 #define ETH_DMA_DESC_OWN_CPU                        (0UL)                   /*!< The descriptor is owned by CPU */
 #define ETH_DMA_DESC_OWN_DMA                        (ETH_DMA_TXDESC_OWN)    /*!< The descriptor is owned by DMA */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Descriptor_Buffer ETH DMA Descriptor Buffer
- * @{
  */
 #define ETH_DMA_DESC_BUF1                           (0x00UL)    /*!< DMA Descriptor Buffer1 */
 #define ETH_DMA_DESC_BUF2                           (0x01UL)    /*!< DMA Descriptor Buffer2 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Tx_Descriptor_Checksum_Insertion_Control ETH DMA Tx Descriptor Checksum Insertion Control
- * @{
  */
 #define ETH_DMA_TXDESC_CHECKSUM_BYPASS              (ETH_DMA_TXDESC_CIC_BYPASS)              /*!< Checksum Engine is bypassed */
 #define ETH_DMA_TXDESC_CHECKSUM_IPV4_HEADER         (ETH_DMA_TXDESC_CIC_IPV4_HEADER)          /*!< IPv4 header checksum insertion  */
 #define ETH_DMA_TXDESC_CHECKSUM_TCPUDPICMP_SEGMENT  (ETH_DMA_TXDESC_CIC_TCPUDPICMP_SEGMENT)  /*!< TCP/UDP/ICMP Checksum Insertion calculated over segment only */
 #define ETH_DMA_TXDESC_CHECKSUM_TCPUDPICMP_FULL     (ETH_DMA_TXDESC_CIC_TCPUDPICMP_FULL)     /*!< TCP/UDP/ICMP Checksum Insertion fully calculated */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Tx_Descriptor_VLAN_Insertion_Control ETH DMA Tx Descriptor VLAN Insertion Control
- * @{
  */
 #define ETH_DMA_TXDESC_VLAN_BYPASS                  (ETH_DMA_TXDESC_VLANC_BYPASS)        /*!< VLAN Insertion is bypassed */
 #define ETH_DMA_TXDESC_VLAN_REMOVE_TAG              (ETH_DMA_TXDESC_VLANC_REMOVE_TAG)    /*!< Remove Tag and Type fields in VLAN frame */
 #define ETH_DMA_TXDESC_VLAN_INSERT_TAG              (ETH_DMA_TXDESC_VLANC_INSERT_TAG)    /*!< Insert VLAN Tag value in ETH_MAC_VTACTLR Register into transmit frame */
 #define ETH_DMA_TXDESC_VLAN_REPLACE_TAG             (ETH_DMA_TXDESC_VLANC_REPLACE_TAG)   /*!< Replace VLAN tag value in transmit frame with VLAN tag value in ETH_MAC_VTACTLR register */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_DMA_Tx_Descriptor_SA_Insertion_Control ETH DMA Tx Descriptor SA Insertion Control
- * @{
  */
 #define ETH_DMA_TXDESC_SRC_ADDR_BYPASS              (ETH_DMA_TXDESC_SAIRC_BYPASS)           /*!< Source Address Insertion or Replace Control is bypassed */
 #define ETH_DMA_TXDESC_SRC_ADDR_INSTER_MACADDR0     (ETH_DMA_TXDESC_SAIRC_INSTER_MACADDR0)  /*!< Insert address value in MAC address register 0 into transmit frame as source address */
 #define ETH_DMA_TXDESC_SRC_ADDR_REPLACE_MACADDR0    (ETH_DMA_TXDESC_SAIRC_REPLACE_MACADDR0) /*!< Replace source address in transmit frame with address value in MAC address register 0 */
 #define ETH_DMA_TXDESC_SRC_ADDR_INSTER_MACADDR1     (ETH_DMA_TXDESC_SAIRC_INSTER_MACADDR1)  /*!< Insert address value in MAC address register 1 into transmit frame as source address */
 #define ETH_DMA_TXDESC_SRC_ADDR_REPLACE_MACADDR1    (ETH_DMA_TXDESC_SAIRC_REPLACE_MACADDR1) /*!< Replace source address in transmit frame with address value in MAC address register 1 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PMT_Flag ETH PMT Flag
- * @{
  */
 #define ETH_PMT_FLAG_RTWKFR                         (ETH_MAC_PMTCTLR_RTWKFR)  /*!< Wake-Up Frame Filter Register Pointer Reset */
 #define ETH_PMT_FLAG_WKFR                           (ETH_MAC_PMTCTLR_WKFR)    /*!< Wake-Up Frame Received */
 #define ETH_PMT_FLAG_MPFR                           (ETH_MAC_PMTCTLR_MPFR)    /*!< Magic Packet Received */
 #define ETH_PMT_FLAG_ALL                            (ETH_PMT_FLAG_RTWKFR | ETH_PMT_FLAG_WKFR | ETH_PMT_FLAG_MPFR)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PMT_Wakeup_Source ETH PMT Wakeup Source
- * @{
  */
 #define ETH_PMT_WAKEUP_SRC_GLOBAL_UNICAST           (ETH_MAC_PMTCTLR_GLUB)  /*!< Global unicast */
 #define ETH_PMT_WAKEUP_SRC_WAKEUP_FRAME             (ETH_MAC_PMTCTLR_WKEN)  /*!< Wake-Up Frame */
@@ -1796,44 +1540,32 @@ typedef struct {
 #define ETH_PMT_WAKEUP_SRC_ALL                      (ETH_PMT_WAKEUP_SRC_GLOBAL_UNICAST | \
         ETH_PMT_WAKEUP_SRC_WAKEUP_FRAME   | \
         ETH_PMT_WAKEUP_SRC_MAGIC_PACKET)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MMC_Counter_Preset_Mode ETH MMC Counter Preset Mode
- * @{
  */
 #define ETH_MMC_CNT_PRESET_MD_DISABLE               (0UL)                                               /*!< Disable preset */
 #define ETH_MMC_CNT_PRESET_MD_HALF_VALUE            (ETH_MMC_MMCCTLR_MCPSET)                            /*!< Half-Value preset: 0x7FF0 */
 #define ETH_MMC_CNT_PRESET_MD_FULL_VALUE            (ETH_MMC_MMCCTLR_MCPSEL | ETH_MMC_MMCCTLR_MCPSET)   /*!< Full-Value preset: 0xFFF0 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MMC_Read_Reset ETH MMC Read Reset
- * @{
  */
 #define ETH_MMC_RD_RST_DISABLE                      (0UL)
 #define ETH_MMC_RD_RST_ENABLE                       (ETH_MMC_MMCCTLR_ROR)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MMC_Counter_Reload ETH MMC Counter Reload
- * @{
  */
 #define ETH_MMC_CNT_RELOAD_DISABLE                  (ETH_MMC_MMCCTLR_COS)
 #define ETH_MMC_CNT_RELOAD_ENABLE                   (0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MMC_Tx_Flag ETH MMC Tx Flag
- * @{
  */
 #define ETH_MMC_FLAG_TXEDEIS                        (ETH_MMC_TRSSTSR_TXEDEIS)   /*!< When Tx excessive deferral error frame counter reaches half or all the maximum value */
 #define ETH_MMC_FLAG_TXUGIS                         (ETH_MMC_TRSSTSR_TXUGIS)    /*!< When Tx unicast good frame counter reaches half or all the maximum value */
@@ -1847,13 +1579,10 @@ typedef struct {
         ETH_MMC_FLAG_TXCAEIS | ETH_MMC_FLAG_TXECEIS | \
         ETH_MMC_FLAG_TXLCEIS | ETH_MMC_FLAG_TXDEEIS | \
         ETH_MMC_FLAG_TXMGIS  | ETH_MMC_FLAG_TXBGIS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MMC_Rx_Flag ETH MMC Rx Flag
- * @{
  */
 #define ETH_MMC_FLAG_RXOEIS                         (ETH_MMC_REVSTSR_RXOEIS)   /*!< When Rx out of scope error frame counter reaches half or all the maximum value */
 #define ETH_MMC_FLAG_RXLEIS                         (ETH_MMC_REVSTSR_RXLEIS)   /*!< When Rx length error frame counter reaches half or all the maximum value */
@@ -1866,13 +1595,10 @@ typedef struct {
 #define ETH_MMC_FLAG_RX_ALL                         (ETH_MMC_FLAG_RXOEIS | ETH_MMC_FLAG_RXLEIS | ETH_MMC_FLAG_RXUGIS | \
         ETH_MMC_FLAG_RXREIS | ETH_MMC_FLAG_RXAEIS | ETH_MMC_FLAG_RXCEIS | \
         ETH_MMC_FLAG_RXMGIS | ETH_MMC_FLAG_RXBGIS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MMC_Tx_Interrupt ETH MMC Tx Interrupt
- * @{
  */
 #define ETH_MMC_INT_TXEDEIM                         (ETH_MMC_TITCTLR_TXEDEIM)   /*!< Tx excessive deferral error frame 中断 */
 #define ETH_MMC_INT_TXUGIM                          (ETH_MMC_TITCTLR_TXUGIM)    /*!< Tx unicast good frame 中断 */
@@ -1885,13 +1611,10 @@ typedef struct {
 #define ETH_MMC_INT_TX_ALL                          (ETH_MMC_INT_TXEDEIM | ETH_MMC_INT_TXUGIM  | ETH_MMC_INT_TXCAEIM | \
         ETH_MMC_INT_TXECEIM | ETH_MMC_INT_TXLCEIM | ETH_MMC_INT_TXDEEIM | \
         ETH_MMC_INT_TXMGIM  | ETH_MMC_INT_TXBGIM)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MMC_Rx_Interrupt ETH MMC Rx Interrupt
- * @{
  */
 #define ETH_MMC_INT_RXOEIM                          (ETH_MMC_RITCTLR_RXOEIM)   /*!< Rx out of scope error frame 中断 */
 #define ETH_MMC_INT_RXLEIM                          (ETH_MMC_RITCTLR_RXLEIM)   /*!< Rx length error frame 中断 */
@@ -1904,13 +1627,10 @@ typedef struct {
 #define ETH_MMC_INT_RX_ALL                          (ETH_MMC_INT_RXOEIM | ETH_MMC_INT_RXLEIM | ETH_MMC_INT_RXUGIM | \
         ETH_MMC_INT_RXREIM | ETH_MMC_INT_RXAEIM | ETH_MMC_INT_RXCEIM | \
         ETH_MMC_INT_RXMGIM | ETH_MMC_INT_RXBGIM)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_MMC_Statistical_Register ETH MMC Statistical Register
- * @{
  */
 #define ETH_MMC_REG_TXBRGFR                         (0x011CU)   /*!< Tx broadcast good frame Statistical Register */
 #define ETH_MMC_REG_TXMUGFR                         (0x0120U)   /*!< Tx multicast good frame Statistical Register */
@@ -1928,23 +1648,17 @@ typedef struct {
 #define ETH_MMC_REG_RXUNGFR                         (0x01C4U)   /*!< Rx unicast good frame Statistical Register */
 #define ETH_MMC_REG_RXLEEFR                         (0x01C8U)   /*!< Rx length error frame Statistical Register */
 #define ETH_MMC_REG_RXOREFR                         (0x01CCU)   /*!< Rx out of scope error frame Statistical Register */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PTP_Frame_Dest_Addr_Filter ETH PTP Frame Destination Address Filter
- * @{
  */
 #define ETH_PTP_DEST_ADDR_FILTER_DISABLE            (0x00800000UL)
 #define ETH_PTP_DEST_ADDR_FILTER_ENABLE             (ETH_PTP_TSPCTLR_TSPADF)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PTP_Snapshot_Datagram_Type ETH PTP Snapshot Datagram Type
- * @{
  */
 #define ETH_PTP_DATAGRAM_TYPE_SYNC_FOLLOW_DELAY             (0UL)                                       /*!< SYNC Follow_Up Delay_Req Delay_Resp */
 #define ETH_PTP_DATAGRAM_TYPE_SYNC                          (0x01UL << ETH_PTP_TSPCTLR_TSPMTSEL_POS)    /*!< SYNC */
@@ -1954,13 +1668,10 @@ typedef struct {
 #define ETH_PTP_DATAGRAM_TYPE_DELAY_PDEALY                  (0x07UL << ETH_PTP_TSPCTLR_TSPMTSEL_POS)    /*!< Delay_Req Pdelay_Req Pdelay_Resp */
 #define ETH_PTP_DATAGRAM_TYPE_SYNC_DELAY                    (0x08UL << ETH_PTP_TSPCTLR_TSPMTSEL_POS)    /*!< SYNC Delay_Req */
 #define ETH_PTP_DATAGRAM_TYPE_PDELAY                        (0x0CUL << ETH_PTP_TSPCTLR_TSPMTSEL_POS)    /*!< Pdelay_Req Pdelay_Resp */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PTP_Snapshot_Frame_Type ETH PTP Snapshot Frame Type
- * @{
  */
 #define ETH_PTP_FRAME_TYPE_IPV4_FRAME               (ETH_PTP_TSPCTLR_TSPOVIPV4) /*!< Time stamp snapshot for IPv4 frame */
 #define ETH_PTP_FRAME_TYPE_IPV6_FRAME               (ETH_PTP_TSPCTLR_TSPOVIPV6) /*!< Time stamp snapshot for IPv6 frame */
@@ -1970,53 +1681,38 @@ typedef struct {
         ETH_PTP_FRAME_TYPE_IPV6_FRAME | \
         ETH_PTP_FRAME_TYPE_ETH_FRAME  | \
         ETH_PTP_FRAME_TYPE_RX_FRAME)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PTP_Datagram_Version ETH PTP Datagram Version
- * @{
  */
 #define ETH_PTP_DATAGRAM_VER_IEEE1588V1             (0UL)
 #define ETH_PTP_DATAGRAM_VER_IEEE1588V2             (ETH_PTP_TSPCTLR_TSPVER)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PTP_Subsecond_Scale ETH PTP Subsecond Scale
- * @{
  */
 #define ETH_PTP_SUBSEC_SCALE_HEX                    (0UL)                     /*!< The Second register increase 1 when SubSecond count to 0x7FFFFFFFH */
 #define ETH_PTP_SUBSEC_SCALE_DEC                    (ETH_PTP_TSPCTLR_TSPSSR)  /*!< The Second register increase 1 when SubSecond count to 0x3B9AC9FFH */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PTP_Calibration_Mode ETH PTP Calibration Mode
- * @{
  */
 #define ETH_PTP_CALIB_MD_COARSE                     (0UL)                       /*!< Coarse calibration */
 #define ETH_PTP_CALIB_MD_FINE                       (ETH_PTP_TSPCTLR_TSPUPSEL)  /*!< Fine calibration */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PTP_Time_Update_Sign ETH PTP Time Update Sign
- * @{
  */
 #define ETH_PTP_TIME_UPDATE_SIGN_MINUS              (0UL)                       /*!< Minus for update register value */
 #define ETH_PTP_TIME_UPDATE_SIGN_PLUS               (ETH_PTP_TMUNSER_TSPUPNS)   /*!< Plus for update register value */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PTP_Flag ETH PTP Flag
- * @{
  */
 #define ETH_PTP_FLAG_TSERR1                         (ETH_PTP_TSPSTSR_TSERR1)  /*!< Target time 1 error */
 #define ETH_PTP_FLAG_TSTAR1                         (ETH_PTP_TSPSTSR_TSTAR1)  /*!< Target time 1 reached  */
@@ -2025,46 +1721,34 @@ typedef struct {
 #define ETH_PTP_FLAG_TSOVF                          (ETH_PTP_TSPSTSR_TSOVF)   /*!< System time overflow */
 #define ETH_PTP_FLAG_ALL                            (ETH_PTP_FLAG_TSERR1 | ETH_PTP_FLAG_TSTAR1 | ETH_PTP_FLAG_TSERR0 | \
         ETH_PTP_FLAG_TSTAR0 | ETH_PTP_FLAG_TSOVF)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PPS_Channel ETH PPS Channel
- * @{
  */
 #define ETH_PPS_CH0                                 (0x00U)
 #define ETH_PPS_CH1                                 (0x01U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PPS_Trigger_Function ETH PPS Trigger Function
- * @{
  */
 #define ETH_PPS_TRIG_FUNC_INT_EVT                   (0UL)                       /*!< The Target register is used only for interrupt output event */
 #define ETH_PPS_TRIG_FUNC_INT_PPS_EVT               (ETH_PTP_PPSCTLR_TT0SEL_1)  /*!< The Target register is used for interrupt out event and PPS single output event */
 #define ETH_PPS_TRIG_FUNC_PPS_EVT                   (ETH_PTP_PPSCTLR_TT0SEL)    /*!< The Target register is used for PPS single output event */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PPS_Output_Mode ETH PPS Output Mode
  * @note PPS1(ETH_PPS_CH1) only supports single output mode(ETH_PPS_OUTPUT_MD_ONCE).
- * @{
  */
 #define ETH_PPS_OUTPUT_MD_CONTINUE                  (0UL)                     /*!< Continuous output mode */
 #define ETH_PPS_OUTPUT_MD_ONCE                      (ETH_PTP_PPSCTLR_PPSOMD)  /*!< Once output mode */
-/**
- * @}
- */
+
 
 /**
  * @defgroup ETH_PPS_Output_Frequency ETH PPS Output Frequency
  * @note PPS1(ETH_PPS_CH1) only supports generate a pulse(ETH_PPS_OUTPUT_ONE_PULSE).
- * @{
  */
 #define ETH_PPS_OUTPUT_FREQ_1HZ                     (0UL)                                   /*!< Ouput pulse is 1HZ in continuous ouput mode */
 #define ETH_PPS_OUTPUT_FREQ_2HZ                     (0x01UL << ETH_PTP_PPSCTLR_PPSFRE0_POS) /*!< Ouput pulse is 2HZ in continuous ouput mode */
@@ -2083,13 +1767,9 @@ typedef struct {
 #define ETH_PPS_OUTPUT_FREQ_16384HZ                 (0x0EUL << ETH_PTP_PPSCTLR_PPSFRE0_POS) /*!< Ouput pulse is 16384HZ in continuous ouput mode */
 #define ETH_PPS_OUTPUT_FREQ_32768HZ                 (0x0FUL << ETH_PTP_PPSCTLR_PPSFRE0_POS) /*!< Ouput pulse is 32768HZ in continuous ouput mode */
 #define ETH_PPS_OUTPUT_ONE_PULSE                    (0x01UL << ETH_PTP_PPSCTLR_PPSFRE0_POS) /*!< One pulse is generated in single ouput mode */
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -2100,7 +1780,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup ETH_Global_Functions
- * @{
  */
 
 /**
@@ -2420,19 +2099,13 @@ void ETH_PPS_SetTriggerFunc(uint8_t u8Ch, uint32_t u32Func);
 void ETH_PPS_SetPps0OutputMode(uint32_t u32Mode);
 void ETH_PPS_SetPps0OutputFreq(uint32_t u32Freq);
 
-/**
- * @}
- */
+
 
 #endif /* LL_ETH_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

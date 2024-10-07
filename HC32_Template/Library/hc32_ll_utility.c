@@ -26,13 +26,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_UTILITY UTILITY
  * @brief DDL Utility Driver
- * @{
  */
 
 #if (LL_UTILITY_ENABLE == DDL_ON)
@@ -58,7 +56,6 @@
  ******************************************************************************/
 /**
  * @defgroup UTILITY_Local_Variables UTILITY Local Variables
- * @{
  */
 
 static uint32_t m_u32TickStep = 0UL;
@@ -69,9 +66,7 @@ static __IO uint32_t m_u32TickCount = 0UL;
     static uint32_t m_u32PrintTimeout = 0UL;
 #endif
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Function implementation - global ('extern') and local ('static')
@@ -79,7 +74,6 @@ static __IO uint32_t m_u32TickCount = 0UL;
 
 /**
  * @defgroup UTILITY_Local_Functions UTILITY Local Functions
- * @{
  */
 #if (LL_PRINT_ENABLE == DDL_ON)
 
@@ -120,13 +114,10 @@ __STATIC_INLINE uint32_t LL_GetPrintTimeout(void) {
 }
 #endif /* LL_PRINT_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup UTILITY_Global_Functions UTILITY Global Functions
- * @{
  */
 
 /**
@@ -400,19 +391,13 @@ __WEAKDEF int32_t DDL_ConsoleOutputChar(char cData) {
 
 #endif /* LL_PRINT_ENABLE */
 
-/**
- * @}
- */
+
 
 #endif /* LL_UTILITY_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * EOF (not truncated)

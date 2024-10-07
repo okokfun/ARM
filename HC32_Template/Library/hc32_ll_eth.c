@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_ETH ETH
  * @brief Initial Configuration Driver Library
- * @{
  */
 
 #if (LL_ETH_ENABLE == DDL_ON)
@@ -47,7 +45,6 @@
  ******************************************************************************/
 /**
  * @defgroup ETH_Local_Macros ETH Local Macros
- * @{
  */
 
 /* Ethernet register Mask */
@@ -91,7 +88,6 @@
 
 /**
  * @defgroup ETH_Check_Parameters_Validity ETH Check Parameters Validity
- * @{
  */
 #define IS_ETH_PHY_ADDR(x)                                  ((x) < 0x20U)
 #define IS_ETH_PHY_REG(x)                                   ((x) < 0x20U)
@@ -634,13 +630,9 @@
         (((x) | ETH_DMA_RXDESC_EXTEND_STATUS_ALL) ==                               \
          ETH_DMA_RXDESC_EXTEND_STATUS_ALL))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -659,7 +651,6 @@
  ******************************************************************************/
 /**
  * @defgroup ETH_Global_Functions ETH Global Functions
- * @{
  */
 
 /**
@@ -4124,19 +4115,13 @@ void ETH_PPS_SetPps0OutputFreq(uint32_t u32Freq) {
     MODIFY_REG32(CM_ETH->PTP_PPSCTLR, ETH_PTP_PPSCTLR_PPSFRE0, u32Freq);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_ETH_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /******************************************************************************
  * EOF (not truncated)

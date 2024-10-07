@@ -5748,7 +5748,6 @@ void arm_cmplx_mag_squared_q15(
 
 /**
  * @addtogroup PID
- * @{
  */
 
 /**
@@ -5930,7 +5929,6 @@ arm_status arm_mat_inverse_f64(
 
 /**
  * @addtogroup clarke
- * @{
  */
 
 /**
@@ -6015,7 +6013,6 @@ __STATIC_FORCEINLINE void arm_clarke_q31(
 
 /**
  * @addtogroup inv_clarke
- * @{
  */
 
 /**
@@ -6108,7 +6105,6 @@ __STATIC_FORCEINLINE void arm_inv_clarke_q31(
 
 /**
  * @addtogroup park
- * @{
  */
 
 /**
@@ -6212,7 +6208,6 @@ __STATIC_FORCEINLINE void arm_park_q31(
 
 /**
  * @addtogroup inv_park
- * @{
  */
 
 /**
@@ -6328,7 +6323,6 @@ __STATIC_FORCEINLINE void arm_inv_park_q31(
 
 /**
  * @addtogroup LinearInterpolate
- * @{
  */
 
 /**
@@ -6642,7 +6636,6 @@ void arm_vexp_f32(
 
 /**
  * @addtogroup SQRT
- * @{
  */
 
 /**
@@ -8336,7 +8329,6 @@ float32_t arm_yule_distance(const uint32_t *pA, const uint32_t *pB, uint32_t num
 
 /**
  * @addtogroup BilinearInterpolate
- * @{
  */
 
 /**

@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_OTS OTS
  * @brief OTS Driver Library
- * @{
  */
 
 #if (LL_OTS_ENABLE == DDL_ON)
@@ -47,54 +45,39 @@
  ******************************************************************************/
 /**
  * @defgroup OTS_Local_Macros OTS Local Macros
- * @{
  */
 
 /**
  * @defgroup OTS_Configuration_Bit_Mask OTS Configuration Bit Mask
- * @{
  */
 #define OTS_CTL_INIT_MSK            (OTS_CTL_OTSCK | OTS_CTL_TSSTP)
-/**
- * @}
- */
+
 
 /**
  * @defgroup OTS_Ext_Reg_Address OTS Extension Register Address
- * @{
  */
 #define OTS_PDR1_ADDR               ((uint32_t)(&CM_OTS->PDR1))
 #define OTS_PDR2_ADDR               ((uint32_t)(&CM_OTS->PDR2))
 #define OTS_PDR3_ADDR               ((uint32_t)(&CM_OTS->PDR3))
-/**
- * @}
- */
+
 
 /**
  * @defgroup OTS_Factor OTS Factor
- * @{
  */
 #define OTS_DR1_FACTOR              (1.7F)
 
 #define OTS_DR2_FACTOR              (1.0F)
 #define OTS_ECR_XTAL_FACTOR         (1.0F)
-/**
- * @}
- */
+
 
 /**
  * @defgroup OTS_Check_Parameters_Validity OTS check parameters validity
- * @{
  */
 #define IS_OTS_CLK(x)               (((x) == OTS_CLK_HRC) || ((x) == OTS_CLK_XTAL))
 
 #define IS_OTS_AUTO_OFF_EN(x)       (((x) == OTS_AUTO_OFF_DISABLE) || ((x) == OTS_AUTO_OFF_ENABLE))
-/**
- * @}
- */
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -109,20 +92,16 @@
  ******************************************************************************/
 /**
  * @defgroup OTS_Local_Variables OTS Local Variables
- * @{
  */
 static float32_t m_f32SlopeK  = 0.0F;
 static float32_t m_f32OffsetM = 0.0F;
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Function implementation - global ('extern') and local ('static')
  ******************************************************************************/
 /**
  * @addtogroup OTS_Local_Functions OTS Local Functions
- * @{
  */
 /**
  * @brief  Get built-in slope K and offset M.
@@ -175,13 +154,10 @@ static void OTS_GetDfltPara(const stc_ots_init_t *pstcOTSInit) {
     m_f32SlopeK  = ((float32_t)OTS_SCAL_T2 - (float32_t)OTS_SCAL_T1) / (OTS_SCAL_A2 - OTS_SCAL_A1);
     m_f32OffsetM = (float32_t)OTS_SCAL_T2 - (m_f32SlopeK * OTS_SCAL_A2);
 }
-/**
- * @}
- */
+
 
 /**
  * @defgroup OTS_Global_Functions OTS Global Functions
- * @{
  */
 
 /**
@@ -385,15 +361,11 @@ float32_t OTS_CalculateTemp(void) {
     return f32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_OTS_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

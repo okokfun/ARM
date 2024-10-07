@@ -43,12 +43,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup DFSDM
   * 简介: DFSDM 驱动模块
-  * @{
   */
 #if defined(STM32F412xG) || defined(STM32F413_423xx)
 
@@ -63,7 +61,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup DFSDM_Private_Functions
-  * @{
   */
 
 /** @defgroup DFSDM_Group1 初始化功能
@@ -79,7 +76,6 @@
    - 初始化DFSDM筛选器
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -268,9 +264,6 @@ void DFSDM_FilterStructInit(DFSDM_FilterInitTypeDef* DFSDM_FilterInitStruct) {
     DFSDM_FilterInitStruct->DFSDM_IntegratorOversamplingRatio = 4;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Group2 配置功能
  *  简介   配置功能
@@ -287,12 +280,11 @@ void DFSDM_FilterStructInit(DFSDM_FilterInitTypeDef* DFSDM_FilterInitStruct) {
     - 配置模拟看门狗滤波器
 
 @endverbatim
-  * @{
   */
 
 #if defined(STM32F412xG)
 /**
-  * 简介:  启用或停用DFSDM外设。
+  * 简介:  启用或停用 DFSDM外设。
   * 
   * 参数:  NewState: DFSDM接口的新状态。
   *         此参数可以是: ENABLE或DISABLE。
@@ -315,7 +307,7 @@ void DFSDM_Command(FunctionalState NewState) {
 
 #if defined(STM32F413_423xx)
 /**
-  * 简介:  启用或禁用DFSDM 外设.
+  * 简介:  启用或禁用 DFSDM 外设.
   * 
   * 参数:  Instance: 选择DFSDM的实例
   *         此参数可以是: 1 or 2.
@@ -710,7 +702,7 @@ void DFSDM_ConfigShortCircuitThreshold(DFSDM_Channel_TypeDef* DFSDM_Channelx, ui
   * 参数:  DFSDM_AWDChannelx: 其中x可以是0到7之间的值，以选择DFSDM通道。
   * 
   * 参数:  DFSDM_AWDFastMode: 模拟看门狗快速模式。
-  *         此参数可以是@ref DFSDM_AWD_Fast_Mode_Selection的值。
+  *         此参数可以是 @ref DFSDM_AWD_Fast_Mode_Selection的值。
   * 
   * 返回值: 无
   */
@@ -988,7 +980,7 @@ uint32_t DFSDM_GetConversionTime(DFSDM_Filter_TypeDef* DFSDMx) {
   *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于STM32F413_423xx设备)
   *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于STM32F413_423xx设备)
   * 
-  * 参数:  DFSDM_AWDSincOrder: Sinc筛选器顺序此参数的值可以是@ref DFSDM_AWD_Scic_order。
+  * 参数:  DFSDM_AWDSincOrder: Sinc筛选器顺序此参数的值可以是 @ref DFSDM_AWD_Scic_order。
   * 
   * 参数:  DFSDM_AWDSincOverSampleRatio: 滤波器过采样率，此参数的值可以介于1和32之间。
   * 
@@ -1065,7 +1057,6 @@ uint32_t DFSDM_GetAWDConversionValue(DFSDM_Channel_TypeDef* DFSDM_Channelx) {
   * 注意:   在信道收发器监测(模拟看门狗快速模式启用)的情况下，
   *         与模拟看门犬滤波器输出相比，只有较高的16位定义了16位阈值。
   */
-
 void DFSDM_SetAWDThreshold(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_HighThreshold, uint32_t DFSDM_LowThreshold) {
     uint32_t tmpreg1 = 0;
     uint32_t tmpreg2 = 0;
@@ -1239,7 +1230,7 @@ void DFSDM_StartSoftwareRegularConversion(DFSDM_Filter_TypeDef* DFSDMx) {
   * 
   * 返回值: 无.
   * 
-  * 注意:   只有在禁用过滤器时才能使用此函数，请使用DFSDM_FilterCmd()禁用过滤器。
+  * 注意:   只有在禁用过滤器时才能使用此函数，请使用 DFSDM_FilterCmd()禁用过滤器。
   */
 void DFSDM_ConfigInjectedTrigger(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_Trigger, uint32_t DFSDM_TriggerEdge) {
     uint32_t tmpreg1 = 0;
@@ -1282,7 +1273,7 @@ void DFSDM_ConfigInjectedTrigger(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_Tr
   * 
   * 返回值: 无
   * 
-  * 注意:   只有在禁用过滤器时才能使用此函数，请使用DFSDM_FilterCmd()禁用过滤器。
+  * 注意:   只有在禁用过滤器时才能使用此函数，请使用 DFSDM_FilterCmd()禁用过滤器。
   */
 void DFSDM_SynchronousFilter0InjectedStart(DFSDM_Filter_TypeDef* DFSDMx) {
     /* 检查参数 */
@@ -1306,7 +1297,7 @@ void DFSDM_SynchronousFilter0InjectedStart(DFSDM_Filter_TypeDef* DFSDMx) {
   * 
   * 返回值: 无
   * 
-  * 注意:   只有在禁用过滤器时才能使用此函数，请使用DFSDM_FilterCmd()禁用过滤器。
+  * 注意:   只有在禁用过滤器时才能使用此函数，请使用 DFSDM_FilterCmd()禁用过滤器。
   */
 void DFSDM_SynchronousFilter0RegularStart(DFSDM_Filter_TypeDef* DFSDMx) {
     /* 检查参数 */
@@ -1367,7 +1358,7 @@ void DFSDM_RegularContinuousModeCmd(DFSDM_Filter_TypeDef* DFSDMx, FunctionalStat
   * 注意:   如果在连续模式下仅选择了一个通道(通过执行常规转换或在仅选择一个
   *         通道的情况下执行注入转换)，则可以通过启用快速模式将采样率提高数倍。
   * 
-  * 注意:   只有在禁用过滤器时才能使用此函数，请使用DFSDM_FilterCmd()禁用过滤器。
+  * 注意:   只有在禁用过滤器时才能使用此函数，请使用 DFSDM_FilterCmd()禁用过滤器。
   */
 void DFSDM_FastModeCmd(DFSDM_Filter_TypeDef* DFSDMx, FunctionalState NewState) {
     /* 检查参数 */
@@ -1402,7 +1393,7 @@ void DFSDM_FastModeCmd(DFSDM_Filter_TypeDef* DFSDMx, FunctionalState NewState) {
   * 
   * 返回值: 无.
   * 
-  * 注意:   只有在禁用过滤器时才能使用此函数，请使用DFSDM_FilterCmd()禁用过滤器。
+  * 注意:   只有在禁用过滤器时才能使用此函数，请使用 DFSDM_FilterCmd()禁用过滤器。
   */
 void DFSDM_SelectInjectedConversionMode(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_InjectConvMode) {
     /* 检查参数 */
@@ -1417,7 +1408,7 @@ void DFSDM_SelectInjectedConversionMode(DFSDM_Filter_TypeDef* DFSDMx, uint32_t D
 }
 
 /**
-  * 简介:  启用或禁用DMA以读取所选滤波器DFSDMx的注入信道组的数据。
+  * 简介:  启用或禁用 DMA以读取所选滤波器DFSDMx的注入信道组的数据。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1430,14 +1421,14 @@ void DFSDM_SelectInjectedConversionMode(DFSDM_Filter_TypeDef* DFSDMx, uint32_t D
   * 
   * 参数:  DFSDM_DMAConversionMode: 选择要配置为DMA读取的模式。
   *            @arg DFSDM_DMAConversionMode_Regular:  DMA通道已启用/禁用，用于读取数据以进行常规转换
-  *            @arg DFSDM_DMAConversionMode_Injected: 启用/禁用DMA通道以读取注入转换的数据
+  *            @arg DFSDM_DMAConversionMode_Injected: 启用/禁用 DMA通道以读取注入转换的数据
   * 
   * 参数:  NewState: DMA信道的新状态。
   *         此参数可以是: ENABLE或DISABLE。
   * 
   * 返回值: 无.
   * 
-  * 注意:   只有在禁用过滤器时才能使用此函数，请使用DFSDM_FilterCmd()禁用过滤器。
+  * 注意:   只有在禁用过滤器时才能使用此函数，请使用 DFSDM_FilterCmd()禁用过滤器。
   */
 void DFSDM_DMATransferConfig(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_DMAConversionMode, FunctionalState NewState) {
     /* 检查参数 */
@@ -1481,12 +1472,11 @@ void DFSDM_DMATransferConfig(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_DMACon
     和 "DFSDM_GetShortCircuitITStatus "函数并读取返回值。
   - 要获得一个标志状态，请调用 "DFSDM_GetFlagStatus"、"DFSDM_GetClockAbsenceFlagStatus"、
     "DFSDM_GetShortCircuitFlagStatus "和 "DFSDM_GetWatchdogFlagStatus "函数并读取返回值。
-  - 要清除一个标志或一个中断，请使用DFSDM_ClearFlag,DFSDM_ClearClockAbsenceFlag。
+  - 要清除一个标志或一个中断，请使用 DFSDM_ClearFlag,DFSDM_ClearClockAbsenceFlag。
     DFSDM_ClearShortCircuitFlag,DFSDM_ClearAnalogWatchdogFlag等函数来清除一个标志或中断。
     相应的标志(中断)。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1689,7 +1679,7 @@ FlagStatus DFSDM_GetFlagStatus(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_FLAG
   * 简介:  检查是否设置了指定的时钟缺失通道标志。
   * 
   * 参数:  DFSDM_FLAG_CLKAbsence: 指定要检查的标志。
-  *         此参数可以是@ref DFSDM_Clock_Absence_Flag_Definition的值
+  *         此参数可以是 @ref DFSDM_Clock_Absence_Flag_Definition的值
   * 
   * 返回值: 无
   */
@@ -1712,7 +1702,7 @@ FlagStatus DFSDM_GetClockAbsenceFlagStatus(uint32_t DFSDM_FLAG_CLKAbsence) {
   * 简介:  检查是否设置了指定的短路通道检测器标志。
   * 
   * 参数:  DFSDM_FLAG_SCD: 指定要检查的标志。
-  *         此参数可以是@ref DFSDM_SCD_Flag_Definition的值
+  *         此参数可以是 @ref DFSDM_SCD_Flag_Definition的值
   * 
   * 返回值: 无
   */
@@ -1739,7 +1729,7 @@ FlagStatus DFSDM_GetShortCircuitFlagStatus(uint32_t DFSDM_FLAG_SCD) {
   *         此参数可以是: 1 or 2.
   * 
   * 参数:  DFSDM_FLAG_CLKAbsence: 指定要检查的标志。
-  *         此参数可以是@ref DFSDM_Clock_Absence_Flag_Definition的值
+  *         此参数可以是 @ref DFSDM_Clock_Absence_Flag_Definition的值
   * 
   * 返回值: 无
   */
@@ -1776,7 +1766,7 @@ FlagStatus DFSDM_GetClockAbsenceFlagStatus(uint32_t Instance, uint32_t DFSDM_FLA
   *         此参数可以是: 1 or 2.
   * 
   * 参数:  DFSDM_FLAG_SCD: 指定要检查的标志。
-  *         此参数可以是@ref DFSDM_SCD_Flag_Definition的值
+  *         此参数可以是 @ref DFSDM_SCD_Flag_Definition的值
   * 
   * 返回值: 无
   */
@@ -1818,7 +1808,7 @@ FlagStatus DFSDM_GetShortCircuitFlagStatus(uint32_t Instance, uint32_t DFSDM_FLA
   * 参数:  DFSDM_AWDChannelx: 其中x可以是0到7之间的值，以选择DFSDM通道。
   * 
   * 参数:  DFSDM_Threshold: 指定阈值。
-  *         此参数可以是@ref DFSDM_Threshold_Selection的值。
+  *         此参数可以是 @ref DFSDM_Threshold_Selection的值。
   * 
   * 返回值: 无
   */
@@ -1872,7 +1862,7 @@ void DFSDM_ClearFlag(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_CLEARF) {
   * 简介:  清除DFSDMx的挂起时钟缺失通道标志。
   * 
   * 参数:  DFSDM_CLEARF_CLKAbsence: 指定要清除的挂起位。
-  *         此参数可以是@ref DFSDM_Clear_ClockAbs_Flag_Definition的任意组合
+  *         此参数可以是 @ref DFSDM_Clear_ClockAbs_Flag_Definition的任意组合
   * 
   * 返回值: 无
   */
@@ -1888,7 +1878,7 @@ void DFSDM_ClearClockAbsenceFlag(uint32_t DFSDM_CLEARF_CLKAbsence) {
   * 简介:  清除DFSDMx的挂起短路通道标志。
   * 
   * 参数:  DFSDM_CLEARF_SCD: 指定要清除的挂起位。
-  *         此参数可以是@ref DFSDM_Clear_Short_Circuit_Flag_Definition的任意组合
+  *         此参数可以是 @ref DFSDM_Clear_Short_Circuit_Flag_Definition的任意组合
   * 
   * 返回值: 无
   */
@@ -1909,7 +1899,7 @@ void DFSDM_ClearShortCircuitFlag(uint32_t DFSDM_CLEARF_SCD) {
   *         此参数可以是: 1 or 2.
   * 
   * 参数:  DFSDM_CLEARF_CLKAbsence: 指定要清除的挂起位。
-  *         此参数可以是@ref DFSDM_Clear_ClockAbs_Flag_Definition的任意组合
+  *         此参数可以是 @ref DFSDM_Clear_ClockAbs_Flag_Definition的任意组合
   * 
   * 返回值: 无
   */
@@ -1933,7 +1923,7 @@ void DFSDM_ClearClockAbsenceFlag(uint32_t Instance, uint32_t DFSDM_CLEARF_CLKAbs
   *         此参数可以是: 1 or 2.
   * 
   * 参数:  DFSDM_CLEARF_SCD: 指定要清除的挂起位。
-  *         此参数可以是@ref DFSDM_Clear_Short_Circuit_Flag_Definition的任意组合
+  *         此参数可以是 @ref DFSDM_Clear_Short_Circuit_Flag_Definition的任意组合
   * 
   * 返回值: 无
   */
@@ -1965,7 +1955,7 @@ void DFSDM_ClearShortCircuitFlag(uint32_t Instance, uint32_t DFSDM_CLEARF_SCD) {
   * 参数:  DFSDM_AWDChannelx: 其中x可以是0到7之间的值，以选择DFSDM通道。
   * 
   * 参数:  DFSDM_Threshold: 指定阈值。
-  *         此参数可以是@ref DFSDM_Threshold_Selection的值。
+  *         此参数可以是 @ref DFSDM_Threshold_Selection的值。
   * 
   * 返回值: 无
   */
@@ -2030,7 +2020,7 @@ ITStatus DFSDM_GetITStatus(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_IT) {
   * 简介:  检查指定的"时钟缺失"通道中断是否已发生。
   * 
   * 参数:  DFSDM_IT_CLKAbsence: 指定在哪个通道上检查中断源。
-  *         此参数可以是@ref DFSDM_Clock_Absence_Interrupt_Definition的值。
+  *         此参数可以是 @ref DFSDM_Clock_Absence_Interrupt_Definition的值。
   * 
   * 返回值: DFSDM_IT的新状态(SET或RESET)。
   * 
@@ -2062,7 +2052,7 @@ ITStatus DFSDM_GetClockAbsenceITStatus(uint32_t DFSDM_IT_CLKAbsence) {
   * 简介:  检查指定的短路通道中断是否已经发生。
   * 
   * 参数:  DFSDM_IT_SCR: 指定在哪个通道上检查中断源。
-  *         这个参数可以是@ref DFSDM_SCD_Interrupt_Definition的一个值。
+  *         这个参数可以是 @ref DFSDM_SCD_Interrupt_Definition的一个值。
   * 
   * 返回值: DFSDM_IT的新状态(SET或RESET)。
   * 
@@ -2099,7 +2089,7 @@ ITStatus DFSDM_GetShortCircuitITStatus(uint32_t DFSDM_IT_SCR) {
   *         此参数可以是: 1 or 2.
   * 
   * 参数:  DFSDM_IT_CLKAbsence: 指定在哪个通道上检查中断源。
-  *         此参数可以是@ref DFSDM_Clock_Absence_Interrupt_Definition的值。
+  *         此参数可以是 @ref DFSDM_Clock_Absence_Interrupt_Definition的值。
   * 
   * 返回值: DFSDM_IT的新状态(SET或RESET)。
   * 
@@ -2140,7 +2130,7 @@ ITStatus DFSDM_GetClockAbsenceITStatus(uint32_t Instance, uint32_t DFSDM_IT_CLKA
   *         此参数可以是: 1 or 2.
   * 
   * 参数:  DFSDM_IT_SCR: 指定在哪个通道上检查中断源。
-  *         这个参数可以是@ref DFSDM_SCD_Interrupt_Definition的一个值。
+  *         这个参数可以是 @ref DFSDM_SCD_Interrupt_Definition的一个值。
   * 
   * 返回值: DFSDM_IT的新状态(SET或RESET)。
   * 
@@ -2177,21 +2167,8 @@ ITStatus DFSDM_GetShortCircuitITStatus(uint32_t Instance, uint32_t DFSDM_IT_SCR)
 }
 
 #endif /* STM32F413_423xx */
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 #endif /* STM32F412xG || STM32F413_423xx */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

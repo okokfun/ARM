@@ -54,12 +54,10 @@
 #include "stm32f4xx_flash_ramfunc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup FLASH RAMFUNC
   * 简介: FLASH RAMFUNC 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -70,7 +68,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup FLASH_RAMFUNC_Private_Functions
-  * @{
   */
 
 /** @defgroup FLASH_RAMFUNC_Group1 外设设备具有从内部RAM执行的功能
@@ -85,7 +82,6 @@
     本小节提供了应从RAM传输执行的一组功能。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -133,21 +129,5 @@ __RAM_FUNC FLASH_FlashSleepModeCmd(FunctionalState NewState) {
         CLEAR_BIT(PWR->CR, PWR_CR_FMSSR);
     }
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

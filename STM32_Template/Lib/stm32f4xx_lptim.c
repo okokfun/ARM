@@ -90,12 +90,10 @@
 
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup LPTIM
   * 简介: LPTIM 驱动模块
-  * @{
   */
 #if defined(STM32F410xx) || defined(STM32F413_423xx)
 /* External variables --------------------------------------------------------*/
@@ -110,7 +108,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup LPTIM_Private_Functions
-  * @{
   */
 
 /** @defgroup LPTIM_Group1 初始化功能
@@ -126,7 +123,6 @@
    - 用默认值初始化LPTIM_InitStruct结构器的成员
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -207,9 +203,6 @@ void LPTIM_StructInit(LPTIM_InitTypeDef* LPTIM_InitStruct) {
     LPTIM_InitStruct->LPTIM_Waveform = LPTIM_Waveform_PWM_OnePulse;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Group2 配置功能
   *  简介   配置功能
@@ -231,7 +224,6 @@ void LPTIM_StructInit(LPTIM_InitTypeDef* LPTIM_InitStruct) {
     - 启用或禁用外设。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -761,9 +753,6 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
     LPTIMx->OR = LPTIM_OPTR;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Group3 中断和标记管理函数
   *  简介    中断和标记管理函数
@@ -792,7 +781,6 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
   - 要清除标志或中断，请使用带有相应标志(中断)的LPTIM_ClearFlag函数。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -944,22 +932,9 @@ ITStatus LPTIM_GetITStatus(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_IT) {
     return bitstatus;
 }
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 #endif /* STM32F410xx || STM32F413_423xx */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 

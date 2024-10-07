@@ -120,12 +120,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup DAC
   * 简介: DAC 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -152,7 +150,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup DAC_Private_Functions
-  * @{
   */
 
 /** @defgroup DAC_Group1 DAC通道配置
@@ -164,7 +161,6 @@
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -175,7 +171,7 @@
   * 返回值: 无
   */
 void DAC_DeInit(void) {
-    /* 启用DAC复位状态 */
+    /* 启用 DAC复位状态 */
     RCC_APB1PeriphResetCmd(RCC_APB1Periph_DAC, ENABLE);
     /* 释放DAC from 复位状态 */
     RCC_APB1PeriphResetCmd(RCC_APB1Periph_DAC, DISABLE);
@@ -465,9 +461,6 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
     /* Returns the DAC channel data output寄存器值 */
     return (uint16_t) (*(__IO uint32_t*) tmp);
 }
-/**
-  * @}
-  */
 
 /** @defgroup DAC_Group2 DMA管理功能
  *  简介   DMA管理功能
@@ -478,7 +471,6 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -514,9 +506,6 @@ void DAC_DMACmd(uint32_t DAC_Channel, FunctionalState NewState) {
         DAC->CR &= (~(DAC_CR_DMAEN1 << DAC_Channel));
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup DAC_Group3 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -527,7 +516,6 @@ void DAC_DMACmd(uint32_t DAC_Channel, FunctionalState NewState) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -688,21 +676,5 @@ void DAC_ClearITPendingBit(uint32_t DAC_Channel, uint32_t DAC_IT) {
     /* 清除 selected DAC interrupt pending 位 */
     DAC->SR = (DAC_IT << DAC_Channel);
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

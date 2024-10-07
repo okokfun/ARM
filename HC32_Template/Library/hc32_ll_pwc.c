@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_PWC PWC
  * @brief Power Control Driver Library
- * @{
  */
 
 #if (LL_PWC_ENABLE == DDL_ON)
@@ -49,7 +47,6 @@
  ******************************************************************************/
 /**
  * @defgroup PWC_Local_Macros PWC Local Macros
- * @{
  */
 
 /* Get the backup register address of PWC */
@@ -92,7 +89,6 @@
 
 /**
  * @defgroup PWC_Check_Parameters_Validity PWC Check Parameters Validity
- * @{
  */
 
 /* Check PWC register lock status. */
@@ -248,13 +244,9 @@
 /* Parameter validity check for WKT Comparision Value. */
 #define IS_PWC_WKT_COMPARISION_VALUE(x)             ((x) <= 0x0FFFU)
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -274,7 +266,6 @@
 
 /**
  * @defgroup PWC_Global_Functions PWC Global Functions
- * @{
  */
 /**
  * @brief  Enter power down mode.
@@ -1227,15 +1218,11 @@ void PWC_WKT_ClearStatus(void) {
     CLR_REG8_BIT(CM_PWC->WKTC2, PWC_WKTC2_WKOVF);
 }
 
-/**
- * @}
- */
+
 
 #endif  /* LL_PWC_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

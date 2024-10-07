@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_DAC DAC
  * @brief DAC Driver Library
- * @{
  */
 
 #if (LL_DAC_ENABLE == DDL_ON)
@@ -49,12 +47,10 @@
  ******************************************************************************/
 /**
  * @defgroup DAC_Local_Macros DAC Local Macros
- * @{
  */
 
 /**
  * @defgroup DAC_Check_Parameters_Validity DAC Check Parameters Validity
- * @{
  */
 #define IS_VALID_UNIT(x)                  (((x) == CM_DAC1) || ((x) == CM_DAC2))
 
@@ -69,13 +65,9 @@
 #define IS_ADP_CTRL_ALLOWED(x)                                                 \
     (   ((x) == DISABLE) ||                                                        \
         ((READ_REG16_BIT(DACx->DACR, DAC_DACR_EXTDSL1) == 0U) && (READ_REG16_BIT(DACx->DACR, DAC_DACR_EXTDSL2) == 0U)))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -95,7 +87,6 @@
 
 /**
  * @defgroup DAC_Global_Functions DAC Global Functions
- * @{
  */
 
 /**
@@ -488,15 +479,11 @@ void DAC_DeInit(CM_DAC_TypeDef *DACx) {
     WRITE_REG32(*u32DADRx, 0x0000UL);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_DAC_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

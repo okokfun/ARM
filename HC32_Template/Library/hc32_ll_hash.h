@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_HASH
- * @{
  */
 
 #if (LL_HASH_ENABLE == DDL_ON)
@@ -56,55 +54,41 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup HASH_Global_Macros HASH Global Macros
- * @{
  */
 
 /**
  * @defgroup HASH_Mode HASH Mode
- * @{
  */
 #define HASH_MD_SHA256              (0x0UL)                     /*!< SHA256 operating mode */
 #define HASH_MD_HMAC                (HASH_CR_MODE_0)            /*!< HMAC operating mode */
-/**
- * @}
- */
+
 
 /**
  * @defgroup HASH_Key_Size_Mode HASH Key Size Mode
- * @{
  */
 #define HASH_KEY_MD_SHORT_SIZE      (0x0UL)                     /*!< Key length <= 64 Bytes */
 #define HASH_KEY_MD_LONG_SIZE       (HASH_CR_LKEY)              /*!< Key length > 64 Bytes */
-/**
- * @}
- */
+
 
 /**
  * @defgroup HASH_Interrupt HASH Interrupt
- * @{
  */
 #define HASH_INT_GRP                (HASH_CR_HEIE)              /*!< A set of data operations complete 中断 */
 #define HASH_INT_ALL_CPLT           (HASH_CR_HCIE)              /*!< All data operations complete 中断 */
 #define HASH_INT_ALL                (HASH_INT_GRP | HASH_INT_ALL_CPLT)
-/**
- * @}
- */
+
 
 /**
  * @defgroup HASH_Msg_Group HASH Messages Group
- * @{
  */
 #define HASH_MSG_GRP_FIRST          (HASH_CR_FST_GRP)           /*!< The first group of messages or keys */
 #define HASH_MSG_GRP_END            (HASH_CR_KMSG_END)          /*!< The last group of messages or keys */
 #define HASH_MSG_GRP_ONLY_ONE       (HASH_CR_FST_GRP | \
                                      HASH_CR_KMSG_END)          /*!< Only one set of message or key */
-/**
- * @}
- */
+
 
 /**
  * @defgroup HASH_Status_Flag HASH Status Flag
- * @{
  */
 #define HASH_FLAG_START             (HASH_CR_START)             /*!< Operation in progress */
 #define HASH_FLAG_BUSY              (HASH_CR_BUSY)              /*!< HASH in operation */
@@ -113,13 +97,10 @@ extern "C"
 #define HASH_FLAG_ALL               (HASH_FLAG_START | HASH_FLAG_BUSY | \
                                      HASH_FLAG_CYC_END | HASH_FLAG_HMAC_END)
 #define HASH_FLAG_CLR_ALL           (HASH_FLAG_CYC_END | HASH_FLAG_HMAC_END)
-/**
- * @}
- */
+
 
 /**
  * @defgroup HASH_Trigger_Event HASH Trigger Event
- * @{
  */
 #define HASH_TRIG_EVT_DMA1_TC0      (EVT_SRC_DMA1_TC0)          /*!< Select the DMA1 ch0 transfer complete*/
 #define HASH_TRIG_EVT_DMA1_TC1      (EVT_SRC_DMA1_TC1)          /*!< Select the DMA1 ch1 transfer complete*/
@@ -154,13 +135,9 @@ extern "C"
 #define HASH_TRIG_EVT_DMA2_BTC5     (EVT_SRC_DMA2_BTC5)         /*!< Select the DMA2 ch5 block transfer complete */
 #define HASH_TRIG_EVT_DMA2_BTC6     (EVT_SRC_DMA2_BTC6)         /*!< Select the DMA2 ch6 block transfer complete */
 #define HASH_TRIG_EVT_DMA2_BTC7     (EVT_SRC_DMA2_BTC7)         /*!< Select the DMA2 ch7 block transfer complete */
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -171,7 +148,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup HASH_Global_Functions
- * @{
  */
 
 int32_t HASH_Calculate(const uint8_t *pu8SrcData, uint32_t u32SrcDataSize, uint8_t *pu8MsgDigest);
@@ -190,19 +166,13 @@ int32_t HASH_SetMsgGroup(uint32_t u32MsgGroup);
 int32_t HASH_Start(void);
 void HASH_GetMsgDigest(uint8_t *pu8MsgDigest);
 
-/**
- * @}
- */
+
 
 #endif /* LL_HASH_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

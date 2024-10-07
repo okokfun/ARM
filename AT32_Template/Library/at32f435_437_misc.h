@@ -35,25 +35,17 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup MISC
-  * @{
   */
 
 /** @defgroup MISC_Vector_Table_Base_Address
-  * @{
   */
 #define NVIC_VECTTAB_RAM                 ((uint32_t)0x20000000) /*!< nvic vector table based ram address */
 #define NVIC_VECTTAB_FLASH               ((uint32_t)0x08000000) /*!< nvic vector table based flash address */
 
-/**
-  * @}
-  */
-
 /** @defgroup MISC_exported_Types
-  * @{
   */
 
 /**
@@ -84,14 +76,8 @@ typedef enum {
     Systick_Clock_Source_AHBCLK_NODIV      = ((uint32_t)0x00000004)  /*!< systick clock source from core clock */
 } Systick_Clock_Source_Type;
 
-/**
-  * @}
-  */
-
 /** @defgroup MISC_exported_functions
-  * @{
   */
-
 void NVIC_System_Reset(void);
 void NVIC_IRQ_Enable(IRQn_Type irqn, uint32_t preempt_priority, uint32_t sub_priority);
 void NVIC_IRQ_Disable(IRQn_Type irqn);
@@ -99,18 +85,6 @@ void NVIC_Priority_Group_Config(NVIC_Priority_Group_Type priority_group);
 void NVIC_Vector_Table_Set(uint32_t base, uint32_t offset);
 void NVIC_LowPower_Mode_Config(NVIC_LowPower_Mode_Type lp_Mode, confirm_state new_state);
 void Systick_Clock_Source_Config(Systick_Clock_Source_Type source);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

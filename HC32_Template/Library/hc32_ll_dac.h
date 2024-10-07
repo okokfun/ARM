@@ -39,12 +39,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_DAC
- * @{
  */
 
 #if (LL_DAC_ENABLE == DDL_ON)
@@ -54,7 +52,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup DAC_Global_Types DAC Global Types
- * @{
  */
 
 /**
@@ -67,9 +64,7 @@ typedef struct {
                                      这个参数是其中之一 @ref en_functional_state_t */
 } stc_dac_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
@@ -77,63 +72,45 @@ typedef struct {
 
 /**
  * @defgroup DAC_Global_Macros DAC Global Macros
- * @{
  */
 
 /**
  * @defgroup DAC_CH DAC channel
- * @{
  */
 #define DAC_CH1                           (0U)
 #define DAC_CH2                           (1U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup DAC_DATA_SRC DAC data source
- * @{
  */
 #define DAC_DATA_SRC_DATAREG               (0U)
 #define DAC_DATA_SRC_DCU                   (DAC_DACR_EXTDSL1)
-/**
- * @}
- */
+
 
 /**
  * @defgroup DAC_DATAREG_ALIGN_PATTERN DAC data register alignment pattern
- * @{
  */
 #define DAC_DATA_ALIGN_LEFT                (DAC_DACR_DPSEL)
 #define DAC_DATA_ALIGN_RIGHT               (0U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup DAC_DATAREG_VALUE_MAX DAC data register value maximum
- * @{
  */
 #define DAC_DATAREG_VALUE_MAX              (4096UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup DAC_ADP_SELECT DAC ADCx priority select
- * @{
  */
 #define DAC_ADP_SEL_ADC1                   (DAC_DAADPCR_ADCSL1)
 #define DAC_ADP_SEL_ADC2                   (DAC_DAADPCR_ADCSL2)
 #define DAC_ADP_SEL_ADC3                   (DAC_DAADPCR_ADCSL3)
 #define DAC_ADP_SEL_ALL   (DAC_DAADPCR_ADCSL1 | DAC_DAADPCR_ADCSL2 | DAC_DAADPCR_ADCSL3)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -144,7 +121,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup DAC_Global_Functions
- * @{
  */
 
 int32_t DAC_StructInit(stc_dac_init_t *pstcDacInit);
@@ -167,19 +143,13 @@ void DAC_SetChData(CM_DAC_TypeDef *DACx, uint16_t u16Ch, uint16_t u16Data);
 void DAC_SetDualChData(CM_DAC_TypeDef *DACx, uint16_t u16Data1, uint16_t u16Data2);
 int32_t DAC_GetChConvertState(const CM_DAC_TypeDef *DACx, uint16_t u16Ch);
 
-/**
- * @}
- */
+
 
 #endif /* LL_DAC_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

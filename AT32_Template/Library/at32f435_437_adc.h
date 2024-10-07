@@ -36,29 +36,21 @@ extern "C" {
 
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup ADC
-  * @{
   */
 
 /** @defgroup ADC_Interrupts_definition
   * @brief adc interrupt
-  * @{
   */
 #define ADC_Occe_INT                     ((uint32_t)0x00000020) /*!< ordinary channels conversion end 中断 */
 #define ADC_VMOR_INT                     ((uint32_t)0x00000040) /*!< voltage monitoring out of range 中断 */
 #define ADC_PCCE_INT                     ((uint32_t)0x00000080) /*!< preempt channels conversion end 中断 */
 #define ADC_OCCO_INT                     ((uint32_t)0x04000000) /*!< ordinary channel conversion overflow 中断 */
 
-/**
-  * @}
-  */
-
 /** @defgroup ADC_flags_definition
   * @brief adc flag
-  * @{
   */
 #define ADC_VMOR_FLAG                    ((uint8_t)0x01) /*!< voltage monitoring out of range flag */
 #define ADC_Occe_FLAG                    ((uint8_t)0x02) /*!< ordinary channels conversion end flag */
@@ -68,12 +60,7 @@ extern "C" {
 #define ADC_OCCO_FLAG                    ((uint8_t)0x20) /*!< ordinary channel conversion overflow flag */
 #define ADC_RDY_FLAG                     ((uint8_t)0x40) /*!< adc ready to conversion flag */
 
-/**
-  * @}
-  */
-
 /** @defgroup ADC_exported_Types
-  * @{
   */
 
 /**
@@ -783,19 +770,13 @@ typedef struct {
         } codt_bit;
     };
 } adccom_Type;
-
-/**
-  * @}
-  */
 #define ADC1                             ((ADC_Type *) ADC1_BASE)
 #define ADC2                             ((ADC_Type *) ADC2_BASE)
 #define ADC3                             ((ADC_Type *) ADC3_BASE)
 #define ADCCOM                           ((adccom_Type *) ADCCOM_BASE)
 
 /** @defgroup ADC_exported_functions
-  * @{
   */
-
 void ADC_Reset(void);
 void ADC_Enable(ADC_Type *ADC_x, confirm_state new_state);
 void ADC_Base_Default_Para_Init(ADC_Base_Config_Type *ADC_Base_struct);
@@ -842,18 +823,6 @@ void ADC_Preempt_OverSample_Enable(ADC_Type *ADC_x, confirm_state new_state);
 void ADC_OverSample_Ratio_Shift_Set(ADC_Type *ADC_x, ADC_OverSample_Ratio_Type ADC_OverSample_ratio, ADC_OverSample_Shift_Type ADC_OverSample_shift);
 void ADC_Ordinary_OverSample_Trig_Enable(ADC_Type *ADC_x, confirm_state new_state);
 void ADC_Ordinary_OverSample_Restart_Set(ADC_Type *ADC_x, ADC_Ordinary_OverSample_Restart_Type ADC_Ordinary_OverSample_restart);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

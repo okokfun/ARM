@@ -30,36 +30,36 @@
 
    (#) 使用RCC_APB2PeriphClockCmd(RCC_AB2Periph_SDIO，Enable)启用外围时钟。
 
-   (#) 根据SDIO模式，使用 RCC_AHB1PeriphClockCmd()函数。
+   (#) 根据SDIO模式，使用 RCC_AHB1PeriphClockCmd() 函数。
        I/O可以是以下配置之一:
        (++) 1位数据长度:SDIO_CMD、SDIO_CK和D0。
        (++) 4位数据长度:SDIO_CMD、SDIO_CK和D[3:0]。
        (++) 8位数据长度:SDIO_CMD、SDIO_CK和D[7:0]。
 
    (#) 外设复用功能:
-       (++) 使用GPIO_PinAFConfig()函数将管脚连接到所需外设设备的复用功能(AF)
+       (++) 使用 GPIO_PinAFConfig() 函数将管脚连接到所需外设设备的复用功能(AF)
        (++) 通过以下方式在复用功能中配置所需引脚:
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
        (++) 通过GPIO_PuPd、GPIO_OType和GPIO_speed成员选择类型、上拉/下拉和输出速度
-       (++) 调用GPIO_Init()函数
+       (++) 调用 GPIO_Init() 函数
 
-   (#) 使用SDIO_Init()函数对时钟边缘、时钟旁路、时钟节能、总线范围、硬件、
+   (#) 使用SDIO_Init() 函数对时钟边缘、时钟旁路、时钟节能、总线范围、硬件、
         流量控制和时钟分配器进行编程。
 
-   (#) 使用SDIO_SetPowerState(SDIO_PowerState_ON)函数启用开机状态。
+   (#) 使用SDIO_SetPowerState(SDIO_PowerState_ON) 函数启用开机状态。
 
-   (#) 使用SDIO_ClockCmd()函数启用时钟。
+   (#) 使用SDIO_ClockCmd() 函数启用时钟。
 
    (#) 如果需要使用中断模式，请使用函数SDIO_ITConfig()启用NVIC和相应的中断。
 
-   (#) 使用DMA模式时:
-        (++)使用DMA_Init()函数配置DMA
-        (++)使用SDIO_DMACmd()函数激活所需的通道请求
+   (#) 使用 DMA 模式时:
+        (++)使用 DMA_Init() 函数配置DMA
+        (++)使用SDIO_DMACmd() 函数激活所需的通道请求
 
-   (#) 使用DMA模式时，使用DMA_Cmd()函数启用DMA。
+   (#) 使用 DMA 模式时，使用 DMA_Cmd() 函数启用 DMA。
 
    (#) 要控制CPSM(命令路径状态机)并向卡发送命令，请使用SDIO_SendCommand()、
-        SDIO_GetCommandResponse()和SDIO_GetResponse()函数。
+        SDIO_GetCommandResponse()和SDIO_GetResponse() 函数。
         首先，用户必须根据要发送的选定命令填充命令结构(指向SDIO_CmdInitTypeDef的指针)。
        应填写的参数包括:
         (++)命令参数
@@ -69,11 +69,11 @@
         (++)CPSM状态(启用或禁用)。
 
        -@@- 要检查命令是否接收良好，请使用SDIO_GetCommandResponse()读取SDIO_CMDRESP寄存器。
-           SDIO响应寄存器(SDIO_RESP1到SDIO_RESP2)使用SDIO_GetResponse()函数。
+           SDIO响应寄存器(SDIO_RESP1到SDIO_RESP2)使用SDIO_GetResponse() 函数。
 
    (#) 要控制DPSM(数据路径状态机)并向/从卡发送/接收数据，请使用SDIO_DataConfig()、
         SDIO_GetDataCounter()、SD IO_ReadData()、S DIO_WriteData()和
-        SDIO_GetFIFOCount()函数。
+        SDIO_GetFIFOCount() 函数。
 
  *** 读取操作 ***
  =======================
@@ -140,12 +140,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup SDIO
   * 简介: SDIO 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -226,7 +224,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup SDIO_Private_Functions
-  * @{
   */
 
 /** @defgroup SDIO_Group1 初始化和配置函数
@@ -238,7 +235,6 @@
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -348,9 +344,6 @@ uint32_t SDIO_GetPowerState(void) {
     return (SDIO->POWER & (~PWR_PWRCTRL_MASK));
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Group2 命令路径状态机(CPSM)管理功能
  *  简介   命令路径状态机(CPSM)管理功能
@@ -363,7 +356,6 @@ uint32_t SDIO_GetPowerState(void) {
   本节提供了允许对命令路径状态机(CPSM)进行编程和读取的功能.
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -453,9 +445,6 @@ uint32_t SDIO_GetResponse(uint32_t SDIO_RESP) {
     return (*(__IO uint32_t *) tmp);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Group3 数据路径状态机(DPSM)管理功能
  *  简介   数据路径状态机(DPSM)管理功能
@@ -468,7 +457,6 @@ uint32_t SDIO_GetResponse(uint32_t SDIO_RESP) {
   本节提供了允许对数据路径状态机(DPSM)进行编程和读取的功能.
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -574,9 +562,6 @@ uint32_t SDIO_GetFIFOCount(void) {
     return SDIO->FIFOCNT;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Group4 SDIO IO卡模式管理功能
  *  简介   SDIO IO卡模式管理功能
@@ -589,7 +574,6 @@ uint32_t SDIO_GetFIFOCount(void) {
   本节提供允许编程和读取SDIO IO卡的功能。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -669,22 +653,18 @@ void SDIO_SendSDIOSuspendCmd(FunctionalState NewState) {
     *(__IO uint32_t *) CMD_SDIOSUSPEND_BB = (uint32_t)NewState;
 }
 
-/**
-  * @}
-  */
 
-/** @defgroup SDIO_Group5 CE-ATA模式管理功能
- *  简介   CE-ATA模式管理功能
+/** @defgroup SDIO_Group5 CE-ATA 模式管理功能
+ *  简介   CE-ATA 模式管理功能
  *
 @verbatim
  ===============================================================================
-                  ##### CE-ATA模式管理功能 #####
+                  ##### CE-ATA 模式管理功能 #####
  ===============================================================================
 
   本节提供了允许对CE-ATA卡进行编程和读取的功能。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -732,9 +712,6 @@ void SDIO_SendCEATACmd(FunctionalState NewState) {
     *(__IO uint32_t *) CMD_ATACMD_BB = (uint32_t)NewState;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Group6 DMA传输管理 functions
  *  简介   DMA传输管理 functions
@@ -747,7 +724,6 @@ void SDIO_SendCEATACmd(FunctionalState NewState) {
   本节提供了允许对SDIO DMA传输进行编程的功能。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -765,9 +741,6 @@ void SDIO_DMACmd(FunctionalState NewState) {
     *(__IO uint32_t *) DCTRL_DMAEN_BB = (uint32_t)NewState;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Group7 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -779,7 +752,6 @@ void SDIO_DMACmd(FunctionalState NewState) {
 
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -979,21 +951,5 @@ void SDIO_ClearITPendingBit(uint32_t SDIO_IT) {
 
     SDIO->ICR = SDIO_IT;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

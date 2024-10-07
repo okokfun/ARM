@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup MISC
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -51,8 +49,8 @@ extern "C" {
   */
 typedef struct {
     uint8_t NVIC_IRQChannel;                    /*!< 指定要启用或禁用的 IRQ 通道。
-                                                该参数可以是@ref IRQn_Type枚举的枚举器
-                                                (完整的STM32 Devices IRQ Channels列表请参考stm32f4xx.h文件) */
+                                                该参数可以是 @ref IRQn_Type枚举的枚举器(完整的
+                                                STM32 Devices IRQ Channels列表请参考stm32f4xx.h文件) */
 
     uint8_t NVIC_IRQChannelPreemptionPriority;  /*!< 指定 NVIC_IRQChannel 中指定的 IRQ 通道的抢占优先级。
                                                 此参数可以是 0 到 15 之间的值，
@@ -71,22 +69,16 @@ typedef struct {
 /* 导出的常量 --------------------------------------------------------*/
 
 /** @defgroup MISC_Exported_Constants
-  * @{
   */
 
 /** @defgroup MISC_Vector_Table_Base
-  * @{
   */
 #define NVIC_VectTab_RAM             ((uint32_t)0x20000000)
 #define NVIC_VectTab_FLASH           ((uint32_t)0x08000000)
 #define IS_NVIC_VECTTAB(VECTTAB) (((VECTTAB) == NVIC_VectTab_RAM) || \
                                   ((VECTTAB) == NVIC_VectTab_FLASH))
-/**
-  * @}
-  */
 
 /** @defgroup MISC_System_Low_Power
-  * @{
   */
 #define NVIC_LP_SEVONPEND            ((uint8_t)0x10)
 #define NVIC_LP_SLEEPDEEP            ((uint8_t)0x04)
@@ -94,12 +86,8 @@ typedef struct {
 #define IS_NVIC_LP(LP) (((LP) == NVIC_LP_SEVONPEND) || \
                         ((LP) == NVIC_LP_SLEEPDEEP) || \
                         ((LP) == NVIC_LP_SLEEPONEXIT))
-/**
-  * @}
-  */
 
 /** @defgroup MISC_Preemption_Priority_Group
-  * @{
   */
 #define NVIC_PriorityGroup_0         ((uint32_t)0x700) /*!< 0 位用于抢占优先级 4 位用于子优先级 */
 #define NVIC_PriorityGroup_1         ((uint32_t)0x600) /*!< 1 位用于抢占优先级 3 位用于子优先级 */
@@ -119,24 +107,14 @@ typedef struct {
 
 #define IS_NVIC_OFFSET(OFFSET)  ((OFFSET) < 0x000FFFFF)
 
-/**
-  * @}
-  */
 
 /** @defgroup MISC_SysTick_clock_source
-  * @{
   */
 #define SysTick_CLKSource_HCLK_Div8    ((uint32_t)0xFFFFFFFB)
 #define SysTick_CLKSource_HCLK         ((uint32_t)0x00000004)
 #define IS_SYSTICK_CLK_SOURCE(SOURCE) (((SOURCE) == SysTick_CLKSource_HCLK) || \
                                        ((SOURCE) == SysTick_CLKSource_HCLK_Div8))
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -162,12 +140,5 @@ void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource);
 
 #endif /* __MISC_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

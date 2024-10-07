@@ -37,7 +37,6 @@ extern "C"
 
 /**
  * @addtogroup LL_Common
- * @{
  */
 
 /*******************************************************************************
@@ -45,7 +44,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup LL_Common_Global_Types LL Common Global Types
- * @{
  */
 
 /**
@@ -78,21 +76,17 @@ typedef enum {
     RESET = 0U,
     SET   = 1U,
 } en_flag_status_t, en_int_status_t;
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup LL_Common_Global_Macros LL Common Global Macros
- * @{
  */
 
 /**
  * @defgroup Compiler_Macros Compiler Macros
- * @{
  */
 #ifndef __UNUSED
 #define __UNUSED                        __attribute__((unused))
@@ -176,13 +170,10 @@ area of a module to a memory space in physical RAM. */
 #else
 #error  "unsupported compiler!!"
 #endif
-/**
- * @}
- */
+
 
 /**
  * @defgroup Extend_Macros Extend Macros
- * @{
  */
 /* Decimal to BCD */
 #define DEC2BCD(x)                      ((((x) / 10U) << 4U) + ((x) % 10U))
@@ -198,13 +189,10 @@ area of a module to a memory space in physical RAM. */
 
 /* Returns the maximum value out of two values */
 #define LL_MAX(x, y)                    ((x) > (y) ? (x) : (y))
-/**
- * @}
- */
+
 
 /**
  * @defgroup Check_Parameters_Validity Check Parameters Validity
- * @{
  */
 
 /* Check Functional State */
@@ -212,35 +200,26 @@ area of a module to a memory space in physical RAM. */
 
 /**
  * @defgroup Check_Address_Align_Validity Check Address Align Validity
- * @{
  */
 #define IS_ADDR_ALIGN(addr, align)      (0UL == (((uint32_t)(addr)) & (((uint32_t)(align)) - 1UL)))
 #define IS_ADDR_ALIGN_HALFWORD(addr)    (0UL == (((uint32_t)(addr)) & 0x1UL))
 #define IS_ADDR_ALIGN_WORD(addr)        (0UL == (((uint32_t)(addr)) & 0x3UL))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /**
  * @defgroup Peripheral_Bit_Band Peripheral Bit Band
- * @{
  */
 #define __PERIPH_BIT_BAND_BASE          (0x42000000UL)
 #define __PERIPH_BASE                   (0x40000000UL)
 #define __REG_OFS(regAddr)              ((regAddr) - __PERIPH_BASE)
 #define __BIT_BAND_ADDR(regAddr, pos)   ((__REG_OFS(regAddr) << 5U) + ((uint32_t)(pos) << 2U) + __PERIPH_BIT_BAND_BASE)
 #define PERIPH_BIT_BAND(regAddr, pos)   (*(__IO uint32_t *)__BIT_BAND_ADDR((regAddr), (pos)))
-/**
- * @}
- */
+
 
 /**
  * @defgroup Generic_Error_Codes Generic Error Codes
- * @{
  */
 #define LL_OK                           (0)   /*!< No error */
 #define LL_ERR                          (-1)  /*!< Non-specific error code */
@@ -253,23 +232,17 @@ area of a module to a memory space in physical RAM. */
 #define LL_ERR_TIMEOUT                  (-8)  /*!< Time Out error occurred (e.g. I2C arbitration lost, Flash time-out, etc.) */
 #define LL_ERR_BUF_EMPTY                (-9)  /*!< Circular buffer can not be read because the buffer is empty */
 #define LL_ERR_BUF_FULL                 (-10) /*!< Circular buffer can not be written because the buffer is full */
-/**
- * @}
- */
+
 
 /**
  * @defgroup Chip_Module_Switch Chip Module Switch
- * @{
  */
 #define DDL_ON                          (1U)
 #define DDL_OFF                         (0U)
-/**
- * @}
- */
+
  
 /**
  * @defgroup Bit_Mask_Macros Bit Mask Macros
- * @{
  */
 #define BIT_MASK_00                     (1UL << 0U)
 #define BIT_MASK_01                     (1UL << 1U)
@@ -303,13 +276,10 @@ area of a module to a memory space in physical RAM. */
 #define BIT_MASK_29                     (1UL << 29U)
 #define BIT_MASK_30                     (1UL << 30U)
 #define BIT_MASK_31                     (1UL << 31U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup Register_Macros Register Macros
- * @{
  */
 #define RW_MEM8(addr)                   (*(volatile uint8_t *)(addr))
 #define RW_MEM16(addr)                  (*(volatile uint16_t *)(addr))
@@ -349,13 +319,9 @@ area of a module to a memory space in physical RAM. */
 #define MODIFY_REG8(REGS, CLRMASK, SETMASK)   (WRITE_REG8((REGS), (((READ_REG8((REGS))) & ((uint8_t)(~((uint8_t)(CLRMASK))))) | ((uint8_t)(SETMASK) & (uint8_t)(CLRMASK)))))
 #define MODIFY_REG16(REGS, CLRMASK, SETMASK)  (WRITE_REG16((REGS), (((READ_REG16((REGS))) & ((uint16_t)(~((uint16_t)(CLRMASK))))) | ((uint16_t)(SETMASK) & (uint16_t)(CLRMASK)))))
 #define MODIFY_REG32(REGS, CLRMASK, SETMASK)  (WRITE_REG32((REGS), (((READ_REG32((REGS))) & ((uint32_t)(~((uint32_t)(CLRMASK))))) | ((uint32_t)(SETMASK) & (uint32_t)(CLRMASK)))))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -365,9 +331,7 @@ area of a module to a memory space in physical RAM. */
  * Global function prototypes (definition in C source)
  ******************************************************************************/
 
-/**
- * @}
- */
+
 
 #ifdef __cplusplus
 }

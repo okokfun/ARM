@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup EDMA
   * @brief EDMA driver modules
-  * @{
   */
 
 #ifdef EDMA_MODULE_EnableD
 
 /** @defgroup EDMA_private_functions
-  * @{
   */
 
 /**
@@ -842,16 +839,4 @@ void eDMAMUX_Generator_Flag_Clear(uint32_t flag) {
     EDMA->muxgclr = flag;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

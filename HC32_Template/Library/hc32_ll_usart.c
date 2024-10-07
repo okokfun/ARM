@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_USART USART
  * @brief USART Driver Library
- * @{
  */
 
 #if (LL_USART_ENABLE == DDL_ON)
@@ -49,17 +47,14 @@
  ******************************************************************************/
 /**
  * @defgroup USART_Local_Macros USART Local Macros
- * @{
  */
 
 /**
  * @defgroup USART_Check_Parameters_Validity USART Check Parameters Validity
- * @{
  */
 
 /**
  * @defgroup USART_Check_Parameters_Validity_Unit USART Check Parameters Validity Unit
- * @{
  */
 #define IS_USART_UNIT(x)                                                       \
     (   ((x) == CM_USART1)                  ||                                     \
@@ -88,9 +83,7 @@
         ((x) == CM_USART6)                  ||                                     \
         ((x) == CM_USART7))
 
-/**
- * @}
- */
+
 
 #define IS_USART_FUNC(x)                                                       \
     (   ((x) != 0UL)                        &&                                     \
@@ -143,20 +136,16 @@
 
 /**
  * @defgroup USART_Check_Parameters_Validity_Hardware_Flow_Control USART Check Parameters Validity Hardware Flow Control
- * @{
  */
 #define IS_USART_HW_FLOWCTRL(x)                                                \
     (   ((x) == USART_HW_FLOWCTRL_NONE)     ||                                     \
         ((x) == USART_HW_FLOWCTRL_CTS)      ||                                     \
         ((x) == USART_HW_FLOWCTRL_RTS)      ||                                     \
         ((x) == USART_HW_FLOWCTRL_RTS_CTS))
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_Check_Parameters_Validity_Smartcard_Clock USART Check Parameters Validity Smartcard Clock
- * @{
  */
 #define IS_USART_SMARTCARD_ETU_CLK(x)                                          \
     (   ((x) == USART_SC_ETU_CLK32)         ||                                     \
@@ -164,37 +153,28 @@
         ((x) == USART_SC_ETU_CLK128)        ||                                     \
         ((x) == USART_SC_ETU_CLK256)        ||                                     \
         ((x) == USART_SC_ETU_CLK372))
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_Check_Parameters_Validity_Stopmode_Filter USART Check Parameters Validity Stopmode Filter
- * @{
  */
 #define IS_USART_STOP_MD_FILTER(x)                                             \
     (   ((x) == USART_STOP_MD_FILTER_LVL1)  ||                                     \
         ((x) == USART_STOP_MD_FILTER_LVL2)  ||                                     \
         ((x) == USART_STOP_MD_FILTER_LVL3)  ||                                     \
         ((x) == USART_STOP_MD_FILTER_LVL4))
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_Check_Parameters_Validity_Timeout_Function USART Check Parameters Validity Timeout Function
- * @{
  */
 #define IS_USART_TIMEOUT_FUNC(x, func)                                         \
     (   IS_USART_TIMEOUT_UNIT(x)            ||                                     \
         ((!IS_USART_TIMEOUT_UNIT(x)) && (((func) & (USART_RX_TIMEOUT | USART_INT_RX_TIMEOUT)) == 0UL)))
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_Check_Parameters_Validity_LIN_Function USART Check Parameters Validity LIN Function
- * @{
  */
 #define IS_USART_LIN_FUNC(x, func)                                             \
     (   IS_USART_LIN_UNIT(x)                ||                                     \
@@ -219,39 +199,28 @@
         ((x) == USART_LIN_SEND_BREAK_11BIT) ||                                     \
         ((x) == USART_LIN_SEND_BREAK_13BIT) ||                                     \
         ((x) == USART_LIN_SEND_BREAK_14BIT))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /**
  * @defgroup USART_Flag_Error_Mask USART Flag Error Mask
- * @{
  */
 #define USART_FLAG_ERR_MASK             (USART_FLAG_OVERRUN     |              \
         USART_FLAG_FRAME_ERR   |              \
         USART_FLAG_PARITY_ERR)
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_Registers_Reset_Value_definition USART Registers Reset Value
- * @{
  */
 #define USART_CR1_RST_VALUE             (0x80000000UL)
 
 #define USART_CR2_RST_VALUE             (0x0600UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_LIN_Function_Mask USART LIN Function Mask
- * @{
  */
 #define USART_LIN_FUNC_OFFSET           (16U)
 
@@ -261,65 +230,46 @@
         USART_LIN_INT_WKUP     |              \
         USART_LIN_INT_BREAK    |              \
         USART_LIN_INT_ERR)
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_Data_Register USART Data Register
- * @{
  */
 #define USART_TXD_ADDR(_UNITx_)         ((uint32_t)(&(_UNITx_)->DR))
 #define USART_RXD_ADDR(_UNITx_)         ((uint32_t)(&(_UNITx_)->DR) + 2UL)
 
 #define USART_TXD(_UNITx_)              ((__IO uint16_t *)USART_TXD_ADDR(_UNITx_))
 #define USART_RXD(_UNITx_)              ((__IO uint16_t *)USART_RXD_ADDR(_UNITx_))
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_Redefine_Bits USART Redefine Bits
- * @{
  */
 #define USART_CR_SCEN                   (0x00000020UL)
 #define USART_CR_FBME                   (0x20000000UL)
 #define USART_BRR_DIV_FRACTION_MASK     (0x0000007FUL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_BRR_Division_Max USART BRR Register Division Max
- * @{
  */
 #define USART_BRR_DIV_INTEGER_MAX       (0xFFUL)
 #define USART_BRR_DIV_FRACTION_MAX      (0x7FUL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_Clock_Division_Max USART Clock Division Max
- * @{
  */
 #define USART_CLK_DIV_MAX               (USART_CLK_DIV64)
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_Default_Baudrate USART Default Baudrate
- * @{
  */
 #define USART_DEFAULT_BAUDRATE          (9600UL)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -339,7 +289,6 @@
 
 /**
  * @defgroup USART_Local_Functions USART Local Functions
- * @{
  */
 /**
  * @brief  Try to wait the expected status of specified flags
@@ -941,13 +890,10 @@ static uint32_t USART_GetLinBmcClockFreq(const CM_USART_TypeDef *USARTx) {
     return u32UsartBmcClock;
 }
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup USART_Global_Functions USART Global Functions
- * @{
  */
 
 /**
@@ -2301,15 +2247,11 @@ int32_t USART_ClockSync_TransReceive(CM_USART_TypeDef *USARTx, const uint8_t au8
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_USART_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

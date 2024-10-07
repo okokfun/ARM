@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup TMR
   * @brief TMR driver modules
-  * @{
   */
 
 #ifdef TMR_MODULE_EnableD
 
 /** @defgroup TMR_private_functions
-  * @{
   */
 
 /**
@@ -1706,16 +1703,4 @@ void TMR_Iremap_Config(TMR_Type *TMR_x, TMR_Input_remap_Type input_remap) {
     }
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

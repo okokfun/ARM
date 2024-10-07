@@ -35,15 +35,12 @@ extern "C" {
 
 
 /** @addtogroup CMSIS
-  * @{
   */
 
 /** @addtogroup AT32F435_437
-  * @{
   */
 
 /** @addtogroup Library_Configuration_section
-  * @{
   */
 
 /**
@@ -141,12 +138,7 @@ defined (AT32F435CCT7) || defined (AT32F435CGT7) || defined (AT32F435CMT7)
         (__AT32F435_437_LIBRARY_VERSION_MINOR << 8)   | \
         (__AT32F435_437_LIBRARY_VERSION_RC))
 
-/**
-  * @}
-  */
-
 /** @addtogroup configuration_section_for_cmsis
-  * @{
   */
 
 /**
@@ -357,16 +349,11 @@ typedef enum IRQn {
 
 } IRQn_Type;
 
-/**
-  * @}
-  */
-
 #include "core_cm4.h"
 #include "system_at32f435_437.h"
 #include <stdint.h>
 
 /** @addtogroup Exported_Types
-  * @{
   */
 
 typedef int32_t  INT32;
@@ -412,12 +399,7 @@ typedef enum {RESET = 0, SET = !RESET} flag_status;
 typedef enum {FALSE = 0, TRUE = !FALSE} confirm_state;
 typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 
-/**
-  * @}
-  */
-
 /** @addtogroup Exported_macro
-  * @{
   */
 #define REG8(addr)                       *(volatile uint8_t *)(addr)
 #define REG16(addr)                      *(volatile uint16_t *)(addr)
@@ -428,12 +410,7 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define PERIPH_REG(periph_base, value)   REG32((periph_base + (value >> 16)))
 #define PERIPH_REG_BIT(value)            (0x1u << (value & 0x1f))
 
-/**
-  * @}
-  */
-
 /** @addtogroup Peripheral_Memory_map
-  * @{
   */
 #define XMC_SDRAM_Mem_BASE               ((uint32_t)0xC0000000)
 #define QSPI2_Mem_BASE                   ((uint32_t)0xB0000000)
@@ -787,18 +764,6 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define EMAC_PTP_BASE                    (EMAC_BASE + 0x0700)
 #define EMAC_DMA_BASE                    (EMAC_BASE + 0x1000)
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #include "at32f435_437_def.h"
 #include "at32f435_437_conf.h"

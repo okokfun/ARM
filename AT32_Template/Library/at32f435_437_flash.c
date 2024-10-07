@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup FLASH
   * @brief FLASH driver modules
-  * @{
   */
 
 #ifdef FLASH_MODULE_EnableD
 
 /** @defgroup FLASH_private_functions
-  * @{
   */
 
 /**
@@ -1091,16 +1088,4 @@ void FLASH_Continue_Read_Enable(confirm_state new_state) {
     FLASH->contr_bit.fcontr_en = new_state;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

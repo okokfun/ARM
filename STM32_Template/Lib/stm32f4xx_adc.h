@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup ADC
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -51,25 +49,25 @@ extern "C" {
   */
 typedef struct {
     uint32_t ADC_Resolution;                /*!< 配置 ADC 分辨率双模式。
-                                               该参数可以是@ref ADC_resolution 的值 */
+                                               该参数可以是 @ref ADC_resolution 的值 */
 
     FunctionalState ADC_ScanConvMode;       /*!< 指定是在扫描(多通道)还是单(单通道)模式下执行转换。
-											                          此参数可设置为 ENABLE 或 DISABLE */
+											                      此参数可设置为 ENABLE 或 DISABLE */
 
     FunctionalState ADC_ContinuousConvMode; /*!< 指定是在连续模式还是单次模式下执行转换。
                                                此参数可以设置为 ENABLE 或 DISABLE。 */
 
     uint32_t ADC_ExternalTrigConvEdge;      /*!< 选择外部触发沿并启用常规组的触发。
-											                        该参数可以是@ref ADC_external_trigger_edge_for_regular_channels_conversion 的值 */
+											                      该参数可以是 @ref ADC_external_trigger_edge_for_regular_channels_conversion 的值 */
 
     uint32_t ADC_ExternalTrigConv;          /*!< 选择用于触发常规组转换开始的外部事件。
                                                此参数可以是 @ref ADC_extrenal_trigger_sources_for_regular_channels_conversion 的值 */
 
     uint32_t ADC_DataAlign;                 /*!< 指定 ADC 数据对齐是左对齐还是右对齐。
-                                              该参数可以是@ref ADC_data_align 的值 */
+                                            该参数可以是 @ref ADC_data_align 的值 */
 
     uint8_t  ADC_NbrOfConversion;           /*!< 指定将使用常规通道组的定序器完成的 ADC 转换次数。
-                                               此参数的范围必须为 1 到 16。 */
+                                            此参数的范围必须为 1 到 16。 */
 } ADC_InitTypeDef;
 
 /**
@@ -77,30 +75,28 @@ typedef struct {
   */
 typedef struct {
     uint32_t ADC_Mode;                      /*!< 将 ADC 配置为在独立模式或多模式下运行。
-											                        该参数可以是@ref ADC_Common_mode 的值 */
+											                      该参数可以是 @ref ADC_Common_mode 的值 */
 
     uint32_t ADC_Prescaler;                 /*!< 选择 ADC 的时钟频率。 时钟对所有 ADC 都是通用的。
-											                        该参数可以是@ref ADC_Prescaler 的值 */
+											                      该参数可以是 @ref ADC_Prescaler 的值 */
 
     uint32_t ADC_DMAAccessMode;             /*!< 为多 ADC 模式配置直接内存访问模式。
-											                        该参数可以是@ref ADC_Direct_memory_access_mode_for_multi_mode 的值 */
+											                      该参数可以是 @ref ADC_Direct_memory_access_mode_for_multi_mode 的值 */
 
     uint32_t ADC_TwoSamplingDelay;          /*!< 配置 2 个采样阶段之间的延迟。
-											                        该参数可以是@ref ADC_delay_between_2_sampling_phases 的值 */
+											                      该参数可以是 @ref ADC_delay_between_2_sampling_phases 的值 */
 } ADC_CommonInitTypeDef;
 
 
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup ADC_Exported_Constants
-  * @{
   */
 #define IS_ADC_ALL_PERIPH(PERIPH) (((PERIPH) == ADC1) || \
                                    ((PERIPH) == ADC2) || \
                                    ((PERIPH) == ADC3))
 
 /** @defgroup ADC_Common_mode
-  * @{
   */
 #define ADC_Mode_Independent                       ((uint32_t)0x00000000)
 #define ADC_DualMode_RegSimult_InjecSimult         ((uint32_t)0x00000001)
@@ -128,13 +124,9 @@ typedef struct {
                            ((MODE) == ADC_TripleMode_RegSimult) || \
                            ((MODE) == ADC_TripleMode_Interl) || \
                            ((MODE) == ADC_TripleMode_AlterTrig))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_Prescaler
-  * @{
   */
 #define ADC_Prescaler_Div2                         ((uint32_t)0x00000000)
 #define ADC_Prescaler_Div4                         ((uint32_t)0x00010000)
@@ -144,13 +136,9 @@ typedef struct {
                                      ((PRESCALER) == ADC_Prescaler_Div4) || \
                                      ((PRESCALER) == ADC_Prescaler_Div6) || \
                                      ((PRESCALER) == ADC_Prescaler_Div8))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_Direct_memory_access_mode_for_multi_mode
-  * @{
   */
 #define ADC_DMAAccessMode_Disabled      ((uint32_t)0x00000000)     /* 禁用 DMA 模式 */
 #define ADC_DMAAccessMode_1             ((uint32_t)0x00004000)     /* 启用 DMA 模式 1(2 / 3 个半字一个接一个 - 1 然后 2 然后 3)*/
@@ -161,13 +149,9 @@ typedef struct {
                                       ((MODE) == ADC_DMAAccessMode_2) || \
                                       ((MODE) == ADC_DMAAccessMode_3))
 
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_delay_between_2_sampling_phases
-  * @{
   */
 #define ADC_TwoSamplingDelay_5Cycles               ((uint32_t)0x00000000)
 #define ADC_TwoSamplingDelay_6Cycles               ((uint32_t)0x00000100)
@@ -202,13 +186,9 @@ typedef struct {
                                       ((DELAY) == ADC_TwoSamplingDelay_19Cycles) || \
                                       ((DELAY) == ADC_TwoSamplingDelay_20Cycles))
 
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_resolution
-  * @{
   */
 #define ADC_Resolution_12b                         ((uint32_t)0x00000000)
 #define ADC_Resolution_10b                         ((uint32_t)0x01000000)
@@ -219,13 +199,9 @@ typedef struct {
                                        ((RESOLUTION) == ADC_Resolution_8b) || \
                                        ((RESOLUTION) == ADC_Resolution_6b))
 
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_external_trigger_edge_for_regular_channels_conversion
-  * @{
   */
 #define ADC_ExternalTrigConvEdge_None          ((uint32_t)0x00000000)
 #define ADC_ExternalTrigConvEdge_Rising        ((uint32_t)0x10000000)
@@ -235,13 +211,9 @@ typedef struct {
                                     ((EDGE) == ADC_ExternalTrigConvEdge_Rising) || \
                                     ((EDGE) == ADC_ExternalTrigConvEdge_Falling) || \
                                     ((EDGE) == ADC_ExternalTrigConvEdge_RisingFalling))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_extrenal_trigger_sources_for_regular_channels_conversion
-  * @{
   */
 #define ADC_ExternalTrigConv_T1_CC1                ((uint32_t)0x00000000)
 #define ADC_ExternalTrigConv_T1_CC2                ((uint32_t)0x01000000)
@@ -275,25 +247,17 @@ typedef struct {
                                   ((REGTRIG) == ADC_ExternalTrigConv_T8_CC1) || \
                                   ((REGTRIG) == ADC_ExternalTrigConv_T8_TRGO) || \
                                   ((REGTRIG) == ADC_ExternalTrigConv_Ext_IT11))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_data_align
-  * @{
   */
 #define ADC_DataAlign_Right                        ((uint32_t)0x00000000)
 #define ADC_DataAlign_Left                         ((uint32_t)0x00000800)
 #define IS_ADC_DATA_ALIGN(ALIGN) (((ALIGN) == ADC_DataAlign_Right) || \
                                   ((ALIGN) == ADC_DataAlign_Left))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_channels
-  * @{
   */
 #define ADC_Channel_0                               ((uint8_t)0x00)
 #define ADC_Channel_1                               ((uint8_t)0x01)
@@ -345,13 +309,9 @@ typedef struct {
                                  ((CHANNEL) == ADC_Channel_16) || \
                                  ((CHANNEL) == ADC_Channel_17) || \
                                  ((CHANNEL) == ADC_Channel_18))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_sampling_times
-  * @{
   */
 #define ADC_SampleTime_3Cycles                    ((uint8_t)0x00)
 #define ADC_SampleTime_15Cycles                   ((uint8_t)0x01)
@@ -369,13 +329,9 @@ typedef struct {
                                   ((TIME) == ADC_SampleTime_112Cycles) || \
                                   ((TIME) == ADC_SampleTime_144Cycles) || \
                                   ((TIME) == ADC_SampleTime_480Cycles))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_external_trigger_edge_for_injected_channels_conversion
-  * @{
   */
 #define ADC_ExternalTrigInjecConvEdge_None          ((uint32_t)0x00000000)
 #define ADC_ExternalTrigInjecConvEdge_Rising        ((uint32_t)0x00100000)
@@ -386,13 +342,9 @@ typedef struct {
         ((EDGE) == ADC_ExternalTrigInjecConvEdge_Falling) || \
         ((EDGE) == ADC_ExternalTrigInjecConvEdge_RisingFalling))
 
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_extrenal_trigger_sources_for_injected_channels_conversion
-  * @{
   */
 #define ADC_ExternalTrigInjecConv_T1_CC4            ((uint32_t)0x00000000)
 #define ADC_ExternalTrigInjecConv_T1_TRGO           ((uint32_t)0x00010000)
@@ -426,13 +378,9 @@ typedef struct {
                                         ((INJTRIG) == ADC_ExternalTrigInjecConv_T8_CC3) || \
                                         ((INJTRIG) == ADC_ExternalTrigInjecConv_T8_CC4) || \
                                         ((INJTRIG) == ADC_ExternalTrigInjecConv_Ext_IT15))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_injected_channel_selection
-  * @{
   */
 #define ADC_InjectedChannel_1                       ((uint8_t)0x14)
 #define ADC_InjectedChannel_2                       ((uint8_t)0x18)
@@ -442,13 +390,9 @@ typedef struct {
         ((CHANNEL) == ADC_InjectedChannel_2) || \
         ((CHANNEL) == ADC_InjectedChannel_3) || \
         ((CHANNEL) == ADC_InjectedChannel_4))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_analog_watchdog_selection
-  * @{
   */
 #define ADC_AnalogWatchdog_SingleRegEnable         ((uint32_t)0x00800200)
 #define ADC_AnalogWatchdog_SingleInjecEnable       ((uint32_t)0x00400200)
@@ -464,13 +408,9 @@ typedef struct {
         ((WATCHDOG) == ADC_AnalogWatchdog_AllInjecEnable) || \
         ((WATCHDOG) == ADC_AnalogWatchdog_AllRegAllInjecEnable) || \
         ((WATCHDOG) == ADC_AnalogWatchdog_None))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_interrupts_definition
-  * @{
   */
 #define ADC_IT_EOC                                 ((uint16_t)0x0205)
 #define ADC_IT_AWD                                 ((uint16_t)0x0106)
@@ -478,13 +418,9 @@ typedef struct {
 #define ADC_IT_OVR                                 ((uint16_t)0x201A)
 #define IS_ADC_IT(IT) (((IT) == ADC_IT_EOC) || ((IT) == ADC_IT_AWD) || \
                        ((IT) == ADC_IT_JEOC)|| ((IT) == ADC_IT_OVR))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_flags_definition
-  * @{
   */
 #define ADC_FLAG_AWD                               ((uint8_t)0x01)
 #define ADC_FLAG_EOC                               ((uint8_t)0x02)
@@ -500,77 +436,43 @@ typedef struct {
                                ((FLAG)== ADC_FLAG_JSTRT) || \
                                ((FLAG) == ADC_FLAG_STRT) || \
                                ((FLAG)== ADC_FLAG_OVR))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_thresholds
-  * @{
   */
 #define IS_ADC_THRESHOLD(THRESHOLD) ((THRESHOLD) <= 0xFFF)
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_injected_offset
-  * @{
   */
 #define IS_ADC_OFFSET(OFFSET) ((OFFSET) <= 0xFFF)
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_injected_length
-  * @{
   */
 #define IS_ADC_INJECTED_LENGTH(LENGTH) (((LENGTH) >= 0x1) && ((LENGTH) <= 0x4))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_injected_rank
-  * @{
   */
 #define IS_ADC_INJECTED_RANK(RANK) (((RANK) >= 0x1) && ((RANK) <= 0x4))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_regular_length
-  * @{
   */
 #define IS_ADC_REGULAR_LENGTH(LENGTH) (((LENGTH) >= 0x1) && ((LENGTH) <= 0x10))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_regular_rank
-  * @{
   */
 #define IS_ADC_REGULAR_RANK(RANK) (((RANK) >= 0x1) && ((RANK) <= 0x10))
-/**
-  * @}
-  */
 
 
 /** @defgroup ADC_regular_discontinuous_mode_number
-  * @{
   */
 #define IS_ADC_REGULAR_DISC_NUMBER(NUMBER) (((NUMBER) >= 0x1) && ((NUMBER) <= 0x8))
-/**
-  * @}
-  */
 
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -635,12 +537,5 @@ void ADC_ClearITPendingBit(ADC_TypeDef* ADCx, uint16_t ADC_IT); // 清除 ADCx �
 
 #endif /*__STM32F4xx_ADC_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

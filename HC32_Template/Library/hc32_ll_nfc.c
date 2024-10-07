@@ -28,19 +28,16 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_EXMC EXMC
  * @brief External Memory Controller Driver Library
- * @{
  */
 
 /**
  * @defgroup LL_NFC NFC
  * @brief NAND Flash Controller Driver Library
- * @{
  */
 
 #if (LL_NFC_ENABLE == DDL_ON)
@@ -54,12 +51,10 @@
  ******************************************************************************/
 /**
  * @defgroup EXMC_NFC_Local_Macros EXMC_NFC Local Macros
- * @{
  */
 
 /**
  * @defgroup EXMC_NFC_Check_Parameters_Validity EXMC_NFC Check Parameters Validity
- * @{
  */
 
 #define IS_EXMC_NFC_BANK(x)                 ((x) <= EXMC_NFC_BANK7)
@@ -140,13 +135,10 @@
 #define IS_EXMC_NFC_PAGE(page, capacity_index)  ((page) <= NFC_PAGE_MAX((capacity_index)))
 
 #define IS_PARAM_ALIGN_WORD(x)              (IS_ADDR_ALIGN_WORD((x)))
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Interrupt_Mask EXMC_NFC Interrupt Mask
- * @{
  */
 #define EXMC_NFC_INT_MASK                                                      \
     (   EXMC_NFC_INT_RB_BANK0                   |                                  \
@@ -161,13 +153,10 @@
         EXMC_NFC_INT_ECC_CALC_COMPLETION        |                                  \
         EXMC_NFC_INT_ECC_CORRECTABLE_ERR        |                                  \
         EXMC_NFC_INT_ECC_UNCORRECTABLE_ERR)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Flag_Mask EXMC_NFC Flag Mask
- * @{
  */
 #define EXMC_NFC_FLAG_MASK                                                     \
     (   EXMC_NFC_FLAG_RB_BANK0                  |                                  \
@@ -183,13 +172,10 @@
         EXMC_NFC_FLAG_ECC_CALC_COMPLETION       |                                  \
         EXMC_NFC_FLAG_ECC_CORRECTABLE_ERR       |                                  \
         EXMC_NFC_FLAG_ECC_UNCORRECTABLE_ERR)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Memory_Capacity_Index EXMC_NFC Memory Capacity Index
- * @{
  */
 #define NFC_CAPACITY_INDEX_512MBIT          (0UL)
 #define NFC_CAPACITY_INDEX_1GBIT            (1UL)
@@ -199,13 +185,10 @@
 #define NFC_CAPACITY_INDEX_16GBIT           (5UL)
 #define NFC_CAPACITY_INDEX_32GBIT           (6UL)
 #define NFC_CAPACITY_INDEX_64GBIT           (7UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Command_Regster_Value EXMC_NFC Command Regster Value
- * @{
  */
 /*!< Command value */
 #define NFC_CMD_VALUE(arg, bank, cmd)       ((arg) | ((bank) << 8U) | (cmd))
@@ -257,20 +240,15 @@
 #define CMD_ADDR_2ND_CYCLE(bank, ras)       (NFC_ADDR_VALUE((bank), (((ras) & 0xFF00UL) >> 8UL)))
 #define CMD_ADDR_3RD_CYCLE(bank, ras)       (NFC_ADDR_VALUE((bank), (((ras) & 0xFF0000UL) >> 16UL)))
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_IDXR_Bit_Position EXMC_NFC IDXR Bit Position
- * @{
  */
 #define EXMC_NFC_IDXR_COL_POS               (0U)
 #define EXMC_NFC_IDXR_2KPAGE_POS            (12U)
 #define EXMC_NFC_IDXR_512MBIT_BANK_POS      (27U)
-/**
- * @}
- */
+
 
 /*!< NFC BACR regsiter: page field value */
 #define NFC_BACR_PAGE_VAL                   ((uint8_t)((READ_REG32_BIT(CM_NFC->BACR, NFC_BACR_PAGE) >> NFC_BACR_PAGE_POS) & 0x3UL))
@@ -298,7 +276,6 @@
 
 /**
  * @defgroup EXMC_NFC_ECC_Reference EXMC_NFC ECC Reference
- * @{
  */
 /*!< NFC_SYND_REG for 32bit */
 #define NFC_SYND_REG32(sect, reg)           (*((__IO uint32_t *)((uint32_t)(&(CM_NFC->ECC_SYND0_0)) + (((uint32_t)(sect)) << 4UL) + (((uint32_t)(reg)) << 2UL))))
@@ -314,14 +291,11 @@
 
 /*!< NFC 1Bit ECC Error Byte Position */
 #define NFC_1BIT_ECC_ERR_BYTE_POS           (3U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_IDXR_Register_Reference EXMC_NFC IDXR Register Reference
  * @note capacity_index @ref EXMC_NFC_Memory_Capacity_Index
- * @{
  */
 /*!< IDX register value for 64bit */
 #define NFC_IDXR_VAL(bank, page, col, capacity_index)                          \
@@ -331,13 +305,9 @@
 
 /*!< IDX register mask for 64bit */
 #define NFC_IDXR_MASK                       (0x1FFFFFFFFFULL)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -357,7 +327,6 @@
 
 /**
  * @defgroup EXMC_NFC_Local_Functions EXMC_NFC Local Functions
- * @{
  */
 
 /**
@@ -627,13 +596,10 @@ static int32_t EXMC_NFC_Write(uint32_t u32Bank, uint32_t u32Page, uint32_t u32Co
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Global_Functions EXMC_NFC Global Functions
- * @{
  */
 
 /**
@@ -1778,23 +1744,17 @@ int32_t EXMC_NFC_WritePageHwEcc(uint32_t u32Bank, uint32_t u32Page,
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_NFC_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}
 */
 
-/**
- * @}
- */
+
 
 /******************************************************************************
  * EOF (not truncated)

@@ -26,11 +26,9 @@
   */
 
 /** @addtogroup CMSIS
-  * @{
   */
 
 /** @addtogroup stm32f4xx_system
-  * @{
   */
 
 /**
@@ -44,50 +42,30 @@ extern "C" {
 #endif
 
 /** @addtogroup STM32F4xx_System_Includes
-  * @{
   */
 
-/**
-  * @}
-  */
 
 
 /** @addtogroup STM32F4xx_System_Exported_types
-  * @{
   */
 
 extern uint32_t SystemCoreClock;          /*!< 系统时钟频率(核心时钟) */
 
 
-/**
-  * @}
-  */
 
 /** @addtogroup STM32F4xx_System_Exported_Constants
-  * @{
   */
 
-/**
-  * @}
-  */
 
 /** @addtogroup STM32F4xx_System_Exported_Macros
-  * @{
   */
 
-/**
-  * @}
-  */
 
 /** @addtogroup STM32F4xx_System_Exported_Functions
-  * @{
   */
 
 extern void SystemInit(void);
 extern void SystemCoreClockUpdate(void);
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }
@@ -95,11 +73,4 @@ extern void SystemCoreClockUpdate(void);
 
 #endif /*__SYSTEM_STM32F4XX_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

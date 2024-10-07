@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_TMR0
- * @{
  */
 
 #if (LL_TMR0_ENABLE == DDL_ON)
@@ -53,7 +51,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup TMR0_Global_Types TMR0 Global Types
- * @{
  */
 
 /**
@@ -71,44 +68,34 @@ typedef struct {
                                              这个参数是其中之一 half-word */
 } stc_tmr0_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup TMR0_Global_Macros TMR0 Global Macros
- * @{
  */
 
 /**
  * @defgroup TMR0_Channel TMR0 Channel
- * @{
  */
 #define TMR0_CH_A                       (0UL)
 #define TMR0_CH_B                       (1UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR0_Clock_Source TMR0 Clock Source
  * @note In asynchronous clock, continuous operation of the BCONR register requires waiting for 3 asynchronous clocks.
- * @{
  */
 #define TMR0_CLK_SRC_INTERN_CLK         (0UL)                                       /*!< Internal clock (Synchronous clock)  */
 #define TMR0_CLK_SRC_SPEC_EVT           (TMR0_BCONR_SYNCLKA)                        /*!< Specified event (Synchronous clock) */
 #define TMR0_CLK_SRC_LRC                (TMR0_BCONR_SYNSA)                          /*!< LRC (Asynchronous clock)            */
 #define TMR0_CLK_SRC_XTAL32             (TMR0_BCONR_ASYNCLKA | TMR0_BCONR_SYNSA)    /*!< XTAL32 (Asynchronous clock)         */
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR0_Clock_Division TMR0 Clock Division
- * @{
  */
 #define TMR0_CLK_DIV1                   (0UL  << TMR0_BCONR_CKDIVA_POS)     /*!< CLK      */
 #define TMR0_CLK_DIV2                   (1UL  << TMR0_BCONR_CKDIVA_POS)     /*!< CLK/2    */
@@ -121,45 +108,32 @@ typedef struct {
 #define TMR0_CLK_DIV256                 (8UL  << TMR0_BCONR_CKDIVA_POS)     /*!< CLK/256  */
 #define TMR0_CLK_DIV512                 (9UL  << TMR0_BCONR_CKDIVA_POS)     /*!< CLK/512  */
 #define TMR0_CLK_DIV1024                (10UL << TMR0_BCONR_CKDIVA_POS)     /*!< CLK/1024 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR0_Function TMR0 Function
- * @{
  */
 #define TMR0_FUNC_CMP                   (0UL)                                   /*!< Output comare function */
 #define TMR0_FUNC_CAPT                  (TMR0_BCONR_CAPMDA | TMR0_BCONR_HICPA)  /*!< Input capture function */
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR0_Interrupt TMR0 Interrupt
- * @{
  */
 #define TMR0_INT_CMP_A                  (TMR0_BCONR_INTENA)
 #define TMR0_INT_CMP_B                  (TMR0_BCONR_INTENB)
 #define TMR0_INT_ALL                    (TMR0_INT_CMP_A | TMR0_INT_CMP_B)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR0_FLAG TMR0 Flag
- * @{
  */
 #define TMR0_FLAG_CMP_A                 (TMR0_STFLR_CMFA)
 #define TMR0_FLAG_CMP_B                 (TMR0_STFLR_CMFB)
 #define TMR0_FLAG_ALL                   (TMR0_FLAG_CMP_A | TMR0_FLAG_CMP_B)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -170,7 +144,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup TMR0_Global_Functions
- * @{
  */
 
 /* Initialization functions */
@@ -200,19 +173,13 @@ void TMR0_IntCmd(CM_TMR0_TypeDef *TMR0x, uint32_t u32IntType, en_functional_stat
 en_flag_status_t TMR0_GetStatus(const CM_TMR0_TypeDef *TMR0x, uint32_t u32Flag);
 void TMR0_ClearStatus(CM_TMR0_TypeDef *TMR0x, uint32_t u32Flag);
 
-/**
- * @}
- */
+
 
 #endif /* LL_TMR0_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

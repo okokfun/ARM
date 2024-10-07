@@ -35,11 +35,9 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup I2C
-  * @{
   */
 
 /**
@@ -49,7 +47,6 @@ extern "C" {
 
 /** @defgroup I2C_Interrupts_definition
   * @brief i2c interrupt
-  * @{
   */
 #define I2C_TD_INT                       ((uint32_t)0x00000002) /*!< i2c transmit data 中断 */
 #define I2C_RD_INT                       ((uint32_t)0x00000004) /*!< i2c receive data 中断 */
@@ -59,13 +56,8 @@ extern "C" {
 #define I2C_TDC_INT                      ((uint32_t)0x00000040) /*!< i2c transmit data complete 中断 */
 #define I2C_ERR_INT                      ((uint32_t)0x00000080) /*!< i2c bus error 中断 */
 
-/**
-  * @}
-  */
-
 /** @defgroup I2C_flags_definition
   * @brief i2c flag
-  * @{
   */
 #define  I2C_TDBE_FLAG                   ((uint32_t)0x00000001) /*!< i2c transmit data buffer empty flag */
 #define  I2C_TDIS_FLAG                   ((uint32_t)0x00000002) /*!< i2c send interrupt status */
@@ -84,12 +76,7 @@ extern "C" {
 #define  I2C_BUSYF_FLAG                  ((uint32_t)0x00008000) /*!< i2c bus busy flag transmission mode */
 #define  I2C_SDIR_FLAG                   ((uint32_t)0x00010000) /*!< i2c slave data transmit direction */
 
-/**
-  * @}
-  */
-
 /** @defgroup I2C_exported_Types
-  * @{
   */
 
 /**
@@ -370,18 +357,12 @@ typedef struct {
     };
 
 } I2C_Type;
-
-/**
-  * @}
-  */
 #define I2C1                             ((I2C_Type *) I2C1_BASE)
 #define I2C2                             ((I2C_Type *) I2C2_BASE)
 #define I2C3                             ((I2C_Type *) I2C3_BASE)
 
 /** @defgroup I2C_exported_functions
-  * @{
   */
-
 void I2C_Reset(I2C_Type *I2C_x);
 void I2C_Init(I2C_Type *I2C_x, uint8_t dfilters, uint32_t clk);
 void I2C_Own_Address1_Set(I2C_Type *I2C_x, I2C_Address_Mode_Type mode, uint16_t address);
@@ -422,18 +403,6 @@ void I2C_Data_Send(I2C_Type *I2C_x, uint8_t data);
 uint8_t I2C_Data_Receive(I2C_Type *I2C_x);
 flag_status I2C_Flag_Get(I2C_Type *I2C_x, uint32_t flag);
 void I2C_Flag_Clear(I2C_Type *I2C_x, uint32_t flag);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

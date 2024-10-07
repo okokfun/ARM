@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_FMAC FMAC
  * @brief FMAC Driver Library
- * @{
  */
 
 #if (LL_FMAC_ENABLE == DDL_ON)
@@ -47,12 +45,10 @@
  ******************************************************************************/
 /**
  * @defgroup FMAC_Local_Macros FMAC Local Macros
- * @{
  */
 
 /**
  * @defgroup FMAC_Check_Parameters_Validity FMAC Check Parameters Validity
- * @{
  */
 #define IS_FMAC_FIR_SHIFT(x)                    ((x) <= FMAC_FIR_SHIFT_21BIT)
 
@@ -67,13 +63,9 @@
         ((x) == CM_FMAC2)                           ||                              \
         ((x) == CM_FMAC3)                           ||                              \
         ((x) == CM_FMAC4))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -92,7 +84,6 @@
  ******************************************************************************/
 /**
  * @defgroup FMAC_Global_Functions FMAC Global Functions
- * @{
  */
 
 /**
@@ -328,15 +319,11 @@ int32_t FMAC_GetResult(const CM_FMAC_TypeDef *FMACx, stc_fmac_result_t *pstcResu
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_FMAC_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

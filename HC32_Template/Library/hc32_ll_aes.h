@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_AES
- * @{
  */
 
 #if (LL_AES_ENABLE == DDL_ON)
@@ -56,22 +54,16 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup AES_Global_Macros AES Global Macros
- * @{
  */
 
 /**
  * @defgroup AES_Key_Size AES Key Size
- * @{
  */
 #define AES_KEY_SIZE_16BYTE                 (16U)
 #define AES_KEY_SIZE_24BYTE                 (24U)
 #define AES_KEY_SIZE_32BYTE                 (32U)
-/**
- * @}
- */
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -82,7 +74,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup AES_Global_Functions
- * @{
  */
 int32_t AES_Encrypt(const uint8_t *pu8Plaintext, uint32_t u32PlaintextSize,
                     const uint8_t *pu8Key, uint8_t u8KeySize,
@@ -91,19 +82,13 @@ int32_t AES_Encrypt(const uint8_t *pu8Plaintext, uint32_t u32PlaintextSize,
 int32_t AES_Decrypt(const uint8_t *pu8Ciphertext, uint32_t u32CiphertextSize,
                     const uint8_t *pu8Key, uint8_t u8KeySize,
                     uint8_t *pu8Plaintext);
-/**
- * @}
- */
+
 
 #endif /* LL_AES_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

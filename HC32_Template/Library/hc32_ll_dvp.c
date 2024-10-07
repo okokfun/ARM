@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_DVP DVP
  * @brief Digital Video Processor Driver Library
- * @{
  */
 
 #if (LL_DVP_ENABLE == DDL_ON)
@@ -47,12 +45,10 @@
  ******************************************************************************/
 /**
  * @defgroup DVP_Local_Macros DVP Local Macros
- * @{
  */
 
 /**
  * @defgroup DVP_Check_Parameters_Validity DVP Check Parameters Validity
- * @{
  */
 
 #define IS_DVP_CAPT_MD(x)                                                      \
@@ -101,13 +97,9 @@
 #define IS_DVP_CROP_WIN_ROW_LINE_SIZE(x)        (((x) >= 0x04U) && ((x) <= 0x3FFFU))
 
 #define IS_DVP_CROP_WIN_COLOUM_LINE_SIZE(x)     ((x) <= 0x3FFFU)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -126,7 +118,6 @@
  ******************************************************************************/
 /**
  * @defgroup DVP_Global_Functions DVP Global Functions
- * @{
  */
 
 /**
@@ -394,15 +385,11 @@ int32_t DVP_CropWindowConfig(const stc_dvp_crop_window_config_t *pstcConfig) {
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_DVP_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

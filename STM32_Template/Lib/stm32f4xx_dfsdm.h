@@ -38,11 +38,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup DFSDM
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -52,31 +50,31 @@ extern "C" {
   */
 typedef struct {
     uint32_t DFSDM_Interface;                 /*!< 选择串行接口类型和输入时钟相位。
-											该参数可以是@ref DFSDM_Interface_Selection 的值 */
+				                        							该参数可以是 @ref DFSDM_Interface_Selection 的值 */
 
     uint32_t DFSDM_Clock;                     /*!< 指定串行接口收发器的时钟源。
-											该参数可以是@ref DFSDM_Clock_Selection 的值 */
+                                              该参数可以是 @ref DFSDM_Clock_Selection 的值 */
 
     uint32_t DFSDM_Input;                     /*!< 指定串行接口收发器的输入模式。
-											该参数可以是@ref DFSDM_Input_Selection 的值 */
+                                              该参数可以是 @ref DFSDM_Input_Selection 的值 */
 
     uint32_t DFSDM_Redirection;               /*!< 指定通道输入是否从通道通道 (y+1) 重定向。
-该参数可以是@ref DFSDM_Redirection_Selection 的值 */
+                                              该参数可以是 @ref DFSDM_Redirection_Selection 的值 */
 
     uint32_t DFSDM_PackingMode;               /*!< 指定串行接口收发器的打包模式。
-											此参数可以是 @ref DFSDM_Pack_Selection 的值 */
+                                              此参数可以是 @ref DFSDM_Pack_Selection 的值 */
 
     uint32_t DFSDM_DataRightShift;            /*!< 定义最终数据右位移。
-											此参数可以是 0 到 31 之间的值 */
+                                              此参数可以是 0 到 31 之间的值 */
 
     uint32_t DFSDM_Offset;                    /*!< 设置校准偏移。
-											此参数可以是 0 到 0xFFFFFF 之间的值 */
+                                              此参数可以是 0 到 0xFFFFFF 之间的值 */
 
     uint32_t DFSDM_CLKAbsenceDetector;        /*!< 启用或禁用时钟缺失检测器。
-											该参数可以是@ref DFSDM_Clock_Absence_Detector_state 的值 */
+                                              该参数可以是 @ref DFSDM_Clock_Absence_Detector_state 的值 */
 
     uint32_t DFSDM_ShortCircuitDetector;      /*!< 启用或禁用短路检测器。
-											该参数可以是@ref DFSDM_Short_Circuit_Detector_state 的值 */
+                                              该参数可以是 @ref DFSDM_Short_Circuit_Detector_state 的值 */
 } DFSDM_TransceiverInitTypeDef;
 
 /**
@@ -84,18 +82,17 @@ typedef struct {
   */
 typedef struct {
     uint32_t DFSDM_SincOrder;                  /*!< 设置 Sinc 滤波器顺序。
-											 该参数可以是@ref DFSDM_Sinc_Order 的值*/
+                                               该参数可以是 @ref DFSDM_Sinc_Order 的值*/
 
     uint32_t DFSDM_FilterOversamplingRatio;    /*!< 设置 Sinc 滤波器过采样率。
-											 此参数可以是 1 到 1024 之间的值 */
+                                               此参数可以是 1 到 1024 之间的值 */
 
     uint32_t DFSDM_IntegratorOversamplingRatio;/*!< 设置积分器过采样率。
-											 此参数可以是 1 到 256 之间的值 */
+                                               此参数可以是 1 到 256 之间的值 */
 } DFSDM_FilterInitTypeDef;
 
 /* Exported constants --------------------------------------------------------*/
 /** @defgroup DFSDM_Interface_Selection
-  * @{
   */
 #define DFSDM_Interface_SPI_RisingEdge   ((uint32_t)0x00000000)  /*!<  带有上升沿的 DFSDM SPI 接口以选通数据 */
 #define DFSDM_Interface_SPI_FallingEdge  ((uint32_t)0x00000001)  /*!<  DFSDM SPI 接口，带有用于选通数据的下降沿 */
@@ -106,12 +103,8 @@ typedef struct {
         ((INTERFACE) == DFSDM_Interface_SPI_FallingEdge) || \
         ((INTERFACE) == DFSDM_Interface_Manchester1)     || \
         ((INTERFACE) == DFSDM_Interface_Manchester2))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Clock_Selection
-  * @{
   */
 #define DFSDM_Clock_External             ((uint32_t)0x00000000)  /*!<  来自外部 DFSDM_CKINy 输入的 DFSDM 时钟 */
 #define DFSDM_Clock_Internal             ((uint32_t)0x00000004)  /*!<  DFSDM 时钟来自内部 DFSDM_CKOUT 输出 */
@@ -124,12 +117,8 @@ typedef struct {
         ((CLOCK) == DFSDM_Clock_Internal)           || \
         ((CLOCK) == DFSDM_Clock_InternalDiv2_Mode1) || \
         ((CLOCK) == DFSDM_Clock_InternalDiv2_Mode2))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Input_Selection
-  * @{
   */
 #define DFSDM_Input_External     ((uint32_t)0x00000000)  /*!<  来自外部 DFSDM_CKINy 输入的 DFSDM 时钟 */
 #define DFSDM_Input_ADC          ((uint32_t)0x00001000)  /*!<  DFSDM 时钟来自内部 DFSDM_CKOUT 输出 */
@@ -139,24 +128,16 @@ typedef struct {
 #define IS_DFSDM_Input_MODE(INPUT)      (((INPUT) == DFSDM_Input_External) || \
         ((INPUT) == DFSDM_Input_ADC)      || \
         ((INPUT) == DFSDM_Input_Internal))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Redirection_Selection
-  * @{
   */
 #define DFSDM_Redirection_Disabled       ((uint32_t)0x00000000)  /*!< DFSDM 通道串行输入取自同一通道 y 的引脚 */
 #define DFSDM_Redirection_Enabled         DFSDM_CHCFGR1_CHINSEL  /*!< DFSDM 通道串行输入取自通道 (y+1) 模 8 的引脚 */
 
 #define IS_DFSDM_Redirection_STATE(STATE)      (((STATE) == DFSDM_Redirection_Disabled) || \
         ((STATE) == DFSDM_Redirection_Enabled))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Pack_Selection
-  * @{
   */
 #define DFSDM_PackingMode_Standard     ((uint32_t)0x00000000)  /*!<  DFSDM_CHDATINyR 寄存器中的 DFSDM 输入数据仅存储在 INDAT0[15:0] */
 #define DFSDM_PackingMode_Interleaved  ((uint32_t)0x00004000)  /*!<  DFSDM_CHDATINyR 寄存器中的 DFSDM 输入数据存储为两个样本:
@@ -169,36 +150,24 @@ typedef struct {
 #define IS_DFSDM_PACK_MODE(MODE)        (((MODE) == DFSDM_PackingMode_Standard)    || \
         ((MODE) == DFSDM_PackingMode_Interleaved) || \
         ((MODE) == DFSDM_PackingMode_Dual))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Clock_Absence_Detector_state
-  * @{
   */
 #define DFSDM_CLKAbsenceDetector_Enable     DFSDM_CHCFGR1_CKABEN    /*!<  DFSDM 时钟缺失检测器已启用 */
 #define DFSDM_CLKAbsenceDetector_Disable    ((uint32_t)0x00000000)  /*!<  DFSDM 时钟缺失检测器已禁用 */
 
 #define IS_DFSDM_CLK_DETECTOR_STATE(STATE)  (((STATE) == DFSDM_CLKAbsenceDetector_Enable) || \
         ((STATE) == DFSDM_CLKAbsenceDetector_Disable))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Short_Circuit_Detector_state
-  * @{
   */
 #define DFSDM_ShortCircuitDetector_Enable   DFSDM_CHCFGR1_SCDEN     /*!<  DFSDM 短路检测器已启用 */
 #define DFSDM_ShortCircuitDetector_Disable  ((uint32_t)0x00000000)  /*!<  DFSDM 短路检测器已禁用 */
 
 #define IS_DFSDM_SC_DETECTOR_STATE(STATE)  (((STATE) == DFSDM_ShortCircuitDetector_Enable) || \
         ((STATE) == DFSDM_ShortCircuitDetector_Disable))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Sinc_Order
-  * @{
   */
 #define DFSDM_SincOrder_FastSinc        ((uint32_t)0x00000000)  /*!<  DFSDM Sinc filter order = Fast sinc */
 #define DFSDM_SincOrder_Sinc1           ((uint32_t)0x20000000)  /*!<  DFSDM Sinc filter order = 1 */
@@ -213,12 +182,8 @@ typedef struct {
         ((ORDER) == DFSDM_SincOrder_Sinc3)     || \
         ((ORDER) == DFSDM_SincOrder_Sinc4)     || \
         ((ORDER) == DFSDM_SincOrder_Sinc5))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Break_Signal_Assignment
-  * @{
   */
 #define DFSDM_SCDBreak_0                 ((uint32_t)0x00001000)  /*!<  DFSDM Break 0 信号分配给短路检测器 */
 #define DFSDM_SCDBreak_1                 ((uint32_t)0x00002000)  /*!<  DFSDM Break 1 信号分配给短路检测器 */
@@ -229,12 +194,8 @@ typedef struct {
         ((RANK) == DFSDM_SCDBreak_1)  || \
         ((RANK) == DFSDM_SCDBreak_2)  || \
         ((RANK) == DFSDM_SCDBreak_3))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_AWD_Sinc_Order
-  * @{
   */
 #define DFSDM_AWDSincOrder_Fast            ((uint32_t)0x00000000)  /*!<  DFSDM Fast sinc filter */
 #define DFSDM_AWDSincOrder_Sinc1           ((uint32_t)0x00400000)  /*!<  DFSDM sinc1 filter */
@@ -245,12 +206,8 @@ typedef struct {
         ((ORDER) == DFSDM_AWDSincOrder_Sinc1) || \
         ((ORDER) == DFSDM_AWDSincOrder_Sinc2) || \
         ((ORDER) == DFSDM_AWDSincOrder_Sinc3))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_AWD_CHANNEL
-  * @{
   */
 #define DFSDM_AWDChannel0               ((uint32_t)0x00010000)  /*!<  DFSDM AWDx 保护通道 0 */
 #define DFSDM_AWDChannel1               ((uint32_t)0x00020000)  /*!<  DFSDM AWDx 保护通道 1 */
@@ -269,60 +226,40 @@ typedef struct {
         ((CHANNEL) == DFSDM_AWDChannel5) || \
         ((CHANNEL) == DFSDM_AWDChannel6) || \
         ((CHANNEL) == DFSDM_AWDChannel7))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Threshold_Selection
-  * @{
   */
 #define DFSDM_Threshold_Low               ((uint8_t)0x00)  /*!<  DFSDM 低阈值 */
 #define DFSDM_Threshold_High              ((uint8_t)0x08)  /*!<  DFSDM 高阈值 */
 
 #define IS_DFSDM_Threshold(THR)          (((THR) == DFSDM_Threshold_Low) || \
         ((THR) == DFSDM_Threshold_High))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_AWD_Fast_Mode_Selection
-  * @{
   */
 #define DFSDM_AWDFastMode_Disable         ((uint32_t)0x00000000)  /*!<  AWD 的 DFSDM 快速模式已禁用 */
 #define DFSDM_AWDFastMode_Enable          ((uint32_t)0x40000000)  /*!<  AWD 的 DFSDM 快速模式已启用 */
 
 #define IS_DFSDM_AWD_MODE(MODE)          (((MODE) == DFSDM_AWDFastMode_Disable) || \
         ((MODE) == DFSDM_AWDFastMode_Enable))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Clock_Output_Source_Selection
-  * @{
   */
 #define DFSDM_ClkOutSource_SysClock        ((uint32_t)0x00000000)  /*!<  DFSDM 输出时钟源来自系统时钟 */
 #define DFSDM_ClkOutSource_AudioClock      DFSDM_CHCFGR1_CKOUTSRC  /*!<  DFSDM 输出时钟源来自音频时钟 */
 
 #define IS_DFSDM_CLOCK_OUT_SOURCE(SRC)    (((SRC) == DFSDM_ClkOutSource_SysClock) || \
         ((SRC) == DFSDM_ClkOutSource_AudioClock))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Conversion_Mode
-  * @{
   */
 #define DFSDM_DMAConversionMode_Regular     ((uint32_t)0x00000010)  /*!<  DFSDM 常规模式 */
 #define DFSDM_DMAConversionMode_Injected    ((uint32_t)0x00000000)  /*!<  DFSDM 注入模式 */
 
 #define IS_DFSDM_CONVERSION_MODE(MODE)    (((MODE) == DFSDM_DMAConversionMode_Regular) || \
         ((MODE) == DFSDM_DMAConversionMode_Injected))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Extremes_Channel_Selection
-  * @{
   */
 #define DFSDM_ExtremChannel0              ((uint32_t)0x00000100)  /*!<  DFSDM Extreme 探测器保护通道 0 */
 #define DFSDM_ExtremChannel1              ((uint32_t)0x00000200)  /*!<  DFSDM Extreme 探测器保护通道 1 */
@@ -341,12 +278,8 @@ typedef struct {
         ((CHANNEL) == DFSDM_ExtremChannel5) || \
         ((CHANNEL) == DFSDM_ExtremChannel6) || \
         ((CHANNEL) == DFSDM_ExtremChannel7))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Injected_Channel_Selection
-  * @{
   */
 #define DFSDM_InjectedChannel0            ((uint32_t)0x00000001)  /*!<  DFSDM 通道 0 被选为注入通道 */
 #define DFSDM_InjectedChannel1            ((uint32_t)0x00000002)  /*!<  DFSDM 通道 1 被选为注入通道 */
@@ -365,12 +298,8 @@ typedef struct {
         ((CHANNEL) == DFSDM_InjectedChannel5) || \
         ((CHANNEL) == DFSDM_InjectedChannel6) || \
         ((CHANNEL) == DFSDM_InjectedChannel7))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Regular_Channel_Selection
-  * @{
   */
 #define DFSDM_RegularChannel0             ((uint32_t)0x00000000)  /*!<  DFSDM 通道 0 被选为常规通道 */
 #define DFSDM_RegularChannel1             ((uint32_t)0x01000000)  /*!<  DFSDM 通道 1 被选为常规通道 */
@@ -389,12 +318,8 @@ typedef struct {
         ((CHANNEL) == DFSDM_RegularChannel5) || \
         ((CHANNEL) == DFSDM_RegularChannel6) || \
         ((CHANNEL) == DFSDM_RegularChannel7))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Injected_Trigger_signal
-  * @{
   */
 #define DFSDM_Trigger_TIM1_TRGO          ((uint32_t)0x00000000)  /*!<  DFSDM 内部触发 0 */
 #define DFSDM_Trigger_TIM1_TRGO2         ((uint32_t)0x00000100)  /*!<  DFSDM 内部触发 1 */
@@ -421,12 +346,8 @@ typedef struct {
         ((TRIG) == DFSDM_Trigger_EXTI11))
 
 #define IS_DFSDM1_INJ_TRIGGER(TRIG)      IS_DFSDM0_INJ_TRIGGER(TRIG)
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Trigger_Edge_selection
-  * @{
   */
 #define DFSDM_TriggerEdge_Disabled        ((uint32_t)0x00000000)  /*!<  DFSDM 触发检测已禁用 */
 #define DFSDM_TriggerEdge_Rising          ((uint32_t)0x00002000)  /*!<  DFSDM 每个上升沿都请求启动注入转换 */
@@ -437,24 +358,16 @@ typedef struct {
         ((EDGE) == DFSDM_TriggerEdge_Rising) || \
         ((EDGE) == DFSDM_TriggerEdge_Falling) || \
         ((EDGE) == DFSDM_TriggerEdge_BothEdges))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Injected_Conversion_Mode_Selection
-  * @{
   */
 #define DFSDM_InjectConvMode_Single        ((uint32_t)0x00000000)  /*!<  DFSDM 触发检测已禁用 */
 #define DFSDM_InjectConvMode_Scan          ((uint32_t)0x00000010)  /*!<  DFSDM 每个上升沿都请求启动注入转换 */
 
 #define IS_DFSDM_INJ_CONV_MODE(MODE)      (((MODE) == DFSDM_InjectConvMode_Single) || \
         ((MODE) == DFSDM_InjectConvMode_Scan))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Interrupts_Definition
-  * @{
   */
 #define DFSDM_IT_JEOC                            DFSDM_FLTCR2_JEOCIE
 #define DFSDM_IT_REOC                            DFSDM_FLTCR2_REOCIE
@@ -471,12 +384,8 @@ typedef struct {
         ((IT) == DFSDM_IT_AWD)  || \
         ((IT) == DFSDM_IT_SCD)  || \
         ((IT) == DFSDM_IT_CKAB))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Flag_Definition
-  * @{
   */
 #define DFSDM_FLAG_JEOC                          DFSDM_FLTISR_JEOCF
 #define DFSDM_FLAG_REOC                          DFSDM_FLTISR_REOCF
@@ -493,12 +402,8 @@ typedef struct {
         ((FLAG) == DFSDM_FLAG_AWD)  || \
         ((FLAG) == DFSDM_FLAG_JCIP) || \
         ((FLAG) == DFSDM_FLAG_RCIP))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Clock_Absence_Flag_Definition
-  * @{
   */
 #define DFSDM_FLAG_CLKAbsence_Channel0           ((uint32_t)0x00010000)
 #define DFSDM_FLAG_CLKAbsence_Channel1           ((uint32_t)0x00020000)
@@ -517,12 +422,8 @@ typedef struct {
         ((FLAG) == DFSDM_FLAG_CLKAbsence_Channel5) || \
         ((FLAG) == DFSDM_FLAG_CLKAbsence_Channel6) || \
         ((FLAG) == DFSDM_FLAG_CLKAbsence_Channel7))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_SCD_Flag_Definition
-  * @{
   */
 #define DFSDM_FLAG_SCD_Channel0                  ((uint32_t)0x01000000)
 #define DFSDM_FLAG_SCD_Channel1                  ((uint32_t)0x02000000)
@@ -541,24 +442,16 @@ typedef struct {
         ((FLAG) == DFSDM_FLAG_SCD_Channel5) || \
         ((FLAG) == DFSDM_FLAG_SCD_Channel6) || \
         ((FLAG) == DFSDM_FLAG_SCD_Channel7))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Clear_Flag_Definition
-  * @{
   */
 #define DFSDM_CLEARF_JOVR                          DFSDM_FLTICR_CLRJOVRF
 #define DFSDM_CLEARF_ROVR                          DFSDM_FLTICR_CLRROVRF
 
 #define IS_DFSDM_CLEAR_FLAG(FLAG)                (((FLAG) == DFSDM_CLEARF_JOVR) || \
         ((FLAG) == DFSDM_CLEARF_ROVR))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Clear_ClockAbs_Flag_Definition
-  * @{
   */
 #define DFSDM_CLEARF_CLKAbsence_Channel0           ((uint32_t)0x00010000)
 #define DFSDM_CLEARF_CLKAbsence_Channel1           ((uint32_t)0x00020000)
@@ -577,12 +470,8 @@ typedef struct {
         ((FLAG) == DFSDM_CLEARF_CLKAbsence_Channel5) || \
         ((FLAG) == DFSDM_CLEARF_CLKAbsence_Channel6) || \
         ((FLAG) == DFSDM_CLEARF_CLKAbsence_Channel7))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Clear_Short_Circuit_Flag_Definition
-  * @{
   */
 #define DFSDM_CLEARF_SCD_Channel0           ((uint32_t)0x01000000)
 #define DFSDM_CLEARF_SCD_Channel1           ((uint32_t)0x02000000)
@@ -601,12 +490,8 @@ typedef struct {
         ((FLAG) == DFSDM_CLEARF_SCD_Channel5) || \
         ((FLAG) == DFSDM_CLEARF_SCD_Channel6) || \
         ((FLAG) == DFSDM_CLEARF_SCD_Channel7))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_Clock_Absence_Interrupt_Definition
-  * @{
   */
 #define DFSDM_IT_CLKAbsence_Channel0           ((uint32_t)0x00010000)
 #define DFSDM_IT_CLKAbsence_Channel1           ((uint32_t)0x00020000)
@@ -625,12 +510,8 @@ typedef struct {
         ((IT) == DFSDM_IT_CLKAbsence_Channel5) || \
         ((IT) == DFSDM_IT_CLKAbsence_Channel6) || \
         ((IT) == DFSDM_IT_CLKAbsence_Channel7))
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_SCD_Interrupt_Definition
-  * @{
   */
 #define DFSDM_IT_SCD_Channel0                  ((uint32_t)0x01000000)
 #define DFSDM_IT_SCD_Channel1                  ((uint32_t)0x02000000)
@@ -649,9 +530,6 @@ typedef struct {
         ((IT) == DFSDM_IT_SCD_Channel5) || \
         ((IT) == DFSDM_IT_SCD_Channel6) || \
         ((IT) == DFSDM_IT_SCD_Channel7))
-/**
-  * @}
-  */
 #define IS_DFSDM_DATA_RIGHT_BIT_SHIFT(SHIFT)  ((SHIFT) < 0x20 )
 
 #define IS_DFSDM_OFFSET(OFFSET)               ((OFFSET) < 0x01000000 )
@@ -711,9 +589,6 @@ typedef struct {
 
 #define IS_DFSDM_HIGH_THRESHOLD(VALUE)      ((VALUE) < 0x1000000)
 #define IS_DFSDM_LOW_THRESHOLD(VALUE)       ((VALUE) < 0x1000000)
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
@@ -727,9 +602,9 @@ void DFSDM_FilterStructInit(DFSDM_FilterInitTypeDef* DFSDM_FilterInitStruct); //
 
 /* 配置功能 ****************************************************/
 #if defined(STM32F412xG)
-void DFSDM_Command(FunctionalState NewState); // 启用或停用DFSDM外设。
+void DFSDM_Command(FunctionalState NewState); // 启用或停用 DFSDM外设。
 #else /* STM32F413_423xx */
-void DFSDM_Cmd(uint32_t Instance, FunctionalState NewState); // 启用或禁用DFSDM 外设.
+void DFSDM_Cmd(uint32_t Instance, FunctionalState NewState); // 启用或禁用 DFSDM 外设.
 #endif /* STM32F412xG */
 void DFSDM_ChannelCmd(DFSDM_Channel_TypeDef* DFSDM_Channelx, FunctionalState NewState); // 启用或禁用指定的DFSDM串行通道x。
 void DFSDM_FilterCmd(DFSDM_Filter_TypeDef* DFSDMx, FunctionalState NewState); // 启用或禁用指定的 DFSDMx 过滤器。
@@ -766,7 +641,7 @@ int32_t DFSDM_GetMinValue(DFSDM_Filter_TypeDef* DFSDMx); // 返回由DFSDMx转�
 int32_t DFSDM_GetMaxValueChannel(DFSDM_Filter_TypeDef* DFSDMx); // 返回DFSDMx在其上捕获最高转换数据的通道数。
 int32_t DFSDM_GetMinValueChannel(DFSDM_Filter_TypeDef* DFSDMx); // 返回DFSDMx在其上捕获最低转换数据的通道数。
 uint32_t DFSDM_GetConversionTime(DFSDM_Filter_TypeDef* DFSDMx); // 返回DFSDMx的转换时间(以28位计时器为单位)。
-void DFSDM_DMATransferConfig(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_DMAConversionMode, FunctionalState NewState); // 启用或禁用DMA以读取所选滤波器DFSDMx的注入信道组的数据。
+void DFSDM_DMATransferConfig(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_DMAConversionMode, FunctionalState NewState); // 启用或禁用 DMA以读取所选滤波器DFSDMx的注入信道组的数据。
 /* 中断和标志管理功能 **********************************/
 void DFSDM_ITConfig(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_IT, FunctionalState NewState); // 启用或禁用指定的DFSDMx中断。
 #if defined(STM32F412xG)
@@ -814,12 +689,5 @@ ITStatus DFSDM_GetShortCircuitITStatus(uint32_t Instance, uint32_t DFSDM_IT_SCR)
 
 #endif /*__STM32F4XX_DFSDM_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

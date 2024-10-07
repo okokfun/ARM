@@ -30,41 +30,21 @@ extern "C" {
 #endif
 
 /** @addtogroup CMSIS
-  * @{
   */
 
 /** @addtogroup AT32F435_437_system
-  * @{
   */
 #define SystemCoreClock                  system_Core_clock
 
 /** @defgroup AT32F435_437_System_exported_variables
-  * @{
   */
 extern unsigned int system_Core_clock; /*!< 系统时钟频率(核心时钟) */
 
-/**
-  * @}
-  */
-
 /** @defgroup AT32F435_437_System_exported_functions
-  * @{
   */
 
 extern void SystemInit(void);
 extern void system_Core_Clock_Update(void);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

@@ -36,12 +36,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup FMC
   * 简介: FMC 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -80,7 +78,6 @@ const FMC_NORSRAMTimingInitTypeDef FMC_DefaultTimingStruct = {0x0F, /* FMC_Addre
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup FMC_Private_Functions
-  * @{
   */
 
 /** @defgroup FMC_Group1 NOR/SRAM控制器功能
@@ -118,7 +115,6 @@ const FMC_NORSRAMTimingInitTypeDef FMC_DefaultTimingStruct = {0x0F, /* FMC_Addre
    (#) 在这个阶段，你可以从/到连接到NOR/SRAM库的内存中读/写。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -317,9 +313,6 @@ void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
         FMC_Bank1->BTCR[FMC_Bank] &= BCR_MBKEN_RESET;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup FMC_Group2 NAND 控制器功能
   * 简介:     NAND 控制器功能
@@ -361,7 +354,6 @@ void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
       ECCval = FMC_GetECC(FMC_Bank3_NAND)。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -610,9 +602,6 @@ uint32_t FMC_GetECC(uint32_t FMC_Bank) {
     /* 返回纠错码值 */
     return(eccval);
 }
-/**
-  * @}
-  */
 
 /** @defgroup FMC_Group3 PCCARD控制器功能
   * 简介:     PCCARD控制器功能
@@ -647,7 +636,6 @@ uint32_t FMC_GetECC(uint32_t FMC_Bank) {
   (#) 在这个阶段，你可以从/到连接到PCCARD Bank的存储器中读/写。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -804,9 +792,6 @@ void FMC_PCCARDCmd(FunctionalState NewState) {
     }
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup FMC_Group4  SDRAM控制器功能
   * 简介:     SDRAM控制器功能
@@ -844,7 +829,6 @@ void FMC_PCCARDCmd(FunctionalState NewState) {
   (#) 在这个阶段，SDRAM内存已经准备好接受任何有效的命令。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1125,9 +1109,6 @@ void FMC_SDRAMWriteProtectionConfig(uint32_t SDRAM_Bank, FunctionalState NewStat
 
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup FMC_Group5  中断和标记管理函数
   * 简介:     中断和标记管理函数
@@ -1138,7 +1119,6 @@ void FMC_SDRAMWriteProtectionConfig(uint32_t SDRAM_Bank, FunctionalState NewStat
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1400,21 +1380,5 @@ void FMC_ClearITPendingBit(uint32_t FMC_Bank, uint32_t FMC_IT) {
         FMC_Bank5_6->SDRTR |= FMC_SDRTR_CRE;
     }
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

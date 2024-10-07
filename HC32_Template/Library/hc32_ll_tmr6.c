@@ -30,13 +30,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_TMR6 TMR6
  * @brief TMR6 Driver Library
- * @{
  */
 
 #if (LL_TMR6_ENABLE == DDL_ON)
@@ -50,7 +48,6 @@
  ******************************************************************************/
 /**
  * @defgroup TMR6_Local_Macros TMR6 Local Macros
- * @{
  */
 
 /* Timer6 registers reset value */
@@ -79,7 +76,6 @@
 
 /**
  * @defgroup TMR6_Check_Param_Validity TMR6 Check Parameters Validity
- * @{
  */
 
 /*! Parameter valid check for normal timer6 unit */
@@ -351,13 +347,9 @@
         ((x) == CM_TMR6_6)                          ||                             \
         ((x) == CM_TMR6_7)                          ||                             \
         ((x) == CM_TMR6_8))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -377,7 +369,6 @@
 
 /**
  * @defgroup TMR6_Global_Functions TMR6 Global Functions
- * @{
  */
 
 /**
@@ -1867,15 +1858,11 @@ int32_t TMR6_PWM_StructInit(stc_tmr6_pwm_init_t *pstcPwmInit) {
 
     return i32Ret;
 }
-/**
- * @}
- */
+
 
 #endif /* LL_TMR6_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

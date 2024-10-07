@@ -28,13 +28,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_ADC ADC
  * @brief Analog-to-Digital Converter Driver Library
- * @{
  */
 
 #if (LL_ADC_ENABLE == DDL_ON)
@@ -48,31 +46,23 @@
  ******************************************************************************/
 /**
  * @defgroup ADC_Local_Macros ADC Local Macros
- * @{
  */
 /**
  * @defgroup ADC_PGA_En ADC PGA Function Control
- * @{
  */
 #define ADC_PGA_DISABLE                 (0x0U)
 #define ADC_PGA_ENABLE                  (0xEU)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ADC_AWD_DR_CHSR ADC AWD DR CHSR
- * @{
  */
 #define ADC_AWDx_DR(awd, reg_base)      (*(__IO uint16_t *)((uint32_t)(reg_base) + ((uint32_t)(awd) * 8U)))
 #define ADC_AWDx_CHSR(awd, reg_base)    (*(__IO uint8_t *)((uint32_t)(reg_base) + ((uint32_t)(awd) * 8U)))
-/**
- * @}
- */
+
 
 /**
  * @defgroup ADC_Channel_Max ADC Channel Max
- * @{
  */
 #define ADC1_CH_MAX                     (ADC_CH15)
 #define ADC2_CH_MAX                     (ADC_CH15)
@@ -80,13 +70,10 @@
 #define ADC_REMAP_CH_MAX                (ADC_CH15)
 #define ADC_REMAP_PIN_MAX               (ADC12_PIN_PC5)
 #define ADC_SSTR_NUM                    (16U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup ADC_Check_Parameters_Validity ADC check parameters validity
- * @{
  */
 #define IS_ADC_1BIT_MASK(x)             (((x) != 0U) && (((x) & ((x) - 1U)) == 0U))
 #define IS_ADC_BIT_MASK(x, mask)        (((x) != 0U) && (((x) | (mask)) == (mask)))
@@ -193,13 +180,9 @@
     (   (((adc) == CM_ADC1) && ((pga) <= ADC_PGA3))         ||                     \
         (((adc) == CM_ADC2) && ((pga) == ADC_PGA4)))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -218,7 +201,6 @@
  ******************************************************************************/
 /**
  * @defgroup ADC_Global_Functions ADC Global Functions
- * @{
  */
 
 /**
@@ -1112,15 +1094,11 @@ void ADC_SetSeqAResumeMode(CM_ADC_TypeDef *ADCx, uint16_t u16SeqAResumeMode) {
     WRITE_REG16(ADCx->CR1, u16SeqAResumeMode);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_ADC_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

@@ -26,13 +26,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_MAU MAU
  * @brief MAU Driver Library
- * @{
  */
 
 #if (LL_MAU_ENABLE == DDL_ON)
@@ -46,23 +44,17 @@
  ******************************************************************************/
 /**
  * @defgroup MAU_Local_Macros MAU Local Macros
- * @{
  */
 
 /**
  * @defgroup MAU_Check_Parameters_Validity MAU Check Parameters Validity
- * @{
  */
 #define IS_VALID_UNIT(x)            ((x) == CM_MAU)
 #define IS_LSHBIT_NUM(x)            ((x) <= MAU_SQRT_OUTPUT_LSHIFT_MAX)
 #define IS_ANGLE_IDX(x)             ((x) < MAU_SIN_ANGIDX_TOTAL)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -82,7 +74,6 @@
 
 /**
  * @defgroup MAU_Global_Functions MAU Global Functions
- * @{
  */
 
 /**
@@ -248,15 +239,11 @@ int16_t MAU_Sin(CM_MAU_TypeDef *MAUx, uint16_t u16AngleIdx) {
     return (int16_t)READ_REG16(MAUx->RTR1);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_MAU_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

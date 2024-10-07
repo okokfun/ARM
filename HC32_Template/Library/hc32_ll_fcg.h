@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_FCG
- * @{
  */
 
 #if (LL_FCG_ENABLE == DDL_ON)
@@ -55,11 +53,9 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup FCG_Global_Macros FCG Global Macros
- * @{
  */
 /**
  * @defgroup FCG_FCG0_Peripheral FCG FCG0 peripheral
- * @{
  */
 #define FCG0_PERIPH_SRAMH               (PWC_FCG0_SRAMH)
 #define FCG0_PERIPH_SRAM1               (PWC_FCG0_SRAM1)
@@ -86,13 +82,10 @@ extern "C"
 #define FCG0_PERIPH_DCU6                (PWC_FCG0_DCU6)
 #define FCG0_PERIPH_DCU7                (PWC_FCG0_DCU7)
 #define FCG0_PERIPH_DCU8                (PWC_FCG0_DCU8)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCG_FCG1_Peripheral FCG FCG1 peripheral
- * @{
  */
 #define FCG1_PERIPH_CAN1                (PWC_FCG1_CAN1)
 #define FCG1_PERIPH_CAN2                (PWC_FCG1_CAN2)
@@ -122,13 +115,10 @@ extern "C"
 #define FCG1_PERIPH_FMAC2               (PWC_FCG1_FMAC2)
 #define FCG1_PERIPH_FMAC3               (PWC_FCG1_FMAC3)
 #define FCG1_PERIPH_FMAC4               (PWC_FCG1_FMAC4)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCG_FCG2_Peripheral FCG FCG2 peripheral
- * @{
  */
 #define FCG2_PERIPH_TMR6_1              (PWC_FCG2_TMR6_1)
 #define FCG2_PERIPH_TMR6_2              (PWC_FCG2_TMR6_2)
@@ -161,13 +151,10 @@ extern "C"
 #define FCG2_PERIPH_TMRA_10             (PWC_FCG2_TMRA_10)
 #define FCG2_PERIPH_TMRA_11             (PWC_FCG2_TMRA_11)
 #define FCG2_PERIPH_TMRA_12             (PWC_FCG2_TMRA_12)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCG_FCG3_Peripheral FCG FCG3 peripheral
- * @{
  */
 #define FCG3_PERIPH_ADC1                (PWC_FCG3_ADC1)
 #define FCG3_PERIPH_ADC2                (PWC_FCG3_ADC2)
@@ -192,25 +179,18 @@ extern "C"
 #define FCG3_PERIPH_USART8              (PWC_FCG3_USART8)
 #define FCG3_PERIPH_USART9              (PWC_FCG3_USART9)
 #define FCG3_PERIPH_USART10             (PWC_FCG3_USART10)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCG_FCGx_Peripheral_Mask FCG FCGx Peripheral Mask
- * @{
  */
 #define FCG_FCG0_PERIPH_MASK            (0xFFFFE4F1UL)
 #define FCG_FCG1_PERIPH_MASK            (0x0FFFFFFFUL)
 #define FCG_FCG2_PERIPH_MASK            (0xFFFFBFFFUL)
 #define FCG_FCG3_PERIPH_MASK            (0x3FF7933FUL)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -221,7 +201,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup FCG_Global_Functions
- * @{
  */
 
 void FCG_Fcg0PeriphClockCmd(uint32_t u32Fcg0Periph, en_functional_state_t enNewState);
@@ -230,19 +209,13 @@ void FCG_Fcg1PeriphClockCmd(uint32_t u32Fcg1Periph, en_functional_state_t enNewS
 void FCG_Fcg2PeriphClockCmd(uint32_t u32Fcg2Periph, en_functional_state_t enNewState);
 void FCG_Fcg3PeriphClockCmd(uint32_t u32Fcg3Periph, en_functional_state_t enNewState);
 
-/**
- * @}
- */
+
 
 #endif /* LL_FCG_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

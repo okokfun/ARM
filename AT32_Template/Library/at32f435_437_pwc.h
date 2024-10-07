@@ -35,24 +35,17 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup PWC
-  * @{
   */
 
 /** @defgroup PWC_flags_definition
   * @brief pwc flag
-  * @{
   */
 #define PWC_WakeUp_FLAG                  ((uint32_t)0x00000001) /*!< wakeup flag */
 #define PWC_Standby_FLAG                 ((uint32_t)0x00000002) /*!< standby flag */
 #define PWC_PVM_OutPut_FLAG              ((uint32_t)0x00000004) /*!< pvm output flag */
-
-/**
-  * @}
-  */
 
 /**
   * @brief pwc wakeup pin num definition
@@ -74,7 +67,6 @@ extern "C" {
 #define PWC_Ldo_OutPut_Voltage_Set(val)  (PWC->ldoov_bit.ldoovsel = val)
 
 /** @defgroup PWC_exported_Types
-  * @{
   */
 
 /**
@@ -175,16 +167,10 @@ typedef struct {
     };
 
 } PWC_Type;
-
-/**
-  * @}
-  */
 #define PWC                              ((PWC_Type *) PWC_BASE)
 
 /** @defgroup PWC_exported_functions
-  * @{
   */
-
 void PWC_Reset(void);
 void PWC_Battery_Powered_Domain_Access(confirm_state new_state);
 void PWC_PVM_level_Select(PWC_PVM_Voltage_Type pvm_voltage);
@@ -196,18 +182,6 @@ void PWC_Sleep_Mode_Enter(PWC_Sleep_Enter_Type PWC_Sleep_Enter);
 void PWC_Deep_Sleep_Mode_Enter(PWC_Deep_Sleep_Enter_Type PWC_Deep_Sleep_Enter);
 void PWC_Voltage_Regulate_Set(PWC_regulator_Type PWC_regulator);
 void PWC_Standby_Mode_Enter(void);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

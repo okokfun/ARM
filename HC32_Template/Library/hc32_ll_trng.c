@@ -28,13 +28,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_TRNG TRNG
  * @brief TRNG Driver Library
- * @{
  */
 
 #if (LL_TRNG_ENABLE == DDL_ON)
@@ -48,13 +46,11 @@
  ******************************************************************************/
 /**
  * @defgroup TRNG_Local_Macros TRNG Local Macros
- * @{
  */
 #define TRNG_TIMEOUT                        (20000UL)
 
 /**
  * @defgroup TRNG_Check_Parameters_Validity TRNG Check Parameters Validity
- * @{
  */
 #define IS_TRNG_SHIFT_CNT(x)                                                   \
     (   ((x) == TRNG_SHIFT_CNT32)                   ||                             \
@@ -66,13 +62,9 @@
     (   ((x) == TRNG_RELOAD_INIT_VAL_ENABLE)        ||                             \
         ((x) == TRNG_RELOAD_INIT_VAL_DISABLE))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -91,7 +83,6 @@
  ******************************************************************************/
 /**
  * @defgroup TRNG_Global_Functions TRNG Global Functions
- * @{
  */
 
 /**
@@ -206,15 +197,11 @@ int32_t TRNG_GetRandom(uint32_t *pu32Random, uint8_t u8RandomLen) {
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_TRNG_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

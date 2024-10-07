@@ -43,18 +43,15 @@
 #include "stm32f4xx_dsi.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 /** @addtogroup DSI
   * 简介: DSI 驱动模块
-  * @{
   */
 #if defined(STM32F469_479xx)
 
 /* Private types -------------------------------------------------------------*/
 /* 私有宏s -----------------------------------------------------------*/
 /** @addtogroup DSI_Private_Constants
-  * @{
   */
 #define DSI_TIMEOUT_VALUE ((uint32_t)1000)  /* 1s */
 
@@ -73,9 +70,6 @@
 #define DSI_ERROR_GEN_MASK (DSI_ISR1_GCWRE | DSI_ISR1_GPWRE | DSI_ISR1_GPTXE | DSI_ISR1_GPRDE | DSI_ISR1_GPRXE)
 
 #define DSI_MAX_RETURN_PKT_SIZE ((uint32_t)0x00000037) /*!< Maximum return packet 配置*/
-/**
-  * @}
-  */
 
 /* 私有变量 ---------------------------------------------------------*/
 /* Private constants ---------------------------------------------------------*/
@@ -85,7 +79,6 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx, uint32_t ChannelID, uint32
 /* 私有函数 ---------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 /** @addtogroup DSI_Exported_Functions
-  * @{
   */
 
 /** @defgroup DSI_Group1 初始化和配置函数
@@ -100,7 +93,6 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx, uint32_t ChannelID, uint32
       (+) 解除对DSI的初始化
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -161,7 +153,7 @@ void DSI_Init(DSI_TypeDef *DSIx, DSI_InitTypeDef* DSI_InitStruct, DSI_PLLInitTyp
     assert_param(IS_DSI_AUTO_CLKLANE_CONTROL(DSI_InitStruct->AutomaticClockLaneControl));
     assert_param(IS_DSI_NUMBER_OF_LANES(DSI_InitStruct->NumberOfLanes));
 
-    /**************** 打开调节器并启用DSI PLL ****************/
+    /**************** 打开调节器并启用 DSI PLL ****************/
 
     /* 启用监管者 */
     DSIx->WRPCR |= DSI_WRPCR_REGEN;
@@ -529,7 +521,7 @@ void DSI_ConfigCommand(DSI_TypeDef *DSIx, DSI_LPCmdTypeDef *LPCmd) {
   * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
   * 
   * 参数:  FlowControl: 要启用的流量控制功能。
-  *                      此参数可以是@ref DSI_FlowControl的任意组合。
+  *                      此参数可以是 @ref DSI_FlowControl的任意组合。
   * 
   * 返回值: 无
   */
@@ -672,7 +664,7 @@ void DSI_Refresh(DSI_TypeDef *DSIx) {
   * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
   * 
   * 参数:  ColorMode: 颜色模式(全色或8色)。
-  *                    此参数可以是@ref DSI_Color_Mode的任何值
+  *                    此参数可以是 @ref DSI_Color_Mode的任何值
   * 
   * 返回值: 无
   */
@@ -691,7 +683,7 @@ void DSI_ColorMode(DSI_TypeDef *DSIx, uint32_t ColorMode) {
   * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
   * 
   * 参数:  Shutdown: 关闭(显示器打开或显示器关闭)。
-  *                   此参数可以是@ref DSI_ShutDown的任何值
+  *                   此参数可以是 @ref DSI_ShutDown的任何值
   * 
   * 返回值: 无
   */
@@ -704,9 +696,6 @@ void DSI_Shutdown(DSI_TypeDef *DSIx, uint32_t Shutdown) {
     DSIx->WCR |= Shutdown;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup 数据传输管理功能
  *  简介    DSI 数据传输管理功能
@@ -716,7 +705,6 @@ void DSI_Shutdown(DSI_TypeDef *DSIx, uint32_t Shutdown) {
                 #####  数据传输管理功能  #####
  ===============================================================================
 @endverbatim
-  * @{
   */
 
 /**
@@ -727,10 +715,10 @@ void DSI_Shutdown(DSI_TypeDef *DSIx, uint32_t Shutdown) {
   * 参数:  ChannelID: 虚拟通道ID.
   * 
   * 参数:  Mode: DSI短分组数据类型。
-  *               此参数可以是@ref DSI_SHORT_WRITE_PKT_Data_Type.
+  *               此参数可以是 @ref DSI_SHORT_WRITE_PKT_Data_Type.
   * 
   * 参数:  Param1: DSC命令或第一个通用参数。
-  *                 此参数可以是@ref DSI_DCS_Command 或通用命令代码.
+  *                 此参数可以是 @ref DSI_DCS_Command 或通用命令代码.
   * 
   * 参数:  Param2: DSC参数或第二个通用参数。
   * 
@@ -764,12 +752,12 @@ void DSI_ShortWrite(DSI_TypeDef *DSIx,
   * 参数:  ChannelID: 虚拟通道ID.
   * 
   * 参数:  Mode: DSI长数据包数据类型。
-  *               此参数可以是@ref DSI_LONG_WRITE_PKT_Data_Type.
+  *               此参数可以是 @ref DSI_LONG_WRITE_PKT_Data_Type.
   * 
   * 参数:  NbParams: 参数的数量。
   * 
   * 参数:  Param1: DSC命令或第一个通用参数。
-  *                 此参数可以是@ref DSI_DCS_Command 或通用命令代码
+  *                 此参数可以是 @ref DSI_DCS_Command 或通用命令代码
   * 
   * 参数:  ParametersTable: 指向参数值表的指针。
   * 
@@ -827,7 +815,7 @@ void DSI_LongWrite(DSI_TypeDef *DSIx,
   * 参数:  Size:要读取的数据大小(字节)。
   * 
   * 参数:  Mode:DSI读取数据包数据类型。
-  *               此参数可以是@ref DSI_SHORT_READ_PKT_Data_Type.
+  *               此参数可以是 @ref DSI_SHORT_READ_PKT_Data_Type.
   * 
   * 参数:  DCSCmd: DCS get/read command.
   * 
@@ -885,7 +873,7 @@ void DSI_Read(DSI_TypeDef *DSIx,
 }
 
 /**
-  * 简介:  通用DSI数据包头配置
+  * 简介:  通用 DSI数据包头配置
   * 
   * 参数:  DSIx: 指向DSI寄存器基址的指针
   * 
@@ -913,9 +901,6 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx,
     DSIx->GHCR = (DataType | (ChannelID << 6) | (Data0 << 8) | (Data1 << 16));
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup DSI_Group3 低功耗功能
  *  简介    DSI低功耗管理功能
@@ -926,7 +911,6 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx,
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1088,10 +1072,10 @@ void DSI_PatternGeneratorStop(DSI_TypeDef *DSIx) {
   * 参数:  DSIx: 指向DSI寄存器基址的指针
   * 
   * 参数:  CommDelay: 通信延迟有待调整。
-  *                    此参数可以是@ref DSI_Communication_Delay
+  *                    此参数可以是 @ref DSI_Communication_Delay
   * 
   * 参数:  Lane: 在时钟或数据通道之间进行选择。
-  *               此参数可以是@ref DSI_Lane_Group
+  *               此参数可以是 @ref DSI_Lane_Group
   * 
   * 参数:  Value: 转换率或延迟的自定义值
   * 
@@ -1187,10 +1171,10 @@ void DSI_SetSDD(DSI_TypeDef *DSIx, FunctionalState State) {
   * 参数:  DSIx: 指向DSI寄存器基址的指针
   * 
   * 参数:  CustomLane: 要应用于选定车道的功能。
-  *                     此参数可以是@ref DSI_CustomLane
+  *                     此参数可以是 @ref DSI_CustomLane
   * 
   * 参数:  Lane: 在时钟或数据通道0或数据通道1之间进行选择。
-  *               此参数可以是@ref DSI_Lane_Select
+  *               此参数可以是 @ref DSI_Lane_Select
   * 
   * 参数:  State: ENABLE or DISABLE
   * 
@@ -1248,7 +1232,7 @@ void DSI_SetLanePinsConfiguration(DSI_TypeDef *DSIx, uint32_t CustomLane, uint32
   * 参数:  DSIx: 指向DSI寄存器基址的指针
   * 
   * 参数:  Timing: 要调整的PHY定时。
-  *                 此参数可以是@ref DSI_PHY_Timing
+  *                 此参数可以是 @ref DSI_PHY_Timing
   * 
   * 参数:  State: ENABLE or DISABLE
   * 
@@ -1390,7 +1374,7 @@ void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State
   * 参数:  DSIx: 指向DSI寄存器基址的指针
   * 
   * 参数:  Lane: 在时钟或数据通道之间进行选择。
-  *               此参数可以是@ref DSI_Lane_Group
+  *               此参数可以是 @ref DSI_Lane_Group
   * 
   * 参数:  State: ENABLE or DISABLE
   * 
@@ -1486,9 +1470,6 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
     DSIx->WPCR[0] |= ((uint32_t)State << 14);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup DSI_Group4 中断和标记管理函数
   *  简介   中断和标记管理函数
@@ -1539,7 +1520,6 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
    (+) void DSI_ClearITPendingBit(DSI_TypeDef* DSIx, uint32_t DSI_IT);
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1705,7 +1685,7 @@ void DSI_ClearITPendingBit(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
   * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
   * 
   * 参数:  ActiveErrors: 指示将启用哪些错误中断。
-  *                      此参数可以是@ref DSI_Error_Data_Type的任意组合。
+  *                      此参数可以是 @ref DSI_Error_Data_Type的任意组合。
   * 
   * 返回值: 无
   */
@@ -1764,20 +1744,7 @@ void DSI_ConfigErrorMonitor(DSI_TypeDef *DSIx, uint32_t ActiveErrors) {
     }
 }
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 #endif /* STM32F469_479xx */
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

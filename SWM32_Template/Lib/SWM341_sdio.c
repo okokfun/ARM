@@ -338,7 +338,7 @@ uint32_t SDIO_DMABlockRead(uint32_t block_addr, uint16_t block_cnt, uint32_t buf
 *			uint32_t have_data		是否有数据传输
 *			uint32_t data_read		1 读SD卡    0 写SD卡
 *			uint16_t block_cnt		读写块个数
-*			uint32_t use_dma		1 使用DMA搬运数据
+*			uint32_t use_dma		1 使用 DMA搬运数据
 * 输    出: uint32_t				SD_RES_OK 操作成功    SD_RES_ERR 操作失败    SD_RES_TIMEOUT 操作超时
 * 注意事项: 无
 ******************************************************************************************************************************************/

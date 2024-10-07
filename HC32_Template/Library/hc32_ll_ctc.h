@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_CTC
- * @{
  */
 
 #if (LL_CTC_ENABLE == DDL_ON)
@@ -53,7 +51,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup CTC_Global_Types CTC Global Types
- * @{
  */
 
 /**
@@ -72,32 +69,25 @@ typedef struct {
                                          这个参数是其中间 Min_Data=0 and Max_Data=0x3F */
 } stc_ctc_ct_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup CTC_Global_Macros CTC Global Macros
- * @{
  */
 
 /**
  * @defgroup CTC_Continuous_Trim_Reference_Clock_Source CTC Continuous Trim Reference Clock Source
- * @{
  */
 #define CTC_REF_CLK_SRC_CTCREF          (0UL)               /*!< Clock source: CTCREF */
 #define CTC_REF_CLK_SRC_XTAL            (CTC_CR1_REFCKS)    /*!< Clock source: XTAL */
 #define CTC_REF_CLK_SRC_XTAL32          (CTC_CR1_REFCKS_1)  /*!< Clock source: XTAL32 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup CTC_Flag CTC Flag
- * @{
  */
 #define CTC_FLAG_TRIM_OK                (CTC_STR_TRIMOK)    /*!< Trimming OK flag */
 #define CTC_FLAG_TRIM_OVF               (CTC_STR_TRMOVF)    /*!< Trimming overflow flag */
@@ -105,13 +95,10 @@ typedef struct {
 #define CTC_FLAG_BUSY                   (CTC_STR_CTCBSY)    /*!< CTC busy flag */
 #define CTC_FLAG_ALL                    (CTC_FLAG_TRIM_OVF | CTC_FLAG_TRIM_UDF | \
         CTC_FLAG_TRIM_OK  | CTC_FLAG_BUSY)
-/**
- * @}
- */
+
 
 /**
  * @defgroup CTC_Reference_Clock_Division CTC Reference Clock Division
- * @{
  */
 #define CTC_REF_CLK_DIV8                (0UL)   /*!< REFCLK/8 */
 #define CTC_REF_CLK_DIV32               (1UL)   /*!< REFCLK/32 */
@@ -121,13 +108,9 @@ typedef struct {
 #define CTC_REF_CLK_DIV1024             (5UL)   /*!< REFCLK/1024 */
 #define CTC_REF_CLK_DIV2048             (6UL)   /*!< REFCLK/2048 */
 #define CTC_REF_CLK_DIV4096             (7UL)   /*!< REFCLK/4096 */
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -138,7 +121,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup CTC_Global_Functions
- * @{
  */
 
 /**
@@ -172,19 +154,13 @@ uint16_t CTC_GetReloadValue(void);
 void CTC_SetOffsetValue(uint8_t u8OffsetValue);
 uint8_t CTC_GetOffsetValue(void);
 
-/**
- * @}
- */
+
 
 #endif /* LL_CTC_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

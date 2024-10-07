@@ -30,34 +30,34 @@
           or/and SCLK).
 
       (#) 外设的替代函数:
-        (++) 使用GPIO_PinAFConfig()函数将管脚连接到所需外设设备的复用功能(AF)
+        (++) 使用 GPIO_PinAFConfig() 函数将管脚连接到所需外设设备的复用功能(AF)
 
         (++) 通过以下方式在复用功能中配置所需引脚:
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
 
         (++) 通过GPIO_PuPd、GPIO_OType和GPIO_speed成员选择类型、上拉/下拉和输出速度
         
-        (++) 调用 GPIO_Init()函数
+        (++) 调用 GPIO_Init() 函数
 
-      (#) 使用USART_Init()函数编程波特率、字长、停止位、奇偶校验、
+      (#) 使用 USART_Init() 函数编程波特率、字长、停止位、奇偶校验、
             硬件流控制和模式(接收器/发送器)。
 
-      (#) 对于同步模式，启用时钟并使用USART_ClockInit()函数编程极性、相位和最后一位。
+      (#) 对于同步模式，启用时钟并使用 USART_ClockInit() 函数编程极性、相位和最后一位。
 
       (#) 如果需要使用中断模式，请使用函数USART_ITConfig()启用NVIC和相应的中断。
 
-      (#) 使用DMA模式时
-        (++) 使用DMA_Init()函数配置DMA
-        (++) 使用USART_DMACmd()函数激活所需的信道请求
+      (#) 使用 DMA 模式时
+        (++) 使用 DMA_Init() 函数配置DMA
+        (++) 使用 USART_DMACmd() 函数激活所需的信道请求
 
-      (#) 使用USART_Cmd()函数启用USART。
+      (#) 使用 USART_Cmd() 函数启用 USART。
 
-      (#) 使用 DMA 模式时，使用DMA_Cmd()功能启用 DMA。
+      (#) 使用 DMA 模式时，使用 DMA_Cmd()功能启用 DMA。
 
       -@- 有关更多详细信息，请参阅多处理器、LIN、半双工、智能卡、IrDA 子部分
 
     [..]
-    为了达到更高的通信波特率，可以使用USART_OverSampling8Cmd()功能通过8模式启用过采样。
+    为了达到更高的通信波特率，可以使用 USART_OverSampling8Cmd()功能通过8模式启用过采样。
     此函数应在启用 USART 时钟 (RCC_APBxPeriphClockCmd()) 之后调用，并在调用函数 USART_Init()之前调用。
 
     @endverbatim
@@ -86,12 +86,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup USART
   * 简介: USART驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -118,7 +116,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup USART_Private_Functions
-  * @{
   */
 
 /** @defgroup USART_Group1 初始化和配置函数
@@ -151,7 +148,7 @@
         (++) 接收器/发射器模式
 
     [..]
-    USART_Init()函数遵循 USART
+    USART_Init() 函数遵循 USART
         异步配置过程(有关该过程的详细信息，请参见参考手册 (RM0090))。
 
      (+) 对于同步模式，除了异步模式参数外，还应配置这些参数:
@@ -161,10 +158,9 @@
         (++) USART最后一位
 
     [..]
-    可以使用 USART_ClockInit()函数配置这些参数。
+    可以使用 USART_ClockInit() 函数配置这些参数。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -393,7 +389,7 @@ void USART_Cmd(USART_TypeDef* USARTx, FunctionalState NewState) {
   * 简介:  设置系统时钟预分频器。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
   * 参数:  USART_Prescaler: 指定预分频器时钟。
-  * 注意:   该功能用于UART4和UART5的IrDA模式。
+  * 注意:   该功能用于UART4和UART5的IrDA 模式。
   * 返回值: 无
   */
 void USART_SetPrescaler(USART_TypeDef* USARTx, uint8_t USART_Prescaler) {
@@ -407,8 +403,8 @@ void USART_SetPrescaler(USART_TypeDef* USARTx, uint8_t USART_Prescaler) {
 }
 
 /**
-  * 简介:  启用或禁用USART的8x过采样模式。
-  * 注意:   为了获得正确的波特率分频器值，必须在调用USART_Init()函数之前调用此函数。
+  * 简介:  启用或禁用 USART的8x过采样模式。
+  * 注意:   为了获得正确的波特率分频器值，必须在调用 USART_Init() 函数之前调用此函数。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
   * 参数:  NewState: USART 8x过采样模式的新状态。
   *          此参数可以是: ENABLE或DISABLE。
@@ -449,9 +445,6 @@ void USART_OneBitMethodCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     }
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup USART_Group2 数据传输函数
  *  简介   数据传输函数
@@ -469,12 +462,11 @@ void USART_OneBitMethodCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     传输发生时，USART_DR寄存器的写入指令将数据存储在TDR寄存器中，
     并在当前传输结束时复制到移位寄存器中。
     [..]
-    USART_DR寄存器的读取访问可以使用USART_ReceiveData()函数完成，
-    并返回RDR缓冲值。而对USART_DR的写入访问可以使用USART_SendData()函数完成，
+    USART_DR寄存器的读取访问可以使用 USART_ReceiveData() 函数完成，
+    并返回RDR缓冲值。而对USART_DR的写入访问可以使用 USART_SendData() 函数完成，
     并将写入的数据存储到TDR缓冲区中。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -505,9 +497,6 @@ uint16_t USART_ReceiveData(USART_TypeDef* USARTx) {
     return (uint16_t)(USARTx->DR & (uint16_t)0x01FF);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup USART_Group3 多处理器通讯函数
  *  简介   多处理器通讯函数
@@ -523,18 +512,17 @@ uint16_t USART_ReceiveData(USART_TypeDef* USARTx) {
         其他是从机，它们各自的TX输出在逻辑上与在一起，并连接到主机的RX输入。
     [..]
     USART多处理器通信可以通过以下过程实现:
-      (#) 使用USART_Init()函数编程波特率、字长=9位、停止位、奇偶校验、
+      (#) 使用 USART_Init() 函数编程波特率、字长=9位、停止位、奇偶校验、
             模式发送器或模式接收器以及硬件流控制值。
-      (#) 使用USART_SetAddress()函数配置USART地址。
-      (#) 仅使用USART_WakeUpConfig()函数为从属设备配置唤醒方法
+      (#) 使用 USART_SetAddress() 函数配置USART地址。
+      (#) 仅使用 USART_WakeUpConfig() 函数为从属设备配置唤醒方法
          (USART_WakeUp_IdleLine或USART_WhakeUp_AddressMark)。
-      (#) 使用USART_Cmd()函数启用USART。
-      (#) 使用USART_ReceiverWakeUpCmd()函数以静音模式输入USART从机。
+      (#) 使用 USART_Cmd() 函数启用 USART。
+      (#) 使用 USART_ReceiverWakeUpCmd() 函数以静音模式输入USART从机。
     [..]
     收到唤醒条件时，USART Slave退出静音模式。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -567,10 +555,10 @@ void USART_ReceiverWakeUpCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过设置CR1寄存器中的RWU位，启用USART静音模式 */
+        /* 通过设置CR1寄存器中的RWU位，启用 USART静音模式 */
         USARTx->CR1 |= USART_CR1_RWU;
     } else {
-        /* 通过清除CR1寄存器中的RWU位禁用USART静音模式*/
+        /* 通过清除CR1寄存器中的RWU位禁用 USART静音模式*/
         USARTx->CR1 &= (uint16_t)~((uint16_t)USART_CR1_RWU);
     }
 }
@@ -592,9 +580,6 @@ void USART_WakeUpConfig(USART_TypeDef* USARTx, uint16_t USART_WakeUp) {
     USARTx->CR1 |= USART_WakeUp;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup USART_Group4 LIN模式功能
  *  简介   LIN模式功能
@@ -613,25 +598,24 @@ void USART_WakeUpConfig(USART_TypeDef* USARTx, uint16_t USART_WakeUp) {
 
     [..]
     USART LIN主发送器通信可以通过以下程序进行:
-      (#) 使用USART_Init()函数编程波特率、字长=8位、停止位=1位、
+      (#) 使用 USART_Init() 函数编程波特率、字长=8位、停止位=1位、
             奇偶校验、模式发送器或模式接收器以及硬件流控制值。
-      (#) 使用USART_Cmd()函数启用USART。
-      (#) 使用USART_LINCmd()函数启用LIN模式。
-      (#) 使用USART_SendBreak()函数发送中断字符。
+      (#) 使用 USART_Cmd() 函数启用 USART。
+      (#) 使用 USART_LINCmd() 函数启用LIN模式。
+      (#) 使用 USART_SendBreak() 函数发送中断字符。
     [..]
     USART LIN主接收机可以通过以下程序进行通信:
-      (#) 使用USART_Init()函数编程波特率、字长=8位、停止位=1位、奇偶校验、
+      (#) 使用 USART_Init() 函数编程波特率、字长=8位、停止位=1位、奇偶校验、
             模式发送器或模式接收器以及硬件流控制值。
-      (#) 使用USART_Cmd()函数启用USART。
-      (#) 使用USART_LINBreakDetectLengthConfig()函数配置中断检测长度。
-      (#) 使用USART_LINCmd()函数启用LIN模式。
+      (#) 使用 USART_Cmd() 函数启用 USART。
+      (#) 使用 USART_LINBreakDetectLengthConfig() 函数配置中断检测长度。
+      (#) 使用 USART_LINCmd() 函数启用LIN模式。
 
       -@- 在LIN模式下，必须清除以下位:
        (+@) USART_CR2寄存器中的CLKEN，
        (+@) USART_CR3寄存器中的STOP[1:0]、SCEN、HDSEL和IREN。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -686,9 +670,6 @@ void USART_SendBreak(USART_TypeDef* USARTx) {
     USARTx->CR1 |= USART_CR1_SBK;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup USART_Group5 半双工模式功能
  *  简介   半双工模式功能
@@ -703,11 +684,11 @@ void USART_SendBreak(USART_TypeDef* USARTx) {
     USART可以配置为遵循单线半双工协议，其中TX和RX线在内部连接。
     [..]
     USART半双工通信可通过以下程序实现:
-      (#) 使用USART_Init()函数编程波特率、字长、停止位、奇偶校验、
+      (#) 使用 USART_Init() 函数编程波特率、字长、停止位、奇偶校验、
             模式发送器或模式接收器以及硬件流控制值。
-      (#) 使用USART_SetAddress()函数配置USART地址。
-      (#) 使用USART_Cmd()函数启用USART。
-      (#) 使用USART_HalfDuplexCmd()函数启用半双工模式。
+      (#) 使用 USART_SetAddress() 函数配置USART地址。
+      (#) 使用 USART_Cmd() 函数启用 USART。
+      (#) 使用 USART_HalfDuplexCmd() 函数启用半双工模式。
 
 
     -@- RX引脚不再使用
@@ -716,7 +697,6 @@ void USART_SendBreak(USART_TypeDef* USARTx) {
       (+@) USART_CR3寄存器中的SCEN和IREN位。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -740,9 +720,6 @@ void USART_HalfDuplexCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     }
 }
 
-/**
-  * @}
-  */
 
 
 /** @defgroup USART_Group6 智能卡模式函数
@@ -761,24 +738,24 @@ void USART_HalfDuplexCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     在智能卡模式下，SCLK与通信无关，只是通过5位预分频器从内部外围输入时钟派生而来。
     [..]
     智能卡通信可以通过以下步骤进行:
-      (#) 使用USART_SetPrescaler()函数配置智能卡预分频器。
-      (#) 使用USART_SetGuardTime()函数配置智能卡守卫时间。
-      (#) 使用USART_ClockInit()函数对USART时钟进行编程，如下所示:
+      (#) 使用 USART_SetPrescaler() 函数配置智能卡预分频器。
+      (#) 使用 USART_SetGuardTime() 函数配置智能卡守卫时间。
+      (#) 使用 USART_ClockInit() 函数对USART时钟进行编程，如下所示:
         (++) USART时钟已启用
         (++) USART CPOL低
         (++) USART CPHA位于第一边缘
         (++) USART最后一位时钟已启用
-      (#) 使用USART_Init()函数对智能卡接口进行编程，如下所示:
+      (#) 使用 USART_Init() 函数对智能卡接口进行编程，如下所示:
         (++) 字长 = 9位
         (++) 1.5停止位
         (++) 偶数奇偶校验
         (++) 波特率 = 12096 波特率
         (++) 硬件流控制已禁用(RTS和CTS信号)
         (++) Tx和Rx已启用
-      (#) P您可以选择启用奇偶校验错误中断 使用USART_ITConfig()函数
-      (#) P使用USART_Cmd()函数启用USART。
-      (#) P使用USART_SmartCardNACKCmd()函数启用智能卡NACK。
-      (#) P使用USART_SmartCardCmd()函数启用智能卡接口。
+      (#) P您可以选择启用奇偶校验错误中断 使用 USART_ITConfig() 函数
+      (#) P使用 USART_Cmd() 函数启用 USART。
+      (#) P使用 USART_SmartCardNACKCmd() 函数启用智能卡NACK。
+      (#) P使用 USART_SmartCardCmd() 函数启用智能卡接口。
 
     有关更多详细信息，请参阅ISO 7816-3规范。
 
@@ -790,7 +767,6 @@ void USART_HalfDuplexCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
       -@- 智能卡模式仅在USART外设设备上可用(在UART4和UART5外设设备上不可用)。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -851,16 +827,13 @@ void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     }
 }
 
-/**
-  * @}
-  */
 
-/** @defgroup USART_Group7 IrDA模式函数
- *  简介   IrDA模式函数
+/** @defgroup USART_Group7 IrDA 模式函数
+ *  简介   IrDA 模式函数
  *
 @verbatim
  ===============================================================================
-                        ##### IrDA模式函数 #####
+                        ##### IrDA 模式函数 #####
  ===============================================================================
     [..]
     本小节提供了一组允许管理USART IrDA通信的功能。
@@ -870,29 +843,28 @@ void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     在接收数据时，应避免传输，因为要传输的数据可能会损坏。
     [..]
     可以通过以下程序进行IrDA通信:
-      (#) 使用USART_Init()函数编程波特率、字长=8位、
+      (#) 使用 USART_Init() 函数编程波特率、字长=8位、
             停止位、奇偶校验、发送器/接收器模式和硬件流控制值。
-      (#) 使用USART_Cmd()函数启用USART。
-      (#) 通过使用USART_SetPrescaler()函数配置预分频器来配置IrDA脉冲宽度。
-      (#) 使用USART_IrDAConfig()
+      (#) 使用 USART_Cmd() 函数启用 USART。
+      (#) 通过使用 USART_SetPrescaler() 函数配置预分频器来配置IrDA脉冲宽度。
+      (#) 使用 USART_IrDAConfig()
             函数配置IrDA USART_IrDAMode_LowPower或USART_ErDAMode_ Normal模式。
-      (#) 使用USART_IrDACmd()函数启用IrDA。
+      (#) 使用 USART_IrDACmd() 函数启用IrDA。
 
       -@- 宽度小于两个且大于一个PSC周期的脉冲可能会被拒绝，也可能不会被拒绝。
       -@- 接收器设置时间应由软件管理。
             IrDA物理层规范规定传输和接收之间的最小延迟为10毫秒(IrDA是半双工协议)。
-      -@- 在IrDA模式下，必须清除以下位:
+      -@- 在IrDA 模式下，必须清除以下位:
         (+@) USART_CR2寄存器中的LINEN、STOP和CLKEN位。
         (+@) USART_CR3寄存器中的SCEN和HDSEL位。
 
 @endverbatim
-  * @{
   */
 
 /**
   * 简介:  配置 USART 的 IrDA 接口。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
-  * 参数:  USART_IrDAMode: 指定IrDA模式。
+  * 参数:  USART_IrDAMode: 指定IrDA 模式。
   *          此参数可以是以下值之一:
   *            @arg USART_IrDAMode_LowPower
   *            @arg USART_IrDAMode_Normal
@@ -910,7 +882,7 @@ void USART_IrDAConfig(USART_TypeDef* USARTx, uint16_t USART_IrDAMode) {
 /**
   * 简介:  启用或禁用 USART 的 IrDA 接口。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
-  * 参数:  NewState: IrDA模式的新状态。
+  * 参数:  NewState: IrDA 模式的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
@@ -920,17 +892,14 @@ void USART_IrDACmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过设置CR3寄存器中的IREN位来启用IrDA模式 */
+        /* 通过设置CR3寄存器中的IREN位来启用IrDA 模式 */
         USARTx->CR3 |= USART_CR3_IREN;
     } else {
-        /* 通过清除CR3寄存器中的IREN位来禁用IrDA模式 */
+        /* 通过清除CR3寄存器中的IREN位来禁用IrDA 模式 */
         USARTx->CR3 &= (uint16_t)~((uint16_t)USART_CR3_IREN);
     }
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup USART_Group8 DMA传输管理函数
  *  简介   DMA传输管理 functions
@@ -941,11 +910,10 @@ void USART_IrDACmd(USART_TypeDef* USARTx, FunctionalState NewState) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
-  * 简介:  启用或禁用USART的DMA接口。
+  * 简介:  启用或禁用 USART的DMA接口。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
   * 参数:  USART_DMAReq: 指定DMA请求。
   *          此参数可以是以下值的任意组合:
@@ -962,7 +930,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过在USART CR3寄存器中设置DMAT和/或DMAR位，为所选请求启用DMA传输 */
+        /* 通过在USART CR3寄存器中设置DMAT和/或DMAR位，为所选请求启用 DMA传输 */
         USARTx->CR3 |= USART_DMAReq;
     } else {
         /* 通过清除USART CR3寄存器中的DMAT和/或DMAR位，禁用所选请求的DMA传输 */
@@ -970,9 +938,6 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
     }
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup USART_Group9 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -983,7 +948,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
  ===============================================================================
     [..]
     本小节提供了一组功能，允许配置USART中断源、DMA信道请求以及检查或清除标志或挂起位状态。
-    用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或DMA模式。
+    用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或DMA 模式。
 
     *** 轮询模式 ***
     ====================
@@ -1043,7 +1008,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
     *** DMA Mode ***
     ================
     [..]
-    在DMA模式下，USART通信可通过2个DMA信道请求进行管理:
+    在DMA 模式下，USART通信可通过2个DMA信道请求进行管理:
       (#) USART_DMAReq_Tx: 指定Tx缓冲器DMA传输请求
       (#) USART_DMAReq_Rx: 指定Rx缓冲器DMA传输请求
     [..]
@@ -1051,7 +1016,6 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
       (+) void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState NewState);
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1271,21 +1235,5 @@ void USART_ClearITPendingBit(USART_TypeDef* USARTx, uint16_t USART_IT) {
     itmask = ((uint16_t)0x01 << (uint16_t)bitpos);
     USARTx->SR = (uint16_t)~itmask;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

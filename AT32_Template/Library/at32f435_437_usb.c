@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup USB
   * @brief USB driver modules
-  * @{
   */
 
 #ifdef USB_MODULE_EnableD
 
 /** @defgroup USB_private_functions
-  * @{
   */
 
 #ifdef OTGFS_USB_GLOBAL
@@ -993,16 +990,4 @@ void USBH_Fsls_CLKsel(OTG_Global_Type *usbx, uint8_t clk) {
 #endif
 
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

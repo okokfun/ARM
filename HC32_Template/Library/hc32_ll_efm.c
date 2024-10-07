@@ -31,13 +31,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_EFM EFM
  * @brief Embedded Flash Management Driver Library
- * @{
  */
 
 #if (LL_EFM_ENABLE == DDL_ON)
@@ -51,7 +49,6 @@
  ******************************************************************************/
 /**
  * @defgroup EFM_Local_Macros EFM Local Macros
- * @{
  */
 #define REG_LEN                         (32U)
 #define EFM_TIMEOUT                     (HCLK_VALUE / 20000UL)   /* EFM wait 读超时 */
@@ -72,28 +69,21 @@
 
 /**
  * @defgroup EFM_Configuration_Bit_Mask EFM Configuration Bit Mask
- * @{
  */
 #define EFM_CACHE_ALL                   (EFM_FRMC_CRST | EFM_FRMC_PREFETE | EFM_FRMC_DCACHE | EFM_FRMC_ICACHE)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_SectorOperate EFM sector operate define
- * @{
  */
 #define EFM_FNWPRT_REG_OFFSET           (2UL)
 #define EFM_FNWPRT_REG_NUM              (8UL)
 #define EFM_FNWPRT_REG_END_ADDR         (__IO uint32_t *)(uint32_t)(&CM_EFM->F1NWPRT3)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_protect EFM protect define
- * @{
  */
 #define EFM_SECURITY_LEN                (12UL)
 #define EFM_PROTECT1_KEY                (0xAF180402UL)
@@ -106,13 +96,10 @@
 #define EFM_PROTECT3_ADDR2              (0x00000424UL)
 #define EFM_PROTECT3_ADDR3              (0x00000428UL)
 #define EFM_SECURITY_ADDR               (0x03004000UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Check_Parameters_Validity EFM Check Parameters Validity
- * @{
  */
 /* Parameter validity check for efm chip . */
 #define IS_EFM_CHIP(x)                                                          \
@@ -211,13 +198,9 @@
 
 /* Parameter validity check for EFM security code length */
 #define IS_EFM_SECRURITY_CODE_LEN(x)    ((x) <= EFM_SECURITY_LEN)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -237,7 +220,6 @@
 
 /**
  * @defgroup EFM_Local_Functions EFM Local Functions
- * @{
  */
 /**
  * @brief  Wait EFM flag.
@@ -321,13 +303,10 @@ static uint8_t EFM_FlagShift(uint32_t u32Addr) {
     return u8Shift;
 }
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Global_Functions EFM Global Functions
- * @{
  */
 
 /**
@@ -1563,15 +1542,11 @@ int32_t EFM_WriteSecurityCode(uint8_t *pu8Buf, uint32_t u32Len) {
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif  /* LL_EFM_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

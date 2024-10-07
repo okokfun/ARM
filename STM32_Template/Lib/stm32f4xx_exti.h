@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup EXTI
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -75,13 +73,13 @@ typedef enum {
   */
 typedef struct {
     uint32_t EXTI_Line;               /*!< 指定要启用或禁用的 EXTI 行。
-									                    该参数可以是@ref EXTI_Lines 的任意组合值 */
+                                      该参数可以是 @ref EXTI_Lines 的任意组合值 */
 
     EXTIMode_TypeDef EXTI_Mode;       /*!< 指定 EXTI 行的模式。
-									                    该参数可以是@ref EXTIMode_TypeDef 的值 */
+                                      该参数可以是 @ref EXTIMode_TypeDef 的值 */
 
     EXTITrigger_TypeDef EXTI_Trigger; /*!< 指定 EXTI 线的触发信号有效边沿。
-									                    该参数可以是@ref EXTITrigger_TypeDef 的值 */
+                                      该参数可以是 @ref EXTITrigger_TypeDef 的值 */
 
     FunctionalState EXTI_LineCmd;     /*!< 指定选定 EXTI 行的新状态。
 									                    此参数可以设置为 ENABLE 或 DISABLE */
@@ -90,11 +88,9 @@ typedef struct {
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup EXTI_Exported_Constants
-  * @{
   */
 
 /** @defgroup EXTI_Lines
-  * @{
   */
 #define EXTI_Line0       ((uint32_t)0x00001)     /*!< 外部中断线 0 */
 #define EXTI_Line1       ((uint32_t)0x00002)     /*!< 外部中断线 1 */
@@ -137,13 +133,7 @@ typedef struct {
                                 ((LINE) == EXTI_Line20) || ((LINE) == EXTI_Line21) ||\
                                 ((LINE) == EXTI_Line22) || ((LINE) == EXTI_Line23))
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -168,12 +158,5 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line); // 清除 EXTI 的行挂起位�
 
 #endif /* __STM32F4xx_EXTI_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

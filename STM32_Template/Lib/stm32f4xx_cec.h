@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup CEC
-  * @{
   */
 #if defined(STM32F446xx)
 /* Exported types ------------------------------------------------------------*/
@@ -51,35 +49,33 @@ extern "C" {
   */
 typedef struct {
     uint32_t CEC_SignalFreeTime;     /*!< 指定 CEC 信号空闲时间配置。
-								   该参数可以是@ref CEC_Signal_Free_Time 的值 */
+						                   		   该参数可以是 @ref CEC_Signal_Free_Time 的值 */
 
     uint32_t CEC_RxTolerance;        /*!< 指定 CEC 接收容差。
-								   此参数可以是 @ref CEC_RxTolerance 的值 */
+								                     此参数可以是 @ref CEC_RxTolerance 的值 */
 
     uint32_t CEC_StopReception;      /*!< 指定 CEC 停止接收。
-								   该参数可以是@ref CEC_Stop_Reception 的值 */
+								                     该参数可以是 @ref CEC_Stop_Reception 的值 */
 
     uint32_t CEC_BitRisingError;     /*!< 指定 CEC 位上升错误生成。
-								   该参数可以是@ref CEC_Bit_Rising_Error_Generation 的值 */
+								                     该参数可以是 @ref CEC_Bit_Rising_Error_Generation 的值 */
 
     uint32_t CEC_LongBitPeriodError; /*!< 指定 CEC 长位错误生成。
-								   该参数可以是@ref CEC_Long_Bit_Error_Generation 的值 */
+								                      该参数可以是 @ref CEC_Long_Bit_Error_Generation 的值 */
 
     uint32_t CEC_BRDNoGen;           /*!< 指定 CEC 广播错误生成。
-								   该参数可以是@ref CEC_BDR_No_Gen 的值 */
+								                     该参数可以是 @ref CEC_BDR_No_Gen 的值 */
 
     uint32_t CEC_SFTOption;          /*!< 指定 CEC 信号空闲时间选项。
-								   该参数可以是@ref CEC_SFT_Option 的值 */
+								                     该参数可以是 @ref CEC_SFT_Option 的值 */
 } CEC_InitTypeDef;
 
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup CEC_Exported_Constants
-  * @{
   */
 
 /** @defgroup CEC_Signal_Free_Time
-  * @{
   */
 #define CEC_SignalFreeTime_Standard     ((uint32_t)0x00000000) /*!< CEC  信号空闲时间标准         */
 #define CEC_SignalFreeTime_1T           ((uint32_t)0x00000001) /*!< CEC  1.5 标称数据位周期     */
@@ -97,87 +93,55 @@ typedef struct {
                                        ((TIME) == CEC_SignalFreeTime_5T)|| \
                                        ((TIME) == CEC_SignalFreeTime_6T)|| \
                                        ((TIME) == CEC_SignalFreeTime_7T))
-/**
-  * @}
-  */
 
 /** @defgroup CEC_RxTolerance
-  * @{
   */
 #define CEC_RxTolerance_Standard        ((uint32_t)0x00000000) /*!< 标准容差            */
 #define CEC_RxTolerance_Extended        CEC_CFGR_RXTOL         /*!< 扩展容差范围            */
 #define IS_CEC_RX_TOLERANCE(TOLERANCE) (((TOLERANCE) == CEC_RxTolerance_Standard) || \
                                         ((TOLERANCE) == CEC_RxTolerance_Extended))
-/**
-  * @}
-  */
 
 /** @defgroup CEC_Stop_Reception
-  * @{
   */
 #define CEC_StopReception_Off           ((uint32_t)0x00000000) /*!< 位上升错误 (BRE) 时无 RX 停止 */
 #define CEC_StopReception_On            CEC_CFGR_BRESTP        /*!< RX 停止位上升错误 (BRE)   */
 #define IS_CEC_STOP_RECEPTION(RECEPTION) (((RECEPTION) == CEC_StopReception_On) || \
         ((RECEPTION) == CEC_StopReception_Off))
-/**
-  * @}
-  */
 
 /** @defgroup CEC_Bit_Rising_Error_Generation
-  * @{
   */
 #define CEC_BitRisingError_Off          ((uint32_t)0x00000000) /*!< 位上升错误生成已关闭 */
 #define CEC_BitRisingError_On           CEC_CFGR_BREGEN        /*!< 位上升错误生成开启  */
 #define IS_CEC_BIT_RISING_ERROR(ERROR) (((ERROR) == CEC_BitRisingError_Off) || \
                                         ((ERROR) == CEC_BitRisingError_On))
-/**
-  * @}
-  */
 
 /** @defgroup CEC_Long_Bit_Error_Generation
-  * @{
   */
 #define CEC_LongBitPeriodError_Off      ((uint32_t)0x00000000)  /*!< 长位周期错误生成已关闭 */
 #define CEC_LongBitPeriodError_On       CEC_CFGR_LREGEN         /*!< 长位周期错误生成开启  */
 #define IS_CEC_LONG_BIT_PERIOD_ERROR(ERROR) (((ERROR) == CEC_LongBitPeriodError_Off) || \
         ((ERROR) == CEC_LongBitPeriodError_On))
-/**
-  * @}
-  */
 
 /** @defgroup CEC_BDR_No_Gen
-  * @{
   */
 #define CEC_BRDNoGen_Off      ((uint32_t)0x00000000)  /*!< 广播位上升错误生成已关闭 */
 #define CEC_BRDNoGen_On       CEC_CFGR_BRDNOGEN       /*!< 广播比特上升错误生成开启  */
 #define IS_CEC_BDR_NO_GEN_ERROR(ERROR) (((ERROR) == CEC_BRDNoGen_Off) || \
                                         ((ERROR) == CEC_BRDNoGen_On))
-/**
-  * @}
-  */
 
 /** @defgroup CEC_SFT_Option
-  * @{
   */
 #define CEC_SFTOption_Off              ((uint32_t)0x00000000)  /*!< SFT 选项已关闭                   */
 #define CEC_SFTOption_On               CEC_CFGR_SFTOPT         /*!< SFT 选项打开                    */
 #define IS_CEC_SFT_OPTION(OPTION) (((OPTION) == CEC_SFTOption_Off) || \
                                    ((OPTION) == CEC_SFTOption_On))
-/**
-  * @}
-  */
 
 /** @defgroup CEC_Own_Address
-  * @{
   */
 #define IS_CEC_ADDRESS(ADDRESS)         ((ADDRESS) < 0x10)
 
-/**
-  * @}
-  */
 
 /** @defgroup CEC_Interrupt_Configuration_definition
-  * @{
   */
 #define CEC_IT_TXACKE                   CEC_IER_TXACKEIE
 #define CEC_IT_TXERR                    CEC_IER_TXERRIE
@@ -208,12 +172,8 @@ typedef struct {
                            ((IT) == CEC_IT_RXOVR)|| \
                            ((IT) == CEC_IT_RXEND)|| \
                            ((IT) == CEC_IT_RXBR))
-/**
-  * @}
-  */
 
 /** @defgroup CEC_ISR_register_flags_definition
-  * @{
   */
 #define CEC_FLAG_TXACKE                 CEC_ISR_TXACKE
 #define CEC_FLAG_TXERR                  CEC_ISR_TXERR
@@ -244,13 +204,7 @@ typedef struct {
                                ((FLAG) == CEC_FLAG_RXOVR)|| \
                                ((FLAG) == CEC_FLAG_RXEND)|| \
                                ((FLAG) == CEC_FLAG_RXBR))
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* 导出的函数 ------------------------------------------------------- */
@@ -279,18 +233,11 @@ void CEC_ClearFlag(uint32_t CEC_FLAG); // 清除CEC的挂起标志。
 ITStatus CEC_GetITStatus(uint16_t CEC_IT); // 检查指定的CEC中断是否已发生。
 void CEC_ClearITPendingBit(uint16_t CEC_IT); // 清除CEC的中断挂起位。
 #endif /* STM32F446xx */
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif /*__STM32F4xx_CEC_H */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

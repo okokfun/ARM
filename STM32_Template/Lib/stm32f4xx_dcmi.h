@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup DCMI
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -50,25 +48,25 @@ extern "C" {
   */
 typedef struct {
     uint16_t DCMI_CaptureMode;      /*!< 指定捕捉模式:连续或快照。
-									                  该参数可以是@ref DCMI_Capture_Mode 的值 */
+									                  该参数可以是 @ref DCMI_Capture_Mode 的值 */
 
     uint16_t DCMI_SynchroMode;      /*!< 指定同步模式:硬件或嵌入式。
-									                  该参数可以是@ref DCMI_Synchronization_Mode 的值 */
+									                  该参数可以是 @ref DCMI_Synchronization_Mode 的值 */
 
     uint16_t DCMI_PCKPolarity;      /*!< 指定像素时钟极性:下降或上升。
-									                  该参数可以是@ref DCMI_PIXCK_Polarity 的值 */
+									                  该参数可以是 @ref DCMI_PIXCK_Polarity 的值 */
 
     uint16_t DCMI_VSPolarity;       /*!< 指定垂直同步极性:高或低。
-									                  该参数可以是@ref DCMI_VSYNC_Polarity 的值 */
+									                  该参数可以是 @ref DCMI_VSYNC_Polarity 的值 */
 
     uint16_t DCMI_HSPolarity;       /*!< 指定水平同步极性:高或低。
-									                  该参数可以是@ref DCMI_HSYNC_Polarity 的值 */
+									                  该参数可以是 @ref DCMI_HSYNC_Polarity 的值 */
 
     uint16_t DCMI_CaptureRate;      /*!< 指定帧捕获的频率:全部、1/2 或 1/4。
-									                  该参数可以是@ref DCMI_Capture_Rate 的值 */
+									                  该参数可以是 @ref DCMI_Capture_Rate 的值 */
 
     uint16_t DCMI_ExtendedDataMode; /*!< 指定数据宽度:8 位、10 位、12 位或 14 位。
-									                  该参数可以是@ref DCMI_Extended_Data_Mode 的值 */
+									                  该参数可以是 @ref DCMI_Extended_Data_Mode 的值 */
 } DCMI_InitTypeDef;
 
 /**
@@ -101,71 +99,49 @@ typedef struct {
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup DCMI_Exported_Constants
-  * @{
   */
 
 /** @defgroup DCMI_Capture_Mode
-  * @{
   */
 #define DCMI_CaptureMode_Continuous    ((uint16_t)0x0000) /*!< 接收到的数据通过 DMA 连续传输到目标存储器 */
 #define DCMI_CaptureMode_SnapShot      ((uint16_t)0x0002) /*!< 激活后，接口等待帧开始，然后通过 DMA 传输单个帧 */
 #define IS_DCMI_CAPTURE_MODE(MODE)(((MODE) == DCMI_CaptureMode_Continuous) || \
                                    ((MODE) == DCMI_CaptureMode_SnapShot))
-/**
-  * @}
-  */
 
 
 /** @defgroup DCMI_Synchronization_Mode
-  * @{
   */
 #define DCMI_SynchroMode_Hardware    ((uint16_t)0x0000) /*!< 硬件同步数据捕获(帧/行开始/停止)与 HSYNC/VSYNC 信号同步 */
 #define DCMI_SynchroMode_Embedded    ((uint16_t)0x0010) /*!< 嵌入式同步数据捕获与嵌入在数据流中的同步代码同步 */
 #define IS_DCMI_SYNCHRO(MODE)(((MODE) == DCMI_SynchroMode_Hardware) || \
                               ((MODE) == DCMI_SynchroMode_Embedded))
-/**
-  * @}
-  */
 
 
 /** @defgroup DCMI_PIXCK_Polarity
-  * @{
   */
 #define DCMI_PCKPolarity_Falling    ((uint16_t)0x0000) /*!< 像素时钟在下降沿有效*/
 #define DCMI_PCKPolarity_Rising     ((uint16_t)0x0020) /*!< 像素时钟在上升沿有效 */
 #define IS_DCMI_PCKPOLARITY(POLARITY)(((POLARITY) == DCMI_PCKPolarity_Falling) || \
                                       ((POLARITY) == DCMI_PCKPolarity_Rising))
-/**
-  * @}
-  */
 
 
 /** @defgroup DCMI_VSYNC_Polarity
-  * @{
   */
 #define DCMI_VSPolarity_Low     ((uint16_t)0x0000) /*!< 垂直同步有效低 */
 #define DCMI_VSPolarity_High    ((uint16_t)0x0080) /*!< 垂直同步有效高 */
 #define IS_DCMI_VSPOLARITY(POLARITY)(((POLARITY) == DCMI_VSPolarity_Low) || \
                                      ((POLARITY) == DCMI_VSPolarity_High))
-/**
-  * @}
-  */
 
 
 /** @defgroup DCMI_HSYNC_Polarity
-  * @{
   */
 #define DCMI_HSPolarity_Low     ((uint16_t)0x0000) /*!< 水平同步有效 低 */
 #define DCMI_HSPolarity_High    ((uint16_t)0x0040) /*!< 水平同步高电平有效 */
 #define IS_DCMI_HSPOLARITY(POLARITY)(((POLARITY) == DCMI_HSPolarity_Low) || \
                                      ((POLARITY) == DCMI_HSPolarity_High))
-/**
-  * @}
-  */
 
 
 /** @defgroup DCMI_Capture_Rate
-  * @{
   */
 #define DCMI_CaptureRate_All_Frame     ((uint16_t)0x0000) /*!< 捕获所有帧 */
 #define DCMI_CaptureRate_1of2_Frame    ((uint16_t)0x0100) /*!< 捕获的每个交替帧 */
@@ -173,13 +149,9 @@ typedef struct {
 #define IS_DCMI_CAPTURE_RATE(RATE) (((RATE) == DCMI_CaptureRate_All_Frame) || \
                                     ((RATE) == DCMI_CaptureRate_1of2_Frame) ||\
                                     ((RATE) == DCMI_CaptureRate_1of4_Frame))
-/**
-  * @}
-  */
 
 
 /** @defgroup DCMI_Extended_Data_Mode
-  * @{
   */
 #define DCMI_ExtendedDataMode_8b     ((uint16_t)0x0000) /*!< 接口在每个像素时钟上捕获 8 位数据 */
 #define DCMI_ExtendedDataMode_10b    ((uint16_t)0x0400) /*!< 接口在每个像素时钟上捕获 10 位数据 */
@@ -189,13 +161,9 @@ typedef struct {
                                     ((DATA) == DCMI_ExtendedDataMode_10b) ||\
                                     ((DATA) == DCMI_ExtendedDataMode_12b) ||\
                                     ((DATA) == DCMI_ExtendedDataMode_14b))
-/**
-  * @}
-  */
 
 
 /** @defgroup DCMI_interrupt_sources
-  * @{
   */
 #define DCMI_IT_FRAME    ((uint16_t)0x0001)
 #define DCMI_IT_OVF      ((uint16_t)0x0002)
@@ -208,13 +176,9 @@ typedef struct {
                             ((IT) == DCMI_IT_ERR) || \
                             ((IT) == DCMI_IT_VSYNC) || \
                             ((IT) == DCMI_IT_LINE))
-/**
-  * @}
-  */
 
 
 /** @defgroup DCMI_Flags
-  * @{
   */
 /**
   * 简介:    DCMI SR 寄存器
@@ -253,13 +217,7 @@ typedef struct {
                                 ((FLAG) == DCMI_FLAG_LINEMI))
 
 #define IS_DCMI_CLEAR_FLAG(FLAG) ((((FLAG) & (uint16_t)0xFFE0) == 0x0000) && ((FLAG) != 0x0000))
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -293,12 +251,5 @@ void DCMI_ClearITPendingBit(uint16_t DCMI_IT); // 清除 DCMI 的中断挂起位
 
 #endif /*__STM32F4xx_DCMI_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

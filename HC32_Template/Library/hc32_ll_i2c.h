@@ -39,12 +39,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_I2C
- * @{
  */
 
 #if (LL_I2C_ENABLE == DDL_ON)
@@ -54,7 +52,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup I2C_Global_Types I2C Global Types
- * @{
  */
 
 /**
@@ -66,9 +63,7 @@ typedef struct {
     uint32_t u32SclTime;            /*!< The SCL rising and falling time, count of T(i2c source clock after frequency divider) */
 } stc_i2c_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
@@ -76,33 +71,25 @@ typedef struct {
 
 /**
  * @defgroup I2C_Global_Macros I2C Global Macros
- * @{
  */
 
 /**
  * @defgroup I2C_Trans_Dir I2C Transfer Direction
- * @{
  */
 #define I2C_DIR_TX                    (0x0U)
 #define I2C_DIR_RX                    (0x1U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2C_Addr_Config I2C Address Configurate
- * @{
  */
 #define I2C_ADDR_DISABLE              (0U)
 #define I2C_ADDR_7BIT                 (I2C_SLR0_SLADDR0EN)
 #define I2C_ADDR_10BIT                (I2C_SLR0_ADDRMOD0 | I2C_SLR0_SLADDR0EN)
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2C_Clock_Division I2C Clock Division
- * @{
  */
 #define I2C_CLK_DIV1                  (0UL)         /*!< I2c source clock/1 */
 #define I2C_CLK_DIV2                  (1UL)         /*!< I2c source clock/2 */
@@ -112,57 +99,42 @@ typedef struct {
 #define I2C_CLK_DIV32                 (5UL)         /*!< I2c source clock/32 */
 #define I2C_CLK_DIV64                 (6UL)         /*!< I2c source clock/64 */
 #define I2C_CLK_DIV128                (7UL)         /*!< I2c source clock/128 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2C_Address_Num I2C Address Number
- * @{
  */
 #define I2C_ADDR0                     (0UL)
 #define I2C_ADDR1                     (1UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2C_Ack_Config I2C ACK Configurate
- * @{
  */
 #define I2C_ACK                       (0UL)         /*!< Send ACK after date receive */
 #define I2C_NACK                      (I2C_CR1_ACK) /*!< Send NACK after date received */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2C_Smbus_Match_Config I2C SMBUS Address Match Configurate
- * @{
  */
 #define I2C_SMBUS_MATCH_ALARM         (I2C_CR1_SMBALRTEN)
 #define I2C_SMBUS_MATCH_DEFAULT       (I2C_CR1_SMBDEFAULTEN)
 #define I2C_SMBUS_MATCH_HOST          (I2C_CR1_SMBHOSTEN)
 #define I2C_SMBUS_MATCH_ALL           (I2C_CR1_SMBALRTEN | I2C_CR1_SMBDEFAULTEN | I2C_CR1_SMBHOSTEN)
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2C_Digital_Filter_Clock I2C Digital Filter Clock
- * @{
  */
 #define I2C_DIG_FILTER_CLK_DIV1       (0UL << I2C_FLTR_DNF_POS) /*!< I2C Clock/1 */
 #define I2C_DIG_FILTER_CLK_DIV2       (1UL << I2C_FLTR_DNF_POS) /*!< I2C Clock/2 */
 #define I2C_DIG_FILTER_CLK_DIV3       (2UL << I2C_FLTR_DNF_POS) /*!< I2C Clock/3 */
 #define I2C_DIG_FILTER_CLK_DIV4       (3UL << I2C_FLTR_DNF_POS) /*!< I2C Clock/4 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2C_Flag I2C Flag
- * @{
  */
 #define I2C_FLAG_START                (I2C_SR_STARTF)      /*!< Start condition detected */
 #define I2C_FLAG_MATCH_ADDR0          (I2C_SR_SLADDR0F)    /*!< Address 0 detected */
@@ -194,13 +166,10 @@ typedef struct {
                                        | I2C_FLAG_BUSY | I2C_FLAG_TRA | I2C_FLAG_GENERAL_CALL \
                                        | I2C_FLAG_SMBUS_DEFAULT_MATCH | I2C_FLAG_SMBUS_HOST_MATCH \
                                        | I2C_FLAG_SMBUS_ALARM_MATCH)
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2C_Int_Flag I2C Interrupt Flag Bits
- * @{
  */
 #define I2C_INT_START                 (I2C_CR2_STARTIE)
 #define I2C_INT_MATCH_ADDR0           (I2C_CR2_SLADDR0IE)
@@ -222,13 +191,9 @@ typedef struct {
                                        | I2C_INT_NACK | I2C_INT_TMOUTIE | I2C_INT_GENERAL_CALL \
                                        | I2C_INT_SMBUS_DEFAULT_MATCH | I2C_INT_SMBUS_HOST_MATCH \
                                        | I2C_INT_SMBUS_ALARM_MATCH)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -239,7 +204,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup I2C_Global_Functions
- * @{
  */
 
 /* Initialization and Configuration **********************************/
@@ -297,19 +261,13 @@ int32_t I2C_MasterReceiveDataAndStop(CM_I2C_TypeDef *I2Cx, uint8_t au8RxData[], 
 int32_t I2C_Stop(CM_I2C_TypeDef *I2Cx, uint32_t u32Timeout);
 int32_t I2C_WaitStatus(const CM_I2C_TypeDef *I2Cx, uint32_t u32Flag, en_flag_status_t enStatus, uint32_t u32Timeout);
 
-/**
- * @}
- */
+
 
 #endif /* LL_I2C_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

@@ -35,27 +35,19 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup QSPI
-  * @{
   */
 
 /** @defgroup QSPI_flags_definition
   * @brief qspi flag
-  * @{
   */
 #define QSPI_CMDSTS_FLAG                 ((uint32_t)0x00000001) /*!< qspi command complete status flag */
 #define QSPI_RXFIFORDY_FLAG              ((uint32_t)0x00000002) /*!< qspi rxfifo ready status flag */
 #define QSPI_TXFIFORDY_FLAG              ((uint32_t)0x00000004) /*!< qspi txfifo ready status flag */
 
-/**
-  * @}
-  */
-
 /** @defgroup QSPI_exported_Types
-  * @{
   */
 
 /**
@@ -453,17 +445,11 @@ typedef struct {
     };
 
 } QSPI_Type;
-
-/**
-  * @}
-  */
 #define QSPI1                            ((QSPI_Type*)QSPI1_REG_BASE)
 #define QSPI2                            ((QSPI_Type*)QSPI2_REG_BASE)
 
 /** @defgroup QSPI_exported_functions
-  * @{
   */
-
 void QSPI_Encryption_Enable(QSPI_Type* QSPI_x, confirm_state new_state);
 void QSPI_SCK_Mode_Set(QSPI_Type* QSPI_x, QSPI_CLK_Mode_Type new_Mode);
 void QSPI_CLK_Division_Set(QSPI_Type* QSPI_x, QSPI_CLK_Div_Type new_CLKdiv);
@@ -484,18 +470,6 @@ uint32_t QSPI_Word_Read(QSPI_Type* QSPI_x);
 void QSPI_Word_Write(QSPI_Type* QSPI_x, uint32_t value);
 void QSPI_Half_Word_Write(QSPI_Type* QSPI_x, uint16_t value);
 void QSPI_Byte_Write(QSPI_Type* QSPI_x, uint8_t value);
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
 #ifdef __cplusplus
 }
 #endif

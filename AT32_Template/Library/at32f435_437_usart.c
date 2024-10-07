@@ -26,18 +26,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup USART
   * @brief USART driver modules
-  * @{
   */
 
 #ifdef USART_MODULE_EnableD
 
 /** @defgroup USART_private_functions
-  * @{
   */
 
 /**
@@ -263,7 +260,7 @@ void USART_Interrupt_Enable(USART_Type* USART_x, uint32_t USART_int, confirm_sta
 }
 
 /**
-  * @brief  启用或禁用usart的dma发射机接口。
+  * @brief  启用或禁用 Usart的dma发射机接口。
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
@@ -276,7 +273,7 @@ void USART_DMATransmitter_Enable(USART_Type* USART_x, confirm_state new_state) {
 }
 
 /**
-  * @brief  启用或禁用usart的dma接收机接口。
+  * @brief  启用或禁用 Usart的dma接收机接口。
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
@@ -634,7 +631,7 @@ void USART_DE_Polarity_Set(USART_Type* USART_x, USART_DE_Polarity_Type de_polari
 }
 
 /**
-  * @brief  启用或禁用usart的rs485模式。
+  * @brief  启用或禁用 Usart的rs485模式。
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3
@@ -646,16 +643,4 @@ void USART_RS485_Mode_Enable(USART_Type* USART_x, confirm_state new_state) {
     USART_x->ctrl3_bit.rs485en = new_state;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

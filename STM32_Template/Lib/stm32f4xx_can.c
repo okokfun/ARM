@@ -79,12 +79,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup CAN
   * 简介: CAN 驱动模块
-  * @{
   */
 /* Private typedef -----------------------------------------------------------*/
 /* 私有宏 ------------------------------------------------------------*/
@@ -128,7 +126,6 @@
 static ITStatus CheckITStatus(uint32_t CAN_Reg, uint32_t It_Bit);
 
 /** @defgroup CAN_Private_Functions
-  * @{
   */
 
 /** @defgroup CAN_Group1 初始化和配置函数
@@ -152,7 +149,6 @@ static ITStatus CheckITStatus(uint32_t CAN_Reg, uint32_t It_Bit);
       (+) 启用或禁用CAN时间触发器操作通信模式
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -643,9 +639,6 @@ void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState) {
         CANx->sTxMailBox[2].TDTR &= ((uint32_t)~CAN_TDT2R_TGT);
     }
 }
-/**
-  * @}
-  */
 
 
 /** @defgroup CAN_Group2 CAN帧传输功能
@@ -661,7 +654,6 @@ void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState) {
       (+) 取消传输请求
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -841,9 +833,6 @@ void CAN_CancelTransmit(CAN_TypeDef* CANx, uint8_t Mailbox) {
             break;
     }
 }
-/**
-  * @}
-  */
 
 
 /** @defgroup CAN_Group3 CAN帧接收功能
@@ -861,7 +850,6 @@ void CAN_CancelTransmit(CAN_TypeDef* CANx, uint8_t Mailbox) {
         (+) 返回等待接收的CAN帧的数量
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -969,9 +957,6 @@ uint8_t CAN_MessagePending(CAN_TypeDef* CANx, uint8_t FIFONumber) {
 
     return message_pending;
 }
-/**
-  * @}
-  */
 
 
 /** @defgroup CAN_Group4 CAN操作模式功能
@@ -989,7 +974,6 @@ uint8_t CAN_MessagePending(CAN_TypeDef* CANx, uint8_t FIFONumber) {
         (+) 初始化模式
 
 @endverbatim
-  * @{
   */
 
 
@@ -997,7 +981,7 @@ uint8_t CAN_MessagePending(CAN_TypeDef* CANx, uint8_t FIFONumber) {
   * 简介:  选择 CAN 操作模式。
   * 
   * 参数:  CAN_OperatingMode: CAN工作模式。
-  *         此参数可以是@ref can_OperatingMode_TypeDef枚举之一。
+  *         此参数可以是 @ref can_OperatingMode_TypeDef枚举之一。
   * 
   * 返回值: 请求模式的状态，可以是
   *         - CAN_ModeStatus_Failed:  CAN无法进入特定模式
@@ -1121,9 +1105,6 @@ uint8_t CAN_WakeUp(CAN_TypeDef* CANx) {
     /* 返回唤醒状态 */
     return (uint8_t)wakeupstatus;
 }
-/**
-  * @}
-  */
 
 
 /** @defgroup CAN_Group5 CAN总线错误管理功能
@@ -1145,7 +1126,6 @@ uint8_t CAN_WakeUp(CAN_TypeDef* CANx) {
     -@- 如果REC或TEC大于127，则会出现错误被动标志。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1224,9 +1204,6 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
     /* 返回9位CANx传输错误计数器(TEC)的LSB */
     return counter;
 }
-/**
-  * @}
-  */
 
 /** @defgroup CAN_Group6 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -1358,7 +1335,6 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
 通过www.DeepL.com/Translator(免费版)翻译
 
 @endverbatim
-  * @{
   */
 /**
   * 简介: 启用或停用指定的CANx中断。
@@ -1758,9 +1734,7 @@ void CAN_ClearITPendingBit(CAN_TypeDef* CANx, uint32_t CAN_IT) {
             break;
     }
 }
-/**
- * @}
- */
+
 
 /**
   * 简介:  检查CAN中断是否已经发生。
@@ -1784,17 +1758,4 @@ static ITStatus CheckITStatus(uint32_t CAN_Reg, uint32_t It_Bit) {
 
     return pendingbitstatus;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

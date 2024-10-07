@@ -37,112 +37,72 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup SYSCFG
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /** @defgroup SYSCFG_Exported_Constants
-  * @{
   */
 #if defined(STM32F413_423xx)
 /** @defgroup BITSTREAM_CLOCK  位流时钟源选择
-  * @{
   */
 #define BITSTREAM_CLOCK_DFSDM2     SYSCFG_MCHDLYCR_BSCKSEL
 #define BITSTREAM_CLOCK_TIM2OC1    (uint32_t)0x00000000
-/**
-  * @}
-  */
 
 /** @defgroup MCHDLY_CLOCK  MCHDLY时钟启用
-  * @{
   */
 #define MCHDLY_CLOCK_DFSDM2       SYSCFG_MCHDLYCR_MCHDLY2EN
 #define MCHDLY_CLOCK_DFSDM1       SYSCFG_MCHDLYCR_MCHDLY1EN
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_CLOCKIN_SOURCE   DFSDM时钟输入源选择
-  * @{
   */
 #define DFSDM2_CKIN_PAD           (uint32_t)0x00000000
 #define DFSDM2_CKIN_DM            SYSCFG_MCHDLYCR_DFSDM2CFG
 #define DFSDM1_CKIN_PAD           (uint32_t)0x00000000
 #define DFSDM1_CKIN_DM            SYSCFG_MCHDLYCR_DFSDM1CFG
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_CLOCKOUT_SOURCE   DFSDM时钟源选择
-  * @{
   */
 #define DFSDM2_CKOUT_DFSDM2       (uint32_t)0x00000000
 #define DFSDM2_CKOUT_M27          SYSCFG_MCHDLYCR_DFSDM2CKOSEL
 #define DFSDM1_CKOUT_DFSDM1       (uint32_t)0x00000000U
 #define DFSDM1_CKOUT_M27          SYSCFG_MCHDLYCR_DFSDM1CKOSEL
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_DATAIN0_SOURCE   DATAIN0的DFSDM源选择
-  * @{
   */
 #define DATAIN0_DFSDM2_PAD        (uint32_t)0x00000000
 #define DATAIN0_DFSDM2_DATAIN1    SYSCFG_MCHDLYCR_DFSDM2D0SEL
 #define DATAIN0_DFSDM1_PAD        (uint32_t)0x00000000
 #define DATAIN0_DFSDM1_DATAIN1    SYSCFG_MCHDLYCR_DFSDM1D0SEL
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_DATAIN2_SOURCE   DATAIN2的DFSDM源选择
-  * @{
   */
 #define DATAIN2_DFSDM2_PAD        (uint32_t)0x00000000
 #define DATAIN2_DFSDM2_DATAIN3    SYSCFG_MCHDLYCR_DFSDM2D2SEL
 #define DATAIN2_DFSDM1_PAD        (uint32_t)0x00000000
 #define DATAIN2_DFSDM1_DATAIN3    SYSCFG_MCHDLYCR_DFSDM1D2SEL
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_DATAIN4_SOURCE   DATAIN4的DFSDM源选择
-  * @{
   */
 #define DATAIN4_DFSDM2_PAD        (uint32_t)0x00000000
 #define DATAIN4_DFSDM2_DATAIN5    SYSCFG_MCHDLYCR_DFSDM2D4SEL
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_DATAIN6_SOURCE   DATAIN6的DFSDM源选择
-  * @{
   */
 #define DATAIN6_DFSDM2_PAD        (uint32_t)0x00000000
 #define DATAIN6_DFSDM2_DATAIN7    SYSCFG_MCHDLYCR_DFSDM2D6SEL
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_CLKIN_SOURCE   CLKIN的DFSDM1源选择
-  * @{
   */
 #define DFSDM1_CLKIN0_TIM4OC2      (uint32_t)0x00000000
 #define DFSDM1_CLKIN2_TIM4OC2      SYSCFG_MCHDLYCR_DFSDM1CK02SEL
 #define DFSDM1_CLKIN1_TIM4OC1      (uint32_t)0x00000000
 #define DFSDM1_CLKIN3_TIM4OC1      SYSCFG_MCHDLYCR_DFSDM1CK13SEL
-/**
-  * @}
-  */
 
 /** @defgroup DFSDM_CLKIN_SOURCE   CLKIN的DFSDM2源选择
-  * @{
   */
 #define DFSDM2_CLKIN0_TIM3OC4      (uint32_t)0x00000000
 #define DFSDM2_CLKIN4_TIM3OC4      SYSCFG_MCHDLYCR_DFSDM2CK04SEL
@@ -152,13 +112,9 @@ extern "C" {
 #define DFSDM2_CLKIN6_TIM3OC2      SYSCFG_MCHDLYCR_DFSDM2CK26SEL
 #define DFSDM2_CLKIN3_TIM3OC1      (uint32_t)0x00000000
 #define DFSDM2_CLKIN7_TIM3OC1      SYSCFG_MCHDLYCR_DFSDM2CK37SEL
-/**
-  * @}
-  */
 #endif /* STM32F413_423xx */
 
 /** @defgroup SYSCFG_EXTI_Port_Sources
-  * @{
   */
 #define EXTI_PortSourceGPIOA       ((uint8_t)0x00)
 #define EXTI_PortSourceGPIOB       ((uint8_t)0x01)
@@ -184,13 +140,9 @@ extern "C" {
         ((PORTSOURCE) == EXTI_PortSourceGPIOJ) || \
         ((PORTSOURCE) == EXTI_PortSourceGPIOK))
 
-/**
-  * @}
-  */
 
 
 /** @defgroup SYSCFG_EXTI_Pin_Sources
-  * @{
   */
 #define EXTI_PinSource0            ((uint8_t)0x00)
 #define EXTI_PinSource1            ((uint8_t)0x01)
@@ -224,13 +176,9 @@ extern "C" {
                                        ((PINSOURCE) == EXTI_PinSource13) || \
                                        ((PINSOURCE) == EXTI_PinSource14) || \
                                        ((PINSOURCE) == EXTI_PinSource15))
-/**
-  * @}
-  */
 
 
 /** @defgroup SYSCFG_Memory_Remap_Config
-  * @{
   */
 #define SYSCFG_MemoryRemap_Flash       ((uint8_t)0x00)
 #define SYSCFG_MemoryRemap_SystemFlash ((uint8_t)0x01)
@@ -285,26 +233,16 @@ extern "C" {
 #define IS_SYSCFG_LOCK_CONFIG(BREAK) (((BREAK) == SYSCFG_Break_PVD)       || \
                                       ((BREAK) == SYSCFG_Break_HardFault))
 #endif /* STM32F410xx || STM32F412xG || STM32F413_423xx */
-/**
-  * @}
-  */
 
 
 /** @defgroup SYSCFG_ETHERNET_Media_Interface
-  * @{
   */
 #define SYSCFG_ETH_MediaInterface_MII    ((uint32_t)0x00000000)
 #define SYSCFG_ETH_MediaInterface_RMII   ((uint32_t)0x00000001)
 
 #define IS_SYSCFG_ETH_MEDIA_INTERFACE(INTERFACE) (((INTERFACE) == SYSCFG_ETH_MediaInterface_MII) || \
         ((INTERFACE) == SYSCFG_ETH_MediaInterface_RMII))
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -338,12 +276,5 @@ void    DFSDM2_BitStreamClk_Config(uint32_t source); 		// 配置从 TIM3 门控�
 
 #endif /*__STM32F4xx_SYSCFG_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

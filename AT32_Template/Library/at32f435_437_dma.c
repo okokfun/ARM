@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup DMA
   * @brief DMA driver modules
-  * @{
   */
 
 #ifdef DMA_MODULE_EnableD
 
 /** @defgroup DMA_private_functions
-  * @{
   */
 
 /**
@@ -617,16 +614,4 @@ void DMAMUX_Generator_Flag_Clear(DMA_Type *DMA_x, uint32_t flag) {
     DMA_x->muxgclr = flag;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

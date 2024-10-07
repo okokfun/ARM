@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup FMPI2C
-  * @{
   */
 #if defined(STM32F410xx) || defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx)
 /* Exported types ------------------------------------------------------------*/
@@ -54,54 +52,44 @@ typedef struct {
                                           此参数参考参考手册中的 FMPI2C 初始化部分计算得出*/
 
     uint32_t FMPI2C_AnalogFilter;        /*!< 启用或禁用模拟噪声滤波器。
-                                          该参数可以是@ref FMPI2C_Analog_Filter 的值 */
+                                          该参数可以是 @ref FMPI2C_Analog_Filter 的值 */
 
     uint32_t FMPI2C_DigitalFilter;       /*!< 配置数字噪声滤波器。
                                           此参数可以是 0x00 和 0x0F 之间的数字 */
 
     uint32_t FMPI2C_Mode;                /*!< 指定 FMPI2C 模式。
-                                          该参数可以是@ref FMPI2C_mode 的值 */
+                                          该参数可以是 @ref FMPI2C_mode 的值 */
 
     uint32_t FMPI2C_OwnAddress1;         /*!< 指定设备自己的地址 1。
                                           该参数可以是 7 位或 10 位地址 */
 
     uint32_t FMPI2C_Ack;                 /*!< 启用或禁用确认。
-                                          该参数可以是@ref FMPI2C_acknowledgement 的值 */
+                                          该参数可以是 @ref FMPI2C_acknowledgement 的值 */
 
     uint32_t FMPI2C_AcknowledgedAddress; /*!< 指定是否确认 7 位或 10 位地址。
-                                          该参数可以是@ref FMPI2C_acknowledged_address 的值 */
+                                          该参数可以是 @ref FMPI2C_acknowledged_address 的值 */
 } FMPI2C_InitTypeDef;
 
 /* Exported constants --------------------------------------------------------*/
 
 
 /** @defgroup FMPI2C_Exported_Constants
-  * @{
   */
 #define IS_FMPI2C_ALL_PERIPH(PERIPH)       ((PERIPH) == FMPI2C1)
 
 /** @defgroup FMPI2C_Analog_Filter
-  * @{
   */
 #define FMPI2C_AnalogFilter_Enable         ((uint32_t)0x00000000)
 #define FMPI2C_AnalogFilter_Disable        FMPI2C_CR1_ANFOFF
 
 #define IS_FMPI2C_ANALOG_FILTER(FILTER)    (((FILTER) == FMPI2C_AnalogFilter_Enable) || \
         ((FILTER) == FMPI2C_AnalogFilter_Disable))
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_Digital_Filter
-  * @{
   */
 #define IS_FMPI2C_DIGITAL_FILTER(FILTER)   ((FILTER) <= 0x0000000F)
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_mode
-  * @{
   */
 #define FMPI2C_Mode_FMPI2C                ((uint32_t)0x00000000)
 #define FMPI2C_Mode_SMBusDevice            FMPI2C_CR1_SMBDEN
@@ -110,85 +98,53 @@ typedef struct {
 #define IS_FMPI2C_MODE(MODE)               (((MODE) == FMPI2C_Mode_FMPI2C) || \
         ((MODE) == FMPI2C_Mode_SMBusDevice) || \
         ((MODE) == FMPI2C_Mode_SMBusHost))
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_acknowledgement
-  * @{
   */
 #define FMPI2C_Ack_Enable                  ((uint32_t)0x00000000)
 #define FMPI2C_Ack_Disable                 FMPI2C_CR2_NACK
 
 #define IS_FMPI2C_ACK(ACK)                 (((ACK) == FMPI2C_Ack_Enable) || \
         ((ACK) == FMPI2C_Ack_Disable))
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_acknowledged_address
-  * @{
   */
 #define FMPI2C_AcknowledgedAddress_7bit    ((uint32_t)0x00000000)
 #define FMPI2C_AcknowledgedAddress_10bit   FMPI2C_OAR1_OA1MODE
 
 #define IS_FMPI2C_ACKNOWLEDGE_ADDRESS(ADDRESS) (((ADDRESS) == FMPI2C_AcknowledgedAddress_7bit) || \
         ((ADDRESS) == FMPI2C_AcknowledgedAddress_10bit))
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_own_address1
-  * @{
   */
 #define IS_FMPI2C_OWN_ADDRESS1(ADDRESS1)   ((ADDRESS1) <= (uint32_t)0x000003FF)
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_transfer_direction
-  * @{
   */
 #define FMPI2C_Direction_Transmitter       ((uint16_t)0x0000)
 #define FMPI2C_Direction_Receiver          ((uint16_t)0x0400)
 
 #define IS_FMPI2C_DIRECTION(DIRECTION)     (((DIRECTION) == FMPI2C_Direction_Transmitter) || \
         ((DIRECTION) == FMPI2C_Direction_Receiver))
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_DMA_transfer_requests
-  * @{
   */
 #define FMPI2C_DMAReq_Tx                   FMPI2C_CR1_TXDMAEN
 #define FMPI2C_DMAReq_Rx                   FMPI2C_CR1_RXDMAEN
 
 #define IS_FMPI2C_DMA_REQ(REQ)             ((((REQ) & (uint32_t)0xFFFF3FFF) == 0x00) && ((REQ) != 0x00))
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_slave_address
-  * @{
   */
 #define IS_FMPI2C_SLAVE_ADDRESS(ADDRESS)   ((ADDRESS) <= (uint16_t)0x03FF)
-/**
-  * @}
-  */
 
 
 /** @defgroup FMPI2C_own_address2
-  * @{
   */
 #define IS_FMPI2C_OWN_ADDRESS2(ADDRESS2)   ((ADDRESS2) <= (uint16_t)0x00FF)
 
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_own_address2_mask
-  * @{
   */
 #define FMPI2C_OA2_NoMask                  ((uint8_t)0x00)
 #define FMPI2C_OA2_Mask01                  ((uint8_t)0x01)
@@ -208,21 +164,13 @@ typedef struct {
         ((MASK) == FMPI2C_OA2_Mask06) || \
         ((MASK) == FMPI2C_OA2_Mask07))
 
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_timeout
-  * @{
   */
 #define IS_FMPI2C_TIMEOUT(TIMEOUT)   ((TIMEOUT) <= (uint16_t)0x0FFF)
 
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_registers
-  * @{
   */
 #define FMPI2C_Register_CR1                ((uint8_t)0x00)
 #define FMPI2C_Register_CR2                ((uint8_t)0x04)
@@ -247,12 +195,8 @@ typedef struct {
         ((REGISTER) == FMPI2C_Register_PECR) || \
         ((REGISTER) == FMPI2C_Register_RXDR) || \
         ((REGISTER) == FMPI2C_Register_TXDR))
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_interrupts_definition
-  * @{
   */
 #define FMPI2C_IT_ERRI                     FMPI2C_CR1_ERRIE
 #define FMPI2C_IT_TCI                      FMPI2C_CR1_TCIE
@@ -264,12 +208,8 @@ typedef struct {
 
 #define IS_FMPI2C_CONFIG_IT(IT)            ((((IT) & (uint32_t)0xFFFFFF01) == 0x00) && ((IT) != 0x00))
 
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_flags_definition
-  * @{
   */
 #define  FMPI2C_FLAG_TXE                   FMPI2C_ISR_TXE
 #define  FMPI2C_FLAG_TXIS                  FMPI2C_ISR_TXIS
@@ -298,13 +238,9 @@ typedef struct {
         ((FLAG) == FMPI2C_FLAG_TIMEOUT) || ((FLAG) == FMPI2C_FLAG_ALERT) || \
         ((FLAG) == FMPI2C_FLAG_BUSY))
 
-/**
-  * @}
-  */
 
 
 /** @defgroup FMPI2C_interrupts_definition
-  * @{
   */
 #define  FMPI2C_IT_TXIS                    FMPI2C_ISR_TXIS
 #define  FMPI2C_IT_RXNE                    FMPI2C_ISR_RXNE
@@ -330,12 +266,8 @@ typedef struct {
         ((IT) == FMPI2C_IT_PECERR) || ((IT) == FMPI2C_IT_TIMEOUT) || \
         ((IT) == FMPI2C_IT_ALERT))
 
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_ReloadEndMode_definition
-  * @{
   */
 #define  FMPI2C_Reload_Mode                FMPI2C_CR2_RELOAD
 #define  FMPI2C_AutoEnd_Mode               FMPI2C_CR2_AUTOEND
@@ -347,12 +279,8 @@ typedef struct {
         ((MODE) == FMPI2C_SoftEnd_Mode))
 
 
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_StartStopMode_definition
-  * @{
   */
 #define  FMPI2C_No_StartStop                 ((uint32_t)0x00000000)
 #define  FMPI2C_Generate_Stop                FMPI2C_CR2_STOP
@@ -366,13 +294,7 @@ typedef struct {
         ((MODE) == FMPI2C_No_StartStop))
 
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
@@ -434,18 +356,11 @@ ITStatus FMPI2C_GetITStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT); // 检
 void FMPI2C_ClearITPendingBit(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT); // 清除 FMPI2Cx 的中断挂起位。
 
 #endif /* STM32F410xx || STM32F412xG || STM32F413_423xx || STM32F446xx */
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif /*__STM32F4xx_FMPI2C_H */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

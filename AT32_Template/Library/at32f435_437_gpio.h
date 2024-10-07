@@ -35,15 +35,12 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup GPIO
-  * @{
   */
 
 /** @defgroup GPIO_Pins_Number_definition
-  * @{
   */
 #define GPIO_Pins_0                      0x0001 /*!< gpio pins number 0 */
 #define GPIO_Pins_1                      0x0002 /*!< gpio pins number 1 */
@@ -63,12 +60,7 @@ extern "C" {
 #define GPIO_Pins_15                     0x8000 /*!< gpio pins number 15 */
 #define GPIO_Pins_ALL                    0xFFFF /*!< gpio all pins */
 
-/**
-  * @}
-  */
-
 /** @defgroup GPIO_exported_Types
-  * @{
   */
 
 /**
@@ -478,10 +470,6 @@ typedef struct {
     };
 
 } GPIO_Type;
-
-/**
-  * @}
-  */
 #define GPIOA                            ((GPIO_Type *) GPIOA_BASE)
 #define GPIOB                            ((GPIO_Type *) GPIOB_BASE)
 #define GPIOC                            ((GPIO_Type *) GPIOC_BASE)
@@ -492,9 +480,7 @@ typedef struct {
 #define GPIOH                            ((GPIO_Type *) GPIOH_BASE)
 
 /** @defgroup GPIO_exported_functions
-  * @{
   */
-
 void GPIO_Reset(GPIO_Type *gpio_x);
 void GPIO_Init(GPIO_Type *gpio_x, GPIO_Init_Type *GPIO_Init_struct);
 void GPIO_Default_Para_Init(GPIO_Init_Type *GPIO_Init_struct);
@@ -509,18 +495,6 @@ void GPIO_Port_Write(GPIO_Type *gpio_x, uint16_t port_value);
 void GPIO_Pin_WP_Config(GPIO_Type *gpio_x, uint16_t pins);
 void GPIO_Pins_Huge_Driven_Config(GPIO_Type *gpio_x, uint16_t pins, confirm_state new_state);
 void GPIO_Pin_Mux_Config(GPIO_Type *gpio_x, GPIO_Pins_Source_Type gpio_Pin_source, GPIO_Mux_Sel_Type gpio_mux);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

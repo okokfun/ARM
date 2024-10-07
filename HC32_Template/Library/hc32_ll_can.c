@@ -28,13 +28,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_CAN CAN
  * @brief CAN Driver Library
- * @{
  */
 
 #if (LL_CAN_ENABLE == DDL_ON)
@@ -48,12 +46,10 @@
  ******************************************************************************/
 /**
  * @defgroup CAN_Local_Macros CAN Local Macros
- * @{
  */
 
 /**
  * @defgroup CAN_Check_Parameters_Validity CAN Check Parameters Validity
- * @{
  */
 #define IS_CAN_BIT_MASK(x, mask)    (((x) != 0U) && (((x) | (mask)) == (mask)))
 
@@ -158,13 +154,10 @@
 /* CAN Data Length Code(DLC) */
 #define IS_CAN20_DLC(fdf, dlc)                  (((fdf) == 0U) && ((dlc) <= CAN_DLC8))
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup CAN_Miscellaneous_Macros CAN Miscellaneous Macros
- * @{
  */
 #define CAN_RX_BUF_NUM                      (8U)
 
@@ -173,13 +166,9 @@
 
 #define CAN_ERRINT_FLAG_MASK                (CAN_ERRINT_BEIF | CAN_ERRINT_ALIF | CAN_ERRINT_EPIF)
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -194,21 +183,17 @@
  ******************************************************************************/
 /**
  * @defgroup CAN_Local_Variables CAN Local Variables
- * @{
  */
 const static uint8_t m_au8DLC2Size[16U] = {
     0U, 1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 12U, 16U, 20U, 24U, 32U, 48U, 64U
 };
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Function implementation - global ('extern') and local ('static')
  ******************************************************************************/
 /**
  * @defgroup CAN_Local_Functions CAN Local Functions
- * @{
  */
 
 #if defined __DEBUG
@@ -445,13 +430,10 @@ static void CAN_ReadRxBuf(const CM_CAN_TypeDef *CANx, stc_can_rx_frame_t *pstcRx
     }
 }
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup CAN_Global_Functions CAN Global Functions
- * @{
  */
 
 /**
@@ -1433,19 +1415,13 @@ int32_t CAN_TTC_GetConfig(const CM_CAN_TypeDef *CANx, stc_can_ttc_config_t *pstc
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_CAN_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /******************************************************************************
  * EOF (not truncated)

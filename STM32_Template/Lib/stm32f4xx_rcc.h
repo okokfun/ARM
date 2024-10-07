@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup RCC
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -55,34 +53,24 @@ typedef struct {
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup RCC_Exported_Constants
-  * @{
   */
 
 /** @defgroup RCC_HSE_configuration
-  * @{
   */
 #define RCC_HSE_OFF                      ((uint8_t)0x00)
 #define RCC_HSE_ON                       ((uint8_t)0x01)
 #define RCC_HSE_Bypass                   ((uint8_t)0x05)
 #define IS_RCC_HSE(HSE) (((HSE) == RCC_HSE_OFF) || ((HSE) == RCC_HSE_ON) || \
                          ((HSE) == RCC_HSE_Bypass))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_LSE_Dual_Mode_Selection
-  * @{
   */
 #define RCC_LSE_LOWPOWER_MODE           ((uint8_t)0x00)
 #define RCC_LSE_HIGHDRIVE_MODE          ((uint8_t)0x01)
 #define IS_RCC_LSE_MODE(MODE)           (((MODE) == RCC_LSE_LOWPOWER_MODE) || \
         ((MODE) == RCC_LSE_HIGHDRIVE_MODE))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_PLLSAIDivR_Factor
-  * @{
   */
 #define RCC_PLLSAIDivR_Div2                ((uint32_t)0x00000000)
 #define RCC_PLLSAIDivR_Div4                ((uint32_t)0x00010000)
@@ -92,12 +80,8 @@ typedef struct {
         ((VALUE) == RCC_PLLSAIDivR_Div4)  ||\
         ((VALUE) == RCC_PLLSAIDivR_Div8)  ||\
         ((VALUE) == RCC_PLLSAIDivR_Div16))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_PLL_Clock_Source
-  * @{
   */
 #define RCC_PLLSource_HSI                ((uint32_t)0x00000000)
 #define RCC_PLLSource_HSE                ((uint32_t)0x00400000)
@@ -136,12 +120,8 @@ typedef struct {
 #define IS_RCC_PLLI2S_DIVR_VALUE(VALUE) ((1 <= (VALUE)) && ((VALUE) <= 32))
 #define IS_RCC_PLL_DIVR_VALUE(VALUE)    ((1 <= (VALUE)) && ((VALUE) <= 32))
 #endif /* STM32F413_423xx */
-/**
-  * @}
-  */
 
 /** @defgroup RCC_System_Clock_Source
-  * @{
   */
 
 #if  defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx)
@@ -165,12 +145,8 @@ typedef struct {
                                       ((SOURCE) == RCC_SYSCLKSource_HSE) || \
                                       ((SOURCE) == RCC_SYSCLKSource_PLLCLK))
 #endif /* STM32F40_41xxx || STM32F427_437xx || STM32F429_439xx || STM32F401xx || STM32F410xx || STM32F411xE || STM32F469_479xx */
-/**
-  * @}
-  */
 
 /** @defgroup RCC_AHB_Clock_Source
-  * @{
   */
 #define RCC_SYSCLK_Div1                  ((uint32_t)0x00000000)
 #define RCC_SYSCLK_Div2                  ((uint32_t)0x00000080)
@@ -186,12 +162,8 @@ typedef struct {
                            ((HCLK) == RCC_SYSCLK_Div16) || ((HCLK) == RCC_SYSCLK_Div64) || \
                            ((HCLK) == RCC_SYSCLK_Div128) || ((HCLK) == RCC_SYSCLK_Div256) || \
                            ((HCLK) == RCC_SYSCLK_Div512))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_APB1_APB2_Clock_Source
-  * @{
   */
 #define RCC_HCLK_Div1                    ((uint32_t)0x00000000)
 #define RCC_HCLK_Div2                    ((uint32_t)0x00001000)
@@ -201,12 +173,8 @@ typedef struct {
 #define IS_RCC_PCLK(PCLK) (((PCLK) == RCC_HCLK_Div1) || ((PCLK) == RCC_HCLK_Div2) || \
                            ((PCLK) == RCC_HCLK_Div4) || ((PCLK) == RCC_HCLK_Div8) || \
                            ((PCLK) == RCC_HCLK_Div16))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_Interrupt_Source
-  * @{
   */
 #define RCC_IT_LSIRDY                    ((uint8_t)0x01)
 #define RCC_IT_LSERDY                    ((uint8_t)0x02)
@@ -224,24 +192,16 @@ typedef struct {
                            ((IT) == RCC_IT_PLLSAIRDY) || ((IT) == RCC_IT_PLLI2SRDY))
 #define IS_RCC_CLEAR_IT(IT)((IT) != 0x00)
 
-/**
-  * @}
-  */
 
 /** @defgroup RCC_LSE_Configuration
-  * @{
   */
 #define RCC_LSE_OFF                      ((uint8_t)0x00)
 #define RCC_LSE_ON                       ((uint8_t)0x01)
 #define RCC_LSE_Bypass                   ((uint8_t)0x04)
 #define IS_RCC_LSE(LSE) (((LSE) == RCC_LSE_OFF) || ((LSE) == RCC_LSE_ON) || \
                          ((LSE) == RCC_LSE_Bypass))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_RTC_Clock_Source
-  * @{
   */
 #define RCC_RTCCLKSource_LSE             ((uint32_t)0x00000100)
 #define RCC_RTCCLKSource_LSI             ((uint32_t)0x00000200)
@@ -307,13 +267,9 @@ typedef struct {
                                       ((SOURCE) == RCC_RTCCLKSource_HSE_Div29) || \
                                       ((SOURCE) == RCC_RTCCLKSource_HSE_Div30) || \
                                       ((SOURCE) == RCC_RTCCLKSource_HSE_Div31))
-/**
-  * @}
-  */
 
 #if defined(STM32F410xx) || defined(STM32F413_423xx)
 /** @defgroup RCCEx_LPTIM1_Clock_Source  RCC LPTIM1 Clock Source
-  * @{
   */
 #define RCC_LPTIM1CLKSOURCE_PCLK            ((uint32_t)0x00000000)
 #define RCC_LPTIM1CLKSOURCE_HSI            ((uint32_t)RCC_DCKCFGR2_LPTIM1SEL_0)
@@ -326,27 +282,19 @@ typedef struct {
 #define IS_RCC_LPTIM1_SOURCE           IS_RCC_LPTIM1_CLOCKSOURCE
 
 #if defined(STM32F410xx)
-/**
-  * @}
-  */
 
 /** @defgroup RCCEx_I2S_APB_Clock_Source  RCC I2S APB Clock Source
-  * @{
   */
 #define RCC_I2SAPBCLKSOURCE_PLLR            ((uint32_t)0x00000000)
 #define RCC_I2SAPBCLKSOURCE_EXT             ((uint32_t)RCC_DCKCFGR_I2SSRC_0)
 #define RCC_I2SAPBCLKSOURCE_PLLSRC          ((uint32_t)RCC_DCKCFGR_I2SSRC_1)
 #define IS_RCC_I2SCLK_SOURCE(SOURCE) (((SOURCE) == RCC_I2SAPBCLKSOURCE_PLLR) || ((SOURCE) == RCC_I2SAPBCLKSOURCE_EXT) || \
                                       ((SOURCE) == RCC_I2SAPBCLKSOURCE_PLLSRC))
-/**
-  * @}
-  */
 #endif /* STM32F413_423xx */
 #endif /* STM32F410xx  || STM32F413_423xx */
 
 #if defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx)
 /** @defgroup RCC_I2S_Clock_Source
-  * @{
   */
 #define RCC_I2SCLKSource_PLLI2S             ((uint32_t)0x00)
 #define RCC_I2SCLKSource_Ext                ((uint32_t)RCC_DCKCFGR_I2S1SRC_0)
@@ -355,22 +303,14 @@ typedef struct {
 
 #define IS_RCC_I2SCLK_SOURCE(SOURCE) (((SOURCE) == RCC_I2SCLKSource_PLLI2S) || ((SOURCE) == RCC_I2SCLKSource_Ext) || \
                                       ((SOURCE) == RCC_I2SCLKSource_PLL) || ((SOURCE) == RCC_I2SCLKSource_HSI_HSE))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_I2S_APBBus
-  * @{
   */
 #define RCC_I2SBus_APB1             ((uint8_t)0x00)
 #define RCC_I2SBus_APB2             ((uint8_t)0x01)
 #define IS_RCC_I2S_APBx(BUS) (((BUS) == RCC_I2SBus_APB1) || ((BUS) == RCC_I2SBus_APB2))
-/**
-  * @}
-  */
 #if defined(STM32F446xx)
 /** @defgroup RCC_SAI_Clock_Source
-  * @{
   */
 #define RCC_SAICLKSource_PLLSAI             ((uint32_t)0x00)
 #define RCC_SAICLKSource_PLLI2S             ((uint32_t)RCC_DCKCFGR_SAI1SRC_0)
@@ -379,24 +319,16 @@ typedef struct {
 
 #define IS_RCC_SAICLK_SOURCE(SOURCE) (((SOURCE) == RCC_SAICLKSource_PLLSAI) || ((SOURCE) == RCC_SAICLKSource_PLLI2S) || \
                                       ((SOURCE) == RCC_SAICLKSource_PLL) || ((SOURCE) == RCC_SAICLKSource_HSI_HSE))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_SAI_Instance
-  * @{
   */
 #define RCC_SAIInstance_SAI1             ((uint8_t)0x00)
 #define RCC_SAIInstance_SAI2             ((uint8_t)0x01)
 #define IS_RCC_SAI_INSTANCE(BUS) (((BUS) == RCC_SAIInstance_SAI1) || ((BUS) == RCC_SAIInstance_SAI2))
-/**
-  * @}
-  */
 #endif /* STM32F446xx */
 #if defined(STM32F413_423xx)
 
 /** @defgroup RCC_SAI_BlockA_Clock_Source
-  * @{
   */
 #define RCC_SAIACLKSource_PLLI2S_R             ((uint32_t)0x00000000)
 #define RCC_SAIACLKSource_I2SCKIN              ((uint32_t)RCC_DCKCFGR_SAI1ASRC_0)
@@ -405,12 +337,8 @@ typedef struct {
 
 #define IS_RCC_SAIACLK_SOURCE(SOURCE) (((SOURCE) == RCC_SAIACLKSource_PLLI2S_R) || ((SOURCE) == RCC_SAIACLKSource_I2SCKIN) || \
                                        ((SOURCE) == RCC_SAIACLKSource_PLLR) || ((SOURCE) == RCC_SAIACLKSource_HSI_HSE))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_SAI_BlockB_Clock_Source
-  * @{
   */
 #define RCC_SAIBCLKSource_PLLI2S_R             ((uint32_t)0x00000000)
 #define RCC_SAIBCLKSource_I2SCKIN              ((uint32_t)RCC_DCKCFGR_SAI1BSRC_0)
@@ -419,26 +347,18 @@ typedef struct {
 
 #define IS_RCC_SAIBCLK_SOURCE(SOURCE) (((SOURCE) == RCC_SAIBCLKSource_PLLI2S_R) || ((SOURCE) == RCC_SAIBCLKSource_I2SCKIN) || \
                                        ((SOURCE) == RCC_SAIBCLKSource_PLLR) || ((SOURCE) == RCC_SAIBCLKSource_HSI_HSE))
-/**
-  * @}
-  */
 #endif /* STM32F413_423xx */
 #endif /* STM32F412xG || STM32F413_423xx || STM32F446xx */
 
 #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F401xx) || defined(STM32F411xE) || defined(STM32F469_479xx)
 /** @defgroup RCC_I2S_Clock_Source
-  * @{
   */
 #define RCC_I2S2CLKSource_PLLI2S             ((uint8_t)0x00)
 #define RCC_I2S2CLKSource_Ext                ((uint8_t)0x01)
 
 #define IS_RCC_I2SCLK_SOURCE(SOURCE) (((SOURCE) == RCC_I2S2CLKSource_PLLI2S) || ((SOURCE) == RCC_I2S2CLKSource_Ext))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_SAI_BlockA_Clock_Source
-  * @{
   */
 #define RCC_SAIACLKSource_PLLSAI             ((uint32_t)0x00000000)
 #define RCC_SAIACLKSource_PLLI2S             ((uint32_t)0x00100000)
@@ -447,12 +367,8 @@ typedef struct {
 #define IS_RCC_SAIACLK_SOURCE(SOURCE) (((SOURCE) == RCC_SAIACLKSource_PLLI2S) ||\
                                        ((SOURCE) == RCC_SAIACLKSource_PLLSAI) ||\
                                        ((SOURCE) == RCC_SAIACLKSource_Ext))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_SAI_BlockB_Clock_Source
-  * @{
   */
 #define RCC_SAIBCLKSource_PLLSAI             ((uint32_t)0x00000000)
 #define RCC_SAIBCLKSource_PLLI2S             ((uint32_t)0x00400000)
@@ -461,50 +377,34 @@ typedef struct {
 #define IS_RCC_SAIBCLK_SOURCE(SOURCE) (((SOURCE) == RCC_SAIBCLKSource_PLLI2S) ||\
                                        ((SOURCE) == RCC_SAIBCLKSource_PLLSAI) ||\
                                        ((SOURCE) == RCC_SAIBCLKSource_Ext))
-/**
-  * @}
-  */
 #endif /* STM32F40_41xxx || STM32F427_437xx || STM32F429_439xx || STM32F401xx || STM32F411xE || STM32F469_479xx */
 
 /** @defgroup RCC_TIM_PRescaler_Selection
-  * @{
   */
 #define RCC_TIMPrescDesactivated             ((uint8_t)0x00)
 #define RCC_TIMPrescActivated                ((uint8_t)0x01)
 
 #define IS_RCC_TIMCLK_PRESCALER(VALUE) (((VALUE) == RCC_TIMPrescDesactivated) || ((VALUE) == RCC_TIMPrescActivated))
-/**
-  * @}
-  */
 
 #if defined(STM32F469_479xx)
 /** @defgroup RCC_DSI_Clock_Source_Selection
-  * @{
   */
 #define RCC_DSICLKSource_PHY                ((uint8_t)0x00)
 #define RCC_DSICLKSource_PLLR               ((uint8_t)0x01)
 #define IS_RCC_DSI_CLOCKSOURCE(CLKSOURCE)   (((CLKSOURCE) == RCC_DSICLKSource_PHY) || \
         ((CLKSOURCE) == RCC_DSICLKSource_PLLR))
-/**
-  * @}
-  */
 #endif /* STM32F469_479xx */
 
 #if  defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx) || defined(STM32F469_479xx)
 /** @defgroup RCC_SDIO_Clock_Source_Selection
-  * @{
   */
 #define RCC_SDIOCLKSource_48MHZ              ((uint8_t)0x00)
 #define RCC_SDIOCLKSource_SYSCLK             ((uint8_t)0x01)
 #define IS_RCC_SDIO_CLOCKSOURCE(CLKSOURCE)   (((CLKSOURCE) == RCC_SDIOCLKSource_48MHZ) || \
         ((CLKSOURCE) == RCC_SDIOCLKSource_SYSCLK))
-/**
-  * @}
-  */
 
 
 /** @defgroup RCC_48MHZ_Clock_Source_Selection
-  * @{
   */
 #if  defined(STM32F446xx) || defined(STM32F469_479xx)
 #define RCC_48MHZCLKSource_PLL                ((uint8_t)0x00)
@@ -518,36 +418,24 @@ typedef struct {
 #define IS_RCC_48MHZ_CLOCKSOURCE(CLKSOURCE)   (((CLKSOURCE) == RCC_CK48CLKSOURCE_PLLQ) || \
         ((CLKSOURCE) == RCC_CK48CLKSOURCE_PLLI2SQ))
 #endif /* STM32F412xG || STM32F413_423xx */
-/**
-  * @}
-  */
 #endif /* STM32F412xG || STM32F413_423xx || STM32F446xx || STM32F469_479xx */
 
 #if defined(STM32F446xx)
 /** @defgroup RCC_SPDIFRX_Clock_Source_Selection
-  * @{
   */
 #define RCC_SPDIFRXCLKSource_PLLR                 ((uint8_t)0x00)
 #define RCC_SPDIFRXCLKSource_PLLI2SP              ((uint8_t)0x01)
 #define IS_RCC_SPDIFRX_CLOCKSOURCE(CLKSOURCE)     (((CLKSOURCE) == RCC_SPDIFRXCLKSource_PLLR) || \
         ((CLKSOURCE) == RCC_SPDIFRXCLKSource_PLLI2SP))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_CEC_Clock_Source_Selection
-  * @{
   */
 #define RCC_CECCLKSource_HSIDiv488            ((uint8_t)0x00)
 #define RCC_CECCLKSource_LSE                  ((uint8_t)0x01)
 #define IS_RCC_CEC_CLOCKSOURCE(CLKSOURCE)     (((CLKSOURCE) == RCC_CECCLKSource_HSIDiv488) || \
         ((CLKSOURCE) == RCC_CECCLKSource_LSE))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_AHB1_ClockGating
-  * @{
   */
 #define RCC_AHB1ClockGating_APB1Bridge         ((uint32_t)0x00000001)
 #define RCC_AHB1ClockGating_APB2Bridge         ((uint32_t)0x00000002)
@@ -559,14 +447,10 @@ typedef struct {
 
 #define IS_RCC_AHB1_CLOCKGATING(PERIPH) ((((PERIPH) & 0xFFFFFF80) == 0x00) && ((PERIPH) != 0x00))
 
-/**
-  * @}
-  */
 #endif /* STM32F446xx */
 
 #if defined(STM32F410xx) || defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx)
 /** @defgroup RCC_FMPI2C1_Clock_Source
-  * @{
   */
 #define RCC_FMPI2C1CLKSource_APB1            ((uint32_t)0x00)
 #define RCC_FMPI2C1CLKSource_SYSCLK          ((uint32_t)RCC_DCKCFGR2_FMPI2C1SEL_0)
@@ -574,14 +458,10 @@ typedef struct {
 
 #define IS_RCC_FMPI2C1_CLOCKSOURCE(SOURCE) (((SOURCE) == RCC_FMPI2C1CLKSource_APB1) || ((SOURCE) == RCC_FMPI2C1CLKSource_SYSCLK) || \
         ((SOURCE) == RCC_FMPI2C1CLKSource_HSI))
-/**
-  * @}
-  */
 #endif /* STM32F410xx || STM32F412xG || STM32F413_423xx || STM32F446xx */
 
 #if defined(STM32F412xG) || defined(STM32F413_423xx)
 /** @defgroup RCC_DFSDM_Clock_Source
- * @{
  */
 #define RCC_DFSDMCLKSource_APB             ((uint8_t)0x00)
 #define RCC_DFSDMCLKSource_SYS             ((uint8_t)0x01)
@@ -591,12 +471,8 @@ typedef struct {
 #define RCC_DFSDM1CLKSource_APB   RCC_DFSDMCLKSource_APB
 #define RCC_DFSDM1CLKSource_SYS   RCC_DFSDMCLKSource_SYS
 #define IS_RCC_DFSDM1CLK_SOURCE   IS_RCC_DFSDMCLK_SOURCE
-/**
-  * @}
-  */
 
 /** @defgroup RCC_DFSDM_Audio_Clock_Source  RCC DFSDM Audio Clock Source
-  * @{
   */
 #define RCC_DFSDM1AUDIOCLKSOURCE_I2SAPB1          ((uint32_t)0x00000000)
 #define RCC_DFSDM1AUDIOCLKSOURCE_I2SAPB2          ((uint32_t)RCC_DCKCFGR_CKDFSDM1ASEL)
@@ -604,25 +480,17 @@ typedef struct {
 
 /* Legacy Defines */
 #define IS_RCC_DFSDMACLK_SOURCE      IS_RCC_DFSDM1ACLK_SOURCE
-/**
-  * @}
-  */
 
 #if defined(STM32F413_423xx)
 /** @defgroup RCC_DFSDM_Audio_Clock_Source  RCC DFSDM Audio Clock Source
-  * @{
   */
 #define RCC_DFSDM2AUDIOCLKSOURCE_I2SAPB1          ((uint32_t)0x00000000)
 #define RCC_DFSDM2AUDIOCLKSOURCE_I2SAPB2          ((uint32_t)RCC_DCKCFGR_CKDFSDM2ASEL)
 #define IS_RCC_DFSDM2ACLK_SOURCE(SOURCE) (((SOURCE) == RCC_DFSDM2AUDIOCLKSOURCE_I2SAPB1) || ((SOURCE) == RCC_DFSDM2AUDIOCLKSOURCE_I2SAPB2))
-/**
-  * @}
-  */
 #endif /* STM32F413_423xx */
 #endif /* STM32F412xG || STM32F413_423xx */
 
 /** @defgroup RCC_AHB1_Peripherals
-  * @{
   */
 #define RCC_AHB1Periph_GPIOA             ((uint32_t)0x00000001)
 #define RCC_AHB1Periph_GPIOB             ((uint32_t)0x00000002)
@@ -658,12 +526,8 @@ typedef struct {
 #define IS_RCC_AHB1_RESET_PERIPH(PERIPH) ((((PERIPH) & 0x51FE800) == 0x00) && ((PERIPH) != 0x00))
 #define IS_RCC_AHB1_LPMODE_PERIPH(PERIPH) ((((PERIPH) & 0x01106800) == 0x00) && ((PERIPH) != 0x00))
 
-/**
-  * @}
-  */
 
 /** @defgroup RCC_AHB2_Peripherals
-  * @{
   */
 #define RCC_AHB2Periph_DCMI              ((uint32_t)0x00000001)
 #define RCC_AHB2Periph_CRYP              ((uint32_t)0x00000010)
@@ -673,12 +537,8 @@ typedef struct {
 #endif /* STM32F40_41xxx || STM32F427_437xx || STM32F429_439xx || STM32F469_479xx */
 #define RCC_AHB2Periph_OTG_FS            ((uint32_t)0x00000080)
 #define IS_RCC_AHB2_PERIPH(PERIPH) ((((PERIPH) & 0xFFFFFF0E) == 0x00) && ((PERIPH) != 0x00))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_AHB3_Peripherals
-  * @{
   */
 #if defined(STM32F40_41xxx)
 #define RCC_AHB3Periph_FSMC                ((uint32_t)0x00000001)
@@ -702,12 +562,8 @@ typedef struct {
 #define IS_RCC_AHB3_PERIPH(PERIPH) ((((PERIPH) & 0xFFFFFFFC) == 0x00) && ((PERIPH) != 0x00))
 #endif /* STM32F412xG || STM32F413_423xx */
 
-/**
-  * @}
-  */
 
 /** @defgroup RCC_APB1_Peripherals
-  * @{
   */
 #define RCC_APB1Periph_TIM2              ((uint32_t)0x00000001)
 #define RCC_APB1Periph_TIM3              ((uint32_t)0x00000002)
@@ -750,12 +606,8 @@ typedef struct {
 #define RCC_APB1Periph_UART7             ((uint32_t)0x40000000)
 #define RCC_APB1Periph_UART8             ((uint32_t)0x80000000)
 #define IS_RCC_APB1_PERIPH(PERIPH) ((((PERIPH) & 0x00003600) == 0x00) && ((PERIPH) != 0x00))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_APB2_Peripherals
-  * @{
   */
 #define RCC_APB2Periph_TIM1              ((uint32_t)0x00000001)
 #define RCC_APB2Periph_TIM8              ((uint32_t)0x00000002)
@@ -798,12 +650,8 @@ typedef struct {
 #define IS_RCC_APB2_PERIPH(PERIPH) ((((PERIPH) & 0xF008000C) == 0x00) && ((PERIPH) != 0x00))
 #define IS_RCC_APB2_RESET_PERIPH(PERIPH) ((((PERIPH) & 0xF208860C) == 0x00) && ((PERIPH) != 0x00))
 
-/**
-  * @}
-  */
 
 /** @defgroup RCC_MCO1_Clock_Source_Prescaler
-  * @{
   */
 #define RCC_MCO1Source_HSI               ((uint32_t)0x00000000)
 #define RCC_MCO1Source_LSE               ((uint32_t)0x00200000)
@@ -820,12 +668,8 @@ typedef struct {
 #define IS_RCC_MCO1DIV(DIV) (((DIV) == RCC_MCO1Div_1) || ((DIV) == RCC_MCO1Div_2) || \
                              ((DIV) == RCC_MCO1Div_3) || ((DIV) == RCC_MCO1Div_4) || \
                              ((DIV) == RCC_MCO1Div_5))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_MCO2_Clock_Source_Prescaler
-  * @{
   */
 #define RCC_MCO2Source_SYSCLK            ((uint32_t)0x00000000)
 #define RCC_MCO2Source_PLLI2SCLK         ((uint32_t)0x40000000)
@@ -842,12 +686,8 @@ typedef struct {
 #define IS_RCC_MCO2DIV(DIV) (((DIV) == RCC_MCO2Div_1) || ((DIV) == RCC_MCO2Div_2) || \
                              ((DIV) == RCC_MCO2Div_3) || ((DIV) == RCC_MCO2Div_4) || \
                              ((DIV) == RCC_MCO2Div_5))
-/**
-  * @}
-  */
 
 /** @defgroup RCC_Flag
-  * @{
   */
 #define RCC_FLAG_HSIRDY                  ((uint8_t)0x21)
 #define RCC_FLAG_HSERDY                  ((uint8_t)0x31)
@@ -873,13 +713,7 @@ typedef struct {
                            ((FLAG) == RCC_FLAG_PLLI2SRDY)|| ((FLAG) == RCC_FLAG_PLLSAIRDY))
 
 #define IS_RCC_CALIBRATION_VALUE(VALUE) ((VALUE) <= 0x1F)
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -1054,12 +888,5 @@ void        RCC_ClearITPendingBit(uint8_t RCC_IT); // 清除 RCC 的中断挂起
 
 #endif /* __STM32F4xx_RCC_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

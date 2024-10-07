@@ -39,12 +39,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_GPIO
- * @{
  */
 
 #if (LL_GPIO_ENABLE == DDL_ON)
@@ -54,7 +52,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup GPIO_Global_Types GPIO Global Types
- * @{
  */
 
 /**
@@ -80,21 +77,17 @@ typedef struct {
     uint16_t u16PinInputType;   /*!< Input type setting, @ref GPIO_PinInType_Sel                            */
     uint16_t u16PinAttr;        /*!< Digital or analog attribute setting, @ref GPIO_PinMode_Sel for details */
 } stc_gpio_init_t;
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup GPIO_Global_Macros GPIO Global Macros
- * @{
  */
 
 /**
  * @defgroup GPIO_Pins_Define GPIO Pin Source
- * @{
  */
 #define GPIO_PIN_00                 (0x0001U)  /*!< Pin 00 selected   */
 #define GPIO_PIN_01                 (0x0002U)  /*!< Pin 01 selected   */
@@ -113,13 +106,10 @@ typedef struct {
 #define GPIO_PIN_14                 (0x4000U)  /*!< Pin 14 selected   */
 #define GPIO_PIN_15                 (0x8000U)  /*!< Pin 15 selected   */
 #define GPIO_PIN_ALL                (0xFFFFU)  /*!< All pins selected */
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_All_Pins_Define GPIO All Pin Definition for Each Product
- * @{
  */
 #define GPIO_PIN_A_ALL              (0xFFFFU)   /*!< Pin A all*/
 #define GPIO_PIN_B_ALL              (0xFFFFU)   /*!< Pin B all*/
@@ -130,13 +120,10 @@ typedef struct {
 #define GPIO_PIN_G_ALL              (0xFFFFU)   /*!< Pin G all*/
 #define GPIO_PIN_H_ALL              (0xFFFFU)   /*!< Pin H all*/
 #define GPIO_PIN_I_ALL              (0x3FFFU)   /*!< Pin I all*/
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_Port_Source GPIO Port Source
- * @{
  */
 #define GPIO_PORT_A                 (0x00U)     /*!< Port A selected  */
 #define GPIO_PORT_B                 (0x01U)     /*!< Port B selected  */
@@ -147,13 +134,10 @@ typedef struct {
 #define GPIO_PORT_G                 (0x06U)     /*!< Port G selected  */
 #define GPIO_PORT_H                 (0x07U)     /*!< Port H selected  */
 #define GPIO_PORT_I                 (0x08U)     /*!< Port I selected  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_Function_Sel GPIO Function Selection
- * @{
  */
 #define GPIO_FUNC_0               (0U)
 #define GPIO_FUNC_1               (1U)
@@ -208,13 +192,10 @@ typedef struct {
 #define GPIO_FUNC_61              (61U)
 #define GPIO_FUNC_62              (62U)
 #define GPIO_FUNC_63              (63U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_DebugPin_Sel GPIO Debug Pin Selection
- * @{
  */
 #define GPIO_PIN_TCK                (0x01U)
 #define GPIO_PIN_TMS                (0x02U)
@@ -227,13 +208,10 @@ typedef struct {
 #define GPIO_PIN_SWO                (0x04U)
 #define GPIO_PIN_DEBUG_SWD          (0x07U)
 #define GPIO_PIN_DEBUG              (0x1FU)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_ReadCycle_Sel GPIO Pin Read Wait Cycle Selection
- * @{
  */
 #define GPIO_RD_WAIT0              (0x00U << GPIO_PCCR_RDWT_POS)
 #define GPIO_RD_WAIT1              (0x01U << GPIO_PCCR_RDWT_POS)
@@ -243,134 +221,94 @@ typedef struct {
 #define GPIO_RD_WAIT5              (0x05U << GPIO_PCCR_RDWT_POS)
 #define GPIO_RD_WAIT6              (0x06U << GPIO_PCCR_RDWT_POS)
 #define GPIO_RD_WAIT7              (0x07U << GPIO_PCCR_RDWT_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_PinState_Sel GPIO Pin Output State Selection
- * @{
  */
 #define PIN_STAT_RST               (0U)
 #define PIN_STAT_SET               (GPIO_PCR_POUT)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_PinDirection_Sel GPIO Pin Input/Output Direction Selection
- * @{
  */
 #define PIN_DIR_IN                  (0U)
 #define PIN_DIR_OUT                 (GPIO_PCR_POUTE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_PinOutType_Sel GPIO Pin Output Type Selection
- * @{
  */
 #define PIN_OUT_TYPE_CMOS           (0U)
 #define PIN_OUT_TYPE_NMOS           (GPIO_PCR_NOD)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_PinDrv_Sel GPIO Pin Drive Capacity Selection
- * @{
  */
 #define PIN_LOW_DRV                 (0U)
 #define PIN_MID_DRV                 (GPIO_PCR_DRV_0)
 #define PIN_HIGH_DRV                (GPIO_PCR_DRV_1)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_PinLatch_Sel GPIO Pin Output Latch Selection
- * @{
  */
 #define PIN_LATCH_OFF               (0U)
 #define PIN_LATCH_ON                (GPIO_PCR_LTE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_PinPU_Sel GPIO Pin Internal Pull-Up Resistor Selection
- * @{
  */
 #define PIN_PU_OFF                  (0U)
 #define PIN_PU_ON                   (GPIO_PCR_PUU)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_PinInvert_Sel GPIO Pin I/O Invert Selection
- * @{
  */
 #define PIN_INVT_OFF                (0U)
 #define PIN_INVT_ON                 (GPIO_PCR_INVE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_PinInType_Sel GPIO Pin Input Type Selection
- * @{
  */
 #define PIN_IN_TYPE_SMT             (0U)
 #define PIN_IN_TYPE_CMOS            (GPIO_PCR_CINSEL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_PinExtInt_Sel GPIO Pin External Interrupt Selection
- * @{
  */
 #define PIN_EXTINT_OFF              (0U)
 #define PIN_EXTINT_ON               (GPIO_PCR_INTE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_PinMode_Sel GPIO Pin Mode Selection
- * @{
  */
 #define PIN_ATTR_DIGITAL            (0U)
 #define PIN_ATTR_ANALOG             (GPIO_PCR_DDIS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_PinSubFuncSet_Sel GPIO Pin Sub-function Enable or Disable
- * @{
  */
 #define PIN_SUBFUNC_DISABLE         (0U)
 #define PIN_SUBFUNC_ENABLE          (GPIO_PFSR_BFE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup GPIO_Register_Protect_Key GPIO Registers Protect Key
- * @{
  */
 #define GPIO_REG_LOCK_KEY            (0xA500U)
 #define GPIO_REG_UNLOCK_KEY          (0xA501U)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -381,7 +319,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup GPIO_Global_Functions
- * @{
  */
 /**
  * @brief  GPIO lock. PSPCR, PCCR, PINAER, PCRxy, PFSRxy write disable
@@ -421,19 +358,13 @@ void GPIO_WritePort(uint8_t u8Port, uint16_t u16PortVal);
 void GPIO_TogglePins(uint8_t u8Port, uint16_t u16Pin);
 void GPIO_ExIntCmd(uint8_t u8Port, uint16_t u16Pin, en_functional_state_t enNewState);
 void GPIO_AnalogCmd(uint8_t u8Port, uint16_t u16Pin, en_functional_state_t enNewState);
-/**
- * @}
- */
+
 
 #endif /* LL_GPIO_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

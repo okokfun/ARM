@@ -47,12 +47,10 @@
 
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup CRYP
   * 简介: CRYP 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -66,7 +64,6 @@
 
 
 /** @defgroup CRYP_Private_Functions
-  * @{
   */
 
 /** @defgroup CRYP_Group8 高级别的DES功能
@@ -77,7 +74,6 @@
                        ##### 高级别的DES功能 #####
  ===============================================================================
 @endverbatim
-  * @{
   */
 
 /**
@@ -283,21 +279,5 @@ ErrorStatus CRYP_DES_CBC(uint8_t Mode, uint8_t Key[8], uint8_t InitVectors[8],
 
     return status;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

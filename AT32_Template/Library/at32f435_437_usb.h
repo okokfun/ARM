@@ -35,16 +35,13 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup USB
-  * @{
   */
 
 /** @defgroup USB_Global_Interrupts_definition
   * @brief usb global interrupt mask
-  * @{
   */
 #define USB_OTG_ModeMIS_INT              ((uint32_t)0x00000002) /*!< usb otg mode mismatch 中断 */
 #define USB_OTG_OTGINT_INT               ((uint32_t)0x00000004) /*!< usb otg 中断 */
@@ -70,13 +67,8 @@ extern "C" {
 #define USB_OTG_DISCON_INT               ((uint32_t)0x20000000) /*!< usb otg disconnect detected 中断 */
 #define USB_OTG_WKUP_INT                 ((uint32_t)0x80000000) /*!< usb otg wakeup 中断 */
 
-/**
-  * @}
-  */
-
 /** @defgroup USB_Global_Interrupt_flags_definition
   * @brief usb global interrupt flag
-  * @{
   */
 #define USB_OTG_CURMODE                  ((uint32_t)0x00000001) /*!< usb otg current mode */
 #define USB_OTG_ModeMIS_FLAG             ((uint32_t)0x00000002) /*!< usb otg mode mismatch flag */
@@ -103,14 +95,9 @@ extern "C" {
 #define USB_OTG_DISCON_FLAG              ((uint32_t)0x20000000) /*!< usb otg disconnect detected flag */
 #define USB_OTG_WKUP_FLAG                ((uint32_t)0x80000000) /*!< usb otg wakeup flag */
 
-/**
-  * @}
-  */
-
 
 /** @defgroup USB_Global_Setting_definition
   * @brief usb global setting
-  * @{
   */
 
 /**
@@ -145,12 +132,7 @@ extern "C" {
 #define USB_SetUP_STS_COMP               0x4 /*!< usb device setup transcation completed */
 #define USB_SetUP_STS_DATA               0x6 /*!< usb device setup data packet received */
 
-/**
-  * @}
-  */
-
 /** @defgroup USB_HOST_Config_definition
-  * @{
   */
 
 /**
@@ -232,13 +214,8 @@ extern "C" {
 #define USB_OTG_HC_FRMOVRRUN_FLAG        ((uint32_t)0x00000200) /*!< channel frame overrun flag */
 #define USB_OTG_HC_DTGLERR_FLAG          ((uint32_t)0x00000400) /*!< channel data toggle flag */
 
-/**
-  * @}
-  */
-
 
 /** @defgroup USB_Device_Config_definition
-  * @{
   */
 /**
   * @brief usb device periodic frame interval
@@ -302,10 +279,6 @@ typedef enum {
 #define USB_EPT0_MPS_8                   3 /*!< usb device endpoint 0 maximum packet size 8byte */
 
 /**
-  * @}
-  */
-
-/**
   * @brief otg fifo size (word)
   */
 #define OTG_FIFO_SIZE                    320 /*!< otg usb total fifo size */
@@ -320,7 +293,6 @@ typedef enum {
 #define OTGFS_USB_HOST
 
 /** @defgroup USB_exported_enum_Types
-  * @{
   */
 
 /**
@@ -393,14 +365,9 @@ typedef enum {
     USB_CLK_HEXT   /*!< usb clock use hext */
 } USB_CLK48_s;
 
-/**
-  * @}
-  */
-
 
 
 /** @defgroup USB_exported_Types
-  * @{
   */
 
 /**
@@ -1195,12 +1162,7 @@ typedef struct {
     };
 } OTG_pcgcctl_Type;
 
-/**
-  * @}
-  */
-
 /** @defgroup USB_exported_functions
-  * @{
   */
 
 /**
@@ -1232,7 +1194,6 @@ typedef struct {
 typedef OTG_Global_Type USB_reg_Type;
 
 /** @defgroup USB_exported_functions
-  * @{
   */
 
 #ifdef OTGFS_USB_GLOBAL
@@ -1292,22 +1253,6 @@ void USB_HOST_Disable(OTG_Global_Type *usbx);
 void USB_HCH_Halt(OTG_Global_Type *usbx, uint8_t chn);
 void USBH_Fsls_CLKsel(OTG_Global_Type *usbx, uint8_t clk);
 #endif
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
 #ifdef __cplusplus
 }
 #endif

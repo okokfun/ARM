@@ -26,13 +26,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_ICG ICG
  * @brief Initial Configuration Driver Library
- * @{
  */
 
 #if (LL_ICG_ENABLE == DDL_ON)
@@ -46,7 +44,6 @@
  ******************************************************************************/
 /**
  * @defgroup ICG_Local_Macros ICG Local Macros
- * @{
  */
 
 /**
@@ -55,9 +52,7 @@
 #define ICG_START_ADDR                  0x400
 #define ICG_START_ADDR_AC6              ".ARM.__at_0x400"
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -125,13 +120,9 @@
 
 #endif /* LL_ICG_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /******************************************************************************
  * EOF (not truncated)

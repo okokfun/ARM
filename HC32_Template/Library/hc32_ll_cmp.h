@@ -40,12 +40,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_CMP
- * @{
  */
 
 #if (LL_CMP_ENABLE == DDL_ON)
@@ -55,7 +53,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup CMP_Global_Types CMP Global Types
- * @{
  */
 
 /**
@@ -93,9 +90,7 @@ typedef struct {
     uint8_t u8OutLevel;             /*!< CMP output level when blank window valid @ref CMP_BlankWindow_output_Level */
 } stc_cmp_blankwindow_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
@@ -103,25 +98,20 @@ typedef struct {
 
 /**
  * @defgroup CMP_Global_Macros CMP Global Macros
- * @{
  */
 
 #define VISR_OFFSET                 (8U)
 
 /**
  * @defgroup CMP_Window_Mode_Unit CMP Window Mode Unit
- * @{
  */
 #define CMP_WIN_CMP12               (0x01U)
 #define CMP_WIN_CMP34               (0x02U)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup CMP_Positive_Input_Select CMP Positive(Compare) Voltage Input
- * @{
  */
 #define CMP_POSITIVE_NONE           (0x0U)
 /* Select positive input for CMP1 */
@@ -150,13 +140,10 @@ typedef struct {
 #define CMP4_POSITIVE_PGA4          (CMP_PMSR_CVSL_1)   /*!< Select PGA4 */
 #define CMP4_POSITIVE_CMP4_INP3     (CMP_PMSR_CVSL_2)   /*!< Select CMP4_INP3 */
 #define CMP4_POSITIVE_CMP4_INP4     (CMP_PMSR_CVSL_3)   /*!< Select CMP4_INP4 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup CMP_Negative_Input_Select CMP Negative(Reference) Voltage Input
- * @{
  */
 #define CMP_NEGATIVE_NONE           (0x0U)
 /* Negative input select table
@@ -171,13 +158,10 @@ INM4    CMP1_INM4       CMP2_INM4       CMP3_INM4       CMP4_INM4
 #define CMP_NEGATIVE_INM2           (CMP_PMSR_RVSL_1)
 #define CMP_NEGATIVE_INM3           (CMP_PMSR_RVSL_2)
 #define CMP_NEGATIVE_INM4           (CMP_PMSR_RVSL_3)
-/**
- * @}
- */
+
 
 /**
  * @defgroup CMP_Window_Low_Select CMP Window Mode Window Low Voltage
- * @{
  */
 #define CMP_WIN_LOW_NONE            (0x0U)
 /* Window mode low voltage select table
@@ -192,13 +176,10 @@ INM4    CMP1_INM4       CMP3_INM4
 #define CMP_WIN_LOW_INM2            (CMP_PMSR_RVSL_1)
 #define CMP_WIN_LOW_INM3            (CMP_PMSR_RVSL_2)
 #define CMP_WIN_LOW_INM4            (CMP_PMSR_RVSL_3)
-/**
- * @}
- */
+
 
 /**
  * @defgroup CMP_Window_High_Select CMP Window Mode Window High Voltage
- * @{
  */
 #define CMP_WIN_HIGH_NONE           (0x0U)
 /* Window mode high voltage select table
@@ -213,47 +194,35 @@ INM4    CMP2_INM4       CMP4_INM4
 #define CMP_WIN_HIGH_INM2           (CMP_PMSR_RVSL_1)
 #define CMP_WIN_HIGH_INM3           (CMP_PMSR_RVSL_2)
 #define CMP_WIN_HIGH_INM4           (CMP_PMSR_RVSL_3)
-/**
- * @}
- */
+
 
 /**
  * @defgroup CMP_Out_Polarity_Select CMP Output Polarity
- * @{
  */
 #define CMP_OUT_INVT_OFF            (0x0U)                    /*!< CMP output don't reverse */
 #define CMP_OUT_INVT_ON             (CMP_OCR_COPS)            /*!< CMP output level reverse */
-/**
- * @}
- */
+
 
 /**
  * @defgroup CMP_Out_Detect_Edge_Select CMP Output Detect Edge
- * @{
  */
 #define CMP_DETECT_EDGS_NONE        (0U)                       /*!< Do not detect edge */
 #define CMP_DETECT_EDGS_RISING      (1U << CMP_FIR_EDGS_POS)   /*!< Detect rising edge */
 #define CMP_DETECT_EDGS_FALLING     (2U << CMP_FIR_EDGS_POS)   /*!< Detect falling edge */
 #define CMP_DETECT_EDGS_BOTH        (3U << CMP_FIR_EDGS_POS)   /*!< Detect rising and falling edges */
-/**
- * @}
- */
+
 
 /**
  * @defgroup CMP_Out_Filter CMP Output Filter Configuration
- * @{
  */
 #define CMP_OUT_FILTER_NONE         (0U)                       /*!< Do not filter */
 #define CMP_OUT_FILTER_CLK          (1U << CMP_FIR_FCKS_POS)
 #define CMP_OUT_FILTER_CLK_DIV8     (2U << CMP_FIR_FCKS_POS)
 #define CMP_OUT_FILTER_CLK_DIV32    (3U << CMP_FIR_FCKS_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup CMP_BlankWindow_Src CMP Output blank window Function Control Signal
- * @{
  */
 /* Blank window PWM source select table
         CMP1            CMP2            CMP3            CMP4
@@ -292,33 +261,23 @@ SRC16   TMR4_1_OWL      TMR4_2_OWL      TMR4_3_OWL      TMR4_3_OWL
 #define CMP_BLANKWIN_SRC15          (CMP_TWSR_CTWS14)
 #define CMP_BLANKWIN_SRC16          (CMP_TWSR_CTWS15)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup CMP_BlankWindow_Valid_Level CMP Blank Window Valid Level
- * @{
  */
 #define CMP_BLANKWIN_VALID_LVL_LOW  (0U)                   /*!< Blank window valid level is low */
 #define CMP_BLANKWIN_VALID_LVL_HIGH (1U)                   /*!< Blank window valid level is high */
-/**
- * @}
- */
+
 
 /**
  * @defgroup CMP_BlankWindow_output_Level CMP Output Level When Blank Windows Valid
- * @{
  */
 #define CMP_BLANKWIN_OUTPUT_LVL_LOW     (0U)                   /*!< Output low when blank windows valid */
 #define CMP_BLANKWIN_OUTPUT_LVL_HIGH    (CMP_OCR_TWOL)         /*!< Output high when blank windows valid */
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -329,7 +288,6 @@ SRC16   TMR4_1_OWL      TMR4_2_OWL      TMR4_3_OWL      TMR4_3_OWL
  ******************************************************************************/
 /**
  * @addtogroup CMP_Global_Functions
- * @{
  */
 
 int32_t CMP_StructInit(stc_cmp_init_t *pstcCmpInit);
@@ -355,19 +313,13 @@ int32_t CMP_BlankWindowConfig(CM_CMP_TypeDef *CMPx, const stc_cmp_blankwindow_t 
 int32_t CMP_BlankWindowStructInit(stc_cmp_blankwindow_t *pstcBlankWindowConfig);
 void CMP_BlankWindowCmd(CM_CMP_TypeDef *CMPx, en_functional_state_t enNewState);
 
-/**
- * @}
- */
+
 
 #endif /* LL_CMP_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

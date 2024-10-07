@@ -30,7 +30,6 @@
 #include "stm32f4xx_it.h"
 
 /** @addtogroup Template_Project
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -144,10 +143,6 @@ void SysTick_Handler(void) {
 /*void PPP_IRQHandler(void)
 {
 }*/
-
-/**
-  * @}
-  */
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

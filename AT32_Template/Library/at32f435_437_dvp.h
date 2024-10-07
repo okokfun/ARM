@@ -35,16 +35,13 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup DVP
-  * @{
   */
 
 /** @defgroup DVP_Event_flags_definition
   * @brief dvp event flag
-  * @{
   */
 #define DVP_CFD_EVT_FLAG                 ((uint32_t)0x00000001) /*!< capture frame done event status flag */
 #define DVP_OVR_EVT_FLAG                 ((uint32_t)0x00000002) /*!< data fifo overrun event status flag */
@@ -52,13 +49,8 @@ extern "C" {
 #define DVP_VS_EVT_FLAG                  ((uint32_t)0x00000008) /*!< vertical synchonization event status flag */
 #define DVP_HS_EVT_FLAG                  ((uint32_t)0x00000010) /*!< horizontal synchonization event status flag */
 
-/**
-  * @}
-  */
-
 /** @defgroup DVP_Interrupt_flags_definition
   * @brief dvp interrupt flag
-  * @{
   */
 #define DVP_CFD_INT_FLAG                 ((uint32_t)0x80000001) /*!< capture frame done interrupt status flag */
 #define DVP_OVR_INT_FLAG                 ((uint32_t)0x80000002) /*!< data fifo overrun interrupt status flag */
@@ -66,13 +58,8 @@ extern "C" {
 #define DVP_VS_INT_FLAG                  ((uint32_t)0x80000008) /*!< vertical synchonization interrupt status flag */
 #define DVP_HS_INT_FLAG                  ((uint32_t)0x80000010) /*!< horizontal synchonization interrupt status flag */
 
-/**
-  * @}
-  */
-
 /** @defgroup DVP_Interrupts_definition
   * @brief dvp interrupt
-  * @{
   */
 #define DVP_CFD_INT                      ((uint32_t)0x00000001) /*!< capture frame done 中断 */
 #define DVP_OVR_INT                      ((uint32_t)0x00000002) /*!< data fifo overrun 中断 */
@@ -80,12 +67,7 @@ extern "C" {
 #define DVP_VS_INT                       ((uint32_t)0x00000008) /*!< vertical synchonization 中断 */
 #define DVP_HS_INT                       ((uint32_t)0x00000010) /*!< horizontal synchonization 中断 */
 
-/**
-  * @}
-  */
-
 /** @defgroup DVP_exported_Types
-  * @{
   */
 
 /**
@@ -504,16 +486,10 @@ typedef struct {
     };
 
 } DVP_Type;
-
-/**
-  * @}
-  */
 #define DVP                              ((DVP_Type *) DVP_BASE)
 
 /** @defgroup DVP_exported_functions
-  * @{
   */
-
 void DVP_Reset(void);
 void DVP_Capture_Enable(confirm_state new_state);
 void DVP_Capture_Mode_Set(DVP_cfm_Type cap_Mode);
@@ -543,18 +519,6 @@ void DVP_Enhanced_Data_Format_Set(DVP_efdf_Type DVP_efdf);
 void DVP_Input_Data_Unused_Set(DVP_idus_Type DVP_idus, DVP_idun_Type DVP_idun);
 void DVP_DMA_Burst_Set(DVP_dmabt_Type DVP_dmabt);
 void DVP_Sync_Event_Interrupt_Set(DVP_hseid_Type DVP_hseid, DVP_vseid_Type DVP_vseid);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

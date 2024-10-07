@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup ACC
   * @brief ACC driver modules
-  * @{
   */
 
 #ifdef ACC_MODULE_EnableD
 
 /** @defgroup ACC_private_functions
-  * @{
   */
 
 /**
@@ -195,16 +192,4 @@ void ACC_Flag_Clear(uint16_t ACC_flag) {
     ACC->sts = ~ACC_flag;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

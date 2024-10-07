@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup QSPI
   * @brief QSPI driver modules
-  * @{
   */
 
 #ifdef QSPI_MODULE_EnableD
 
 /** @defgroup QSPI_private_functions
-  * @{
   */
 
 /**
@@ -394,16 +391,4 @@ void QSPI_Word_Write(QSPI_Type* QSPI_x, uint32_t value) {
     QSPI_x->dt = value;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_DMA DMA
  * @brief Direct Memory Access Driver Library
- * @{
  */
 
 #if (LL_DMA_ENABLE == DDL_ON)
@@ -49,13 +47,11 @@
  ******************************************************************************/
 /**
  * @defgroup DMA_Local_Macros DMA Local Macros
- * @{
  */
 #define DMA_CH_REG(reg_base, ch)        (*(__IO uint32_t *)((uint32_t)(&(reg_base)) + ((ch) * 0x40UL)))
 
 /**
  * @defgroup DMA_Check_Parameters_Validity DMA Check Parameters Validity
- * @{
  */
 /* Parameter valid check for DMA unit. */
 #define IS_DMA_UNIT(x)                                                          \
@@ -177,13 +173,9 @@
         ((x) == DMA_RC_SRC_ADDR_NS)             ||                                  \
         ((x) == DMA_RC_SRC_ADDR_RPT))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -202,7 +194,6 @@
  ******************************************************************************/
 /**
  * @defgroup DMA_Global_Functions DMA Global Functions
- * @{
  */
 
 /**
@@ -1145,15 +1136,11 @@ uint32_t DMA_GetNonSeqDestOffset(const CM_DMA_TypeDef *DMAx, uint8_t u8Ch) {
     return (READ_REG32_BIT(DMA_CH_REG(DMAx->MONDNSEQCTL0, u8Ch), DMA_DNSEQCTL_DOFFSET));
 }
 
-/**
- * @}
- */
+
 
 #endif  /* LL_DMA_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

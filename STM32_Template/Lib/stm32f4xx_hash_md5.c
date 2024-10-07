@@ -12,12 +12,12 @@
                   ##### 如何使用此驱动程序 #####
  ===================================================================
  [..]
-   (#) 使用启用HASH控制器时钟函数
+   (#) 使用启用 HASH控制器时钟函数
        RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_HASH, ENABLE)。
 
-   (#) 使用HASH_MD5()函数计算HASH MD5摘要。
+   (#) 使用 HASH_MD5() 函数计算 HASH MD5 摘要。
 
-   (#) 使用HMAC_MD5()函数计算HMAC MD5摘要。
+   (#) 使用 HMAC_MD5() 函数计算 HMAC MD5 摘要。
 
 @endverbatim
   *
@@ -45,12 +45,10 @@
 #include "stm32f4xx_hash.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup HASH
   * @简介 HASH驱动程序模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,7 +61,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup HASH_Private_Functions
-  * @{
   */
 
 /** @defgroup HASH_Group7高级MD5函数
@@ -76,7 +73,6 @@
 
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -284,21 +280,5 @@ ErrorStatus HMAC_MD5(uint8_t *Key, uint32_t Keylen, uint8_t *Input,
 
     return status;
 }
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 

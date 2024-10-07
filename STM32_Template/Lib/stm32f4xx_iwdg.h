@@ -37,33 +37,25 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup IWDG
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup IWDG_Exported_Constants
-  * @{
   */
 
 /** @defgroup IWDG_WriteAccess
-  * @{
   */
 #define IWDG_WriteAccess_Enable     ((uint16_t)0x5555)
 #define IWDG_WriteAccess_Disable    ((uint16_t)0x0000)
 #define IS_IWDG_WRITE_ACCESS(ACCESS) (((ACCESS) == IWDG_WriteAccess_Enable) || \
                                       ((ACCESS) == IWDG_WriteAccess_Disable))
-/**
-  * @}
-  */
 
 /** @defgroup IWDG_prescaler
-  * @{
   */
 #define IWDG_Prescaler_4            ((uint8_t)0x00)
 #define IWDG_Prescaler_8            ((uint8_t)0x01)
@@ -79,24 +71,14 @@ extern "C" {
                                       ((PRESCALER) == IWDG_Prescaler_64) || \
                                       ((PRESCALER) == IWDG_Prescaler_128)|| \
                                       ((PRESCALER) == IWDG_Prescaler_256))
-/**
-  * @}
-  */
 
 /** @defgroup IWDG_Flag
-  * @{
   */
 #define IWDG_FLAG_PVU               ((uint16_t)0x0001)
 #define IWDG_FLAG_RVU               ((uint16_t)0x0002)
 #define IS_IWDG_FLAG(FLAG) (((FLAG) == IWDG_FLAG_PVU) || ((FLAG) == IWDG_FLAG_RVU))
 #define IS_IWDG_RELOAD(RELOAD) ((RELOAD) <= 0xFFF)
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -119,12 +101,5 @@ FlagStatus IWDG_GetFlagStatus(uint16_t IWDG_FLAG); // 检查是否设置了指�
 
 #endif /* __STM32F4xx_IWDG_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

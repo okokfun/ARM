@@ -29,19 +29,16 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_EXMC EXMC
  * @brief External Memory Controller Driver Library
- * @{
  */
 
 /**
  * @defgroup LL_SMC SMC
  * @brief Static Memory Controller Driver Library
- * @{
  */
 
 #if (LL_SMC_ENABLE == DDL_ON)
@@ -55,12 +52,10 @@
  ******************************************************************************/
 /**
  * @defgroup EXMC_SMC_Local_Macros EXMC_SMC Local Macros
- * @{
  */
 
 /**
  * @defgroup EXMC_SMC_Check_Parameters_Validity EXMC_SMC Check Parameters Validity
- * @{
  */
 
 #define IS_EXMC_SMC_MEMORY_WIDTH(x)                                            \
@@ -143,39 +138,29 @@
 
 #define IS_EXMC_SMC_TIMING_TR_CYCLE(x)          ((x) <= 7UL)
 
-/**
- * @}
- */
+
 
 /* EXMC_SMC map address */
 #define EXMC_SMC_MAP_ADDR(MATCH, MSK)   ((~((MATCH) ^ (MSK))) << 24U)
 
 /**
  * @defgroup EXMC_SMC_Register EXMC_SMC Register
- * @{
  */
 #define EXMC_SMC_CPSRx(__CHIPx__)       ((__IO uint32_t *)(((uint32_t)(&CM_SMC->CPSR0))  + (0x20UL * (__CHIPx__))))
 #define EXMC_SMC_TMSRx(__CHIPx__)       ((__IO uint32_t *)(((uint32_t)(&CM_SMC->TMSR0))  + (0x20UL * (__CHIPx__))))
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_Register_Bit_Mask EXMC_SMC Register Bit Mask
- * @{
  */
 #define SMC_CSCR0_ADDMSKx_POS(__CHIPx__)    (((__CHIPx__) & 0x03UL) << 3U)
 #define SMC_CSCR0_ADDMSKx(__CHIPx__)        (SMC_CSCR0_ADDMSK0 << SMC_CSCR0_ADDMSKx_POS((__CHIPx__)))
 
 #define SMC_CSCR1_ADDMATx_POS(__CHIPx__)    (((__CHIPx__) & 0x03UL) << 3U)
 #define SMC_CSCR1_ADDMATx(__CHIPx__)        (SMC_CSCR1_ADDMAT0 << SMC_CSCR1_ADDMATx_POS((__CHIPx__)))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -194,7 +179,6 @@
  ******************************************************************************/
 /**
  * @defgroup EXMC_SMC_Global_Functions EXMC_SMC Global Functions
- * @{
  */
 
 /**
@@ -489,23 +473,17 @@ int32_t EXMC_SMC_GetTimingConfig(uint32_t u32Chip, stc_exmc_smc_timing_config_t 
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_SMC_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}
 */
 
-/**
- * @}
- */
+
 
 /******************************************************************************
  * EOF (not truncated)

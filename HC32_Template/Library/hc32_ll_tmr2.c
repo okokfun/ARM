@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_TMR2 TMR2
  * @brief TMR2 Driver Library
- * @{
  */
 #if (LL_TMR2_ENABLE == DDL_ON)
 
@@ -46,12 +44,10 @@
  ******************************************************************************/
 /**
  * @defgroup TMR2_Local_Macros TMR2 Local Macros
- * @{
  */
 
 /**
  * @defgroup TMR2_Configuration_Bit_Mask TMR2 Configuration Bit Mask
- * @{
  */
 #define TMR2_BCONR_INIT_MASK                (TMR2_BCONR_CAPMDA | TMR2_BCONR_SYNSA | TMR2_BCONR_SYNCLKA | \
         TMR2_BCONR_ASYNCLKA | TMR2_BCONR_CKDIVA | TMR2_BCONR_SYNCLKAT)
@@ -60,25 +56,19 @@
 
 #define TMR2_PWM_POLARITY_MASK              (TMR2_PCONR_STACA | TMR2_PCONR_STPCA | TMR2_PCONR_CMPCA)
 #define TMR2_FILTER_CLK_DIV_MASK            (TMR2_PCONR_NOFICKA)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR2_Channel_Cfg_Bit_Field_Offset TMR2 Channel Configuration Bit Field Offset
- * @{
  */
 #define TMR2_CH_OFFSET                      (16U)
 
 #define TMR2_PWM_POLARITY_OFFSET            (2U)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR2_Check_Parameters_Validity TMR2 check parameters validity
- * @{
  */
 #define IS_TMR2_BIT_MASK(x, mask)   (((x) != 0U) && (((x) | (mask)) == (mask)))
 
@@ -158,13 +148,9 @@
 
 #define IS_TMR2_VALID_VAL(x)        ((x) <= 0xFFFFUL)
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -183,7 +169,6 @@
  ******************************************************************************/
 /**
  * @defgroup TMR2_Global_Functions TMR2 Global Functions
- * @{
  */
 
 /**
@@ -765,15 +750,11 @@ void TMR2_PWM_SetPolarity(CM_TMR2_TypeDef *TMR2x, uint32_t u32Ch, uint8_t u8Coun
     MODIFY_REG32(TMR2x->PCONR, TMR2_PCONR_STACA << u32PolarityPos, u32Polarity << u32PolarityPos);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_TMR2_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

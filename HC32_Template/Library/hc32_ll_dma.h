@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_DMA
- * @{
  */
 
 #if (LL_DMA_ENABLE == DDL_ON)
@@ -52,7 +50,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup DMA_Global_Types DMA Global Types
- * @{
  */
 
 /**
@@ -132,21 +129,17 @@ typedef struct {
     uint32_t CHCTLx;            /*!< LLP channel control */
 } stc_dma_llp_descriptor_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup DMA_Global_Macros DMA Global Macros
- * @{
  */
 
 /**
  * @defgroup DMA_Channel_selection DMA Channel Position selection
- * @{
  */
 #define DMA_CH0                         (0x00U)        /*!< DMA Channel 0 */
 #define DMA_CH1                         (0x01U)        /*!< DMA Channel 1 */
@@ -157,13 +150,10 @@ typedef struct {
 #define DMA_CH6                         (0x06U)        /*!< DMA Channel 6 */
 #define DMA_CH7                         (0x07U)        /*!< DMA Channel 7 */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Mx_Channel_selection DMA Multiplex Channel selection
- * @{
  */
 #define DMA_MX_CH0                      (0x01UL)        /*!< DMA Channel 0 position */
 #define DMA_MX_CH1                      (0x02UL)        /*!< DMA Channel 1 position */
@@ -174,13 +164,10 @@ typedef struct {
 #define DMA_MX_CH5                      (0x20UL)        /*!< DMA Channel 5 position */
 #define DMA_MX_CH6                      (0x40UL)        /*!< DMA Channel 6 position */
 #define DMA_MX_CH7                      (0x80UL)        /*!< DMA Channel 7 position */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Flag_Request_Err_Sel  DMA request error flag selection
- * @{
  */
 #define DMA_FLAG_REQ_ERR_CH0            (DMA_INTSTAT0_REQERR_0) /*!< DMA request error flag CH.0 */
 #define DMA_FLAG_REQ_ERR_CH1            (DMA_INTSTAT0_REQERR_1) /*!< DMA request error flag CH.1 */
@@ -190,13 +177,10 @@ typedef struct {
 #define DMA_FLAG_REQ_ERR_CH5            (DMA_INTSTAT0_REQERR_5) /*!< DMA request error flag CH.5 */
 #define DMA_FLAG_REQ_ERR_CH6            (DMA_INTSTAT0_REQERR_6) /*!< DMA request error flag CH.6 */
 #define DMA_FLAG_REQ_ERR_CH7            (DMA_INTSTAT0_REQERR_7) /*!< DMA request error flag CH.7 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Flag_Trans_Err_Sel  DMA transfer error flag selection
- * @{
  */
 #define DMA_FLAG_TRANS_ERR_CH0          (DMA_INTSTAT0_TRNERR_0) /*!< DMA transfer error flag CH.0 */
 #define DMA_FLAG_TRANS_ERR_CH1          (DMA_INTSTAT0_TRNERR_1) /*!< DMA transfer error flag CH.1 */
@@ -206,13 +190,10 @@ typedef struct {
 #define DMA_FLAG_TRANS_ERR_CH5          (DMA_INTSTAT0_TRNERR_5) /*!< DMA transfer error flag CH.5 */
 #define DMA_FLAG_TRANS_ERR_CH6          (DMA_INTSTAT0_TRNERR_6) /*!< DMA transfer error flag CH.6 */
 #define DMA_FLAG_TRANS_ERR_CH7          (DMA_INTSTAT0_TRNERR_7) /*!< DMA transfer error flag CH.7 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Flag_Btc_Sel  DMA block transfer completed flag selection
- * @{
  */
 #define DMA_FLAG_BTC_CH0                (DMA_INTSTAT1_BTC_0)    /*!< DMA block transfer completed flag CH.0 */
 #define DMA_FLAG_BTC_CH1                (DMA_INTSTAT1_BTC_1)    /*!< DMA block transfer completed flag CH.1 */
@@ -222,13 +203,10 @@ typedef struct {
 #define DMA_FLAG_BTC_CH5                (DMA_INTSTAT1_BTC_5)    /*!< DMA block transfer completed flag CH.5 */
 #define DMA_FLAG_BTC_CH6                (DMA_INTSTAT1_BTC_6)    /*!< DMA block transfer completed flag CH.6 */
 #define DMA_FLAG_BTC_CH7                (DMA_INTSTAT1_BTC_7)    /*!< DMA block transfer completed flag CH.7 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Flag_Tc_Sel  DMA transfer completed flag selection
- * @{
  */
 #define DMA_FLAG_TC_CH0                 (DMA_INTSTAT1_TC_0)     /*!< DMA transfer completed flag CH.0 */
 #define DMA_FLAG_TC_CH1                 (DMA_INTSTAT1_TC_1)     /*!< DMA transfer completed flag CH.1 */
@@ -238,13 +216,10 @@ typedef struct {
 #define DMA_FLAG_TC_CH5                 (DMA_INTSTAT1_TC_5)     /*!< DMA transfer completed flag CH.5 */
 #define DMA_FLAG_TC_CH6                 (DMA_INTSTAT1_TC_6)     /*!< DMA transfer completed flag CH.6 */
 #define DMA_FLAG_TC_CH7                 (DMA_INTSTAT1_TC_7)     /*!< DMA transfer completed flag CH.7 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Int_Request_Err_Sel  DMA request error interrupt selection
- * @{
  */
 #define DMA_INT_REQ_ERR_CH0             (DMA_INTMASK0_MSKREQERR_0) /*!< DMA request error interrupt CH.0 */
 #define DMA_INT_REQ_ERR_CH1             (DMA_INTMASK0_MSKREQERR_1) /*!< DMA request error interrupt CH.1 */
@@ -254,13 +229,10 @@ typedef struct {
 #define DMA_INT_REQ_ERR_CH5             (DMA_INTMASK0_MSKREQERR_5) /*!< DMA request error interrupt CH.5 */
 #define DMA_INT_REQ_ERR_CH6             (DMA_INTMASK0_MSKREQERR_6) /*!< DMA request error interrupt CH.6 */
 #define DMA_INT_REQ_ERR_CH7             (DMA_INTMASK0_MSKREQERR_7) /*!< DMA request error interrupt CH.7 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Int_Trans_Err_Sel  DMA transfer error interrupt selection
- * @{
  */
 #define DMA_INT_TRANS_ERR_CH0           (DMA_INTMASK0_MSKTRNERR_0) /*!< DMA transfer error interrupt CH.0 */
 #define DMA_INT_TRANS_ERR_CH1           (DMA_INTMASK0_MSKTRNERR_1) /*!< DMA transfer error interrupt CH.1 */
@@ -270,13 +242,10 @@ typedef struct {
 #define DMA_INT_TRANS_ERR_CH5           (DMA_INTMASK0_MSKTRNERR_5) /*!< DMA transfer error interrupt CH.5 */
 #define DMA_INT_TRANS_ERR_CH6           (DMA_INTMASK0_MSKTRNERR_6) /*!< DMA transfer error interrupt CH.6 */
 #define DMA_INT_TRANS_ERR_CH7           (DMA_INTMASK0_MSKTRNERR_7) /*!< DMA transfer error interrupt CH.7 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Int_Btc_Sel  DMA block transfer completed interrupt selection
- * @{
  */
 #define DMA_INT_BTC_CH0                 (DMA_INTMASK1_MSKBTC_0)    /*!< DMA block transfer completed interrupt CH.0 */
 #define DMA_INT_BTC_CH1                 (DMA_INTMASK1_MSKBTC_1)    /*!< DMA block transfer completed interrupt CH.1 */
@@ -286,13 +255,10 @@ typedef struct {
 #define DMA_INT_BTC_CH5                 (DMA_INTMASK1_MSKBTC_5)    /*!< DMA block transfer completed interrupt CH.5 */
 #define DMA_INT_BTC_CH6                 (DMA_INTMASK1_MSKBTC_6)    /*!< DMA block transfer completed interrupt CH.6 */
 #define DMA_INT_BTC_CH7                 (DMA_INTMASK1_MSKBTC_7)    /*!< DMA block transfer completed interrupt CH.7 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Int_Tc_Sel  DMA transfer completed interrupt selection
- * @{
  */
 #define DMA_INT_TC_CH0                  (DMA_INTMASK1_MSKTC_0)     /*!< DMA transfer completed interrupt CH.0 */
 #define DMA_INT_TC_CH1                  (DMA_INTMASK1_MSKTC_1)     /*!< DMA transfer completed interrupt CH.1 */
@@ -302,33 +268,24 @@ typedef struct {
 #define DMA_INT_TC_CH5                  (DMA_INTMASK1_MSKTC_5)     /*!< DMA transfer completed interrupt CH.5 */
 #define DMA_INT_TC_CH6                  (DMA_INTMASK1_MSKTC_6)     /*!< DMA transfer completed interrupt CH.6 */
 #define DMA_INT_TC_CH7                  (DMA_INTMASK1_MSKTC_7)     /*!< DMA transfer completed interrupt CH.7 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_FlagMsk_Sel DMA flag mask selection
- * @{
  */
 #define DMA_FLAG_ERR_MASK               (DMA_INTSTAT0_TRNERR | DMA_INTSTAT0_REQERR)   /*!< DMA error flag mask */
 #define DMA_FLAG_TRANS_MASK             (DMA_INTSTAT1_TC | DMA_INTSTAT1_BTC)          /*!< DMA transfer flag mask */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_IntMsk_Sel DMA interrupt mask selection
- * @{
  */
 #define DMA_INT_ERR_MASK                (DMA_INTMASK0_MSKREQERR | DMA_INTMASK0_MSKTRNERR)   /*!< DMA error interrupt mask */
 #define DMA_INT_TRANS_MASK              (DMA_INTMASK1_MSKTC | DMA_INTMASK1_MSKBTC)          /*!< DMA transfer interrupt mask */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Req_Status_Sel DMA request status
- * @{
  */
 #define DMA_STAT_REQ_RECONFIG           (DMA_REQSTAT_RCFGREQ)                       /*!< DMA request from reconfig */
 #define DMA_STAT_REQ_CH0                (DMA_REQSTAT_CHREQ_0)                       /*!< DMA request from CH.0 */
@@ -341,13 +298,10 @@ typedef struct {
 #define DMA_STAT_REQ_CH7                (DMA_REQSTAT_CHREQ_7)                       /*!< DMA request from CH.7 */
 
 #define DMA_STAT_REQ_MASK               (DMA_REQSTAT_CHREQ | DMA_REQSTAT_RCFGREQ)   /*!< DMA request mask */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Trans_Status_Sel DMA transfer status
- * @{
  */
 #define DMA_STAT_TRANS_CH0              (DMA_CHSTAT_CHACT_0)    /*!< DMA transfer status of CH.0 */
 #define DMA_STAT_TRANS_CH1              (DMA_CHSTAT_CHACT_1)    /*!< DMA transfer status of CH.1 */
@@ -361,136 +315,99 @@ typedef struct {
 #define DMA_STAT_TRANS_RECONFIG         (DMA_CHSTAT_RCFGACT)    /*!< DMA reconfig status */
 
 #define DMA_STAT_TRANS_MASK             (DMA_CHSTAT_DMAACT | DMA_CHSTAT_CHACT | DMA_CHSTAT_RCFGACT)
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_DataWidth_Sel DMA transfer data width
- * @{
  */
 #define DMA_DATAWIDTH_8BIT              (0x00000000UL)          /*!< DMA transfer data width 8bit  */
 #define DMA_DATAWIDTH_16BIT             (DMA_CHCTL_HSIZE_0)     /*!< DMA transfer data width 16bit */
 #define DMA_DATAWIDTH_32BIT             (DMA_CHCTL_HSIZE_1)     /*!< DMA transfer data width 32bit */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Llp_En DMA LLP(linked list pinter) enable or disable
- * @{
  */
 #define DMA_LLP_DISABLE                 (0x00000000UL)          /*!< DMA linked list pinter disable    */
 #define DMA_LLP_ENABLE                  (DMA_CHCTL_LLPEN)       /*!< DMA linked list pinter enable     */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Llp_Mode DMA linked list pinter mode while transferring complete
- * @{
  */
 #define DMA_LLP_WAIT                    (0x00000000UL)          /*!< DMA Llp wait next request while transferring complete */
 #define DMA_LLP_RUN                     (DMA_CHCTL_LLPRUN)      /*!< DMA Llp run right now while transferring complete     */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_SrcAddr_Incremented_Mode DMA source address increment mode
- * @{
  */
 #define DMA_SRC_ADDR_FIX                (0x00000000UL)          /*!< DMA source address fix             */
 #define DMA_SRC_ADDR_INC                (DMA_CHCTL_SINC_0)      /*!< DMA source address increment       */
 #define DMA_SRC_ADDR_DEC                (DMA_CHCTL_SINC_1)      /*!< DMA source address decrement       */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_DesAddr_Incremented_Mode DMA destination address increment mode
- * @{
  */
 #define DMA_DEST_ADDR_FIX               (0x00000000UL)          /*!< DMA destination address fix        */
 #define DMA_DEST_ADDR_INC               (DMA_CHCTL_DINC_0)      /*!< DMA destination address increment  */
 #define DMA_DEST_ADDR_DEC               (DMA_CHCTL_DINC_1)      /*!< DMA destination address decrement  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Int_Config DMA interrupt function config
- * @{
  */
 #define DMA_INT_ENABLE                  (DMA_CHCTL_IE)          /*!< DMA interrupt enable */
 #define DMA_INT_DISABLE                 (0x00000000UL)          /*!< DMA interrupt disable */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Repeat_Config DMA repeat mode function config
- * @{
  */
 #define DMA_RPT_NONE                    (0x00000000UL)                                  /*!< DMA repeat disable */
 #define DMA_RPT_SRC                     (DMA_CHCTL_SRPTEN)                              /*!< DMA source repeat enable */
 #define DMA_RPT_DEST                    (DMA_CHCTL_DRPTEN)                              /*!< DMA destination repeat enable */
 #define DMA_RPT_BOTH                    (DMA_CHCTL_SRPTEN | DMA_CHCTL_DRPTEN)           /*!< DMA source & destination repeat enable */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_NonSeq_Config DMA non-sequence mode function config
- * @{
  */
 #define DMA_NON_SEQ_NONE                (0x00000000UL)                                  /*!< DMA non-sequence disable */
 #define DMA_NON_SEQ_SRC                 (DMA_CHCTL_SNSEQEN)                             /*!< DMA source non-sequence enable */
 #define DMA_NON_SEQ_DEST                (DMA_CHCTL_DNSEQEN)                             /*!< DMA destination non-sequence enable */
 #define DMA_NON_SEQ_BOTH                (DMA_CHCTL_SNSEQEN | DMA_CHCTL_DNSEQEN)         /*!< DMA source & destination non-sequence enable */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Reconfig_Count_Sel DMA reconfig count mode selection
- * @{
  */
 #define DMA_RC_CNT_KEEP                 (0x00000000UL)          /*!< Keep the original counting method */
 #define DMA_RC_CNT_SRC                  (DMA_RCFGCTL_CNTMD_0)   /*!< Use source address counting method */
 #define DMA_RC_CNT_DEST                 (DMA_RCFGCTL_CNTMD_1)   /*!< Use destination address counting method */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Reconfig_DestAddr_Sel DMA reconfig destination address mode selection
- * @{
  */
 #define DMA_RC_DEST_ADDR_KEEP           (0x00000000UL)          /*!< Destination address Keep the original mode */
 #define DMA_RC_DEST_ADDR_NS             (DMA_RCFGCTL_DARMD_0)   /*!< Destination address non-sequence */
 #define DMA_RC_DEST_ADDR_RPT            (DMA_RCFGCTL_DARMD_1)   /*!< Destination address repeat */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DMA_Reconfig_SrcAddr_Sel DMA reconfig source address mode selection
- * @{
  */
 #define DMA_RC_SRC_ADDR_KEEP            (0x00000000UL)          /*!< Source address Keep the original mode */
 #define DMA_RC_SRC_ADDR_NS              (DMA_RCFGCTL_SARMD_0)   /*!< Source address non-sequence */
 #define DMA_RC_SRC_ADDR_RPT             (DMA_RCFGCTL_SARMD_1)   /*!< Source address repeat */
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -501,7 +418,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup DMA_Global_Functions
- * @{
  */
 void DMA_Cmd(CM_DMA_TypeDef *DMAx, en_functional_state_t enNewState);
 
@@ -564,19 +480,13 @@ uint32_t DMA_GetNonSeqDestCount(const CM_DMA_TypeDef *DMAx, uint8_t u8Ch);
 uint32_t DMA_GetNonSeqSrcOffset(const CM_DMA_TypeDef *DMAx, uint8_t u8Ch);
 uint32_t DMA_GetNonSeqDestOffset(const CM_DMA_TypeDef *DMAx, uint8_t u8Ch);
 
-/**
- * @}
- */
+
 
 #endif /* LL_DMA_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

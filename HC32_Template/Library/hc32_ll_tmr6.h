@@ -45,12 +45,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_TMR6
- * @{
  */
 
 #if (LL_TMR6_ENABLE == DDL_ON)
@@ -60,7 +58,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup TMR6_Global_Types TMR6 Global Types
- * @{
  */
 
 /**
@@ -157,31 +154,24 @@ typedef struct {
                                          @ref TMR6_Zmask_Revo_Unit_Count_Func_Define*/
 } stc_tmr6_zmask_config_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup TMR6_Global_Macros TMR6 Global Macros
- * @{
  */
 
 /**
  * @defgroup TMR6_Count_Src_Define TMR6 Count Source Define
- * @{
  */
 #define TMR6_CNT_SRC_SW                     (0U)                    /*!< Timer6 normal count function */
 #define TMR6_CNT_SRC_HW                     (1U)                    /*!< Timer6 hardware count function */
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Stat_Flag_Define TMR6 Status Flag Define
- * @{
  */
 #define TMR6_FLAG_MATCH_A                   (TMR6_STFLR_CMAF)       /*!< GCMAR match counter */
 #define TMR6_FLAG_MATCH_B                   (TMR6_STFLR_CMBF)       /*!< GCMBR match counter */
@@ -208,13 +198,10 @@ Triangular wave valley point */
         TMR6_FLAG_UP_CNT_SPECIAL_MATCH_B | TMR6_FLAG_DOWN_CNT_SPECIAL_MATCH_B | \
         TMR6_FLAG_CNT_DIR)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Int_Flag_Define TMR6 Interrupt Flag Define
- * @{
  */
 #define TMR6_INT_MATCH_A                    (TMR6_ICONR_INTENA)     /*!< GCMAR register matched */
 #define TMR6_INT_MATCH_B                    (TMR6_ICONR_INTENB)     /*!< GCMBR register matched */
@@ -234,24 +221,18 @@ Triangular wave valley point */
         TMR6_INT_DEAD_TIME_ERR | TMR6_INT_UP_CNT_SPECIAL_MATCH_A | \
         TMR6_INT_DOWN_CNT_SPECIAL_MATCH_A | TMR6_INT_UP_CNT_SPECIAL_MATCH_B | \
         TMR6_INT_DOWN_CNT_SPECIAL_MATCH_B)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Period_Reg_Index_Define TMR6 Period Register Index Define
- * @{
  */
 #define TMR6_PERIOD_REG_A                   (0x00UL)
 #define TMR6_PERIOD_REG_B                   (0x01UL)
 #define TMR6_PERIOD_REG_C                   (0x02UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Compare_Reg_Index_Define TMR6 Compare Register Index Define
- * @{
  */
 #define TMR6_CMP_REG_A                      (0x00UL)
 #define TMR6_CMP_REG_B                      (0x01UL)
@@ -259,46 +240,34 @@ Triangular wave valley point */
 #define TMR6_CMP_REG_D                      (0x03UL)
 #define TMR6_CMP_REG_E                      (0x04UL)
 #define TMR6_CMP_REG_F                      (0x05UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Count_Ch_Define TMR6 General/Special Compare Channel Define
- * @{
  */
 #define TMR6_CH_A                           (0x00UL)
 #define TMR6_CH_B                           (0x01UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Buf_Num_Define TMR6 Buffer Number Define
- * @{
  */
 #define TMR6_BUF_SINGLE                     (0x00UL)
 #define TMR6_BUF_DUAL                       (TMR6_BCONR_BSEA)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Buf_Trans_Cond_Define TMR6 Buffer Transfer Time Configuration Define
- * @{
  */
 #define TMR6_BUF_TRANS_INVD                 (0x00UL)
 #define TMR6_BUF_TRANS_OVF                  (0x00000004UL)
 #define TMR6_BUF_TRANS_UDF                  (0x00000008UL)
 #define TMR6_BUF_TRANS_OVF_UDF              (0x0000000CUL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Valid_Period_Count_Cond_Define TMR6 Valid Period Function Count Condition Define
- * @{
  */
 #define TMR6_VALID_PERIOD_INVD                  (0x00UL)             /*!< Valid period function off */
 #define TMR6_VALID_PERIOD_CNT_COND_VALLEY       (TMR6_VPERR_PCNTE_0) /*!< Count when Sawtooth waveform overflow and underflow, \
@@ -307,13 +276,10 @@ triangular wave valley */
 triangular wave peak */
 #define TMR6_VALID_PERIOD_CNT_COND_VALLEY_PEAK  (TMR6_VPERR_PCNTE)   /*!< Count when Sawtooth waveform overflow and underflow, \
 triangular wave valley and peak */
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Valid_Period_Count_Define TMR6 Valid Period Function Count Define
- * @{
  */
 #define TMR6_VALID_PERIOD_CNT_INVD          (0x00UL)
 #define TMR6_VALID_PERIOD_CNT1              (1UL << TMR6_VPERR_PCNTS_POS)
@@ -323,25 +289,19 @@ triangular wave valley and peak */
 #define TMR6_VALID_PERIOD_CNT5              (5UL << TMR6_VPERR_PCNTS_POS)
 #define TMR6_VALID_PERIOD_CNT6              (6UL << TMR6_VPERR_PCNTS_POS)
 #define TMR6_VALID_PERIOD_CNT7              (7UL << TMR6_VPERR_PCNTS_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_DeadTime_Reg_Define TMR6 Dead Time Register Define
- * @{
  */
 #define TMR6_DEADTIME_REG_UP_A              (0x00U)         /*!< Register DTUAR */
 #define TMR6_DEADTIME_REG_DOWN_A            (0x01U)         /*!< Register DTDAR */
 #define TMR6_DEADTIME_REG_UP_B              (0x02U)         /*!< Register DTUBR */
 #define TMR6_DEADTIME_REG_DOWN_B            (0x03U)         /*!< Register DTDBR */
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Pin_Define TMR6 Input And Output Pin Define
- * @{
  */
 #define TMR6_IO_PWMA                        (0x00U)         /*!< Pin TIM6_<t>_PWMA */
 #define TMR6_IO_PWMB                        (0x01U)         /*!< Pin TIM6_<t>_PWMB */
@@ -349,35 +309,26 @@ triangular wave valley and peak */
 #define TMR6_INPUT_TRIGB                    (0x03U)         /*!< Input pin TIM6_TRIGB */
 #define TMR6_INPUT_TRIGC                    (0x04U)         /*!< Input pin TIM6_TRIGC */
 #define TMR6_INPUT_TRIGD                    (0x05U)         /*!< Input pin TIM6_TRIGD */
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Input_Filter_Clock TMR6 Input Pin Filter Clock Divider Define
- * @{
  */
 #define TMR6_FILTER_CLK_DIV1                (0x00U)
 #define TMR6_FILTER_CLK_DIV4                (0x01U)
 #define TMR6_FILTER_CLK_DIV16               (0x02U)
 #define TMR6_FILTER_CLK_DIV64               (0x03U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Pin_Mode_Define TMR6 Pin Function Mode Selection
- * @{
  */
 #define TMR6_PIN_CMP_OUTPUT                 (0x00UL)
 #define TMR6_PIN_CAPT_INPUT                 (TMR6_PCNAR_CAPMDA)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Count_State_Define TMR6 Count State
- * @{
  */
 #define TMR6_STAT_START                     (0U)    /*!< Count start */
 #define TMR6_STAT_STOP                      (1U)    /*!< Count stop */
@@ -388,116 +339,86 @@ triangular wave valley and peak */
 #define TMR6_STAT_UP_CNT_MATCH_B            (6U)    /*!< Count up match compare register B */
 #define TMR6_STAT_DOWN_CNT_MATCH_B          (7U)    /*!< Count down match compare register B */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Pin_Polarity_Define TMR6 Pin Output Polarity
- * @{
  */
 
 #define TMR6_PWM_LOW                        (0x00U)
 #define TMR6_PWM_HIGH                       (0x01U)
 #define TMR6_PWM_HOLD                       (0x02U)
 #define TMR6_PWM_INVT                       (0x03U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Force_Output_Polarity_Define TMR6 Force Output Polarity Next Period
- * @{
  */
 #define TMR6_PWM_FORCE_INVD                 (0x00U)
 #define TMR6_PWM_FORCE_LOW                  (0x02U)
 #define TMR6_PWM_FORCE_HIGH                 (0x03U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Emb_Ch_Define TMR6 EMB Event Channel
- * @{
  */
 #define TMR6_EMB_EVT_CH0                    (0x00U)
 #define TMR6_EMB_EVT_CH1                    (0x01U)
 #define TMR6_EMB_EVT_CH2                    (0x02U)
 #define TMR6_EMB_EVT_CH3                    (0x03U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Emb_Release_Mode_Define TMR6 EMB Function Release Mode When EMB Event Invalid
- * @{
  */
 #define TMR6_EMB_RELEASE_IMMED              (0x00UL)
 #define TMR6_EMB_RELEASE_OVF                (TMR6_PCNAR_EMBRA_0)
 #define TMR6_EMB_RELEASE_UDF                (TMR6_PCNAR_EMBRA_1)
 #define TMR6_EMB_RELEASE_OVF_UDF            (TMR6_PCNAR_EMBRA)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Emb_Pin_Status_Define TMR6 Pin Output Status When EMB Event Valid
- * @{
  */
 #define TMR6_EMB_PIN_NORMAL                 (0x00UL)
 #define TMR6_EMB_PIN_HIZ                    (TMR6_PCNAR_EMBCA_0)
 #define TMR6_EMB_PIN_LOW                    (TMR6_PCNAR_EMBCA_1)
 #define TMR6_EMB_PIN_HIGH                   (TMR6_PCNAR_EMBCA)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Deadtime_CountUp_Buf_Func_Define TMR6 Dead Time Buffer Function For Count Up Stage
- * @{
  */
 #define TMR6_DEADTIME_CNT_UP_BUF_OFF        (0x00UL)
 #define TMR6_DEADTIME_CNT_UP_BUF_ON         (TMR6_DCONR_DTBENU)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Deadtime_CountDown_Buf_Func_Define TMR6 Dead Time Buffer Function For Count Down Stage
- * @{
  */
 #define TMR6_DEADTIME_CNT_DOWN_BUF_OFF      (0x00UL)
 #define TMR6_DEADTIME_CNT_DOWN_BUF_ON       (TMR6_DCONR_DTBEND)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Deadtime_Buf_Trans_Cond_Define TMR6 Dead Time Buffer Transfer Condition Define For Triangular Count Mode
- * @{
  */
 #define TMR6_DEADTIME_BUF_COND_INVD         (0x00U)
 #define TMR6_DEADTIME_BUF_COND_OVF          (TMR6_DCONR_DTBTRU)
 #define TMR6_DEADTIME_BUF_COND_UDF          (TMR6_DCONR_DTBTRD)
 #define TMR6_DEADTIME_BUF_COND_OVF_UDF      (TMR6_DCONR_DTBTRU | TMR6_DCONR_DTBTRD)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Deadtime_Reg_Equal_Func_Define TMR6 Dead Time Function DTDAR Equal DTUAR
- * @{
  */
 #define TMR6_DEADTIME_EQUAL_OFF             (0x00UL)
 #define TMR6_DEADTIME_EQUAL_ON              (TMR6_DCONR_SEPA)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_SW_Sync_Unit_define TMR6 Software Synchronization Start/Stop/Clear/Update Unit Number Define
- * @{
  */
 #define TMR6_SW_SYNC_U1                     (TMR6CR_SSTAR_SSTA1)
 #define TMR6_SW_SYNC_U2                     (TMR6CR_SSTAR_SSTA2)
@@ -509,13 +430,10 @@ triangular wave valley and peak */
 #define TMR6_SW_SYNC_U8                     (TMR6CR_SSTAR_SSTA8)
 #define TMR6_SW_SYNC_ALL                    (0xFFUL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_hardware_start_condition_Define TMR6 Hardware Start Condition Define
- * @{
  */
 #define TMR6_START_COND_PWMA_RISING         (TMR6_HSTAR_HSTA0)
 #define TMR6_START_COND_PWMA_FALLING        (TMR6_HSTAR_HSTA1)
@@ -535,13 +453,10 @@ triangular wave valley and peak */
 #define TMR6_START_COND_TRIGED_FALLING      (TMR6_HSTAR_HSTA23)
 #define TMR6_START_COND_ALL                 (0x00FF0F0FUL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_hardware_stop_condition_Define TMR6 Hardware Stop Condition Define
- * @{
  */
 #define TMR6_STOP_COND_PWMA_RISING          (TMR6_HSTPR_HSTP0)
 #define TMR6_STOP_COND_PWMA_FALLING         (TMR6_HSTPR_HSTP1)
@@ -561,13 +476,10 @@ triangular wave valley and peak */
 #define TMR6_STOP_COND_TRIGED_FALLING       (TMR6_HSTPR_HSTP23)
 #define TMR6_STOP_COND_ALL                  (0x00FF0F0FUL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_hardware_clear_condition_Define TMR6 Hardware Clear Condition Define
- * @{
  */
 #define TMR6_CLR_COND_PWMA_RISING           (TMR6_HCLRR_HCLE0)
 #define TMR6_CLR_COND_PWMA_FALLING          (TMR6_HCLRR_HCLE1)
@@ -587,13 +499,10 @@ triangular wave valley and peak */
 #define TMR6_CLR_COND_TRIGED_FALLING        (TMR6_HCLRR_HCLE23)
 #define TMR6_CLR_COND_ALL                   (0x00FF0F0FUL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_hardware_update_condition_Define TMR6 Hardware Update Condition Define
- * @{
  */
 #define TMR6_UPD_COND_PWMA_RISING           (TMR6_HUPDR_HUPD0)
 #define TMR6_UPD_COND_PWMA_FALLING          (TMR6_HUPDR_HUPD1)
@@ -612,13 +521,10 @@ triangular wave valley and peak */
 #define TMR6_UPD_COND_TRIGED_RISING         (TMR6_HUPDR_HUPD22)
 #define TMR6_UPD_COND_TRIGED_FALLING        (TMR6_HUPDR_HUPD23)
 #define TMR6_UPD_COND_ALL                   (0x00FF0F0FUL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_hardware_capture_condition_Define TMR6 Hardware Capture Condition Define
- * @{
  */
 #define TMR6_CAPT_COND_PWMA_RISING          (TMR6_HCPAR_HCPA0)
 #define TMR6_CAPT_COND_PWMA_FALLING         (TMR6_HCPAR_HCPA1)
@@ -638,13 +544,10 @@ triangular wave valley and peak */
 #define TMR6_CAPT_COND_TRIGED_FALLING       (TMR6_HCPAR_HCPA23)
 #define TMR6_CAPT_COND_ALL                  (0x00FF0F0FUL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_HW_Count_Up_Cond_Define TMR6 Hardware Count Up Condition Define
- * @{
  */
 #define TMR6_CNT_UP_COND_PWMA_LOW_PWMB_RISING       (TMR6_HCUPR_HCUP0)
 #define TMR6_CNT_UP_COND_PWMA_LOW_PWMB_FALLING      (TMR6_HCUPR_HCUP1)
@@ -668,13 +571,10 @@ triangular wave valley and peak */
 #define TMR6_CNT_UP_COND_TRIGED_FALLING             (TMR6_HCUPR_HCUP23)
 #define TMR6_CNT_UP_COND_ALL                        (0x00FF0FFFUL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_HW_Count_Down_Cond_Define TMR6 Hardware Count Down Condition Define
- * @{
  */
 #define TMR6_CNT_DOWN_COND_PWMA_LOW_PWMB_RISING     (TMR6_HCDOR_HCDO0)
 #define TMR6_CNT_DOWN_COND_PWMA_LOW_PWMB_FALLING    (TMR6_HCDOR_HCDO1)
@@ -698,34 +598,25 @@ triangular wave valley and peak */
 #define TMR6_CNT_DOWN_COND_TRIGED_FALLING           (TMR6_HCDOR_HCDO23)
 #define TMR6_CNT_DOWN_COND_ALL                      (0x00FF0FFFUL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Count_Dir_Define TMR6 Base Counter Function Direction Define
- * @{
  */
 #define TMR6_CNT_UP                         (TMR6_GCONR_DIR)
 #define TMR6_CNT_DOWN                       (0x00UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Count_Mode_Define TMR6 Base Counter Function Mode Define
- * @{
  */
 #define TMR6_MD_SAWTOOTH                    (0x00UL)
 #define TMR6_MD_TRIANGLE                    (TMR6_GCONR_MODE)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Count_Clock_Define TMR6 Base Counter Clock Source Define
- * @{
  */
 #define TMR6_CLK_DIV1                       (0x00UL)
 #define TMR6_CLK_DIV2                       (0x01UL << TMR6_GCONR_CKDIV_POS)
@@ -739,55 +630,39 @@ triangular wave valley and peak */
 #define TMR6_CLK_DIV512                     (0x09UL << TMR6_GCONR_CKDIV_POS)
 #define TMR6_CLK_DIV1024                    (0x0AUL << TMR6_GCONR_CKDIV_POS)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Count_Reload_Define TMR6 Count Stop After Overflow Function Define
- * @{
  */
 #define TMR6_CNT_RELOAD_ON                  (0x00UL)
 #define TMR6_CNT_RELOAD_OFF                 (TMR6_GCONR_OVSTP)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Zmask_Cycle_Define TMR6 Z Mask Input Function Mask Cycles Number Define
- * @{
  */
 #define TMR6_ZMASK_FUNC_INVD                (0x00UL)
 #define TMR6_ZMASK_CYCLE_4                  (TMR6_GCONR_ZMSKVAL_0)
 #define TMR6_ZMASK_CYCLE_8                  (TMR6_GCONR_ZMSKVAL_1)
 #define TMR6_ZMASK_CYCLE_16                 (TMR6_GCONR_ZMSKVAL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Zmask_Pos_Unit_Clear_Func_Define TMR6 Unit As Position Timer, Z Phase Input Mask Function Define For Clear Action
- * @{
  */
 #define TMR6_POS_CLR_ZMASK_FUNC_OFF         (0x00UL)
 #define TMR6_POS_CLR_ZMASK_FUNC_ON          (TMR6_GCONR_ZMSKPOS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR6_Zmask_Revo_Unit_Count_Func_Define TMR6 Unit As Revolution Timer, Z Phase Input Mask Function Define For Count Action
- * @{
  */
 #define TMR6_REVO_CNT_ZMASK_FUNC_OFF        (0x00UL)
 #define TMR6_REVO_CNT_ZMASK_FUNC_ON         (TMR6_GCONR_ZMSKREV)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -798,7 +673,6 @@ triangular wave valley and peak */
  ******************************************************************************/
 /**
  * @addtogroup TMR6_Global_Functions
- * @{
  */
 /**
  * @brief  Get Software Sync start status
@@ -900,19 +774,13 @@ void TMR6_HWClearCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_functional
 void TMR6_HWClearCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState);
 void TMR6_HWUpdateCondCmd(CM_TMR6_TypeDef *TMR6x, uint32_t u32Cond, en_functional_state_t enNewState);
 void TMR6_HWUpdateCmd(CM_TMR6_TypeDef *TMR6x, en_functional_state_t enNewState);
-/**
- * @}
- */
+
 
 #endif /* LL_TMR6_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

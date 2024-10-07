@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_CMP CMP
  * @brief CMP Driver Library
- * @{
  */
 
 #if (LL_CMP_ENABLE == DDL_ON)
@@ -49,12 +47,10 @@
  ******************************************************************************/
 /**
  * @defgroup CMP_Local_Macros CMP Local Macros
- * @{
  */
 
 /**
  * @defgroup CMP_Check_Parameters_Validity CMP Check Parameters Validity
- * @{
  */
 #define IS_CMP_UNIT(x)                                                         \
     (   ((x) == CM_CMP1)                            ||                             \
@@ -128,13 +124,9 @@
     (   ((x) == CMP_BLANKWIN_OUTPUT_LVL_LOW)        ||                             \
         ((x) == CMP_BLANKWIN_OUTPUT_LVL_HIGH))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -153,7 +145,6 @@
  ******************************************************************************/
 /**
  * @defgroup CMP_Local_Functions CMP Local Functions
- * @{
  */
 
 /**
@@ -205,13 +196,10 @@ static void RecoverCmpFuncStatus(CM_CMP_TypeDef *CMPx, uint16_t u16CmpFuncStatus
     }
 }
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup CMP_Global_Functions CMP Global Functions
- * @{
  */
 
 /**
@@ -705,15 +693,11 @@ void CMP_BlankWindowCmd(CM_CMP_TypeDef *CMPx, en_functional_state_t enNewState) 
     }
 }
 
-/**
- * @}
- */
+
 
 #endif  /* LL_CMP_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

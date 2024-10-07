@@ -36,12 +36,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_RMU
- * @{
  */
 #if (LL_RMU_ENABLE == DDL_ON)
 
@@ -54,12 +52,10 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup RMU_Global_Macros RMU Global Macros
- * @{
  */
 
 /**
  * @defgroup RMU_ResetCause Rmu reset cause
- * @{
  */
 #define RMU_FLAG_PWR_ON                 (RMU_RSTF0_PORF)        /*!< Power on reset */
 #define RMU_FLAG_PIN                    (RMU_RSTF0_PINRF)       /*!< Reset pin reset */
@@ -82,13 +78,9 @@ extern "C"
         RMU_FLAG_SW | RMU_FLAG_MPU_ERR | RMU_FLAG_RAM_PARITY_ERR | RMU_FLAG_RAM_ECC | \
         RMU_FLAG_CLK_ERR | RMU_FLAG_XTAL_ERR | RMU_FLAG_CPU_LOCKUP | RMU_FLAG_MX)
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -99,7 +91,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup RMU_Global_Functions
- * @{
  */
 
 en_flag_status_t RMU_GetStatus(uint32_t u32RmuResetCause);
@@ -107,19 +98,13 @@ void RMU_ClearStatus(void);
 
 void RMU_CPULockUpCmd(en_functional_state_t enNewState);
 
-/**
- * @}
- */
+
 
 #endif /* LL_RMU_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 #ifdef __cplusplus
 }
 #endif

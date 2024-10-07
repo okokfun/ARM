@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_HC32F4A0_SHARE_INTERRUPTS SHARE_INTERRUPTS
  * @brief Share Interrupts Driver Library
- * @{
  */
 
 #if (LL_INTERRUPTS_SHARE_ENABLE == DDL_ON)
@@ -65,7 +63,6 @@
  ******************************************************************************/
 /**
  * @defgroup Share_Interrupts_Global_Functions Share Interrupts Global Functions
- * @{
  */
 /**
  * @brief  Share IRQ configure
@@ -3574,13 +3571,10 @@ void IRQ143_Handler(void) {
         }
     }
 }
-/**
- * @}
- */
+
 
 /**
  * @defgroup Share_Interrupts_Weakdef_Prototypes Share Interrupts weak function prototypes
- * @{
  */
 __WEAKDEF void EXTINT00_IrqHandler(void) {
 }
@@ -4453,19 +4447,13 @@ __WEAKDEF void ADC3_CmpComb_IrqHandler(void) {
 }
 __WEAKDEF void NFC_IrqHandler(void) {
 }
-/**
- * @}
- */
+
 
 #endif /* LL_INTERRUPTS_SHARE_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /******************************************************************************
  * EOF (not truncated)

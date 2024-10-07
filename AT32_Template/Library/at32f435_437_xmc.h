@@ -35,15 +35,12 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup XMC
-  * @{
   */
 
 /** @defgroup XMC_exported_Types
-  * @{
   */
 
 /**
@@ -898,10 +895,6 @@ typedef struct {
         } sts_bit;
     };
 } XMC_SDRAM_Type;
-
-/**
-  * @}
-  */
 #define XMC_BANK1                        ((XMC_Bank1_Type *) XMC_Bank1_REG_BASE)
 #define XMC_BANK2                        ((XMC_Bank2_Type *) XMC_Bank2_REG_BASE)
 #define XMC_BANK3                        ((XMC_bank3_Type *) XMC_BANK3_REG_BASE)
@@ -909,9 +902,7 @@ typedef struct {
 #define XMC_SDRAM                        ((XMC_SDRAM_Type *) XMC_SDRAM_REG_BASE)
 
 /** @defgroup XMC_exported_functions
-  * @{
   */
-
 void XMC_NOR_SRAM_Reset(XMC_NOR_SRAM_SubBank_Type XMC_subbank);
 void XMC_NOR_SRAM_Init(XMC_NORSRAM_Init_Type* XMC_NORSRAM_Init_struct);
 void XMC_NOR_SRAM_Timing_Config(XMC_NORSRAM_Timing_Init_Type* XMC_rw_Timing_struct,
@@ -951,18 +942,6 @@ void XMC_SDRAM_CMD(XMC_SDRAM_CMD_Type *XMC_SDRAM_CMD_struct);
 uint32_t XMC_SDRAM_Status_Get(XMC_SDRAM_bank_Type XMC_bank);
 void XMC_SDRAM_Refresh_Counter_Set(uint32_t counter);
 void XMC_SDRAM_Auto_Refresh_Set(uint32_t number);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup CRM
   * @brief CRM driver modules
-  * @{
   */
 
 #ifdef CRM_MODULE_EnableD
 
 /** @defgroup CRM_private_functions
-  * @{
   */
 
 /**
@@ -935,16 +932,4 @@ error_status CRM_PLL_Parameter_Calculate(CRM_PLL_Clock_Source_Type pll_rcs, uint
     return ERROR;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

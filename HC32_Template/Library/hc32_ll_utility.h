@@ -37,12 +37,10 @@ extern "C"
 #include "system_hc32f4a0sitb.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_UTILITY
- * @{
  */
 
 #if (LL_UTILITY_ENABLE == DDL_ON)
@@ -64,7 +62,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup UTILITY_Global_Functions
- * @{
  */
 
 /* Imprecise delay */
@@ -107,19 +104,13 @@ __WEAKDEF int32_t DDL_ConsoleOutputChar(char cData);
 #define DDL_Printf(...)
 #endif
 
-/**
- * @}
- */
+
 
 #endif /* LL_UTILITY_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

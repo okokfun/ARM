@@ -35,18 +35,15 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup CRM
-  * @{
   */
 #define CRM_REG(value)                   PERIPH_REG(CRM_BASE, value)
 #define CRM_REG_BIT(value)               PERIPH_REG_BIT(value)
 
 /** @defgroup CRM_flags_definition
   * @brief crm flag
-  * @{
   */
 #define CRM_HICK_Stable_FLAG             MAKE_VALUE(0x00, 1)  /*!< high speed internal clock stable flag */
 #define CRM_Hext_Stable_FLAG             MAKE_VALUE(0x00, 17) /*!< high speed external crystal stable flag */
@@ -67,13 +64,8 @@ extern "C" {
 #define CRM_PLL_ReadY_INT_FLAG           MAKE_VALUE(0x0C, 4)  /*!< phase locking loop stable interrupt ready flag */
 #define CRM_Clock_Failure_INT_FLAG       MAKE_VALUE(0x0C, 7)  /*!< clock failure interrupt ready flag */
 
-/**
-  * @}
-  */
-
 /** @defgroup CRM_Interrupts_definition
   * @brief crm interrupt
-  * @{
   */
 #define CRM_LICK_Stable_INT              ((uint32_t)0x00000100) /*!< low speed internal clock stable 中断 */
 #define CRM_Lext_Stable_INT              ((uint32_t)0x00000200) /*!< low speed external crystal stable 中断 */
@@ -82,12 +74,7 @@ extern "C" {
 #define CRM_PLL_Stable_INT               ((uint32_t)0x00001000) /*!< phase locking loop stable 中断 */
 #define CRM_Clock_Failure_INT            ((uint32_t)0x00800000) /*!< clock failure 中断 */
 
-/**
-  * @}
-  */
-
 /** @defgroup CRM_exported_Types
-  * @{
   */
 
 /**
@@ -1426,16 +1413,10 @@ typedef struct {
     };
 
 } CRM_Type;
-
-/**
-  * @}
-  */
 #define CRM                              ((CRM_Type *) CRM_BASE)
 
 /** @defgroup CRM_exported_functions
-  * @{
   */
-
 void CRM_Reset(void);
 void CRM_Lext_ByPass(confirm_state new_state);
 void CRM_Hext_ByPass(confirm_state new_state);
@@ -1473,18 +1454,6 @@ void CRM_EMAC_OutPut_Pulse_Set(CRM_EMAC_OutPut_Pulse_Type width);
 void CRM_Interrupt_Enable(uint32_t CRM_int, confirm_state new_state);
 error_status CRM_PLL_Parameter_Calculate(CRM_PLL_Clock_Source_Type pll_rcs, uint32_t target_SCLK_freq, \
         uint16_t *ret_ms, uint16_t *ret_ns, uint16_t *ret_fr);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

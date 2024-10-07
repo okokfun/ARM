@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_MPU MPU
  * @brief Memory Protection Unit Driver Library
- * @{
  */
 
 #if (LL_MPU_ENABLE == DDL_ON)
@@ -49,7 +47,6 @@
  ******************************************************************************/
 /**
  * @defgroup MPU_Local_Macros MPU Local Macros
- * @{
  */
 
 /* Number of MPU region */
@@ -76,7 +73,6 @@
 
 /**
  * @defgroup MPU_Check_Parameters_Validity MPU Check Parameters Validity
- * @{
  */
 #define IS_MPU_UNIT(x)                                                         \
     (   ((x) != 0UL)                                &&                             \
@@ -130,13 +126,9 @@
         ((x) == MPU_IP_EXP_TYPE_BUS_ERR))
 
 #define IS_MPU_UNLOCK()                 ((CM_MPU->WP & MPU_WP_MPUWE) == MPU_WP_MPUWE)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -155,7 +147,6 @@
  ******************************************************************************/
 /**
  * @defgroup MPU_Global_Functions MPU Global Functions
- * @{
  */
 
 /**
@@ -941,15 +932,11 @@ void MPU_IP_ReadCmd(uint32_t u32Periph, en_functional_state_t enNewState) {
     }
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_MPU_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

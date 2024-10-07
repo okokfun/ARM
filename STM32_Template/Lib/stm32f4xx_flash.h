@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup FLASH
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -63,11 +61,9 @@ typedef enum {
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup FLASH_Exported_Constants
-  * @{
   */
 
 /** @defgroup Flash_Latency
-  * @{
   */
 #define FLASH_Latency_0                ((uint8_t)0x0000)  /*!< FLASH 零延迟周期      */
 #define FLASH_Latency_1                ((uint8_t)0x0001)  /*!< FLASH 一个延迟周期       */
@@ -103,12 +99,8 @@ typedef enum {
                                    ((LATENCY) == FLASH_Latency_13) || \
                                    ((LATENCY) == FLASH_Latency_14) || \
                                    ((LATENCY) == FLASH_Latency_15))
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Voltage_Range
-  * @{
   */
 #define VoltageRange_1        ((uint8_t)0x00)  /*!< 器件工作范围: 1.8V 至 2.1V */
 #define VoltageRange_2        ((uint8_t)0x01)  /*!< 器件工作范围: 2.1V to 2.7V */
@@ -119,12 +111,8 @@ typedef enum {
                                ((RANGE) == VoltageRange_2) || \
                                ((RANGE) == VoltageRange_3) || \
                                ((RANGE) == VoltageRange_4))
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Sectors
-  * @{
   */
 #define FLASH_Sector_0     ((uint16_t)0x0000) /*!< 扇区号 0   */
 #define FLASH_Sector_1     ((uint16_t)0x0008) /*!< 扇区号 1   */
@@ -192,12 +180,8 @@ typedef enum {
 #define IS_FLASH_ADDRESS(ADDRESS) ((((ADDRESS) >= 0x08000000) && ((ADDRESS) <= 0x0817FFFF)) ||\
                                    (((ADDRESS) >= 0x1FFF7800) && ((ADDRESS) <= 0x1FFF7BDF)))
 #endif /* STM32F413_423xx */
-/**
-  * @}
-  */
 
 /** @defgroup Option_Bytes_Write_Protection
-  * @{
   */
 #define OB_WRP_Sector_0       ((uint32_t)0x00000001) /*!< Sector0 的写保护     */
 #define OB_WRP_Sector_1       ((uint32_t)0x00000002) /*!< 写保护 Sector1     */
@@ -226,22 +210,14 @@ typedef enum {
 #define OB_WRP_Sector_All     ((uint32_t)0x00000FFF) /*!< 写保护  all Sectors */
 
 #define IS_OB_WRP(SECTOR)((((SECTOR) & (uint32_t)0xFFFFF000) == 0x00000000) && ((SECTOR) != 0x00000000))
-/**
-  * @}
-  */
 
 /** @defgroup  Selection_Protection_Mode
-  * @{
   */
 #define OB_PcROP_Disable   ((uint8_t)0x00) /*!< 禁用 PcROP，nWPRi 位用于扇区 i 上的写保护 */
 #define OB_PcROP_Enable    ((uint8_t)0x80) /*!< 启用用于扇区 i 上的 PCRoP 保护的 PcROP、nWPRi 位  */
 #define IS_OB_PCROP_SELECT(PCROP) (((PCROP) == OB_PcROP_Disable) || ((PCROP) == OB_PcROP_Enable))
-/**
-  * @}
-  */
 
 /** @defgroup Option_Bytes_PC_ReadWrite_Protection
-  * @{
   */
 #define OB_PCROP_Sector_0        ((uint32_t)0x00000001) /*!< PC 读/写保护 Sector0      */
 #define OB_PCROP_Sector_1        ((uint32_t)0x00000002) /*!< PC 读/写保护 Sector1      */
@@ -269,12 +245,8 @@ typedef enum {
 #define OB_PCROP_Sector_23       ((uint32_t)0x00000800) /*!< PC 读/写保护 Sector23     */
 #define OB_PCROP_Sector_All      ((uint32_t)0x00000FFF) /*!< PC 读/写保护 all Sectors  */
 #define IS_OB_PCROP(SECTOR)((((SECTOR) & (uint32_t)0xFFFFF000) == 0x00000000) && ((SECTOR) != 0x00000000))
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Option_Bytes_Read_Protection
-  * @{
   */
 #define OB_RDP_Level_0   ((uint8_t)0xAA)
 #define OB_RDP_Level_1   ((uint8_t)0x55)
@@ -282,43 +254,27 @@ typedef enum {
 #define IS_OB_RDP(LEVEL) (((LEVEL) == OB_RDP_Level_0)||\
                           ((LEVEL) == OB_RDP_Level_1))/*||\
 ((LEVEL) == OB_RDP_Level_2))*/
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Option_Bytes_IWatchdog
-  * @{
   */
 #define OB_IWDG_SW                     ((uint8_t)0x20)  /*!< 选择软件 IWDG */
 #define OB_IWDG_HW                     ((uint8_t)0x00)  /*!< 已选择硬件 IWDG */
 #define IS_OB_IWDG_SOURCE(SOURCE) (((SOURCE) == OB_IWDG_SW) || ((SOURCE) == OB_IWDG_HW))
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Option_Bytes_nRST_STOP
-  * @{
   */
 #define OB_STOP_NoRST                  ((uint8_t)0x40) /*!< 进入 STOP 时不产生复位 */
 #define OB_STOP_RST                    ((uint8_t)0x00) /*!< 进入 STOP 时产生复位 */
 #define IS_OB_STOP_SOURCE(SOURCE) (((SOURCE) == OB_STOP_NoRST) || ((SOURCE) == OB_STOP_RST))
-/**
-  * @}
-  */
 
 
 /** @defgroup FLASH_Option_Bytes_nRST_STDBY
-  * @{
   */
 #define OB_STDBY_NoRST                 ((uint8_t)0x80) /*!< 进入 STANDBY 时不产生复位 */
 #define OB_STDBY_RST                   ((uint8_t)0x00) /*!< 进入 STANDBY 时产生复位 */
 #define IS_OB_STDBY_SOURCE(SOURCE) (((SOURCE) == OB_STDBY_NoRST) || ((SOURCE) == OB_STDBY_RST))
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_BOR_Reset_Level
-  * @{
   */
 #define OB_BOR_LEVEL3          ((uint8_t)0x00)  /*!< 电源电压范围为 2.70 至 3.60 V */
 #define OB_BOR_LEVEL2          ((uint8_t)0x04)  /*!< 电源电压范围为 2.40 to 2.70 V */
@@ -326,32 +282,20 @@ typedef enum {
 #define OB_BOR_OFF             ((uint8_t)0x0C)  /*!< 电源电压范围为 1.62 to 2.10 V */
 #define IS_OB_BOR(LEVEL) (((LEVEL) == OB_BOR_LEVEL1) || ((LEVEL) == OB_BOR_LEVEL2) ||\
                           ((LEVEL) == OB_BOR_LEVEL3) || ((LEVEL) == OB_BOR_OFF))
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Dual_Boot
-  * @{
   */
 #define OB_Dual_BootEnabled   ((uint8_t)0x10) /*!< 双银行启动启用                            */
 #define OB_Dual_BootDisabled  ((uint8_t)0x00) /*!< 双银行启动启用，始终在用户闪存上启动 */
 #define IS_OB_BOOT(BOOT) (((BOOT) == OB_Dual_BootEnabled) || ((BOOT) == OB_Dual_BootDisabled))
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Interrupts
-  * @{
   */
 #define FLASH_IT_EOP                   ((uint32_t)0x01000000)  /*!< FLASH 操作结束中断源 */
 #define FLASH_IT_ERR                   ((uint32_t)0x02000000)  /*!< 错误中断源 */
 #define IS_FLASH_IT(IT) ((((IT) & (uint32_t)0xFCFFFFFF) == 0x00000000) && ((IT) != 0x00000000))
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Flags
-  * @{
   */
 #define FLASH_FLAG_EOP                 ((uint32_t)0x00000001)  /*!< FLASH 操作结束标志               */
 #define FLASH_FLAG_OPERR               ((uint32_t)0x00000002)  /*!< FLASH 操作错误标志                */
@@ -366,33 +310,22 @@ typedef enum {
                                   ((FLAG) == FLASH_FLAG_WRPERR) || ((FLAG) == FLASH_FLAG_PGAERR) || \
                                   ((FLAG) == FLASH_FLAG_PGPERR) || ((FLAG) == FLASH_FLAG_PGSERR) || \
                                   ((FLAG) == FLASH_FLAG_BSY)    || ((FLAG) == FLASH_FLAG_RDERR))
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Program_Parallelism
-  * @{
   */
 #define FLASH_PSIZE_BYTE           ((uint32_t)0x00000000)
 #define FLASH_PSIZE_HALF_WORD      ((uint32_t)0x00000100)
 #define FLASH_PSIZE_WORD           ((uint32_t)0x00000200)
 #define FLASH_PSIZE_DOUBLE_WORD    ((uint32_t)0x00000300)
 #define CR_PSIZE_MASK              ((uint32_t)0xFFFFFCFF)
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Keys
-  * @{
   */
 #define RDP_KEY                  ((uint16_t)0x00A5)
 #define FLASH_KEY1               ((uint32_t)0x45670123)
 #define FLASH_KEY2               ((uint32_t)0xCDEF89AB)
 #define FLASH_OPT_KEY1           ((uint32_t)0x08192A3B)
 #define FLASH_OPT_KEY2           ((uint32_t)0x4C5D6E7F)
-/**
-  * @}
-  */
 
 /**
   * 简介:    ACR 寄存器字节 0 (Bits[7:0]) 基地址
@@ -420,9 +353,6 @@ typedef enum {
   */
 #define OPTCR1_BYTE2_ADDRESS         ((uint32_t)0x40023C1A)
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -481,12 +411,5 @@ FLASH_Status FLASH_WaitForLastOperation(void); // 等待 FLASH 操作完成。
 
 #endif /* __STM32F4xx_FLASH_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

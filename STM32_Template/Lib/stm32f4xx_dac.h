@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup DAC
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -66,11 +64,9 @@ typedef struct {
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup DAC_Exported_Constants
-  * @{
   */
 
 /** @defgroup DAC_trigger_selection
-  * @{
   */
 #define DAC_Trigger_None                   ((uint32_t)0x00000000) /*!< 一旦加载了 DAC1_DHRxxxx 寄存器，转换是自动的，而不是通过外部触发 */
 #define DAC_Trigger_T2_TRGO                ((uint32_t)0x00000024) /*!< 选择 TIM2 TRGO 作为 DAC 通道的外部转换触发 */
@@ -93,12 +89,8 @@ typedef struct {
                                  ((TRIGGER) == DAC_Trigger_Ext_IT9) || \
                                  ((TRIGGER) == DAC_Trigger_Software))
 
-/**
-  * @}
-  */
 
 /** @defgroup DAC_wave_generation
-  * @{
   */
 #define DAC_WaveGeneration_None            ((uint32_t)0x00000000)
 #define DAC_WaveGeneration_Noise           ((uint32_t)0x00000040)
@@ -106,12 +98,8 @@ typedef struct {
 #define IS_DAC_GENERATE_WAVE(WAVE) (((WAVE) == DAC_WaveGeneration_None) || \
                                     ((WAVE) == DAC_WaveGeneration_Noise) || \
                                     ((WAVE) == DAC_WaveGeneration_Triangle))
-/**
-  * @}
-  */
 
 /** @defgroup DAC_lfsrunmask_triangleamplitude
-  * @{
   */
 #define DAC_LFSRUnmask_Bit0                ((uint32_t)0x00000000) /*!< 取消屏蔽 DAC 通道 LFSR bit0 以生成噪声波 */
 #define DAC_LFSRUnmask_Bits1_0             ((uint32_t)0x00000100) /*!< 取消屏蔽 DAC 通道 LFSR 位 [1:0] 以生成噪声波 */
@@ -162,34 +150,22 @@ typedef struct {
         ((VALUE) == DAC_TriangleAmplitude_1023) || \
         ((VALUE) == DAC_TriangleAmplitude_2047) || \
         ((VALUE) == DAC_TriangleAmplitude_4095))
-/**
-  * @}
-  */
 
 /** @defgroup DAC_output_buffer
-  * @{
   */
 #define DAC_OutputBuffer_Enable            ((uint32_t)0x00000000)
 #define DAC_OutputBuffer_Disable           ((uint32_t)0x00000002)
 #define IS_DAC_OUTPUT_BUFFER_STATE(STATE) (((STATE) == DAC_OutputBuffer_Enable) || \
         ((STATE) == DAC_OutputBuffer_Disable))
-/**
-  * @}
-  */
 
 /** @defgroup DAC_Channel_selection
-  * @{
   */
 #define DAC_Channel_1                      ((uint32_t)0x00000000)
 #define DAC_Channel_2                      ((uint32_t)0x00000010)
 #define IS_DAC_CHANNEL(CHANNEL) (((CHANNEL) == DAC_Channel_1) || \
                                  ((CHANNEL) == DAC_Channel_2))
-/**
-  * @}
-  */
 
 /** @defgroup DAC_data_alignement
-  * @{
   */
 #define DAC_Align_12b_R                    ((uint32_t)0x00000000)
 #define DAC_Align_12b_L                    ((uint32_t)0x00000004)
@@ -197,52 +173,30 @@ typedef struct {
 #define IS_DAC_ALIGN(ALIGN) (((ALIGN) == DAC_Align_12b_R) || \
                              ((ALIGN) == DAC_Align_12b_L) || \
                              ((ALIGN) == DAC_Align_8b_R))
-/**
-  * @}
-  */
 
 /** @defgroup DAC_wave_generation
-  * @{
   */
 #define DAC_Wave_Noise                     ((uint32_t)0x00000040)
 #define DAC_Wave_Triangle                  ((uint32_t)0x00000080)
 #define IS_DAC_WAVE(WAVE) (((WAVE) == DAC_Wave_Noise) || \
                            ((WAVE) == DAC_Wave_Triangle))
-/**
-  * @}
-  */
 
 /** @defgroup DAC_data
-  * @{
   */
 #define IS_DAC_DATA(DATA) ((DATA) <= 0xFFF0)
-/**
-  * @}
-  */
 
 /** @defgroup DAC_interrupts_definition
-  * @{
   */
 #define DAC_IT_DMAUDR                      ((uint32_t)0x00002000)
 #define IS_DAC_IT(IT) (((IT) == DAC_IT_DMAUDR))
 
-/**
-  * @}
-  */
 
 /** @defgroup DAC_flags_definition
-  * @{
   */
 #define DAC_FLAG_DMAUDR                    ((uint32_t)0x00002000)
 #define IS_DAC_FLAG(FLAG) (((FLAG) == DAC_FLAG_DMAUDR))
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -278,12 +232,5 @@ void DAC_ClearITPendingBit(uint32_t DAC_Channel, uint32_t DAC_IT); // 清除 DAC
 
 #endif /*__STM32F4xx_DAC_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_AES AES
  * @brief AES Driver Library
- * @{
  */
 
 #if (LL_AES_ENABLE == DDL_ON)
@@ -47,7 +45,6 @@
  ******************************************************************************/
 /**
  * @defgroup AES_Local_Macros AES Local Macros
- * @{
  */
 /* Delay count for timeout */
 #define AES_TIMEOUT                     (30000UL)
@@ -57,18 +54,13 @@
 
 /**
  * @defgroup AES_Check_Parameters_Validity AES Check Parameters Validity
- * @{
  */
 #define IS_AES_KEY_SIZE(x)                                                     \
     (   ((x) == AES_KEY_SIZE_16BYTE)        ||                                     \
         ((x) == AES_KEY_SIZE_24BYTE)        ||                                     \
         ((x) == AES_KEY_SIZE_32BYTE))
-/**
- * @}
- */
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -87,7 +79,6 @@
  ******************************************************************************/
 /**
  * @defgroup AES_Local_Functions AES Local Functions
- * @{
  */
 /**
  * @brief  Write the input buffer in data register.
@@ -173,13 +164,10 @@ static int32_t AES_WaitDone(void) {
 
     return i32Ret;
 }
-/**
- * @}
- */
+
 
 /**
  * @defgroup AES_Global_Functions AES Global Functions
- * @{
  */
 
 /**
@@ -273,15 +261,11 @@ int32_t AES_Decrypt(const uint8_t *pu8Ciphertext, uint32_t u32CiphertextSize,
 
     return i32Ret;
 }
-/**
- * @}
- */
+
 
 #endif /* LL_AES_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

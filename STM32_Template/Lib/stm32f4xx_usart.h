@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup USART
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -57,7 +55,7 @@ typedef struct {
                                             其中 OVR8 是 CR1 寄存器中的"8 模式过采样"配置位。*/
 
     uint16_t USART_WordLength;          /*!< 指定帧中传输或接收的数据位数。
-                                            该参数可以是@ref USART_Word_Length 的值 */
+                                            该参数可以是 @ref USART_Word_Length 的值 */
 
     uint16_t USART_StopBits;            /*!< 指定传输的停止位数。
                                             此参数可以是 @ref USART_Stop_Bits 的值 */
@@ -68,10 +66,10 @@ typedef struct {
 											                      字长设置为 8 个数据位时为第 8 位)。 */
 
     uint16_t USART_Mode;                /*!< 指定是启用还是禁用接收或传输模式。
-                                            该参数可以是@ref USART_Mode 的值 */
+                                            该参数可以是 @ref USART_Mode 的值 */
 
     uint16_t USART_HardwareFlowControl; /*!< 指定是启用还是禁用硬件流控制模式。
-											                      该参数可以是@ref USART 硬件流控制的值 */
+											                      该参数可以是 @ref USART 硬件流控制的值 */
 } USART_InitTypeDef;
 
 /**
@@ -80,13 +78,13 @@ typedef struct {
 typedef struct {
 
     uint16_t USART_Clock;   /*!< 指定是启用还是禁用 USART 时钟。
-                                该参数可以是@ref USART_Clock 的值 */
+                                该参数可以是 @ref USART_Clock 的值 */
 
     uint16_t USART_CPOL;    /*!< 指定串行时钟的稳定状态。
                                 此参数可以是 @ref USART_Clock_Polarity 的值 */
 
     uint16_t USART_CPHA;    /*!< 指定进行位捕获的时钟转换。
-                                该参数可以是@ref USART_Clock_Phase 的值 */
+                                该参数可以是 @ref USART_Clock_Phase 的值 */
 
     uint16_t USART_LastBit; /*!< 指定是否与最后发送的时钟脉冲相对应
                                 在同步模式下，数据位 (MSB) 必须在 SCLK 引脚上输出。
@@ -96,7 +94,6 @@ typedef struct {
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup USART_Exported_Constants
-  * @{
   */
 #define IS_USART_ALL_PERIPH(PERIPH) (((PERIPH) == USART1) || \
                                      ((PERIPH) == USART2) || \
@@ -115,19 +112,14 @@ typedef struct {
                                       ((PERIPH) == USART6))
 
 /** @defgroup USART_Word_Length
-  * @{
   */
 #define USART_WordLength_8b                  ((uint16_t)0x0000)
 #define USART_WordLength_9b                  ((uint16_t)0x1000)
 
 #define IS_USART_WORD_LENGTH(LENGTH) (((LENGTH) == USART_WordLength_8b) || \
                                       ((LENGTH) == USART_WordLength_9b))
-/**
-  * @}
-  */
 
 /** @defgroup USART_Stop_Bits
-  * @{
   */
 #define USART_StopBits_1                     ((uint16_t)0x0000)
 #define USART_StopBits_0_5                   ((uint16_t)0x1000)
@@ -137,12 +129,8 @@ typedef struct {
                                      ((STOPBITS) == USART_StopBits_0_5) || \
                                      ((STOPBITS) == USART_StopBits_2) || \
                                      ((STOPBITS) == USART_StopBits_1_5))
-/**
-  * @}
-  */
 
 /** @defgroup USART_Parity
-  * @{
   */
 #define USART_Parity_No                      ((uint16_t)0x0000)
 #define USART_Parity_Even                    ((uint16_t)0x0400)
@@ -150,22 +138,14 @@ typedef struct {
 #define IS_USART_PARITY(PARITY) (((PARITY) == USART_Parity_No) || \
                                  ((PARITY) == USART_Parity_Even) || \
                                  ((PARITY) == USART_Parity_Odd))
-/**
-  * @}
-  */
 
 /** @defgroup USART_Mode
-  * @{
   */
 #define USART_Mode_Rx                        ((uint16_t)0x0004)
 #define USART_Mode_Tx                        ((uint16_t)0x0008)
 #define IS_USART_MODE(MODE) ((((MODE) & (uint16_t)0xFFF3) == 0x00) && ((MODE) != (uint16_t)0x00))
-/**
-  * @}
-  */
 
 /** @defgroup USART_Hardware_Flow_Control
-  * @{
   */
 #define USART_HardwareFlowControl_None       ((uint16_t)0x0000)
 #define USART_HardwareFlowControl_RTS        ((uint16_t)0x0100)
@@ -176,56 +156,36 @@ typedef struct {
      ((CONTROL) == USART_HardwareFlowControl_RTS) || \
      ((CONTROL) == USART_HardwareFlowControl_CTS) || \
      ((CONTROL) == USART_HardwareFlowControl_RTS_CTS))
-/**
-  * @}
-  */
 
 /** @defgroup USART_Clock
-  * @{
   */
 #define USART_Clock_Disable                  ((uint16_t)0x0000)
 #define USART_Clock_Enable                   ((uint16_t)0x0800)
 #define IS_USART_CLOCK(CLOCK) (((CLOCK) == USART_Clock_Disable) || \
                                ((CLOCK) == USART_Clock_Enable))
-/**
-  * @}
-  */
 
 /** @defgroup USART_Clock_Polarity
-  * @{
   */
 #define USART_CPOL_Low                       ((uint16_t)0x0000)
 #define USART_CPOL_High                      ((uint16_t)0x0400)
 #define IS_USART_CPOL(CPOL) (((CPOL) == USART_CPOL_Low) || ((CPOL) == USART_CPOL_High))
 
-/**
-  * @}
-  */
 
 /** @defgroup USART_Clock_Phase
-  * @{
   */
 #define USART_CPHA_1Edge                     ((uint16_t)0x0000)
 #define USART_CPHA_2Edge                     ((uint16_t)0x0200)
 #define IS_USART_CPHA(CPHA) (((CPHA) == USART_CPHA_1Edge) || ((CPHA) == USART_CPHA_2Edge))
 
-/**
-  * @}
-  */
 
 /** @defgroup USART_Last_Bit
-  * @{
   */
 #define USART_LastBit_Disable                ((uint16_t)0x0000)
 #define USART_LastBit_Enable                 ((uint16_t)0x0100)
 #define IS_USART_LASTBIT(LASTBIT) (((LASTBIT) == USART_LastBit_Disable) || \
                                    ((LASTBIT) == USART_LastBit_Enable))
-/**
-  * @}
-  */
 
 /** @defgroup USART_Interrupt_definition
-  * @{
   */
 #define USART_IT_PE                          ((uint16_t)0x0028)
 #define USART_IT_TXE                         ((uint16_t)0x0727)
@@ -241,12 +201,8 @@ typedef struct {
 #define USART_IT_FE                          ((uint16_t)0x0160)
 
 /** @defgroup USART_Legacy
-  * @{
   */
 #define USART_IT_ORE                          USART_IT_ORE_ER
-/**
-  * @}
-  */
 #define IS_USART_CONFIG_IT(IT) (((IT) == USART_IT_PE) || ((IT) == USART_IT_TXE) || \
                                 ((IT) == USART_IT_TC) || ((IT) == USART_IT_RXNE) || \
                                 ((IT) == USART_IT_IDLE) || ((IT) == USART_IT_LBD) || \
@@ -259,57 +215,37 @@ typedef struct {
                              ((IT) == USART_IT_NE) || ((IT) == USART_IT_FE))
 #define IS_USART_CLEAR_IT(IT) (((IT) == USART_IT_TC) || ((IT) == USART_IT_RXNE) || \
                                ((IT) == USART_IT_LBD) || ((IT) == USART_IT_CTS))
-/**
-  * @}
-  */
 
 /** @defgroup USART_DMA_Requests
-  * @{
   */
 #define USART_DMAReq_Tx                      ((uint16_t)0x0080)
 #define USART_DMAReq_Rx                      ((uint16_t)0x0040)
 #define IS_USART_DMAREQ(DMAREQ) ((((DMAREQ) & (uint16_t)0xFF3F) == 0x00) && ((DMAREQ) != (uint16_t)0x00))
 
-/**
-  * @}
-  */
 
 /** @defgroup USART_WakeUp_methods
-  * @{
   */
 #define USART_WakeUp_IdleLine                ((uint16_t)0x0000)
 #define USART_WakeUp_AddressMark             ((uint16_t)0x0800)
 #define IS_USART_WAKEUP(WAKEUP) (((WAKEUP) == USART_WakeUp_IdleLine) || \
                                  ((WAKEUP) == USART_WakeUp_AddressMark))
-/**
-  * @}
-  */
 
 /** @defgroup USART_LIN_Break_Detection_Length
-  * @{
   */
 #define USART_LINBreakDetectLength_10b      ((uint16_t)0x0000)
 #define USART_LINBreakDetectLength_11b      ((uint16_t)0x0020)
 #define IS_USART_LIN_BREAK_DETECT_LENGTH(LENGTH) \
     (((LENGTH) == USART_LINBreakDetectLength_10b) || \
      ((LENGTH) == USART_LINBreakDetectLength_11b))
-/**
-  * @}
-  */
 
 /** @defgroup USART_IrDA_Low_Power
-  * @{
   */
 #define USART_IrDAMode_LowPower              ((uint16_t)0x0004)
 #define USART_IrDAMode_Normal                ((uint16_t)0x0000)
 #define IS_USART_IRDA_MODE(MODE) (((MODE) == USART_IrDAMode_LowPower) || \
                                   ((MODE) == USART_IrDAMode_Normal))
-/**
-  * @}
-  */
 
 /** @defgroup USART_Flags
-  * @{
   */
 #define USART_FLAG_CTS                       ((uint16_t)0x0200)
 #define USART_FLAG_LBD                       ((uint16_t)0x0100)
@@ -333,13 +269,7 @@ typedef struct {
 #define IS_USART_ADDRESS(ADDRESS) ((ADDRESS) <= 0xF)
 #define IS_USART_DATA(DATA) ((DATA) <= 0x1FF)
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -399,12 +329,5 @@ void USART_ClearITPendingBit(USART_TypeDef* USARTx, uint16_t USART_IT);         
 
 #endif /* __STM32F4xx_USART_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

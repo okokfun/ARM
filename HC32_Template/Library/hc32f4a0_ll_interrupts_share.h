@@ -39,12 +39,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_HC32F4A0_SHARE_INTERRUPTS
- * @{
  */
 
 #if (LL_INTERRUPTS_SHARE_ENABLE == DDL_ON)
@@ -66,7 +64,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup Share_Interrupts_Global_Functions
- * @{
  */
 
 int32_t INTC_ShareIrqCmd(en_int_src_t enIntSrc, en_functional_state_t enNewState);
@@ -524,19 +521,13 @@ void ADC3_Cmp1_IrqHandler(void);
 void ADC3_CmpComb_IrqHandler(void);
 void NFC_IrqHandler(void);
 
-/**
- * @}
- */
+
 
 #endif /* LL_INTERRUPTS_SHARE_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

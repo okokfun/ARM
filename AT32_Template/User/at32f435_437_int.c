@@ -26,11 +26,9 @@
 #include "at32f435_437_int.h"
 
 /** @addtogroup AT32F437_Periph_template
-  * @{
   */
 
 /** @addtogroup 437_LED_toggle
-  * @{
   */
 
 /**
@@ -116,11 +114,3 @@ void PendSV_Handler(void) {
   */
 void Systick_Handler(void) {
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

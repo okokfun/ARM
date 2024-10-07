@@ -18,13 +18,13 @@
                        ##### 如何使用这个驱动程序 #####
  ===============================================================================
     [..]
-        (#) 使用RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_QSPI,ENABLE)函数启用外围时钟。
+        (#) 使用RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_QSPI,ENABLE) 函数启用外围时钟。
 
         (#) 启用CLK、BK1_IO0、BK1_IO1、BK1_IO2、BK1_IO3、BK1_NCS、BK2_IO0。BK2_IO1,
-            BK2_IO2, BK2_IO3 和 BK2_NCS 的 GPIO 时钟，使用 RCC_AHB1PeriphClockCmd()函数。
+            BK2_IO2, BK2_IO3 和 BK2_NCS 的 GPIO 时钟，使用 RCC_AHB1PeriphClockCmd() 函数。
 
         (#) 外设设备替代函数。
-           (++) 将引脚连接到所需的外设设备的替代函数(AF)。使用GPIO_PinAFConfig()
+           (++) 将引脚连接到所需的外设设备的替代函数(AF)。使用 GPIO_PinAFConfig()
                 函数将引脚连接到所需外设的复用功能(AF)。
 
            (++) 通过配置所需引脚的复用功能。
@@ -46,7 +46,7 @@
 
         (#) 如果需要使用中断模式，使用函数 QSPI_ITConfig() 启用 NVIC 和相应的中断。
 
-        (#) 当使用DMA模式时
+        (#) 当使用 DMA 模式时
            (++) 使用 DMA_Init() 函数配置 DMA。
            
            (++) 使用 SPI_I2S_DMACmd() 函数激活需要的通道请求。
@@ -81,12 +81,10 @@
 #include "stm32f4xx_qspi.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup QSPI
   * 简介: QSPI 驱动模块
-  * @{
   */
 #if defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx) || defined(STM32F469_479xx)
 /* Private typedef -----------------------------------------------------------*/
@@ -111,7 +109,6 @@
 /* 初始化和配置功能 *********************************/
 
 /** @defgroup <PPP>_Private_Functions
-  * @{
   */
 
 /** @defgroup <PPP>_Group1 Function Group1 Name
@@ -130,7 +127,6 @@
             >
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -826,21 +822,8 @@ void QSPI_DualFlashMode_Cmd(FunctionalState NewState) {
     }
 }
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 #endif /* STM32F412xG || STM32F413_423xx || STM32F446xx || STM32F469_479xx */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

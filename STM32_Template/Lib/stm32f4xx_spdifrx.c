@@ -34,12 +34,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup SPDIFRX
   * 简介: SPDIFRX驱动模块
-  * @{
   */
 #if defined(STM32F446xx)
 /* Private typedef -----------------------------------------------------------*/
@@ -51,7 +49,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup SPDIFRX_Private_Functions
-  * @{
   */
 
 /** @defgroup SPDIFRX_Group1 初始化和配置函数
@@ -70,7 +67,6 @@
   SPDIFRX_Init()、SPDIFRX_FrameInit()和SPDIFRX块配置程序遵循主模式和从模式的SPDIFRX块配置程序(有关这些程序的详细信息，请参阅参考手册(RMxxxx))。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -431,21 +427,8 @@ void SPDIFRX_ClearITPendingBit(uint32_t SPDIFRX_IT) {
     SPDIFRX->IFCR |= SPDIFRX_IT;
 }
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 #endif /* STM32F446xx */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

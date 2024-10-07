@@ -33,12 +33,10 @@ extern "C"
 
 /**
  * @addtogroup CMSIS
- * @{
  */
 
 /**
  * @addtogroup HC32F4A0_System
- * @{
  */
 
 /*******************************************************************************
@@ -46,12 +44,10 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup HC32F4A0_System_Global_Macros
- * @{
  */
 
 /**
  * @addtogroup HC32F4A0_System_Clock_Source
- * @{
  */
 #if !defined (MRC_VALUE)
 #define MRC_VALUE                       (8000000UL)     /*!< Internal middle speed RC freq. */
@@ -81,51 +77,37 @@ extern "C"
 #define HCLK_VALUE                      (SystemCoreClock >> ((CM_CMU->SCFGR & CMU_SCFGR_HCLKS) >> CMU_SCFGR_HCLKS_POS))
 #endif
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
  ******************************************************************************/
 /**
  * @addtogroup HC32F4A0_System_Exported_Variable
- * @{
  */
 
 extern uint32_t SystemCoreClock;        /*!< 系统时钟频率(核心时钟) */
 extern uint32_t HRC_VALUE;              /*!< HRC frequency */
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global function prototypes (definition in C source)
  ******************************************************************************/
 /**
  * @addtogroup HC32F4A0_System_Global_Functions
- * @{
  */
 
 extern void SystemInit(void);             /*!< Initialize the system */
 extern void SystemCoreClockUpdate(void);  /*!< Update SystemCoreClock variable */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
+
 
 #ifdef __cplusplus
 }

@@ -29,12 +29,10 @@
 #include "stm32f4xx_dbgmcu.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup DBGMCU
   * 简介: DBGMCU 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,7 +45,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup DBGMCU_Private_Functions
-  * @{
   */
 
 /**
@@ -164,17 +161,4 @@ void DBGMCU_APB2PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState) {
         DBGMCU->APB2FZ &= ~DBGMCU_Periph;
     }
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

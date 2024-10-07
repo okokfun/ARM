@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_INTERRUPTS INTERRUPTS
  * @brief INTC Driver Library
- * @{
  */
 
 #if (LL_INTERRUPTS_ENABLE == DDL_ON)
@@ -49,7 +47,6 @@
  ******************************************************************************/
 /**
  * @defgroup INTC_Local_Macros INTC Local Macros
- * @{
  */
 /**
  * @brief   Maximum IRQ handler number
@@ -74,7 +71,6 @@
 
 /**
  * @defgroup INTC_Check_Parameters_Validity INTC Check Parameters Validity
- * @{
  */
 /*! Parameter validity check for wakeup source from stop mode. */
 #define IS_INTC_WKUP_SRC(src)                                                   \
@@ -137,13 +133,9 @@
     (   ((ch) != 0x00UL)                            &&                              \
         (((ch) | EXTINT_CH_ALL) == EXTINT_CH_ALL))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -154,12 +146,9 @@
  ******************************************************************************/
 /**
  * @defgroup INTC_Local_Variable INTC Local Variable
- * @{
  */
 static func_ptr_t m_apfnIrqHandler[IRQ_NUM_MAX] = {NULL};
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Local variable definitions ('static')
@@ -170,7 +159,6 @@ static func_ptr_t m_apfnIrqHandler[IRQ_NUM_MAX] = {NULL};
  ******************************************************************************/
 /**
  * @defgroup INTC_Global_Functions INTC Global Functions
- * @{
  */
 /**
  * @brief  IRQ sign in function
@@ -1671,19 +1659,13 @@ void IRQ127_Handler(void) {
     m_apfnIrqHandler[INT127_IRQn]();
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_INTERRUPTS_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /******************************************************************************
  * EOF (not truncated)

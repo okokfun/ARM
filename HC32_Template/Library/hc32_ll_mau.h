@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_MAU
- * @{
  */
 
 #if (LL_MAU_ENABLE == DDL_ON)
@@ -57,7 +55,6 @@ extern "C"
 
 /**
  * @defgroup MAU_Global_Macros MAU Global Macros
- * @{
  */
 
 #define MAU_SQRT_TIMEOUT               (HCLK_VALUE / 10000UL)/* About 1mS timeout */
@@ -66,9 +63,7 @@ extern "C"
 #define MAU_SIN_Q15_SCALAR             (0x8000UL)
 #define MAU_SIN_ANGIDX_TOTAL           (0x1000UL)
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -80,7 +75,6 @@ extern "C"
 
 /**
  * @addtogroup MAU_Global_Functions
- * @{
  */
 
 void MAU_SqrtInit(CM_MAU_TypeDef *MAUx, uint8_t u8ShiftNum, en_functional_state_t enNewState);
@@ -97,19 +91,13 @@ int32_t MAU_Sqrt(CM_MAU_TypeDef *MAUx, uint32_t u32Radicand, uint32_t *pu32Resul
 
 int16_t MAU_Sin(CM_MAU_TypeDef *MAUx, uint16_t u16AngleIdx);
 
-/**
- * @}
- */
+
 
 #endif /* LL_MAU_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

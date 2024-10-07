@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_CRC
- * @{
  */
 
 #if (LL_CRC_ENABLE == DDL_ON)
@@ -53,7 +51,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup CRC_Global_Types CRC Global Types
- * @{
  */
 
 /**
@@ -66,16 +63,13 @@ typedef struct {
                                  这个参数是其中之一 @ref CRC_Initial_Value */
 } stc_crc_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup CRC_Global_Macros CRC Global Macros
- * @{
  */
 
 /**
@@ -83,27 +77,19 @@ typedef struct {
  * @note: - CRC16 polynomial is X^16 + X^12 + X^5 + 1
  *        - CRC32 polynomial is X^32 + X^26 + X^23 + X^22 + X^16 + X^12 + X^11 + \
  *                              X^10 + X^8  + X^7  + X^5  + X^4  + X^2  + X + 1
- * @{
  */
 #define CRC_CRC16                   (0x0UL)
 #define CRC_CRC32                   (CRC_CR_CR)
-/**
- * @}
- */
+
 
 /**
  * @defgroup CRC_Initial_Value CRC Initial Value
- * @{
  */
 #define CRC16_INIT_VALUE            (0xFFFFUL)
 #define CRC32_INIT_VALUE            (0xFFFFFFFFUL)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -114,7 +100,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup CRC_Global_Functions
- * @{
  */
 int32_t CRC_StructInit(stc_crc_init_t *pstcCrcInit);
 int32_t CRC_Init(const stc_crc_init_t *pstcCrcInit);
@@ -137,19 +122,13 @@ en_flag_status_t CRC_CheckData16(uint32_t u32InitValue, const uint16_t au16Data[
 en_flag_status_t CRC_CheckData32(uint32_t u32InitValue, const uint32_t au32Data[],
                                  uint32_t u32Len, uint32_t u32ExpectValue);
 
-/**
- * @}
- */
+
 
 #endif /* LL_CRC_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

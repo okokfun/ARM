@@ -23,7 +23,7 @@
            using RCC_AHB1PeriphClockCmd() function.
 
        (#) 外设设备替代函数:
-           (++) 使用GPIO_PinAFConfig()函数将引脚连接到所需外设的备用函数(AF)。
+           (++) 使用 GPIO_PinAFConfig() 函数将引脚连接到所需外设的备用函数(AF)。
 
            (++) 通过GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF配置复用功能中所需的引脚
 
@@ -48,7 +48,7 @@
                RCC_I2S2CLKSource_Ext)，在stm32f4xx_conf.h文件中正确设置定义常量I2S_EXTERNAL_CLOCK_VAL之后。
 
       (#) 每个SAI块A或B都有自己的时钟发生器，使这两个块完全独立。
-          时钟生成器使用RCC_SAIBlockACLKConfig()和RCC_SAIBlockBCLKConfig()函数配置。
+          时钟生成器使用RCC_SAIBlockACLKConfig()和RCC_SAIBlockBCLKConfig() 函数配置。
 
       (#) 每个SAI Block A或B可以单独配置:
           (++) 使用 SAI_Init() 函数编程主时钟分压器，音频模式，协议，数据长度，时钟匹配边缘，同步模式，输出驱动器和FIFO阈值。
@@ -63,24 +63,24 @@
 
       (#) 如果需要使用中断模式，可以使用函数 SAI_ITConfig() 启用 NVIC 和相应的中断。
 
-      (#) 当使用DMA模式时
+      (#) 当使用 DMA 模式时
           (++) 使用 DMA_Init() 函数配置DMA
           (++) 使用 SAI_DMACmd() 函数激活所需的通道请求
 
       (#) 使用 SAI_Cmd() 函数启用SAI。
 
-      (#) 当使用 DMA 模式时，使用 DMA_Cmd() 函数启用DMA。
+      (#) 当使用 DMA 模式时，使用 DMA_Cmd() 函数启用 DMA。
 
       (#) SAI 有一些特定的功能，这取决于所选的音频协议。
           (++) 当音频块是一个发射器时，使用 SAI_MuteModeCmd() 函数启用静音模式，
                并使用 SAI_MuteValueConfig() 配置静音期间传输的值。
 
-          (++) 当音频块是接收端时，使用SAI_MuteFrameCounterConfig()检测静音模式。
-          (++) 当插槽数等于2时，使用SAI_MonoModeConfig()函数启用MONO模式，不需要内存中的任何数据预处理。
+          (++) 当音频块是接收端时，使用SAI_MuteFrameCounterConfig() 检测静音模式。
+          (++) 当插槽数等于2时，使用SAI_MonoModeConfig() 函数启用MONO模式，不需要内存中的任何数据预处理。
 
           (++) 使用SAI_CompandingModeConfig()启用数据压缩算法(U律和A律)。
           
-          (++) 使用SAI_TRIStateConfig()函数在数据线上发送非活动槽时，选择输出中的SD线的行为。
+          (++) 使用SAI_TRIStateConfig() 函数在数据线上发送非活动槽时，选择输出中的SD线的行为。
   [..]
    (@)    在主TX模式下: 即使在FIFO中没有数据，启用音频块也立即为外部从站生成位时钟，
                        然而，FS信号的产生受FIFO中数据的存在的制约。
@@ -120,12 +120,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup SAI
   * 简介: SAI 驱动模块
-  * @{
   */
 #if defined (STM32F40_41xxx) || defined (STM32F427_437xx) || defined (STM32F429_439xx) || \
 defined (STM32F401xx) || defined (STM32F411xE) || defined (STM32F446xx) || defined (STM32F469_479xx) || \
@@ -145,7 +143,6 @@ defined (STM32F413_423xx)
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup SAI_Private_Functions
-  * @{
   */
 
 /** @defgroup SAI_Group1 初始化和配置函数
@@ -163,7 +160,6 @@ defined (STM32F413_423xx)
   SAI_Init()、SAI_FrameInit()和SAI_SlotInit()。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -666,9 +662,6 @@ void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x) {
     SAI_Block_x->CR2 |= SAI_xCR2_FFLUSH;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SAI_Group2 数据传输函数
  *  简介   数据传输函数
@@ -683,12 +676,11 @@ void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x) {
   在接收过程中，数据被接收，然后被存储到内部FIFO中，同时
   在传输中，数据在传输之前首先存储在内部FIFO中。
   [..]
-  SAI_xDR寄存器的读取访问可以使用SAI_ReceiveData()函数完成，
+  SAI_xDR寄存器的读取访问可以使用SAI_ReceiveData() 函数完成，
   并返回Rx缓冲值。而对SAI_DR的写入访问可以使用SAI_SendData()
   函数来完成，并将写入的数据存储到Tx缓冲器中。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -720,9 +712,6 @@ void SAI_SendData(SAI_Block_TypeDef* SAI_Block_x, uint32_t Data) {
     SAI_Block_x->DR = Data;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SAI_Group3 DMA传输管理功能 
  *  简介   DMA传输管理功能 
@@ -733,7 +722,6 @@ void SAI_SendData(SAI_Block_TypeDef* SAI_Block_x, uint32_t Data) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -760,9 +748,6 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
     }
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SAI_Group4 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -773,7 +758,7 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
  ===============================================================================
   [..]
   本节提供了一组功能，允许配置SAI中断源并检查或清除标志或挂起位状态。
-  用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或DMA模式。
+  用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或DMA 模式。
 
   *** 轮询模式 ***
   ====================
@@ -818,10 +803,10 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
      (+) ITStatus SAI_GetITStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT);
      (+) void SAI_ClearITPendingBit(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT);
 
-  *** DMA模式 ***
+  *** DMA 模式 ***
   ================
   [..]
-  在DMA模式, 每个SAI音频块具有独立的DMA接口，以便读取或写入SAI_xDR寄存器(以命中内部FIFO)。
+  在DMA 模式, 每个SAI音频块具有独立的DMA接口，以便读取或写入SAI_xDR寄存器(以命中内部FIFO)。
   按照基本DMA请求/确认协议，音频块有一个DMA通道。
   [..]
   在此模式下，建议使用以下函数:
@@ -846,7 +831,6 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
     (+) uint32_t SAI_GetFIFOStatus(SAI_Block_TypeDef* SAI_Block_x);
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1071,21 +1055,8 @@ uint32_t SAI_GetFIFOStatus(SAI_Block_TypeDef* SAI_Block_x) {
 }
 
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 #endif /* STM32F40_41xxx || STM32F427_437xx || STM32F429_439xx || STM32F401xx || STM32F411xE || STM32F446xx || STM32F469_479xx */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

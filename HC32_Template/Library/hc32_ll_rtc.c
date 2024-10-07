@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_RTC RTC
  * @brief Real-Time Clock Driver Library
- * @{
  */
 
 #if (LL_RTC_ENABLE == DDL_ON)
@@ -47,7 +45,6 @@
  ******************************************************************************/
 /**
  * @defgroup RTC_Local_Macros RTC Local Macros
- * @{
  */
 
 /* RTC TPCR register Mask */
@@ -62,7 +59,6 @@
 
 /**
  * @defgroup RTC_Check_Parameters_Validity RTC Check Parameters Validity
- * @{
  */
 #define IS_RTC_DATA_FMT(x)                                                     \
     (   ((x) == RTC_DATA_FMT_DEC)                       ||                         \
@@ -151,13 +147,9 @@
 #define IS_RTC_ALARM_WEEKDAY(x)                     (((x) >= 0x01U) && ((x) <= 0x7FU))
 
 #define IS_RTC_COMPEN_VALUE(x)                      ((x) <= 0x1FFU)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -176,7 +168,6 @@
  ******************************************************************************/
 /**
  * @defgroup RTC_Global_Functions RTC Global Functions
- * @{
  */
 
 /**
@@ -1121,15 +1112,11 @@ void RTC_ClearStatus(uint32_t u32Flag) {
     }
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_RTC_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

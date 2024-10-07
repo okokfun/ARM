@@ -26,11 +26,9 @@
 #include "at32f435_437_clock.h"
 
 /** @addtogroup AT32F437_Periph_template
-  * @{
   */
 
 /** @addtogroup 437_System_Clock_Configuration System_Clock_Configuration
-  * @{
   */
 
 /**
@@ -121,12 +119,4 @@ void system_Clock_Config(void) {
     /* update system_Core_clock global variable */
     system_Core_Clock_Update();
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 

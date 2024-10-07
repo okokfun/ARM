@@ -28,13 +28,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_SPI SPI
  * @brief Serial Peripheral Interface Driver Library
- * @{
  */
 
 #if (LL_SPI_ENABLE == DDL_ON)
@@ -48,7 +46,6 @@
  ******************************************************************************/
 /**
  * @defgroup SPI_Local_Macros SPI Local Macros
- * @{
  */
 
 #define SPI_CFG1_DEFAULT        (0x00000010UL)
@@ -63,7 +60,6 @@
 
 /**
  * @defgroup SPI_Check_Parameters_Validity SPI Check Parameters Validity
- * @{
  */
 
 /*! Parameter valid check for SPI peripheral */
@@ -231,13 +227,9 @@
     (   (READ_REG32_BIT(SPIx->SR, SPI_FLAG_MD_FAULT) == 0UL)    ||                 \
         ((x) == DISABLE))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -256,7 +248,6 @@
  ******************************************************************************/
 /**
  * @defgroup SPI_Local_Func SPI Local Functions
- * @{
  */
 
 /**
@@ -438,13 +429,10 @@ static int32_t SPI_Tx(CM_SPI_TypeDef *SPIx, const void *pvTxBuf, uint32_t u32Len
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup SPI_Global_Functions SPI Global Functions
- * @{
  */
 
 /**
@@ -905,15 +893,11 @@ int32_t SPI_TransReceive(CM_SPI_TypeDef *SPIx, const void *pvTxBuf, void *pvRxBu
 
     return i32Ret;
 }
-/**
- * @}
- */
+
 
 #endif /* LL_SPI_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

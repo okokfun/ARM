@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_CLK CLK
  * @brief Clock Driver Library
- * @{
  */
 
 #if (LL_CLK_ENABLE == DDL_ON)
@@ -49,7 +47,6 @@
  ******************************************************************************/
 /**
  * @defgroup CLK_Local_Macros CLK Local Macros
- * @{
  */
 
 /**
@@ -154,7 +151,6 @@
 
 /**
  * @defgroup CLK_Check_Parameters_Validity CLK Check Parameters Validity
- * @{
  */
 /* Check CLK register lock status. */
 #define IS_CLK_UNLOCKED()               ((CM_PWC->FPRC & PWC_FPRC_FPRCB0) == PWC_FPRC_FPRCB0)
@@ -504,13 +500,9 @@
 #define IS_CLK_MCO_CH(x)                                                       \
     (   ((x) == CLK_MCO1)                             ||                           \
         ((x) == CLK_MCO2))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -529,7 +521,6 @@
  ******************************************************************************/
 /**
  * @defgroup CLK_Local_Functions CLK Local Functions
- * @{
  */
 /**
  * @brief Clk delay function
@@ -762,7 +753,6 @@ static void SetSysClockDiv(uint32_t u32Clock, uint32_t u32Div) {
 
 /**
  * @defgroup CLK_Global_Functions CLK Global Functions
- * @{
  */
 /**
  * @brief  LRC function enable/disable.
@@ -1716,15 +1706,11 @@ void CLK_SetTpiuClockDiv(uint8_t u8Div) {
 
     MODIFY_REG8(CM_CMU->TPIUCKCFGR, CMU_TPIUCKCFGR_TPIUCKS, u8Div);
 }
-/**
- * @}
- */
+
 
 #endif /* LL_CLK_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

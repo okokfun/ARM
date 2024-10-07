@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup ERTC
   * @brief ERTC driver modules
-  * @{
   */
 
 #ifdef ERTC_MODULE_EnableD
 
 /** @defgroup ERTC_private_functions
-  * @{
   */
 #define ERTC_TIMEOUT         ((uint32_t) 0x00360000)
 
@@ -1403,16 +1400,4 @@ uint32_t ERTC_BPR_Data_Read(ERTC_dt_Type dt) {
     return (*(__IO uint32_t *)reg);
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

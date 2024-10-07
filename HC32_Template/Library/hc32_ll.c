@@ -26,12 +26,10 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_Global Global
- * @{
  */
 
 /*******************************************************************************
@@ -59,7 +57,6 @@
  ******************************************************************************/
 /**
  * @defgroup LL_Global_Functions LL Global Functions
- * @{
  */
 void LL_PERIPH_WE(uint32_t u32Peripheral) {
     #if (LL_EFM_ENABLE == DDL_ON)
@@ -179,17 +176,11 @@ void LL_PERIPH_WP(uint32_t u32Peripheral) {
     #endif
 }
 
-/**
- * @}
- */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
+
 
 /******************************************************************************
  * EOF (not truncated)

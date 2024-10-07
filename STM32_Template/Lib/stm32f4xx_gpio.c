@@ -14,44 +14,44 @@
                       ##### 如何使用此驱动程序 #####
  ===============================================================================
  [..]
-   (#) 使用以下函数启用GPIO AHB时钟
+   (#) 使用以下函数启用 GPIO AHB时钟
        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE);
 
-   (#) 使用GPIO_Init()配置GPIO引脚
+   (#) 使用 GPIO_Init()配置GPIO引脚
        每个引脚有四种可能的配置:
-       (++) 输入:浮空、上拉、下拉。
+       (++) 输入: 浮空、上拉、下拉。
 
-       (++) 输出:推拉(向上拉、向下拉或无拉)打开排水管(向上、向下拉或者无拉)。
+       (++) 输出: 推拉(向上拉、向下拉或无拉)打开排水管(向上、向下拉或者无拉)。
 				  在输出模式下，速度可配置:2 MHz、25 MHz、50 MHz或100 MHz。
 
        (++) 复用功能: Push-Pull (Pull-up, Pull-down or no Pull) Open
             Drain (Pull-up, Pull-down or no Pull).
 
-       (++) 模拟:引脚用作ADC通道或DAC输出时所需的模式。
+       (++) 模拟: 引脚用作ADC通道或DAC输出时所需的模式。
 
-   (#) 外设设备替代功能:
-       (++) 对于ADC和DAC，使用GPIO_InitStruct->GPIO_mode=GPIO_mode_AN在模拟模式下配置所需引脚;
+   (#) 外设设备复用功能:
+       (++) 对于ADC和DAC，使用 GPIO_InitStruct->GPIO_mode=GPIO_mode_AN 在模拟模式下配置所需引脚;
             (+++) 对于其他外设设备(TIM、USART…):
             
-            (+++) 使用GPIO_PinAFConfig()函数将管脚连接到所需外设设备的复用功能(AF)
+            (+++) 使用 GPIO_PinAFConfig() 函数将管脚连接到所需外设设备的复用功能(AF)
 
-            (+++) 使用GPIO_InitStruct->GPIO_mode=GPIO_mode_AF在复用功能模式下配置所需引脚
+            (+++) 使用 GPIO_InitStruct->GPIO_mode=GPIO_mode_AF 在复用功能模式下配置所需引脚
 
-            (+++) 通过GPIO_PuPd、GPIO_OType和GPIO_speed成员选择类型、上拉/下拉和输出速度
+            (+++) 通过 GPIO_PuPd、GPIO_OType 和 GPIO_speed 成员选择类型、上拉/下拉和输出速度
 
-            (+++) 调用GPIO_Init()函数
+            (+++) 调用 GPIO_Init() 函数
 
-   (#) 使用GPIO_ReadInputDataBit()获取输入模式中配置的管脚级别
+   (#) 使用 GPIO_ReadInputDataBit() 获取输入模式中配置的管脚级别
 
-   (#) 要设置/重置输出模式中配置的管脚级别，请使用GPIO_SetBits()/GPIO_ResetBits
+   (#) 要设置/重置输出模式中配置的管脚级别，请使用 GPIO_SetBits()/GPIO_ResetBits
 
    (#) 复位期间和复位后，复用功能不激活，GPIO引脚配置为输入浮动模式(JTAG引脚除外)。
 
-   (#) LSE振荡器关闭时，可以将LSE振荡器引脚OSC32\uIN和OSC32\OUT用作通用(分别为PC14和PC15)。
-		LSE优先于GPIO功能。
+   (#) LSE振荡器关闭时，可以将LSE振荡器引脚 OSC_IN和OSC_OUT 用作通用(分别为PC14和PC15)。
+		LSE优先于 GPIO 功能。
 
-   (#) 当HSE振荡器关闭时，HSE振荡器引脚OSC_IN/OSC_OUT可分别用作通用PH0和PH1。
-		HSE优先于GPIO职能。
+   (#) 当HSE振荡器关闭时，HSE 振荡器引脚 OSC_IN/OSC_OUT 可分别用作通用PH0和PH1。
+		HSE优先于 GPIO 职能。
 
 @endverbatim
   *
@@ -80,12 +80,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup GPIO
   * 简介: GPIO驱动程序模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,7 +94,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup GPIO_Private_Functions
-  * @{
   */
 
 /** @defgroup GPIO_Group1 初始化及配置
@@ -108,7 +105,6 @@
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -116,7 +112,7 @@
   * 
   * 注意:   默认情况下，GPIO引脚配置为输入浮动模式(JTAG引脚除外)。
   * 
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
+  * 参数:  GPIOx: 其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
   *                      x可以是(A..I)，为STM32F42xxx/43xxx设备选择GPIO外设设备。
   *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
   * 
@@ -165,13 +161,13 @@ void GPIO_DeInit(GPIO_TypeDef* GPIOx) {
 }
 
 /**
-  * 简介:  根据GPIO_InitStruct中的指定参数初始化GPIOx外设设备。
+  * 简介:  根据 GPIO_InitStruct 中的指定参数初始化 GPIOx 外设设备。
   * 
-  * 参数:  GPIOx: 其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32F145xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx: 其中x可以是(A..K)，用于为 STM32F405xx/407xx 和 STM32F145xx/417xx 设备选择 GPIO 外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的GPIO外设设备。 
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的 GPIO 外设设备。
   * 
-  * 参数:  GPIO_InitStruct:指向包含指定GPIO外设设备配置信息的GPIO_InitTypeDef结构的指针。
+  * 参数:  GPIO_InitStruct: 指向包含指定 GPIO 外设设备配置信息的 GPIO_InitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -219,33 +215,33 @@ void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct) {
 }
 
 /**
-  * 简介:  用默认值填充每个GPIO_InitStruct成员。
+  * 简介:  用默认值填充每个 GPIO_InitStruct 成员。
   * 
-  * 参数:  GPIO_InitStruct:指向将被初始化的GPIO_InitTypeDef结构的指针。
+  * 参数:  GPIO_InitStruct: 指向将被初始化的 GPIO_InitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
 void GPIO_StructInit(GPIO_InitTypeDef* GPIO_InitStruct) {
     /* 重置GPIO初始化结构参数值 */
-    GPIO_InitStruct->GPIO_Pin  = GPIO_Pin_All;
-    GPIO_InitStruct->GPIO_Mode = GPIO_Mode_IN;
+    GPIO_InitStruct->GPIO_Pin   = GPIO_Pin_All;
+    GPIO_InitStruct->GPIO_Mode  = GPIO_Mode_IN;
     GPIO_InitStruct->GPIO_Speed = GPIO_Speed_2MHz;
     GPIO_InitStruct->GPIO_OType = GPIO_OType_PP;
-    GPIO_InitStruct->GPIO_PuPd = GPIO_PuPd_NOPULL;
+    GPIO_InitStruct->GPIO_PuPd  = GPIO_PuPd_NOPULL;
 }
 
 /**
   * 简介:  锁定GPIO引脚配置寄存器。
   * 
-  * 注意:   锁定的寄存器包括GPIOx_MODER、GPIOx_OTYPER、GPIOx_OSPEEDR、GPIOx _PUPDR、GPIOx-AFRL和GPIOx_AFRH。
+  * 注意:  锁定的寄存器包括 GPIOx_MODER、GPIOx_OTYPER、GPIOx_OSPEEDR、GPIOx _PUPDR、GPIOx-AFRL 和 GPIOx_AFRH。
   * 
-  * 注意:   锁定的GPIO引脚的配置在下次重置之前无法再修改。
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 注意:  锁定的 GPIO 引脚的配置在下次重置之前无法再修改。
+  * 参数:  GPIOx: 其中x可以是(A..K)，用于为 STM32F405xx/407xx 和 STM32P415xx/417xx 设备选择GPIO外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的 GPIO 外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的 GPIO 外设设备。
   * 
-  * 参数:  GPIO_Pin:指定要锁定的端口位。
-  *          此参数可以是GPIO_Pin_x的任意组合，其中x可以是(0..15)。
+  * 参数:  GPIO_Pin: 指定要锁定的端口位。
+  *          此参数可以是 GPIO_Pin_x 的任意组合，其中x可以是(0..15)。
   * 
   * 返回值: 无
   */
@@ -269,9 +265,6 @@ void GPIO_PinLockConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
     tmp = GPIOx->LCKR;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup GPIO_Group2 GPIO读写
  *  简介   GPIO读写
@@ -282,17 +275,16 @@ void GPIO_PinLockConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
   * 简介:  读取指定的输入端口引脚。
   * 
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
+  * 参数:  GPIOx: 其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
   *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
   *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
   * 
-  * 参数:  GPIO_Pin:指定要读取的端口位。
+  * 参数:  GPIO_Pin: 指定要读取的端口位。
   *         此参数可以是GPIO_Pin_x，其中x可以是(0..15)。
   * 
   * 返回值: 输入端口引脚值。
@@ -316,9 +308,9 @@ uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
 /**
   * 简介:  读取指定的GPIO输入数据端口。
   * 
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx: 其中x可以是(A..K)，用于为 STM32F405xx/407xx 和 STM32P415xx/417xx 设备选择 GPIO 外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的 GPIO 外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的 GPIO 外设设备。
   * 
   * 返回值: GPIO输入数据端口值。
   */
@@ -332,12 +324,12 @@ uint16_t GPIO_ReadInputData(GPIO_TypeDef* GPIOx) {
 /**
   * 简介:  读取指定的输出数据端口位。
   * 
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx: 其中x可以是(A..K)，用于为 STM32F405xx/407xx 和 STM32P415xx/417xx 设备选择 GPIO 外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的 GPIO 外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的 GPIO 外设设备。
   * 
-  * 参数:  GPIO_Pin:指定要读取的端口位。
-  *          此参数可以是GPIO_Pin_x，其中x可以是(0..15)。
+  * 参数:  GPIO_Pin: 指定要读取的端口位。
+  *          此参数可以是 GPIO_Pin_x，其中x可以是(0..15)。
   * 
   * 返回值: 输出端口引脚值。
   */
@@ -360,9 +352,9 @@ uint8_t GPIO_ReadOutputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
 /**
   * 简介:  读取指定的GPIO输出数据端口。
   * 
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx: 其中x可以是(A..K)，用于为 STM32F405xx/407xx 和 STM32P415xx/417xx 设备选择 GPIO 外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的 GPIO 外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的 GPIO 外设设备。
   * 
   * 返回值: GPIO输出数据端口值。
   */
@@ -376,7 +368,7 @@ uint16_t GPIO_ReadOutputData(GPIO_TypeDef* GPIOx) {
 /**
   * 简介:  设置所选数据端口位。
   * 
-  * 注意:   此函数使用GPIOx_BSRR寄存器允许原子读取/修改访问。
+  * 注意:   此函数使用 GPIOx_BSRR寄存器允许原子读取/修改访问。
 		这样，在读取和修改访问之间就不会发生IRQ风险。
 
   * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
@@ -399,7 +391,7 @@ void GPIO_SetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
 /**
   * 简介:  清除选定的数据端口位。
   * 
-  * 注意:   此函数使用GPIOx_BSRR寄存器允许原子读取/修改访问。
+  * 注意:   此函数使用 GPIOx_BSRR寄存器允许原子读取/修改访问。
 		这样，在读取和修改访问之间就不会发生IRQ风险。
 
   * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
@@ -485,9 +477,6 @@ void GPIO_ToggleBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
     GPIOx->ODR ^= GPIO_Pin;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup GPIO_Group3 GPIO复用功能配置功能
  *  简介   GPIO复用功能配置功能
@@ -498,7 +487,6 @@ void GPIO_ToggleBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -513,54 +501,54 @@ void GPIO_ToggleBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
   * 
   * 参数:  GPIO_AFS选择:选择要用作复用功能的管脚。(重置后默认)
   *          此参数可以是以下值之一:
-  *            @arg GPIO_AF_RTC_50Hz : 将RTC_50Hz pin to AF0 (重置后默认)
-  *            @arg GPIO_AF_MCO :      将MCO pin (MCO1 and MCO2) to AF0 (重置后默认)
-  *            @arg GPIO_AF_TAMPER :   将TAMPER pins (TAMPER_1 and TAMPER_2) to AF0 (重置后默认)
-  *            @arg GPIO_AF_SWJ:      将SWJ引脚(SWD and JTAG)to AF0 (重置后默认)
-  *            @arg GPIO_AF_TRACE:    将TRACE引脚连接到AF0 (重置后默认)
-  *            @arg GPIO_AF_TIM1:      将TIM1引脚连接到AF1
-  *            @arg GPIO_AF_TIM2:      将TIM2引脚连接到AF1
-  *            @arg GPIO_AF_TIM3:      将TIM3引脚连接到AF2
-  *            @arg GPIO_AF_TIM4:      将TIM4引脚连接到AF2
-  *            @arg GPIO_AF_TIM5:      将TIM5引脚连接到AF2
-  *            @arg GPIO_AF_TIM8:      将TIM8引脚连接到AF3
-  *            @arg GPIO_AF_TIM9:      将TIM9引脚连接到AF3
-  *            @arg GPIO_AF_TIM10:     将TIM10引脚连接到AF3
-  *            @arg GPIO_AF_TIM11:     将TIM11引脚连接到AF3
-  *            @arg GPIO_AF_I2C1:      将I2C1引脚连接到AF4
-  *            @arg GPIO_AF_I2C2:      将I2C2引脚连接到AF4
-  *            @arg GPIO_AF_I2C3:      将I2C3引脚连接到AF4
-  *            @arg GPIO_AF_SPI1:      将SPI1引脚连接到AF5
-  *            @arg GPIO_AF_SPI2:      将SPI2/I2S2引脚连接到AF5
-  *            @arg GPIO_AF_SPI4:      将SPI4引脚连接到AF5
-  *            @arg GPIO_AF_SPI5:      将SPI5引脚连接到AF5
-  *            @arg GPIO_AF_SPI6:      将SPI6引脚连接到AF5
-  *            @arg GPIO_AF_SAI1:      将SAI1引脚连接到STM32F42xxx/43xxx设备的AF6。
-  *            @arg GPIO_AF_SPI3:      将SPI3/I2S3引脚连接到AF6
-  *            @arg GPIO_AF_I2S3ext :  将I2S3ext引脚连接到AF7
-  *            @arg GPIO_AF_USART1 :   将USART1引脚连接到AF7
-  *            @arg GPIO_AF_USART2 :   将USART2引脚连接到AF7
-  *            @arg GPIO_AF_USART3 :   将USART3引脚连接到AF7
-  *            @arg GPIO_AF_UART4 :    将UART4引脚连接到AF8
-  *            @arg GPIO_AF_UART5 :    将UART5引脚连接到AF8
-  *            @arg GPIO_AF_USART6 :   将USART6引脚连接到AF8
-  *            @arg GPIO_AF_UART7 :    将UART7引脚连接到AF8
-  *            @arg GPIO_AF_UART8 :    将UART8引脚连接到AF8
-  *            @arg GPIO_AF_CAN1 :     将CAN1引脚连接到AF9
-  *            @arg GPIO_AF_CAN2 :     将CAN2引脚连接到AF9
-  *            @arg GPIO_AF_TIM12 :    将TIM12引脚连接到AF9
-  *            @arg GPIO_AF_TIM13 :    将TIM13引脚连接到AF9
-  *            @arg GPIO_AF_TIM14 :    将TIM14引脚连接到AF9
-  *            @arg GPIO_AF_OTG_FS :   将OTG_FS引脚连接到AF10
-  *            @arg GPIO_AF_OTG_HS :   将OTG_HS引脚连接到AF10
-  *            @arg GPIO_AF_ETH :      将ETHERNET引脚连接到AF11
-  *            @arg GPIO_AF_FSMC :     将FSMC引脚连接到AF12
-  *            @arg GPIO_AF_FMC :      将FMC引脚连接到AF12 for STM32F42xxx/43xxx devices.
-  *            @arg GPIO_AF_OTG_HS_FS :将OTG HS (configured in FS)引脚连接到AF12
-  *            @arg GPIO_AF_SDIO :     将SDIO引脚连接到AF12
-  *            @arg GPIO_AF_DCMI :     将DCMI引脚连接到AF13
-  *            @arg GPIO_AF_LTDC :     将LTDC引脚连接到AF14 for STM32F429xx/439xx devices.
-  *            @arg GPIO_AF_EVENTOUT : 将EVENTOUT引脚连接到AF15
+  *            @arg GPIO_AF_RTC_50Hz : 将 RTC_50Hz 引脚连接到 AF0 (重置后默认)
+  *            @arg GPIO_AF_MCO :      将 MCO 引脚 (MCO1 and MCO2) 连接到 AF0 (重置后默认)
+  *            @arg GPIO_AF_TAMPER :   将 TAMPER 引脚 (TAMPER_1 and TAMPER_2) 连接到 AF0 (重置后默认)
+  *            @arg GPIO_AF_SWJ:       将 SWJ 引脚(SWD and JTAG)连接到 AF0 (重置后默认)
+  *            @arg GPIO_AF_TRACE:     将 TRACE 引脚连接到 AF0 (重置后默认)
+  *            @arg GPIO_AF_TIM1:      将 TIM1 引脚连接到 AF1
+  *            @arg GPIO_AF_TIM2:      将 TIM2 引脚连接到 AF1
+  *            @arg GPIO_AF_TIM3:      将 TIM3 引脚连接到 AF2
+  *            @arg GPIO_AF_TIM4:      将 TIM4 引脚连接到 AF2
+  *            @arg GPIO_AF_TIM5:      将 TIM5 引脚连接到 AF2
+  *            @arg GPIO_AF_TIM8:      将 TIM8 引脚连接到 AF3
+  *            @arg GPIO_AF_TIM9:      将 TIM9 引脚连接到 AF3
+  *            @arg GPIO_AF_TIM10:     将 TIM10 引脚连接到 AF3
+  *            @arg GPIO_AF_TIM11:     将 TIM11 引脚连接到 AF3
+  *            @arg GPIO_AF_I2C1:      将 I2C1 引脚连接到 AF4
+  *            @arg GPIO_AF_I2C2:      将 I2C2 引脚连接到 AF4
+  *            @arg GPIO_AF_I2C3:      将 I2C3 引脚连接到 AF4
+  *            @arg GPIO_AF_SPI1:      将 SPI1 引脚连接到 AF5
+  *            @arg GPIO_AF_SPI2:      将 SPI2/I2S2 引脚连接到 AF5
+  *            @arg GPIO_AF_SPI4:      将 SPI4 引脚连接到 AF5
+  *            @arg GPIO_AF_SPI5:      将 SPI5 引脚连接到 AF5
+  *            @arg GPIO_AF_SPI6:      将 SPI6 引脚连接到 AF5
+  *            @arg GPIO_AF_SAI1:      将 SAI1 引脚连接到 STM32F42xxx/43xxx 设备的 AF6。
+  *            @arg GPIO_AF_SPI3:      将 SPI3/I2S3 引脚连接到 AF6
+  *            @arg GPIO_AF_I2S3ext :  将 I2S3ext 引脚连接到 AF7
+  *            @arg GPIO_AF_USART1 :   将 USART1 引脚连接到 AF7
+  *            @arg GPIO_AF_USART2 :   将 USART2 引脚连接到 AF7
+  *            @arg GPIO_AF_USART3 :   将 USART3 引脚连接到 AF7
+  *            @arg GPIO_AF_UART4 :    将 UART4 引脚连接到 AF8
+  *            @arg GPIO_AF_UART5 :    将 UART5 引脚连接到 AF8
+  *            @arg GPIO_AF_USART6 :   将 USART6 引脚连接到 AF8
+  *            @arg GPIO_AF_UART7 :    将 UART7 引脚连接到 AF8
+  *            @arg GPIO_AF_UART8 :    将 UART8 引脚连接到 AF8
+  *            @arg GPIO_AF_CAN1 :     将 CAN1 引脚连接到 AF9
+  *            @arg GPIO_AF_CAN2 :     将 CAN2 引脚连接到 AF9
+  *            @arg GPIO_AF_TIM12 :    将 TIM12 引脚连接到 AF9
+  *            @arg GPIO_AF_TIM13 :    将 TIM13 引脚连接到 AF9
+  *            @arg GPIO_AF_TIM14 :    将 TIM14 引脚连接到 AF9
+  *            @arg GPIO_AF_OTG_FS :   将 OTG_FS 引脚连接到 AF10
+  *            @arg GPIO_AF_OTG_HS :   将 OTG_HS 引脚连接到 AF10
+  *            @arg GPIO_AF_ETH :      将 ETHERNET 引脚连接到 AF11
+  *            @arg GPIO_AF_FSMC :     将 FSMC 引脚连接到 AF12
+  *            @arg GPIO_AF_FMC :      将 FMC 引脚连接到 AF12 for STM32F42xxx/43xxx devices.
+  *            @arg GPIO_AF_OTG_HS_FS :将 OTG HS (configured in FS)引脚连接到 AF12
+  *            @arg GPIO_AF_SDIO :     将 SDIO 引脚连接到 AF12
+  *            @arg GPIO_AF_DCMI :     将 DCMI 引脚连接到 AF13
+  *            @arg GPIO_AF_LTDC :     将 LTDC 引脚连接到 AF14 for STM32F429xx/439xx devices.
+  *            @arg GPIO_AF_EVENTOUT : 将 EVENTOUT 引脚连接到 AF15
   * 
   * 返回值: 无
   */
@@ -578,21 +566,5 @@ void GPIO_PinAFConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_PinSource, uint8_t GPIO
     temp_2 = GPIOx->AFR[GPIO_PinSource >> 0x03] | temp;
     GPIOx->AFR[GPIO_PinSource >> 0x03] = temp_2;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

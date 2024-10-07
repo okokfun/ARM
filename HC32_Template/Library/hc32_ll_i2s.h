@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_I2S
- * @{
  */
 
 #if (LL_I2S_ENABLE == DDL_ON)
@@ -53,7 +51,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup I2S_Global_Types I2S Global Types
- * @{
  */
 
 /**
@@ -82,76 +79,57 @@ typedef struct {
                                              这个参数是其中之一 @ref I2S_Receive_Level */
 } stc_i2s_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup I2S_Global_Macros I2S Global Macros
- * @{
  */
 
 /**
  * @defgroup I2S_External_Clock_Frequency I2S External Clock Frequency
- * @{
  */
 #ifndef I2S_EXT_CLK_FREQ
 #define I2S_EXT_CLK_FREQ                        (12288000UL)    /*!< Value of the external oscillator */
 #endif /* I2S_EXT_CLK_FREQ */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Clock_Source I2S Clock Source
- * @{
  */
 #define I2S_CLK_SRC_PLL                         (I2S_CTRL_I2SPLLSEL)  /*!< Internal PLL Clock */
 #define I2S_CLK_SRC_EXT                         (I2S_CTRL_CLKSEL)     /*!< External Clock     */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Mode I2S Mode
- * @{
  */
 #define I2S_MD_MASTER                           (0UL)           /*!< Master mode */
 #define I2S_MD_SLAVE                            (I2S_CTRL_WMS)  /*!< Slave mode  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Protocol I2S Communication Protocol
- * @{
  */
 #define I2S_PROTOCOL_PHILLIPS                   (0UL)                                 /*!< Phillips protocol        */
 #define I2S_PROTOCOL_MSB                        (I2S_CFGR_I2SSTD_0)                   /*!< MSB justified protocol   */
 #define I2S_PROTOCOL_LSB                        (I2S_CFGR_I2SSTD_1)                   /*!< LSB justified protocol   */
 #define I2S_PROTOCOL_PCM_SHORT                  (I2S_CFGR_I2SSTD)                     /*!< PCM short-frame protocol */
 #define I2S_PROTOCOL_PCM_LONG                   (I2S_CFGR_I2SSTD | I2S_CFGR_PCMSYNC)  /*!< PCM long-frame protocol  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Trans_Mode I2S Transfer Mode
- * @{
  */
 #define I2S_TRANS_MD_HALF_DUPLEX_RX             (0UL)                               /*!< Receive only and half duplex mode */
 #define I2S_TRANS_MD_HALF_DUPLEX_TX             (I2S_CTRL_SDOE)                     /*!< Send only and half duplex mode    */
 #define I2S_TRANS_MD_FULL_DUPLEX                (I2S_CTRL_DUPLEX | I2S_CTRL_SDOE)   /*!< Full duplex mode                  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Audio_Frequency I2S Audio Frequency
- * @{
  */
 #define I2S_AUDIO_FREQ_192K                     (192000UL)  /*!< FS = 192000Hz */
 #define I2S_AUDIO_FREQ_96K                      (96000UL)   /*!< FS = 96000Hz  */
@@ -162,44 +140,32 @@ typedef struct {
 #define I2S_AUDIO_FREQ_16K                      (16000UL)   /*!< FS = 16000Hz  */
 #define I2S_AUDIO_FREQ_8K                       (8000UL)    /*!< FS = 8000Hz   */
 #define I2S_AUDIO_FREQ_DEFAULT                  (2UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Channel_Length I2S Channel Length
- * @{
  */
 #define I2S_CH_LEN_16BIT                        (0UL)             /*!< Channel length is 16bits */
 #define I2S_CH_LEN_32BIT                        (I2S_CFGR_CHLEN)  /*!< Channel length is 32bits */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Data_Length I2S Data Length
- * @{
  */
 #define I2S_DATA_LEN_16BIT                      (0UL)                 /*!< Transfer data length is 16bits */
 #define I2S_DATA_LEN_24BIT                      (I2S_CFGR_DATLEN_0)   /*!< Transfer data length is 24bits */
 #define I2S_DATA_LEN_32BIT                      (I2S_CFGR_DATLEN_1)   /*!< Transfer data length is 32bits */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_MCK_Output I2S MCK Output
- * @{
  */
 #define I2S_MCK_OUTPUT_DISABLE                  (0UL)             /*!< Disable the drive clock(MCK) output */
 #define I2S_MCK_OUTPUT_ENABLE                   (I2S_CTRL_MCKOE)  /*!< Enable the drive clock(MCK) output  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Trans_Level I2S Transfer Level
- * @{
  */
 #define I2S_TRANS_LVL0                          (0x00UL << I2S_CTRL_TXBIRQWL_POS)   /*!< Transfer FIFO level is 0 */
 #define I2S_TRANS_LVL1                          (0x01UL << I2S_CTRL_TXBIRQWL_POS)   /*!< Transfer FIFO level is 1 */
@@ -207,13 +173,10 @@ typedef struct {
 
 #define I2S_TRANS_LVL3                          (0x03UL << I2S_CTRL_TXBIRQWL_POS)   /*!< Transfer FIFO level is 3 */
 #define I2S_TRANS_LVL4                          (0x04UL << I2S_CTRL_TXBIRQWL_POS)   /*!< Transfer FIFO level is 4 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Receive_Level I2S Receive Level
- * @{
  */
 #define I2S_RECEIVE_LVL0                        (0x00UL << I2S_CTRL_RXBIRQWL_POS)   /*!< Receive FIFO level is 0 */
 #define I2S_RECEIVE_LVL1                        (0x01UL << I2S_CTRL_RXBIRQWL_POS)   /*!< Receive FIFO level is 1 */
@@ -221,48 +184,36 @@ typedef struct {
 
 #define I2S_RECEIVE_LVL3                        (0x03UL << I2S_CTRL_RXBIRQWL_POS)   /*!< Receive FIFO level is 3 */
 #define I2S_RECEIVE_LVL4                        (0x04UL << I2S_CTRL_RXBIRQWL_POS)   /*!< Receive FIFO level is 4 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Com_Func I2S Communication Function
- * @{
  */
 #define I2S_FUNC_TX                             (I2S_CTRL_TXE)  /*!< Transfer function */
 #define I2S_FUNC_RX                             (I2S_CTRL_RXE)  /*!< Receive function  */
 #define I2S_FUNC_ALL                            (I2S_FUNC_TX | I2S_FUNC_RX)
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Reset_Type I2S Reset Type
- * @{
  */
 #define I2S_RST_TYPE_CODEC                      (I2S_CTRL_CODECRC)  /*!< Reset codec of I2S */
 #define I2S_RST_TYPE_FIFO                       (I2S_CTRL_FIFOR)    /*!< Reset FIFO of I2S  */
 #define I2S_RST_TYPE_SW                         (I2S_CTRL_SRST)     /*!< I2S software reset */
 #define I2S_RST_TYPE_ALL                        (I2S_RST_TYPE_CODEC | I2S_RST_TYPE_FIFO | I2S_RST_TYPE_SW)
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Interrupt I2S Interrupt
- * @{
  */
 #define I2S_INT_TX                              (I2S_CTRL_TXIE)   /*!< Transfer interrupt            */
 #define I2S_INT_RX                              (I2S_CTRL_RXIE)   /*!< Receive interrupt             */
 #define I2S_INT_ERR                             (I2S_CTRL_EIE)    /*!< Communication error 中断 */
 #define I2S_INT_ALL                             (I2S_INT_TX | I2S_INT_RX | I2S_INT_ERR)
-/**
- * @}
- */
+
 
 /**
  * @defgroup I2S_Flag I2S Flag
- * @{
  */
 #define I2S_FLAG_TX_ALARM                       (I2S_SR_TXBA)           /*!< Transfer buffer alarm flag          */
 #define I2S_FLAG_RX_ALARM                       (I2S_SR_RXBA)           /*!< Receive buffer alarm flag           */
@@ -276,13 +227,9 @@ typedef struct {
         I2S_FLAG_TX_FULL  | I2S_FLAG_RX_EMPTY | I2S_FLAG_RX_FULL  | \
         I2S_FLAG_TX_ERR   | I2S_FLAG_RX_ERR)
 #define I2S_FLAG_CLR_ALL                        (I2S_FLAG_TX_ERR   | I2S_FLAG_RX_ERR)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -293,7 +240,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup I2S_Global_Functions
- * @{
  */
 
 /* Initialization and configuration functions */
@@ -322,19 +268,13 @@ void I2S_IntCmd(CM_I2S_TypeDef *I2Sx, uint32_t u32IntType, en_functional_state_t
 en_flag_status_t I2S_GetStatus(const CM_I2S_TypeDef *I2Sx, uint32_t u32Flag);
 void I2S_ClearStatus(CM_I2S_TypeDef *I2Sx, uint32_t u32Flag);
 
-/**
- * @}
- */
+
 
 #endif /* LL_I2S_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

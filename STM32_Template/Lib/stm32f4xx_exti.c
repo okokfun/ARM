@@ -16,7 +16,7 @@
 
  [..] 外部中断/事件行映射如下:
    (#) 所有可用的 GPIO 引脚都连接到 EXTI0 到 EXTI15 的 16 条外部中断/事件线。
-   (#) EXTI线路 1 6连接到 PVD 输出
+   (#) EXTI线路 16 连接到 PVD 输出
    (#) EXTI线路 17 连接至 RTC 报警事件
    (#) EXTI线路 18 连接到 USB OTG FS 唤醒暂停事件
    (#) EXTI线路 19 连接到以太网唤醒事件
@@ -64,12 +64,10 @@
 #include "stm32f4xx_exti.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup EXTI
   * 简介: EXTI 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -83,7 +81,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup EXTI_Private_Functions
-  * @{
   */
 
 /** @defgroup EXTI_Group1 初始化和配置函数
@@ -95,7 +92,6 @@
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -166,7 +162,7 @@ void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct) {
 /**
   * 简介:  用其重置值填充每个 EXTI_InitStruct 成员。
   * 
-  * 参数:  EXTI_InitStruct: 指向将被初始化的EXTI_InitTypeDef结构的指针。
+  * 参数:  EXTI_InitStruct: 指向将被初始化的 EXTI_InitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -192,9 +188,6 @@ void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line) {
     EXTI->SWIER |= EXTI_Line;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup EXTI_Group2 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -205,7 +198,6 @@ void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -282,21 +274,5 @@ void EXTI_ClearITPendingBit(uint32_t EXTI_Line) {
 
     EXTI->PR = EXTI_Line;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

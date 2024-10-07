@@ -76,12 +76,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup DCMI
   * 简介: DCMI 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,7 +90,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup DCMI_Private_Functions
-  * @{
   */
 
 /** @defgroup DCMI_Group1 初始化和配置函数
@@ -104,7 +101,6 @@
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -263,9 +259,6 @@ void DCMI_JPEGCmd(FunctionalState NewState) {
         DCMI->CR &= ~(uint32_t)DCMI_CR_JPEG;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup DCMI_Group2 图像采集功能
  *  简介   图像采集功能
@@ -276,7 +269,6 @@ void DCMI_JPEGCmd(FunctionalState NewState) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -331,9 +323,6 @@ void DCMI_CaptureCmd(FunctionalState NewState) {
 uint32_t DCMI_ReadData(void) {
     return DCMI->DR;
 }
-/**
-  * @}
-  */
 
 /** @defgroup DCMI_Group3 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -344,7 +333,6 @@ uint32_t DCMI_ReadData(void) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -497,20 +485,4 @@ void DCMI_ClearITPendingBit(uint16_t DCMI_IT) {
 
     DCMI->ICR = DCMI_IT;
 }
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

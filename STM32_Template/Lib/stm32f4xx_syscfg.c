@@ -50,12 +50,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup SYSCFG
   * 简介: SYSCFG驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,7 +90,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup SYSCFG_Private_Functions
-  * @{
   */
 
 /**
@@ -460,16 +457,6 @@ void DFSDM2_BitStreamClk_Config(uint32_t source) {
 }
 
 #endif /* STM32F413_423xx */
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_I2S I2S
  * @brief Inter IC Sound Bus Driver Library
- * @{
  */
 
 #if (LL_I2S_ENABLE == DDL_ON)
@@ -47,7 +45,6 @@
  ******************************************************************************/
 /**
  * @defgroup I2S_Local_Macros I2S Local Macros
- * @{
  */
 /* CMU registers define */
 #define I2S_CLK_SRC_PCLK                (0x00U << CMU_I2SCKSEL_I2S1CKSEL_POS)
@@ -96,7 +93,6 @@
 
 /**
  * @defgroup I2S_Check_Parameters_Validity I2S Check Parameters Validity
- * @{
  */
 #define IS_I2S_UNIT(x)                                                         \
     (   ((x) == CM_I2S1)                            ||                             \
@@ -175,13 +171,9 @@
     (   ((x) != 0U)                                 &&                             \
         (((x) | I2S_FLAG_CLR_ALL) == I2S_FLAG_CLR_ALL))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -200,7 +192,6 @@
  ******************************************************************************/
 /**
  * @defgroup I2S_Global_Functions I2S Global Functions
- * @{
  */
 
 /**
@@ -1020,15 +1011,11 @@ void I2S_ClearStatus(CM_I2S_TypeDef *I2Sx, uint32_t u32Flag) {
     CLR_REG32_BIT(I2Sx->ER, u32Flag);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_I2S_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

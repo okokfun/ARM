@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_WDT
- * @{
  */
 
 #if (LL_WDT_ENABLE == DDL_ON)
@@ -53,7 +51,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup WDT_Global_Types WDT Global Types
- * @{
  */
 
 /**
@@ -72,33 +69,26 @@ typedef struct {
                                              这个参数是其中之一 @ref WDT_Exception_Type */
 } stc_wdt_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup WDT_Global_Macros WDT Global Macros
- * @{
  */
 
 /**
  * @defgroup WDT_Count_Period WDT Count Period
- * @{
  */
 #define WDT_CNT_PERIOD256                       (0UL)               /*!< 256 clock cycle   */
 #define WDT_CNT_PERIOD4096                      (WDT_CR_PERI_0)     /*!< 4096 clock cycle  */
 #define WDT_CNT_PERIOD16384                     (WDT_CR_PERI_1)     /*!< 16384 clock cycle */
 #define WDT_CNT_PERIOD65536                     (WDT_CR_PERI)       /*!< 65536 clock cycle */
-/**
- * @}
- */
+
 
 /**
  * @defgroup WDT_Clock_Division WDT Clock Division
- * @{
  */
 #define WDT_CLK_DIV4                            (0x02UL << WDT_CR_CKS_POS)  /*!< PLCKx/4    */
 #define WDT_CLK_DIV64                           (0x06UL << WDT_CR_CKS_POS)  /*!< PLCKx/64   */
@@ -108,13 +98,10 @@ typedef struct {
 #define WDT_CLK_DIV1024                         (0x0AUL << WDT_CR_CKS_POS)  /*!< PLCKx/1024 */
 #define WDT_CLK_DIV2048                         (0x0BUL << WDT_CR_CKS_POS)  /*!< PLCKx/2048 */
 #define WDT_CLK_DIV8192                         (0x0DUL << WDT_CR_CKS_POS)  /*!< PLCKx/8192 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup WDT_Refresh_Range WDT Refresh Range
- * @{
  */
 #define WDT_RANGE_0TO25PCT                      (0x01UL << WDT_CR_WDPT_POS)     /*!< 0%~25%             */
 #define WDT_RANGE_25TO50PCT                     (0x02UL << WDT_CR_WDPT_POS)     /*!< 25%~50%            */
@@ -131,46 +118,33 @@ typedef struct {
 #define WDT_RANGE_0TO25PCT_50TO100PCT           (0x0DUL << WDT_CR_WDPT_POS)     /*!< 0%~25% & 50%~100%  */
 #define WDT_RANGE_25TO100PCT                    (0x0EUL << WDT_CR_WDPT_POS)     /*!< 25%~100%           */
 #define WDT_RANGE_0TO100PCT                     (0x0FUL << WDT_CR_WDPT_POS)     /*!< 0%~100%            */
-/**
- * @}
- */
+
 
 /**
  * @defgroup WDT_LPM_Count WDT Low Power Mode Count
  * @brief    Counting control of WDT in sleep mode.
- * @{
  */
 #define WDT_LPM_CNT_CONTINUE                    (0UL)               /*!< Continue counting in sleep mode */
 #define WDT_LPM_CNT_STOP                        (WDT_CR_SLPOFF)     /*!< Stop counting in sleep mode     */
-/**
- * @}
- */
+
 
 /**
  * @defgroup WDT_Exception_Type WDT Exception Type
  * @brief    Specifies the exception response when a refresh error or count overflow occurs.
- * @{
  */
 #define WDT_EXP_TYPE_INT                        (0UL)           /*!< WDT trigger 中断 */
 #define WDT_EXP_TYPE_RST                        (WDT_CR_ITS)    /*!< WDT trigger reset     */
-/**
- * @}
- */
+
 
 /**
  * @defgroup WDT_Flag WDT Flag
- * @{
  */
 #define WDT_FLAG_UDF                            (WDT_SR_UDF)    /*!< Count underflow flag */
 #define WDT_FLAG_REFRESH                        (WDT_SR_REF)    /*!< Refresh error flag   */
 #define WDT_FLAG_ALL                            (WDT_SR_UDF | WDT_SR_REF)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -181,7 +155,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup WDT_Global_Functions
- * @{
  */
 
 /**
@@ -202,19 +175,13 @@ uint16_t WDT_GetCountValue(void);
 en_flag_status_t WDT_GetStatus(uint32_t u32Flag);
 int32_t WDT_ClearStatus(uint32_t u32Flag);
 
-/**
- * @}
- */
+
 
 #endif /* LL_WDT_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

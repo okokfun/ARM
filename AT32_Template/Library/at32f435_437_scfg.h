@@ -35,17 +35,14 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup SCFG
-  * @{
   */
 #define SCFG_REG(value)                  PERIPH_REG(SCFG_BASE, value)
 #define SCFG_REG_BIT(value)              PERIPH_REG_BIT(value)
 
 /** @defgroup SCFG_exported_Types
-  * @{
   */
 
 /**
@@ -259,16 +256,10 @@ typedef struct {
     };
 
 } SCFG_Type;
-
-/**
-  * @}
-  */
 #define SCFG                             ((SCFG_Type *) SCFG_BASE)
 
 /** @defgroup SCFG_exported_functions
-  * @{
   */
-
 void SCFG_Reset(void);
 void SCFG_XMC_Mapping_Swap_Set(SCFG_XMC_Swap_Type XMC_Swap);
 void SCFG_Infrared_Config(SCFG_IR_Source_Type source, SCFG_IR_Polarity_Type polarity);
@@ -276,18 +267,6 @@ void SCFG_Mem_Map_Set(SCFG_Mem_Map_Type mem_map);
 void SCFG_EMAC_Interface_Set(SCFG_EMAC_Interface_Type mode);
 void SCFG_EXINT_Line_Config(SCFG_Port_Source_Type port_source, SCFG_Pins_Source_Type pin_source);
 void SCFG_Pins_Ultra_Driven_Enable(SCFG_Ultra_Driven_Pins_Type value, confirm_state new_state);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

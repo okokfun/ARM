@@ -34,15 +34,12 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_board
-  * @{
   */
 
 /** @addtogroup BOARD
-  * @{
   */
 
 /** @defgroup BOARD_Pins_definition
-  * @{
   */
 
 /**
@@ -99,12 +96,7 @@ typedef enum {
 #define USER_BUTTON_PORT                 GPIOA
 #define USER_BUTTON_CRM_CLK              CRM_GPIOA_Periph_CLOCK
 
-/**
-  * @}
-  */
-
 /** @defgroup BOARD_exported_functions
-  * @{
   */
 
 /******************** functions ********************/
@@ -129,18 +121,6 @@ void delay_sec(uint16_t sec);
 
 /* printf uart init function */
 void uart_print_Init(uint32_t baudrate);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

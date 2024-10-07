@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup SPDIFRX
-  * @{
   */
 #if defined(STM32F446xx)
 /* Exported types ------------------------------------------------------------*/
@@ -50,34 +48,32 @@ extern "C" {
   */
 typedef struct {
     uint32_t SPDIFRX_InputSelection;           /*!< 指定 SPDIFRX 输入选择。
-                                                 该参数可以是@ref SPDIFRX_Input_Selection 的值 */
+                                                 该参数可以是 @ref SPDIFRX_Input_Selection 的值 */
 
     uint32_t SPDIFRX_Retries;                  /*!< 指定在同步阶段允许的最大重试次数。
-                                                 该参数可以是@ref SPDIFRX_Max_Retries 的值 */
+                                                 该参数可以是 @ref SPDIFRX_Max_Retries 的值 */
 
     uint32_t SPDIFRX_WaitForActivity;          /*!< 指定等待 SPDIFRX 选定输入的活动。
-                                                 此参数可以是@ref SPDIFRX_Wait_For_Activity 的值。 */
+                                                 此参数可以是 @ref SPDIFRX_Wait_For_Activity 的值。 */
 
     uint32_t SPDIFRX_ChannelSelection;         /*!< 指定控制流是从通道 A 还是 B 获取通道状态。
-                                                 该参数可以是@ref SPDIFRX_Channel_Selection 的值 */
+                                                 该参数可以是 @ref SPDIFRX_Channel_Selection 的值 */
 
     uint32_t SPDIFRX_DataFormat;               /*!< 指定数据样本格式(LSB、MSB、...)。
-                                                 该参数可以是@ref SPDIFRX_Data_Format 的值 */
+                                                 该参数可以是 @ref SPDIFRX_Data_Format 的值 */
 
     uint32_t SPDIFRX_StereoMode;               /*!< 指定外设设备是处于立体声还是单声道模式。
-                                                 该参数可以是@ref SPDIFRX_Stereo_Mode 的值 */
+                                                 该参数可以是 @ref SPDIFRX_Stereo_Mode 的值 */
 } SPDIFRX_InitTypeDef;
 
 
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup SPDIFRX_Exported_Constants
-  * @{
   */
 #define IS_SPDIFRX_PERIPH(PERIPH) (((PERIPH) == SPDIFRX))
 
 /** @defgroup SPDIFRX_Input_Selection SPDIFRX Input Selection
-  * @{
   */
 #define SPDIFRX_Input_IN0               ((uint32_t)0x00000000)
 #define SPDIFRX_Input_IN1               ((uint32_t)0x00010000)
@@ -87,12 +83,8 @@ typedef struct {
         ((INPUT) == SPDIFRX_Input_IN2) || \
         ((INPUT) == SPDIFRX_Input_IN3)  || \
         ((INPUT) == SPDIFRX_Input_IN0))
-/**
-  * @}
-  */
 
 /** @defgroup SPDIFRX_Max_Retries SPDIFRX Max Retries
-  * @{
   */
 #define SPDIFRX_1MAX_RETRIES               ((uint32_t)0x00000000)
 #define SPDIFRX_4MAX_RETRIES               ((uint32_t)0x00001000)
@@ -102,34 +94,22 @@ typedef struct {
                                        ((RET) == SPDIFRX_4MAX_RETRIES) || \
                                        ((RET) == SPDIFRX_16MAX_RETRIES)  || \
                                        ((RET) == SPDIFRX_64MAX_RETRIES))
-/**
-  * @}
-  */
 
 /** @defgroup SPDIFRX_Wait_For_Activity SPDIFRX Wait For Activity
-  * @{
   */
 #define SPDIFRX_WaitForActivity_Off                 ((uint32_t)0x00000000)
 #define SPDIFRX_WaitForActivity_On                  ((uint32_t)SPDIFRX_CR_WFA)
 #define IS_SPDIFRX_WAIT_FOR_ACTIVITY(VAL)    (((VAL) == SPDIFRX_WaitForActivity_On) || \
         ((VAL) == SPDIFRX_WaitForActivity_Off))
-/**
-  * @}
-  */
 
 /** @defgroup SPDIFRX_ChannelSelection SPDIFRX Channel Selection
-  * @{
   */
 #define SPDIFRX_Select_Channel_A      ((uint32_t)0x00000000)
 #define SPDIFRX_Select_Channel_B      ((uint32_t)SPDIFRX_CR_CHSEL)
 #define IS_SPDIFRX_CHANNEL(CHANNEL)   (((CHANNEL) == SPDIFRX_Select_Channel_A) || \
                                        ((CHANNEL) == SPDIFRX_Select_Channel_B))
-/**
-  * @}
-  */
 
 /** @defgroup SPDIFRX_Block_Synchronization SPDIFRX Block Synchronization
-  * @{
   */
 #define SPDIFRX_LSB_DataFormat                   ((uint32_t)0x00000000)
 #define SPDIFRX_MSB_DataFormat                   ((uint32_t)0x00000010)
@@ -137,23 +117,15 @@ typedef struct {
 #define IS_SPDIFRX_DATA_FORMAT(FORMAT)    (((FORMAT) == SPDIFRX_LSB_DataFormat) || \
         ((FORMAT) == SPDIFRX_MSB_DataFormat) || \
         ((FORMAT) == SPDIFRX_32BITS_DataFormat))
-/**
-  * @}
-  */
 
 /** @defgroup SPDIFRX_StereoMode SPDIFRX StereoMode
-  * @{
   */
 #define SPDIFRX_StereoMode_Disabled          ((uint32_t)0x00000000)
 #define SPDIFRX_StereoMode_Enabled           ((uint32_t)SPDIFRX_CR_RXSTEO)
 #define IS_STEREO_MODE(MODE)  (((MODE) == SPDIFRX_StereoMode_Disabled) || \
                                ((MODE) == SPDIFRX_StereoMode_Enabled))
-/**
-  * @}
-  */
 
 /** @defgroup SPDIFRX_State SPDIFRX State
-  * @{
   */
 #define SPDIFRX_STATE_IDLE    ((uint32_t)0x00000000)
 #define SPDIFRX_STATE_SYNC    ((uint32_t)0x00000001)
@@ -161,12 +133,8 @@ typedef struct {
 #define IS_SPDIFRX_STATE(STATE)    (((STATE) == SPDIFRX_STATE_IDLE) || \
                                     ((STATE) == SPDIFRX_STATE_SYNC) || \
                                     ((STATE) == SPDIFRX_STATE_RCV))
-/**
-  * @}
-  */
 
 /** @defgroup SPDIFRX_Interrupts_Definition SPDIFRX Interrupts Definition
-  * @{
   */
 #define SPDIFRX_IT_RXNE                       ((uint32_t)SPDIFRX_IMR_RXNEIE)
 #define SPDIFRX_IT_CSRNE                      ((uint32_t)SPDIFRX_IMR_CSRNEIE)
@@ -182,12 +150,8 @@ typedef struct {
                                      ((IT) == SPDIFRX_IT_SBLKIE)  || \
                                      ((IT) == SPDIFRX_IT_SYNCDIE) || \
                                      ((IT) == SPDIFRX_IT_IFEIE))
-/**
-  * @}
-  */
 
 /** @defgroup SPDIFRX_Flags_Definition SPDIFRX Flags Definition
-  * @{
   */
 #define SPDIFRX_FLAG_RXNE                   ((uint32_t)SPDIFRX_SR_RXNE)
 #define SPDIFRX_FLAG_CSRNE                  ((uint32_t)SPDIFRX_SR_CSRNE)
@@ -205,13 +169,7 @@ typedef struct {
                                   ((FLAG) == SPDIFRX_SR_TERR))
 #define IS_SPDIFRX_CLEAR_FLAG(FLAG)    (((FLAG) == SPDIFRX_FLAG_PERR) || ((FLAG) == SPDIFRX_FLAG_OVR)   || \
                                         ((FLAG) == SPDIFRX_SR_SBD) || ((FLAG) == SPDIFRX_SR_SYNCD))
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -243,18 +201,11 @@ ITStatus SPDIFRX_GetITStatus(uint32_t SPDIFRX_IT); // 检查指定的 SPDIFRX �
 void SPDIFRX_ClearITPendingBit(uint32_t SPDIFRX_IT); // 清除 SPDIFRX 中断挂起位。
 
 #endif /* STM32F446xx */
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif /*__STM32F4xx_SPDIFRX_H */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -167,5 +167,4 @@
 #endif /* USE_FULL_ASSERT */
 
 #endif /* __STM32F4xx_CONF_H */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

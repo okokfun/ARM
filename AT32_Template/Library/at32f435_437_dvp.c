@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup DVP
   * @brief DVP driver modules
-  * @{
   */
 
 #ifdef DVP_MODULE_EnableD
 
 /** @defgroup DVP_private_functions
-  * @{
   */
 
 /**
@@ -467,16 +464,4 @@ void DVP_Sync_Event_Interrupt_Set(DVP_hseid_Type DVP_hseid, DVP_vseid_Type DVP_v
     DVP->actrl_bit.vseid = DVP_vseid;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

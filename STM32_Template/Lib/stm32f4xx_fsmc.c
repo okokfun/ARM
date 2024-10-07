@@ -35,12 +35,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup FSMC
   * 简介: FSMC 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -73,7 +71,6 @@ const FSMC_NORSRAMTimingInitTypeDef FSMC_DefaultTimingStruct = {0x0F, /* FSMC_Ad
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup FSMC_Private_Functions
-  * @{
   */
 
 /** @defgroup FSMC_Group1 NOR和SRAM控制器功能
@@ -108,7 +105,6 @@ const FSMC_NORSRAMTimingInitTypeDef FSMC_DefaultTimingStruct = {0x0F, /* FSMC_Ad
    (#) 在这个阶段，你可以从/到连接到NOR/SRAM库的内存中读/写。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -302,9 +298,6 @@ void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
         FSMC_Bank1->BTCR[FSMC_Bank] &= BCR_MBKEN_RESET;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup FSMC_Group2 NAND控制器功能
  *  简介   NAND控制器功能
@@ -345,7 +338,6 @@ void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
       ECCval = FSMC_GetECC(FSMC_Bank3_NAND);
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -596,9 +588,6 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
     /* 返回纠错码值 */
     return(eccval);
 }
-/**
-  * @}
-  */
 
 /** @defgroup FSMC_Group3 PCCARD控制器功能
  *  简介   PCCARD控制器功能
@@ -632,7 +621,6 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
   (#) 在这个阶段，你可以对连接到PCCARD Bank的内存进行读/写。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -787,9 +775,6 @@ void FSMC_PCCARDCmd(FunctionalState NewState) {
         FSMC_Bank4->PCR4 &= PCR_PBKEN_RESET;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup FSMC_Group4  中断和标记管理函数
  *  简介    中断和标记管理函数
@@ -800,7 +785,6 @@ void FSMC_PCCARDCmd(FunctionalState NewState) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1018,21 +1002,5 @@ void FSMC_ClearITPendingBit(uint32_t FSMC_Bank, uint32_t FSMC_IT) {
         FSMC_Bank4->SR4 &= ~(FSMC_IT >> 3);
     }
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

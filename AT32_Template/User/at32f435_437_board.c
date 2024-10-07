@@ -26,12 +26,10 @@
 #include "at32f435_437_board.h"
 
 /** @addtogroup AT32F435_437_board
-  * @{
   */
 
 /** @defgroup BOARD
   * @brief onboard periph driver
-  * @{
   */
 
 /* delay macros */
@@ -359,12 +357,4 @@ void delay_sec(uint16_t sec) {
         delay_ms(500);
     }
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 

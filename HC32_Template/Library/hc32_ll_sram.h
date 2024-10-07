@@ -38,12 +38,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_SRAM
- * @{
  */
 
 #if (LL_SRAM_ENABLE == DDL_ON)
@@ -57,12 +55,10 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup SRAM_Global_Macros SRAM Global Macros
- * @{
  */
 
 /**
  * @defgroup SRAM_Sel SRAM Selection
- * @{
  */
 #define SRAM_SRAMH              (1UL << 2U)                 /*!< SRAMH: 0x1FFE0000~0x1FFFFFFF, 128KB */
 #define SRAM_SRAM123            (1UL << 0U)                 /*!< SRAM1: 0x20000000~0x2001FFFF, 128KB
@@ -74,13 +70,10 @@ extern "C"
 #define SRAM_ECC_SRAM4          (SRAM_SRAM4)
 #define SRAM_ECC_SRAMB          (SRAM_SRAMB)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup SRAM_Access_Wait_Cycle SRAM Access Wait Cycle
- * @{
  */
 #define SRAM_WAIT_CYCLE0        (0U)                        /*!< Wait 0 CPU cycle. */
 #define SRAM_WAIT_CYCLE1        (1U)                        /*!< Wait 1 CPU cycle. */
@@ -90,24 +83,18 @@ extern "C"
 #define SRAM_WAIT_CYCLE5        (5U)                        /*!< Wait 5 CPU cycles. */
 #define SRAM_WAIT_CYCLE6        (6U)                        /*!< Wait 6 CPU cycles. */
 #define SRAM_WAIT_CYCLE7        (7U)                        /*!< Wait 7 CPU cycles. */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SRAM_Err_Mode SRAM Error Mode
  * @note Even-parity check error, ECC check error.
- * @{
  */
 #define SRAM_ERR_MD_NMI         (0UL)                        /*!< Non-maskable interrupt occurres while check error occurres. */
 #define SRAM_ERR_MD_RST         (1UL)                        /*!< System reset occurres while check error occurres. */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SRAM_ECC_Mode SRAM ECC Mode
- * @{
  */
 #define SRAM_ECC_MD_INVD        (0U)                        /*!< The ECC mode is invalid. */
 #define SRAM_ECC_MD1            (SRAMC_CKCR_ECCMOD_0)       /*!< When 1-bit error occurres:
@@ -128,13 +115,10 @@ extern "C"
                                                                  When 2-bit error occurres:
                                                                  ECC error detects.
                                                                  2-bit-error status flag sets and interrupt or reset occurres. */
-/**
- * @}
- */
+
 
 /**
  * @defgroup SRAM_Err_Status_Flag SRAM Error Status Flag
- * @{
  */
 #define SRAM_FLAG_SRAM1_PYERR   (SRAMC_CKSR_SRAM1_PYERR)    /*!< SRAM1 parity error. */
 #define SRAM_FLAG_SRAM2_PYERR   (SRAMC_CKSR_SRAM2_PYERR)    /*!< SRAM2 parity error. */
@@ -147,23 +131,16 @@ extern "C"
 #define SRAM_FLAG_CACHE_PYERR   (SRAMC_CKSR_CACHE_PYERR)    /*!< Cache RAM parity error. */
 #define SRAM_FLAG_ALL           (0x1FFUL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup SRAM_Reg_Protect_Key SRAM Register Protect Key
- * @{
  */
 #define SRAM_REG_LOCK_KEY       (0x76U)
 #define SRAM_REG_UNLOCK_KEY     (0x77U)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -174,7 +151,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup SRAM_Global_Functions
- * @{
  */
 
 /**
@@ -210,19 +186,13 @@ void SRAM_SetErrorMode(uint32_t u32SramSel, uint32_t u32ErrMode);
 en_flag_status_t SRAM_GetStatus(uint32_t u32Flag);
 void SRAM_ClearStatus(uint32_t u32Flag);
 
-/**
- * @}
- */
+
 
 #endif /* LL_SRAM_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

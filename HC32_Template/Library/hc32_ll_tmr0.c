@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_TMR0 TMR0
  * @brief TMR0 Driver Library
- * @{
  */
 
 #if (LL_TMR0_ENABLE == DDL_ON)
@@ -47,7 +45,6 @@
  ******************************************************************************/
 /**
  * @defgroup TMR0_Local_Macros TMR0 Local Macros
- * @{
  */
 /* Max channel number */
 #define TMR0_CH_MAX                     (2UL)
@@ -57,18 +54,14 @@
 
 /**
  * @defgroup TMR0_Register_Address TMR0 Register Address
- * @{
  */
 #define TMR0_CNTR_ADDR(__UNIT__, __CH__)    (__IO uint32_t*)((uint32_t)(&((__UNIT__)->CNTAR)) + ((__CH__) << 2UL))
 #define TMR0_CMPR_ADDR(__UNIT__, __CH__)    (__IO uint32_t*)((uint32_t)(&((__UNIT__)->CMPAR)) + ((__CH__) << 2UL))
-/**
- * @}
- */
+
 #define TMR0_CH_OFFSET(__CH__)          ((__CH__) << 4U)
 
 /**
  * @defgroup TMR0_Check_Parameters_Validity TMR0 Check Parameters Validity
- * @{
  */
 #define IS_TMR0_UNIT(x)                                                        \
     (   ((x) == CM_TMR0_1)                              ||                         \
@@ -109,13 +102,9 @@
     (   ((x) != 0U)                                     &&                         \
         (((x) | TMR0_FLAG_ALL) == TMR0_FLAG_ALL))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -134,7 +123,6 @@
  ******************************************************************************/
 /**
  * @defgroup TMR0_Global_Functions TMR0 Global Functions
- * @{
  */
 
 /**
@@ -588,15 +576,11 @@ void TMR0_ClearStatus(CM_TMR0_TypeDef *TMR0x, uint32_t u32Flag) {
     CLR_REG32_BIT(TMR0x->STFLR, u32Flag);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_TMR0_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

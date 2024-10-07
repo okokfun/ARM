@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_INTERRUPTS
- * @{
  */
 
 #if (LL_INTERRUPTS_ENABLE == DDL_ON)
@@ -53,7 +51,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup INTC_Global_Types INTC Global Types
- * @{
  */
 
 /**
@@ -83,20 +80,16 @@ typedef struct {
     uint32_t u32FilterBClock;   /*!< NMI, ExtInt filter B time, @ref NMI_EXTINT_FilterBTim_Sel for details */
 } stc_extint_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup INTC_Global_Macros INTC Global Macros
- * @{
  */
 /**
  * @defgroup INTC_Priority_Sel Interrupt Priority Level 00 ~ 15
- * @{
  */
 #define DDL_IRQ_PRIO_00                 (0U)
 #define DDL_IRQ_PRIO_01                 (1U)
@@ -117,13 +110,10 @@ typedef struct {
 
 #define DDL_IRQ_PRIO_DEFAULT            (DDL_IRQ_PRIO_15)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup NMI_TriggerSrc_Sel NMI Trigger Source Selection
- * @{
  */
 #define NMI_SRC_SWDT                    (INTC_NMIFR_SWDTFR)
 #define NMI_SRC_LVD1                    (INTC_NMIFR_PVD1FR)
@@ -137,13 +127,10 @@ typedef struct {
         NMI_SRC_XTAL    | NMI_SRC_BUS_ERR   | NMI_SRC_SRAM_PARITY   |   \
         NMI_SRC_WDT     | NMI_SRC_SRAM_ECC)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXTINT_Channel_Sel External Interrupt Channel Selection
- * @{
  */
 #define EXTINT_CH00                     (1UL << 0U)
 #define EXTINT_CH01                     (1UL << 1U)
@@ -165,13 +152,10 @@ typedef struct {
         EXTINT_CH04 | EXTINT_CH05 | EXTINT_CH06 | EXTINT_CH07 |    \
         EXTINT_CH08 | EXTINT_CH09 | EXTINT_CH10 | EXTINT_CH11 |    \
         EXTINT_CH12 | EXTINT_CH13 | EXTINT_CH14 | EXTINT_CH15)
-/**
- * @}
- */
+
 
 /**
  * @defgroup INT_Channel_Sel Interrupt Channel Selection
- * @{
  */
 #define INTC_INT0                       INTC_IER_IER0
 #define INTC_INT1                       INTC_IER_IER1
@@ -206,13 +190,10 @@ typedef struct {
 #define INTC_INT30                      INTC_IER_IER30
 #define INTC_INT31                      INTC_IER_IER31
 #define INTC_INT_ALL                    (0xFFFFFFFFUL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup INTC_Event_Channel_Sel Event Channel Selection
- * @{
  */
 #define INTC_EVT0                       INTC_EVTER_EVTE0
 #define INTC_EVT1                       INTC_EVTER_EVTE1
@@ -247,13 +228,10 @@ typedef struct {
 #define INTC_EVT30                      INTC_EVTER_EVTE30
 #define INTC_EVT31                      INTC_EVTER_EVTE31
 #define INTC_EVT_ALL                    (0xFFFFFFFFUL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup SWINT_Channel_Sel Software Interrupt Channel Selection
- * @{
  */
 #define SWINT_CH00                      INTC_SWIER_SWIE0
 #define SWINT_CH01                      INTC_SWIER_SWIE1
@@ -288,72 +266,54 @@ typedef struct {
 #define SWINT_CH30                      INTC_SWIER_SWIE30
 #define SWINT_CH31                      INTC_SWIER_SWIE31
 #define SWINT_ALL                       (0xFFFFFFFFUL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXTINT_FilterClock_Sel External Interrupt Filter A Function Selection
- * @{
  */
 #define EXTINT_FILTER_OFF               (0UL)
 #define EXTINT_FILTER_ON                INTC_EIRQCR_EFEN
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup NMI_EXTINT_FilterBClock_Sel External Interrupt Filter B Function Selection
- * @{
  */
 #define NMI_EXTINT_FILTER_B_OFF         (0UL)
 #define NMI_EXTINT_FILTER_B_ON          INTC_EIRQCR_NOCEN
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXTINT_FilterClock_Div External Interrupt Filter A Sampling Clock Division Selection
- * @{
  */
 #define EXTINT_FCLK_DIV1                (0UL)
 #define EXTINT_FCLK_DIV8                (INTC_EIRQCR_EISMPCLK_0)
 #define EXTINT_FCLK_DIV32               (INTC_EIRQCR_EISMPCLK_1)
 #define EXTINT_FCLK_DIV64               (INTC_EIRQCR_EISMPCLK)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup NMI_EXTINT_FilterBTim_Sel External Interrupt Filter B Time Selection
- * @{
  */
 #define NMI_EXTINT_FCLK_B_500NS         (0UL)
 #define NMI_EXTINT_FCLK_B_1US           (INTC_NOCCR_NOCSEL_0)
 #define NMI_EXTINT_FCLK_B_2US           (INTC_NOCCR_NOCSEL_1)
 #define NMI_EXTINT_FCLK_B_4US           (INTC_NOCCR_NOCSEL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXTINT_Trigger_Sel External Interrupt Trigger Edge Selection
- * @{
  */
 #define EXTINT_TRIG_FALLING         (0UL)
 #define EXTINT_TRIG_RISING              INTC_EIRQCR_EIRQTRG_0
 #define EXTINT_TRIG_BOTH                INTC_EIRQCR_EIRQTRG_1
 #define EXTINT_TRIG_LOW                 INTC_EIRQCR_EIRQTRG
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup INTC_Stop_Wakeup_Source_Sel Stop Mode Wakeup Source Selection
- * @{
  */
 #define INTC_STOP_WKUP_EXTINT_CH0       INTC_WUPEN_EIRQWUEN_0
 #define INTC_STOP_WKUP_EXTINT_CH1       INTC_WUPEN_EIRQWUEN_1
@@ -393,13 +353,9 @@ typedef struct {
         INTC_WUPEN_TMR2OVFWUEN | INTC_WUPEN_RXWUEN             |           \
         INTC_WUPEN_USHWUEN     | INTC_WUPEN_USFWUEN            |           \
         INTC_WUPEN_ETHWUEN)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -410,7 +366,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup INTC_Global_Functions
- * @{
  */
 
 int32_t INTC_IrqSignIn(const stc_irq_signin_config_t *pstcIrqSignConfig);
@@ -564,19 +519,13 @@ void IRQ125_Handler(void);
 void IRQ126_Handler(void);
 void IRQ127_Handler(void);
 
-/**
- * @}
- */
+
 
 #endif /* LL_INTERRUPTS_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

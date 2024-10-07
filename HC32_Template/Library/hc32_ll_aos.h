@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_AOS
- * @{
  */
 
 #if (LL_AOS_ENABLE == DDL_ON)
@@ -56,12 +54,10 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup AOS_Global_Macros AOS Global Macros
- * @{
  */
 
 /**
  * @defgroup AOS_Target_Select AOS Target Select
- * @{
  */
 #define AOS_DCU1                (uint32_t)(&CM_AOS->DCU_TRGSEL1)
 #define AOS_DCU2                (uint32_t)(&CM_AOS->DCU_TRGSEL2)
@@ -108,35 +104,25 @@ extern "C"
 #define AOS_COMM_1              (uint32_t)(&CM_AOS->COMTRG1)
 #define AOS_COMM_2              (uint32_t)(&CM_AOS->COMTRG2)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup AOS_Common_Trigger_ID AOS Common Trigger ID
- * @{
  */
 #define AOS_COMM_TRIG1          (1UL << 30U)
 #define AOS_COMM_TRIG2          (1UL << 31U)
 #define AOS_COMM_TRIG_MASK      (AOS_COMM_TRIG1 | AOS_COMM_TRIG2)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup AOS_Trigger_Select_Mask AOS Trigger Select Mask
- * @{
  */
 #define AOS_TRIG_SEL_MASK       (0x1FFUL)
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -147,7 +133,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup AOS_Global_Functions
- * @{
  */
 
 /**
@@ -161,19 +146,13 @@ __STATIC_INLINE void AOS_SW_Trigger(void) {
 
 void AOS_CommonTriggerCmd(uint32_t u32Target, uint32_t u32CommonTrigger, en_functional_state_t enNewState);
 void AOS_SetTriggerEventSrc(uint32_t u32Target, en_event_src_t enSource);
-/**
- * @}
- */
+
 
 #endif /* LL_AOS_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

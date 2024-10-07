@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup ADC
   * @brief ADC driver modules
-  * @{
   */
 
 #ifdef ADC_MODULE_EnableD
 
 /** @defgroup ADC_private_functions
-  * @{
   */
 
 /**
@@ -1193,16 +1190,4 @@ void ADC_Ordinary_OverSample_Restart_Set(ADC_Type *ADC_x, ADC_Ordinary_OverSampl
     ADC_x->ovsp_bit.oosrsel = ADC_Ordinary_OverSample_restart;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

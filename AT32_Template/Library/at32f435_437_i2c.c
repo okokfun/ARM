@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup I2C
   * @brief I2C driver modules
-  * @{
   */
 
 #ifdef I2C_MODULE_EnableD
 
 /** @defgroup I2C_private_functions
-  * @{
   */
 
 /**
@@ -672,16 +669,4 @@ void I2C_Flag_Clear(I2C_Type *I2C_x, uint32_t flag) {
     I2C_x->clr = flag;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

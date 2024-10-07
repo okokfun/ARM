@@ -35,16 +35,13 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup USART
-  * @{
   */
 
 /** @defgroup USART_flags_definition
   * @brief usart flag
-  * @{
   */
 #define USART_PERR_FLAG                  ((uint32_t)0x00000001) /*!< usart parity error flag */
 #define USART_FERR_FLAG                  ((uint32_t)0x00000002) /*!< usart framing error flag */
@@ -57,13 +54,8 @@ extern "C" {
 #define USART_BFF_FLAG                   ((uint32_t)0x00000100) /*!< usart break frame flag */
 #define USART_CTSCF_FLAG                 ((uint32_t)0x00000200) /*!< usart cts change flag */
 
-/**
-  * @}
-  */
-
 /** @defgroup USART_Interrupts_definition
   * @brief usart interrupt
-  * @{
   */
 #define USART_IDLE_INT                   MAKE_VALUE(0x0C,0x04) /*!< usart idle 中断 */
 #define USART_RDBF_INT                   MAKE_VALUE(0x0C,0x05) /*!< usart receive data buffer full 中断 */
@@ -74,12 +66,7 @@ extern "C" {
 #define USART_ERR_INT                    MAKE_VALUE(0x14,0x00) /*!< usart error 中断 */
 #define USART_CTSCF_INT                  MAKE_VALUE(0x14,0x0A) /*!< usart cts change 中断 */
 
-/**
-  * @}
-  */
-
 /** @defgroup USART_exported_Types
-  * @{
   */
 
 /**
@@ -310,10 +297,6 @@ typedef struct {
         } gdiv_bit;
     };
 } USART_Type;
-
-/**
-  * @}
-  */
 #define USART1                           ((USART_Type *) USART1_BASE)
 #define USART2                           ((USART_Type *) USART2_BASE)
 #define USART3                           ((USART_Type *) USART3_BASE)
@@ -327,9 +310,7 @@ defined (AT32F437Zx) || defined (AT32F437Vx) || defined (AT32F437Rx)
 #endif
 
 /** @defgroup USART_exported_functions
-  * @{
   */
-
 void USART_Reset(USART_Type* USART_x);
 void USART_Init(USART_Type* USART_x, uint32_t baud_rate, USART_Data_Bit_Num_Type data_bit, USART_Stop_Bit_Num_Type stop_bit);
 void USART_parity_Selection_Config(USART_Type* USART_x, USART_parity_Selection_Type parity);
@@ -364,18 +345,6 @@ void USART_Transmit_Receive_Pin_Swap(USART_Type* USART_x, confirm_state new_stat
 void USART_ID_Bit_Num_Set(USART_Type* USART_x, USART_identification_Bit_Num_Type id_Bit_Num);
 void USART_DE_Polarity_Set(USART_Type* USART_x, USART_DE_Polarity_Type de_polarity);
 void USART_RS485_Mode_Enable(USART_Type* USART_x, confirm_state new_state);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

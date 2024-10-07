@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup CAN
   * @brief CAN driver modules
-  * @{
   */
 
 #ifdef CAN_MODULE_EnableD
 
 /** @defgroup CAN_private_functions
-  * @{
   */
 
 /**
@@ -1089,16 +1086,4 @@ void CAN_Flag_Clear(CAN_Type* CAN_x, uint32_t CAN_flag) {
     }
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

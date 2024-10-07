@@ -28,13 +28,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_I2C I2C
  * @brief I2C Driver Library
- * @{
  */
 
 #if (LL_I2C_ENABLE == DDL_ON)
@@ -48,7 +46,6 @@
  ******************************************************************************/
 /**
  * @defgroup I2C_Local_Macros I2C Local Macros
- * @{
  */
 #define I2C_BAUDRATE_MAX                (400000UL)
 
@@ -58,7 +55,6 @@
 
 /**
  * @defgroup I2C_Check_Parameters_Validity I2C Check Parameters Validity
- * @{
  */
 
 #define IS_I2C_UNIT(x)                  (((x) == CM_I2C1) || ((x) == CM_I2C2) || ((x) == CM_I2C3) || ((x) == CM_I2C4) ||\
@@ -115,13 +111,9 @@
     (   ((x) == RESET)                                  ||                         \
         ((x) == SET))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -141,7 +133,6 @@
 
 /**
  * @defgroup I2C_Global_Functions I2C Global Functions
- * @{
  */
 
 /**

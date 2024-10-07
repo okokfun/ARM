@@ -35,28 +35,20 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup WDT
-  * @{
   */
 
 
 /** @defgroup WDT_flags_definition
   * @brief wdt flag
-  * @{
   */
 #define WDT_DIVF_Update_FLAG             ((uint16_t)0x0001) /*!< wdt division value update complete flag */
 #define WDT_RLDF_Update_FLAG             ((uint16_t)0x0002) /*!< wdt reload value update complete flag */
 #define WDT_WINF_Update_FLAG             ((uint16_t)0x0004) /*!< wdt window value update complete flag */
 
-/**
-  * @}
-  */
-
 /** @defgroup WDT_exported_Types
-  * @{
   */
 
 /**
@@ -143,16 +135,10 @@ typedef struct {
         } win_bit;
     };
 } WDT_Type;
-
-/**
-  * @}
-  */
 #define WDT                             ((WDT_Type *) WDT_BASE)
 
 /** @defgroup WDT_exported_functions
-  * @{
   */
-
 void WDT_Enable(void);
 void WDT_Counter_reload(void);
 void WDT_Reload_Value_Set(uint16_t reload_value);
@@ -160,18 +146,6 @@ void WDT_Divider_Set(WDT_Division_Type division);
 void WDT_Register_Write_Enable( confirm_state new_state);
 flag_status WDT_Flag_Get(uint16_t WDT_flag);
 void WDT_Window_Counter_Set(uint16_t window_cnt);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

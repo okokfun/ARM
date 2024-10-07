@@ -35,15 +35,12 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup DEBUG
-  * @{
   */
 
 /** @defgroup DEBUG_Mode_definition
-  * @{
   */
 
 /* debug ctrl register bit */
@@ -79,12 +76,7 @@ extern "C" {
 #define DEBUG_TMR10_PAUSE                0x00020000 /*!< debug timer10 pause */
 #define DEBUG_TMR11_PAUSE                0x00040000 /*!< debug timer11 pause */
 
-/**
-  * @}
-  */
-
 /** @defgroup DEBUG_exported_Types
-  * @{
   */
 
 /**
@@ -162,32 +154,15 @@ typedef struct {
     };
 
 } DEBUG_Type;
-
-/**
-  * @}
-  */
 #define DEBUGMCU                         ((DEBUG_Type *) DEBUG_BASE)
 
 /** @defgroup DEBUG_exported_functions
-  * @{
   */
 
 uint32_t DEBUG_Device_ID_Get(void);
 void DEBUG_Low_Power_Mode_Set(uint32_t low_Power_Mode, confirm_state new_state);
 void DEBUG_APB1_Periph_Mode_Set(uint32_t apb1_periph, confirm_state new_state);
 void DEBUG_APB2_Periph_Mode_Set(uint32_t apb2_periph, confirm_state new_state);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

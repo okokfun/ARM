@@ -28,13 +28,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_CRC CRC
  * @brief Cyclic Redundancy Check Driver Library
- * @{
  */
 
 #if (LL_CRC_ENABLE == DDL_ON)
@@ -48,12 +46,10 @@
  ******************************************************************************/
 /**
  * @defgroup CRC_Local_Macros CRC Local Macros
- * @{
  */
 
 /**
  * @defgroup CRC_Check_Parameters_Validity CRC Check Parameters Validity
- * @{
  */
 /*! Parameter validity check for CRC protocol. */
 #define IS_CRC_PROTOCOL(x)                                                     \
@@ -66,51 +62,35 @@
         ((x) == CRC_DATA_WIDTH_16BIT)       ||                                     \
         ((x) == CRC_DATA_WIDTH_32BIT))
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup CRC_Registers_Reset_Value_definition CRC Registers Reset Value
- * @{
  */
 #define CRC_CR_RST_VALUE                (0x0001UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup CRC_DATA_Bit_Width CRC Data Bit Width
- * @{
  */
 #define CRC_DATA_WIDTH_8BIT             (1U)
 #define CRC_DATA_WIDTH_16BIT            (2U)
 #define CRC_DATA_WIDTH_32BIT            (4U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup CRC_Register_Address CRC Register Address
- * @{
  */
 #define CRC_DATA_ADDR                   ((uint32_t)(&CM_CRC->DAT0))
-/**
- * @}
- */
+
 
 /**
  * @defgroup CRC_Calculate_Clock_Count CRC Calculate Clock Count
- * @{
  */
 #define CRC_CACL_CLK_COUNT              (10UL)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -129,7 +109,6 @@
  ******************************************************************************/
 /**
  * @defgroup CRC_Local_Functions CRC Local Functions
- * @{
  */
 
 /**
@@ -316,13 +295,10 @@ static en_flag_status_t CRC_CheckData(uint32_t u32InitValue, uint8_t u8DataWidth
 
     return enStatus;
 }
-/**
- * @}
- */
+
 
 /**
  * @defgroup CRC_Global_Functions CRC Global Functions
- * @{
  */
 
 /**
@@ -566,15 +542,11 @@ en_flag_status_t CRC_CheckData32(uint32_t u32InitValue, const uint32_t au32Data[
     return enStatus;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_CRC_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

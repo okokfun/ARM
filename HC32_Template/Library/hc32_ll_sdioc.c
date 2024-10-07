@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_SDIOC SDIOC
  * @brief SDIOC Driver Library
- * @{
  */
 
 #if (LL_SDIOC_ENABLE == DDL_ON)
@@ -47,7 +45,6 @@
  ******************************************************************************/
 /**
  * @defgroup SDIOC_Local_Macros SDIOC Local Macros
- * @{
  */
 
 /* Masks for R6 Response */
@@ -79,7 +76,6 @@
 
 /**
  * @defgroup SDIOC_Check_Parameters_Validity SDIOC Check Parameters Validity
- * @{
  */
 #define IS_SDIOC_UNIT(x)                                                       \
     (   ((x) == CM_SDIOC1)                          ||                             \
@@ -200,13 +196,9 @@
 
 #define IS_SDIOC_BLOCK_SIZE(x)                  (((x) >= 1U) && ((x) <= 512U))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -225,7 +217,6 @@
  ******************************************************************************/
 /**
  * @defgroup SDIOC_Global_Functions SDIOC Global Functions
- * @{
  */
 
 /**
@@ -2655,15 +2646,11 @@ int32_t SDMMC_CMD36_EraseGroupEndAddr(CM_SDIOC_TypeDef *SDIOCx, uint32_t u32EndA
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_SDIOC_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

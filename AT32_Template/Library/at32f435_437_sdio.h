@@ -35,16 +35,13 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup SDIO
-  * @{
   */
 
 /** @defgroup SDIO_Interrupts_definition
   * @brief sdio interrupt
-  * @{
   */
 #define SDIO_CMDFAIL_INT                 ((uint32_t)0x00000001) /*!< command response received check failed 中断 */
 #define SDIO_DTFAIL_INT                  ((uint32_t)0x00000002) /*!< data block sent/received check failed 中断 */
@@ -70,13 +67,8 @@ extern "C" {
 #define SDIO_RXBUF_INT                   ((uint32_t)0x00200000) /*!< data available in receive 中断 */
 #define SDIO_SDIOIF_INT                  ((uint32_t)0x00400000) /*!< sdio interface received 中断 */
 
-/**
-  * @}
-  */
-
 /** @defgroup SDIO_flags_definition
   * @brief sdio flag
-  * @{
   */
 #define SDIO_CMDFAIL_FLAG                ((uint32_t)0x00000001) /*!< command response received check failed flag */
 #define SDIO_DTFAIL_FLAG                 ((uint32_t)0x00000002) /*!< data block sent/received check failed flag */
@@ -102,12 +94,7 @@ extern "C" {
 #define SDIO_RXBUF_FLAG                  ((uint32_t)0x00200000) /*!< data available in receive flag */
 #define SDIO_SDIOIF_FLAG                 ((uint32_t)0x00400000) /*!< sdio interface received flag */
 
-/**
-  * @}
-  */
-
 /** @defgroup SDIO_exported_Types
-  * @{
   */
 
 /**
@@ -511,17 +498,11 @@ typedef struct {
     };
 
 } SDIO_Type;
-
-/**
-  * @}
-  */
 #define SDIO1                            ((SDIO_Type *) SDIO1_BASE)
 #define SDIO2                            ((SDIO_Type *) SDIO2_BASE)
 
 /** @defgroup SDIO_exported_functions
-  * @{
   */
-
 void SDIO_Reset(SDIO_Type *SDIO_x);
 void SDIO_Power_Set(SDIO_Type *SDIO_x, SDIO_Power_State_Type power_state);
 SDIO_Power_State_Type SDIO_Power_Status_Get(SDIO_Type *SDIO_x);
@@ -550,18 +531,6 @@ void SDIO_Read_Wait_Start(SDIO_Type *SDIO_x, confirm_state new_state);
 void SDIO_Read_Wait_stop(SDIO_Type *SDIO_x, confirm_state new_state);
 void SDIO_IO_Function_Enable(SDIO_Type *SDIO_x, confirm_state new_state);
 void SDIO_IO_Suspend_Command_Set(SDIO_Type *SDIO_x, confirm_state new_state);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

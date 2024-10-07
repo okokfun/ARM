@@ -35,16 +35,13 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup ERTC
-  * @{
   */
 
 /** @defgroup ERTC_Interrupts_definition
   * @brief ertc interrupt
-  * @{
   */
 #define ERTC_TP_INT                      ((uint32_t)0x00000004) /*!< ertc tamper 中断 */
 #define ERTC_ALA_INT                     ((uint32_t)0x00001000) /*!< ertc alarm a 中断 */
@@ -52,13 +49,8 @@ extern "C" {
 #define ERTC_WAT_INT                     ((uint32_t)0x00004000) /*!< ertc wakeup timer 中断 */
 #define ERTC_TS_INT                      ((uint32_t)0x00008000) /*!< ertc timestamp 中断 */
 
-/**
-  * @}
-  */
-
 /** @defgroup ERTC_flags_definition
   * @brief ertc flag
-  * @{
   */
 #define ERTC_ALAWF_FLAG                  ((uint32_t)0x00000001) /*!< ertc alarm a register allows write flag */
 #define ERTC_ALBWF_FLAG                  ((uint32_t)0x00000002) /*!< ertc alarm b register allows write flag */
@@ -87,21 +79,12 @@ extern "C" {
 #define ERTC_Alarm_Mask_ALL              ((uint32_t)0x80808080) /*!< ertc alarm don't match all */
 
 /**
-  * @}
-  */
-
-/**
   * @brief compatible with older versions
   */
 #define ERTC_WAT_CLK_CK_A_16BITS         ERTC_WAT_CLK_CK_B_16BITS
 #define ERTC_WAT_CLK_CK_A_17BITS         ERTC_WAT_CLK_CK_B_17BITS
 
-/**
-  * @}
-  */
-
 /** @defgroup ERTC_exported_Types
-  * @{
   */
 
 /**
@@ -999,14 +982,9 @@ typedef struct {
 
 
 } ERTC_Type;
-
-/**
-  * @}
-  */
 #define ERTC                              ((ERTC_Type *) ERTC_BASE)
 
 /** @defgroup ERTC_exported_functions
-  * @{
   */
 
 uint8_t ERTC_Num_To_BCD(uint8_t num);
@@ -1065,18 +1043,6 @@ flag_status ERTC_Flag_Get(uint32_t flag);
 void ERTC_Flag_Clear(uint32_t flag);
 void ERTC_BPR_Data_Write(ERTC_dt_Type dt, uint32_t data);
 uint32_t ERTC_BPR_Data_Read(ERTC_dt_Type dt);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

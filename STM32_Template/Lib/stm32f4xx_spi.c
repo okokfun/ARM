@@ -17,7 +17,7 @@
                   ##### 如何使用这个驱动程序 #####
  ===================================================================
  [..]
-   (#) 使用以下功能启用外围时钟
+   (#) 使用以下功能启用外设时钟
        RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE) for SPI1
        RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2, ENABLE) for SPI2
        RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, ENABLE) for SPI3
@@ -25,74 +25,74 @@
        RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, ENABLE) for SPI5
        RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, ENABLE) for SPI6.
 
-   (#) 使用RCC_AHB1PeriphClockCmd()函数启用SCK、MOSI、MISO和NSS GPIO时钟。
-        在I2S模式下，如果使用外部时钟源，则还应启用I2S CKIN引脚GPIO时钟。
+   (#) 使用 RCC_AHB1PeriphClockCmd() 函数启用 SCK、MOSI、MISO和NSS GPIO 时钟。
+        在 I2S 模式下，如果使用外部时钟源，则还应启用I2S CKIN引脚GPIO时钟。
 
    (#) 外设设备替代函数:
-       (++) 使用GPIO_PinAFConfig()函数将管脚连接到所需外设设备的复用功能(AF)
+       (++) 使用 GPIO_PinAFConfig() 函数将管脚连接到所需外设设备的复用功能(AF)
        
        (++) 通过以下方式在复用功能中配置所需引脚:
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
 			
-       (++) 通过GPIO_PuPd、GPIO_OType和GPIO_Speed成员选择类型、上拉/下拉和输出速度
+       (++) 通过 GPIO_PuPd、GPIO_OType 和 GPIO_Speed 成员选择类型、上拉/下拉和输出速度
 	   
-       (++) 调用GPIO_Init()函数在I2S模式下，如果使用外部时钟源，
-            则I2S的CKIN引脚也应该配置为Alternate function Push-pull - pull-up模式。
+       (++) 调用 GPIO_Init() 函数在 I2S 模式下，如果使用外部时钟源，
+            则 I2S 的 CKIN 引脚也应该配置为Alternate function Push-pull - pull-up模式。
 
-   (#) 使用SPI_Init()函数对极性、相位、第一数据、波特率预分频器、从机管理、外围模式和CRC多项式值进行编程。
-       在I2S模式下，使用I2S_Init()函数编程模式，标准，数据格式，
+   (#) 使用 SPI_Init() 函数对极性、相位、第一数据、波特率预分频器、从机管理、外围模式和 CRC 多项式值进行编程。
+       在 I2S 模式下，使用 I2S_Init() 函数编程模式，标准，数据格式，
        MCLK输出，音频频率和极性。对于I2S模式，请确保:
        (++) I2S PLL is configured using the functions
             RCC_I2SCLKConfig(RCC_I2S2CLKSource_PLLI2S), RCC_PLLI2SCmd(ENABLE) and
             RCC_GetFlagStatus(RCC_FLAG_PLLI2SRDY);
 			
-       (++) 外部时钟源使用函数RCC_I2SCLKConfig(RCC_I2S2CLKSource_Ext)配置，
-            并在stm32f4xx_conf.h文件中正确设置定义常量I2S_EXTERNAL_CLOCK_VAL之后配置。
+       (++) 外部时钟源使用函数 RCC_I2SCLKConfig(RCC_I2S2CLKSource_Ext) 配置，
+            并在 stm32f4xx_conf.h 文件中正确设置定义常量 I2S_EXTERNAL_CLOCK_VAL 之后配置。
 
-   (#) 如果需要使用中断模式，可以使用SPI_ITConfig()函数启用NVIC和相应的中断。
+   (#) 如果需要使用中断模式，可以使用SPI_ITConfig() 函数启用NVIC和相应的中断。
 
-   (#) 当使用DMA模式时
-       (++) 使用DMA_Init()函数配置DMA
-       (++) 使用SPI_I2S_DMACmd()函数激活所需的通道请求
+   (#) 当使用 DMA 模式时
+       (++) 使用 DMA_Init() 函数配置DMA
+       (++) 使用 SPI_I2S_DMACmd() 函数激活所需的通道请求
 
-   (#) 使用SPI_Cmd()函数启用SPI或使用I2S_Cmd()启用I2S。
+   (#) 使用 SPI_Cmd() 函数启用 SPI 或使用 I2S_Cmd() 启用 I2S。
 
-   (#) 当使用DMA模式时，使用DMA_Cmd()函数启用DMA。
+   (#) 当使用 DMA 模式时，使用 DMA_Cmd() 函数启用 DMA。
 
-   (#) 可选地，您可以启用/配置以下参数，而无需重新初始化(即不需要再次调用SPI_Init()函数):
-       (++) 当双向模式(SPI_Direction_1Line_Rx或SPI_Direction_1Line_Tx)被编程为使用
-            SPI_Init()函数的数据方向参数时，可以使用SPI_BiDirectionalLineConfig()函数
-            在SPI_Direction_Tx或SPI_Direction_Rx之间切换。
+   (#) 可选地，您可以启用/配置以下参数，而无需重新初始化(即不需要再次调用 SPI_Init() 函数):
+       (++) 当双向模式(SPI_Direction_1Line_Rx 或 SPI_Direction_1Line_Tx) 被编程为使用
+            SPI_Init() 函数的数据方向参数时，可以使用 SPI_BiDirectionalLineConfig() 函数
+            在 SPI_Direction_Tx 或 SPI_Direction_Rx 之间切换。
 			
-       (++) 当SPI_NSS_Soft被选择为使用SPI_Init()函数的Slave Select Management参数时，
-            可以使用SPI_NSSInternalSoftwareConfig()函数来管理NSS内部信号。
+       (++) 当 SPI_NSS_Soft 被选择为使用SPI_Init() 函数的 Slave Select Management 参数时，
+            可以使用 SPI_NSSInternalSoftwareConfig() 函数来管理NSS内部信号。
 			
-       (++) 使用SPI_DataSizeConfig()函数重新配置数据大小
+       (++) 使用 SPI_DataSizeConfig() 函数重新配置数据大小
 	   
-       (++) 使用SPI_SSOutputCmd()函数启用或禁用SS输出
+       (++) 使用 SPI_SSOutputCmd() 函数启用或禁用SS输出
 
-    (#) 要使用CRC硬件计算功能，请参阅外围CRC硬件计算小节。
+    (#) 要使用 CRC 硬件计算功能，请参阅外设 CRC 硬件计算小节。
 
 
- [..] 可以在I2S全双工模式下使用SPI，在这种情况下，每个SPI外设都能够使用两条数据线
-      同时管理发送和接收数据。每个SPI外设都有一个名为I2Sxext的扩展块
+ [..] 可以在I2S全双工模式下使用 SPI，在这种情况下，每个 SPI 外设都能够使用两条数据线
+      同时管理发送和接收数据。每个 SPI 外设都有一个名为 I2Sxext 的扩展块
       (即。I2S2ext用于SPI2, I2S3ext用于SPI3)。
       扩展块不是一个完整的SPI IP，它只是作为I2S的slave来实现全双工模式。扩展块使用与主块相同的时钟源。
       要配置I2S全双工，您必须:
 
-      (#) 在I2S模式下配置SPIx (I2S_Init()函数)如上所述。
+      (#) 在 I2S 模式下配置 SPIx (I2S_Init() 函数)如上所述。
 
-      (#) 使用传递给I2S_Init()函数的相同结构调用I2S_FullDuplexConfig()函数。
+      (#) 使用传递给 I2S_Init() 函数的相同结构调用 I2S_FullDuplexConfig() 函数。
 
-      (#) 为SPIx调用I2S_Cmd()，然后为它的扩展块调用。
+      (#) 为 SPIx调用I2S_Cmd()，然后为它的扩展块调用。
 
-      (#) 要配置中断或DMA请求以及获取/清除标志状态，请为扩展块使用I2Sxext实例。
+      (#) 要配置中断或DMA请求以及获取/清除标志状态，请为扩展块使用 I2Sxext 实例。
 
- [..] 可以用I2Sxext实例调用的函数有:I2S_Cmd()， I2S_FullDuplexConfig()， SPI_I2S_ReceiveData()，
+ [..] 可以用 I2Sxext 实例调用的函数有: I2S_Cmd()， I2S_FullDuplexConfig()， SPI_I2S_ReceiveData()，
       SPI_I2S_SendData()， SPI_I2S_DMACmd()， SPI_I2S_ITConfig()， SPI_I2S_GetFlagStatus()，
       SPI_I2S_ClearFlag()， SPI_I2S_GetITStatus()和SPI_I2S_ClearITPendingBit()。
 
-      示例:在全双工模式下使用SPI3 (SPI3是主Tx, I2S3ext是从Rx):
+      示例: 在全双工模式下使用SPI3 (SPI3是主Tx, I2S3ext是从Rx):
 
       RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI3, ENABLE);
       I2S_StructInit(&I2SInitStruct);
@@ -115,7 +115,7 @@
    (@) 在I2S模式下:如果I2S使用外部时钟作为源时钟，则需要启用stm32f4xx_conf.h
        文件中的define I2S_EXTERNAL_CLOCK_VAL，并将其设置为源时钟频率(单位为Hz)。
 
-   (@) 在SPI模式下:要使用SPI TI模式，在调用SPI_Init()函数之后调用SPI_TIModeCmd()函数。
+   (@) 在SPI模式下:要使用SPI TI模式，在调用SPI_Init() 函数之后调用SPI_TIModeCmd() 函数。
 
 @endverbatim
   *
@@ -144,12 +144,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup SPI
   * 简介: SPI 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -172,7 +170,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup SPI_Private_Functions
-  * @{
   */
 
 /** @defgroup SPI_Group1 初始化和配置函数
@@ -185,10 +182,9 @@
  [..] 本节提供了一组函数，允许初始化SPI方向、SPI模式、SPI数据大小、
 	  SPI极性、SPI相位、SPI NSS管理、SPI波特率预分级器、SPI第一位和SPI CRC多项式。
 
- [..] SPI_Init()函数遵循主模式和从模式的SPI配置过程(这些过程的详细信息可参阅参考手册(RM0090))。
+ [..] SPI_Init() 函数遵循主模式和从模式的SPI配置过程(这些过程的详细信息可参阅参考手册(RM0090))。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -702,9 +698,6 @@ void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct)
     I2Sxext->I2SCFGR = tmpreg;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SPI_Group2 数据传输函数
  *  简介   数据传输函数
@@ -719,10 +712,9 @@ void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct)
 
  [..] SPI_DR寄存器的读取访问可以使用SPI_I2S_ReceiveData()
 	  函数完成，并返回Rx缓冲值。而对SPI_DR的写入访问可以使用
-	  SPI_I2S_SendData()函数来完成，并将写入的数据存储到Tx缓冲器中。
+	  SPI_I2S_SendData() 函数来完成，并将写入的数据存储到Tx缓冲器中。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -756,9 +748,6 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
     SPIx->DR = Data;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SPI_Group3 硬件CRC计算函数
  *  简介   硬件CRC计算函数
@@ -771,11 +760,11 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
  [..] 本节提供了一组允许管理SPI CRC硬件计算的函数
 
  [..] 通过以下程序，可以使用CRC进行SPI通信:
-   (#) 使用SPI_Init()函数对数据方向、极性、相位、第一数据、波特率预分频器、
+   (#) 使用SPI_Init() 函数对数据方向、极性、相位、第一数据、波特率预分频器、
         从机管理、外围模式和CRC多项式值进行编程。
-   (#) 使用SPI_CalculateCRC()函数启用CRC计算。
-   (#) 使用SPI_Cmd()函数启用SPI
-   (#) 在将最后的数据写入TX缓冲区之前，使用SPI_TransmitCRC()函数
+   (#) 使用SPI_CalculateCRC() 函数启用CRC计算。
+   (#) 使用SPI_Cmd() 函数启用SPI
+   (#) 在将最后的数据写入TX缓冲区之前，使用SPI_TransmitCRC() 函数
         设置CRCNext位，以指示在传输最后的数据后，应传输CRC。
    (#) 在传输最后一个数据后，SPI传输CRC。SPI_CR1_CRCNEXT位复位。
         还将接收CRC并与SPI_RXCRCR值进行比较。
@@ -793,7 +782,7 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
         因此禁止调用CRC传输序列中的软件功能，以避免最后数据和CRC接收中的错误。
        事实上，CRCNEXT位必须在最后数据传输/接收结束之前写入。
 
-   (@) 对于高比特率频率，建议使用DMA模式，以避免由于CPU访问影响SPI带宽而导致SPI速度性能下降。
+   (@) 对于高比特率频率，建议使用 DMA 模式，以避免由于CPU访问影响SPI带宽而导致SPI速度性能下降。
 
    (@) 当STM32F4xx配置为从机并且使用NSS硬件模式时，NSS引脚需要在数据相位和CRC相位之间保持低电平。
 
@@ -804,13 +793,12 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
         应清除主设备和从设备侧的CRC值，以便重新同步主设备和从属设备进行各自的CRC计算。
 
    (@) 要清除CRC，请遵循以下程序:
-       (#@) 使用SPI_Cmd()函数禁用SPI
-       (#@) 使用SPI_CalculateCRC()函数禁用CRC计算。
-       (#@) 使用SPI_CalculateCRC()函数启用CRC计算。
-       (#@) 使用SPI_Cmd()函数启用SPI。
+       (#@) 使用SPI_Cmd() 函数禁用SPI
+       (#@) 使用SPI_CalculateCRC() 函数禁用CRC计算。
+       (#@) 使用SPI_CalculateCRC() 函数启用CRC计算。
+       (#@) 使用SPI_Cmd() 函数启用SPI。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -887,9 +875,6 @@ uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx) {
     return SPIx->CRCPR;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SPI_Group4 DMA传输管理 功能
  *  简介   DMA传输管理 功能
@@ -900,7 +885,6 @@ uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -930,9 +914,6 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
     }
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup SPI_Group5 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -943,7 +924,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
  ===============================================================================
 
  [..] 本节提供了一组函数，允许配置SPI中断源并检查或清除标志或挂起位状态。
-      用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或DMA模式。
+      用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或DMA 模式。
 
  *** 轮询模式 ***
  ====================
@@ -988,7 +969,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
 
  *** DMA 模式 ***
  ================
- [..] 在DMA模式下，SPI通信可以通过2个DMA通道请求进行管理:
+ [..] 在DMA 模式下，SPI通信可以通过2个DMA通道请求进行管理:
    (#) SPI_I2S_DMAReq_Tx: 指定Tx缓冲区DMA传输请求
    (#) SPI_I2S_DMAReq_Rx: 指定Rx缓冲区DMA传输请求
 
@@ -997,7 +978,6 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
        NewState);
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1175,21 +1155,5 @@ void SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT) {
     /* 清除 selected SPI CRC Error (CRCERR) interrupt pending 位 */
     SPIx->SR = (uint16_t)~itpos;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_TMR4 TMR4
  * @brief TMR4 Driver Library
- * @{
  */
 
 #if (LL_TMR4_ENABLE == DDL_ON)
@@ -49,12 +47,10 @@
  ******************************************************************************/
 /**
  * @defgroup TMR4_Local_Macros TMR4 Local Macros
- * @{
  */
 
 /**
  * @defgroup TMR4_Check_Parameters_Validity TMR4 Check Parameters Validity
- * @{
  */
 #define IS_TMR4_UNIT(x)                                                        \
     (   ((x) == CM_TMR4_1)                      ||                                 \
@@ -170,13 +166,10 @@
 #define IS_TMR4_EVT_OUTPUT_SIGNAL(x)        ((x) <= TMR4_EVT_OUTPUT_EVT5_SIGNAL)
 
 #define IS_TMR4_PWM_ABNORMAL_PIN_STAT(x)    ((x) <= TMR4_PWM_ABNORMAL_PIN_HIGH)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_Flag_Interrupt_Mask TMR4 Flag and Interrupt Mask
- * @{
  */
 #define TMR4_FLAG_CNT_MASK          (TMR4_FLAG_CNT_PEAK | TMR4_FLAG_CNT_VALLEY)
 #define TMR4_INT_CNT_MASK           (TMR4_INT_CNT_PEAK | TMR4_INT_CNT_VALLEY)
@@ -189,34 +182,25 @@
 #define TMR4_FLAG_RELOAD_TMR_MASK   (TMR4_FLAG_RELOAD_TMR_U | TMR4_FLAG_RELOAD_TMR_V | TMR4_FLAG_RELOAD_TMR_W)
 #define TMR4_INT_RELOAD_TMR_MASK    (TMR4_INT_RELOAD_TMR_U | TMR4_INT_RELOAD_TMR_V | TMR4_INT_RELOAD_TMR_W)
 
-/**
- * @}
- */
+
 
 #define RCSR_REG_TYPE               uint16_t
 
 /**
  * @defgroup TMR4_Registers_Reset_Value TMR4 Registers Reset Value
- * @{
  */
 #define TMR4_CCSR_RST_VALUE         (0x0040U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_OC_Buffer_Object_Mask TMR4 OC Buffer Object Mask
- * @{
  */
 #define TMR4_OC_BUF_OBJECT_MASK     (TMR4_OC_BUF_CMP_VALUE | TMR4_OC_BUF_CMP_MD)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_OCSR_Bit_Mask TMR4_OCSR Bit Mask
  * @brief Get the specified TMR4_OCSR register bis value of the specified TMR4 OC channel
- * @{
  */
 #define TMR4_OCSR_OCEx_MASK(CH)     (((uint16_t)TMR4_OCSR_OCEH) << ((CH) % 2UL))
 #define TMR4_OCSR_OCPx_MASK(CH)     (((uint16_t)TMR4_OCSR_OCPH) << ((CH) % 2UL))
@@ -224,27 +208,21 @@
 #define TMR4_OCSR_OCF_MASK          (TMR4_OCSR_OCFH | TMR4_OCSR_OCFL)
 #define TMR4_OCSR_MASK(CH)                                                     \
     (   ((uint16_t)(TMR4_OCSR_OCEH | TMR4_OCSR_OCPH | TMR4_OCSR_OCIEH | TMR4_OCSR_OCFH)) << (((CH) % 2UL)))
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_OCSR_Bit TMR4_OCSR Bit
  * @brief Get the specified TMR4_OCSR register bis value of the specified TMR4 OC channel
- * @{
  */
 #define TMR4_OCSR_OCEx(CH, OCEx)    (((uint16_t)OCEx) << (((uint16_t)((CH) % 2UL)) + TMR4_OCSR_OCEH_POS))
 #define TMR4_OCSR_OCPx(CH, OCPx)    (((uint16_t)OCPx) << ((CH) % 2UL))
 #define TMR4_OCSR_OCIEx(CH, OCIEx)  (((uint16_t)OCIEx) << ((CH) % 2UL))
 #define TMR4_OCSR_OCFx(CH, OCFx)    (((uint16_t)OCFx) << ((CH) % 2UL))
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_OCER_Bit_Mask TMR4_OCER Bit Mask
  * @brief Get the specified TMR4_OCER register bis value of the specified TMR4 OC channel
- * @{
  */
 #define TMR4_OCER_CxBUFEN_MASK(CH)  (((uint16_t)TMR4_OCER_CHBUFEN) << (((CH) % 2UL) << 1U))
 #define TMR4_OCER_MxBUFEN_MASK(CH)  (((uint16_t)TMR4_OCER_MHBUFEN) << (((CH) % 2UL) << 1U))
@@ -254,63 +232,48 @@
 #define TMR4_OCER_MASK(CH)                                                   \
     (   (((uint16_t)(TMR4_OCER_CHBUFEN | TMR4_OCER_MHBUFEN)) << (((CH) % 2UL) << 1U)) | \
         (((uint16_t)(TMR4_OCER_LMCH | TMR4_OCER_LMMH | TMR4_OCER_MCECH)) << ((CH) % 2UL)))
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_OCER_Bit TMR4_OCER Bit
  * @brief Get the specified TMR4_OCER register bis value of the specified TMR4 OC channel
- * @{
  */
 #define TMR4_OCER_CxBUFEN(CH, CxBUFEN)  ((uint16_t)((uint16_t)(CxBUFEN) << ((((CH) % 2UL) << 1U) + TMR4_OCER_CHBUFEN_POS)))
 #define TMR4_OCER_MxBUFEN(CH, MxBUFEN)  ((uint16_t)((uint16_t)(MxBUFEN) << ((((CH) % 2UL) << 1U) + TMR4_OCER_MHBUFEN_POS)))
 #define TMR4_OCER_LMCx(CH, LMCx)        ((uint16_t)(LMCx) << ((((CH) % 2UL)) + TMR4_OCER_LMCH_POS))
 #define TMR4_OCER_LMMx(CH, LMMx)        ((uint16_t)(LMMx) << ((((CH) % 2UL)) + TMR4_OCER_LMMH_POS))
 #define TMR4_OCER_MCECx(CH, MCECx)      ((uint16_t)(MCECx) << ((((CH) % 2UL)) + TMR4_OCER_MCECH_POS))
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_RCSR_Bit_Mask TMR4_RCSR Bit Mask
  * @brief Get the specified TMR4_RCSR register bis value of the specified TMR4 PWM channel
- * @{
  */
 #define TMR4_RCSR_RTIDx_MASK(CH)    ((RCSR_REG_TYPE)(((RCSR_REG_TYPE)TMR4_RCSR_RTIDU) << (CH)))
 #define TMR4_RCSR_RTIFx_MASK(CH)    ((RCSR_REG_TYPE)(((RCSR_REG_TYPE)TMR4_RCSR_RTIFU) << ((CH) << 2U)))
 #define TMR4_RCSR_RTICx_MASK(CH)    ((RCSR_REG_TYPE)(((RCSR_REG_TYPE)TMR4_RCSR_RTICU) << ((CH) << 2U)))
 #define TMR4_RCSR_RTEx_MASK(CH)     ((RCSR_REG_TYPE)(((RCSR_REG_TYPE)TMR4_RCSR_RTEU) << ((CH) << 2U)))
 #define TMR4_RCSR_RTSx_MASK(CH)     ((RCSR_REG_TYPE)(((RCSR_REG_TYPE)TMR4_RCSR_RTSU) << ((CH) << 2U)))
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_PSCR_Bit_Mask TMR4_PSCR Bit Mask
  * @brief Get the specified TMR4_PSCR register bis value of the specified TMR4 PWM port channel
- * @{
  */
 #define TMR4_PSCR_OExy_MASK(PORT)   (TMR4_PSCR_OEUH << (PORT))
 #define TMR4_PSCR_OSxy_MASK(PORT)   (TMR4_PSCR_OSUH << ((PORT) << 1U))
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_PSCR_Bit TMR4_PSCR Bit
  * @brief Get the specified TMR4_PSCR register bis value of the specified TMR4 PWM port channel
- * @{
  */
 #define TMR4_PSCR_OExy(PORT, OExy)  ((OExy) << (PORT))
 #define TMR4_PSCR_OSxy(PORT, OSxy)  ((OSxy) << (((PORT) << 1U) + TMR4_PSCR_OSUH_POS))
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_Register TMR4 Register
- * @{
  */
 #define TMR4_REG_ADDR(_REG_)        ((uint32_t)(&(_REG_)))
 #define TMR4_REG16(_ADDR_)          ((__IO uint16_t *)(_ADDR_))
@@ -320,83 +283,61 @@
 /**
  * @defgroup TMR4_OC_Register_UVW TMR4 OC Register
  * @brief Get the specified OC register address of the specified TMR4 unit
- * @{
  */
 #define _TMR4_OCCR(UNIT, CH)        TMR4_REG16(TMR4_REG_ADDR((UNIT)->OCCRUH) + ((CH) << 2U))
 #define _TMR4_OCMR(UNIT, CH)        TMR4_REG16(TMR4_REG_ADDR((UNIT)->OCMRHUH) + ((CH) << 2U))
 #define _TMR4_OCER(UNIT, CH)        TMR4_REG16(TMR4_REG_ADDR((UNIT)->OCERU) + (((CH) & 0x06UL) << 1U))
 #define _TMR4_OCSR(UNIT, CH)        TMR4_REG16(TMR4_REG_ADDR((UNIT)->OCSRU) + (((CH) & 0x06UL) << 1U))
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_PWM_Register_UVW TMR4 PWM Register
  * @brief Get the specified PWM register address of the specified TMR4 unit
- * @{
  */
 #define _TMR4_RCSR(UNIT)            TMR4_RCSR_REG(TMR4_REG_ADDR((UNIT)->RCSR))
 #define _TMR4_POCR(UNIT, CH)        TMR4_REG16(TMR4_REG_ADDR((UNIT)->POCRU) + ((CH) << 2U))
 #define _TMR4_PFSR(UNIT, CH)        TMR4_REG16(TMR4_REG_ADDR((UNIT)->PFSRU) + ((CH) << 3U))
 #define _TMR4_PDR(UNIT, CH, IDX)    TMR4_REG16(TMR4_REG_ADDR((UNIT)->PDARU) + ((CH) << 3U) + ((IDX) << 1U))
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_Event_Register_UVW TMR4 Event Register
  * @brief Get the specified event register address of the specified TMR4 unit
- * @{
  */
 #define _TMR4_SCCR(UNIT, CH)        TMR4_REG16(TMR4_REG_ADDR((UNIT)->SCCRUH) + ((CH) << 2U))
 #define _TMR4_SCSR(UNIT, CH)        TMR4_REG16(TMR4_REG_ADDR((UNIT)->SCSRUH) + ((CH) << 2U))
 #define _TMR4_SCMR(UNIT, CH)        TMR4_REG16(TMR4_REG_ADDR((UNIT)->SCMRUH) + ((CH) << 2U))
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_OC_Register TMR4 OC Register
- * @{
  */
 #define TMR4_OCCR(UNIT, CH)         _TMR4_OCCR(UNIT, CH)
 #define TMR4_OCMR(UNIT, CH)         _TMR4_OCMR(UNIT, CH)
 #define TMR4_OCER(UNIT, CH)         _TMR4_OCER(UNIT, CH)
 #define TMR4_OCSR(UNIT, CH)         _TMR4_OCSR(UNIT, CH)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_PWM_Register TMR4 PWM Register
- * @{
  */
 #define TMR4_RCSR(UNIT)             _TMR4_RCSR(UNIT)
 #define TMR4_POCR(UNIT, CH)         _TMR4_POCR(UNIT, CH)
 #define TMR4_PFSR(UNIT, CH)         _TMR4_PFSR(UNIT, CH)
 #define TMR4_PDR(UNIT, CH, IDX)     _TMR4_PDR(UNIT, CH, IDX)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_Event_Register TMR4 Event Register
- * @{
  */
 #define TMR4_SCCR(UNIT, CH)         _TMR4_SCCR(UNIT, CH)
 #define TMR4_SCSR(UNIT, CH)         _TMR4_SCSR(UNIT, CH)
 #define TMR4_SCMR(UNIT, CH)         _TMR4_SCMR(UNIT, CH)
-/**
- * @}
- */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -416,12 +357,10 @@
 
 /**
  * @defgroup TMR4_Global_Functions TMR4 Global Functions
- * @{
  */
 
 /**
  * @defgroup TMR4_Counter_Global_Functions TMR4 Counter Global Functions
- * @{
  */
 
 /**
@@ -1003,13 +942,10 @@ void TMR4_PortOutputCmd(CM_TMR4_TypeDef *TMR4x, en_functional_state_t enNewState
     }
 }
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_Output_Compare_Global_Functions TMR4 Output-Compare Global Functions
- * @{
  */
 
 /**
@@ -1434,13 +1370,10 @@ void TMR4_OC_SetLowChCompareMode(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, un_tmr4
     WRITE_REG32(*OCMRxL, unTmr4Ocmrl.OCMRx);
 }
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_PWM_Global_Functions TMR4 PWM Global Functions
- * @{
  */
 
 /**
@@ -1803,13 +1736,10 @@ void TMR4_PWM_SetAbnormalPinStatus(CM_TMR4_TypeDef *TMR4x, uint32_t u32PwmPin, u
     MODIFY_REG32(TMR4x->PSCR, TMR4_PSCR_OSxy_MASK(u32PwmPin), TMR4_PSCR_OSxy(u32PwmPin, u32PinStatus));
 }
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMR4_Event_Global_Functions TMR4 Event Global Functions
- * @{
  */
 
 /**
@@ -2220,19 +2150,13 @@ void TMR4_EVT_SetOutputEventSignal(CM_TMR4_TypeDef *TMR4x, uint16_t u16Signal) {
     MODIFY_REG16(TMR4x->SCER, TMR4_SCER_EVTRS, u16Signal);
 }
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #endif /* LL_TMR4_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

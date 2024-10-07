@@ -29,12 +29,10 @@
 #include "stm32f4xx_crc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup CRC
   * 简介: CRC驱动模块
-  * @{
   */
 
 /* 私有类型定义 -----------------------------------------------------------*/
@@ -45,7 +43,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup CRC_Private_Functions
-  * @{
   */
 
 /**
@@ -124,17 +121,4 @@ void CRC_SetIDRegister(uint8_t IDValue) {
 uint8_t CRC_GetIDRegister(void) {
     return (CRC->IDR);
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

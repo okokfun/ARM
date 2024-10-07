@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_RMU RMU
  * @brief RMU Driver Library
- * @{
  */
 
 #if (LL_RMU_ENABLE == DDL_ON)
@@ -47,12 +45,10 @@
  ******************************************************************************/
 /**
  * @defgroup RMU_Local_Macros RMU Local Macros
- * @{
  */
 
 /**
  * @defgroup RMU_Check_Parameters_Validity RMU Check Parameters Validity
- * @{
  */
 
 /*! Parameter validity check for RMU reset cause. */
@@ -60,12 +56,8 @@
     (   ((x) != 0UL)                            &&                                  \
         (((x) | RMU_FLAG_ALL) == RMU_FLAG_ALL))
 
-/**
- * @}
- */
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -84,7 +76,6 @@
  ******************************************************************************/
 /**
  * @defgroup RMU_Global_Functions RMU Global Functions
- * @{
  */
 
 /**
@@ -131,15 +122,11 @@ void RMU_CPULockUpCmd(en_functional_state_t enNewState) {
     WRITE_REG32(bCM_RMU->PRSTCR0_b.LKUPREN, enNewState);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_RMU_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

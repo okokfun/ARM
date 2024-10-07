@@ -26,13 +26,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_EVENT_PORT EVENT_PORT
  * @brief Event Port Driver Library
- * @{
  */
 
 #if (LL_EVENT_PORT_ENABLE == DDL_ON)
@@ -46,7 +44,6 @@
  ******************************************************************************/
 /**
  * @defgroup EP_Local_Macros Event Port Local Macros
- * @{
  */
 #define EP_OFFSET               (0x1CUL)
 #define PEVNTDIR_REG(x)         (*(__IO uint32_t *)((uint32_t)(&CM_AOS->PEVNTDIRR1) + (EP_OFFSET * (x))))
@@ -61,7 +58,6 @@
 
 /**
  * @defgroup EP_Check_Parameters_Validity Event Port Check Parameters Validity
- * @{
  */
 /*! Parameter validity check for port group. */
 #define IS_EVENT_PORT(port)                                                     \
@@ -109,13 +105,9 @@
         ((clk) == EP_FCLK_DIV32)                    ||                              \
         ((clk) == EP_FCLK_DIV64))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -134,7 +126,6 @@
  ******************************************************************************/
 /**
  * @defgroup EP_Global_Functions Event Port Global Functions
- * @{
  */
 
 /**
@@ -428,15 +419,11 @@ void EP_SetDir(uint8_t u8EventPort, uint16_t u16EventPin, uint32_t u32Dir) {
     }
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_EVENT_PORT_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

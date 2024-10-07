@@ -73,12 +73,10 @@
 #include "misc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup MISC
   * 简介: MISC驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -91,7 +89,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup MISC_Private_Functions
-  * @{
   */
 
 /**
@@ -236,17 +233,4 @@ void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource) {
         SysTick->CTRL &= SysTick_CLKSource_HCLK_Div8;
     }
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

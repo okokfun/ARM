@@ -39,12 +39,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_EFM
- * @{
  */
 
 #if (LL_EFM_ENABLE == DDL_ON)
@@ -54,7 +52,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup EFM_Global_Types EFM Global Types
- * @{
  */
 /**
  * @brief EFM unique ID definition
@@ -70,20 +67,16 @@ typedef struct {
     uint32_t u32Addr;
     uint32_t u32Size;
 } stc_efm_remap_init_t;
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup EFM_Global_Macros EFM Global Macros
- * @{
  */
 /**
  * @defgroup EFM_Address EFM Address Area
- * @{
  */
 #define EFM_START_ADDR                  (0x00000000UL)    /*!< Flash start address */
 
@@ -97,35 +90,26 @@ typedef struct {
 #define EFM_OTP_ENABLE_ADDR             (0x03001AD8UL)
 #define EFM_FLASH_1_START_ADDR          (0x00100000UL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Chip_Sel EFM Chip Selection
- * @{
  */
 #define EFM_CHIP0                       (EFM_FSTP_F0STP)
 #define EFM_CHIP1                       (EFM_FSTP_F1STP)
 #define EFM_CHIP_ALL                    (EFM_FSTP_F0STP | EFM_FSTP_F1STP)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Bus_Status EFM Bus Status
- * @{
  */
 #define EFM_BUS_HOLD                    (0x0UL)     /*!< Bus busy while flash program or erase */
 #define EFM_BUS_RELEASE                 (0x1UL)     /*!< Bus release while flash program or erase */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Wait_Cycle EFM Wait Cycle
- * @{
  */
 
 #define EFM_WAIT_CYCLE0                 (0U << EFM_FRMC_FLWT_POS)      /*!< Don't insert read wait cycle */
@@ -144,23 +128,17 @@ typedef struct {
 #define EFM_WAIT_CYCLE13                (13U << EFM_FRMC_FLWT_POS)     /*!< Insert 13 read wait cycles   */
 #define EFM_WAIT_CYCLE14                (14U << EFM_FRMC_FLWT_POS)     /*!< Insert 14 read wait cycles   */
 #define EFM_WAIT_CYCLE15                (15U << EFM_FRMC_FLWT_POS)     /*!< Insert 15 read wait cycles   */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Swap_Address EFM Swap Address
- * @{
  */
 #define EFM_SWAP_ADDR                   (0x03002000UL)
 #define EFM_SWAP_DATA                   (0x005A5A5AUL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_WriteLock_Sel EFM Write Protect Lock Selection
- * @{
  */
 #define EFM_WRLOCK0                     (EFM_WLOCK_WLOCK_0)     /*!< F0NWPRT0 controlled sector lock   */
 #define EFM_WRLOCK1                     (EFM_WLOCK_WLOCK_1)     /*!< F0NWPRT1 controlled sector lock   */
@@ -170,13 +148,10 @@ typedef struct {
 #define EFM_WRLOCK5                     (EFM_WLOCK_WLOCK_5)     /*!< F1NWPRT1 controlled sector lock   */
 #define EFM_WRLOCK6                     (EFM_WLOCK_WLOCK_6)     /*!< F1NWPRT2 controlled sector lock   */
 #define EFM_WRLOCK7                     (EFM_WLOCK_WLOCK_7)     /*!< F1NWPRT3 controlled sector lock   */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_OperateMode_Sel EFM Operate Mode Selection
- * @{
  */
 #define EFM_MD_READONLY                 (0x0UL << EFM_FWMC_PEMOD_POS)   /*!< Read only mode               */
 #define EFM_MD_PGM_SINGLE               (0x1UL << EFM_FWMC_PEMOD_POS)   /*!< Program single mode          */
@@ -186,13 +161,10 @@ typedef struct {
 #define EFM_MD_ERASE_ONE_CHIP           (0x5UL << EFM_FWMC_PEMOD_POS)   /*!< A flash Chip erase mode      */
 #define EFM_MD_ERASE_ALL_CHIP           (0x6UL << EFM_FWMC_PEMOD_POS)   /*!< All chip erase mode    */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Flag_Sel  EFM Flag Selection
- * @{
  */
 #define EFM_FLAG_OTPWERR                (EFM_FSR_OTPWERR0)      /*!< EFM Flash0 otp Programming/erase error flag.       */
 #define EFM_FLAG_PEPRTERR               (EFM_FSR_PRTWERR0)      /*!< EFM Flash0 write protect address error flag.       */
@@ -212,55 +184,40 @@ typedef struct {
                                      EFM_FLAG_OPTEND1 | EFM_FLAG_COLERR1  | EFM_FLAG_RDY       | EFM_FLAG_PGMISMTCH1 | \
                                      EFM_FLAG_RDY1)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Interrupt_Sel EFM Interrupt Selection
- * @{
  */
 #define EFM_INT_PEERR                   (EFM_FITE_PEERRITE)     /*!< Program/erase error Interrupt source    */
 #define EFM_INT_OPTEND                  (EFM_FITE_OPTENDITE)    /*!< End of EFM operation Interrupt source   */
 #define EFM_INT_COLERR                  (EFM_FITE_COLERRITE)    /*!< Read collide error Interrupt source     */
 #define EFM_INT_ALL                     (EFM_FITE_PEERRITE | EFM_FITE_OPTENDITE | EFM_FITE_COLERRITE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Keys EFM Keys
- * @{
  */
 #define EFM_REG_UNLOCK_KEY1             (0x0123UL)
 #define EFM_REG_UNLOCK_KEY2             (0x3210UL)
 #define EFM_REG_LOCK_KEY                (0x0000UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Sector_Size EFM Sector Size
- * @{
  */
 #define SECTOR_SIZE                     (0x2000UL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Sector_Address EFM Sector Address
- * @{
  */
 #define EFM_SECTOR_ADDR(x)          (uint32_t)(SECTOR_SIZE * (x))
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_OTP_Base_Address EFM Otp Base Address
- * @{
  */
 #define EFM_OTP_BASE1_ADDR          (0x00000000UL)
 #define EFM_OTP_BASE1_SIZE          (0x2000UL)
@@ -279,13 +236,10 @@ typedef struct {
 #define EFM_OTP_BASE5_OFFSET        (54UL)
 #define EFM_OTP_LOCK_ADDR           (0x03001800UL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_OTP_Address EFM Otp Address
- * @{
  */
 #define EFM_OTP_BLOCK0              (EFM_OTP_BASE1_ADDR + ((0UL - EFM_OTP_BASE1_OFFSET) * EFM_OTP_BASE1_SIZE))
 #define EFM_OTP_BLOCK1              (EFM_OTP_BASE1_ADDR + ((1UL - EFM_OTP_BASE1_OFFSET) * EFM_OTP_BASE1_SIZE))
@@ -475,19 +429,14 @@ typedef struct {
 #define EFM_OTP_BLOCK180            (EFM_OTP_BASE5_ADDR + ((180UL - EFM_OTP_BASE5_OFFSET) * EFM_OTP_BASE5_SIZE))
 #define EFM_OTP_BLOCK181            (EFM_OTP_BASE5_ADDR + ((181UL - EFM_OTP_BASE5_OFFSET) * EFM_OTP_BASE5_SIZE))
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_OTP_Lock_Address EFM Otp Lock_address
  *          x at range of 0~181
- * @{
  */
 #define EFM_OTP_BLOCK_LOCKADDR(x)    (EFM_OTP_LOCK_ADDR + 0x04UL * (x))   /*!< OTP block x  lock address */
-/**
- * @}
- */
+
 
 #define EFM_REMAP_REG_LOCK_KEY      (0x0000UL)
 #define EFM_REMAP_REG_UNLOCK_KEY1   (0x0123UL)
@@ -495,18 +444,14 @@ typedef struct {
 
 /**
  * @defgroup EFM_Remap_State EFM remap function state
- * @{
  */
 #define EFM_REMAP_OFF               (0UL)
 #define EFM_REMAP_ON                (EFM_MMF_REMCR_EN)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Remap_Size EFM remap size definition
  * @note refer to chip user manual for details size spec.
- * @{
  */
 #define EFM_REMAP_4K                (12UL)
 #define EFM_REMAP_8K                (13UL)
@@ -516,68 +461,49 @@ typedef struct {
 #define EFM_REMAP_128K              (17UL)
 #define EFM_REMAP_256K              (18UL)
 #define EFM_REMAP_512K              (19UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Remap_Index EFM remap index
- * @{
  */
 #define EFM_REMAP_IDX0              (0U)
 #define EFM_REMAP_IDX1              (1U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Remap_BaseAddr EFM remap base address
- * @{
  */
 #define EFM_REMAP_BASE_ADDR0        (0x2000000UL)
 #define EFM_REMAP_BASE_ADDR1        (0x2080000UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Remap_Region EFM remap ROM/RAM region
- * @{
  */
 #define EFM_REMAP_ROM_END_ADDR      EFM_END_ADDR
 
 #define EFM_REMAP_RAM_START_ADDR    (0x1FFE0000UL)
 #define EFM_REMAP_RAM_END_ADDR      (0x1FFFFFFFUL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_Protect_Level EFM protect level
- * @{
  */
 #define EFM_PROTECT_LEVEL1          (1U)
 #define EFM_PROTECT_LEVEL2          (2U)
 #define EFM_PROTECT_LEVEL3          (4U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EFM_MCU_Status EFM protect level
- * @{
  */
 #define EFM_MCU_PROTECT1_FREE       (0U)
 #define EFM_MCU_PROTECT1_LOCK       (1U)
 #define EFM_MCU_PROTECT1_UNLOCK     (2U)
 #define EFM_MCU_PROTECT2_LOCK       (4U)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 /*******************************************************************************
  * Global variable definitions ('extern')
  ******************************************************************************/
@@ -587,7 +513,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup EFM_Global_Functions
- * @{
  */
 
 /**
@@ -676,19 +601,13 @@ void EFM_SequenceSectorOperateCmd(uint32_t u32StartSectorNum, uint16_t u16Count,
 void EFM_Protect_Enable(uint8_t u8Level);
 int32_t EFM_WriteSecurityCode(uint8_t *pu8Buf, uint32_t u32Len);
 
-/**
- * @}
- */
+
 
 #endif /* LL_EFM_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup EMAC
   * @brief EMAC driver modules
-  * @{
   */
 
 #ifdef EMAC_MODULE_EnableD
 
 /** @defgroup EMAC_private_functions
-  * @{
   */
 
 #if defined (EMAC_BASE)
@@ -2064,18 +2061,6 @@ void EMAC_DMA_Flag_Clear(uint32_t DMA_flag) {
     EMAC_DMA->sts = DMA_flag;
 }
 
-/**
-  * @}
-  */
-
 #endif
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */

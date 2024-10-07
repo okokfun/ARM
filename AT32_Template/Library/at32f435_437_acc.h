@@ -35,15 +35,12 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup ACC
-  * @{
   */
 
 /** @defgroup ACC_exported_constants
-  * @{
   */
 #define ACC_CAL_HICKCAL                  ((uint16_t)0x0000) /*!< acc hick calibration */
 #define ACC_CAL_HICKTRIM                 ((uint16_t)0x0002) /*!< acc hick trim */
@@ -57,12 +54,7 @@ extern "C" {
 #define ACC_SOF_OTG1                     ((uint16_t)0x0000) /*!< acc sof signal select: otg1 */
 #define ACC_SOF_OTG2                     ((uint16_t)0x0004) /*!< acc sof signal select: otg2 */
 
-/**
-  * @}
-  */
-
 /** @defgroup ACC_exported_Types
-  * @{
   */
 
 /**
@@ -144,16 +136,10 @@ typedef struct {
         } c3_bit;
     };
 } ACC_Type;
-
-/**
-  * @}
-  */
 #define ACC                             ((ACC_Type *) ACC_BASE)
 
 /** @defgroup ACC_exported_functions
-  * @{
   */
-
 void ACC_Calibration_Mode_Enable(uint16_t ACC_trim, confirm_state new_state);
 void ACC_Step_Set(uint8_t step_value);
 void ACC_SOF_Select(uint16_t sof_sel);
@@ -168,18 +154,6 @@ uint16_t ACC_Read_C2(void);
 uint16_t ACC_Read_C3(void);
 flag_status ACC_Flag_Get(uint16_t ACC_flag);
 void ACC_Flag_Clear(uint16_t ACC_flag);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

@@ -94,37 +94,37 @@
  [..]
     (+) 使用 RTC_WakeUpClockConfig() 函数配置 RTC 唤醒时钟源。
     (+) 使用 RTC_SetWakeUpCounter() 函数配置 RTC 唤醒计数器
-    (+) 使用 RTC_WakeUpCmd()函数启用 RTC 唤醒
+    (+) 使用 RTC_WakeUpCmd() 函数启用 RTC 唤醒
     (+) 要读取 RTC 唤醒计数器寄存器，请使用 RTC_GetWakeUpCounter() 函数。
 
  *** 输出配置 ***
  =============================
  [..] RTC有两种不同的输出:
    (+) AFO_ALARM: 该输出用于管理RTC警报A、警报B和WaKeUp信号。
-                  要在RTC_AF1引脚上输出选定的RTC信号，请使用RTC_OutputConfig()函数。
+                  要在RTC_AF1引脚上输出选定的RTC信号，请使用RTC_OutputConfig() 函数。
    (+) AFO_CALIB: 该输出为512Hz信号或1Hz。
-                  要在RTC_AF1引脚上输出RTC时钟，请使用RTC_CalibOutputCmd()函数。
+                  要在RTC_AF1引脚上输出RTC时钟，请使用RTC_CalibOutputCmd() 函数。
 
  *** 平滑数字校准配置 ***
  ================================================
  [..]
-   (+) 使用RTC_SmoothCalibConfig()函数
+   (+) 使用RTC_SmoothCalibConfig() 函数
         配置RTC原始数字校准值和相应的校准周期周期(32秒、16秒和8秒)。
 
  *** 粗略数字校准配置 ***
  ================================================
  [..]
-    (+) 使用RTC_CoarseCalibConfig()函数配置RTC粗略校准值和相应符号。
-    (+) 使用RTC_CoarseCalibCmd()函数启用RTC粗校准
+    (+) 使用RTC_CoarseCalibConfig() 函数配置RTC粗略校准值和相应符号。
+    (+) 使用RTC_CoarseCalibCmd() 函数启用RTC粗校准
 
  *** 时间戳配置 ***
  ===============================
  [..]
-   (+) 配置RTC_AF1触发器，并使用RTC_TimeStampCmd()函数启用RTC时间戳。
-   (+) 要读取RTC时间戳时间和日期寄存器，请使用RTC_GetTimeStamp()函数。
-   (+) 要读取RTC TimeStamp SubSecond寄存器，请使用RTC_GetTimeStampSubSecond()函数。
+   (+) 配置RTC_AF1触发器，并使用RTC_TimeStampCmd() 函数启用RTC时间戳。
+   (+) 要读取RTC时间戳时间和日期寄存器，请使用RTC_GetTimeStamp() 函数。
+   (+) 要读取RTC TimeStamp SubSecond寄存器，请使用RTC_GetTimeStampSubSecond() 函数。
    (+) 根据RTC_TAFCR寄存器中TAMP1INSEL位的值，TAMPER1替代函数可以映射到RTC_AF1(PC13)
-       或RTC_AF2(PI8)。您可以使用RTC_TamperPinSelection()函数选择相应的管脚。
+       或RTC_AF2(PI8)。您可以使用RTC_TamperPinSelection() 函数选择相应的管脚。
 
  *** 篡改配置 ***
  ============================
@@ -246,12 +246,10 @@
 #include "stm32f4xx_rtc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup RTC
   * 简介: RTC驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -282,7 +280,6 @@ static uint8_t RTC_Bcd2ToByte(uint8_t Value);
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup RTC_Private_Functions
-  * @{
   */
 
 /** @defgroup RTC_Group1 初始化和配置函数
@@ -308,10 +305,9 @@ static uint8_t RTC_Bcd2ToByte(uint8_t Value);
    (#) 在日历初始化、日历更新或从低功耗模式唤醒后，要通过影子寄存器读取日历，软件必须首先清除
        RSF标志。然后，软件必须等待它再次被设置，然后再读取日历，这意味着日历寄存器已经被正确地复制到
        RTC_TR和RTC_DR影子寄存器中。
-       RTC_WaitForSynchro()函数实现了上述软件序列(RSF清零和RSF检查)。
+       RTC_WaitForSynchro() 函数实现了上述软件序列(RSF清零和RSF检查)。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -646,9 +642,6 @@ void RTC_BypassShadowCmd(FunctionalState NewState) {
     RTC->WPR = 0xFF;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Group2 时间和日期配置功能
  *  简介   时间和日期配置功能
@@ -661,7 +654,6 @@ void RTC_BypassShadowCmd(FunctionalState NewState) {
  [..] 本节提供的功能允许对RTC日历(时间和日期)进行编程和读取。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -963,9 +955,6 @@ void RTC_GetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct) {
     }
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Group3 报警配置功能
  *  简介   报警(报警A和报警B)配置功能
@@ -978,7 +967,6 @@ void RTC_GetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct) {
  [..] 本节提供允许编程和读取RTC警报的功能。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1317,9 +1305,6 @@ uint32_t RTC_GetAlarmSubSecond(uint32_t RTC_Alarm) {
     return (tmpreg);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Group4 唤醒定时器配置功能
  *  简介   唤醒定时器配置功能
@@ -1332,7 +1317,6 @@ uint32_t RTC_GetAlarmSubSecond(uint32_t RTC_Alarm) {
  [..] 本节提供允许编程和读取RTC唤醒的功能。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1453,9 +1437,6 @@ ErrorStatus RTC_WakeUpCmd(FunctionalState NewState) {
     return status;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Group5 夏令时配置功能
  *  简介   夏令时配置功能
@@ -1468,7 +1449,6 @@ ErrorStatus RTC_WakeUpCmd(FunctionalState NewState) {
  [..] 本节提供了允许配置RTC夏令时的功能。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1518,9 +1498,6 @@ uint32_t RTC_GetStoreOperation(void) {
     return (RTC->CR & RTC_CR_BCK);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Group6 输出引脚配置功能
  *  简介   输出引脚配置功能
@@ -1533,7 +1510,6 @@ uint32_t RTC_GetStoreOperation(void) {
  [..] 本节提供了允许配置RTC输出源的功能。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1572,9 +1548,6 @@ void RTC_OutputConfig(uint32_t RTC_Output, uint32_t RTC_OutputPolarity) {
     RTC->WPR = 0xFF;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Group7 数字校准配置功能
  *  简介   粗校准配置功能
@@ -1585,7 +1558,6 @@ void RTC_OutputConfig(uint32_t RTC_Output, uint32_t RTC_OutputPolarity) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1795,9 +1767,6 @@ ErrorStatus RTC_SmoothCalibConfig(uint32_t RTC_SmoothCalibPeriod,
     return (ErrorStatus)(status);
 }
 
-/**
-  * @}
-  */
 
 
 /** @defgroup RTC_Group8 TimeStamp 配置功能
@@ -1809,7 +1778,6 @@ ErrorStatus RTC_SmoothCalibConfig(uint32_t RTC_SmoothCalibPeriod,
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1916,9 +1884,6 @@ uint32_t RTC_GetTimeStampSubSecond(void) {
     return (uint32_t)(RTC->TSSSR);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Group9 篡改配置功能
  *  简介   篡改配置功能
@@ -1929,7 +1894,6 @@ uint32_t RTC_GetTimeStampSubSecond(void) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2103,9 +2067,6 @@ void RTC_TamperPullUpCmd(FunctionalState NewState) {
     }
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Group10 备份数据寄存器配置功能
  *  简介   备份数据寄存器配置功能
@@ -2116,7 +2077,6 @@ void RTC_TamperPullUpCmd(FunctionalState NewState) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2163,9 +2123,6 @@ uint32_t RTC_ReadBackupRegister(uint32_t RTC_BKP_DR) {
     return (*(__IO uint32_t *)tmp);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Group11 RTC防篡改和时间戳引脚选择和输出类型配置功能
  *  简介   RTC防篡改和时间戳引脚选择和输出类型配置功能
@@ -2176,7 +2133,6 @@ uint32_t RTC_ReadBackupRegister(uint32_t RTC_BKP_DR) {
  ==================================================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2233,9 +2189,6 @@ void RTC_OutputTypeConfig(uint32_t RTC_OutputType) {
     RTC->TAFCR |= (uint32_t)(RTC_OutputType);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Group12 移位控制同步功能
  *  简介   移位控制同步功能
@@ -2246,7 +2199,6 @@ void RTC_OutputTypeConfig(uint32_t RTC_OutputType) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2309,9 +2261,6 @@ ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSu
     return (ErrorStatus)(status);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup RTC_Group13 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -2323,35 +2272,34 @@ ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSu
  [..] 所有的RTC中断都连接到EXTI控制器。
 
    (+) 要启用RTC报警中断，需要按以下顺序进行。
-       (++) 使用EXTI_Init()函数配置并启用中断模式下的EXTI 17号线，并选择上升沿灵敏度。
-       (++) 使用NVIC_Init()函数配置并启用NVIC中的RTC_Alarm IRQ通道。
-       (++) 使用RTC_SetAlarm()和RTC_AlarmCmd()函数配置RTC以产生RTC报警(报警A和/或报警B)。
+       (++) 使用EXTI_Init() 函数配置并启用中断模式下的EXTI 17号线，并选择上升沿灵敏度。
+       (++) 使用NVIC_Init() 函数配置并启用NVIC中的RTC_Alarm IRQ通道。
+       (++) 使用RTC_SetAlarm()和RTC_AlarmCmd() 函数配置RTC以产生RTC报警(报警A和/或报警B)。
 
    (+) 要启用RTC唤醒中断，需要按以下顺序进行。
-       (++) 在中断模式下配置和启用EXTI 22号线，并使用EXTI_Init()函数
-            选择上升沿灵敏度。使用EXTI_Init()函数选择上升沿灵敏度。
-       (++) 使用NVIC_Init()函数配置并启用NVIC中的RTC_WKUP IRQ通道。
-            NVIC_Init()函数配置并启用RTC_WKUP IRQ通道。
+       (++) 在中断模式下配置和启用EXTI 22号线，并使用EXTI_Init() 函数
+            选择上升沿灵敏度。使用EXTI_Init() 函数选择上升沿灵敏度。
+       (++) 使用NVIC_Init() 函数配置并启用NVIC中的RTC_WKUP IRQ通道。
+            NVIC_Init() 函数配置并启用RTC_WKUP IRQ通道。
        (++) 配置RTC，使其产生RTC唤醒定时器事件，使用 RTC_WakeUpClockConfig(),
             RTC_SetWakeUpCounter()和RTC_WakeUpCmd() 函数。
 
    (+) 要启用RTC Tamper中断，需要按以下顺序进行。
-       (++) 配置并启用中断模式下的EXTI 21号线，并使用EXTI_Init()函数
-            选择上升沿灵敏度。使用EXTI_Init()函数选择上升沿灵敏度。
-       (++) 使用NVIC_Init()函数配置并启用NVIC中的TAMP_STAMP IRQ通道。
-            NVIC_Init()函数配置并启用NVIC的TAMP_STAMP IRQ通道。
+       (++) 配置并启用中断模式下的EXTI 21号线，并使用EXTI_Init() 函数
+            选择上升沿灵敏度。使用EXTI_Init() 函数选择上升沿灵敏度。
+       (++) 使用NVIC_Init() 函数配置并启用NVIC中的TAMP_STAMP IRQ通道。
+            NVIC_Init() 函数配置并启用NVIC的TAMP_STAMP IRQ通道。
        (++) 配置RTC，以检测RTC篡改事件，使用 RTC_TamperTriggerConfig()和
-            RTC_TamperCmd()函数配置RTC以检测RTC篡改事件。
+            RTC_TamperCmd() 函数配置RTC以检测RTC篡改事件。
 
    (+) 要启用RTC时间戳中断，需要按以下顺序进行。
-       (++) 配置并启用中断模式下的EXTI 21号线，并使用EXTI_Init()函数
-            选择上升沿灵敏度。使用EXTI_Init()函数选择上升沿灵敏度。
-       (++) 使用NVIC_Init()函数配置并启用NVIC中的TAMP_STAMP IRQ通道。NVIC_Init()函数
+       (++) 配置并启用中断模式下的EXTI 21号线，并使用EXTI_Init() 函数
+            选择上升沿灵敏度。使用EXTI_Init() 函数选择上升沿灵敏度。
+       (++) 使用NVIC_Init() 函数配置并启用NVIC中的TAMP_STAMP IRQ通道。NVIC_Init() 函数
             配置并启用NVIC的TAMP_STAMP IRQ通道。
-       (++) 配置RTC，以检测RTC时间戳事件，使用 RTC_TimeStampCmd()函数检测RTC时间戳事件。
+       (++) 配置RTC，以检测RTC时间戳事件，使用 RTC_TimeStampCmd() 函数检测RTC时间戳事件。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2529,9 +2477,6 @@ void RTC_ClearITPendingBit(uint32_t RTC_IT) {
     RTC->ISR = (uint32_t)((uint32_t)(~((tmpreg | RTC_ISR_INIT) & 0x0000FFFF) | (uint32_t)(RTC->ISR & RTC_ISR_INIT)));
 }
 
-/**
-  * @}
-  */
 
 /**
   * 简介:  将一个2位数的小数转换为BCD格式。
@@ -2563,17 +2508,4 @@ static uint8_t RTC_Bcd2ToByte(uint8_t Value) {
     tmp = ((uint8_t)(Value & (uint8_t)0xF0) >> (uint8_t)0x4) * 10;
     return (tmp + (Value & (uint8_t)0x0F));
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

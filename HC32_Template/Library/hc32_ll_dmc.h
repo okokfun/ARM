@@ -38,17 +38,14 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_EXMC
- * @{
  */
 
 /**
  * @addtogroup LL_DMC
- * @{
  */
 
 #if (LL_DMC_ENABLE == DDL_ON)
@@ -58,7 +55,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup EXMC_DMC_Global_Types EXMC_DMC Global Types
- * @{
  */
 
 /**
@@ -137,115 +133,87 @@ typedef struct {
     } stcTimingConfig;
 } stc_exmc_dmc_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup EXMC_DMC_Global_Macros EXMC_DMC Global Macros
- * @{
  */
 
 /**
  * @defgroup EXMC_DMC_Memory_Width EXMC_DMC Memory Width
- * @{
  */
 #define EXMC_DMC_MEMORY_WIDTH_16BIT         (0UL)
 #define EXMC_DMC_MEMORY_WIDTH_32BIT         (DMC_BACR_DMCMW_0)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Chip EXMC_DMC Chip
- * @{
  */
 #define EXMC_DMC_CHIP0                      (0UL)     /*!< Chip 0 */
 #define EXMC_DMC_CHIP1                      (1UL)     /*!< Chip 1 */
 #define EXMC_DMC_CHIP2                      (2UL)     /*!< Chip 2 */
 #define EXMC_DMC_CHIP3                      (3UL)     /*!< Chip 3 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Bank EXMC_DMC Bank
- * @{
  */
 #define EXMC_DMC_BANK0                      (0UL)     /*!< Bank 0 */
 #define EXMC_DMC_BANK1                      (1UL)     /*!< Bank 1 */
 #define EXMC_DMC_BANK2                      (2UL)     /*!< Bank 2 */
 #define EXMC_DMC_BANK3                      (3UL)     /*!< Bank 3 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Current_Status EXMC_DMC Current Status
- * @{
  */
 #define EXMC_DMC_CURR_STATUS_CONFIG         (0UL)
 #define EXMC_DMC_CURR_STATUS_RDY            (DMC_STSR_STATUS_0)
 #define EXMC_DMC_CURR_STATUS_PAUSED         (DMC_STSR_STATUS_1)
 #define EXMC_DMC_CURR_STATUS_LOWPOWER       (DMC_STSR_STATUS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Control_State EXMC_DMC Control State
- * @{
  */
 #define EXMC_DMC_CTRL_STATE_GO              (0UL)
 #define EXMC_DMC_CTRL_STATE_SLEEP           (1UL)
 #define EXMC_DMC_CTRL_STATE_WAKEUP          (2UL)
 #define EXMC_DMC_CTRL_STATE_PAUSE           (3UL)
 #define EXMC_DMC_CTRL_STATE_CONFIG          (4UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Command EXMC_DMC Command
- * @{
  */
 #define EXMC_DMC_CMD_PRECHARGE_ALL          (0UL)               /*!< Precharge all */
 #define EXMC_DMC_CMD_AUTO_REFRESH           (DMC_CMDR_CMD_0)    /*!< Auto refresh */
 #define EXMC_DMC_CMD_MDREG_CONFIG           (DMC_CMDR_CMD_1)    /*!< Set memory device mode register */
 #define EXMC_DMC_CMD_NOP                    (DMC_CMDR_CMD)      /*!< NOP */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Address_Decode_Mode EXMC_DMC Address Decode Mode
- * @{
  */
 #define EXMC_DMC_CS_DECODE_ROWBANKCOL       (0UL)           /*!< Row -> Bank -> Column */
 #define EXMC_DMC_CS_DECODE_BANKROWCOL       (DMC_CSCR_BRC)  /*!< Bank -> Row -> Column */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Column_Bits_Number EXMC_DMC Column Bits Number
- * @{
  */
 #define EXMC_DMC_COLUMN_BITS_NUM8           (0UL)
 #define EXMC_DMC_COLUMN_BITS_NUM9           (1UL << DMC_CPCR_COLBS_POS)
 #define EXMC_DMC_COLUMN_BITS_NUM10          (2UL << DMC_CPCR_COLBS_POS)
 #define EXMC_DMC_COLUMN_BITS_NUM11          (3UL << DMC_CPCR_COLBS_POS)
 #define EXMC_DMC_COLUMN_BITS_NUM12          (4UL << DMC_CPCR_COLBS_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Row_Bits_Number EXMC_DMC Row Bits Number
- * @{
  */
 #define EXMC_DMC_ROW_BITS_NUM11             (0UL)
 #define EXMC_DMC_ROW_BITS_NUM12             (1UL << DMC_CPCR_ROWBS_POS)
@@ -253,101 +221,73 @@ typedef struct {
 #define EXMC_DMC_ROW_BITS_NUM14             (3UL << DMC_CPCR_ROWBS_POS)
 #define EXMC_DMC_ROW_BITS_NUM15             (4UL << DMC_CPCR_ROWBS_POS)
 #define EXMC_DMC_ROW_BITS_NUM16             (5UL << DMC_CPCR_ROWBS_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Auto_Precharge_Pin EXMC_DMC Auto Pre-charge Pin
- * @{
  */
 #define EXMC_DMC_AUTO_PRECHARGE_A8          (DMC_CPCR_APBS)
 #define EXMC_DMC_AUTO_PRECHARGE_A10         (0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_CKE_Output_Selection EXMC_DMC CKE Output Selection
- * @{
  */
 #define EXMC_DMC_CKE_OUTPUT_ENABLE          (0UL)
 #define EXMC_DMC_CKE_OUTPUT_DISABLE         (DMC_CPCR_CKEDIS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Clock_Selection EXMC_DMC Clock Selection
- * @{
  */
 #define EXMC_DMC_CLK_NORMAL_OUTPUT          (0UL)
 #define EXMC_DMC_CLK_NOP_STOP_OUTPUT        (DMC_CPCR_CKSTOP)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Memory_Burst EXMC_DMC Memory Burst
- * @{
  */
 #define EXMC_DMC_BURST_1BEAT                (0UL)
 #define EXMC_DMC_BURST_2BEAT                (1UL << DMC_CPCR_BURST_POS)
 #define EXMC_DMC_BURST_4BEAT                (2UL << DMC_CPCR_BURST_POS)
 #define EXMC_DMC_BURST_8BEAT                (3UL << DMC_CPCR_BURST_POS)
 #define EXMC_DMC_BURST_16BEAT               (4UL << DMC_CPCR_BURST_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Auto_Refresh_Chips EXMC_DMC Auto Refresh
- * @{
  */
 #define EXMC_DMC_AUTO_REFRESH_1CHIP         (0UL)
 #define EXMC_DMC_AUTO_REFRESH_2CHIPS        (DMC_CPCR_ACTCP_0)
 #define EXMC_DMC_AUTO_REFRESH_3CHIPS        (DMC_CPCR_ACTCP_1)
 #define EXMC_DMC_AUTO_REFRESH_4CHIPS        (DMC_CPCR_ACTCP)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Mask_Address EXMC_DMC Mask Address
- * @{
  */
 #define EXMC_DMC_ADDR_MASK_16MB             (0xFFUL)
 #define EXMC_DMC_ADDR_MASK_32MB             (0xFEUL)
 #define EXMC_DMC_ADDR_MASK_64MB             (0xFCUL)
 #define EXMC_DMC_ADDR_MASK_128MB            (0xF8UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Address_Space EXMC_DMC Address Space
- * @{
  */
 #define EXMC_DMC_ADDR_MIN                   (0x80000000UL)
 #define EXMC_DMC_ADDR_MAX                   (0x87FFFFFFUL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Sample_Clock EXMC_DMC Sample Clock
- * @{
  */
 #define EXMC_DMC_SAMPLE_CLK_INTERNCLK       (0UL)
 #define EXMC_DMC_SAMPLE_CLK_INTERNCLK_INVT  (DMC_BACR_CKSEL_0)
 #define EXMC_DMC_SAMPLE_CLK_EXTCLK          (DMC_BACR_CKSEL_1)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -358,7 +298,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup EXMC_DMC_Global_Functions
- * @{
  */
 
 /**
@@ -387,23 +326,15 @@ uint32_t EXMC_DMC_GetChipStartAddr(uint32_t u32Chip);
 uint32_t EXMC_DMC_GetChipEndAddr(uint32_t u32Chip);
 void EXMC_DMC_SetCommand(uint32_t u32Chip, uint32_t u32Bank, uint32_t u32Cmd, uint32_t u32Addr);
 
-/**
- * @}
- */
+
 
 #endif /* LL_DMC_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
+
 
 #ifdef __cplusplus
 }

@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_Global
- * @{
  */
 
 /*******************************************************************************
@@ -55,12 +53,10 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup LL_Global_Macros LL Global Macros
- * @{
  */
 
 /**
  * @defgroup Peripheral_Register_WP_Global_Macros Peripheral Register Write Protection Global Macros
- * @{
  */
 #define LL_PERIPH_EFM           (1UL << 0U)
 #define LL_PERIPH_FCG           (1UL << 1U)
@@ -72,9 +68,7 @@ extern "C"
 #define LL_PERIPH_SRAM          (1UL << 7U)
 #define LL_PERIPH_ALL           (LL_PERIPH_EFM | LL_PERIPH_FCG | LL_PERIPH_GPIO | LL_PERIPH_INTC  | \
                                  LL_PERIPH_LVD | LL_PERIPH_MPU | LL_PERIPH_SRAM | LL_PERIPH_PWC_CLK_RMU)
-/**
- * @}
- */
+
 
 /* Defined use Device Driver Library */
 #if !defined (USE_DDL_DRIVER)
@@ -96,13 +90,9 @@ extern "C"
 #define HC32_DDL_REV_PATCH              0x00U  /*!< [7:0]   patch version */
 #define HC32_DDL_REV                    ((HC32_DDL_REV_MAIN << 24) | (HC32_DDL_REV_SUB1 << 16) | \
         (HC32_DDL_REV_SUB2 << 8 ) | (HC32_DDL_REV_PATCH))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /* Use Device Driver Library */
 #if defined (USE_DDL_DRIVER)
@@ -329,21 +319,14 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup LL_Global_Functions
- * @{
  */
 void LL_PERIPH_WE(uint32_t u32Peripheral);
 void LL_PERIPH_WP(uint32_t u32Peripheral);
-/**
- * @}
- */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
+
 
 #ifdef __cplusplus
 }

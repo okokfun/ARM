@@ -15,7 +15,7 @@
  ===============================================================================
     [..]
         (#) 使用
-            RCC_APB2PeriphResetCmd(RCC_APB2Periph_LTDC, ENABLE)函数启用LTDC时钟。
+            RCC_APB2PeriphResetCmd(RCC_APB2Periph_LTDC, ENABLE) 函数启用LTDC时钟。
 
         (#) 配置LTDC
           (++) 按照面板数据手册配置所需的Pixel时钟
@@ -69,12 +69,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup LTDC
   * 简介: LTDC 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,7 +86,6 @@
 
 
 /** @defgroup LTDC_Private_Functions
-  * @{
   */
 
 /** @defgroup LTDC_Group1 初始化和配置函数
@@ -108,7 +105,6 @@
         (+) 配置并启用或禁用CLUT
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -116,7 +112,6 @@
   * 参数:  无
   * 返回值: 无
   */
-
 void LTDC_DeInit(void) {
     /* 使能LTDC 复位状态 */
     RCC_APB2PeriphResetCmd(RCC_APB2Periph_LTDC, ENABLE);
@@ -131,7 +126,6 @@ void LTDC_DeInit(void) {
   *                         该结构包含指定 LTDC 外设的配置信息。
   * 返回值: 无
   */
-
 void LTDC_Init(LTDC_InitTypeDef* LTDC_InitStruct) {
     uint32_t horizontalsync = 0;
     uint32_t accumulatedHBP = 0;
@@ -219,7 +213,6 @@ void LTDC_StructInit(LTDC_InitTypeDef* LTDC_InitStruct) {
   *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
-
 void LTDC_Cmd(FunctionalState NewState) {
     /* 检查参数 */
     assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -239,7 +232,6 @@ void LTDC_Cmd(FunctionalState NewState) {
   *   此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
-
 void LTDC_DitherCmd(FunctionalState NewState) {
     /* 检查参数 */
     assert_param(IS_FUNCTIONAL_STATE(NewState));
@@ -276,7 +268,6 @@ LTDC_RGBTypeDef LTDC_GetRGBWidth(void) {
   * 参数:  LTDC_RGB_InitStruct: 指向LTDC_RGBTypeDef结构的指针，该结构将被初始化。
   * 返回值: 无
   */
-
 void LTDC_RGBStructInit(LTDC_RGBTypeDef* LTDC_RGB_InitStruct) {
     LTDC_RGB_InitStruct->LTDC_BlueWidth = 0x02;
     LTDC_RGB_InitStruct->LTDC_GreenWidth = 0x02;
@@ -289,7 +280,6 @@ void LTDC_RGBStructInit(LTDC_RGBTypeDef* LTDC_RGB_InitStruct) {
   * 参数:  LTDC_LIPositionConfig: 线路中断位置。
   * 返回值: 无
   */
-
 void LTDC_LIPConfig(uint32_t LTDC_LIPositionConfig) {
     /* 检查参数 */
     assert_param(IS_LTDC_LIPOS(LTDC_LIPositionConfig));
@@ -306,7 +296,6 @@ void LTDC_LIPConfig(uint32_t LTDC_LIPositionConfig) {
   *     @arg LTDC_VBReload: 立即重新加载。
   * 返回值: 无
   */
-
 void LTDC_ReloadConfig(uint32_t LTDC_Reload) {
     /* 检查参数 */
     assert_param(IS_LTDC_RELOAD(LTDC_Reload));
@@ -808,9 +797,6 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
 
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_Group2 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -841,7 +827,6 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
       (+) LTDC_IT_RR:当在垂直消隐期间执行影子寄存器重新加载时，产生寄存器重新加载中断。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -959,20 +944,4 @@ void LTDC_ClearITPendingBit(uint32_t LTDC_IT) {
     /* 清除相应的 LTDC 中断 */
     LTDC->ICR = (uint32_t)LTDC_IT;
 }
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

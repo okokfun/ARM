@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_RTC
- * @{
  */
 
 #if (LL_RTC_ENABLE == DDL_ON)
@@ -53,7 +51,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup RTC_Global_Types RTC Global Types
- * @{
  */
 
 /**
@@ -143,61 +140,45 @@ typedef struct {
                                              这个参数必须是其中间值 Min_Data = 1 and Max_Data = 31 */
 } stc_rtc_timestamp_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup RTC_Global_Macros RTC Global Macros
- * @{
  */
 
 /**
  * @defgroup RTC_Data_Format RTC Data Format
- * @{
  */
 #define RTC_DATA_FMT_DEC                        (0x00U)     /*!< Decimal data format */
 #define RTC_DATA_FMT_BCD                        (0x01U)     /*!< BCD data format     */
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Decimal_BCD_Conversion RTC Decimal BCD Conversion
- * @{
  */
 #define RTC_DEC2BCD(__DATA__)                   ((((__DATA__) / 10U) << 4U) + ((__DATA__) % 10U))
 #define RTC_BCD2DEC(__DATA__)                   ((((__DATA__) >> 4U) * 10U) + ((__DATA__) & 0x0FU))
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Clock_Source RTC Clock Source
- * @{
  */
 #define RTC_CLK_SRC_XTAL32                      (0U)                              /*!< XTAL32 Clock   */
 #define RTC_CLK_SRC_LRC                         (RTC_CR3_RCKSEL | RTC_CR3_LRCEN)  /*!< RTC LRC Clock  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Hour_Format RTC Hour Format
- * @{
  */
 #define RTC_HOUR_FMT_12H                        (0U)                /*!< 12 hour time system */
 #define RTC_HOUR_FMT_24H                        (RTC_CR1_AMPM)      /*!< 24 hour time system */
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Interrupt_Period RTC Interrupt Period
- * @{
  */
 #define RTC_INT_PERIOD_INVD                     (0U)                          /*!< Interrupt period invalid         */
 #define RTC_INT_PERIOD_PER_HALF_SEC             (0x01U << RTC_CR1_PRDS_POS)   /*!< Interrupt period per half second */
@@ -206,44 +187,32 @@ typedef struct {
 #define RTC_INT_PERIOD_PER_HOUR                 (0x04U << RTC_CR1_PRDS_POS)   /*!< Interrupt period per hour        */
 #define RTC_INT_PERIOD_PER_DAY                  (0x05U << RTC_CR1_PRDS_POS)   /*!< Interrupt period per day         */
 #define RTC_INT_PERIOD_PER_MONTH                (0x06U << RTC_CR1_PRDS_POS)   /*!< Interrupt period per month       */
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Clock_Compensation RTC Clock Compensation
- * @{
  */
 #define RTC_CLK_COMPEN_DISABLE                  (0U)
 #define RTC_CLK_COMPEN_ENABLE                   (RTC_ERRCRH_COMPEN)
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Clock_Compensation_Mode RTC Clock Compensation Mode
- * @{
  */
 #define RTC_CLK_COMPEN_MD_DISTRIBUTED           (0U)                    /*!< Distributed compensation 1Hz output */
 #define RTC_CLK_COMPEN_MD_UNIFORM               (RTC_CR1_ONEHZSEL)      /*!< Uniform compensation 1Hz output     */
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Hour12_AM_PM RTC Hour12 AM/PM
- * @{
  */
 #define RTC_HOUR_24H                            (0U)                /*!< 24-hour format */
 #define RTC_HOUR_12H_AM                         (0U)                /*!< AM in 12-hour  */
 #define RTC_HOUR_12H_PM                         (RTC_HOUR_HOURD_1)  /*!< PM in 12-hour  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Month RTC Month
- * @{
  */
 #define RTC_MONTH_JANUARY                       (0x01U)
 #define RTC_MONTH_FEBRUARY                      (0x02U)
@@ -257,13 +226,10 @@ typedef struct {
 #define RTC_MONTH_OCTOBER                       (0x0AU)
 #define RTC_MONTH_NOVEMBER                      (0x0BU)
 #define RTC_MONTH_DECEMBER                      (0x0CU)
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Weekday RTC Weekday
- * @{
  */
 #define RTC_WEEKDAY_SUNDAY                      (0x00U)
 #define RTC_WEEKDAY_MONDAY                      (0x01U)
@@ -272,13 +238,10 @@ typedef struct {
 #define RTC_WEEKDAY_THURSDAY                    (0x04U)
 #define RTC_WEEKDAY_FRIDAY                      (0x05U)
 #define RTC_WEEKDAY_SATURDAY                    (0x06U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Alarm_Weekday RTC Alarm Weekday
- * @{
  */
 #define RTC_ALARM_WEEKDAY_SUNDAY                (0x01U)
 #define RTC_ALARM_WEEKDAY_MONDAY                (0x02U)
@@ -288,66 +251,48 @@ typedef struct {
 #define RTC_ALARM_WEEKDAY_FRIDAY                (0x20U)
 #define RTC_ALARM_WEEKDAY_SATURDAY              (0x40U)
 #define RTC_ALARM_WEEKDAY_EVERYDAY              (0x7FU)
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Intrusion_Channel RTC Intrustion Channel
- * @{
  */
 #define RTC_INTRU_CH0                           (0x00U)
 #define RTC_INTRU_CH1                           (0x04U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Intrusion_Timestamp RTC Intrustion Timestamp
- * @{
  */
 #define RTC_INTRU_TS_DISABLE                    (0U)
 #define RTC_INTRU_TS_ENABLE                     (RTC_TPCR0_TSTPE0)
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Intrusion_Reset_Backup_Register RTC Intrusion Reset Backup Register
- * @{
  */
 #define RTC_INTRU_RST_BACKUP_REG_DISABLE        (0U)
 #define RTC_INTRU_RST_BACKUP_REG_ENABLE         (RTC_TPCR0_TPRSTE0)
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Intrusion_Filter RTC Intrusion Filter
- * @{
  */
 #define RTC_INTRU_FILTER_INVD                   (0U)                 /*!< Invalid filter function                                                                           */
 #define RTC_INTRU_FILTER_THREE_TIME             (RTC_TPCR0_TPNF0_1)  /*!< The filter detection is consistent with the timing clock for 3 times                              */
 #define RTC_INTRU_FILTER_THREE_TIME_CLK_DIV32   (RTC_TPCR0_TPNF0)    /*!< The filter detection is consistent with the 32 frequency division of the timing clock for 3 times */
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Intrusion_Trigger_Edge RTC Intrusion Trigger Edge
- * @{
  */
 #define RTC_INTRU_TRIG_EDGE_NONE                (0U)                 /*!< No detect                      */
 #define RTC_INTRU_TRIG_EDGE_RISING              (RTC_TPCR0_TPCT0_0)  /*!< Detect rising edge             */
 #define RTC_INTRU_TRIG_EDGE_FALLING             (RTC_TPCR0_TPCT0_1)  /*!< Detect falling edge            */
 #define RTC_INTRU_TRIG_EDGE_RISING_FALLING      (RTC_TPCR0_TPCT0)    /*!< Detect rising and falling edge */
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Flag RTC Flag
- * @{
  */
 #define RTC_FLAG_RD_WR                          (RTC_CR2_RWEN)                      /*!< Read and write permission flag */
 #define RTC_FLAG_ALARM                          (RTC_CR2_ALMF)                      /*!< Alarm flag                     */
@@ -359,26 +304,19 @@ typedef struct {
         RTC_FLAG_INTRU_OVF | RTC_FLAG_INTRU_CH0 | RTC_FLAG_INTRU_CH1)
 #define RTC_FLAG_CLR_ALL                        (RTC_FLAG_ALARM     | RTC_FLAG_PERIOD | \
         RTC_FLAG_INTRU_OVF | RTC_FLAG_INTRU_CH0 | RTC_FLAG_INTRU_CH1)
-/**
- * @}
- */
+
 
 /**
  * @defgroup RTC_Interrupt RTC Interrupt
- * @{
  */
 #define RTC_INT_PERIOD                          (RTC_CR2_PRDIE)                     /*!< Period interrupt          */
 #define RTC_INT_ALARM                           (RTC_CR2_ALMIE)                     /*!< Alarm interrupt           */
 #define RTC_INT_INTRU_CH0                       ((uint32_t)RTC_TPCR0_TPIE0 << 8U)   /*!< RTCIC0 intrusion 中断 */
 #define RTC_INT_INTRU_CH1                       ((uint32_t)RTC_TPCR1_TPIE1 << 16U)  /*!< RTCIC1 intrusion 中断 */
 #define RTC_INT_ALL                             (RTC_INT_PERIOD | RTC_INT_ALARM | RTC_INT_INTRU_CH0 | RTC_INT_INTRU_CH1)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -389,7 +327,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup RTC_Global_Functions
- * @{
  */
 
 /* Initialization and configuration functions */
@@ -433,19 +370,13 @@ void RTC_IntCmd(uint32_t u32IntType, en_functional_state_t enNewState);
 en_flag_status_t RTC_GetStatus(uint32_t u32Flag);
 void RTC_ClearStatus(uint32_t u32Flag);
 
-/**
- * @}
- */
+
 
 #endif /* LL_RTC_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

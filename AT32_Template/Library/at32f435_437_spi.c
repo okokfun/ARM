@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup SPI
   * @brief SPI driver modules
-  * @{
   */
 
 #ifdef SPI_MODULE_EnableD
 
 /** @defgroup SPI_private_functions
-  * @{
   */
 
 /**
@@ -556,16 +553,4 @@ void SPI_I2S_Flag_Clear(SPI_Type* SPI_x, uint32_t SPI_I2S_flag) {
     }
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

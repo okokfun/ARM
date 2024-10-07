@@ -39,12 +39,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_EMB
- * @{
  */
 
 #if (LL_EMB_ENABLE == DDL_ON)
@@ -54,7 +52,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup EMB_Global_Types EMB Global Types
- * @{
  */
 
 /**
@@ -179,21 +176,17 @@ typedef struct {
                                              这个参数细节在 @ref stc_emb_monitor_tmr6_t structure */
 } stc_emb_tmr6_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup EMB_Global_Macros EMB Global Macros
- * @{
  */
 
 /**
  * @defgroup EMB_CMP_Selection EMB CMP Selection
- * @{
  */
 #define EMB_CMP1_DISABLE                    (0UL)
 #define EMB_CMP2_DISABLE                    (0UL)
@@ -204,27 +197,20 @@ typedef struct {
 #define EMB_CMP2_ENABLE                     (EMB_CTL1_CMPEN1)
 #define EMB_CMP3_ENABLE                     (EMB_CTL1_CMPEN2)
 #define EMB_CMP4_ENABLE                     (EMB_CTL1_CMPEN3)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_OSC_Selection EMB OSC Selection
- * @{
  */
 #define EMB_OSC_DISABLE                     (0UL)
 #define EMB_OSC_ENABLE                      (EMB_CTL1_OSCSTPEN)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_Detect_PWM EMB Detect PWM
- * @{
  */
 /**
  * @defgroup EMB_TMR4_PWM_Selection EMB TMR4 PWM Selection
- * @{
  */
 #define EMB_TMR4_PWM_W_DISABLE              (0UL)
 #define EMB_TMR4_PWM_V_DISABLE              (0UL)
@@ -233,13 +219,10 @@ typedef struct {
 #define EMB_TMR4_PWM_W_ENABLE               (EMB_CTL1_PWMSEN0)
 #define EMB_TMR4_PWM_V_ENABLE               (EMB_CTL1_PWMSEN1)
 #define EMB_TMR4_PWM_U_ENABLE               (EMB_CTL1_PWMSEN2)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_Detect_TMR4_PWM_Level EMB Detect TMR4 PWM Level
- * @{
  */
 #define EMB_DETECT_TMR4_PWM_W_BOTH_LOW      (0UL)
 #define EMB_DETECT_TMR4_PWM_V_BOTH_LOW      (0UL)
@@ -248,13 +231,10 @@ typedef struct {
 #define EMB_DETECT_TMR4_PWM_W_BOTH_HIGH     (EMB_CTL2_PWMLV0)
 #define EMB_DETECT_TMR4_PWM_V_BOTH_HIGH     (EMB_CTL2_PWMLV1)
 #define EMB_DETECT_TMR4_PWM_U_BOTH_HIGH     (EMB_CTL2_PWMLV2)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_TMR6_PWM_Selection EMB TMR6 PWM Selection
- * @{
  */
 #define EMB_TMR6_1_PWM_DISABLE              (0UL)
 #define EMB_TMR6_2_PWM_DISABLE              (0UL)
@@ -273,13 +253,10 @@ typedef struct {
 #define EMB_TMR6_6_PWM_ENABLE               (EMB_CTL1_PWMSEN5)
 #define EMB_TMR6_7_PWM_ENABLE               (EMB_CTL1_PWMSEN6)
 #define EMB_TMR6_8_PWM_ENABLE               (EMB_CTL1_PWMSEN7)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_Detect_TMR6_PWM_Level EMB Detect TMR6 PWM Level
- * @{
  */
 #define EMB_DETECT_TMR6_1_PWM_BOTH_LOW      (0UL)
 #define EMB_DETECT_TMR6_2_PWM_BOTH_LOW      (0UL)
@@ -298,17 +275,12 @@ typedef struct {
 #define EMB_DETECT_TMR6_6_PWM_BOTH_HIGH     (EMB_CTL2_PWMLV5)
 #define EMB_DETECT_TMR6_7_PWM_BOTH_HIGH     (EMB_CTL2_PWMLV6)
 #define EMB_DETECT_TMR6_8_PWM_BOTH_HIGH     (EMB_CTL2_PWMLV7)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /**
  * @defgroup EMB_Port_Selection EMB Port Selection
- * @{
  */
 #define EMB_PORT1_DISABLE                   (0UL)
 #define EMB_PORT2_DISABLE                   (0UL)
@@ -319,13 +291,10 @@ typedef struct {
 #define EMB_PORT2_ENABLE                    (EMB_CTL1_PORTINEN2)
 #define EMB_PORT3_ENABLE                    (EMB_CTL1_PORTINEN3)
 #define EMB_PORT4_ENABLE                    (EMB_CTL1_PORTINEN4)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_Detect_Port_Level EMB Detect Port Level
- * @{
  */
 #define EMB_PORT1_DETECT_LVL_HIGH           (0UL)
 #define EMB_PORT2_DETECT_LVL_HIGH           (0UL)
@@ -336,13 +305,10 @@ typedef struct {
 #define EMB_PORT2_DETECT_LVL_LOW            (EMB_CTL1_INVSEL2)
 #define EMB_PORT3_DETECT_LVL_LOW            (EMB_CTL1_INVSEL3)
 #define EMB_PORT4_DETECT_LVL_LOW            (EMB_CTL1_INVSEL4)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_Port_Filter_Selection EMB Port Filter Selection
- * @{
  */
 #define EMB_PORT1_FILTER_DISABLE            (0UL)
 #define EMB_PORT2_FILTER_DISABLE            (0UL)
@@ -353,13 +319,10 @@ typedef struct {
 #define EMB_PORT2_FILTER_ENABLE             (EMB_CTL2_NFEN2)
 #define EMB_PORT3_FILTER_ENABLE             (EMB_CTL2_NFEN3)
 #define EMB_PORT4_FILTER_ENABLE             (EMB_CTL2_NFEN4)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_Port_Filter_Clock_Division EMB Port Filter Clock Division
- * @{
  */
 #define EMB_PORT1_FILTER_CLK_DIV1           (0UL << EMB_CTL2_NFSEL1_POS)
 #define EMB_PORT1_FILTER_CLK_DIV8           (1UL << EMB_CTL2_NFSEL1_POS)
@@ -380,13 +343,10 @@ typedef struct {
 #define EMB_PORT4_FILTER_CLK_DIV8           (1UL << EMB_CTL2_NFSEL4_POS)
 #define EMB_PORT4_FILTER_CLK_DIV32          (2UL << EMB_CTL2_NFSEL4_POS)
 #define EMB_PORT4_FILTER_CLK_DIV128         (3UL << EMB_CTL2_NFSEL4_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_Flag_State EMB Flag State
- * @{
  */
 #define EMB_FLAG_PWMS                       (EMB_STAT_PWMSF)
 #define EMB_FLAG_CMP                        (EMB_STAT_CMPF)
@@ -406,13 +366,10 @@ typedef struct {
         EMB_FLAG_PORT2 | EMB_FLAG_PORT3 | EMB_FLAG_PORT4 | EMB_STAT_PWMS  | \
         EMB_STAT_CMP   | EMB_STAT_OSC   | EMB_STAT_PORT1 | EMB_STAT_PORT2 | \
         EMB_STAT_PORT3 | EMB_STAT_PORT4)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_Interrupt EMB Interrupt
- * @{
  */
 #define EMB_INT_PWMS                        (EMB_INTEN_PWMSINTEN)
 #define EMB_INT_CMP                         (EMB_INTEN_CMPINTEN)
@@ -423,23 +380,17 @@ typedef struct {
 #define EMB_INT_PORT4                       (EMB_INTEN_PORTINTEN4)
 #define EMB_INT_ALL                         (EMB_INT_PWMS  | EMB_INT_CMP   | EMB_INT_OSC   | \
         EMB_INT_PORT1 | EMB_INT_PORT2 | EMB_INT_PORT3 | EMB_INT_PORT4)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_Release_TMR_PWM_Condition EMB Release TMR PWM Condition
- * @{
  */
 #define EMB_RELEASE_PWM_COND_FLAG_ZERO      (0UL)
 #define EMB_RELEASE_PWM_COND_STAT_ZERO      (1UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EMB_Monitor_Event EMB Monitor Event
- * @{
  */
 #define EMB_EVT_PWMS                        (EMB_RLSSEL_PWMRSEL)
 #define EMB_EVT_CMP                         (EMB_RLSSEL_CMPRSEL)
@@ -448,13 +399,9 @@ typedef struct {
 #define EMB_EVT_PORT2                       (EMB_RLSSEL_PORTINRSEL2)
 #define EMB_EVT_PORT3                       (EMB_RLSSEL_PORTINRSEL3)
 #define EMB_EVT_PORT4                       (EMB_RLSSEL_PORTINRSEL4)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -465,7 +412,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup EMB_Global_Functions
- * @{
  */
 int32_t EMB_TMR4_StructInit(stc_emb_tmr4_init_t *pstcEmbInit);
 int32_t EMB_TMR4_Init(CM_EMB_TypeDef *EMBx, const stc_emb_tmr4_init_t *pstcEmbInit);
@@ -481,19 +427,13 @@ void EMB_SWBrake(CM_EMB_TypeDef *EMBx, en_functional_state_t enNewState);
 
 void EMB_SetReleasePwmCond(CM_EMB_TypeDef *EMBx, uint32_t u32Event, uint32_t u32Cond);
 
-/**
- * @}
- */
+
 
 #endif /* LL_EMB_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

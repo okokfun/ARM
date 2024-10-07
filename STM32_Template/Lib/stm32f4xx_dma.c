@@ -107,12 +107,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup DMA
   * 简介: DMA 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -144,7 +142,6 @@
 
 
 /** @defgroup DMA_Private_Functions
-  * @{
   */
 
 /** @defgroup DMA_Group1 初始化和配置函数
@@ -158,11 +155,10 @@
     本小节提供了允许初始化DMA流源地址和目标地址、增量和数据大小、传输方向、缓冲区大小、
     循环/正常模式选择、内存到内存模式选择和流优先级值的函数。
     [..]
-    DMA_Init()函数遵循参考手册(RM0090)中描述的DMA配置程序，但第一点除外:等待EN位复位。
-    在调用DMA_Init()函数之前，用户应用程序应使用函数DMA_GetCmdStatus()检查此条件。
+    DMA_Init() 函数遵循参考手册(RM0090)中描述的DMA配置程序，但第一点除外:等待EN位复位。
+    在调用 DMA_Init() 函数之前，用户应用程序应使用函数DMA_GetCmdStatus() 检查此条件。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -179,73 +175,73 @@ void DMA_DeInit(DMA_Stream_TypeDef* DMAy_Streamx) {
     /* 禁用被选中的 DMAy Streamx */
     DMAy_Streamx->CR &= ~((uint32_t)DMA_SxCR_EN);
 
-    /* Reset DMAy Streamx control 寄存器 */
+    /* 重置 DMAy Streamx control 寄存器 */
     DMAy_Streamx->CR  = 0;
 
-    /* Reset DMAy Streamx Number of Data to Transfer 寄存器 */
+    /* 重置 DMAy Streamx Number of Data to Transfer 寄存器 */
     DMAy_Streamx->NDTR = 0;
 
-    /* Reset DMAy Streamx peripheral address 寄存器 */
+    /* 重置 DMAy Streamx peripheral address 寄存器 */
     DMAy_Streamx->PAR  = 0;
 
-    /* Reset DMAy Streamx memory 0 address 寄存器 */
+    /* 重置 DMAy Streamx memory 0 address 寄存器 */
     DMAy_Streamx->M0AR = 0;
 
-    /* Reset DMAy Streamx memory 1 address 寄存器 */
+    /* 重置 DMAy Streamx memory 1 address 寄存器 */
     DMAy_Streamx->M1AR = 0;
 
-    /* Reset DMAy Streamx FIFO control 寄存器 */
+    /* 重置 DMAy Streamx FIFO control 寄存器 */
     DMAy_Streamx->FCR = (uint32_t)0x00000021;
 
-    /* Reset interrupt pending bits for the selected stream */
+    /* 重置 interrupt pending bits for the selected stream */
     if (DMAy_Streamx == DMA1_Stream0) {
-        /* 重置DMA1 Stream0的中断挂起位 */
+        /* 重置 DMA1 Stream0 的中断挂起位 */
         DMA1->LIFCR = DMA_Stream0_IT_MASK;
     } else if (DMAy_Streamx == DMA1_Stream1) {
-        /* 重置DMA1 Stream1的中断挂起位 */
+        /* 重置 DMA1 Stream1 的中断挂起位 */
         DMA1->LIFCR = DMA_Stream1_IT_MASK;
     } else if (DMAy_Streamx == DMA1_Stream2) {
-        /* 重置DMA1 Stream2的中断挂起位 */
+        /* 重置 DMA1 Stream2 的中断挂起位 */
         DMA1->LIFCR = DMA_Stream2_IT_MASK;
     } else if (DMAy_Streamx == DMA1_Stream3) {
-        /* 重置DMA1 Stream3的中断挂起位 */
+        /* 重置 DMA1 Stream3 的中断挂起位 */
         DMA1->LIFCR = DMA_Stream3_IT_MASK;
     } else if (DMAy_Streamx == DMA1_Stream4) {
-        /* 重置DMA1 Stream4的中断挂起位 */
+        /* 重置 DMA1 Stream4 的中断挂起位 */
         DMA1->HIFCR = DMA_Stream4_IT_MASK;
     } else if (DMAy_Streamx == DMA1_Stream5) {
-        /* 重置DMA1 Stream5的中断挂起位 */
+        /* 重置 DMA1 Stream5 的中断挂起位 */
         DMA1->HIFCR = DMA_Stream5_IT_MASK;
     } else if (DMAy_Streamx == DMA1_Stream6) {
-        /* 重置DMA1 Stream6的中断挂起位 */
+        /* 重置 DMA1 Stream6 的中断挂起位 */
         DMA1->HIFCR = (uint32_t)DMA_Stream6_IT_MASK;
     } else if (DMAy_Streamx == DMA1_Stream7) {
-        /* 重置DMA1 Stream7的中断挂起位 */
+        /* 重置 DMA1 Stream7 的中断挂起位 */
         DMA1->HIFCR = DMA_Stream7_IT_MASK;
     } else if (DMAy_Streamx == DMA2_Stream0) {
-        /* 重置DMA2 Stream0的中断挂起位 */
+        /* 重置 DMA2 Stream0 的中断挂起位 */
         DMA2->LIFCR = DMA_Stream0_IT_MASK;
     } else if (DMAy_Streamx == DMA2_Stream1) {
-        /* 重置DMA2 Stream1的中断挂起位 */
+        /* 重置 DMA2 Stream1 的中断挂起位 */
         DMA2->LIFCR = DMA_Stream1_IT_MASK;
     } else if (DMAy_Streamx == DMA2_Stream2) {
-        /* 重置DMA2 Stream2的中断挂起位 */
+        /* 重置 DMA2 Stream2 的中断挂起位 */
         DMA2->LIFCR = DMA_Stream2_IT_MASK;
     } else if (DMAy_Streamx == DMA2_Stream3) {
-        /* 重置DMA2 Stream3的中断挂起位 */
+        /* 重置 DMA2 Stream3 的中断挂起位 */
         DMA2->LIFCR = DMA_Stream3_IT_MASK;
     } else if (DMAy_Streamx == DMA2_Stream4) {
-        /* 重置DMA2 Stream4的中断挂起位 */
+        /* 重置 DMA2 Stream4 的中断挂起位 */
         DMA2->HIFCR = DMA_Stream4_IT_MASK;
     } else if (DMAy_Streamx == DMA2_Stream5) {
-        /* 重置DMA2 Stream5的中断挂起位 */
+        /* 重置 DMA2 Stream5 的中断挂起位 */
         DMA2->HIFCR = DMA_Stream5_IT_MASK;
     } else if (DMAy_Streamx == DMA2_Stream6) {
-        /* 重置DMA2 Stream6的中断挂起位 */
+        /* 重置 DMA2 Stream6 的中断挂起位 */
         DMA2->HIFCR = DMA_Stream6_IT_MASK;
     } else {
         if (DMAy_Streamx == DMA2_Stream7) {
-            /* 重置DMA2 Stream7的中断挂起位 */
+            /* 重置 DMA2 Stream7 的中断挂起位 */
             DMA2->HIFCR = DMA_Stream7_IT_MASK;
         }
     }
@@ -254,11 +250,11 @@ void DMA_DeInit(DMA_Stream_TypeDef* DMAy_Streamx) {
 /**
   * 简介:  根据 DMA_InitStruct 结构中的指定参数初始化 DMAy Streamx。
   * 
-  * 注意:   在调用此函数之前，建议使用函数DMA_GetCmdStatus()检查Stream是否实际被禁用。
+  * 注意:   在调用此函数之前，建议使用函数 DMA_GetCmdStatus() 检查 Stream 是否实际被禁用。
   * 
-  * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择 DMAStream。
   * 
-  * 参数:  DMA_InitStruct: 指向DMA_InitTypeDef结构的指针，该结构包含指定DMA流的配置信息。
+  * 参数:  DMA_InitStruct: 指向 DMA_InitTypeDef 结构的指针，该结构包含指定 DMA 流的配置信息。
   * 
   * 返回值: 无
   */
@@ -406,9 +402,9 @@ void DMA_StructInit(DMA_InitTypeDef* DMA_InitStruct) {
   *        调用此函数以禁用流将导致传输暂停。将保留所有配置寄存器和剩余数据的数量。
   *        再次调用此函数以重新启用流时，传输将从暂停的点恢复。
   *
-  * 注意:  配置DMA流(DMA_Init()函数)并启用该流后，建议检查(或等待)
+  * 注意:  配置DMA流(DMA_Init() 函数)并启用该流后，建议检查(或等待)
   *        DMA流是否有效启用。如果配置参数错误，流可能会保持禁用状态。
-  *        禁用DMA流后，还建议检查(或等待)DMA流被有效禁用。如果流在数据传输过程中被禁用，
+  *        禁用 DMA流后，还建议检查(或等待)DMA流被有效禁用。如果流在数据传输过程中被禁用，
   *        则当前数据将被传输，只有在完成单个数据的传输后，流才会被有效禁用。
   *
   * 返回值: 无
@@ -484,9 +480,6 @@ void DMA_FlowControllerConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_Flo
         DMAy_Streamx->CR &= ~(uint32_t)DMA_SxCR_PFCTRL;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup DMA_Group2 数据计数器功能
  *  简介   数据计数器功能
@@ -511,13 +504,12 @@ void DMA_FlowControllerConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_Flo
     可以读取DMA数据计数器，以指示相对DMA流的剩余传输数。
     此计数器在每次数据传输结束时以及传输完成时递减:
       (+) 如果选择正常模式:计数器被设置为0。
-      (+) 如果选择了循环模式:计数器被重新加载初始值(在启用DMA流之前配置的)。
+      (+) 如果选择了循环模式:计数器被重新加载初始值(在启用 DMA流之前配置的)。
      [..]
      下面的函数可以用来读取Stream数据计数器的值:
        (+) uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx);
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -559,9 +551,6 @@ uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx) {
     /* DMAy Streamx的剩余数据单元数 */
     return ((uint16_t)(DMAy_Streamx->NDTR));
 }
-/**
-  * @}
-  */
 
 /** @defgroup DMA_Group3 双缓冲模式功能
  *  简介   双缓冲模式功能
@@ -588,7 +577,7 @@ uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx) {
       (+) void DMA_DoubleBufferModeCmd(DMA_Stream_TypeDef* DMAy_Streamx, FunctionalState NewState);
 
     [..]
-    调用 DMA_DoubleBufferModeConfig() 配置内存1基址和启用DMA流后开始传输的第一个内存目标。
+    调用 DMA_DoubleBufferModeConfig() 配置内存1基址和启用 DMA流后开始传输的第一个内存目标。
     然后必须调用 DMA_DoubleBufferModeCmd() 以启用双缓冲区模式(或在不应使用时禁用它)。
 
     [..]
@@ -605,7 +594,6 @@ uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx) {
         该函数返回DMA流当前使用的内存目标的索引。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -645,7 +633,7 @@ void DMA_DoubleBufferModeConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t Memor
 /**
   * 简介:  启用或禁用选定 DMA 流的双缓冲模式。
   * 
-  * 注意:   只有在禁用DMA流时才能调用此函数。
+  * 注意:   只有在禁用 DMA流时才能调用此函数。
   * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
   * 
@@ -728,9 +716,6 @@ uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx) {
 
     return tmp;
 }
-/**
-  * @}
-  */
 
 /** @defgroup DMA_Group4 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -741,14 +726,14 @@ uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx) {
  ===============================================================================
     [..]
 本小节提供了以下功能:
-(+)检查DMA启用状态
-(+)检查FIFO状态
+(+) 检查DMA启用状态
+(+) 检查FIFO状态
 (+)配置DMA中断源并检查或清除标志或挂起位状态。
 
     [..]
       (#) DMA启用状态:
-          配置DMA流(DMA_Init()函数)并启用该流后，建议检查(或等待)DMA流是否有效启用。
-          如果配置参数错误，流可能会保持禁用状态。禁用DMA流后，还建议检查(或等待)DMA流被有效禁用。
+          配置DMA流(DMA_Init() 函数)并启用该流后，建议检查(或等待)DMA流是否有效启用。
+          如果配置参数错误，流可能会保持禁用状态。禁用 DMA流后，还建议检查(或等待)DMA流被有效禁用。
           如果流在数据传输过程中被禁用，则当前数据将被传输，只有在数据传输完成后，流才会被有效禁用。
           要监视此状态，可以使用以下功能:
         (++) FunctionalState DMA_GetCmdStatus(DMA_Stream_TypeDef* DMAy_Streamx);
@@ -795,7 +780,6 @@ uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx) {
       (+) void DMA_ClearITPendingBit(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT);
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -803,9 +787,9 @@ uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx) {
   * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
   *
-  * 注意:    配置DMA流(DMA_Init()函数)并启用该流后，建议检查(或等待)
+  * 注意:    配置DMA流(DMA_Init() 函数)并启用该流后，建议检查(或等待)
   *              DMA流是否有效启用。如果配置参数错误，流可能会保持禁用状态。
-  *          禁用DMA流后，还建议检查(或等待)DMA流被有效禁用。如果流在数据
+  *          禁用 DMA流后，还建议检查(或等待)DMA流被有效禁用。如果流在数据
   *              传输过程中被禁用，则当前数据将被传输，只有在完成单个数据的传输后，
   *              流才会被有效禁用。
   *
@@ -1111,21 +1095,5 @@ void DMA_ClearITPendingBit(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT) {
         DMAy->LIFCR = (uint32_t)(DMA_IT & RESERVED_MASK);
     }
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

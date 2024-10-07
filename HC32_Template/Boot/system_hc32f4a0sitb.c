@@ -27,12 +27,10 @@
 
 /**
  * @addtogroup CMSIS
- * @{
  */
 
 /**
  * @addtogroup HC32F4A0_System
- * @{
  */
 
 /*******************************************************************************
@@ -40,7 +38,6 @@
  ******************************************************************************/
 /**
  * @defgroup HC32F4A0_System_Local_Macros HC32F4A0 System Local Macros
- * @{
  */
 #define HRC_16MHz_VALUE                 (16000000UL)  /*!< Internal high speed RC freq. */
 #define HRC_20MHz_VALUE                 (20000000UL)  /*!< Internal high speed RC freq. */
@@ -69,16 +66,13 @@
         #define __NO_INIT                       __attribute__((section(".bss.noinit"), zero_init))
     #endif /* __NO_INIT */
 #endif
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
  ******************************************************************************/
 /**
  * @addtogroup HC32F4A0_System_Global_Variable
- * @{
  */
 
 /*!< 系统时钟频率(核心时钟) */
@@ -86,9 +80,7 @@ __NO_INIT uint32_t SystemCoreClock;
 /*!< High speed RC frequency (HCR clock) */
 __NO_INIT uint32_t HRC_VALUE;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Local variable definitions ('static')
@@ -99,7 +91,6 @@ __NO_INIT uint32_t HRC_VALUE;
  ******************************************************************************/
 /**
  * @addtogroup HC32F4A0_System_Global_Functions
- * @{
  */
 
 /**
@@ -180,17 +171,11 @@ void SystemCoreClockUpdate(void) {
     }
 }
 
-/**
- * @}
- */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
+
 
 /*******************************************************************************
  * EOF (not truncated)

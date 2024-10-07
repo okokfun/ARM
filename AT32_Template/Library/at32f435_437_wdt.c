@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup WDT
   * @brief WDT driver modules
-  * @{
   */
 
 #ifdef WDT_MODULE_EnableD
 
 /** @defgroup WDT_private_functions
-  * @{
   */
 
 /**
@@ -126,16 +123,4 @@ void WDT_Window_Counter_Set(uint16_t window_cnt) {
     WDT->win_bit.win = window_cnt;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

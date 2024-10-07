@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_QSPI QSPI
  * @brief QSPI Driver Library
- * @{
  */
 
 #if (LL_QSPI_ENABLE == DDL_ON)
@@ -47,7 +45,6 @@
  ******************************************************************************/
 /**
  * @defgroup QSPI_Local_Macros QSPI Local Macros
- * @{
  */
 
 /* QSPI registers Mask */
@@ -59,7 +56,6 @@
 
 /**
  * @defgroup QSPI_Check_Parameters_Validity QSPI check parameters validity
- * @{
  */
 
 #define IS_QSPI_CLK_DIV(x)                                                     \
@@ -136,13 +132,9 @@
 
 #define IS_QSPI_BLOCK_SIZE(x)                               ((x) <= (QSPI_EXAR_EXADR >> QSPI_EXAR_EXADR_POS))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -157,22 +149,18 @@
  ******************************************************************************/
 /**
  * @defgroup QSPI_Local_Variable QSPI Local Variable
- * @{
  */
 
 /* Current read mode */
 static uint32_t m_u32ReadMode = 0U;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Function implementation - global ('extern') and local ('static')
  ******************************************************************************/
 /**
  * @defgroup QSPI_Global_Functions QSPI Global Functions
- * @{
  */
 
 /**
@@ -448,15 +436,11 @@ void QSPI_ClearStatus(uint32_t u32Flag) {
     SET_REG32_BIT(CM_QSPI->SR2, u32Flag);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_QSPI_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

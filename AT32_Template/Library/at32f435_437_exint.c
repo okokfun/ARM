@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup EXINT
   * @brief EXINT driver modules
-  * @{
   */
 
 #ifdef EXINT_MODULE_EnableD
 
 /** @defgroup EXINT_private_functions
-  * @{
   */
 
 /**
@@ -196,16 +193,4 @@ void EXINT_Event_Enable(uint32_t EXINT_line, confirm_state new_state) {
     }
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

@@ -28,13 +28,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_FCM FCM
  * @brief FCM Driver Library
- * @{
  */
 
 #if (LL_FCM_ENABLE == DDL_ON)
@@ -48,7 +46,6 @@
  ******************************************************************************/
 /**
  * @defgroup FCM_Local_Macros FCM Local Macros
- * @{
  */
 
 /* FCM Registers RESET Value */
@@ -61,7 +58,6 @@
 
 /**
  * @defgroup FCM_Check_Parameters_Validity FCM Check Parameters Validity
- * @{
  */
 
 /* Parameter validity check for FCM target and reference 时钟源. */
@@ -135,13 +131,9 @@
     (   ((x) != 0x00UL)                       &&                                 \
         (((x) | FCM_FLAG_MASK) == FCM_FLAG_MASK))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -160,7 +152,6 @@
  ******************************************************************************/
 /**
  * @defgroup FCM_Global_Functions FCM Global Functions
- * @{
  */
 
 /**
@@ -359,15 +350,11 @@ void FCM_Cmd(en_functional_state_t enNewState) {
     WRITE_REG32(bCM_FCM->STR_b.START, enNewState);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_FCM_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

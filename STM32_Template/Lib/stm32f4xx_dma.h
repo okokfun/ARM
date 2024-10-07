@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup DMA
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -51,7 +49,7 @@ extern "C" {
   */
 typedef struct {
     uint32_t DMA_Channel;            /*!< 指定用于指定流的通道。
-                                        该参数可以是@ref DMA_channel 的值 */
+                                        该参数可以是 @ref DMA_channel 的值 */
 
     uint32_t DMA_PeripheralBaseAddr; /*!< 指定 DMAy Streamx 的外设基地址。 */
 
@@ -59,51 +57,50 @@ typedef struct {
                                         此内存是未启用双缓冲模式时使用的默认内存。 */
 
     uint32_t DMA_DIR;                /*!< 指定数据是从内存传输到外设、从内存传输到内存还是从外设传输到内存。
-                                        该参数可以是@ref DMA_data_transfer_direction 的值 */
+                                        该参数可以是 @ref DMA_data_transfer_direction 的值 */
 
     uint32_t DMA_BufferSize;         /*!< 指定指定 Stream 的缓冲区大小，以数据为单位。
                                         根据传输方向，数据单元等于 DMA_PeripheralDataSize 或 DMA_MemoryDataSize 成员中设置的配置。 */
 
     uint32_t DMA_PeripheralInc;      /*!< 指定外设地址寄存器是否应该递增。
-                                        该参数可以是@ref DMA_peripheral_incremented_mode 的值 */
+                                        该参数可以是 @ref DMA_peripheral_incremented_mode 的值 */
 
     uint32_t DMA_MemoryInc;          /*!< 指定内存地址寄存器是否应该递增。
-                                        该参数可以是@ref DMA_memory_incremented_mode 的值 */
+                                        该参数可以是 @ref DMA_memory_incremented_mode 的值 */
 
     uint32_t DMA_PeripheralDataSize; /*!< 指定外设数据宽度。
-                                        该参数可以是@ref DMA_peripheral_data_size 的值 */
+                                        该参数可以是 @ref DMA_peripheral_data_size 的值 */
 
     uint32_t DMA_MemoryDataSize;     /*!< 指定内存数据宽度。
-                                        该参数可以是@ref DMA_memory_data_size 的值 */
+                                        该参数可以是 @ref DMA_memory_data_size 的值 */
 
     uint32_t DMA_Mode;               /*!< 指定 DMAy Streamx 的操作模式。
-                                        该参数可以是@ref DMA_circular_normal_mode @note
+                                        该参数可以是 @ref DMA_circular_normal_mode @note
 										                    如果在选定的Stream上配置了内存到内存的数据传输，则不能使用循环缓冲区模式 */
 
     uint32_t DMA_Priority;           /*!< 指定 DAY Stream 的软件优先级。
-                                        该参数可以是@ref DMA_priority_level 的值 */
+                                        该参数可以是 @ref DMA_priority_level 的值 */
 
     uint32_t DMA_FIFOMode;          /*!< 指定是否将 FIFO 模式或 Direct 模式用于指定的 Stream。
-                                        该参数可以是@ref DMA_fifo_direct_mode 的值 @note
+                                        该参数可以是 @ref DMA_fifo_direct_mode 的值 @note
 										                  如果在选定的 Stream 上配置了内存到内存的数据传输，
                                         则不能使用 Direct 模式(禁用 FIFO 模式) */
 
     uint32_t DMA_FIFOThreshold;      /*!< 指定 FIFO 阈值级别。
-                                        该参数可以是@ref DMA_fifo_threshold_level 的值 */
+                                        该参数可以是 @ref DMA_fifo_threshold_level 的值 */
 
     uint32_t DMA_MemoryBurst;        /*!< 指定内存传输的突发传输配置。
                                         它指定在单个不可中断事务中要传输的数据量。
-										                    该参数可以是@ref DMA_memory_burst @note 的值只有在启用地址增量模式时才可以使用突发模式。*/
+										                    该参数可以是 @ref DMA_memory_burst @note 的值只有在启用地址增量模式时才可以使用突发模式。*/
 
     uint32_t DMA_PeripheralBurst;    /*!< 指定外设传输的突发传输配置。
                                         它指定在单个不可中断事务中要传输的数据量。
-										                    这个参数可以是@ref DMA_peripheral_burst @note 突发模式只有在地址增量模式被启用的情况下才有可能。 */
+										                    这个参数可以是 @ref DMA_peripheral_burst @note 突发模式只有在地址增量模式被启用的情况下才有可能。 */
 } DMA_InitTypeDef;
 
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup DMA_Exported_Constants
-  * @{
   */
 #define IS_DMA_ALL_PERIPH(PERIPH) (((PERIPH) == DMA1_Stream0) || \
                                    ((PERIPH) == DMA1_Stream1) || \
@@ -126,7 +123,6 @@ typedef struct {
         ((CONTROLLER) == DMA2))
 
 /** @defgroup DMA_channel
-  * @{
   */
 #define DMA_Channel_0                     ((uint32_t)0x00000000)
 #define DMA_Channel_1                     ((uint32_t)0x02000000)
@@ -145,13 +141,9 @@ typedef struct {
                                  ((CHANNEL) == DMA_Channel_5) || \
                                  ((CHANNEL) == DMA_Channel_6) || \
                                  ((CHANNEL) == DMA_Channel_7))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_data_transfer_direction
-  * @{
   */
 #define DMA_DIR_PeripheralToMemory        ((uint32_t)0x00000000)
 #define DMA_DIR_MemoryToPeripheral        ((uint32_t)0x00000040)
@@ -160,48 +152,32 @@ typedef struct {
 #define IS_DMA_DIRECTION(DIRECTION) (((DIRECTION) == DMA_DIR_PeripheralToMemory ) || \
                                      ((DIRECTION) == DMA_DIR_MemoryToPeripheral)  || \
                                      ((DIRECTION) == DMA_DIR_MemoryToMemory))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_data_buffer_size
-  * @{
   */
 #define IS_DMA_BUFFER_SIZE(SIZE) (((SIZE) >= 0x1) && ((SIZE) < 0x10000))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_peripheral_incremented_mode
-  * @{
   */
 #define DMA_PeripheralInc_Enable          ((uint32_t)0x00000200)
 #define DMA_PeripheralInc_Disable         ((uint32_t)0x00000000)
 
 #define IS_DMA_PERIPHERAL_INC_STATE(STATE) (((STATE) == DMA_PeripheralInc_Enable) || \
         ((STATE) == DMA_PeripheralInc_Disable))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_memory_incremented_mode
-  * @{
   */
 #define DMA_MemoryInc_Enable              ((uint32_t)0x00000400)
 #define DMA_MemoryInc_Disable             ((uint32_t)0x00000000)
 
 #define IS_DMA_MEMORY_INC_STATE(STATE) (((STATE) == DMA_MemoryInc_Enable) || \
                                         ((STATE) == DMA_MemoryInc_Disable))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_peripheral_data_size
-  * @{
   */
 #define DMA_PeripheralDataSize_Byte       ((uint32_t)0x00000000)
 #define DMA_PeripheralDataSize_HalfWord   ((uint32_t)0x00000800)
@@ -210,13 +186,9 @@ typedef struct {
 #define IS_DMA_PERIPHERAL_DATA_SIZE(SIZE) (((SIZE) == DMA_PeripheralDataSize_Byte)  || \
         ((SIZE) == DMA_PeripheralDataSize_HalfWord) || \
         ((SIZE) == DMA_PeripheralDataSize_Word))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_memory_data_size
-  * @{
   */
 #define DMA_MemoryDataSize_Byte           ((uint32_t)0x00000000)
 #define DMA_MemoryDataSize_HalfWord       ((uint32_t)0x00002000)
@@ -225,26 +197,18 @@ typedef struct {
 #define IS_DMA_MEMORY_DATA_SIZE(SIZE) (((SIZE) == DMA_MemoryDataSize_Byte)  || \
                                        ((SIZE) == DMA_MemoryDataSize_HalfWord) || \
                                        ((SIZE) == DMA_MemoryDataSize_Word ))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_circular_normal_mode
-  * @{
   */
 #define DMA_Mode_Normal                   ((uint32_t)0x00000000)
 #define DMA_Mode_Circular                 ((uint32_t)0x00000100)
 
 #define IS_DMA_MODE(MODE) (((MODE) == DMA_Mode_Normal ) || \
                            ((MODE) == DMA_Mode_Circular))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_priority_level
-  * @{
   */
 #define DMA_Priority_Low                  ((uint32_t)0x00000000)
 #define DMA_Priority_Medium               ((uint32_t)0x00010000)
@@ -255,26 +219,18 @@ typedef struct {
                                    ((PRIORITY) == DMA_Priority_Medium) || \
                                    ((PRIORITY) == DMA_Priority_High)   || \
                                    ((PRIORITY) == DMA_Priority_VeryHigh))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_fifo_direct_mode
-  * @{
   */
 #define DMA_FIFOMode_Disable              ((uint32_t)0x00000000)
 #define DMA_FIFOMode_Enable               ((uint32_t)0x00000004)
 
 #define IS_DMA_FIFO_MODE_STATE(STATE) (((STATE) == DMA_FIFOMode_Disable ) || \
                                        ((STATE) == DMA_FIFOMode_Enable))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_fifo_threshold_level
-  * @{
   */
 #define DMA_FIFOThreshold_1QuarterFull    ((uint32_t)0x00000000)
 #define DMA_FIFOThreshold_HalfFull        ((uint32_t)0x00000001)
@@ -285,13 +241,9 @@ typedef struct {
         ((THRESHOLD) == DMA_FIFOThreshold_HalfFull)      || \
         ((THRESHOLD) == DMA_FIFOThreshold_3QuartersFull) || \
         ((THRESHOLD) == DMA_FIFOThreshold_Full))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_memory_burst
-  * @{
   */
 #define DMA_MemoryBurst_Single            ((uint32_t)0x00000000)
 #define DMA_MemoryBurst_INC4              ((uint32_t)0x00800000)
@@ -302,13 +254,9 @@ typedef struct {
                                     ((BURST) == DMA_MemoryBurst_INC4)  || \
                                     ((BURST) == DMA_MemoryBurst_INC8)  || \
                                     ((BURST) == DMA_MemoryBurst_INC16))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_peripheral_burst
-  * @{
   */
 #define DMA_PeripheralBurst_Single        ((uint32_t)0x00000000)
 #define DMA_PeripheralBurst_INC4          ((uint32_t)0x00200000)
@@ -319,13 +267,9 @@ typedef struct {
                                         ((BURST) == DMA_PeripheralBurst_INC4)  || \
                                         ((BURST) == DMA_PeripheralBurst_INC8)  || \
                                         ((BURST) == DMA_PeripheralBurst_INC16))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_fifo_status_level
-  * @{
   */
 #define DMA_FIFOStatus_Less1QuarterFull   ((uint32_t)0x00000000 << 3)
 #define DMA_FIFOStatus_1QuarterFull       ((uint32_t)0x00000001 << 3)
@@ -340,12 +284,8 @@ typedef struct {
                                     ((STATUS) == DMA_FIFOStatus_3QuartersFull)     || \
                                     ((STATUS) == DMA_FIFOStatus_Full)              || \
                                     ((STATUS) == DMA_FIFOStatus_Empty))
-/**
-  * @}
-  */
 
 /** @defgroup DMA_flags_definition
-  * @{
   */
 #define DMA_FLAG_FEIF0                    ((uint32_t)0x10800001)
 #define DMA_FLAG_DMEIF0                   ((uint32_t)0x10800004)
@@ -411,13 +351,9 @@ typedef struct {
                                ((FLAG) == DMA_FLAG_FEIF6)  || ((FLAG) == DMA_FLAG_TCIF7)  || \
                                ((FLAG) == DMA_FLAG_HTIF7)  || ((FLAG) == DMA_FLAG_TEIF7)  || \
                                ((FLAG) == DMA_FLAG_DMEIF7) || ((FLAG) == DMA_FLAG_FEIF7))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_interrupt_enable_definitions
-  * @{
   */
 #define DMA_IT_TC                         ((uint32_t)0x00000010)
 #define DMA_IT_HT                         ((uint32_t)0x00000008)
@@ -426,13 +362,9 @@ typedef struct {
 #define DMA_IT_FE                         ((uint32_t)0x00000080)
 
 #define IS_DMA_CONFIG_IT(IT) ((((IT) & 0xFFFFFF61) == 0x00) && ((IT) != 0x00))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_interrupts_definitions
-  * @{
   */
 #define DMA_IT_FEIF0                      ((uint32_t)0x90000001)
 #define DMA_IT_DMEIF0                     ((uint32_t)0x10001004)
@@ -499,51 +431,33 @@ typedef struct {
                            ((IT) == DMA_IT_FEIF6) || ((IT) == DMA_IT_TCIF7)  || \
                            ((IT) == DMA_IT_HTIF7) || ((IT) == DMA_IT_TEIF7)  || \
                            ((IT) == DMA_IT_DMEIF7)|| ((IT) == DMA_IT_FEIF7))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_peripheral_increment_offset
-  * @{
   */
 #define DMA_PINCOS_Psize                  ((uint32_t)0x00000000)
 #define DMA_PINCOS_WordAligned            ((uint32_t)0x00008000)
 
 #define IS_DMA_PINCOS_SIZE(SIZE) (((SIZE) == DMA_PINCOS_Psize) || \
                                   ((SIZE) == DMA_PINCOS_WordAligned))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_flow_controller_definitions
-  * @{
   */
 #define DMA_FlowCtrl_Memory               ((uint32_t)0x00000000)
 #define DMA_FlowCtrl_Peripheral           ((uint32_t)0x00000020)
 
 #define IS_DMA_FLOW_CTRL(CTRL) (((CTRL) == DMA_FlowCtrl_Memory) || \
                                 ((CTRL) == DMA_FlowCtrl_Peripheral))
-/**
-  * @}
-  */
 
 
 /** @defgroup DMA_memory_targets_definitions
-  * @{
   */
 #define DMA_Memory_0                      ((uint32_t)0x00000000)
 #define DMA_Memory_1                      ((uint32_t)0x00080000)
 
 #define IS_DMA_CURRENT_MEM(MEM) (((MEM) == DMA_Memory_0) || ((MEM) == DMA_Memory_1))
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -587,14 +501,4 @@ void DMA_ClearITPendingBit(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT); /
 #endif
 
 #endif /*__STM32F4xx_DMA_H */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

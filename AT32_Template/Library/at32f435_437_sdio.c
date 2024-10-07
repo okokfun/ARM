@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup SDIO
   * @brief SDIO driver modules
-  * @{
   */
 
 #ifdef SDIO_MODULE_EnableD
 
 /** @defgroup SDIO_private_functions
-  * @{
   */
 
 /**
@@ -529,16 +526,4 @@ void SDIO_IO_Suspend_Command_Set(SDIO_Type *SDIO_x, confirm_state new_state) {
     SDIO_x->cmdctrl_bit.iosusp = new_state;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

@@ -37,22 +37,18 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup RNG
-  * @{
   */
 #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F410xx) || defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F429_439xx) || defined(STM32F469_479xx)
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup RNG_Exported_Constants
-  * @{
   */
 
 /** @defgroup RNG_flags_definition
-  * @{
   */
 #define RNG_FLAG_DRDY               ((uint8_t)0x0001) /*!< 数据准备就绪 */
 #define RNG_FLAG_CECS               ((uint8_t)0x0002) /*!< 时钟错误当前状态 */
@@ -63,25 +59,15 @@ extern "C" {
                                    ((RNG_FLAG) == RNG_FLAG_SECS))
 #define IS_RNG_CLEAR_FLAG(RNG_FLAG) (((RNG_FLAG) == RNG_FLAG_CECS) || \
                                      ((RNG_FLAG) == RNG_FLAG_SECS))
-/**
-  * @}
-  */
 
 /** @defgroup RNG_interrupts_definition
-  * @{
   */
 #define RNG_IT_CEI                  ((uint8_t)0x20) /*!< 时钟错误中断 */
 #define RNG_IT_SEI                  ((uint8_t)0x40) /*!< 种子错误中断 */
 
 #define IS_RNG_IT(IT) ((((IT) & (uint8_t)0x9F) == 0x00) && ((IT) != 0x00))
 #define IS_RNG_GET_IT(RNG_IT) (((RNG_IT) == RNG_IT_CEI) || ((RNG_IT) == RNG_IT_SEI))
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -109,12 +95,5 @@ void RNG_ClearITPendingBit(uint8_t RNG_IT); // 清除 RNG 中断挂起位。
 
 #endif /*__STM32F4xx_RNG_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

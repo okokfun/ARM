@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup LTDC
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -51,14 +49,14 @@ extern "C" {
   */
 typedef struct {
     uint32_t LTDC_HSPolarity;                 /*!< 配置水平同步极性。
-                                                  该参数可以是@ref LTDC_HSPolarity 的一个值 */
+                                                  该参数可以是 @ref LTDC_HSPolarity 的一个值 */
 
     uint32_t LTDC_VSPolarity;                 /*!< 配置垂直同步极性。
-                                                  该参数可以是@ref LTDC_VSPolarity 的一个值 */
+                                                  该参数可以是 @ref LTDC_VSPolarity 的一个值 */
 
-    uint32_t LTDC_DEPolarity;                 /*!< 配置数据使能极性。 此参数可以是@ref LTDC_DEPolarity 的值之一 */
+    uint32_t LTDC_DEPolarity;                 /*!< 配置数据使能极性。 此参数可以是 @ref LTDC_DEPolarity 的值之一 */
 
-    uint32_t LTDC_PCPolarity;                 /*!< 配置像素时钟极性。 该参数可以是@ref LTDC_PCPolarity 的值之一 */
+    uint32_t LTDC_PCPolarity;                 /*!< 配置像素时钟极性。 该参数可以是 @ref LTDC_PCPolarity 的值之一 */
 
     uint32_t LTDC_HorizontalSync;             /*!< 配置水平同步宽度的数量。 该参数的范围必须是 0x000 到 0xFFF。 */
 
@@ -107,7 +105,7 @@ typedef struct {
                                                   该参数的范围必须是 0x0000 到 0xFFFF。 */
 
     uint32_t LTDC_PixelFormat;                /*!< 指定像素格式。
-												  该参数可以是@ref LTDC_Pixelformat 的值之一 */
+												  该参数可以是 @ref LTDC_Pixelformat 的值之一 */
 
     uint32_t LTDC_ConstantAlpha;              /*!< 指定用于混合的常量 alpha。
                                                   此参数的范围必须为 0x00 到 0xFF。 */
@@ -190,11 +188,9 @@ typedef struct {
 
 /* Exported constants --------------------------------------------------------*/
 /** @defgroup LTDC_Exported_Constants
-  * @{
   */
 
 /** @defgroup LTDC_SYNC
-  * @{
   */
 #define LTDC_HorizontalSYNC               ((uint32_t)0x00000FFF)
 #define LTDC_VerticalSYNC                 ((uint32_t)0x000007FF)
@@ -207,103 +203,67 @@ typedef struct {
 #define IS_LTDC_AAH(AAH) ((AAH) <= LTDC_VerticalSYNC)
 #define IS_LTDC_TOTALW(TOTALW) ((TOTALW) <= LTDC_HorizontalSYNC)
 #define IS_LTDC_TOTALH(TOTALH) ((TOTALH) <= LTDC_VerticalSYNC)
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_HSPolarity
-  * @{
   */
 #define LTDC_HSPolarity_AL                ((uint32_t)0x00000000)                /*!< 水平同步低电平有效。 */
 #define LTDC_HSPolarity_AH                LTDC_GCR_HSPOL                        /*!< 水平同步高电平有效。 */
 
 #define IS_LTDC_HSPOL(HSPOL) (((HSPOL) == LTDC_HSPolarity_AL) || \
                               ((HSPOL) == LTDC_HSPolarity_AH))
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_VSPolarity
-  * @{
   */
 #define LTDC_VSPolarity_AL                ((uint32_t)0x00000000)                /*!< 垂直同步低电平有效。 */
 #define LTDC_VSPolarity_AH                LTDC_GCR_VSPOL                        /*!< 垂直同步高电平有效。 */
 
 #define IS_LTDC_VSPOL(VSPOL) (((VSPOL) == LTDC_VSPolarity_AL) || \
                               ((VSPOL) == LTDC_VSPolarity_AH))
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_DEPolarity
-  * @{
   */
 #define LTDC_DEPolarity_AL                ((uint32_t)0x00000000)                /*!< 数据使能，低电平有效。 */
 #define LTDC_DEPolarity_AH                LTDC_GCR_DEPOL                        /*!< 数据使能，高电平有效。 */
 
 #define IS_LTDC_DEPOL(DEPOL) (((DEPOL) ==  LTDC_VSPolarity_AL) || \
                               ((DEPOL) ==  LTDC_DEPolarity_AH))
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_PCPolarity
-  * @{
   */
 #define LTDC_PCPolarity_IPC               ((uint32_t)0x00000000)                /*!< 输入像素时钟。 */
 #define LTDC_PCPolarity_IIPC              LTDC_GCR_PCPOL                        /*!< 反相输入像素时钟。 */
 
 #define IS_LTDC_PCPOL(PCPOL) (((PCPOL) ==  LTDC_PCPolarity_IPC) || \
                               ((PCPOL) ==  LTDC_PCPolarity_IIPC))
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_Reload
-  * @{
   */
 #define LTDC_IMReload                     LTDC_SRCR_IMR                         /*!< 立即重新加载。 */
 #define LTDC_VBReload                     LTDC_SRCR_VBR                         /*!< 垂直消隐重装。 */
 
 #define IS_LTDC_RELOAD(RELOAD) (((RELOAD) == LTDC_IMReload) || \
                                 ((RELOAD) == LTDC_VBReload))
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_Back_Color
-  * @{
   */
 #define LTDC_Back_Color                   ((uint32_t)0x000000FF)
 
 #define IS_LTDC_BackBlueValue(BBLUE)    ((BBLUE) <= LTDC_Back_Color)
 #define IS_LTDC_BackGreenValue(BGREEN)  ((BGREEN) <= LTDC_Back_Color)
 #define IS_LTDC_BackRedValue(BRED)      ((BRED) <= LTDC_Back_Color)
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_Position
-  * @{
   */
 #define LTDC_POS_CY                       LTDC_CPSR_CYPOS
 #define LTDC_POS_CX                       LTDC_CPSR_CXPOS
 
 #define IS_LTDC_GET_POS(POS) (((POS) <= LTDC_POS_CY))
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_LIPosition
-  * @{
   */
 #define IS_LTDC_LIPOS(LIPOS) ((LIPOS) <= 0x7FF)
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_CurrentStatus
-  * @{
   */
 #define LTDC_CD_VDES                     LTDC_CDSR_VDES
 #define LTDC_CD_HDES                     LTDC_CDSR_HDES
@@ -312,12 +272,8 @@ typedef struct {
 
 #define IS_LTDC_GET_CD(CD) (((CD) == LTDC_CD_VDES) || ((CD) == LTDC_CD_HDES) || \
                             ((CD) == LTDC_CD_VSYNC) || ((CD) == LTDC_CD_HSYNC))
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_Interrupts
-  * @{
   */
 #define LTDC_IT_LI                      LTDC_IER_LIE
 #define LTDC_IT_FU                      LTDC_IER_FUIE
@@ -326,12 +282,8 @@ typedef struct {
 
 #define IS_LTDC_IT(IT) ((((IT) & (uint32_t)0xFFFFFFF0) == 0x00) && ((IT) != 0x00))
 
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_Flag
-  * @{
   */
 #define LTDC_FLAG_LI                     LTDC_ISR_LIF
 #define LTDC_FLAG_FU                     LTDC_ISR_FUIF
@@ -340,12 +292,8 @@ typedef struct {
 
 #define IS_LTDC_FLAG(FLAG) (((FLAG) == LTDC_FLAG_LI) || ((FLAG) == LTDC_FLAG_FU) || \
                             ((FLAG) == LTDC_FLAG_TERR) || ((FLAG) == LTDC_FLAG_RR))
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_Pixelformat
-  * @{
   */
 #define LTDC_Pixelformat_ARGB8888                  ((uint32_t)0x00000000)
 #define LTDC_Pixelformat_RGB888                    ((uint32_t)0x00000001)
@@ -361,34 +309,22 @@ typedef struct {
         ((Pixelformat) == LTDC_Pixelformat_ARGB4444) || ((Pixelformat) == LTDC_Pixelformat_L8)       || \
         ((Pixelformat) == LTDC_Pixelformat_AL44)     || ((Pixelformat) == LTDC_Pixelformat_AL88))
 
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_BlendingFactor1
-  * @{
   */
 #define LTDC_BlendingFactor1_CA                       ((uint32_t)0x00000400)
 #define LTDC_BlendingFactor1_PAxCA                    ((uint32_t)0x00000600)
 
 #define IS_LTDC_BlendingFactor1(BlendingFactor1) (((BlendingFactor1) == LTDC_BlendingFactor1_CA) || ((BlendingFactor1) == LTDC_BlendingFactor1_PAxCA))
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_BlendingFactor2
-  * @{
   */
 #define LTDC_BlendingFactor2_CA                       ((uint32_t)0x00000005)
 #define LTDC_BlendingFactor2_PAxCA                    ((uint32_t)0x00000007)
 
 #define IS_LTDC_BlendingFactor2(BlendingFactor2) (((BlendingFactor2) == LTDC_BlendingFactor2_CA) || ((BlendingFactor2) == LTDC_BlendingFactor2_PAxCA))
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_LAYER_Config
-  * @{
   */
 #define LTDC_STOPPosition                 ((uint32_t)0x0000FFFF)
 #define LTDC_STARTPosition                ((uint32_t)0x00000FFF)
@@ -408,22 +344,14 @@ typedef struct {
 #define IS_LTDC_CFBLL(CFBLL) ((CFBLL) <= LTDC_ColorFrameBuffer)
 
 #define IS_LTDC_CFBLNBR(CFBLNBR) ((CFBLNBR) <= LTDC_LineNumber)
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_colorkeying_Config
-  * @{
   */
 #define LTDC_colorkeyingConfig            ((uint32_t)0x000000FF)
 
 #define IS_LTDC_CKEYING(CKEYING) ((CKEYING) <= LTDC_colorkeyingConfig)
-/**
-  * @}
-  */
 
 /** @defgroup LTDC_CLUT_Config
-  * @{
   */
 #define LTDC_CLUTWR                       ((uint32_t)0x000000FF)
 
@@ -473,12 +401,5 @@ void LTDC_ClearITPendingBit(uint32_t LTDC_IT); // 清除 LTDC 的中断挂起位
 
 #endif /* __STM32F4xx_LTDC_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

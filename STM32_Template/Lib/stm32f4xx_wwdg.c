@@ -33,20 +33,20 @@
                       ##### 如何使用这个驱动程序 #####
  ===============================================================================
     [..]
-      (#) 使用RCC_APB1PeriphClockCmd(RCC_APP1Periph-WWDG，Enable)函数启用WWDG时钟
+      (#) 使用RCC_APB1PeriphClockCmd(RCC_APP1Periph-WWDG，Enable) 函数启用WWDG时钟
 
-      (#) 使用WWDG_SetPrescaler()函数配置WWDG预分频器
+      (#) 使用WWDG_SetPrescaler() 函数配置WWDG预分频器
 
-      (#) 使用WWDG_SetWindowValue()函数配置WWDG刷新窗口
+      (#) 使用WWDG_SetWindowValue() 函数配置WWDG刷新窗口
 
-      (#) 设置WWDG计数器值，并使用WWDG_Enable()函数启动它。
+      (#) 设置WWDG计数器值，并使用WWDG_Enable() 函数启动它。
           启用WWDG时，计数器值应配置为大于0x40的值，以防止生成立即重置。
 
       (#) 您可以选择启用计数器达到0x40时生成的早期唤醒中断。
           一旦启用，除非系统复位，否则不能禁用此中断。
 
       (#) 然后，应用程序必须在正常操作期间定期刷新WWDG计数器，以防止MCU重置，
-          方法是使用WWDG_SetCounter()函数。仅当计数器值低于使用WWDG_SetWindowValue()
+          方法是使用WWDG_SetCounter() 函数。仅当计数器值低于使用WWDG_SetWindowValue()
           编程的刷新窗口值时，才能执行此操作。
 
     @endverbatim
@@ -75,12 +75,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup WWDG
   * 简介: WWDG驱动程序模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -105,7 +103,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup WWDG_Private_Functions
-  * @{
   */
 
 /** @defgroup WWDG_Group1 预分频器、刷新窗口和计数器配置功能
@@ -117,7 +114,6 @@
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -196,9 +192,6 @@ void WWDG_SetCounter(uint8_t Counter) {
     /* 写入T[6:0]位以配置计数器值，无需进行读修改写入;将0写入WDGA位不起任何作用 */
     WWDG->CR = Counter & BIT_MASK;
 }
-/**
-  * @}
-  */
 
 /** @defgroup WWDG_Group2 WWDG激活函数s
  *  简介   WWDG激活函数s
@@ -209,7 +202,6 @@ void WWDG_SetCounter(uint8_t Counter) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -223,9 +215,6 @@ void WWDG_Enable(uint8_t Counter) {
     assert_param(IS_WWDG_COUNTER(Counter));
     WWDG->CR = WWDG_CR_WDGA | Counter;
 }
-/**
-  * @}
-  */
 
 /** @defgroup WWDG_Group3 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -236,7 +225,6 @@ void WWDG_Enable(uint8_t Counter) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -264,21 +252,5 @@ FlagStatus WWDG_GetFlagStatus(void) {
 void WWDG_ClearFlag(void) {
     WWDG->SR = (uint32_t)RESET;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

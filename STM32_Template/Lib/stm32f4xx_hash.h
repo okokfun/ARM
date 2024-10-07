@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup HASH
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -51,16 +49,16 @@ extern "C" {
   */
 typedef struct {
     uint32_t HASH_AlgoSelection; /*!< SHA-1、SHA-224、SHA-256 或 MD5。
-									               该参数可以是@ref HASH_Algo_Selection 的值 */
+									               该参数可以是 @ref HASH_Algo_Selection 的值 */
 
     uint32_t HASH_AlgoMode;      /*!< 哈希或 HMAC。
-									               该参数可以是@ref HASH_processor_Algorithm_Mode 的值 */
+									               该参数可以是 @ref HASH_processor_Algorithm_Mode 的值 */
 
     uint32_t HASH_DataType;      /*!< 32 位数据、16 位数据、8 位数据或位串。
-									               该参数可以是@ref HASH_Data_Type 的值 */
+									               该参数可以是 @ref HASH_Data_Type 的值 */
                                  
     uint32_t HASH_HMACKeyType;   /*!< HMAC 短密钥或 HMAC 长密钥。
-									               该参数可以是@ref HASH_HMAC_Long_key_only_for_HMAC_mode 的值 */
+									               该参数可以是 @ref HASH_HMAC_Long_key_only_for_HMAC_mode 的值 */
 } HASH_InitTypeDef;
 
 /**
@@ -86,11 +84,9 @@ typedef struct {
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup HASH_Exported_Constants
-  * @{
   */
 
 /** @defgroup HASH_Algo_Selection
-  * @{
   */
 #define HASH_AlgoSelection_SHA1      ((uint32_t)0x0000) /*!< HASH 函数是 SHA1   */
 #define HASH_AlgoSelection_SHA224    HASH_CR_ALGO_1     /*!< HASH 函数是 SHA224 */
@@ -100,24 +96,16 @@ typedef struct {
         ((ALGOSELECTION) == HASH_AlgoSelection_SHA224) || \
         ((ALGOSELECTION) == HASH_AlgoSelection_SHA256) || \
         ((ALGOSELECTION) == HASH_AlgoSelection_MD5))
-/**
-  * @}
-  */
 
 /** @defgroup HASH_processor_Algorithm_Mode
-  * @{
   */
 #define HASH_AlgoMode_HASH         ((uint32_t)0x00000000) /*!< 算法是HASH */
 #define HASH_AlgoMode_HMAC         HASH_CR_MODE           /*!< 算法是HMAC */
 
 #define IS_HASH_ALGOMODE(ALGOMODE) (((ALGOMODE) == HASH_AlgoMode_HASH) || \
                                     ((ALGOMODE) == HASH_AlgoMode_HMAC))
-/**
-  * @}
-  */
 
 /** @defgroup HASH_Data_Type
-  * @{
   */
 #define HASH_DataType_32b          ((uint32_t)0x0000) /*!< 32 位数据。 无交换                     */
 #define HASH_DataType_16b          HASH_CR_DATATYPE_0 /*!< 16 位数据。 每个半字被交换       */
@@ -128,50 +116,34 @@ typedef struct {
                                     ((DATATYPE) == HASH_DataType_16b)|| \
                                     ((DATATYPE) == HASH_DataType_8b) || \
                                     ((DATATYPE) == HASH_DataType_1b))
-/**
-  * @}
-  */
 
 /** @defgroup HASH_HMAC_Long_key_only_for_HMAC_mode
-  * @{
   */
 #define HASH_HMACKeyType_ShortKey      ((uint32_t)0x00000000) /*!< HMAC 密钥 <= 64 字节 */
 #define HASH_HMACKeyType_LongKey       HASH_CR_LKEY           /*!< HMAC 密钥 > 64 字节  */
 #define IS_HASH_HMAC_KEYTYPE(KEYTYPE) (((KEYTYPE) == HASH_HMACKeyType_ShortKey) || \
                                        ((KEYTYPE) == HASH_HMACKeyType_LongKey))
-/**
-  * @}
-  */
 
 /** @defgroup Number_of_valid_bits_in_last_word_of_the_message
-  * @{
   */
 #define IS_HASH_VALIDBITSNUMBER(VALIDBITS) ((VALIDBITS) <= 0x1F)
 
-/**
-  * @}
-  */
 
 /** @defgroup HASH_interrupts_definition
-  * @{
   */
 #define HASH_IT_DINI               HASH_IMR_DINIM  /*!< 可以将新块输入到输入缓冲区 (DIN) */
 #define HASH_IT_DCI                HASH_IMR_DCIM   /*!< 摘要计算完成                            */
 #define IS_HASH_IT(IT) ((((IT) & (uint32_t)0xFFFFFFFC) == 0x00000000) && ((IT) != 0x00000000))
 #define IS_HASH_GET_IT(IT) (((IT) == HASH_IT_DINI) || ((IT) == HASH_IT_DCI))
 
-/**
-  * @}
-  */
 
 /** @defgroup HASH_flags_definition
-  * @{
   */
 #define HASH_FLAG_DINIS            HASH_SR_DINIS  /*!< 16 个位置在 DIN 中是空闲的:可以将一个新块输入到输入缓冲区中 */
-#define HASH_FLAG_DCIS             HASH_SR_DCIS   /*!< 摘要计算完成                                                        */
-#define HASH_FLAG_DMAS             HASH_SR_DMAS   /*!< 启用 DMA 接口 (DMAE=1) 或正在进行传输                          */
-#define HASH_FLAG_BUSY             HASH_SR_BUSY   /*!< 哈希核心忙:处理数据块                                 */
-#define HASH_FLAG_DINNE            HASH_CR_DINNE  /*!< DIN 非空:输入缓冲区至少包含一个字的数据                 */
+#define HASH_FLAG_DCIS             HASH_SR_DCIS   /*!< 摘要计算完成                                            */
+#define HASH_FLAG_DMAS             HASH_SR_DMAS   /*!< 启用 DMA 接口 (DMAE=1) 或正在进行传输                    */
+#define HASH_FLAG_BUSY             HASH_SR_BUSY   /*!< 哈希核心忙: 处理数据块                                   */
+#define HASH_FLAG_DINNE            HASH_CR_DINNE  /*!< DIN 非空:输入缓冲区至少包含一个字的数据                   */
 #define IS_HASH_GET_FLAG(FLAG) (((FLAG) == HASH_FLAG_DINIS) || \
                                 ((FLAG) == HASH_FLAG_DCIS)  || \
                                 ((FLAG) == HASH_FLAG_DMAS)  || \
@@ -181,13 +153,7 @@ typedef struct {
 #define IS_HASH_CLEAR_FLAG(FLAG)(((FLAG) == HASH_FLAG_DINIS) || \
                                  ((FLAG) == HASH_FLAG_DCIS))
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -240,12 +206,5 @@ ErrorStatus HMAC_MD5(uint8_t *Key, uint32_t Keylen,
 
 #endif /*__STM32F4xx_HASH_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

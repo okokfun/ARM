@@ -39,12 +39,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_MPU
- * @{
  */
 
 #if (LL_MPU_ENABLE == DDL_ON)
@@ -54,7 +52,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup MPU_Global_Types MPU Global Types
- * @{
  */
 
 /**
@@ -107,21 +104,17 @@ typedef struct {
     stc_mpu_region_permission_t stcEthDma;      /*!< Specifies the ETH_DMA access permission for the region      */
 } stc_mpu_region_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup MPU_Global_Macros MPU Global Macros
- * @{
  */
 
 /**
  * @defgroup MPU_Unit_Type MPU Unit Type
- * @{
  */
 #define MPU_UNIT_DMA1                           (0x01UL)  /*!< System DMA_1 MPU */
 #define MPU_UNIT_DMA2                           (0x02UL)  /*!< System DMA_2 MPU */
@@ -130,14 +123,11 @@ typedef struct {
 #define MPU_UNIT_ETH_DMA                        (0x10UL)  /*!< ETH_DMA MPU      */
 #define MPU_UNIT_ALL                            (MPU_UNIT_DMA1 | MPU_UNIT_DMA2 | MPU_UNIT_USBFS_DMA | \
         MPU_UNIT_USBHS_DMA | MPU_UNIT_ETH_DMA)
-/**
- * @}
- */
+
 
 /**
  * @defgroup MPU_Region_Number MPU Region Number
  * @note     'MPU_REGION_NUM8' to 'MPU_REGION_NUM15' are only valid when the MPU unit is 'MPU_UNIT_DMA1' or 'MPU_UNIT_DMA2'.
- * @{
  */
 #define MPU_REGION_NUM0                         (0x00UL)  /*!< MPU region number 0  */
 #define MPU_REGION_NUM1                         (0x01UL)  /*!< MPU region number 1  */
@@ -155,65 +145,47 @@ typedef struct {
 #define MPU_REGION_NUM13                        (0x0DUL)  /*!< MPU region number 13 */
 #define MPU_REGION_NUM14                        (0x0EUL)  /*!< MPU region number 14 */
 #define MPU_REGION_NUM15                        (0x0FUL)  /*!< MPU region number 15 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup MPU_Background_Write_Permission MPU Background Write Permission
- * @{
  */
 #define MPU_BACKGROUND_WR_DISABLE               (MPU_SCR_SMPUBWP)   /*!< Disable write the background space */
 #define MPU_BACKGROUND_WR_ENABLE                (0UL)               /*!< Enable write the background space  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup MPU_Background_Read_Permission MPU Background Read Permission
- * @{
  */
 #define MPU_BACKGROUND_RD_DISABLE               (MPU_SCR_SMPUBRP)   /*!< Disable read the background space */
 #define MPU_BACKGROUND_RD_ENABLE                (0UL)               /*!< Enable read the background space  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup MPU_Exception_Type MPU Exception Type
- * @{
  */
 #define MPU_EXP_TYPE_NONE                       (0UL)                   /*!< The host unit access protection regions will be ignored                                       */
 #define MPU_EXP_TYPE_BUS_ERR                    (MPU_SCR_SMPUACT_0)     /*!< The host unit access protection regions will be ignored and a bus error will be triggered     */
 #define MPU_EXP_TYPE_NMI                        (MPU_SCR_SMPUACT_1)     /*!< The host unit access protection regions will be ignored and a NMI interrupt will be triggered */
 #define MPU_EXP_TYPE_RST                        (MPU_SCR_SMPUACT)       /*!< The host unit access protection regions will trigger the reset                                */
-/**
- * @}
- */
+
 
 /**
  * @defgroup MPU_Region_Write_Permission MPU Region Write Permission
- * @{
  */
 #define MPU_REGION_WR_DISABLE                   (MPU_SRGWP_RG0WP)       /*!< Disable write the region */
 #define MPU_REGION_WR_ENABLE                    (0UL)                   /*!< Enable write the region  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup MPU_Region_Read_Permission MPU Region Read Permission
- * @{
  */
 #define MPU_REGION_RD_DISABLE                   (MPU_SRGRP_RG0RP)    /*!< Disable read the region */
 #define MPU_REGION_RD_ENABLE                    (0UL)                   /*!< Enable read the region  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup MPU_Region_Size MPU Region Size
- * @{
  */
 #define MPU_REGION_SIZE_32BYTE                  (0x04UL)  /*!< 32 Byte   */
 #define MPU_REGION_SIZE_64BYTE                  (0x05UL)  /*!< 64 Byte   */
@@ -243,13 +215,10 @@ typedef struct {
 #define MPU_REGION_SIZE_1GBYTE                  (0x1DUL)  /*!< 1G Byte   */
 #define MPU_REGION_SIZE_2GBYTE                  (0x1EUL)  /*!< 2G Byte   */
 #define MPU_REGION_SIZE_4GBYTE                  (0x1FUL)  /*!< 4G Byte   */
-/**
- * @}
- */
+
 
 /**
  * @defgroup MPU_Flag MPU Flag
- * @{
  */
 #define MPU_FLAG_SMPU1EAF                       (MPU_SR_SMPU1EAF)   /*!< System DMA_1 error flag */
 #define MPU_FLAG_SMPU2EAF                       (MPU_SR_SMPU2EAF)   /*!< System DMA_2 error flag */
@@ -258,14 +227,11 @@ typedef struct {
 #define MPU_FLAG_EMPUEAF                        (MPU_SR_EMPUEAF)    /*!< ETH_DMA error flag      */
 #define MPU_FLAG_ALL                            (MPU_FLAG_SMPU1EAF | MPU_FLAG_SMPU2EAF | MPU_FLAG_FMPUEAF | \
         MPU_FLAG_HMPUEAF  | MPU_FLAG_EMPUEAF)
-/**
- * @}
- */
+
 
 /**
  * @defgroup MPU_IP_Type MPU IP Type
  * @note     IP access protection is not available in privileged mode.
- * @{
  */
 #define MPU_IP_AES                              (MPU_IPPR_AESRDP)       /*!< AES module                              */
 #define MPU_IP_HASH                             (MPU_IPPR_HASHRDP)      /*!< HASH module                             */
@@ -285,33 +251,23 @@ typedef struct {
         MPU_IP_EFM | MPU_IP_WDT  | MPU_IP_SWDT  | MPU_IP_BKSRAM | \
         MPU_IP_RTC | MPU_IP_MPU  | MPU_IP_SRAMC | MPU_IP_INTC   | \
         MPU_IP_FCG | MPU_IP_RMU_CMU_PWC)
-/**
- * @}
- */
+
 
 /**
  * @defgroup MPU_IP_Exception_Type MPU IP Exception Type
- * @{
  */
 #define MPU_IP_EXP_TYPE_NONE                    (0UL)               /*!< Access to the protected IP will be ignored          */
 #define MPU_IP_EXP_TYPE_BUS_ERR                 (MPU_IPPR_BUSERRE)  /*!< Access to the protected IP will trigger a bus error */
-/**
- * @}
- */
+
 
 /**
  * @defgroup MPU_Register_Protect_Key INTC Registers Protect Key
- * @{
  */
 #define MPU_REG_LOCK_KEY                        (0x96A4UL)
 #define MPU_REG_UNLOCK_KEY                      (0x96A5UL)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -322,7 +278,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup MPU_Global_Functions
- * @{
  */
 
 /**
@@ -368,19 +323,13 @@ void MPU_IP_SetExceptionType(uint32_t u32Type);
 void MPU_IP_WriteCmd(uint32_t u32Periph, en_functional_state_t enNewState);
 void MPU_IP_ReadCmd(uint32_t u32Periph, en_functional_state_t enNewState);
 
-/**
- * @}
- */
+
 
 #endif /* LL_MPU_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

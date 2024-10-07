@@ -41,12 +41,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_USB
- * @{
  */
 
 #if (LL_USB_ENABLE == DDL_ON)
@@ -290,7 +288,6 @@ typedef struct {
 
 /**
  * @addtogroup USB_Global_Functions
- * @{
  */
 
 /**
@@ -640,19 +637,13 @@ extern void usb_devepdis(LL_USB_TypeDef *USBx, uint8_t u8EpNum);
 extern void usb_ctrldevconnect(LL_USB_TypeDef *USBx, uint8_t link);
 #endif
 
-/**
- * @}
- */
+
 
 #endif /* LL_USB_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

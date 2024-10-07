@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_SRAM SRAM
  * @brief SRAM Driver Library
- * @{
  */
 
 #if (LL_SRAM_ENABLE == DDL_ON)
@@ -47,22 +45,17 @@
  ******************************************************************************/
 /**
  * @defgroup SRAM_Local_Macros SRAM Local Macros
- * @{
  */
 
 /**
  * @defgroup SRAM_Configuration_Bits_Mask SRAM Configuration Bits Mask
- * @{
  */
 #define SRAM_ECC_MD_MASK            (SRAMC_CKCR_ECCMOD)
 #define SRAM_CYCLE_MASK             (0x00000007UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup SRAM_Check_Parameters_Validity SRAM check parameters validity
- * @{
  */
 #define IS_SRAM_BIT_MASK(x, mask)   (((x) != 0U) && (((x) | (mask)) == (mask)))
 
@@ -86,13 +79,9 @@
         ((x) == SRAM_ECC_MD2)                   ||                                 \
         ((x) == SRAM_ECC_MD3))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -111,7 +100,6 @@
  ******************************************************************************/
 /**
  * @defgroup SRAM_Global_Functions SRAM Global Functions
- * @{
  */
 
 /**
@@ -282,15 +270,11 @@ void SRAM_ClearStatus(uint32_t u32Flag) {
     SET_REG32_BIT(CM_SRAMC->CKSR, u32Flag);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_SRAM_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

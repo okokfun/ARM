@@ -38,17 +38,14 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_EXMC
- * @{
  */
 
 /**
  * @addtogroup LL_NFC
- * @{
  */
 
 #if (LL_NFC_ENABLE == DDL_ON)
@@ -58,7 +55,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup EXMC_NFC_Global_Types EXMC_NFC Global Types
- * @{
  */
 
 /**
@@ -141,21 +137,17 @@ typedef struct {
                                                           This structure details refer @ref stc_exmc_nfc_timing_reg2_config_t. */
 } stc_exmc_nfc_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup EXMC_NFC_Global_Macros EXMC_NFC Global Macros
- * @{
  */
 
 /**
  * @defgroup EXMC_NFC_Bank EXMC_NFC Bank
- * @{
  */
 #define EXMC_NFC_BANK0                      (0UL)     /*!< Bank 0 */
 #define EXMC_NFC_BANK1                      (1UL)     /*!< Bank 1 */
@@ -165,24 +157,18 @@ typedef struct {
 #define EXMC_NFC_BANK5                      (5UL)     /*!< Bank 5 */
 #define EXMC_NFC_BANK6                      (6UL)     /*!< Bank 6 */
 #define EXMC_NFC_BANK7                      (7UL)     /*!< Bank 7 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Page_Size EXMC_NFC Page Size
- * @{
  */
 #define EXMC_NFC_PAGE_SIZE_2KBYTE           (NFC_BACR_PAGE_0)
 #define EXMC_NFC_PAGE_SIZE_4KBYTE           (NFC_BACR_PAGE_1)
 #define EXMC_NFC_PAGE_SIZE_8KBYTE           (NFC_BACR_PAGE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_BANK_Memory_Capacity EXMC_NFC BANK Memory Capacity
- * @{
  */
 #define EXMC_NFC_BANK_CAPACITY_512MBIT      (3UL)
 #define EXMC_NFC_BANK_CAPACITY_1GBIT        (4UL)
@@ -192,104 +178,74 @@ typedef struct {
 #define EXMC_NFC_BANK_CAPACITY_16GBIT       (0UL)
 #define EXMC_NFC_BANK_CAPACITY_32GBIT       (1UL)
 #define EXMC_NFC_BANK_CAPACITY_64GBIT       (2UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Memory_Width EXMC_NFC Memory Width
- * @{
  */
 #define EXMC_NFC_MEMORY_WIDTH_8BIT          (0UL)
 #define EXMC_NFC_MEMORY_WIDTH_16BIT         (NFC_BACR_B16BIT)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Bank_Number EXMC_NFC Bank Number
- * @{
  */
 #define EXMC_NFC_1BANK                      (0UL)
 #define EXMC_NFC_2BANKS                     (NFC_BACR_BANK_0)
 #define EXMC_NFC_4BANKS                     (NFC_BACR_BANK_1)
 #define EXMC_NFC_8BANKS                     (NFC_BACR_BANK)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Open_Page EXMC_NFC Open Page
- * @{
  */
 #define EXMC_NFC_OPEN_PAGE_DISABLE          (0UL)
 #define EXMC_NFC_OPEN_PAGE_ENABLE           (PERIC_NFC_STCR_OPENP)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Write_Protect EXMC_NFC Write Protect
- * @{
  */
 #define EXMC_NFC_WR_PROTECT_ENABLE          (0UL)
 #define EXMC_NFC_WR_PROTECT_DISABLE         (NFC_BACR_WP)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_ECC_Mode EXMC_NFC ECC Mode
- * @{
  */
 #define EXMC_NFC_1BIT_ECC                   (0UL)
 #define EXMC_NFC_4BIT_ECC                   (NFC_BACR_ECCM_0)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Row_Address_Cycle EXMC_NFC Row Address Cycle
- * @{
  */
 #define EXMC_NFC_2_ROW_ADDR_CYCLE           (0UL)
 #define EXMC_NFC_3_ROW_ADDR_CYCLE           (NFC_BACR_RAC)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_ECC_Calculate_Bytes EXMC_NFC ECC Calculate Bytes
- * @{
  */
 #define EXMC_NFC_ECC_CALCULATE_BLOCK_BYTE   (512UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_ECC_Value_Bytes EXMC_NFC ECC Value Bytes
- * @{
  */
 #define EXMC_NFC_1BIT_ECC_VALUE_BYTE        (3UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_1Bit_ECC_Result EXMC_NFC 1Bit ECC Result
- * @{
  */
 #define EXMC_NFC_1BIT_ECC_NONE_ERR          (0UL)
 #define EXMC_NFC_1BIT_ECC_SINGLE_BIT_ERR    (NFC_ECCR_SE)
 #define EXMC_NFC_1BIT_ECC_MULTIPLE_BITS_ERR (NFC_ECCR_ME)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_1Bit_ECC_Error_Bit_Location EXMC_NFC 1Bit ECC Error Bit Location
- * @{
  */
 #define EXMC_NFC_1BIT_ECC_ERR_BIT0          (0UL)
 #define EXMC_NFC_1BIT_ECC_ERR_BIT1          (1UL)
@@ -299,13 +255,10 @@ typedef struct {
 #define EXMC_NFC_1BIT_ECC_ERR_BIT5          (5UL)
 #define EXMC_NFC_1BIT_ECC_ERR_BIT6          (6UL)
 #define EXMC_NFC_1BIT_ECC_ERR_BIT7          (7UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_ECC_Section EXMC_NFC ECC Section
- * @{
  */
 #define EXMC_NFC_ECC_SECTION0               (0UL)
 #define EXMC_NFC_ECC_SECTION1               (1UL)
@@ -323,13 +276,10 @@ typedef struct {
 #define EXMC_NFC_ECC_SECTION13              (13UL)
 #define EXMC_NFC_ECC_SECTION14              (14UL)
 #define EXMC_NFC_ECC_SECTION15              (15UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Interrupt EXMC_NFC Interrupt
- * @{
  */
 #define EXMC_NFC_INT_RB_BANK0                   (NFC_IENR_RBEN_0)
 #define EXMC_NFC_INT_RB_BANK1                   (NFC_IENR_RBEN_1)
@@ -343,13 +293,10 @@ typedef struct {
 #define EXMC_NFC_INT_ECC_CALC_COMPLETION        (NFC_IENR_ECCCEN)
 #define EXMC_NFC_INT_ECC_CORRECTABLE_ERR        (NFC_IENR_ECCECEN)
 #define EXMC_NFC_INT_ECC_UNCORRECTABLE_ERR      (NFC_IENR_ECCEUEN)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Flag EXMC_NFC Flag
- * @{
  */
 #define EXMC_NFC_FLAG_RB_BANK0                  (NFC_ISTR_RBST_0)
 #define EXMC_NFC_FLAG_RB_BANK1                  (NFC_ISTR_RBST_1)
@@ -364,22 +311,16 @@ typedef struct {
 #define EXMC_NFC_FLAG_ECC_CORRECTABLE_ERR       (NFC_ISTR_ECCECST)
 #define EXMC_NFC_FLAG_ECC_UNCORRECTABLE_ERR     (NFC_ISTR_ECCEUST)
 #define EXMC_NFC_FLAG_ECC_CALCULATING           (1UL << 31UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Max_Timeout EXMC_NFC Max Timeout
- * @{
  */
 #define EXMC_NFC_MAX_TIMEOUT                    (0xFFFFFFFFUL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_NFC_Memory_Command EXMC_NFC Memory Command
- * @{
  */
 #define EXMC_NFC_CMD_RD_1ST                             (0x00UL)
 #define EXMC_NFC_CMD_RD_2ND                             (0xE0UL)
@@ -448,13 +389,9 @@ typedef struct {
 #define EXMC_NFC_CMD_DESELECT_CHIP                      (0xFEUL)
 
 #define EXMC_NFC_CMD_RESET                              (0xFFUL)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -465,7 +402,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup EXMC_NFC_Global_Functions
- * @{
  */
 
 /**
@@ -558,23 +494,15 @@ int32_t EXMC_NFC_ReadPageHwEcc(uint32_t u32Bank, uint32_t u32Page,
                                uint8_t *pu8Data, uint32_t u32NumBytes, uint32_t u32Timeout);
 int32_t EXMC_NFC_WritePageHwEcc(uint32_t u32Bank, uint32_t u32Page,
                                 const uint8_t *pu8Data, uint32_t u32NumBytes, uint32_t u32Timeout);
-/**
- * @}
- */
+
 
 #endif /* LL_NFC_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
+
 
 #ifdef __cplusplus
 }

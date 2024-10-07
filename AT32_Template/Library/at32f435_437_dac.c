@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup DAC
   * @brief DAC driver modules
-  * @{
   */
 
 #ifdef DAC_MODULE_EnableD
 
 /** @defgroup DAC_private_functions
-  * @{
   */
 
 /**
@@ -440,16 +437,4 @@ void DAC_UDR_Flag_Clear(DAC_Select_Type DAC_Select) {
     }
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

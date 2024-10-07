@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_FMAC
- * @{
  */
 
 #if (LL_FMAC_ENABLE == DDL_ON)
@@ -52,7 +50,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup FMAC_Global_Types FMAC Global Types
- * @{
  */
 
 /**
@@ -76,9 +73,7 @@ typedef struct {
     uint32_t u32ResultLow;              /*!< The low value of the result.     */
 } stc_fmac_result_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
@@ -86,22 +81,17 @@ typedef struct {
 
 /**
  * @defgroup FMAC_Global_Macros FMAC Global Macros
- * @{
  */
 
 /**
  * @defgroup FMAC_Interrupt_Selection FMAC Interrupt Selection
- * @{
  */
 #define FMAC_INT_ENABLE                 (FMAC_IER_INTEN)
 #define FMAC_INT_DISABLE                (0x0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FMAC_Filter_Shift FMAC Filter Shift
- * @{
  */
 #define FMAC_FIR_SHIFT_0BIT             (0U)
 #define FMAC_FIR_SHIFT_1BIT             (1U)
@@ -125,13 +115,10 @@ typedef struct {
 #define FMAC_FIR_SHIFT_19BIT            (19U)
 #define FMAC_FIR_SHIFT_20BIT            (20U)
 #define FMAC_FIR_SHIFT_21BIT            (21U)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FMAC_Filter_Stage FMAC Filter Stage
- * @{
  */
 #define FMAC_FIR_STAGE_0                (0U)
 #define FMAC_FIR_STAGE_1                (1U)
@@ -150,13 +137,9 @@ typedef struct {
 #define FMAC_FIR_STAGE_14               (14U)
 #define FMAC_FIR_STAGE_15               (15U)
 #define FMAC_FIR_STAGE_16               (16U)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -167,7 +150,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup FMAC_Global_Functions
- * @{
  */
 int32_t FMAC_StructInit(stc_fmac_init_t *pstcFmacInit);
 void FMAC_DeInit(CM_FMAC_TypeDef *FMACx);
@@ -179,19 +161,13 @@ void FMAC_IntCmd(CM_FMAC_TypeDef *FMACx, en_functional_state_t enNewState);
 void FMAC_FIRInput(CM_FMAC_TypeDef *FMACx, int16_t i16Factor);
 en_flag_status_t FMAC_GetStatus(const CM_FMAC_TypeDef *FMACx);
 int32_t FMAC_GetResult(const CM_FMAC_TypeDef *FMACx, stc_fmac_result_t *pstcResult);
-/**
- * @}
- */
+
 
 #endif /* LL_FMAC_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_FCM
- * @{
  */
 
 #if (LL_FCM_ENABLE == DDL_ON)
@@ -52,7 +50,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup FCM_Global_Types FCM Global Types
- * @{
  */
 /**
  * @brief  FCM Init structure definition
@@ -70,21 +67,17 @@ typedef struct {
     uint32_t u32ExceptionType;  /*!< FCM exception type select,  @ref FCM_Exception_Type */
 } stc_fcm_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup FCM_Global_Macros FCM Global Macros
- * @{
  */
 
 /**
  * @defgroup FCM_Target_Clock_Src FCM Target Clock Source
- * @{
  */
 #define FCM_TARGET_CLK_XTAL         (0x00UL << FCM_MCCR_MCKS_POS)
 #define FCM_TARGET_CLK_XTAL32       (0x01UL << FCM_MCCR_MCKS_POS)
@@ -97,58 +90,43 @@ typedef struct {
 #define FCM_TARGET_CLK_PLLHP        (0x08UL << FCM_MCCR_MCKS_POS)
 #define FCM_TARGET_CLK_RTCLRC       (0x09UL << FCM_MCCR_MCKS_POS)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCM_Target_Clock_Div FCM Target Clock Division
- * @{
  */
 #define FCM_TARGET_CLK_DIV1         (0x00UL << FCM_MCCR_MDIVS_POS)
 #define FCM_TARGET_CLK_DIV4         (0x01UL << FCM_MCCR_MDIVS_POS)
 #define FCM_TARGET_CLK_DIV8         (0x02UL << FCM_MCCR_MDIVS_POS)
 #define FCM_TARGET_CLK_DIV32        (0x03UL << FCM_MCCR_MDIVS_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCM_Ext_Ref_Clock_Config FCM External Reference Clock Config
- * @{
  */
 #define FCM_EXT_REF_OFF             (0x00UL)
 #define FCM_EXT_REF_ON              (FCM_RCCR_EXREFE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCM_Ref_Clock_Edge FCM Reference Clock Edge
- * @{
  */
 #define FCM_REF_CLK_RISING          (0x00UL)
 #define FCM_REF_CLK_FALLING         (FCM_RCCR_EDGES_0)
 #define FCM_REF_CLK_BOTH            (FCM_RCCR_EDGES_1)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCM_Digital_Filter_Config FCM Digital Filter Config
- * @{
  */
 #define FCM_DIG_FILTER_OFF          (0x00UL)
 #define FCM_DIG_FILTER_DIV1         (FCM_RCCR_DNFS_0)
 #define FCM_DIG_FILTER_DIV4         (FCM_RCCR_DNFS_1)
 #define FCM_DIG_FILTER_DIV16        (FCM_RCCR_DNFS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCM_Ref_Clock_Src FCM Reference Clock Source
- * @{
  */
 #define FCM_REF_CLK_EXTCLK          (0x00UL << FCM_RCCR_RCKS_POS)
 #define FCM_REF_CLK_XTAL            (0x10UL << FCM_RCCR_RCKS_POS)
@@ -162,67 +140,48 @@ typedef struct {
 #define FCM_REF_CLK_PLLHP           (0x18UL << FCM_RCCR_RCKS_POS)
 #define FCM_REF_CLK_RTCLRC          (0x19UL << FCM_RCCR_RCKS_POS)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCM_Ref_Clock_Div FCM Reference Clock Division
- * @{
  */
 #define FCM_REF_CLK_DIV32           (0x00UL << FCM_RCCR_RDIVS_POS)
 #define FCM_REF_CLK_DIV128          (0x01UL << FCM_RCCR_RDIVS_POS)
 #define FCM_REF_CLK_DIV1024         (0x02UL << FCM_RCCR_RDIVS_POS)
 #define FCM_REF_CLK_DIV8192         (0x03UL << FCM_RCCR_RDIVS_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCM_Abnormal_Reset_Func FCM Abnormal Reset Function Config
- * @{
  */
 #define FCM_ERR_RST_OFF             (0x00UL)
 #define FCM_ERR_RST_ON              (FCM_RIER_ERRE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCM_Exception_Type FCM Exception Type
- * @{
  */
 #define FCM_EXP_TYPE_INT            (0x00UL)
 #define FCM_EXP_TYPE_RST            (FCM_RIER_ERRINTRS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCM_Int_Type FCM Interrupt Type
- * @{
  */
 #define FCM_INT_OVF                 (FCM_RIER_OVFIE)
 #define FCM_INT_END                 (FCM_RIER_MENDIE)
 #define FCM_INT_ERR                 (FCM_RIER_ERRIE)
-/**
- * @}
- */
+
 
 /**
  * @defgroup FCM_Flag_Sel FCM Status Flag Selection
- * @{
  */
 #define FCM_FLAG_ERR                (FCM_SR_ERRF)
 #define FCM_FLAG_END                (FCM_SR_MENDF)
 #define FCM_FLAG_OVF                (FCM_SR_OVF)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -233,7 +192,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup FCM_Global_Functions
- * @{
  */
 
 /**
@@ -268,19 +226,13 @@ void FCM_ResetCmd(en_functional_state_t enNewState);
 void FCM_IntCmd(uint32_t u32IntType, en_functional_state_t enNewState);
 void FCM_Cmd(en_functional_state_t enNewState);
 
-/**
- * @}
- */
+
 
 #endif /* LL_FCM_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

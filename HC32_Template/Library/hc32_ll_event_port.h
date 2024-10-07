@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_EVENT_PORT
- * @{
  */
 
 #if (LL_EVENT_PORT_ENABLE == DDL_ON)
@@ -51,7 +49,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup EP_Global_Types Event Port Global Types
- * @{
  */
 
 /**
@@ -70,33 +67,26 @@ typedef struct {
     uint32_t u32Filter;         /*!< Filter clock function setting, @ref EP_FilterClock_Sel for details */
     uint32_t u32FilterClock;    /*!< Filter clock, ref@ EP_FilterClock_Div for details */
 } stc_ep_init_t;
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup EP_Global_Macros Event Port Global Macros
- * @{
  */
 
 /**
  * @defgroup EP_Port_source EP Port Source
- * @{
  */
 #define EVT_PORT_1          (0U)        /*!< Event port 1 */
 #define EVT_PORT_2          (1U)        /*!< Event port 2 */
 #define EVT_PORT_3          (2U)        /*!< Event port 3 */
 #define EVT_PORT_4          (3U)        /*!< Event port 4 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EP_pins_define EP Pin Source
- * @{
  */
 #define EVT_PIN_00          (0x0001U)   /*!< Event port Pin 00 */
 #define EVT_PIN_01          (0x0002U)   /*!< Event port Pin 01 */
@@ -116,73 +106,54 @@ typedef struct {
 #define EVT_PIN_15          (0x8000U)   /*!< Event port Pin 15 */
 #define EVT_PIN_All         (0xFFFFU)   /*!< All event pins are selected */
 #define EVT_PIN_MASK        (0xFFFFU)   /*!< Event pin mask for assert test */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EP_PinDirection_Sel EP Pin Input/Output Direction Selection
- * @{
  */
 #define EP_DIR_IN           (0UL)       /*!< EP input */
 #define EP_DIR_OUT          (1UL)       /*!< EP output */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EP_FilterClock_Sel Event Port Filter Function Selection
- * @{
  */
 #define EP_FILTER_OFF       (0UL)       /*!< EP filter function OFF */
 
 #define EP_FILTER_ON        (1UL)       /*!< EP filter function ON */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EP_FilterClock_Div Event Port Filter Sampling Clock Division Selection
- * @{
  */
 #define EP_FCLK_DIV1        (0UL)                               /*!< PCLK as EP filter clock source */
 #define EP_FCLK_DIV8        (1UL << AOS_PEVNTNFCR_DIVS1_POS)    /*!< PCLK div8 as EP filter clock source */
 #define EP_FCLK_DIV32       (2UL << AOS_PEVNTNFCR_DIVS1_POS)    /*!< PCLK div32 as EP filter clock source */
 #define EP_FCLK_DIV64       (3UL << AOS_PEVNTNFCR_DIVS1_POS)    /*!< PCLK div64 as EP filter clock source */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EP_Trigger_Sel Event Port Trigger Edge Selection
- * @{
  */
 #define EP_TRIG_NONE        (0UL)       /*!< No Trigger by edge */
 #define EP_TRIG_FALLING     (1UL)       /*!< Trigger by falling edge */
 #define EP_TRIG_RISING      (2UL)       /*!< Trigger by rising edge */
 #define EP_TRIG_BOTH        (3UL)       /*!< Trigger by falling and rising edge */
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EP_TriggerOps_Sel Event Port Operation
- * @{
  */
 #define EP_OPS_NONE         (0UL)       /*!< Pin no action after triggered */
 #define EP_OPS_LOW          (1UL)       /*!< Pin ouput low after triggered */
 #define EP_OPS_HIGH         (2UL)       /*!< Pin ouput high after triggered */
 #define EP_OPS_TOGGLE       (3UL)       /*!< Pin toggle after triggered */
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -193,7 +164,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup EP_Global_Functions
- * @{
  */
 void EP_DeInit(void);
 int32_t EP_StructInit(stc_ep_init_t *pstcEventPortInit);
@@ -209,19 +179,13 @@ void EP_SetPins(uint8_t u8EventPort, uint16_t u16EventPin);
 void EP_ResetPins(uint8_t u8EventPort, uint16_t u16EventPin);
 void EP_SetDir(uint8_t u8EventPort, uint16_t u16EventPin, uint32_t u32Dir);
 
-/**
- * @}
- */
+
 
 #endif /* LL_EVENT_PORT_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

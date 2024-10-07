@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_OTS
- * @{
  */
 
 #if (LL_OTS_ENABLE == DDL_ON)
@@ -52,7 +50,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup OTS_Global_Types OTS Global Types
- * @{
  */
 
 /**
@@ -85,52 +82,38 @@ typedef struct {
                                                  want to use the default parameters. */
 } stc_ots_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup OTS_Global_Macros OTS Global Macros
- * @{
  */
 
 /**
  * @defgroup OTS_Clock_Source OTS Clock Source
- * @{
  */
 #define OTS_CLK_XTAL                    (0x0U)              /*!< Select XTAL as OTS clock. */
 #define OTS_CLK_HRC                     (OTS_CTL_OTSCK)     /*!< Select HRC as OTS clock */
-/**
- * @}
- */
+
 
 /**
  * @defgroup OTS_Auto_Off_En OTS Automatic Off Function Control
- * @{
  */
 #define OTS_AUTO_OFF_DISABLE            (0x0U)              /*!< OTS automatically turned off when sampled done. */
 #define OTS_AUTO_OFF_ENABLE             (OTS_CTL_TSSTP)     /*!< OTS is still on when sampled done. */
-/**
- * @}
- */
+
 
 /**
  * @defgroup OTS_Param_Temp_Cond OTS Parameter Temperature Condition
- * @{
  */
 #define OTS_PARAM_TEMP_COND_TN40        (0U)                /*!< -40 degrees Celsius. */
 #define OTS_PARAM_TEMP_COND_T25         (1U)                /*!< 25 degrees Celsius. */
 #define OTS_PARAM_TEMP_COND_T125        (2U)                /*!< 125 degrees Celsius. */
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -141,7 +124,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup OTS_Global_Functions
- * @{
  */
 
 /**
@@ -176,19 +158,13 @@ int32_t OTS_ScalingExperiment(uint16_t *pu16Dr1, uint16_t *pu16Dr2,
 
 float32_t OTS_CalculateTemp(void);
 
-/**
- * @}
- */
+
 
 #endif /* LL_OTS_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

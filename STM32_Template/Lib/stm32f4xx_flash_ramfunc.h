@@ -38,11 +38,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup FLASH RAMFUNC
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
@@ -91,13 +89,6 @@ __RAM_FUNC FLASH_FlashSleepModeCmd(FunctionalState NewState); // 在系统运行
 
 #endif /* __STM32F4xx_FLASH_RAMFUNC_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
 

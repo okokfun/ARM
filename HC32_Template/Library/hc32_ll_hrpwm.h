@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_HRPWM
- * @{
  */
 
 #if (LL_HRPWM_ENABLE == DDL_ON)
@@ -58,7 +56,6 @@ extern "C"
 
 /**
  * @defgroup HRPWM_Global_Macros HRPWM Global Macros
- * @{
  */
 
 #define HRPWM_CH_MIN                        (1UL)
@@ -69,17 +66,12 @@ extern "C"
 
 /**
  * @defgroup HRPWM_Calibrate_Unit_Define HRPWM Calibrate Unit Define
- * @{
  */
 #define HRPWM_CAL_UNIT0                     (0x00UL)
 #define HRPWM_CAL_UNIT1                     (0x01UL)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -90,7 +82,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup HRPWM_Global_Functions
- * @{
  */
 
 /* HRPWM Judge the condition of calibration function */
@@ -117,19 +108,13 @@ void HRPWM_ChPositiveAdjustConfig(uint32_t u32Ch, uint8_t u8DelayNum);
 /* HRPWM negative edge adjust delay counts configration for specified channel */
 void HRPWM_ChNegativeAdjustConfig(uint32_t u32Ch, uint8_t u8DelayNum);
 
-/**
- * @}
- */
+
 
 #endif /* LL_HRPWM_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

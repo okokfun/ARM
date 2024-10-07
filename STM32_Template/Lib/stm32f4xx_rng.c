@@ -54,12 +54,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup RNG
   * 简介: RNG 驱动模块
-  * @{
   */
 #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F410xx) || defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F429_439xx) || defined(STM32F469_479xx)
 /* Private typedef -----------------------------------------------------------*/
@@ -70,7 +68,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup RNG_Private_Functions
-  * @{
   */
 
 /** @defgroup RNG_Group1 初始化和配置函数
@@ -85,7 +82,6 @@
    (+) 使能或禁用RNG外设
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -128,9 +124,6 @@ void RNG_Cmd(FunctionalState NewState) {
         RNG->CR &= ~RNG_CR_RNGEN;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup RNG_Group2 得到32位随机数函数
  *  简介    得到32位随机数函数
@@ -143,10 +136,9 @@ void RNG_Cmd(FunctionalState NewState) {
  [..] 本节提供了一个函数，允许获取32位随机数
 
    (@)  在调用这个函数之前，你必须等待DRDY标志被设置，
-        使用RNG_GetFlagStatus(RNG_FLAG_DRDY)函数。
+        使用RNG_GetFlagStatus(RNG_FLAG_DRDY) 函数。
 
 @endverbatim
-  * @{
   */
 
 
@@ -155,7 +147,7 @@ void RNG_Cmd(FunctionalState NewState) {
   *
   * 注意:   在调用此函数之前，您必须使用RNG_GetFlagStatus(RNG_flag_DRDY)
 			函数等待设置DRDY(数据就绪)标志。
-  * 注意:   每次读取随机数数据(使用RNG_GetRandomNumber()函数)
+  * 注意:   每次读取随机数数据(使用RNG_GetRandomNumber() 函数)
 			时，RNG_FLAG_DRDY标志会自动清除。
   * 注意:   在种子错误的情况下，只要SECS位为"1"，随机数的生成就
 			会中断。如果一个数字在RNG_DR寄存器中可用，则不能使用它，
@@ -179,9 +171,6 @@ uint32_t RNG_GetRandomNumber(void) {
 }
 
 
-/**
-  * @}
-  */
 
 /** @defgroup RNG_Group3 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -199,7 +188,7 @@ uint32_t RNG_GetRandomNumber(void) {
  ===============
  [..]
     (#) RNG_FLAG_DRDY :  在RNG_DR寄存器包含有效随机数据的情况下。
-		通过读取有效数据(使用RNG_GetRandomNumber()函数)来清除它。
+		通过读取有效数据(使用RNG_GetRandomNumber() 函数)来清除它。
 
     (#) RNG_FLAG_CECS : 在种子错误检测的情况下。
 
@@ -210,12 +199,12 @@ uint32_t RNG_GetRandomNumber(void) {
  [..] 如果启用，则RNG中断处于挂起状态 :
 
    (#) 在RNG_DR寄存器包含有效随机数据的情况下。
-		一旦读取了RNG_DR寄存器(使用RNG_GetRandomNumber()函数)，
+		一旦读取了RNG_DR寄存器(使用RNG_GetRandomNumber() 函数)，
 		该中断源将被清除，直到计算出新的有效值;
    (#) 在种子错误的情况下 : 检测到以下故障序列之一:
        (++) 具有相同值(0或1)的64个以上连续位
        (++) 0和1的连续交替次数超过32次(0101010101…01)
-       使用RNG_ClearITPendingBit(RNG_IT_SEI)函数清除该中断源;
+       使用RNG_ClearITPendingBit(RNG_IT_SEI) 函数清除该中断源;
    (#) 在时钟错误的情况下 : PLL48CLK(RNG外围时钟源)没有
 		被正确地检测到(fPLL48CLK <fHCLK/16)。
 		使用RNG_ClearITPendingBit(RNG_IT_CEI)功能清除此中断源。
@@ -238,7 +227,6 @@ uint32_t RNG_GetRandomNumber(void) {
         (++) RNG_ClearITPendingBit() : 以清除中断未决位(对应的标志)。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -249,7 +237,7 @@ uint32_t RNG_GetRandomNumber(void) {
   *           - 时钟错误中断(CEI)，
   *         所有这些中断源都是通过在CR寄存器中设置IE位来启用的。
 			但是，每个中断都有其特定的状态位(请参阅RNG_GetITStatus()
-			函数)和清除位(请参见RNG_ClearITPendingBit()函数，DRDY事件除外)。
+			函数)和清除位(请参见RNG_ClearITPendingBit() 函数，DRDY事件除外)。
   * 参数:  NewState: 新状态-> RNG 中断.
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
@@ -355,21 +343,8 @@ void RNG_ClearITPendingBit(uint8_t RNG_IT) {
     /* 清除所选RNG中断挂起位 */
     RNG->SR = (uint8_t)~RNG_IT;
 }
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 #endif /* STM32F40_41xxx || STM32F427_437xx || STM32F410xx || STM32F412xG || STM32F413_423xx || STM32F429_439xx || STM32F469_479xx */
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

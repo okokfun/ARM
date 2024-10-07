@@ -19,34 +19,34 @@
  *** HASH操作 : ***
  ========================
  [..]
-   (#) 使用RCC_AHB2PeriphClockCmd(RCC_AHB2Periph-HASH，Enable)函数启用HASH控制器时钟。
+   (#) 使用 RCC_AHB2PeriphClockCmd(RCC_AHB2Periph-HASH，Enable) 函数启用 HASH控制器时钟。
 
-   (#) 使用HASH_Init()函数初始化HASH。
+   (#) 使用 HASH_Init() 函数初始化HASH。
 
-   (#) 重置HASH处理器内核，以便HASH可以使用HASH_Reset()函数计算新消息的消息摘要。
+   (#) 重置 HASH 处理器内核，以便 HASH 可以使用 HASH_Reset() 函数计算新消息的消息摘要。
 
-   (#) 使用HASH_Cmd()函数启用HASH控制器。
+   (#) 使用 HASH_Cmd() 函数启用 HASH 控制器。
+ 
+   (#) 如果使用 DMA 进行数据输入传输，请使用 HASH_DMACmd() 函数激活 DMA 请求
 
-   (#) 如果使用DMA进行数据输入传输，请使用HASH_DMACmd()函数激活DMA请求
-
-   (#) 如果DMA不用于数据传输，请使用HASH_DataIn()函数将数据输入到IN FIFO。
+   (#) 如果 DMA 不用于数据传输，请使用 HASH_DataIn() 函数将数据输入到IN FIFO。
 
    (#) 配置消息最后一个字的有效位数
-       使用HASH_SetLastWordValidBitsNbr()函数。
+       使用 HASH_SetLastWordValidBitsNbr() 函数。
 
-   (#) 如果消息长度不是512位的精确倍数，则必须调用函数HASH_StartDigest()来启动最终摘要的计算。
+   (#) 如果消息长度不是512位的精确倍数，则必须调用函数 HASH_StartDigest() 来启动最终摘要的计算。
 
-   (#) 计算完成后，可以使用HASH_GetDigest()函数读取摘要。
+   (#) 计算完成后，可以使用 HASH_GetDigest() 函数读取摘要。
 
-   (#) 要控制HASH事件，可以使用以下两种方法之一:
-       (++) 使用HASH_GetFlagStatus()函数检查HASH标志。
+   (#) 要控制 HASH 事件，可以使用以下两种方法之一:
+       (++) 使用 HASH_GetFlagStatus() 函数检查HASH标志。
 
-       (++) 在初始化阶段通过函数HASH_ITConfig()和HASH_GetITStatus()将HASH中断用于哈希阶段的中断例程。
-            检查标志后，应使用HASH_ClearFlag()函数将其清除。在检查中断事件后，
+       (++) 在初始化阶段通过函数 HASH_ITConfig() 和 HASH_GetITStatus() 将 HASH 中断用于哈希阶段的中断例程。
+            检查标志后，应使用 HASH_ClearFlag() 函数将其清除。在检查中断事件后，
             
-		应该使用HASH_ClearITPendingBit()函数清除它。
+		应该使用 HASH_ClearITPendingBit() 函数清除它。
 
-   (#) 使用hash_SaveContext()和hash_RestoreContext()函数保存和还原哈希处理器上下文。
+   (#) 使用 hash_SaveContext() 和 hash_RestoreContext() 函数保存和还原哈希处理器上下文。
 
 
 
@@ -63,16 +63,16 @@
 
 
  [..]为了计算HMAC，需要四个不同的阶段:
-   (#) 使用HASH_Init()函数初始化HASH以执行HMAC操作。
+   (#) 使用 HASH_Init() 函数初始化 HASH 以执行 HMAC 操作。
 
    (#) 然后将密钥(用于内部哈希函数)提供给核心。
-       此操作遵循与哈希操作中用于发送消息的机制相同的机制(即，通过hash_DataIn()函数，最后通过hash_StartDigest()函数)。
+       此操作遵循与哈希操作中用于发送消息的机制相同的机制(即，通过 hash_DataIn() 函数，最后通过 hash_StartDigest() 函数)。
 
    (#) 一旦输入了最后一个字并开始计算，哈希处理器就会详细说明密钥。
 	然后，它就可以使用与在哈希操作中发送消息相同的机制来接受消息文本。
 
    (#) 第一轮散列后，散列处理器返回"ready"，表示它准备好接收用于外部散列函数的密钥(通常，该密钥与用于内部散列函数中的密钥相同)。
-       当输入键的最后一个字并开始计算时，可以使用HASH_GetDigest()函数获得HMAC结果。
+       当输入键的最后一个字并开始计算时，可以使用 HASH_GetDigest() 函数获得HMAC结果。
 
 @endverbatim
   *
@@ -101,12 +101,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup HASH
   * 简介: HASH驱动程序模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -117,7 +115,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup HASH_Private_Functions
-  * @{
   */
 
 /** @defgroup HASH_Group1初始化和配置函数
@@ -137,7 +134,6 @@
    (+) 重置HASH处理器
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -148,7 +144,7 @@
   * 返回值: 无
   */
 void HASH_DeInit(void) {
-    /* 启用HASH复位状态 */
+    /* 启用 HASH复位状态 */
     RCC_AHB2PeriphResetCmd(RCC_AHB2Periph_HASH, ENABLE);
     /* 从复位状态释放HASH */
     RCC_AHB2PeriphResetCmd(RCC_AHB2Periph_HASH, DISABLE);
@@ -157,12 +153,12 @@ void HASH_DeInit(void) {
 /**
   * 简介:  根据HASH_InitStruct结构中的指定参数初始化HASH外设设备。
   * 
-  * 注意:   调用此函数时，哈希处理器会重置，以便hash可以计算新消息的消息摘要。
-  *         不需要调用HASH_Reset()函数。
+  * 注意:  调用此函数时，哈希处理器会重置，以便hash可以计算新消息的消息摘要。
+  *        不需要调用 HASH_Reset() 函数。
   * 
-  * 参数:  HASH_InitStruct:指向包含HASH外设设备配置信息的HASH_InitTypeDef结构的指针。
+  * 参数:  HASH_InitStruct: 指向包含HASH外设设备配置信息的 HASH_InitTypeDef 结构的指针。
   * 
-  * 注意:   仅当算法模式为HMAC时，必须填充HASH_InitTypeDef中的字段HASH_HMACKeyType。
+  * 注意:   仅当算法模式为 HMAC 时，必须填充 HASH_InitTypeDef 中的字段 HASH_HMACKeyType。
   * 
   * 返回值: 无
   */
@@ -225,9 +221,6 @@ void HASH_Reset(void) {
     /* 重置HASH处理器内核 */
     HASH->CR |= HASH_CR_INIT;
 }
-/**
-  * @}
-  */
 
 /** @defgroup HASH_Group2消息摘要生成函数
  *  简介    消息摘要生成函数
@@ -237,14 +230,13 @@ void HASH_Reset(void) {
                   ##### 函数息摘要生成功能 #####
  ===============================================================================
  [..] 本节提供了允许生成消息摘要的函数:
-   (+) 在IN FIFO中推送数据:使用HASH_DataIn()
-   (+) 获取IN FIFO中设置的字数，使用HASH_GetInFIFOWordsNbr()
-   (+) 使用HASH_SetLastWordValidBitsNbr()设置最后一个字的有效位数
-   (+) 开始摘要计算:使用HASH_StartDigest()
-   (+) 获取摘要消息:使用HASH_GetDigest()
+   (+) 在IN FIFO中推送数据:使用 HASH_DataIn()
+   (+) 获取IN FIFO中设置的字数，使用 HASH_GetInFIFOWordsNbr()
+   (+) 使用 HASH_SetLastWordValidBitsNbr()设置最后一个字的有效位数
+   (+) 开始摘要计算:使用 HASH_StartDigest()
+   (+) 获取摘要消息:使用 HASH_GetDigest()
 
 @endverbatim
-  * @{
   */
 
 
@@ -300,9 +292,9 @@ uint8_t HASH_GetInFIFOWordsNbr(void) {
 /**
   * 简介:  提供消息摘要结果。
   * 
-  * 注意:   在MD5模式下，不使用HASH_MsgDigest结构的Data[7]到Data[4]字段，并将其读取为零。
+  * 注意:   在MD5模式下，不使用 HASH_MsgDigest结构的Data[7]到Data[4]字段，并将其读取为零。
   *         在SHA-1模式下，HASH_MsgDigest结构的Data[7]到Data[5]字段不使用，读取为零。
-  *         在SHA-224模式下，不使用HASH_MsgDigest结构的Data[7]字段，读取为零。
+  *         在SHA-224模式下，不使用 HASH_MsgDigest结构的Data[7]字段，读取为零。
   * 
   * 参数:  HASH_MessageDigest:指向将保存消息摘要结果的HASH_MsgDigest结构的指针
   * 
@@ -331,9 +323,6 @@ void HASH_StartDigest(void) {
     /* 启动摘要计算 */
     HASH->STR |= HASH_STR_DCAL;
 }
-/**
-  * @}
-  */
 
 /** @defgroup HASH_Group3上下文交换函数
  *  简介   上下文交换功能
@@ -349,12 +338,11 @@ void HASH_StartDigest(void) {
 	并在较高优先级任务完成后完成中断的进程。
 	为此，中断任务的上下文必须从HASH寄存器保存到内存，然后从内存恢复到HASH注册表。
 
-   (#) 要保存当前上下文，请使用HASH_SaveContext()函数
-   (#) 要还原保存的上下文，请使用HASH_RestoreContext()函数
+   (#) 要保存当前上下文，请使用 HASH_SaveContext() 函数
+   (#) 要还原保存的上下文，请使用 HASH_RestoreContext() 函数
 
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -405,9 +393,6 @@ void HASH_RestoreContext(HASH_Context* HASH_ContextRestore) {
         HASH->CSR[i] = HASH_ContextRestore->HASH_CSR[i];
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup HASH_Group4 HASH的DMA接口配置函数
  *  简介   HASH的DMA接口配置函数
@@ -419,14 +404,13 @@ void HASH_RestoreContext(HASH_Context* HASH_ContextRestore) {
 
  [..] 本节提供了允许为HASH/HMAC数据输入传输配置DMA接口的函数。
 
- [..] 启用DMA模式时(使用HASH_DMACmd()函数)，可以使用DMA外设设备将数据发送到IN FIFO。
+ [..] 启用 DMA 模式时(使用 HASH_DMACmd() 函数)，可以使用 DMA外设设备将数据发送到IN FIFO。
 
 @endverbatim
-  * @{
   */
 
 /**
-  * 简介:  启用或禁用DMA传输结束时自动启动消息填充和最终消息摘要的计算。
+  * 简介:  启用或禁用 DMA传输结束时自动启动消息填充和最终消息摘要的计算。
   * 
   * 参数:  NewState: 所选HASH DMA传输请求的新状态。
   *          此参数可以是: ENABLE或DISABLE。
@@ -447,7 +431,7 @@ void HASH_AutoStartDigest(FunctionalState NewState) {
 }
 
 /**
-  * 简介:  启用或禁用HASH DMA接口。
+  * 简介:  启用或禁用 HASH DMA接口。
   * 
   * 注意:   DMA在传输结束后被硬件禁用。
   * 
@@ -461,16 +445,13 @@ void HASH_DMACmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用HASH DMA请求 */
+        /* 启用 HASH DMA请求 */
         HASH->CR |= HASH_CR_DMAE;
     } else {
-        /* 禁用HASH DMA请求 */
+        /* 禁用 HASH DMA请求 */
         HASH->CR &= ~HASH_CR_DMAE;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup HASH_Group5中断和标志管理函数
  *  简介   中断和标记管理函数
@@ -503,10 +484,10 @@ void HASH_DMACmd(FunctionalState NewState) {
  [..]
    (#) HASH_IT_DINI  : 如果启用，当数据输入FIFO中有16个位置空闲时，该中断源处于待定状态，
 	这意味着可以将新块(512位)输入到输入缓冲器中。
-	使用HASH_ClearITPendingBit(HASH_IT_DINI)函数清除此中断源。
+	使用 HASH_ClearITPendingBit(HASH_IT_DINI) 函数清除此中断源。
 
    (#) HASH_IT_DCI   : 如果启用，则当摘要计算完成时，此中断源处于挂起状态。
-	使用HASH_ClearITPendingBit(HASH_IT_DCI)函数清除此中断源。
+	使用 HASH_ClearITPendingBit(HASH_IT_DCI) 函数清除此中断源。
 
  *** 管理HASH控制器事件 : ***
  =============================================
@@ -522,7 +503,6 @@ void HASH_DMACmd(FunctionalState NewState) {
        (++) HASH_ClearITPendingBit() : 清除中断挂起位(相应标志)。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -658,21 +638,5 @@ void HASH_ClearITPendingBit(uint32_t HASH_IT) {
     /* 清除所选HASH中断挂起位 */
     HASH->SR = (uint32_t)(~HASH_IT);
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

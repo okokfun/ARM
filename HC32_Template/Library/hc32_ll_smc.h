@@ -38,17 +38,14 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_EXMC
- * @{
  */
 
 /**
  * @addtogroup LL_SMC
- * @{
  */
 
 #if (LL_SMC_ENABLE == DDL_ON)
@@ -58,7 +55,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup EXMC_SMC_Global_Types EXMC_SMC Global Types
- * @{
  */
 
 /**
@@ -115,53 +111,40 @@ typedef struct {
                                                          This structure details refer @ref stc_exmc_smc_timing_config_t. */
 } stc_exmc_smc_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup EXMC_SMC_Global_Macros EXMC_SMC Global Macros
- * @{
  */
 
 /**
  * @defgroup EXMC_SMC_Chip EXMC_SMC Chip
- * @{
  */
 #define EXMC_SMC_CHIP0                          (0UL)     /*!< Chip 0 */
 #define EXMC_SMC_CHIP1                          (1UL)     /*!< Chip 1 */
 #define EXMC_SMC_CHIP2                          (2UL)     /*!< Chip 2 */
 #define EXMC_SMC_CHIP3                          (3UL)     /*!< Chip 3 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_Memory_Read_Mode EXMC_SMC Memory Read Mode
- * @{
  */
 #define EXMC_SMC_READ_ASYNC                     (0UL)
 #define EXMC_SMC_READ_SYNC                      (SMC_CPCR_RSYN)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_Memory_Write_Mode EXMC_SMC Memory Write Mode
- * @{
  */
 #define EXMC_SMC_WRITE_ASYNC                    (0UL)
 #define EXMC_SMC_WRITE_SYNC                     (SMC_CPCR_WSYN)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_Memory_Read_Burst_Length EXMC_SMC Memory Read Burst Length
- * @{
  */
 #define EXMC_SMC_READ_BURST_1BEAT               (0UL)
 #define EXMC_SMC_READ_BURST_4BEAT               (1UL << SMC_CPCR_RBL_POS)
@@ -169,13 +152,10 @@ typedef struct {
 #define EXMC_SMC_READ_BURST_16BEAT              (3UL << SMC_CPCR_RBL_POS)
 #define EXMC_SMC_READ_BURST_32BEAT              (4UL << SMC_CPCR_RBL_POS)
 #define EXMC_SMC_READ_BURST_CONTINUOUS          (5UL << SMC_CPCR_RBL_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_Memory_Write_Burst_Length EXMC_SMC Memory Write Burst Length
- * @{
  */
 #define EXMC_SMC_WRITE_BURST_1BEAT              (0UL)
 #define EXMC_SMC_WRITE_BURST_4BEAT              (1UL << SMC_CPCR_WBL_POS)
@@ -183,95 +163,68 @@ typedef struct {
 #define EXMC_SMC_WRITE_BURST_16BEAT             (3UL << SMC_CPCR_WBL_POS)
 #define EXMC_SMC_WRITE_BURST_32BEAT             (4UL << SMC_CPCR_WBL_POS)
 #define EXMC_SMC_WRITE_BURST_CONTINUOUS         (5UL << SMC_CPCR_WBL_POS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_Memory_Width EXMC_SMC Memory Width
- * @{
  */
 #define EXMC_SMC_MEMORY_WIDTH_16BIT             (SMC_CPCR_MW_0)
 #define EXMC_SMC_MEMORY_WIDTH_32BIT             (SMC_CPCR_MW_1)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_BAA_Port_Selection EXMC_SMC BAA Port Selection
- * @{
  */
 #define EXMC_SMC_BAA_PORT_DISABLE               (0UL)
 #define EXMC_SMC_BAA_PORT_ENABLE                (SMC_CPCR_BAAS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_ADV_Port_Selection EXMC_SMC ADV Port Selection
- * @{
  */
 #define EXMC_SMC_ADV_PORT_DISABLE               (0UL)
 #define EXMC_SMC_ADV_PORT_ENABLE                (SMC_CPCR_ADVS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_BLS_Synchronization_Selection EXMC_SMC BLS Synchronization Selection
- * @{
  */
 #define EXMC_SMC_BLS_SYNC_CS                    (0UL)
 #define EXMC_SMC_BLS_SYNC_WE                    (SMC_CPCR_BLSS)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_Command EXMC_SMC Command
- * @{
  */
 #define EXMC_SMC_CMD_MDREGCONFIG                (SMC_CMDR_CMD_0)    /*!< Command: MdRetConfig */
 #define EXMC_SMC_CMD_UPDATEREGS                 (SMC_CMDR_CMD_1)    /*!< Command: UpdateRegs */
 #define EXMC_SMC_CMD_MDREGCONFIG_AND_UPDATEREGS (SMC_CMDR_CMD)      /*!< Command: MdRetConfig & UpdateRegs */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_CRE_Polarity EXMC_SMC CRE Polarity
- * @{
  */
 #define EXMC_SMC_CRE_POLARITY_LOW               (0UL)           /*!< CRE is LOW */
 #define EXMC_SMC_CRE_POLARITY_HIGH              (SMC_CMDR_CRES) /*!< CRE is HIGH when ModeReg write occurs */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_Status EXMC_SMC Status
- * @{
  */
 #define EXMC_SMC_READY                          (0UL)               /*!< SMC is ready */
 #define EXMC_SMC_LOWPOWER                       (SMC_STSR_STATUS)   /*!< SMC is low power */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_Sample_Clock EXMC_SMC Sample Clock
- * @{
  */
 #define EXMC_SMC_SAMPLE_CLK_INTERNCLK           (0UL)               /*!< Internal EXCLK */
 #define EXMC_SMC_SAMPLE_CLK_INTERNCLK_INVT      (SMC_BACR_CKSEL_0)  /*!< Invert internal EXCLK */
 #define EXMC_SMC_SAMPLE_CLK_EXTCLK              (SMC_BACR_CKSEL_1)  /*!< External 时钟来自于 EXMC_CLK port */
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_Mask_Address EXMC_SMC Mask Address
- * @{
  */
 #define EXMC_SMC_ADDR_MASK_16MB                 (0xFFUL)
 #define EXMC_SMC_ADDR_MASK_32MB                 (0xFEUL)
@@ -279,19 +232,14 @@ typedef struct {
 #define EXMC_SMC_ADDR_MASK_128MB                (0xF8UL)
 #define EXMC_SMC_ADDR_MASK_256MB                (0xF0UL)
 #define EXMC_SMC_ADDR_MASK_512MB                (0xE0UL)
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_SMC_Address_Space EXMC_SMC Address Space
- * @{
  */
 #define EXMC_SMC_ADDR_MIN                       (0x60000000UL)
 #define EXMC_SMC_ADDR_MAX                       (0x7FFFFFFFUL)
-/**
- * @}
- */
+
 
 /**
   * @brief  SMC device memory address shifting.
@@ -304,9 +252,7 @@ typedef struct {
     (    ((EXMC_SMC_MEMORY_WIDTH_16BIT == (mem_width))? (((mem_base_addr) + ((addr) << 1U))) : \
           (((mem_base_addr) + ((addr) << 2U)))))
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -317,7 +263,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup EXMC_SMC_Global_Functions
- * @{
  */
 
 /**
@@ -365,23 +310,15 @@ uint32_t EXMC_SMC_GetChipEndAddr(uint32_t u32Chip);
 int32_t EXMC_SMC_GetChipConfig(uint32_t u32Chip, stc_exmc_smc_chip_config_t *pstcChipConfig);
 int32_t EXMC_SMC_GetTimingConfig(uint32_t u32Chip, stc_exmc_smc_timing_config_t *pstcTimingConfig);
 
-/**
- * @}
- */
+
 
 #endif /* LL_SMC_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
+
 
 #ifdef __cplusplus
 }

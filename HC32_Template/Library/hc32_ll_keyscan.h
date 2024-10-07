@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_KEYSCAN
- * @{
  */
 
 #if (LL_KEYSCAN_ENABLE == DDL_ON)
@@ -52,7 +50,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup KEYSCAN_Global_Types KEYSCAN Global Types
- * @{
  */
 
 /**
@@ -75,21 +72,17 @@ typedef struct {
                                         这个参数是其中之一 @ref KEYSCAN_Keyin_Sel */
 } stc_keyscan_init_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup KEYSCAN_Global_Macros KEYSCAN Global Macros
- * @{
  */
 
 /**
  * @defgroup KEYSCAN_Hiz_Cycle_Sel KEYSCAN Hiz cycles during low ouput selection
- * @{
  */
 #define KEYSCAN_HIZ_CYCLE_4     (0x00UL << KEYSCAN_SCR_T_HIZ_POS)       /*!< KEYSCAN HiZ keep 4 cycles during low ouput */
 #define KEYSCAN_HIZ_CYCLE_8     (0x01UL << KEYSCAN_SCR_T_HIZ_POS)       /*!< KEYSCAN HiZ keep 8 cycles during low ouput */
@@ -99,13 +92,10 @@ typedef struct {
 #define KEYSCAN_HIZ_CYCLE_256   (0x05UL << KEYSCAN_SCR_T_HIZ_POS)       /*!< KEYSCAN HiZ keep 256 cycles during low ouput */
 #define KEYSCAN_HIZ_CYCLE_512   (0x06UL << KEYSCAN_SCR_T_HIZ_POS)       /*!< KEYSCAN HiZ keep 512 cycles during low ouput */
 #define KEYSCAN_HIZ_CYCLE_1024  (0x07UL << KEYSCAN_SCR_T_HIZ_POS)       /*!< KEYSCAN HiZ keep 1024 cycles during low ouput */
-/**
- * @}
- */
+
 
 /**
  * @defgroup KEYSCAN_Low_Cycle_Sel KEYSCAN low level output cycles selection
- * @{
  */
 #define KEYSCAN_LOW_CYCLE_4     (0x02UL << KEYSCAN_SCR_T_LLEVEL_POS)    /*!< KEYSCAN low level output is 2^2=4 cycles */
 #define KEYSCAN_LOW_CYCLE_8     (0x03UL << KEYSCAN_SCR_T_LLEVEL_POS)    /*!< KEYSCAN low level output is 2^3=8 cycles */
@@ -130,24 +120,18 @@ typedef struct {
 #define KEYSCAN_LOW_CYCLE_4M    (0x16UL << KEYSCAN_SCR_T_LLEVEL_POS)    /*!< KEYSCAN low level output is 2^22=4M cycles */
 #define KEYSCAN_LOW_CYCLE_8M    (0x17UL << KEYSCAN_SCR_T_LLEVEL_POS)    /*!< KEYSCAN low level output is 2^23=8M cycles */
 #define KEYSCAN_LOW_CYCLE_16M   (0x18UL << KEYSCAN_SCR_T_LLEVEL_POS)    /*!< KEYSCAN low level output is 2^24=16M cycles */
-/**
- * @}
- */
+
 
 /**
  * @defgroup KEYSCAN_Clock_Sel KEYSCAN scan clock selection
- * @{
  */
 #define KEYSCAN_CLK_HCLK        (0x00UL)                    /*!< Use as HCLK KEYSCAN clock */
 #define KEYSCAN_CLK_LRC         (KEYSCAN_SCR_CKSEL_0)       /*!< Use as LRC KEYSCAN clock */
 #define KEYSCAN_CLK_XTAL32      (KEYSCAN_SCR_CKSEL_1)       /*!< Use as XTAL32 KEYSCAN clock */
-/**
- * @}
- */
+
 
 /**
  * @defgroup KEYSCAN_Keyout_Sel KEYSCAN keyout pins selection
- * @{
  */
 #define KEYSCAN_OUT_0T1         (0x01UL << KEYSCAN_SCR_KEYOUTSEL_POS)   /*!< KEYOUT 0 ~ 1 are selected */
 #define KEYSCAN_OUT_0T2         (0x02UL << KEYSCAN_SCR_KEYOUTSEL_POS)   /*!< KEYOUT 0 ~ 2 are selected */
@@ -156,13 +140,10 @@ typedef struct {
 #define KEYSCAN_OUT_0T5         (0x05UL << KEYSCAN_SCR_KEYOUTSEL_POS)   /*!< KEYOUT 0 ~ 5 are selected */
 #define KEYSCAN_OUT_0T6         (0x06UL << KEYSCAN_SCR_KEYOUTSEL_POS)   /*!< KEYOUT 0 ~ 6 are selected */
 #define KEYSCAN_OUT_0T7         (0x07UL << KEYSCAN_SCR_KEYOUTSEL_POS)   /*!< KEYOUT 0 ~ 7 are selected */
-/**
- * @}
- */
+
 
 /**
  * @defgroup KEYSCAN_Keyin_Sel KEYSCAN keyin pins selection
- * @{
  */
 #define KEYSCAN_IN_0            (1UL << 0U)    /*!< KEYIN(EIRQ) 0 is selected */
 #define KEYSCAN_IN_1            (1UL << 1U)    /*!< KEYIN(EIRQ) 1 is selected */
@@ -182,13 +163,9 @@ typedef struct {
 #define KEYSCAN_IN_15           (1UL << 15U)   /*!< KEYIN(EIRQ) 15 is selected */
 #define KEYSCAN_IN_ALL          (KEYSCAN_SCR_KEYINSEL)      /*!< KEYIN(EIRQ) mask */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -199,7 +176,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup KEYSCAN_Global_Functions
- * @{
  */
 /**
  * @brief  Get KEYOUT index.
@@ -214,19 +190,13 @@ int32_t KEYSCAN_StructInit(stc_keyscan_init_t *pstcKeyscanInit);
 int32_t KEYSCAN_Init(const stc_keyscan_init_t *pstcKeyscanInit);
 void KEYSCAN_Cmd(en_functional_state_t enNewState);
 
-/**
- * @}
- */
+
 
 #endif /* LL_KEYSCAN_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

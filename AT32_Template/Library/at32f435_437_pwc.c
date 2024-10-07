@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup PWC
   * @brief PWC driver modules
-  * @{
   */
 
 #ifdef PWC_MODULE_EnableD
 
 /** @defgroup PWC_private_functions
-  * @{
   */
 
 /**
@@ -216,16 +213,4 @@ void PWC_Standby_Mode_Enter(void) {
     }
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

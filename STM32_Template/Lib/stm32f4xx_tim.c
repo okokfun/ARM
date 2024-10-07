@@ -62,7 +62,7 @@
         (++) 启用/禁用中断源
         (++) 获取标志状态
         (++) 清除标志/挂起位
-        (++) 启用/禁用DMA请求
+        (++) 启用/禁用 DMA请求
         (++) 配置DMA突发模式
         (++) 选择CaptureCompare DMA请求
 
@@ -108,12 +108,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup TIM
   * 简介: TIM驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -142,7 +140,6 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup TIM_Private_Functions
-  * @{
   */
 
 /** @defgroup TIM_Group1 TimeBase管理功能
@@ -173,7 +170,6 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
        -@- 如果需要，可以单独使用所有其他函数来修改计时器的特定功能。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -237,7 +233,8 @@ void TIM_DeInit(TIM_TypeDef* TIMx) {
 /**
   * 简介:  根据 TIM_TimeBaseInitStruct 中指定的参数初始化 TIMx 时基单元外设。
   * 参数:  TIMx: 其中 x 可以是 1 到 14，用于选择 TIM 外设设备。
-  * 参数:  TIM_TimeBaseInitStruct: 指向 TIM_TimeBaseInitTypeDef 结构的指针。该结构包含指定 TIM 外设的配置信息。
+  * 参数:  TIM_TimeBaseInitStruct: 指向 TIM_TimeBaseInitTypeDef 结构的指针。
+  *            该结构包含指定 TIM 外设的配置信息。
   * 返回值: 无
   */
 void TIM_TimeBaseInit(TIM_TypeDef* TIMx, TIM_TimeBaseInitTypeDef* TIM_TimeBaseInitStruct) {
@@ -529,9 +526,6 @@ void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState) {
         TIMx->CR1 &= (uint16_t)~TIM_CR1_CEN;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup TIM_Group2 输出比较管理功能
  *  简介    输出比较管理功能
@@ -547,7 +541,7 @@ void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState) {
     [..]
     要在输出比较模式下使用计时器，必须执行以下步骤:
 
-      (#) 使用RCC_APBxPeriphClockCmd(RCC_ABPxPeriph-TIMx，Enable)函数启用TIM时钟
+      (#) 使用RCC_APBxPeriphClockCmd(RCC_ABPxPeriph-TIMx，Enable) 函数启用TIM时钟
 
       (#) 通过配置相应的GPIO引脚来配置TIM引脚
 
@@ -578,7 +572,6 @@ void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState) {
         (或TIM_DMA_Cmd(TIMx，TIM_DMA _CCx))启用相应的中断(或DMA请求)
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1694,9 +1687,6 @@ void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN) {
     /* 设置或重置 CCxNE 位 */
     TIMx->CCER |=  (uint16_t)(TIM_CCxN << TIM_Channel);
 }
-/**
-  * @}
-  */
 
 /** @defgroup TIM_Group3 输入捕获管理功能
  *  简介    输入捕获管理功能
@@ -1711,7 +1701,7 @@ void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN) {
     [..]
     要在输入捕获模式下使用计时器，必须执行以下步骤:
 
-      (#) 使用RCC_APBxPeriphClockCmd(RCC_ABPxPeriph-TIMx，Enable)函数启用TIM时钟
+      (#) 使用RCC_APBxPeriphClockCmd(RCC_ABPxPeriph-TIMx，Enable) 函数启用TIM时钟
 
       (#) 通过配置相应的GPIO引脚来配置TIM引脚
 
@@ -1737,14 +1727,13 @@ void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN) {
       (#) 使用函数TIM_ITConfig(TIMx, TIM_IT_CCx)
 		 (或TIM_DMA_Cmd(TIMx, TIM_DMA_CCx))启用相应的中断(或DMA请求)来读取捕获值
 
-      (#) 调用TIM_Cmd(ENABLE)函数启用TIM计数器.
+      (#) 调用TIM_Cmd(ENABLE) 函数启用TIM计数器.
 
       (#) 使用 TIM_GetCapturex(TIMx)读取捕获的值.
 
       -@- 如果需要，所有其他函数都可以单独使用来修改定时器的特定特性。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2002,9 +1991,6 @@ void TIM_SetIC4Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC) {
     /* 设置 IC4PSC 值 */
     TIMx->CCMR2 |= (uint16_t)(TIM_ICPSC << 8);
 }
-/**
-  * @}
-  */
 
 /** @defgroup TIM_Group4 高级控制定时器(TIM1和TIM8)特定功能
  *  简介   高级控制定时器(TIM1和TIM8)特定功能
@@ -2026,10 +2012,9 @@ void TIM_SetIC4Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC) {
 
       (#)使用TIM_CtrlPWM输出(TIM1，Enable)启用主输出
 
-      (#)一旦出现收支平衡，定时器的输出信号将被置于重置状态或已知状态(根据TIM_BDTRConfig()函数中的配置)。
+      (#)一旦出现收支平衡，定时器的输出信号将被置于重置状态或已知状态(根据TIM_BDTRConfig() 函数中的配置)。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2136,9 +2121,6 @@ void TIM_CCPreloadControl(TIM_TypeDef* TIMx, FunctionalState NewState) {
         TIMx->CR2 &= (uint16_t)~TIM_CR2_CCPC;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup TIM_Group5 中断、DMA和标志管理功能
  *  简介    中断、DMA和标志管理功能
@@ -2149,7 +2131,6 @@ void TIM_CCPreloadControl(TIM_TypeDef* TIMx, FunctionalState NewState) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2416,10 +2397,10 @@ void TIM_DMACmd(TIM_TypeDef* TIMx, uint16_t TIM_DMASource, FunctionalState NewSt
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用DMA源 */
+        /* 启用 DMA源 */
         TIMx->DIER |= TIM_DMASource;
     } else {
-        /* 禁用DMA源 */
+        /* 禁用 DMA源 */
         TIMx->DIER &= (uint16_t)~TIM_DMASource;
     }
 }
@@ -2444,9 +2425,6 @@ void TIM_SelectCCDMA(TIM_TypeDef* TIMx, FunctionalState NewState) {
         TIMx->CR2 &= (uint16_t)~TIM_CR2_CCDS;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup TIM_Group6 时钟管理功能
  *  简介    时钟管理功能
@@ -2457,7 +2435,6 @@ void TIM_SelectCCDMA(TIM_TypeDef* TIMx, FunctionalState NewState) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2609,9 +2586,6 @@ void TIM_ETRClockMode2Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
     /* 启用外部时钟模式2 */
     TIMx->SMCR |= TIM_SMCR_ECE;
 }
-/**
-  * @}
-  */
 
 /** @defgroup TIM_Group7 同步管理功能
  *  简介    同步管理功能
@@ -2646,7 +2620,6 @@ void TIM_ETRClockMode2Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
         (++) void TIM_SelectSlaveMode(TIM_TypeDef* TIMx, uint16_t TIM_SlaveMode);
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2799,9 +2772,6 @@ void TIM_ETRConfig(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
     /* 写入TIMx SMCR */
     TIMx->SMCR = tmpsmcr;
 }
-/**
-  * @}
-  */
 
 /** @defgroup TIM_Group8 具体接口管理功能
  *  简介    具体接口管理功能
@@ -2812,7 +2782,6 @@ void TIM_ETRConfig(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2896,9 +2865,6 @@ void TIM_SelectHallSensor(TIM_TypeDef* TIMx, FunctionalState NewState) {
         TIMx->CR2 &= (uint16_t)~TIM_CR2_TI1S;
     }
 }
-/**
-  * @}
-  */
 
 /** @defgroup TIM_Group9 具体重映射管理功能
  *  简介   具体重映射管理功能
@@ -2909,7 +2875,6 @@ void TIM_SelectHallSensor(TIM_TypeDef* TIMx, FunctionalState NewState) {
  ===============================================================================
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -2937,9 +2902,6 @@ void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap) {
     /* 设置 Timer remapping 配置*/
     TIMx->OR =  TIM_Remap;
 }
-/**
-  * @}
-  */
 
 /**
   * 简介:  将TI1配置为输入。
@@ -3101,17 +3063,4 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
     TIMx->CCMR2 = tmpccmr2;
     TIMx->CCER = tmpccer ;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

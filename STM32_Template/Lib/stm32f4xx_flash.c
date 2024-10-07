@@ -66,12 +66,10 @@
 #include "stm32f4xx_flash.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup FLASH
   * 简介: FLASH 驱动模块
-  * @{
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -84,7 +82,6 @@
 /* 私有函数 ---------------------------------------------------------*/
 
 /** @defgroup FLASH_Private_Functions
-  * @{
   */
 
 /** @defgroup FLASH_Group1 FLASH接口配置功能
@@ -223,7 +220,7 @@
            (++) when VOS[1:0] = '0x11' Scale 1 mode, fHCLK的最大值为100MHz。
 
         有关更多详细信息，请参阅产品数据表
-           您可以使用PWR_MainRegulatorModeConfig()函数来控制VOS位。
+           您可以使用PWR_MainRegulatorModeConfig() 函数来控制VOS位。
 
       (+) void FLASH_PrefetchBufferCmd(FunctionalState NewState)
       (+) void FLASH_InstructionCacheCmd(FunctionalState NewState)
@@ -235,7 +232,6 @@
       这些功能不需要解锁顺序。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -356,9 +352,6 @@ void FLASH_DataCacheReset(void) {
     FLASH->ACR |= FLASH_ACR_DCRST;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Group2 闪存编程功能
  *  简介   闪存编程功能
@@ -382,13 +375,12 @@ void FLASH_DataCacheReset(void) {
       (+) FLASH_Status FLASH_EraseAllBank2Sectors(uint8_t VoltageRange)
     [..]
       擦除或程序的任何操作都应遵循以下步骤:
-          (#)调用 FLASH_Unlock() 函数以启用 FLASH 控制寄存器访问
-          (#)调用所需函数擦除扇区或程序数据
-          (#)调用 FLASH_Lock() 函数以禁用 FLASH 控制寄存器
+          (#) 调用 FLASH_Unlock() 函数以启用 FLASH 控制寄存器访问
+          (#) 调用所需函数擦除扇区或程序数据
+          (#) 调用 FLASH_Lock() 函数以禁用 FLASH 控制寄存器
                访问(建议用于保护FLASH内存免受可能的不必要操作)
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -441,13 +433,13 @@ void FLASH_Lock(void) {
   *
   * 参数:  VoltageRange: 定义擦除并行度的设备电压范围。
   *          此参数可以是以下值之一:
-  *             @arg VoltageRange_1:当设备电压范围为1.8V至2.1V时，
+  *             @arg VoltageRange_1: 当设备电压范围为1.8V至2.1V时，
   *                                  将以字节(8位)方式进行操作。
   *             @arg VoltageRange_2: 当设备电压范围为2.1V至2.7V时，
   *                                  将以半字(16位)进行操作。
-  *             @arg VoltageRange_3:当设备电压范围为2.7V至3.6V时，
+  *             @arg VoltageRange_3: 当设备电压范围为2.7V至3.6V时，
   *                                  将以字(32位)进行操作。
-  *             @arg VoltageRange_4:当器件电压范围为2.7V至3.6V+外部Vpp时，
+  *             @arg VoltageRange_4: 当器件电压范围为2.7V至3.6V+外部Vpp时，
   *                                  将通过双字(64位)进行操作。
   *
   * 返回值: FLASH Status: 返回的值可以是:FLASH_BUSY、FLASH_ERROR_PROGRAM、
@@ -841,9 +833,6 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
     return status;
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Group3 选项字节编程功能
  *  简介   选项字节编程功能
@@ -878,7 +867,7 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
       (+) void FLASH_OB_BootConfig(uint8_t OB_BOOT)
     [..]
      擦除或程序的任何操作都应遵循以下步骤:
-      (#) 调用FLASH_OB_Unlock()函数以启用FLASH选项控制寄存器访问
+      (#) 调用FLASH_OB_Unlock() 函数以启用FLASH选项控制寄存器访问
 
       (#) 调用一个或多个函数来编程所需的选项字节:
         (++) void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState)
@@ -889,14 +878,13 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
         (++) void FLASH_OB_BORConfig(uint8_t OB_BOR) => 设置BOR级别
 
       (#)正确写入所有需要编程的选项字节后，
-           调用FLASH_OB_Launch()函数启动选项字节编程过程。
+           调用FLASH_OB_Launch() 函数启动选项字节编程过程。
       -@-将IWDG模式从HW更改为SW或从SW更改为HW时，
            需要进行系统重置以使更改生效。
-      (#)调用FLASH_OB_Lock()函数以禁用FLASH选项控制寄存器访问
+      (#)调用FLASH_OB_Lock() 函数以禁用FLASH选项控制寄存器访问
           (建议用于保护选项字节免受可能不需要的操作)
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1014,8 +1002,8 @@ void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState) {
   *            当PCROP模式激活时，nWRPi位的激活值被反转，这意味着如果SPRMOD=1
   *            WRPi=1(默认值)，则用户扇区i受读/写保护。
   *            为了避免为不需要的扇区激活PCROP模式，请遵循以下安全顺序:
-  *            -使用FLASH_OB_PCROP_Config(OB_PCROP Sector_all，Disable)函数为所有扇区禁用PCROP
-  *               对于Bank1或对于Bank2的FLASH_OB_PCROP_Sector_All，DISABLE)函数
+  *            -使用FLASH_OB_PCROP_Config(OB_PCROP Sector_all，Disable) 函数为所有扇区禁用PCROP
+  *               对于Bank1或对于Bank2的FLASH_OB_PCROP_Sector_All，DISABLE) 函数
   *            -使用FLASH_OB_PCROPConfig(Sector i，Enable)功能为所需扇区i启用PCROP
   *            -激活PCROP模式FLASH_OB_PCROPSelectionConfig()功能。
   *
@@ -1347,9 +1335,6 @@ uint8_t FLASH_OB_GetBOR(void) {
     return (uint8_t)(*(__IO uint8_t *)(OPTCR_BYTE0_ADDRESS) & (uint8_t)0x0C);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup FLASH_Group4 中断和标记管理函数
  *  简介   中断和标记管理函数
@@ -1359,7 +1344,6 @@ uint8_t FLASH_OB_GetBOR(void) {
               ##### 中断和标记管理函数 #####
  ===============================================================================
 @endverbatim
-  * @{
   */
 
 /**
@@ -1500,21 +1484,5 @@ FLASH_Status FLASH_WaitForLastOperation(void) {
     /* 返回操作状态 */
     return status;
 }
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

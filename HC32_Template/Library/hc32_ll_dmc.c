@@ -27,19 +27,16 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_EXMC EXMC
  * @brief External Memory Controller Driver Library
- * @{
  */
 
 /**
  * @defgroup LL_DMC DMC
  * @brief Dynamic Memory Controller Driver Library
- * @{
  */
 
 #if (LL_DMC_ENABLE == DDL_ON)
@@ -53,12 +50,10 @@
  ******************************************************************************/
 /**
  * @defgroup EXMC_DMC_Local_Macros EXMC_DMC Local Macros
- * @{
  */
 
 /**
  * @defgroup EXMC_DMC_Check_Parameters_Validity EXMC_DMC Check Parameters Validity
- * @{
  */
 
 #define IS_EXMC_DMC_MEM_WIDTH(x)                                               \
@@ -177,25 +172,19 @@
 
 #define IS_EXMC_DMC_REFRESH_PERIOD(x)           ((x) <= 0x7FFFUL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup EXMC_DMC_Register EXMC_DMC Register
- * @{
  */
 #define EXMC_DMC_CSCRx(__CHIPx__)       ((__IO uint32_t *)(((uint32_t)(&CM_DMC->CSCR0))  + (4UL * (__CHIPx__))))
-/**
- * @}
- */
+
 
 /* EXMC_DMC map address */
 #define EXMC_DMC_MAP_ADDR(MATCH, MSK)   ((~((MATCH) ^ (MSK))) << 24U)
 
 /**
  * @defgroup EXMC_DMC_Timing EXMC_DMC Timing
- * @{
  */
 #define DMC_TMCR_RP_MASK                (DMC_TMCR_T_RP_T_RP_B   | DMC_TMCR_T_RP_T_RP_P)
 #define DMC_TMCR_RCD_MASK               (DMC_TMCR_T_RCD_T_RCD_B | DMC_TMCR_T_RCD_T_RCD_P)
@@ -209,13 +198,9 @@
 
 #define DMC_TMCR_RFC(x)                                                            \
     ((uint32_t)(x)->stcTimingConfig.u8RFC_B | ((uint32_t)(x)->stcTimingConfig.u8RFC_P << DMC_TMCR_T_RFC_T_RFC_P_POS))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -234,7 +219,6 @@
  ******************************************************************************/
 /**
  * @defgroup EXMC_DMC_Global_Functions EXMC_DMC Global Functions
- * @{
  */
 
 /**
@@ -533,23 +517,17 @@ void EXMC_DMC_SetCommand(uint32_t u32Chip, uint32_t u32Bank, uint32_t u32Cmd, ui
     WRITE_REG32(CM_DMC->CMDR, u32RegVal);
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_DMC_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}
 */
 
-/**
- * @}
- */
+
 
 /******************************************************************************
  * EOF (not truncated)

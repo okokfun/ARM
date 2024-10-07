@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_WDT WDT
  * @brief General Watch Dog Timer
- * @{
  */
 
 #if (LL_WDT_ENABLE == DDL_ON)
@@ -47,7 +45,6 @@
  ******************************************************************************/
 /**
  * @defgroup WDT_Local_Macros WDT Local Macros
- * @{
  */
 
 /* WDT Refresh Key */
@@ -63,7 +60,6 @@
 
 /**
  * @defgroup WDT_Check_Parameters_Validity WDT Check Parameters Validity
- * @{
  */
 #define IS_WDT_CNT_PERIOD(x)                                                   \
     (   ((x) == WDT_CNT_PERIOD256)                  ||                             \
@@ -110,13 +106,9 @@
     (   ((x) != 0UL)                                &&                             \
         (((x) | WDT_FLAG_ALL) == WDT_FLAG_ALL))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -135,7 +127,6 @@
  ******************************************************************************/
 /**
  * @defgroup WDT_Global_Functions WDT Global Functions
- * @{
  */
 
 /**
@@ -235,15 +226,11 @@ int32_t WDT_ClearStatus(uint32_t u32Flag) {
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_WDT_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

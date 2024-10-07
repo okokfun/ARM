@@ -35,17 +35,14 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup SPI
-  * @{
   */
 
 /**
   * @defgroup SPI_I2S_flags_definition
   * @brief spi i2s flag
-  * @{
   */
 #define SPI_I2S_RDBF_FLAG                0x0001 /*!< spi or i2s receive data buffer full flag */
 #define SPI_I2S_TDBE_FLAG                0x0002 /*!< spi or i2s transmit data buffer empty flag */
@@ -58,24 +55,14 @@ extern "C" {
 #define SPI_CSPAS_FLAG                   0x0100 /*!< spi cs pulse abnormal setting fiag */
 
 /**
-  * @}
-  */
-
-/**
   * @defgroup SPI_I2S_Interrupts_definition
   * @brief spi i2s interrupt
-  * @{
   */
 #define SPI_I2S_Error_INT                0x0020 /*!< error 中断 */
 #define SPI_I2S_RDBF_INT                 0x0040 /*!< receive data buffer full 中断 */
 #define SPI_I2S_TDBE_INT                 0x0080 /*!< transmit data buffer empty 中断 */
 
-/**
-  * @}
-  */
-
 /** @defgroup SPI_exported_Types
-  * @{
   */
 
 /**
@@ -404,10 +391,6 @@ typedef struct {
     };
 
 } SPI_Type;
-
-/**
-  * @}
-  */
 #define SPI1                            ((SPI_Type *) SPI1_BASE)
 #define SPI2                            ((SPI_Type *) SPI2_BASE)
 #define SPI3                            ((SPI_Type *) SPI3_BASE)
@@ -416,9 +399,7 @@ typedef struct {
 #define I2S3EXT                         ((SPI_Type *) I2S3EXT_BASE)
 
 /** @defgroup SPI_exported_functions
-  * @{
   */
-
 void SPI_I2S_Reset(SPI_Type *SPI_x);
 void SPI_Default_Para_Init(SPI_Init_Type* SPI_Init_struct);
 void SPI_Init(SPI_Type* SPI_x, SPI_Init_Type* SPI_Init_struct);
@@ -443,18 +424,6 @@ void SPI_I2S_Data_Transmit(SPI_Type* SPI_x, uint16_t tx_data);
 uint16_t SPI_I2S_Data_Receive(SPI_Type* SPI_x);
 flag_status SPI_I2S_Flag_Get(SPI_Type* SPI_x, uint32_t SPI_I2S_flag);
 void SPI_I2S_Flag_Clear(SPI_Type* SPI_x, uint32_t SPI_I2S_flag);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

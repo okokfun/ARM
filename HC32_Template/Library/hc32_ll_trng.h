@@ -37,12 +37,10 @@ extern "C"
 #include "hc32f4xx_conf.h"
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_TRNG
- * @{
  */
 
 #if (LL_TRNG_ENABLE == DDL_ON)
@@ -57,34 +55,25 @@ extern "C"
 
 /**
  * @defgroup TRNG_Global_Macros TRNG Global Macros
- * @{
  */
 
 /**
  * @defgroup TRNG_Reload_Init_Value TRNG Reload Initial Value
- * @{
  */
 #define TRNG_RELOAD_INIT_VAL_ENABLE   (TRNG_MR_LOAD)                /* Enable reload new initial value. */
 #define TRNG_RELOAD_INIT_VAL_DISABLE  (0x0U)                        /* Disable reload new initial value. */
-/**
- * @}
- */
+
 
 /**
  * @defgroup TRNG_Shift_Ctrl TRNG Shift Control
- * @{
  */
 #define TRNG_SHIFT_CNT32              (0x3UL << TRNG_MR_CNT_POS)    /* Shift 32 times when capturing random noise. */
 #define TRNG_SHIFT_CNT64              (0x4UL << TRNG_MR_CNT_POS)    /* Shift 64 times when capturing random noise. */
 #define TRNG_SHIFT_CNT128             (0x5UL << TRNG_MR_CNT_POS)    /* Shift 128 times when capturing random noise. */
 #define TRNG_SHIFT_CNT256             (0x6UL << TRNG_MR_CNT_POS)    /* Shift 256 times when capturing random noise. */
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -95,7 +84,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @addtogroup TRNG_Global_Functions
- * @{
  */
 void TRNG_Init(uint32_t u32ShiftCount, uint32_t u32ReloadInitValueEn);
 
@@ -106,19 +94,13 @@ int32_t TRNG_GenerateRandom(uint32_t *pu32Random, uint8_t u8RandomLen);
 void TRNG_Start(void);
 int32_t TRNG_GetRandom(uint32_t *pu32Random, uint8_t u8RandomLen);
 
-/**
- * @}
- */
+
 
 #endif /* LL_TRNG_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

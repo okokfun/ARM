@@ -625,7 +625,7 @@ void ADC_VBATCmd(FunctionalState NewState) {
          (++) 选择所需的EOC事件行为配置
          (++) 激活连续模式(*)
          (++) 激活不连续模式
-         -@@- 请注意，常规频道的以下功能是使用ADC_Init()函数配置的:
+         -@@- 请注意，常规频道的以下功能是使用ADC_Init() 函数配置的:
            (+@@) 扫描模式激活
            (+@@) 连续模式激活(**)
            (+@@) 外部触发源
@@ -987,13 +987,13 @@ uint32_t ADC_GetMultiModeConversionValue(void) {
  ===============================================================================
     [..] 本节提供了允许为ADC常规通道配置DMA的功能。
          由于转换后的常规信道值存储在唯一的数据寄存器中，
-            因此使用DMA转换多个常规信道是有用的。这避免了已存储在ADC数据寄存器中的数据丢失。
-         启用DMA模式时(使用ADC_DMACmd()函数)，在每次转换常规频道后，都会生成DMA请求。
-    [..] 根据"独立ADC模式的DMA禁用选择"配置(使用ADC_DMARequestAfterLastTransferCmd()函数)，
+            因此使用 DMA转换多个常规信道是有用的。这避免了已存储在ADC数据寄存器中的数据丢失。
+         启用 DMA 模式时(使用ADC_DMACmd() 函数)，在每次转换常规频道后，都会生成DMA请求。
+    [..] 根据"独立ADC模式的DMA禁用选择"配置(使用ADC_DMARequestAfterLastTransferCmd() 函数)，
             在最后一次DMA传输结束时，允许两种可能性:
       (+) 没有向DMA控制器发出新的DMA请求(功能已禁用)
       (+) 可以继续生成请求(功能已启用)。
-    [..] 根据"针对多ADC模式的DMA禁用选择"配置(使用void ADC_MultiModeDMARequestAfterLastTransferCmd()函数)，
+    [..] 根据"针对多ADC模式的DMA禁用选择"配置(使用void ADC_MultiModeDMARequestAfterLastTransferCmd() 函数)，
             在最后一次DMA传输结束时，允许两种可能性:
         (+) 没有向DMA控制器发出新的DMA请求(功能已禁用)
         (+) 可以继续生成请求(功能已启用)。
@@ -1057,8 +1057,8 @@ void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewSt
   *          此参数可以是: ENABLE或DISABLE。
   * 
   * 注意   如果启用，则只要转换数据，就会发出DMA请求，
-		   并且多ADC模式的DMA模式(由ADC_CommonInitStruct.ADC_DMAAccessMode
-		   结构成员使用ADC_CommonInit()函数选择)为ADC_DMAAccessMode_1、
+		   并且多ADC模式的DMA 模式(由ADC_CommonInitStruct.ADC_DMAAccessMode
+		   结构成员使用ADC_CommonInit() 函数选择)为ADC_DMAAccessMode_1、
 		   ADC_DMAccessMode_2或ADC_DMAAccessMode_3。
 
   * 返回值: 无
@@ -1697,5 +1697,4 @@ void ADC_ClearITPendingBit(ADC_TypeDef* ADCx, uint16_t ADC_IT) {
 /**
   * }
   */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

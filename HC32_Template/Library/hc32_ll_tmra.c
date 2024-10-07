@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_TMRA TMRA
  * @brief TMRA Driver Library
- * @{
  */
 
 #if (LL_TMRA_ENABLE == DDL_ON)
@@ -47,46 +45,35 @@
  ******************************************************************************/
 /**
  * @defgroup TMRA_Local_Macros TMRA Local Macros
- * @{
  */
 /**
  * @defgroup TMRA_Registers_Setting_definition TMRA Registers setting definition
- * @{
  */
 #define TMRA_REG_TYPE                       uint16_t
 #define TMRA_REG_VALUE_MAX                  (0xFFFFUL)
 
 #define SET_VAL_BY_ADDR(addr, v)            (*(__IO TMRA_REG_TYPE *)(addr)) = (TMRA_REG_TYPE)(v)
 #define GET_VAL_BY_ADDR(addr)               (*(__IO TMRA_REG_TYPE *)(addr))
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMRA_Configuration_Bit_Mask TMRA Configuration Bit Mask
- * @{
  */
 #define TMRA_BCSTR_INT_MASK                 (TMRA_BCSTR_ITENUDF | TMRA_BCSTR_ITENOVF)
 #define TMRA_BCSTR_FLAG_MASK                (TMRA_BCSTR_UDFF | TMRA_BCSTR_OVFF)
 #define TMRA_FCONR_FILTER_CLK_MASK          (0x3UL)
 #define TMRA_CCONR_FILTER_CLK_MASK          (TMRA_CCONR_NOFICKCP)
 #define TMRA_PWM_POLARITY_MASK              (TMRA_PCONR_STAC)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMRA_Filter_Pin_Max TMRA Pin With Filter Max
- * @{
  */
 #define TMRA_PIN_MAX                        (TMRA_PIN_PWM4)
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMRA_Check_Parameters_Validity TMRA check parameters validity
- * @{
  */
 #define IS_TMRA_BIT_MASK(x, mask)   (((x) != 0U) && (((x) | (mask)) == (mask)))
 
@@ -210,24 +197,17 @@
 
 #define IS_TMRA_CLR_COND(x)         IS_TMRA_BIT_MASK((x), TMRA_CLR_COND_ALL)
 
-/**
- * @}
- */
+
 
 /**
  * @defgroup TMRA_Miscellaneous_Macros TMRA Miscellaneous Macros
- * @{
  */
 #define TMRA_PIN_PWM_OFFSET         (3U)
 
 #define TMRA_CH_NUM                 (4U)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -246,7 +226,6 @@
  ******************************************************************************/
 /**
  * @defgroup TMRA_Global_Functions TMRA Global Functions
- * @{
  */
 /**
  * @brief  Initializes the specified TMRA peripheral 根据 the specified parameters
@@ -1113,15 +1092,11 @@ void TMRA_Stop(CM_TMRA_TypeDef *TMRAx) {
     DDL_ASSERT(IS_TMRA_UNIT(TMRAx));
     CLR_REG16_BIT(TMRAx->BCSTR, TMRA_BCSTR_START);
 }
-/**
- * @}
- */
+
 
 #endif /* LL_TMRA_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

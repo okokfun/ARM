@@ -35,17 +35,14 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup DAC
-  * @{
   */
 #define DAC1_D1DMAUDRF                   ((uint32_t)(0x00002000))
 #define DAC2_D2DMAUDRF                   ((uint32_t)(0x20000000))
 
 /** @defgroup DAC_exported_Types
-  * @{
   */
 
 /**
@@ -307,16 +304,10 @@ typedef struct {
         } sts_bit;
     };
 } DAC_Type;
-
-/**
-  * @}
-  */
 #define DAC                              ((DAC_Type *) DAC_BASE)
 
 /** @defgroup DAC_exported_functions
-  * @{
   */
-
 void DAC_Reset(void);
 void DAC_Enable(DAC_Select_Type DAC_Select, confirm_state new_state);
 void DAC_OutPut_Buffer_Enable(DAC_Select_Type DAC_Select, confirm_state new_state);
@@ -334,18 +325,6 @@ void DAC_Dual_Data_Set(DAC_Dual_Data_Type DAC_dual, uint16_t data1, uint16_t dat
 void DAC_UDR_Enable(DAC_Select_Type DAC_Select, confirm_state new_state);
 flag_status DAC_UDR_Flag_Get(DAC_Select_Type DAC_Select);
 void DAC_UDR_Flag_Clear(DAC_Select_Type DAC_Select);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

@@ -37,30 +37,28 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup SDIO
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
 
 typedef struct {
     uint32_t SDIO_ClockEdge;            /*!< 指定进行位捕获的时钟转换。
-                                            该参数可以是@ref SDIO_Clock_Edge 的值 */
+                                            该参数可以是 @ref SDIO_Clock_Edge 的值 */
 
     uint32_t SDIO_ClockBypass;          /*!< 指定是启用还是禁用 SDIO 时钟分频器旁路。
-                                            该参数可以是@ref SDIO_Clock_Bypass 的值 */
+                                            该参数可以是 @ref SDIO_Clock_Bypass 的值 */
 
     uint32_t SDIO_ClockPowerSave;       /*!< 指定当总线空闲时是启用还是禁用 SDIO 时钟输出。
-                                            该参数可以是@ref SDIO_Clock_Power_Save 的值 */
+                                            该参数可以是 @ref SDIO_Clock_Power_Save 的值 */
 
     uint32_t SDIO_BusWide;              /*!< 指定 SDIO 总线宽度。
-                                            该参数可以是@ref SDIO_Bus_Wide 的值 */
+                                            该参数可以是 @ref SDIO_Bus_Wide 的值 */
 
     uint32_t SDIO_HardwareFlowControl;  /*!< 指定是启用还是禁用 SDIO 硬件流控制。
-                                            该参数可以是@ref SDIO_Hardware_Flow_Control 的值 */
+                                            该参数可以是 @ref SDIO_Hardware_Flow_Control 的值 */
 
     uint8_t SDIO_ClockDiv;              /*!< 指定 SDIO 控制器的时钟频率。
                                             此参数可以是 0x00 和 0xFF 之间的值。 */
@@ -68,18 +66,18 @@ typedef struct {
 
 typedef struct {
     uint32_t SDIO_Argument;  /*!< 指定作为命令消息的一部分发送到卡的 SDIO 命令参数。
-								             如果命令包含参数，则必须在将命令写入命令寄存器之前将其加载到该寄存器中 */
+								  如果命令包含参数，则必须在将命令写入命令寄存器之前将其加载到该寄存器中 */
 
     uint32_t SDIO_CmdIndex;  /*!< 指定 SDIO 命令索引。 它必须低于 0x40。 */
 
     uint32_t SDIO_Response;  /*!< 指定 SDIO 响应类型。
-                                 该参数可以是@ref SDIO_Response_Type 的值 */
+                                 该参数可以是 @ref SDIO_Response_Type 的值 */
 
     uint32_t SDIO_Wait;      /*!< 指定是启用还是禁用 SDIO 等待中断请求。
-                                 该参数可以是@ref SDIO_Wait_Interrupt_State 的值 */
+                                 该参数可以是 @ref SDIO_Wait_Interrupt_State 的值 */
 
     uint32_t SDIO_CPSM;      /*!< 指定是启用还是禁用 SDIO 命令路径状态机 (CPSM)。
-                                 该参数可以是@ref SDIO_CPSM_State 的值 */
+                                 该参数可以是 @ref SDIO_CPSM_State 的值 */
 } SDIO_CmdInitTypeDef;
 
 typedef struct {
@@ -88,60 +86,46 @@ typedef struct {
     uint32_t SDIO_DataLength;     /*!< 指定要传输的数据字节数。 */
 
     uint32_t SDIO_DataBlockSize;  /*!< 指定块传输的数据块大小。
-                                      该参数可以是@ref SDIO_Data_Block_Size 的值 */
+                                      该参数可以是 @ref SDIO_Data_Block_Size 的值 */
 
     uint32_t SDIO_TransferDir;    /*!< 指定数据传输方向，传输是读取还是写入。
-                                      该参数可以是@ref SDIO_Transfer_Direction 的值 */
+                                      该参数可以是 @ref SDIO_Transfer_Direction 的值 */
 
     uint32_t SDIO_TransferMode;   /*!< 指定数据传输是流模式还是块模式。
-                                      该参数可以是@ref SDIO_Transfer_Type 的值 */
+                                      该参数可以是 @ref SDIO_Transfer_Type 的值 */
 
     uint32_t SDIO_DPSM;           /*!< 指定是启用还是禁用 SDIO 数据路径状态机 (DPSM)。
-                                      该参数可以是@ref SDIO_DPSM_State 的值 */
+                                      该参数可以是 @ref SDIO_DPSM_State 的值 */
 } SDIO_DataInitTypeDef;
 
 
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup SDIO_Exported_Constants
-  * @{
   */
 
 /** @defgroup SDIO_Clock_Edge
-  * @{
   */
 #define SDIO_ClockEdge_Rising               ((uint32_t)0x00000000)
 #define SDIO_ClockEdge_Falling              ((uint32_t)0x00002000)
 #define IS_SDIO_CLOCK_EDGE(EDGE) (((EDGE) == SDIO_ClockEdge_Rising) || \
                                   ((EDGE) == SDIO_ClockEdge_Falling))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Clock_Bypass
-  * @{
   */
 #define SDIO_ClockBypass_Disable             ((uint32_t)0x00000000)
 #define SDIO_ClockBypass_Enable              ((uint32_t)0x00000400)
 #define IS_SDIO_CLOCK_BYPASS(BYPASS) (((BYPASS) == SDIO_ClockBypass_Disable) || \
                                       ((BYPASS) == SDIO_ClockBypass_Enable))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Clock_Power_Save
-  * @{
   */
 #define SDIO_ClockPowerSave_Disable         ((uint32_t)0x00000000)
 #define SDIO_ClockPowerSave_Enable          ((uint32_t)0x00000200)
 #define IS_SDIO_CLOCK_POWER_SAVE(SAVE) (((SAVE) == SDIO_ClockPowerSave_Disable) || \
                                         ((SAVE) == SDIO_ClockPowerSave_Enable))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Bus_Wide
-  * @{
   */
 #define SDIO_BusWide_1b                     ((uint32_t)0x00000000)
 #define SDIO_BusWide_4b                     ((uint32_t)0x00000800)
@@ -149,34 +133,22 @@ typedef struct {
 #define IS_SDIO_BUS_WIDE(WIDE) (((WIDE) == SDIO_BusWide_1b) || ((WIDE) == SDIO_BusWide_4b) || \
                                 ((WIDE) == SDIO_BusWide_8b))
 
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Hardware_Flow_Control
-  * @{
   */
 #define SDIO_HardwareFlowControl_Disable    ((uint32_t)0x00000000)
 #define SDIO_HardwareFlowControl_Enable     ((uint32_t)0x00004000)
 #define IS_SDIO_HARDWARE_FLOW_CONTROL(CONTROL) (((CONTROL) == SDIO_HardwareFlowControl_Disable) || \
         ((CONTROL) == SDIO_HardwareFlowControl_Enable))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Power_State
-  * @{
   */
 #define SDIO_PowerState_OFF                 ((uint32_t)0x00000000)
 #define SDIO_PowerState_ON                  ((uint32_t)0x00000003)
 #define IS_SDIO_POWER_STATE(STATE) (((STATE) == SDIO_PowerState_OFF) || ((STATE) == SDIO_PowerState_ON))
-/**
-  * @}
-  */
 
 
 /** @defgroup SDIO_Interrupt_sources
-  * @{
   */
 #define SDIO_IT_CCRCFAIL                    ((uint32_t)0x00000001)
 #define SDIO_IT_DCRCFAIL                    ((uint32_t)0x00000002)
@@ -203,20 +175,12 @@ typedef struct {
 #define SDIO_IT_SDIOIT                      ((uint32_t)0x00400000)
 #define SDIO_IT_CEATAEND                    ((uint32_t)0x00800000)
 #define IS_SDIO_IT(IT) ((((IT) & (uint32_t)0xFF000000) == 0x00) && ((IT) != (uint32_t)0x00))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Command_Index
-  * @{
   */
 #define IS_SDIO_CMD_INDEX(INDEX)            ((INDEX) < 0x40)
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Response_Type
-  * @{
   */
 #define SDIO_Response_No                    ((uint32_t)0x00000000)
 #define SDIO_Response_Short                 ((uint32_t)0x00000040)
@@ -224,34 +188,22 @@ typedef struct {
 #define IS_SDIO_RESPONSE(RESPONSE) (((RESPONSE) == SDIO_Response_No) || \
                                     ((RESPONSE) == SDIO_Response_Short) || \
                                     ((RESPONSE) == SDIO_Response_Long))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Wait_Interrupt_State
-  * @{
   */
 #define SDIO_Wait_No                        ((uint32_t)0x00000000) /*!< SDIO 无等待，已启用 TimeOut */
 #define SDIO_Wait_IT                        ((uint32_t)0x00000100) /*!< SDIO 等待中断请求 */
 #define SDIO_Wait_Pend                      ((uint32_t)0x00000200) /*!< SDIO 等待传输结束 */
 #define IS_SDIO_WAIT(WAIT) (((WAIT) == SDIO_Wait_No) || ((WAIT) == SDIO_Wait_IT) || \
                             ((WAIT) == SDIO_Wait_Pend))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_CPSM_State
-  * @{
   */
 #define SDIO_CPSM_Disable                    ((uint32_t)0x00000000)
 #define SDIO_CPSM_Enable                     ((uint32_t)0x00000400)
 #define IS_SDIO_CPSM(CPSM) (((CPSM) == SDIO_CPSM_Enable) || ((CPSM) == SDIO_CPSM_Disable))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Response_Registers
-  * @{
   */
 #define SDIO_RESP1                          ((uint32_t)0x00000000)
 #define SDIO_RESP2                          ((uint32_t)0x00000004)
@@ -259,20 +211,12 @@ typedef struct {
 #define SDIO_RESP4                          ((uint32_t)0x0000000C)
 #define IS_SDIO_RESP(RESP) (((RESP) == SDIO_RESP1) || ((RESP) == SDIO_RESP2) || \
                             ((RESP) == SDIO_RESP3) || ((RESP) == SDIO_RESP4))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Data_Length
-  * @{
   */
 #define IS_SDIO_DATA_LENGTH(LENGTH) ((LENGTH) <= 0x01FFFFFF)
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Data_Block_Size
-  * @{
   */
 #define SDIO_DataBlockSize_1b               ((uint32_t)0x00000000)
 #define SDIO_DataBlockSize_2b               ((uint32_t)0x00000010)
@@ -304,44 +248,28 @@ typedef struct {
                                   ((SIZE) == SDIO_DataBlockSize_4096b) || \
                                   ((SIZE) == SDIO_DataBlockSize_8192b) || \
                                   ((SIZE) == SDIO_DataBlockSize_16384b))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Transfer_Direction
-  * @{
   */
 #define SDIO_TransferDir_ToCard             ((uint32_t)0x00000000)
 #define SDIO_TransferDir_ToSDIO             ((uint32_t)0x00000002)
 #define IS_SDIO_TRANSFER_DIR(DIR) (((DIR) == SDIO_TransferDir_ToCard) || \
                                    ((DIR) == SDIO_TransferDir_ToSDIO))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Transfer_Type
-  * @{
   */
 #define SDIO_TransferMode_Block             ((uint32_t)0x00000000)
 #define SDIO_TransferMode_Stream            ((uint32_t)0x00000004)
 #define IS_SDIO_TRANSFER_MODE(MODE) (((MODE) == SDIO_TransferMode_Stream) || \
                                      ((MODE) == SDIO_TransferMode_Block))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_DPSM_State
-  * @{
   */
 #define SDIO_DPSM_Disable                    ((uint32_t)0x00000000)
 #define SDIO_DPSM_Enable                     ((uint32_t)0x00000001)
 #define IS_SDIO_DPSM(DPSM) (((DPSM) == SDIO_DPSM_Enable) || ((DPSM) == SDIO_DPSM_Disable))
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Flags
-  * @{
   */
 #define SDIO_FLAG_CCRCFAIL                  ((uint32_t)0x00000001)
 #define SDIO_FLAG_DCRCFAIL                  ((uint32_t)0x00000002)
@@ -421,24 +349,14 @@ typedef struct {
 
 #define IS_SDIO_CLEAR_IT(IT) ((((IT) & (uint32_t)0xFF3FF800) == 0x00) && ((IT) != (uint32_t)0x00))
 
-/**
-  * @}
-  */
 
 /** @defgroup SDIO_Read_Wait_Mode
-  * @{
   */
 #define SDIO_ReadWaitMode_DATA2             ((uint32_t)0x00000000)
 #define SDIO_ReadWaitMode_CLK               ((uint32_t)0x00000001)
 #define IS_SDIO_READWAIT_MODE(MODE) (((MODE) == SDIO_ReadWaitMode_CLK) || \
                                      ((MODE) == SDIO_ReadWaitMode_DATA2))
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -473,7 +391,7 @@ void SDIO_SetSDIOReadWaitMode(uint32_t SDIO_ReadWaitMode); // 设置插入读取
 void SDIO_SetSDIOOperation(FunctionalState NewState); // 启用或禁用 SD I/O 模式操作。
 void SDIO_SendSDIOSuspendCmd(FunctionalState NewState); // 启用或禁用 SD I/O 模式挂起命令发送。
 
-/* CE-ATA模式管理功能 *******************************************/
+/* CE-ATA 模式管理功能 *******************************************/
 void SDIO_CommandCompletionCmd(FunctionalState NewState); // 启用或禁用命令完成信号。
 void SDIO_CEATAITCmd(FunctionalState NewState); // 启用或禁用 CE-ATA 中断。
 void SDIO_SendCEATACmd(FunctionalState NewState); // 发送 CE-ATA 命令 (CMD61)。
@@ -494,12 +412,5 @@ void SDIO_ClearITPendingBit(uint32_t SDIO_IT); // 清除 SDIO 的中断挂起位
 
 #endif /* __STM32F4xx_SDIO_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

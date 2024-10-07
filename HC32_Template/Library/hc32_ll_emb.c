@@ -29,13 +29,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_EMB EMB
  * @brief Emergency Brake Driver Library
- * @{
  */
 
 #if (LL_EMB_ENABLE == DDL_ON)
@@ -49,12 +47,10 @@
  ******************************************************************************/
 /**
  * @defgroup EMB_Local_Macros EMB Local Macros
- * @{
  */
 
 /**
  * @defgroup EMB_Check_Parameters_Validity EMB Check Parameters Validity
- * @{
  */
 #define IS_EMB_GROUP(x)                                                        \
     (   ((x) == CM_EMB0)                        ||                                 \
@@ -259,17 +255,13 @@
         ((x) == EMB_EVT_PORT3)                  ||                                 \
         ((x) == EMB_EVT_PORT4))
 
-/**
- * @}
- */
+
 
 #define EMB_PORT1_FILTER_CLK_DIV_MASK       EMB_PORT1_FILTER_CLK_DIV128
 #define EMB_PORT2_FILTER_CLK_DIV_MASK       EMB_PORT2_FILTER_CLK_DIV128
 #define EMB_PORT3_FILTER_CLK_DIV_MASK       EMB_PORT3_FILTER_CLK_DIV128
 #define EMB_PORT4_FILTER_CLK_DIV_MASK       EMB_PORT4_FILTER_CLK_DIV128
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -289,7 +281,6 @@
 
 /**
  * @defgroup EMB_Global_Functions EMB Global Functions
- * @{
  */
 
 /**
@@ -689,15 +680,11 @@ void EMB_SetReleasePwmCond(CM_EMB_TypeDef *EMBx, uint32_t u32Event, uint32_t u32
     }
 }
 
-/**
- * @}
- */
+
 
 #endif /* LL_EMB_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

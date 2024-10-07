@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_QSPI
- * @{
  */
 
 #if (LL_QSPI_ENABLE == DDL_ON)
@@ -53,7 +51,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup QSPI_Global_Types QSPI Global Types
- * @{
  */
 
 /**
@@ -94,16 +91,13 @@ typedef struct {
                                              这个参数必须是其中间值 Min_Data = 0x0 and Max_Data = 0xFF */
 } stc_qspi_custom_mode_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup QSPI_Global_Macros QSPI Global Macros
- * @{
  */
 
 /* QSPI memory mapping base and end address */
@@ -112,7 +106,6 @@ typedef struct {
 
 /**
  * @defgroup QSPI_Clock_Division QSPI Clock Division
- * @{
  */
 #define QSPI_CLK_DIV2                           (0x01UL << QSPI_CR_DIV_POS)     /*!< Clock division by 2    */
 #define QSPI_CLK_DIV3                           (0x02UL << QSPI_CR_DIV_POS)     /*!< Clock division by 3    */
@@ -177,34 +170,25 @@ typedef struct {
 #define QSPI_CLK_DIV62                          (0x3DUL << QSPI_CR_DIV_POS)     /*!< Clock division by 62   */
 #define QSPI_CLK_DIV63                          (0x3EUL << QSPI_CR_DIV_POS)     /*!< Clock division by 63   */
 #define QSPI_CLK_DIV64                          (0x3FUL << QSPI_CR_DIV_POS)     /*!< Clock division by 64   */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_SPI_Mode QSPI SPI Mode
- * @{
  */
 #define QSPI_SPI_MD0                            (0UL)               /*!< Selects SPI mode 0 */
 #define QSPI_SPI_MD3                            (QSPI_CR_SPIMD3)    /*!< Selects SPI mode 3 */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_Prefetch_Mode QSPI Prefetch Mode
- * @{
  */
 #define QSPI_PREFETCH_MD_INVD                   (0UL)                           /*!< Disable prefetch                              */
 #define QSPI_PREFETCH_MD_EDGE_STOP              (QSPI_CR_PFE)                   /*!< Stop prefetch at the edge of byte             */
 #define QSPI_PREFETCH_MD_IMMED_STOP             (QSPI_CR_PFE | QSPI_CR_PFSAE)   /*!< Stop prefetch at current position immediately */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_Read_Mode QSPI Read Mode
- * @{
  */
 #define QSPI_RD_MD_STD_RD                       (0UL)                           /*!< Standard read mode (no dummy cycles)                   */
 #define QSPI_RD_MD_FAST_RD                      (0x01UL << QSPI_CR_MDSEL_POS)   /*!< Fast read mode (dummy cycles between address and data) */
@@ -214,13 +198,10 @@ typedef struct {
 #define QSPI_RD_MD_QUAD_IO_FAST_RD              (0x05UL << QSPI_CR_MDSEL_POS)   /*!< Fast read quad I/O mode (address and data on 4 lines)  */
 #define QSPI_RD_MD_CUSTOM_STANDARD_RD           (0x06UL << QSPI_CR_MDSEL_POS)   /*!< Custom standard read mode                              */
 #define QSPI_RD_MD_CUSTOM_FAST_RD               (0x07UL << QSPI_CR_MDSEL_POS)   /*!< Custom fast read mode                                  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_Dummy_Cycle QSPI Dummy Cycle
- * @{
  */
 #define QSPI_DUMMY_CYCLE3                       (0UL)                           /*!< Dummy cycle is 3   */
 #define QSPI_DUMMY_CYCLE4                       (0x01UL << QSPI_FCR_DMCYCN_POS) /*!< Dummy cycle is 4   */
@@ -238,49 +219,37 @@ typedef struct {
 #define QSPI_DUMMY_CYCLE16                      (0x0DUL << QSPI_FCR_DMCYCN_POS) /*!< Dummy cycle is 16  */
 #define QSPI_DUMMY_CYCLE17                      (0x0EUL << QSPI_FCR_DMCYCN_POS) /*!< Dummy cycle is 15  */
 #define QSPI_DUMMY_CYCLE18                      (0x0FUL << QSPI_FCR_DMCYCN_POS) /*!< Dummy cycle is 16  */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_Addr_Width QSPI Address Width
- * @{
  */
 #define QSPI_ADDR_WIDTH_8BIT                    (0x0U)                              /*!< QSPI address width is 8 bits   */
 #define QSPI_ADDR_WIDTH_16BIT                   (QSPI_FCR_AWSL_0)                   /*!< QSPI address width is 16 bits  */
 #define QSPI_ADDR_WIDTH_24BIT                   (QSPI_FCR_AWSL_1)                   /*!< QSPI address width is 24 bits  */
 #define QSPI_ADDR_WIDTH_32BIT_INSTR_24BIT       (QSPI_FCR_AWSL)                     /*!< QSPI address width is 32 bits and don't use 4-byte address read instruction code */
 #define QSPI_ADDR_WIDTH_32BIT_INSTR_32BIT       (QSPI_FCR_AWSL | QSPI_FCR_FOUR_BIC) /*!< QSPI address width is 32 bits and use 4-byte address read instruction code       */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_QSSN_Setup_Time QSPI QSSN Setup Time
- * @{
  */
 #define QSPI_QSSN_SETUP_ADVANCE_QSCK0P5         (0UL)               /*!< Output QSSN signal 0.5 QSCK before the first rising edge of QSCK */
 #define QSPI_QSSN_SETUP_ADVANCE_QSCK1P5         (QSPI_FCR_SSNLD)    /*!< Output QSSN signal 1.5 QSCK before the first rising edge of QSCK */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_QSSN_Release_Time QSPI QSSN Release Time
- * @{
  */
 #define QSPI_QSSN_RELEASE_DELAY_QSCK0P5         (0UL)                       /*!< Release QSSN signal 0.5 QSCK after the last rising edge of QSCK */
 #define QSPI_QSSN_RELEASE_DELAY_QSCK1P5         (QSPI_FCR_SSNHD)            /*!< Release QSSN signal 1.5 QSCK after the last rising edge of QSCK */
 #define QSPI_QSSN_RELEASE_DELAY_QSCK32          (QSPI_CSCR_SSNW_0 << 8U)    /*!< Release QSSN signal 32 QSCK after the last rising edge of QSCK  */
 #define QSPI_QSSN_RELEASE_DELAY_QSCK128         (QSPI_CSCR_SSNW_1 << 8U)    /*!< Release QSSN signal 128 QSCK after the last rising edge of QSCK */
 #define QSPI_QSSN_RELEASE_DELAY_INFINITE        (QSPI_CSCR_SSNW   << 8U)    /*!< Never release QSSN signal after the last rising edge of QSCK    */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_QSSN_Interval_Time QSPI QSSN Interval Time
- * @{
  */
 #define QSPI_QSSN_INTERVAL_QSCK1                (0UL)                           /*!< Minimum interval time is 1 QSCK    */
 #define QSPI_QSSN_INTERVAL_QSCK2                (0x01UL << QSPI_CSCR_SSHW_POS)  /*!< Minimum interval time is 2 QSCK    */
@@ -298,56 +267,41 @@ typedef struct {
 #define QSPI_QSSN_INTERVAL_QSCK14               (0x0DUL << QSPI_CSCR_SSHW_POS)  /*!< Minimum interval time is 14 QSCK   */
 #define QSPI_QSSN_INTERVAL_QSCK15               (0x0EUL << QSPI_CSCR_SSHW_POS)  /*!< Minimum interval time is 15 QSCK   */
 #define QSPI_QSSN_INTERVAL_QSCK16               (0x0FUL << QSPI_CSCR_SSHW_POS)  /*!< Minimum interval time is 16 QSCK   */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_Instruction_Protocol QSPI Instruction Protocol
- * @{
  */
 #define QSPI_INSTR_PROTOCOL_1LINE               (0x0U)              /*!< Instruction on 1 line  */
 #define QSPI_INSTR_PROTOCOL_2LINE               (QSPI_CR_IPRSL_0)   /*!< Instruction on 2 lines */
 #define QSPI_INSTR_PROTOCOL_4LINE               (QSPI_CR_IPRSL_1)   /*!< Instruction on 4 lines */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_Addr_Protocol QSPI Address Protocol
- * @{
  */
 #define QSPI_ADDR_PROTOCOL_1LINE                (0x0U)              /*!< Address on 1 line  */
 #define QSPI_ADDR_PROTOCOL_2LINE                (QSPI_CR_APRSL_0)   /*!< Address on 2 lines */
 #define QSPI_ADDR_PROTOCOL_4LINE                (QSPI_CR_APRSL_1)   /*!< Address on 4 lines */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_Data_Protocol QSPI Data Protocol
- * @{
  */
 #define QSPI_DATA_PROTOCOL_1LINE                (0x0U)              /*!< Data on 1 line  */
 #define QSPI_DATA_PROTOCOL_2LINE                (QSPI_CR_DPRSL_0)   /*!< Data on 2 lines */
 #define QSPI_DATA_PROTOCOL_4LINE                (QSPI_CR_DPRSL_1)   /*!< Data on 4 lines */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_WP_Pin_Level QSPI WP Pin Level
- * @{
  */
 #define QSPI_WP_PIN_LOW                         (0x0U)          /*!< WP(QSIO2) pin output low  */
 #define QSPI_WP_PIN_HIGH                        (QSPI_FCR_WPOL) /*!< WP(QSIO2) pin output high */
-/**
- * @}
- */
+
 
 /**
  * @defgroup QSPI_Status_Flag QSPI Status Flag
- * @{
  */
 #define QSPI_FLAG_DIRECT_COMM_BUSY              (QSPI_SR_BUSY)  /*!< Serial transfer being processed                          */
 #define QSPI_FLAG_XIP_MD                        (QSPI_SR_XIPF)  /*!< XIP mode                                                 */
@@ -358,13 +312,9 @@ typedef struct {
         QSPI_FLAG_ROM_ACCESS_ERR   | QSPI_FLAG_PREFETCH_BUF_FULL | \
         QSPI_FLAG_PREFETCH_STOP)
 #define QSPI_FLAG_CLR_ALL                       (QSPI_FLAG_ROM_ACCESS_ERR)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -375,7 +325,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup QSPI_Global_Functions
- * @{
  */
 
 /**
@@ -418,19 +367,13 @@ uint8_t QSPI_GetPrefetchBufSize(void);
 en_flag_status_t QSPI_GetStatus(uint32_t u32Flag);
 void QSPI_ClearStatus(uint32_t u32Flag);
 
-/**
- * @}
- */
+
 
 #endif /* LL_QSPI_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

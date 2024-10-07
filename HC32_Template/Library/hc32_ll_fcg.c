@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_FCG FCG
  * @brief FCG Driver Library
- * @{
  */
 
 #if (LL_FCG_ENABLE == DDL_ON)
@@ -47,13 +45,11 @@
  ******************************************************************************/
 /**
  * @defgroup FCG_Local_Macros FCG Local Macros
- * @{
  */
 #define IS_FCG0_UNLOCKED()      ((CM_PWC->FCG0PC & PWC_FCG0PC_PRT0) == PWC_FCG0PC_PRT0)
 
 /**
  * @defgroup FCG_Check_Parameters_Validity FCG Check Parameters Validity
- * @{
  */
 /* Parameter validity check for peripheral in fcg0. */
 #define IS_FCG0_PERIPH(per)                                 \
@@ -74,13 +70,9 @@
 #define IS_FCG3_PERIPH(per)                                 \
     (   ((per) != 0x00UL)                           &&          \
         (((per) | FCG_FCG3_PERIPH_MASK) == FCG_FCG3_PERIPH_MASK))
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -99,7 +91,6 @@
  ******************************************************************************/
 /**
  * @defgroup FCG_Global_Functions FCG Global Functions
- * @{
  */
 
 /**
@@ -173,13 +164,9 @@ void FCG_Fcg3PeriphClockCmd(uint32_t u32Fcg3Periph, en_functional_state_t enNewS
 
 #endif /* LL_FCG_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /**
 * @}

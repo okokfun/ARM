@@ -37,18 +37,15 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup DBGMCU
-  * @{
   */
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 
 /** @defgroup DBGMCU_Exported_Constants
-  * @{
   */
 #define DBGMCU_SLEEP                 ((uint32_t)0x00000001)
 #define DBGMCU_STOP                  ((uint32_t)0x00000002)
@@ -80,9 +77,6 @@ extern "C" {
 #define DBGMCU_TIM10_STOP            ((uint32_t)0x00020000)
 #define DBGMCU_TIM11_STOP            ((uint32_t)0x00040000)
 #define IS_DBGMCU_APB2PERIPH(PERIPH) ((((PERIPH) & 0xFFF8FFFC) == 0x00) && ((PERIPH) != 0x00))
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -98,12 +92,5 @@ void DBGMCU_APB2PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState); 
 
 #endif /* __STM32F4xx_DBGMCU_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

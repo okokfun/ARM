@@ -38,12 +38,10 @@ extern "C"
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @addtogroup LL_DVP
- * @{
  */
 
 #if (LL_DVP_ENABLE == DDL_ON)
@@ -53,7 +51,6 @@ extern "C"
  ******************************************************************************/
 /**
  * @defgroup DVP_Global_Types DVP Global Types
- * @{
  */
 
 /**
@@ -118,94 +115,69 @@ typedef struct {
                                          这个参数是其中间 between 0x00 and 0xFF */
 } stc_dvp_sw_mask_code_t;
 
-/**
- * @}
- */
+
 
 /*******************************************************************************
  * Global pre-processor symbols/macros ('#define')
  ******************************************************************************/
 /**
  * @defgroup DVP_Global_Macros DVP Global Macros
- * @{
  */
 
 /**
  * @defgroup DVP_Capture_Mode DVP Capture Mode
- * @{
  */
 #define DVP_CAPT_MD_CONTINUOS_FRAME     (0UL)
 #define DVP_CAPT_MD_SINGLE_FRAME        (DVP_CTR_CAPMD)
-/**
- * @}
- */
+
 
 /**
  * @defgroup DVP_Sync_Mode DVP Sync Mode
- * @{
  */
 #define DVP_SYNC_MD_HW                  (0UL)               /*!< Hardware sync */
 #define DVP_SYNC_MD_SW                  (DVP_CTR_SWSYNC)    /*!< Software sync */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DVP_PIXCLK_Polarity DVP PIXCLK Polarity
- * @{
  */
 #define DVP_PIXCLK_FALLING              (0UL)               /*!< DVP_PIXCLK active on Falling edge */
 #define DVP_PIXCLK_RISING               (DVP_CTR_PIXCKSEL)  /*!< DVP_PIXCLK active on Rising edge */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DVP_HSYNC_Polarity DVP HSYNC Polarity
- * @{
  */
 #define DVP_HSYNC_LOW                   (0UL)               /*!< DVP_HSYNC active Low */
 #define DVP_HSYNC_HIGH                  (DVP_CTR_HSYNCSEL)  /*!< DVP_HSYNC active High */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DVP_VSYNC_Polarity DVP VSYNC Polarity
- * @{
  */
 #define DVP_VSYNC_LOW                   (0UL)               /*!< DVP_VSYNC active Low */
 #define DVP_VSYNC_HIGH                  (DVP_CTR_VSYNCSEL)  /*!< DVP_VSYNC active High */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DVP_Capture_Frequency DVP Capture Frequency
- * @{
  */
 #define DVP_CAPT_FREQ_ALL_FRAME         (0UL)               /*!< All frames are captured */
 #define DVP_CAPT_FREQ_ONT_TIME_2FRAME   (DVP_CTR_CAPFRC_0)  /*!< One frame per 2 frames captured */
 #define DVP_CAPT_FREQ_ONT_TIME_4FRAME   (DVP_CTR_CAPFRC_1)  /*!< One frame per 4 frames captured */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DVP_Data_Width DVP Data Width
- * @{
  */
 #define DVP_DATA_WIDTH_8BIT             (0UL)               /*!< DVP captures 8-bit data on every DVP_PIXCLK clock */
 #define DVP_DATA_WIDTH_10BIT            (DVP_CTR_BITSEL_0)  /*!< DVP captures 10-bit data on every DVP_PIXCLK clock */
 #define DVP_DATA_WIDTH_12BIT            (DVP_CTR_BITSEL_1)  /*!< DVP captures 12-bit data on every DVP_PIXCLK clock */
 #define DVP_DATA_WIDTH_14BIT            (DVP_CTR_BITSEL)    /*!< DVP captures 14-bit data on every DVP_PIXCLK clock */
-/**
- * @}
- */
+
 
 /**
  * @defgroup DVP_Flag DVP Flag
- * @{
  */
 #define DVP_FLAG_FRAME_START            (DVP_STR_FSF)     /*!< Frame start flag */
 #define DVP_FLAG_LINE_START             (DVP_STR_LSF)     /*!< Line start flag */
@@ -219,13 +191,10 @@ typedef struct {
         DVP_FLAG_LINE_START |                 \
         DVP_FLAG_FRAME_END  |                 \
         DVP_FLAG_FRAME_START)
-/**
- * @}
- */
+
 
 /**
  * @defgroup DVP_Interrupt DVP Interrupt
- * @{
  */
 #define DVP_INT_FRAME_START             (DVP_IER_FSIEN)     /*!< Frame start 中断 */
 #define DVP_INT_LINE_START              (DVP_IER_LSIEN)     /*!< Line start 中断 */
@@ -239,13 +208,9 @@ typedef struct {
         DVP_INT_LINE_START |                  \
         DVP_INT_FRAME_END  |                  \
         DVP_INT_FRAME_START)
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions ('extern')
@@ -256,7 +221,6 @@ typedef struct {
  ******************************************************************************/
 /**
  * @addtogroup DVP_Global_Functions
- * @{
  */
 int32_t DVP_StructInit(stc_dvp_init_t *pstcDvpInit);
 int32_t DVP_Init(const stc_dvp_init_t *pstcDvpInit);
@@ -272,19 +236,13 @@ void DVP_ClearStatus(uint32_t u32Flag);
 int32_t DVP_SetSWSyncCode(const stc_dvp_sw_sync_code_t *pstcSyncCode);
 int32_t DVP_SetSWMaskCode(const stc_dvp_sw_mask_code_t *pstcMaskCode);
 int32_t DVP_CropWindowConfig(const stc_dvp_crop_window_config_t *pstcConfig);
-/**
- * @}
- */
+
 
 #endif /* LL_DVP_ENABLE */
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 #ifdef __cplusplus
 }

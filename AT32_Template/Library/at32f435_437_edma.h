@@ -35,16 +35,13 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup EDMA
-  * @{
   */
 
 /** @defgroup EDMA_Interrupts_definition
   * @brief edma interrupt
-  * @{
   */
 #define EDMA_DMERR_INT                   ((uint32_t)0x00000002) /* edma direct mode error intterrupt */
 #define EDMA_DTERR_INT                   ((uint32_t)0x00000004) /* edma data transfer error intterrupt */
@@ -52,13 +49,8 @@ extern "C" {
 #define EDMA_FDT_INT                     ((uint32_t)0x00000010) /* edma full data transfer intterrupt */
 #define EDMA_FERR_INT                    ((uint32_t)0x00000080) /* edma fifo error 中断 */
 
-/**
-  * @}
-  */
-
 /** @defgroup EDMA_flags_definition
   * @brief edma flag
-  * @{
   */
 #define EDMA_FERR1_FLAG                  ((uint32_t)0x10000001) /* edma stream1 fifo error flag */
 #define EDMA_DMERR1_FLAG                 ((uint32_t)0x10000004) /* edma stream1 direct mode error flag */
@@ -130,12 +122,7 @@ extern "C" {
 #define EDMAMUX_Gen_Trig_OV3_FLAG        ((uint32_t)0x00000004) /*!< edmamux generator channel3 overrun event flag */
 #define EDMAMUX_Gen_Trig_OV4_FLAG        ((uint32_t)0x00000008) /*!< edmamux generator channel4 overrun event flag */
 
-/**
-  * @}
-  */
-
 /** @defgroup EDMA_exported_Types
-  * @{
   */
 
 /**
@@ -881,10 +868,6 @@ typedef struct {
         } gctrl_bit;
     };
 } eDMAMUX_Generator_Type;
-
-/**
-  * @}
-  */
 #define EDMA                             ((eDMA_Type *) EDMA_BASE)
 #define EDMA_STREAM1                     ((eDMA_Stream_Type *) EDMA_STREAM1_BASE)
 #define EDMA_STREAM2                     ((eDMA_Stream_Type *) EDMA_STREAM2_BASE)
@@ -928,7 +911,6 @@ typedef struct {
 #define EDMAMUX_GENERATOR4               ((eDMAMUX_Generator_Type *) EDMAMUX_GENERATOR4_BASE)
 
 /** @defgroup EDMA_exported_functions
-  * @{
   */
 
 /* edma controller function */
@@ -971,18 +953,6 @@ flag_status eDMAMUX_Sync_Flag_Get(uint32_t flag);
 void eDMAMUX_Sync_Flag_Clear(uint32_t flag);
 flag_status eDMAMUX_Generator_Flag_Get(uint32_t flag);
 void eDMAMUX_Generator_Flag_Clear(uint32_t flag);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

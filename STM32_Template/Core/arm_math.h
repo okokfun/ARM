@@ -4566,7 +4566,6 @@ void arm_correlate_fast_q31(
   * @param[in]  *pScratch2 points to scratch buffer (of type q15_t) of size min(srcALen, srcBLen).
   * @return none.
   */
-
 void arm_correlate_opt_q7(
     q7_t * pSrcA,
     uint32_t srcALen,
@@ -4975,7 +4974,6 @@ void arm_cmplx_mag_squared_q15(
 
 /**
  * @addtogroup PID
- * @{
  */
 
 /**
@@ -5172,7 +5170,6 @@ arm_status arm_mat_inverse_f64(
 
 /**
  * @addtogroup clarke
- * @{
  */
 
 /**
@@ -5275,7 +5272,6 @@ void arm_q7_to_q31(
 
 /**
  * @addtogroup inv_clarke
- * @{
  */
 
 /**
@@ -5385,7 +5381,6 @@ void arm_q7_to_q15(
 
 /**
  * @addtogroup park
- * @{
  */
 
 /**
@@ -5505,7 +5500,6 @@ void arm_q7_to_float(
 
 /**
  * @addtogroup inv_park
- * @{
  */
 
 /**
@@ -5639,7 +5633,6 @@ void arm_q31_to_float(
 
 /**
  * @addtogroup LinearInterpolate
- * @{
  */
 
 /**
@@ -5942,7 +5935,6 @@ q15_t arm_cos_q15(
 
 /**
  * @addtogroup SQRT
- * @{
  */
 
 /**
@@ -6966,7 +6958,6 @@ void arm_q15_to_q7(
 
 /**
  * @addtogroup BilinearInterpolate
- * @{
  */
 
 /**

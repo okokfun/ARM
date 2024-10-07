@@ -35,15 +35,12 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup FLASH
-  * @{
   */
 
 /** @defgroup FLASH_exported_constants
-  * @{
   */
 
 /**
@@ -158,12 +155,7 @@ defined (AT32F437VMT7) || defined (AT32F437ZMT7)
   */
 #define FLASH_Clock_Divider_Set(div)     (FLASH->divr_bit.fdiv = div)
 
-/**
-  * @}
-  */
-
 /** @defgroup FLASH_exported_Types
-  * @{
   */
 
 /**
@@ -591,15 +583,10 @@ typedef struct {
     __IO uint16_t reserved2[12];
     __IO uint16_t qspikey[8];
 } usd_Type;
-
-/**
-  * @}
-  */
 #define FLASH                            ((FLASH_Type *) FLASH_REG_BASE)
 #define USD                              ((usd_Type *) USD_BASE)
 
 /** @defgroup FLASH_exported_functions
-  * @{
   */
 
 flag_status FLASH_Flag_Get(uint32_t FLASH_flag);
@@ -644,18 +631,6 @@ uint16_t FLASH_sLib_End_Sector_Get(void);
 uint32_t FLASH_CRC_Calibrate(uint32_t start_sector, uint32_t sector_cnt);
 void FLASH_NZW_Boost_Enable(confirm_state new_state);
 void FLASH_Continue_Read_Enable(confirm_state new_state);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

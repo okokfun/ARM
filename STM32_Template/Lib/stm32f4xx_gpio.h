@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup GPIO
-  * @{
   */
 
 /* 导出的类型 ------------------------------------------------------------*/
@@ -74,8 +72,8 @@ typedef enum {
   * 简介:  GPIO 输出类型枚举
   */
 typedef enum {
-    GPIO_OType_PP = 0x00,
-    GPIO_OType_OD = 0x01
+    GPIO_OType_PP = 0x00, // 开漏输出
+    GPIO_OType_OD = 0x01  // 推挽输出
 } GPIOOType_TypeDef;
 #define IS_GPIO_OTYPE(OTYPE) (((OTYPE) == GPIO_OType_PP) || ((OTYPE) == GPIO_OType_OD))
 
@@ -84,10 +82,10 @@ typedef enum {
   * 简介:  GPIO 输出最大频率枚举
   */
 typedef enum {
-    GPIO_Low_Speed     = 0x00, /*!< 低速    */
+    GPIO_Low_Speed     = 0x00, /*!< 低速 */
     GPIO_Medium_Speed  = 0x01, /*!< 中速 */
-    GPIO_Fast_Speed    = 0x02, /*!< 快速  */
-    GPIO_High_Speed    = 0x03  /*!< 高速   */
+    GPIO_Fast_Speed    = 0x02, /*!< 快速 */
+    GPIO_High_Speed    = 0x03  /*!< 高速 */
 } GPIOSpeed_TypeDef;
 
 /* 添加旧版定义 */
@@ -125,29 +123,27 @@ typedef enum {
   */
 typedef struct {
     uint32_t GPIO_Pin;              /*!< 指定要配置的 GPIO 引脚。
-                                        该参数可以是@ref GPIO_pins_define 的任意值 */
+                                    该参数可以是 @ref GPIO_pins_define 的任意值 */
 
     GPIOMode_TypeDef GPIO_Mode;     /*!< 指定所选引脚的操作模式。
-                                        该参数可以是@ref GPIOMode_TypeDef 的值 */
+                                    该参数可以是 @ref GPIOMode_TypeDef 的值 */
 
     GPIOSpeed_TypeDef GPIO_Speed;   /*!< 指定选定引脚的速度。
-                                        该参数可以是@ref GPIOSpeed_TypeDef 的值 */
+                                    该参数可以是 @ref GPIOSpeed_TypeDef 的值 */
 
     GPIOOType_TypeDef GPIO_OType;   /*!< 指定所选引脚的操作输出类型。
-                                        该参数可以是@ref GPIOOType_TypeDef 的值 */
+                                    该参数可以是 @ref GPIOOType_TypeDef 的值 */
 
     GPIOPuPd_TypeDef GPIO_PuPd;     /*!< 指定所选引脚的操作上拉/下拉。
-                                        该参数可以是@ref GPIOPuPd_TypeDef 的值 */
+                                    该参数可以是 @ref GPIOPuPd_TypeDef 的值 */
 } GPIO_InitTypeDef;
 
 /* 导出的常量 --------------------------------------------------------*/
 
 /** @defgroup GPIO_Exported_Constants
-  * @{
   */
 
 /** @defgroup GPIO_pins_define
-  * @{
   */
 #define GPIO_Pin_0                 ((uint16_t)0x0001)  /* 选择引脚 0 */
 #define GPIO_Pin_1                 ((uint16_t)0x0002)  /* 选择引脚 1 */
@@ -185,13 +181,9 @@ typedef struct {
                               ((PIN) == GPIO_Pin_13) || \
                               ((PIN) == GPIO_Pin_14) || \
                               ((PIN) == GPIO_Pin_15))
-/**
-  * @}
-  */
 
 
 /** @defgroup GPIO_Pin_sources
-  * @{
   */
 #define GPIO_PinSource0            ((uint8_t)0x00)
 #define GPIO_PinSource1            ((uint8_t)0x01)
@@ -226,15 +218,11 @@ typedef struct {
                                        ((PINSOURCE) == GPIO_PinSource13) || \
                                        ((PINSOURCE) == GPIO_PinSource14) || \
                                        ((PINSOURCE) == GPIO_PinSource15))
-/**
-  * @}
-  */
 
 /** @defgroup GPIO_Alternat_function_selection_define
-  * @{
   */
 /**
-  * 简介:    AF 0 选择
+  * 简介: AF 0 选择
   */
 #define GPIO_AF_RTC_50Hz      ((uint8_t)0x00)  /* RTC_50Hz 备用函数映射 */
 #define GPIO_AF_MCO           ((uint8_t)0x00)  /* MCO(MCO1 和 MCO2)复用功能映射 */
@@ -246,7 +234,7 @@ typedef struct {
 #endif /* STM32F446xx */
 
 /**
-  * 简介:    AF 1 选择
+  * 简介: AF 1 选择
   */
 #define GPIO_AF_TIM1          ((uint8_t)0x01)  /* TIM1 替代函数映射 */
 #define GPIO_AF_TIM2          ((uint8_t)0x01)  /* TIM2 替代函数映射 */
@@ -254,14 +242,14 @@ typedef struct {
 #define GPIO_AF_LPTIM         ((uint8_t)0x01)  /* LPTIM 替代函数映射 */
 #endif /* STM32F410xx || STM32F413_423xx */
 /**
-  * 简介:    AF 2选择
+  * 简介: AF 2选择
   */
 #define GPIO_AF_TIM3          ((uint8_t)0x02)  /* TIM3 替代函数映射 */
 #define GPIO_AF_TIM4          ((uint8_t)0x02)  /* TIM4 替代函数映射 */
 #define GPIO_AF_TIM5          ((uint8_t)0x02)  /* TIM5 替代函数映射 */
 
 /**
-  * 简介:    AF 3选择
+  * 简介: AF 3选择
   */
 #define GPIO_AF_TIM8          ((uint8_t)0x03)  /* TIM8 替代函数映射 */
 #define GPIO_AF_TIM9          ((uint8_t)0x03)  /* TIM9 替代函数映射 */
@@ -274,7 +262,7 @@ typedef struct {
 #define GPIO_AF3_DFSDM2       ((uint8_t)0x03)  /* DFSDM2 替代函数映射 */
 #endif /* STM32F413_423xx */
 /**
-  * 简介:    AF 4选择
+  * 简介: AF 4选择
   */
 #define GPIO_AF_I2C1          ((uint8_t)0x04)  /* I2C1 备用函数映射 */
 #define GPIO_AF_I2C2          ((uint8_t)0x04)  /* I2C2 备用函数映射 */
@@ -287,7 +275,7 @@ typedef struct {
 #endif /* STM32F410xx || STM32F446xx */
 
 /**
-  * 简介:    AF 5选择
+  * 简介: AF 5选择
   */
 #define GPIO_AF_SPI1          ((uint8_t)0x05)  /* SPI1/I2S1 备用函数映射 */
 #define GPIO_AF_SPI2          ((uint8_t)0x05)  /* SPI2/I2S2 备用函数映射 */
@@ -297,7 +285,7 @@ typedef struct {
 #define GPIO_AF_SPI6          ((uint8_t)0x05)  /* SPI6 备用函数映射      */
 
 /**
-  * 简介:    AF 6选择
+  * 简介: AF 6选择
   */
 #define GPIO_AF_SPI3          ((uint8_t)0x06)  /* SPI3/I2S3 备用函数映射 */
 #define GPIO_AF6_SPI1         ((uint8_t)0x06)  /* SPI1 备用函数映射 (Only for STM32F410xx Devices) */
@@ -314,7 +302,7 @@ typedef struct {
 #endif /* STM32F413_423xx */
 
 /**
-  * 简介:    AF 7选择
+  * 简介: AF 7选择
   */
 #define GPIO_AF_USART1         ((uint8_t)0x07)  /* USART1 备用函数映射  */
 #define GPIO_AF_USART2         ((uint8_t)0x07)  /* USART2 备用函数映射  */
@@ -326,12 +314,12 @@ typedef struct {
 #endif /* STM32F413_423xx */
 
 /**
-  * 简介:    AF 7选择传统
+  * 简介: AF 7选择传统
   */
 #define GPIO_AF_I2S3ext   GPIO_AF7_SPI3
 
 /**
-  * 简介:    AF 8选择
+  * 简介: AF 8选择
   */
 #define GPIO_AF_UART4         ((uint8_t)0x08)  /* UART4 备用函数映射  */
 #define GPIO_AF_UART5         ((uint8_t)0x08)  /* UART5 备用函数映射  */
@@ -349,7 +337,7 @@ typedef struct {
 #endif /* STM32F446xx */
 
 /**
-  * 简介:    AF 9选择
+  * 简介: AF 9选择
   */
 #define GPIO_AF_CAN1          ((uint8_t)0x09)  /* CAN1 备用函数映射  */
 #define GPIO_AF_CAN2          ((uint8_t)0x09)  /* CAN2 备用函数映射  */
@@ -370,7 +358,7 @@ typedef struct {
 #endif /* STM32F410xx || STM32F412xG || STM32F413_423xx */
 
 /**
-  * 简介:    AF 10选择
+  * 简介: AF 10选择
   */
 #define GPIO_AF_OTG_FS         ((uint8_t)0xA)  /* OTG_FS 备用函数映射 */
 #define GPIO_AF_OTG_HS         ((uint8_t)0xA)  /* OTG_HS 备用函数映射 */
@@ -389,7 +377,7 @@ typedef struct {
 #define GPIO_AF10_SAI1          ((uint8_t)0x0A)  /* SAI1 备用函数映射   */
 #endif /* STM32F413_423xx */
 /**
-  * 简介:    AF 11 selection
+  * 简介: AF 11 selection
   */
 #define GPIO_AF_ETH             ((uint8_t)0x0B)  /* ETHERNET 备用函数映射 */
 #if defined(STM32F413_423xx)
@@ -401,7 +389,7 @@ typedef struct {
 #endif /* STM32F413_423xx */
 
 /**
-  * 简介:    AF 12选择
+  * 简介: AF 12选择
   */
 #if defined(STM32F40_41xxx) || defined(STM32F412xG) || defined(STM32F413_423xx)
 #define GPIO_AF_FSMC             ((uint8_t)0xC)  /* FSMC 备用函数映射                     */
@@ -415,14 +403,14 @@ typedef struct {
 #define GPIO_AF_SDIO             ((uint8_t)0xC)  /* SDIO 备用函数映射                     */
 
 /**
-  * 简介:    AF 13选择
+  * 简介: AF 13选择
   */
 #define GPIO_AF_DCMI          ((uint8_t)0x0D)  /* DCMI 备用函数映射 */
 #if defined(STM32F469_479xx)
 #define GPIO_AF_DSI           ((uint8_t)0x0D)  /* DSI 备用函数映射 */
 #endif /* STM32F469_479xx */
 /**
-  * 简介:    AF 14选择
+  * 简介: AF 14选择
   */
 #define GPIO_AF_LTDC          ((uint8_t)0x0E)  /* LCD-TFT 备用函数映射 */
 #if defined(STM32F413_423xx)
@@ -430,7 +418,7 @@ typedef struct {
 #endif /* STM32F413_423xx */
 
 /**
-  * 简介:    AF 15选择
+  * 简介: AF 15选择
   */
 #define GPIO_AF_EVENTOUT      ((uint8_t)0x0F)  /* EVENTOUT 备用函数映射 */
 
@@ -521,12 +509,8 @@ typedef struct {
 #define IS_GPIO_AF(AF)   ((AF) < 16)
 #endif /* STM32F469_479xx */
 
-/**
-  * @}
-  */
 
 /** @defgroup GPIO_Legacy
-  * @{
   */
 #define GPIO_Mode_AIN           GPIO_Mode_AN
 
@@ -534,13 +518,7 @@ typedef struct {
 #define GPIO_AF_OTG2_HS         GPIO_AF_OTG_HS
 #define GPIO_AF_OTG2_FS         GPIO_AF_OTG_HS_FS
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
@@ -573,12 +551,5 @@ void GPIO_PinAFConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_PinSource, uint8_t GPIO
 
 #endif /*__STM32F4xx_GPIO_H */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -33,7 +33,7 @@
        (++) 通过以下方式选择类型，OpenDrain和速度
             GPIO_PuPd, GPIO_OType 和 GPIO_Speed 成员选择类型、OpenDrain 和速度。
             
-       (++) 调用GPIO_Init()函数。
+       (++) 调用 GPIO_Init() 函数。
 
    (#) 使用 FMPI2C_Init() 函数对模式、时序、自身地址、Ack和Acknowledged Address进行编程。
 
@@ -84,12 +84,10 @@
 #include "stm32f4xx_rcc.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @defgroup FMPI2C  FMPI2C
   * 简介: FMPI2C 驱动模块
-  * @{
   */
 #if defined(STM32F410xx) || defined(STM32F412xG)|| defined(STM32F413_423xx) || defined(STM32F446xx)
 /* Private typedef -----------------------------------------------------------*/
@@ -107,7 +105,6 @@
 /* 私有函数 ---------------------------------------------------------*/
      
 /** @defgroup FMPI2C_Private_Functions
-  * @{
   */
 
 
@@ -121,22 +118,21 @@
     [..] 本节提供了一组函数，允许初始化FMPI2C模式、FMPI2C计时、FMPI2C滤波器、
          FMPI2C寻址模式、FMPI2C OwnAddress1。
 
-    [..] FMPI2C_Init()函数遵循FMPI2C配置程序(这些程序可以在参考手册中找到)。
+    [..] FMPI2C_Init() 函数遵循FMPI2C配置程序(这些程序可以在参考手册中找到)。
 
-    [..] 当使用FMPI2C_SoftwareResetCmd()函数进行软件复位时，
+    [..] 当使用FMPI2C_SoftwareResetCmd() 函数进行软件复位时，
           内部状态机被复位，通信控制位以及状态位回到其复位值。
 
-    [..] 在使用FMPI2C_StopModeCmd()函数启用停止模式之前，
+    [..] 在使用FMPI2C_StopModeCmd() 函数启用停止模式之前，
          必须将FMPI2C时钟源设置为HSI，并且必须禁用数字滤波器。
 
-    [..] 在通过FMPI2C_DualAddressCmd()函数启用自有地址2之前，
-         应使用FMPI2C_OwnAddress2Config()函数配置OA2和掩码。
+    [..] 在通过FMPI2C_DualAddressCmd() 函数启用自有地址2之前，
+         应使用FMPI2C_OwnAddress2Config() 函数配置OA2和掩码。
 
-    [..] FMPI2C_SlaveByteControlCmd()函数启用从属字节控制，
+    [..] FMPI2C_SlaveByteControlCmd() 函数启用从属字节控制，
          当NBYTES被设置为0x01时，允许用户在从属模式下获得每个字节的控制权。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -542,9 +538,6 @@ void FMPI2C_10BitAddressingModeCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewS
     }
 }
 
-/**
-  * @}
-  */
 
 
 /** @defgroup FMPI2C_Group2 通信处理功能
@@ -556,24 +549,23 @@ void FMPI2C_10BitAddressingModeCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewS
  ===============================================================================
     [..] 本节提供了一组处理FMPI2C通信的函数。
 
-    [..] 自动结束模式是通过FMPI2C_AutoEndCmd()函数启用的。
+    [..] 自动结束模式是通过FMPI2C_AutoEndCmd() 函数启用的。
          当通过FMPI2C_ReloadCmd()启用Reload模式时，自动结束位没有作用。
 
-    [..] FMPI2C_NumberOfBytesConfig()函数设置要传输的字节数，
+    [..] FMPI2C_NumberOfBytesConfig() 函数设置要传输的字节数，
          这个配置应该在主模式下产生启动条件之前完成。
 
     [..] 在10Bit寻址模式下，当从主站写操作切换到读操作时，
-         主站只能发送10位地址的前7位，然后通过FMPI2C_10BitAddressHeader()函数启用HEADR位，向读方向发送。
+         主站只能发送10位地址的前7位，然后通过FMPI2C_10BitAddressHeader() 函数启用 HEADR位，向读方向发送。
 
     [..] 在主控模式下，当传输超过255字节时，应该使用Reload模式来处理通信。
          在传输的第一阶段，Nbytes应该被设置为255。在传输完这些字节后，
-         TCR标志被设置，FMPI2C_TransferHandling()函数应该被调用来处理剩余的通信。
+         TCR标志被设置，FMPI2C_TransferHandling() 函数应该被调用来处理剩余的通信。
 
     [..] 在主控模式下，当选择了软件结束模式时，当所有的数据被传输完毕后，
-         TC标志被设置，FMPI2C_TransferHandling()函数应该被调用以产生STOP或者产生ReStart。
+         TC标志被设置，FMPI2C_TransferHandling() 函数应该被调用以产生STOP或者产生ReStart。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -871,9 +863,6 @@ void FMPI2C_TransferHandling(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address, uint8_t 
     FMPI2Cx->CR2 = tmpreg;
 }
 
-/**
-  * @}
-  */
 
 
 /** @defgroup FMPI2C_Group3 SMBUS管理功能
@@ -885,24 +874,23 @@ void FMPI2C_TransferHandling(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address, uint8_t 
  ===============================================================================
     [..] 本节提供了一组处理SMBus通信和超时检测的函数。
 
-    [..] 通过调用FMPI2C_Init()函数并将FMPI2C_InitTypeDef()结构的
+    [..] 通过调用FMPI2C_Init() 函数并将FMPI2C_InitTypeDef()结构的
          FMPI2C_Mode成员设置为FMPI2C_Mode_SMBusDevice，启用SMBus设备默认地址(0b1100 001)。
 
-    [..] 通过调用FMPI2C_Init()函数并将FMPI2C_InitTypeDef()结构的FMPI2C_Mode成员
+    [..] 通过调用FMPI2C_Init() 函数并将FMPI2C_InitTypeDef()结构的FMPI2C_Mode成员
          设置为FMPI2C_Mode_SMBusHost，启用SMBus Host地址(0b0001 000)。
 
-    [..] 使用FMPI2C_SMBusAlertCmd()函数启用警报响应地址(0b0001 100)。
+    [..] 使用FMPI2C_SMBusAlertCmd() 函数启用警报响应地址(0b0001 100)。
 
     [..] 为了检测主站和从站模式下的累积SCL拉伸，应该用FMPI2C_TimeoutBConfig()
-         函数配置TIMEOUTB(符合SMBus规范)，然后调用FMPI2C_ExtendedClockTimeoutCmd()函数来启用检测。
+         函数配置TIMEOUTB(符合SMBus规范)，然后调用FMPI2C_ExtendedClockTimeoutCmd() 函数来启用检测。
 
-    [..] 通过使用FMPI2C_TimeoutBConfig()函数配置TIMEOUTB，
+    [..] 通过使用FMPI2C_TimeoutBConfig() 函数配置TIMEOUTB，
          然后调用FMPI2C_ClockTimeoutCmd()来检测SCL低电平超时。
-         当在此过程中加入FMPI2C_IdleClockTimeoutCmd()函数的调用时，
+         当在此过程中加入FMPI2C_IdleClockTimeoutCmd() 函数的调用时，
          总线空闲状态(SCL和SDA均为高电平)也被检测到。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1122,9 +1110,6 @@ uint8_t FMPI2C_GetPEC(FMPI2C_TypeDef* FMPI2Cx) {
     return (uint8_t)((uint32_t)FMPI2Cx->PECR & FMPI2C_PECR_PEC);
 }
 
-/**
-  * @}
-  */
 
 
 /** @defgroup FMPI2C_Group4 FMPI2C注册管理功能
@@ -1137,7 +1122,6 @@ uint8_t FMPI2C_GetPEC(FMPI2C_TypeDef* FMPI2Cx) {
     [..] 本节提供了允许用户管理FMPI2C寄存器的功能。
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1175,9 +1159,6 @@ uint32_t FMPI2C_ReadRegister(FMPI2C_TypeDef* FMPI2Cx, uint8_t FMPI2C_Register) {
     return (*(__IO uint32_t *) tmp);
 }
 
-/**
-  * @}
-  */
 
 /** @defgroup FMPI2C_Group5 数据传输管理功能
  *  简介   数据传输管理功能
@@ -1188,10 +1169,9 @@ uint32_t FMPI2C_ReadRegister(FMPI2C_TypeDef* FMPI2Cx, uint8_t FMPI2C_Register) {
  ===============================================================================
     [..] 本小节提供了一组允许管理FMPI2C数据传输的功能。
 
-    [..] FMPI2C_RXDR寄存器的读取访问可以使用FMPI2S_ReceiveData()函数完成，并返回接收的值。
-         然而，可以使用FMPI2C_SendData()函数对FMPI2T_TXDR进行写入访问，并将写入的数据存储到TXDR中。
+    [..] FMPI2C_RXDR寄存器的读取访问可以使用FMPI2S_ReceiveData() 函数完成，并返回接收的值。
+         然而，可以使用FMPI2C_SendData() 函数对FMPI2T_TXDR进行写入访问，并将写入的数据存储到TXDR中。
 @endverbatim
-  * @{
   */
 
 /**
@@ -1226,9 +1206,6 @@ uint8_t FMPI2C_ReceiveData(FMPI2C_TypeDef* FMPI2Cx) {
     return (uint8_t)FMPI2Cx->RXDR;
 }
 
-/**
-  * @}
-  */
 
 
 /** @defgroup FMPI2C_Group6 DMA传输管理功能
@@ -1238,16 +1215,15 @@ uint8_t FMPI2C_ReceiveData(FMPI2C_TypeDef* FMPI2Cx) {
  ===============================================================================
                ##### DMA传输管理功能 #####
  ===============================================================================
-    [..] 本节提供了两个只能在DMA模式下使用的函数。
+    [..] 本节提供了两个只能在DMA 模式下使用的函数。
 
-    [..] 在DMA模式下，FMPI2C通信可通过2个DMA信道请求进行管理:
+    [..] 在DMA 模式下，FMPI2C通信可通过2个DMA信道请求进行管理:
          (#) FMPI2C_DMAReq_Tx: 指定Tx缓冲器DMA传输请求。
          (#) FMPI2C_DMAReq_Rx: 指定Rx缓冲器DMA传输请求。
 
     [..] 在此模式下，建议使用以下函数:
          (+) FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalState NewState);
 @endverbatim
-  * @{
   */
 
 /**
@@ -1279,9 +1255,6 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         FMPI2Cx->CR1 &= (uint32_t)~FMPI2C_DMAReq;
     }
 }
-/**
-  * @}
-  */
 
 
 /** @defgroup FMPI2C_Group7 中断和标记管理函数
@@ -1293,7 +1266,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
  ===============================================================================
     [..] 本节提供的功能允许配置FMPI2C中断源，检查或清除标志或挂起位状态。
          用户应确定其应用程序将使用哪种模式来管理通信:
-            轮询模式、中断模式或DMA模式(参见FMPI2C_Group6)。
+            轮询模式、中断模式或DMA 模式(参见FMPI2C_Group6)。
 
   *** 轮询模式 ***
   ====================
@@ -1353,7 +1326,6 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
          (+) ITStatus FMPI2C_GetITStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT);
 
 @endverbatim
-  * @{
   */
 
 /**
@@ -1524,21 +1496,8 @@ void FMPI2C_ClearITPendingBit(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT) {
     FMPI2Cx->ICR = FMPI2C_IT;
 }
 
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 #endif /* STM32F410xx || STM32F412xG || STM32F413_423xx || STM32F446xx */
 
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup SCFG
   * @brief SCFG driver modules
-  * @{
   */
 
 #ifdef SCFG_MODULE_EnableD
 
 /** @defgroup SCFG_private_functions
-  * @{
   */
 
 /**
@@ -196,16 +193,4 @@ void SCFG_Pins_Ultra_Driven_Enable(SCFG_Ultra_Driven_Pins_Type value, confirm_st
     }
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

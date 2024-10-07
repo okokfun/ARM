@@ -27,13 +27,11 @@
 
 /**
  * @addtogroup LL_Driver
- * @{
  */
 
 /**
  * @defgroup LL_KEYSCAN KEYSCAN
  * @brief Matrix keyscan Driver Library
- * @{
  */
 
 #if (LL_KEYSCAN_ENABLE == DDL_ON)
@@ -47,12 +45,10 @@
  ******************************************************************************/
 /**
  * @defgroup KEYSCAN_Local_Macros KEYSCAN Local Macros
- * @{
  */
 
 /**
  * @defgroup KEYSCAN_Check_Parameters_Validity KEYSCAN Check Parameters Validity
- * @{
  */
 /*! Parameter valid check for KEYSCAN HiZ state cycles. */
 #define IS_KEYSCAN_HIZ_CYCLE(clc)                                               \
@@ -112,13 +108,9 @@
     (   ((in) != 0x00U)                         &&                                  \
         (((in) | KEYSCAN_IN_ALL) == KEYSCAN_IN_ALL))
 
-/**
- * @}
- */
 
-/**
- * @}
- */
+
+
 
 /*******************************************************************************
  * Global variable definitions (declared in header file with 'extern')
@@ -137,7 +129,6 @@
  ******************************************************************************/
 /**
  * @defgroup KEYSCAN_Global_Functions KEYSCAN Global Functions
- * @{
  */
 
 /**
@@ -207,15 +198,11 @@ int32_t KEYSCAN_Init(const stc_keyscan_init_t *pstcKeyscanInit) {
     return i32Ret;
 }
 
-/**
- * @}
- */
+
 
 #endif  /* LL_KEYSCAN_ENABLE */
 
-/**
- * @}
- */
+
 
 /**
 * @}

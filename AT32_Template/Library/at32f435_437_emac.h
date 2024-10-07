@@ -35,17 +35,14 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup EMAC
-  * @{
   */
 #define PHY_TIMEOUT                      (0x000FFFFF) /*!< timeout for phy response */
 
 /** @defgroup EMAC_smi_Clock_border_definition
   * @brief emac smi clock border
-  * @{
   */
 #define EMAC_HCLK_BORDER_20MHZ           (20000000)   /*!< hclk boarder of 20 mhz */
 #define EMAC_HCLK_BORDER_35MHZ           (35000000)   /*!< hclk boarder of 35 mhz */
@@ -55,13 +52,8 @@ extern "C" {
 #define EMAC_HCLK_BORDER_250MHZ          (250000000)  /*!< hclk boarder of 250 mhz */
 #define EMAC_HCLK_BORDER_288MHZ          (288000000)  /*!< hclk boarder of 288 mhz */
 
-/**
-  * @}
-  */
-
 /** @defgroup EMAC_Interrupts_definition
   * @brief emac interrupts
-  * @{
   */
 #define EMAC_PMT_FLAG                    ((uint32_t)0x00000008) /*!< interrupt bit of pmt */
 #define EMAC_MMC_FLAG                    ((uint32_t)0x00000010) /*!< interrupt bit of mmc */
@@ -69,13 +61,8 @@ extern "C" {
 #define EMAC_MMCT_FLAG                   ((uint32_t)0x00000040) /*!< interrupt bit of mmct */
 #define EMAC_TST_FLAG                    ((uint32_t)0x00000200) /*!< interrupt bit of tst */
 
-/**
-  * @}
-  */
-
 /** @defgroup EMAC_MMC_flags_definition
   * @brief emac mmc flags
-  * @{
   */
 #define MMC_RX_CRC_ERROR                 ((uint32_t)0x00000020) /*!< mmc error flag of rx crc */
 #define MMC_RX_ALIGN_ERROR               ((uint32_t)0x00000040) /*!< mmc error flag of rx alignment */
@@ -84,13 +71,8 @@ extern "C" {
 #define MMC_TX_MULTIPLE_COL              ((uint32_t)0x00008000) /*!< mmc error flag of tx multiple collision */
 #define MMC_TX_Good_FrameS               ((uint32_t)0x00200000) /*!< mmc error flag of tx good frames */
 
-/**
-  * @}
-  */
-
 /** @defgroup EMAC_Packet_definition
   * @brief emac packet
-  * @{
   */
 #define EMAC_MAX_Packet_LENGTH           1520 /*!< EMAC_header + EMAC_extra + EMAC_max_payload + EMAC_crc */
 #define EMAC_HEADER                      14   /*!< 6 byte dest addr, 6 byte src addr, 2 byte length/ept_Type */
@@ -102,13 +84,8 @@ extern "C" {
 #define JUMBO_Frame_PAYLOAD              9000 /*!< jumbo frame payload size */
 #define EMAC_DMARXDESC_Frame_LENGTHSHIFT 16
 
-/**
-  * @}
-  */
-
 /** @defgroup EMAC_DMA_Descriptor_tdes0_definition
   * @brief tdes0 definition
-  * @{
   */
 #define EMAC_DMATXDESC_OWN               ((uint32_t)0x80000000) /*!< own bit: descriptor is owned by dma engine */
 #define EMAC_DMATXDESC_IC                ((uint32_t)0x40000000) /*!< interrupt on completion */
@@ -140,44 +117,24 @@ extern "C" {
 #define EMAC_DMATXDESC_UF                ((uint32_t)0x00000002) /*!< underflow error: late data arrival from the memory */
 #define EMAC_DMATXDESC_DB                ((uint32_t)0x00000001) /*!< deferred bit */
 
-/**
-  * @}
-  */
-
 /** @defgroup EMAC_DMA_Descriptor_tdes1_definition
   * @brief  tdes1 descriptor
-  * @{
   */
 #define EMAC_DMATXDESC_TBS2              ((uint32_t)0x1FFF0000) /*!< transmit buffer2 size */
 #define EMAC_DMATXDESC_TBS1              ((uint32_t)0x00001FFF) /*!< transmit buffer1 size */
 
-/**
-  * @}
-  */
-
 /** @defgroup EMAC_DMA_Descriptor_tdes2_definition
   * @brief  tdes2 descriptor
-  * @{
   */
 #define EMAC_DMATXDESC_B1AP              ((uint32_t)0xFFFFFFFF) /*!< buffer1 address pointer */
 
-/**
-  * @}
-  */
-
 /** @defgroup EMAC_DMA_Descriptor_tdes3_definition
   * @brief  tdes3 descriptor
-  * @{
   */
 #define EMAC_DMATxDesc_B2AP              ((uint32_t)0xFFFFFFFF) /*!< buffer2 address pointer */
 
-/**
-  * @}
-  */
-
 /** @defgroup EMAC_DMA_Descriptor_rdes0_definition
   * @brief  rdes0 descriptor
-  * @{
   */
 #define EMAC_DMARXDESC_OWN               ((uint32_t)0x80000000) /*!< own bit: descriptor is owned by dma engine  */
 #define EMAC_DMARXDESC_AFM               ((uint32_t)0x40000000) /*!< da filter fail for the rx frame  */
@@ -199,13 +156,8 @@ extern "C" {
 #define EMAC_DMARXDESC_CE                ((uint32_t)0x00000002) /*!< crc error */
 #define EMAC_DMARXDESC_MAMPCE            ((uint32_t)0x00000001) /*!< rx mac address/payload checksum error: rx mac address matched/ Rx Payload Checksum Error */
 
-/**
-  * @}
-  */
-
 /** @defgroup EMAC_DMA_Descriptor_rdes1_definition
   * @brief  rdes1 descriptor
-  * @{
   */
 #define EMAC_DMARXDESC_DIC               ((uint32_t)0x80000000) /*!< disable interrupt on completion */
 #define EMAC_DMARXDESC_RBS2              ((uint32_t)0x1FFF0000) /*!< receive buffer2 size */
@@ -213,29 +165,15 @@ extern "C" {
 #define EMAC_DMARXDESC_RCH               ((uint32_t)0x00004000) /*!< second address chained */
 #define EMAC_DMARXDESC_RBS1              ((uint32_t)0x00001FFF) /*!< receive buffer1 size */
 
-/**
-  * @}
-  */
-
 /** @defgroup EMAC_DMA_Descriptor_rdes2_definition
   * @brief  rdes2 descriptor
-  * @{
   */
 #define EMAC_DMARXDESC_B1AP              ((uint32_t)0xFFFFFFFF) /*!< buffer1 address pointer */
 
-/**
-  * @}
-  */
-
 /** @defgroup EMAC_DMA_Descriptor_rdes3_definition
   * @brief  rdes3 descriptor
-  * @{
   */
 #define EMAC_DMARXDESC_B2AP              ((uint32_t)0xFFFFFFFF) /*!< buffer2 address pointer */
-
-/**
-  * @}
-  */
 
 /**
   * @brief  emac dma flag
@@ -257,7 +195,6 @@ extern "C" {
 #define EMAC_DMA_NIS_FLAG                ((uint32_t)0x00010000) /*!< emac dma normal interrupt summary */
 
 /** @defgroup EMAC_exported_Types
-  * @{
   */
 
 /**
@@ -1396,19 +1333,13 @@ typedef struct {
         } crbaddr_bit;
     };
 } EMAC_DMA_Type;
-
-/**
-  * @}
-  */
 #define EMAC                             ((EMAC_Type *) EMAC_BASE)
 #define EMAC_MMC                         ((EMAC_MMC_Type *) EMAC_MMC_BASE)
 #define EMAC_PTP                         ((EMAC_PTP_Type *) EMAC_PTP_BASE)
 #define EMAC_DMA                         ((EMAC_DMA_Type *) EMAC_DMA_BASE)
 
 /** @defgroup EMAC_exported_functions
-  * @{
   */
-
 void EMAC_Reset(void);
 void EMAC_Clock_Range_Set(void);
 void EMAC_DMA_Software_Reset_Set(void);
@@ -1536,18 +1467,6 @@ confirm_state EMAC_PTP_TimeStamp_Status_Get(EMAC_PTP_TimeStamp_Status_Type statu
 void EMAC_PTP_PPS_Frequency_Set(EMAC_PTP_PPS_Control_Type freq);
 flag_status EMAC_DMA_Flag_Get(uint32_t DMA_flag);
 void EMAC_DMA_Flag_Clear(uint32_t DMA_flag);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

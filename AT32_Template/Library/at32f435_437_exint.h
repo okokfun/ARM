@@ -35,15 +35,12 @@ extern "C" {
 #include "at32f435_437.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @addtogroup EXINT
-  * @{
   */
 
 /** @defgroup EXINT_lines
-  * @{
   */
 #define EXINT_Line_NONE                  ((uint32_t)0x000000)
 #define EXINT_Line_0                     ((uint32_t)0x000001) /*!< external interrupt line 0 */
@@ -70,12 +67,7 @@ extern "C" {
 #define EXINT_Line_21                    ((uint32_t)0x200000) /*!< external interrupt line 21 */
 #define EXINT_Line_22                    ((uint32_t)0x400000) /*!< external interrupt line 22 */
 
-/**
-  * @}
-  */
-
 /** @defgroup EXINT_exported_Types
-  * @{
   */
 
 /**
@@ -176,16 +168,10 @@ typedef struct {
         } intsts_bit;
     };
 } EXINT_Type;
-
-/**
-  * @}
-  */
 #define EXINT                             ((EXINT_Type *) EXINT_BASE)
 
 /** @defgroup EXINT_exported_functions
-  * @{
   */
-
 void EXINT_Reset(void);
 void EXINT_Default_Para_Init(EXINT_Init_Type *EXINT_struct);
 void EXINT_Init(EXINT_Init_Type *EXINT_struct);
@@ -194,18 +180,6 @@ flag_status EXINT_Flag_Get(uint32_t EXINT_line);
 void EXINT_Software_Interrupt_Event_Generate(uint32_t EXINT_line);
 void EXINT_Interrupt_Enable(uint32_t EXINT_line, confirm_state new_state);
 void EXINT_Event_Enable(uint32_t EXINT_line, confirm_state new_state);
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }

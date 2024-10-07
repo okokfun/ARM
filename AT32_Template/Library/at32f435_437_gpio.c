@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup GPIO
   * @brief GPIO driver modules
-  * @{
   */
 
 #ifdef GPIO_MODULE_EnableD
 
 /** @defgroup GPIO_private_functions
-  * @{
   */
 
 /**
@@ -462,16 +459,4 @@ void GPIO_Pin_Mux_Config(GPIO_Type *gpio_x, GPIO_Pins_Source_Type gpio_Pin_sourc
     }
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

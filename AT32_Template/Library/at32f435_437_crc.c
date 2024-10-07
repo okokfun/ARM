@@ -25,18 +25,15 @@
 #include "at32f435_437_conf.h"
 
 /** @addtogroup AT32F435_437_Periph_driver
-  * @{
   */
 
 /** @defgroup CRC
   * @brief CRC driver modules
-  * @{
   */
 
 #ifdef CRC_MODULE_EnableD
 
 /** @defgroup CRC_private_functions
-  * @{
   */
 
 /**
@@ -137,16 +134,4 @@ void CRC_Reverse_OutPut_Data_Set(CRC_Reverse_OutPut_Type value) {
     CRC->ctrl_bit.revod = value;
 }
 
-/**
-  * @}
-  */
-
 #endif
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */

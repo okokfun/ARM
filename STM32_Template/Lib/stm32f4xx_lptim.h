@@ -37,11 +37,9 @@ extern "C" {
 #include "stm32f4xx.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Driver
-  * @{
   */
 
 /** @addtogroup LPTIM
-  * @{
   */
 #if defined(STM32F410xx) || defined(STM32F413_423xx)
 /* Exported types ------------------------------------------------------------*/
@@ -51,10 +49,10 @@ extern "C" {
   */
 typedef struct {
     uint32_t LPTIM_ClockSource;          /*!< 选择时钟源。
-                                        该参数可以是@ref LPTIM_Clock_Source 的值 */
+                                        该参数可以是 @ref LPTIM_Clock_Source 的值 */
 
     uint32_t LPTIM_Prescaler;            /*!< 指定定时器时钟预分频器。
-                                        该参数可以是@ref LPTIM_Clock_Prescaler 的值 */
+                                        该参数可以是 @ref LPTIM_Clock_Prescaler 的值 */
 
     uint32_t LPTIM_Waveform;             /*!< 选择输出形状。
                                         此参数可以是 @ref LPTIM_Waveform_Shape 的值 */
@@ -65,23 +63,17 @@ typedef struct {
 
 /* Exported constants --------------------------------------------------------*/
 /** @defgroup LPTIM_Exported_Constants
-  * @{
   */
 #define IS_LPTIM_ALL_PERIPH(PERIPH)                  ((PERIPH) == LPTIM1)
 
 /** @defgroup LPTIM_Clock_Source LPTIM Clock Source
-  * @{
   */
 #define LPTIM_ClockSource_APBClock_LPosc     ((uint32_t)0x00000000)
 #define LPTIM_ClockSource_ULPTIM             ((uint32_t)0x00000001)
 #define IS_LPTIM_CLOCK_SOURCE(SOURCE)        (((SOURCE) == LPTIM_ClockSource_ULPTIM) || \
         ((SOURCE) == LPTIM_ClockSource_APBClock_LPosc))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Clock_Prescaler LPTIM Clock Prescaler
-  * @{
   */
 #define LPTIM_Prescaler_DIV1                 ((uint32_t)0x00000000)
 #define LPTIM_Prescaler_DIV2                 ((uint32_t)0x00000200)
@@ -99,34 +91,22 @@ typedef struct {
         ((PRESCALER) == LPTIM_Prescaler_DIV32) || \
         ((PRESCALER) == LPTIM_Prescaler_DIV64) || \
         ((PRESCALER) == LPTIM_Prescaler_DIV128))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Waveform_Shape LPTIM Waveform Shape
-  * @{
   */
 #define LPTIM_Waveform_PWM_OnePulse          ((uint32_t)0x00000000)
 #define LPTIM_Waveform_SetOnce               ((uint32_t)0x00100000)
 #define IS_LPTIM_WAVEFORM(WAVE)             (((WAVE) == LPTIM_Waveform_SetOnce) || \
         ((WAVE) == LPTIM_Waveform_PWM_OnePulse))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Output_Polarity LPTIM Output Polarity
-  * @{
   */
 #define LPTIM_OutputPolarity_High            ((uint32_t)0x00000000)
 #define LPTIM_OutputPolarity_Low             ((uint32_t)0x00200000)
 #define IS_LPTIM_OUTPUT_POLARITY(POLARITY)   (((POLARITY) == LPTIM_OutputPolarity_Low ) || \
         ((POLARITY) == LPTIM_OutputPolarity_High))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Clock_Polarity LPTIM Clock Polarity
-  * @{
   */
 #define LPTIM_ClockPolarity_RisingEdge        ((uint32_t)0x00000000)
 #define LPTIM_ClockPolarity_FallingEdge       ((uint32_t)0x00000002)
@@ -134,12 +114,8 @@ typedef struct {
 #define IS_LPTIM_CLOCK_POLARITY(POLARITY)     (((POLARITY) == LPTIM_ClockPolarity_RisingEdge ) || \
         ((POLARITY) == LPTIM_ClockPolarity_FallingEdge ) || \
         ((POLARITY) == LPTIM_ClockPolarity_BothEdges))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_External_Trigger_Source LPTIM External Trigger Source
-  * @{
   */
 #define LPTIM_ExtTRGSource_0          ((uint32_t)0x00000000)
 #define LPTIM_ExtTRGSource_1          ((uint32_t)0x00002000)
@@ -157,12 +133,8 @@ typedef struct {
         ((TRIG) == LPTIM_ExtTRGSource_5) || \
         ((TRIG) == LPTIM_ExtTRGSource_6) || \
         ((TRIG) == LPTIM_ExtTRGSource_7))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_External_Trigger_Polarity LPTIM External Trigger Polarity
-  * @{
   */
 #define LPTIM_ExtTRGPolarity_RisingEdge       ((uint32_t)0x00020000)
 #define LPTIM_ExtTRGPolarity_FallingEdge      ((uint32_t)0x00040000)
@@ -170,12 +142,8 @@ typedef struct {
 #define IS_LPTIM_EXT_TRG_POLARITY(POLAR)      (((POLAR) == LPTIM_ExtTRGPolarity_RisingEdge) || \
         ((POLAR) == LPTIM_ExtTRGPolarity_FallingEdge) || \
         ((POLAR) == LPTIM_ExtTRGPolarity_BothEdges))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Clock_Sample_Time LPTIM Clock Sample Time
-  * @{
   */
 #define LPTIM_ClockSampleTime_DirectTransistion  ((uint32_t)0x00000000)
 #define LPTIM_ClockSampleTime_2Transistions      ((uint32_t)0x00000008)
@@ -185,12 +153,8 @@ typedef struct {
         ((SAMPLETIME) == LPTIM_ClockSampleTime_2Transistions) || \
         ((SAMPLETIME) == LPTIM_ClockSampleTime_4Transistions) || \
         ((SAMPLETIME) == LPTIM_ClockSampleTime_8Transistions))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Trigger_Sample_Time LPTIM Trigger Sample Time
-  * @{
   */
 #define LPTIM_TrigSampleTime_DirectTransistion   ((uint32_t)0x00000000)
 #define LPTIM_TrigSampleTime_2Transistions       ((uint32_t)0x00000040)
@@ -200,34 +164,22 @@ typedef struct {
         ((SAMPLETIME) == LPTIM_TrigSampleTime_2Transistions) || \
         ((SAMPLETIME) == LPTIM_TrigSampleTime_4Transistions) || \
         ((SAMPLETIME) == LPTIM_TrigSampleTime_8Transistions))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Operating_Mode LPTIM Operating Mode
-  * @{
   */
 #define LPTIM_Mode_Continuous                    ((uint32_t)0x00000004)
 #define LPTIM_Mode_Single                        ((uint32_t)0x00000002)
 #define IS_LPTIM_MODE(MODE)                      (((MODE) == LPTIM_Mode_Continuous) || \
         ((MODE) == LPTIM_Mode_Single))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Updating_Register LPTIM 更新寄存器
-  * @{
   */
 #define LPTIM_Update_Immediate                  ((uint32_t)0x00000000)
 #define LPTIM_Update_EndOfPeriod                ((uint32_t)0x00400000)
 #define IS_LPTIM_UPDATE(UPDATE)                 (((UPDATE) == LPTIM_Update_Immediate) || \
         ((UPDATE) == LPTIM_Update_EndOfPeriod))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Interrupts_Definition LPTIM Interrupts Definition
-  * @{
   */
 #define LPTIM_IT_DOWN                            LPTIM_IER_DOWNIE
 #define LPTIM_IT_UP                              LPTIM_IER_UPIE
@@ -251,12 +203,8 @@ typedef struct {
         ((IT) == LPTIM_IT_EXTTRIG) || \
         ((IT) == LPTIM_IT_ARRM) || \
         ((IT) == LPTIM_IT_CMPM))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Flag_Definition LPTIM Flag Definition
-  * @{
   */
 #define LPTIM_FLAG_DOWN                          LPTIM_ISR_DOWN
 #define LPTIM_FLAG_UP                            LPTIM_ISR_UP
@@ -272,12 +220,8 @@ typedef struct {
         ((FLAG) == LPTIM_FLAG_EXTTRIG) || \
         ((FLAG) == LPTIM_FLAG_ARRM) || \
         ((FLAG) == LPTIM_FLAG_CMPM))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Clear_Flag_Definition LPTIM Clear Flag Definition
-  * @{
   */
 #define LPTIM_CLEAR_DOWN                        LPTIM_ICR_DOWNCF
 #define LPTIM_CLEAR_UP                          LPTIM_ICR_UPCF
@@ -293,40 +237,22 @@ typedef struct {
         ((CLEARF) == LPTIM_CLEAR_EXTTRIG) || \
         ((CLEARF) == LPTIM_CLEAR_ARRM ) || \
         ((CLEARF) == LPTIM_CLEAR_CMPM))
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Autorelaod_Value LPTIM Autorelaod Value
-  * @{
   */
 #define IS_LPTIM_AUTORELOAD(AUTORELOAD)         ((AUTORELOAD) <= 0x0000FFFF)
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Compare_Value LPTIM Compare Value
-  * @{
   */
 #define IS_LPTIM_COMPARE(COMPARE)               ((COMPARE) <= 0x0000FFFF)
-/**
-  * @}
-  */
 
 /** @defgroup LPTIM_Option_Register_Definition LPTIM Option Register Definition
-  * @{
   */
 #define LPTIM_OP_PAD_AF                          ((uint32_t)0x00000000)
 #define LPTIM_OP_PAD_PA4                         LPTIM_OR_OR_0
 #define LPTIM_OP_PAD_PB9                         LPTIM_OR_OR_1
 #define LPTIM_OP_TIM_DAC                         LPTIM_OR_OR
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
@@ -365,18 +291,11 @@ void LPTIM_ClearFlag(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_CLEARF); // 清除 LP
 ITStatus LPTIM_GetITStatus(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_IT); // 检查指定的 LPTIM 中断是否发生。
 
 #endif /* STM32F410xx || STM32F413_423xx */
-/**
-  * @}
-  */
 
-/**
-  * @}
-  */
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif /*__STM32F4xx_LPTIM_H */
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
