@@ -28,10 +28,10 @@
 	并且一旦使用 DAC_SetChannel1Data() / DAC_SetChannel2Data() 函数写入 DHRx 寄存器，DAC_OUT1/DAC_OUT2 就可用。
     [..]
     数模转换可以通过以下方式触发:
-      (#) 外部事件:EXTI 线 9(任何 GPIOx_Pin9)使用 DAC_Trigger_Ext_IT9。
+      (#) 外部事件: EXTI 线 9(任何 GPIOx_Pin9)使用 DAC_Trigger_Ext_IT9。
            使用的引脚 (GPIOx_Pin9) 必须配置为输入模式。
 
-      (#) 定时器 TRGO:TIM2、TIM4、TIM5、TIM6、TIM7 和 TIM8
+      (#) 定时器 TRGO: TIM2、TIM4、TIM5、TIM6、TIM7 和 TIM8
            (DAC_Trigger_T2_TRGO、DAC_Trigger_T4_TRGO...)
            应使用 TIM_SelectOutputTrigger() 选择计时器 TRGO 事件
 

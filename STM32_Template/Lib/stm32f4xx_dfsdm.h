@@ -49,32 +49,32 @@ extern "C" {
   * 简介:  DFSDM收发器初始化结构定义
   */
 typedef struct {
-    uint32_t DFSDM_Interface;                 /*!< 选择串行接口类型和输入时钟相位。
-				                        							该参数可以是 @ref DFSDM_Interface_Selection 的值 */
+    uint32_t DFSDM_Interface;            /*!< 选择串行接口类型和输入时钟相位。
+				                        		     该参数可以是 @ref DFSDM_Interface_Selection 的值 */
 
-    uint32_t DFSDM_Clock;                     /*!< 指定串行接口收发器的时钟源。
-                                              该参数可以是 @ref DFSDM_Clock_Selection 的值 */
+    uint32_t DFSDM_Clock;                /*!< 指定串行接口收发器的时钟源。
+                                         该参数可以是 @ref DFSDM_Clock_Selection 的值 */
 
-    uint32_t DFSDM_Input;                     /*!< 指定串行接口收发器的输入模式。
-                                              该参数可以是 @ref DFSDM_Input_Selection 的值 */
+    uint32_t DFSDM_Input;                /*!< 指定串行接口收发器的输入模式。
+                                         该参数可以是 @ref DFSDM_Input_Selection 的值 */
 
-    uint32_t DFSDM_Redirection;               /*!< 指定通道输入是否从通道通道 (y+1) 重定向。
-                                              该参数可以是 @ref DFSDM_Redirection_Selection 的值 */
+    uint32_t DFSDM_Redirection;          /*!< 指定通道输入是否从通道通道 (y+1) 重定向。
+                                         该参数可以是 @ref DFSDM_Redirection_Selection 的值 */
 
-    uint32_t DFSDM_PackingMode;               /*!< 指定串行接口收发器的打包模式。
-                                              此参数可以是 @ref DFSDM_Pack_Selection 的值 */
+    uint32_t DFSDM_PackingMode;          /*!< 指定串行接口收发器的打包模式。
+                                         此参数可以是 @ref DFSDM_Pack_Selection 的值 */
 
-    uint32_t DFSDM_DataRightShift;            /*!< 定义最终数据右位移。
-                                              此参数可以是 0 到 31 之间的值 */
+    uint32_t DFSDM_DataRightShift;       /*!< 定义最终数据右位移。
+                                         此参数可以是 0 到 31 之间的值 */
 
-    uint32_t DFSDM_Offset;                    /*!< 设置校准偏移。
-                                              此参数可以是 0 到 0xFFFFFF 之间的值 */
+    uint32_t DFSDM_Offset;               /*!< 设置校准偏移。
+                                         此参数可以是 0 到 0xFFFFFF 之间的值 */
 
-    uint32_t DFSDM_CLKAbsenceDetector;        /*!< 启用或禁用时钟缺失检测器。
-                                              该参数可以是 @ref DFSDM_Clock_Absence_Detector_state 的值 */
+    uint32_t DFSDM_CLKAbsenceDetector;   /*!< 启用或禁用时钟缺失检测器。
+                                         该参数可以是 @ref DFSDM_Clock_Absence_Detector_state 的值 */
 
-    uint32_t DFSDM_ShortCircuitDetector;      /*!< 启用或禁用短路检测器。
-                                              该参数可以是 @ref DFSDM_Short_Circuit_Detector_state 的值 */
+    uint32_t DFSDM_ShortCircuitDetector; /*!< 启用或禁用短路检测器。
+                                         该参数可以是 @ref DFSDM_Short_Circuit_Detector_state 的值 */
 } DFSDM_TransceiverInitTypeDef;
 
 /**

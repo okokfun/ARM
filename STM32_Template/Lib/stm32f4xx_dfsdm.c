@@ -2126,15 +2126,15 @@ ITStatus DFSDM_GetClockAbsenceITStatus(uint32_t Instance, uint32_t DFSDM_IT_CLKA
 /**
   * 简介:  检查指定的短路通道中断是否已经发生。
   * 
-  * 参数:  Instance: 选择DFSDM的实例
+  * 参数:  Instance: 选择 DFSDM 的实例
   *         此参数可以是: 1 or 2.
   * 
   * 参数:  DFSDM_IT_SCR: 指定在哪个通道上检查中断源。
   *         这个参数可以是 @ref DFSDM_SCD_Interrupt_Definition的一个值。
   * 
-  * 返回值: DFSDM_IT的新状态(SET或RESET)。
+  * 返回值: DFSDM_IT 的新状态(SET或RESET)。
   * 
-  * 注意:   短路中断只由滤波器0处理。
+  * 注意:   短路中断只由滤波器 0 处理。
   */
 ITStatus DFSDM_GetShortCircuitITStatus(uint32_t Instance, uint32_t DFSDM_IT_SCR) {
     ITStatus bitstatus = RESET;

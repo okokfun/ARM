@@ -48,13 +48,13 @@ extern "C" {
   */
 typedef struct {
     uint32_t AutomaticClockLaneControl; /*!< 自动时钟通道控制
-										该参数可以是 @ref DSI_Automatic_Clk_Lane_Control 的任意值 */
+										                    该参数可以是 @ref DSI_Automatic_Clk_Lane_Control 的任意值 */
 
     uint32_t TXEscapeCkdiv;             /*!< TX Escape 时钟分频
-										值 0 和 1 停止 TX_ESC 时钟生成                    */
+									                    	值 0 和 1 停止 TX_ESC 时钟生成                    */
 
     uint32_t NumberOfLanes;             /*!< 车道数
-										此参数可以是 @ref DSI_Number_Of_Lanes 的任何值            */
+										                    此参数可以是 @ref DSI_Number_Of_Lanes 的任何值            */
 
 } DSI_InitTypeDef;
 

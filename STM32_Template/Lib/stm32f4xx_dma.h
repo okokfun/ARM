@@ -76,14 +76,14 @@ typedef struct {
 
     uint32_t DMA_Mode;               /*!< 指定 DMAy Streamx 的操作模式。
                                         该参数可以是 @ref DMA_circular_normal_mode @note
-										                    如果在选定的Stream上配置了内存到内存的数据传输，则不能使用循环缓冲区模式 */
+										如果在选定的 Stream 上配置了内存到内存的数据传输，则不能使用循环缓冲区模式 */
 
     uint32_t DMA_Priority;           /*!< 指定 DAY Stream 的软件优先级。
                                         该参数可以是 @ref DMA_priority_level 的值 */
 
     uint32_t DMA_FIFOMode;          /*!< 指定是否将 FIFO 模式或 Direct 模式用于指定的 Stream。
                                         该参数可以是 @ref DMA_fifo_direct_mode 的值 @note
-										                  如果在选定的 Stream 上配置了内存到内存的数据传输，
+										如果在选定的 Stream 上配置了内存到内存的数据传输，
                                         则不能使用 Direct 模式(禁用 FIFO 模式) */
 
     uint32_t DMA_FIFOThreshold;      /*!< 指定 FIFO 阈值级别。
@@ -91,11 +91,11 @@ typedef struct {
 
     uint32_t DMA_MemoryBurst;        /*!< 指定内存传输的突发传输配置。
                                         它指定在单个不可中断事务中要传输的数据量。
-										                    该参数可以是 @ref DMA_memory_burst @note 的值只有在启用地址增量模式时才可以使用突发模式。*/
+									 该参数可以是 @ref DMA_memory_burst @note 的值只有在启用地址增量模式时才可以使用突发模式。*/
 
     uint32_t DMA_PeripheralBurst;    /*!< 指定外设传输的突发传输配置。
                                         它指定在单个不可中断事务中要传输的数据量。
-										                    这个参数可以是 @ref DMA_peripheral_burst @note 突发模式只有在地址增量模式被启用的情况下才有可能。 */
+									 这个参数可以是 @ref DMA_peripheral_burst @note 突发模式只有在地址增量模式被启用的情况下才有可能。 */
 } DMA_InitTypeDef;
 
 /* Exported constants --------------------------------------------------------*/

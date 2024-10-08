@@ -49,7 +49,7 @@ extern "C" {
   * 简介:  __RAM_FUNC definition
   */
 #if defined ( __CC_ARM   )
-/* ARM Compiler
+/* ARM 编译器
    ------------
    RAM functions are defined using the toolchain options.
    Functions that are executed in RAM should reside in a separate source module.
@@ -61,17 +61,16 @@ extern "C" {
 #define __RAM_FUNC void
 
 #elif defined ( __ICCARM__ )
-/* ICCARM Compiler
+/* ICCARM 编译器
    ---------------
-   RAM functions are defined using a specific toolchain keyword "__ramfunc".
+   RAM 函数是使用特定的工具链关键字 "__ramfunc" 定义的。
 */
 #define __RAM_FUNC __ramfunc void
 
 #elif defined   (  __GNUC__  )
-/* GNU Compiler
+/* GNU 编译器
    ------------
-  RAM functions are defined using a specific toolchain attribute
-   "__attribute__((section(".RamFunc")))".
+  RAM函数是使用特定的工具链属性 "__attribute__((section(".RamFunc"))" 定义的。
 */
 #define __RAM_FUNC void  __attribute__((section(".RamFunc")))
 

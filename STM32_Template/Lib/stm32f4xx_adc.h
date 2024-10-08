@@ -49,19 +49,19 @@ extern "C" {
   */
 typedef struct {
     uint32_t ADC_Resolution;                /*!< 配置 ADC 分辨率双模式。
-                                               该参数可以是 @ref ADC_resolution 的值 */
+                                            该参数可以是 @ref ADC_resolution 的值 */
 
     FunctionalState ADC_ScanConvMode;       /*!< 指定是在扫描(多通道)还是单(单通道)模式下执行转换。
 											                      此参数可设置为 ENABLE 或 DISABLE */
 
     FunctionalState ADC_ContinuousConvMode; /*!< 指定是在连续模式还是单次模式下执行转换。
-                                               此参数可以设置为 ENABLE 或 DISABLE。 */
+                                            此参数可以设置为 ENABLE 或 DISABLE。 */
 
     uint32_t ADC_ExternalTrigConvEdge;      /*!< 选择外部触发沿并启用常规组的触发。
 											                      该参数可以是 @ref ADC_external_trigger_edge_for_regular_channels_conversion 的值 */
 
     uint32_t ADC_ExternalTrigConv;          /*!< 选择用于触发常规组转换开始的外部事件。
-                                               此参数可以是 @ref ADC_extrenal_trigger_sources_for_regular_channels_conversion 的值 */
+                                            此参数可以是 @ref ADC_extrenal_trigger_sources_for_regular_channels_conversion 的值 */
 
     uint32_t ADC_DataAlign;                 /*!< 指定 ADC 数据对齐是左对齐还是右对齐。
                                             该参数可以是 @ref ADC_data_align 的值 */

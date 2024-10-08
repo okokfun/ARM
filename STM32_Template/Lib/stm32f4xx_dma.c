@@ -1057,16 +1057,16 @@ ITStatus DMA_GetITStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT) {
 /**
   * 简介:  清除 DMAy Streamx 的中断挂起位。
   * 
-  * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
+  * 参数:  DMAy_Streamx: 其中 y 可以是 1 或 2 以选择 DMA，x 可以是 0 到 7 以选择 DMAStream。
   * 
   * 参数:  DMA_IT: 指定要清除的DMA中断挂起位。
   *          此参数可以是以下值的任意组合:
-  *          @arg DMA_IT_TCIFx: Streamx传输完成中断
-  *          @arg DMA_IT_HTIFx: Streamx半传输完成中断
-  *          @arg DMA_IT_TEIFx: Streamx传输错误中断
-  *          @arg DMA_IT_DMEIFx: Streamx直接模式错误中断
-  *          @arg DMA_IT_FEIFx: Streamx FIFO错误中断
-  *          其中x可以是0到7，以选择DMA流。
+  *          @arg DMA_IT_TCIFx: Streamx 传输完成中断
+  *          @arg DMA_IT_HTIFx: Streamx 半传输完成中断
+  *          @arg DMA_IT_TEIFx: Streamx 传输错误中断
+  *          @arg DMA_IT_DMEIFx: Streamx 直接模式错误中断
+  *          @arg DMA_IT_FEIFx: Streamx FIFO 错误中断
+  *          其中 x 可以是 0 到 7，以选择 DMA 流。
   * 
   * 返回值: 无
   */
