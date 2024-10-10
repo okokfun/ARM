@@ -567,9 +567,9 @@ void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState) {
       -@- 在PWM模式下，此功能是必需的:TIM_OCxPreloadConfig(TIMx，TIM_OCPreload_ENABLE);
 
       -@- 如果需要相应的中断或DMA请求，用户应:
-        (+@) 启用NVIC(或DMA)以使用TIM中断(或DMA请求)。
+        (+@) 启用 NVIC(或DMA)以使用TIM中断(或DMA请求)。
         (+@) 使用功能TIM_ITConfig(TIMx，TIM_IT_CCx)
-        (或TIM_DMA_Cmd(TIMx，TIM_DMA _CCx))启用相应的中断(或DMA请求)
+        (或TIM_DMA_Cmd(TIMx，TIM_DMA _CCx)) 启用相应的中断(或DMA请求)
 
 @endverbatim
   */
@@ -1725,7 +1725,7 @@ void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN) {
       (#) 使能NVIC或DMA读取测量频率。
 
       (#) 使用函数TIM_ITConfig(TIMx, TIM_IT_CCx)
-		 (或TIM_DMA_Cmd(TIMx, TIM_DMA_CCx))启用相应的中断(或DMA请求)来读取捕获值
+		 (或TIM_DMA_Cmd(TIMx, TIM_DMA_CCx)) 启用相应的中断(或DMA请求)来读取捕获值
 
       (#) 调用TIM_Cmd(ENABLE) 函数启用TIM计数器.
 
@@ -2010,7 +2010,7 @@ void TIM_SetIC4Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC) {
 
       (#)调用TIM_BDTRConfig(TIMx，&TIM_BTTRInitStruct)配置计时器
 
-      (#)使用TIM_CtrlPWM输出(TIM1，Enable)启用主输出
+      (#)使用TIM_CtrlPWM输出(TIM1，Enable) 启用主输出
 
       (#)一旦出现收支平衡，定时器的输出信号将被置于重置状态或已知状态(根据TIM_BDTRConfig() 函数中的配置)。
 

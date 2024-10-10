@@ -378,7 +378,7 @@ void I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct); // 根据I2S_
 void SPI_StructInit(SPI_InitTypeDef* SPI_InitStruct);              // 用其默认值填充每个SPI_InitStruct成员。
 void I2S_StructInit(I2S_InitTypeDef* I2S_InitStruct);              // 用每个I2S_InitStruct成员的默认值填充每个成员。
 void SPI_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState);         // 启用或禁用指定的SPI外设。
-void I2S_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState);         // 启用或禁用指定的SPI外设(在I2S模式下)。
+void I2S_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState);         // 启用或禁用指定的SPI外设(在I2S 模式下)。
 void SPI_DataSizeConfig(SPI_TypeDef* SPIx, uint16_t SPI_DataSize); // 配置所选 SPI 的数据大小。
 void SPI_BiDirectionalLineConfig(SPI_TypeDef* SPIx, uint16_t SPI_Direction); // 为指定的SPI选择双向模式下的数据传输方向。
 void SPI_NSSInternalSoftwareConfig(SPI_TypeDef* SPIx, uint16_t SPI_NSSInternalSoft); // 通过软件在内部配置所选SPI的NSS引脚。

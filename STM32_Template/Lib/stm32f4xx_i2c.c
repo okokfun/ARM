@@ -152,7 +152,7 @@ void I2C_DeInit(I2C_TypeDef* I2Cx) {
 /**
   * 简介:  根据I2C_InitStruct中的指定参数初始化I2Cx外设。
   *
-  * 注意:  要在400KHz(快速模式)下使用I2C，PCLK1的频率(I2C外围输入时钟)必须是10MHz的倍数。
+  * 注意:  要在400KHz(快速模式)下使用 I2C，PCLK1的频率(I2C外围输入时钟)必须是10MHz的倍数。
   *
   * 参数:  I2Cx: 其中x可以是1、2或3，以选择I2C的外设。
   * 参数:  I2C_InitStruct: 指向I2C_InitTypeDef结构的指针，该结构包含指定I2C外设的配置信息。
@@ -385,7 +385,7 @@ void I2C_GenerateSTART(I2C_TypeDef* I2Cx, FunctionalState NewState) {
         /* 生成START条件 */
         I2Cx->CR1 |= I2C_CR1_START;
     } else {
-        /* 禁用START条件生成 */
+        /* 禁用 START条件生成 */
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_START);
     }
 }
@@ -409,7 +409,7 @@ void I2C_GenerateSTOP(I2C_TypeDef* I2Cx, FunctionalState NewState) {
         /* 生成STOP条件 */
         I2Cx->CR1 |= I2C_CR1_STOP;
     } else {
-        /* 禁用STOP条件生成 */
+        /* 禁用 STOP条件生成 */
         I2Cx->CR1 &= (uint16_t)~((uint16_t)I2C_CR1_STOP);
     }
 }
@@ -637,7 +637,7 @@ void I2C_FastModeDutyCycleConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DutyCycle) {
   *            @arg I2C_NACKPosition_Current: 指示当前字节是最后接收的字节。
   *
   * 注意:    此函数配置与I2C_PECPositionConfig()相同的位(POS)，
-  *          但用于I2C模式，而I2C_pECPositionConfiguration()用于SMBUS模式。
+  *          但用于 I2C模式，而I2C_pECPositionConfiguration()用于SMBUS 模式。
   *
   * 返回值: 无
   */
@@ -794,7 +794,7 @@ void I2C_TransmitPEC(I2C_TypeDef* I2Cx, FunctionalState NewState) {
   *            @arg I2C_PECPosition_Current: 表示当前字节为PEC
   *
   * 注意:    此函数配置与I2C_NACKPositionConfig()相同的位(POS)，
-  *          但用于SMBUS模式，而I2C_nACKPositConfig(()用于I2C模式。
+  *          但用于SMBUS 模式，而I2C_nACKPositConfig(()用于 I2C模式。
   *
   * 返回值: 无
   */
@@ -930,7 +930,7 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 该I2C驱动提供了三种不同的I2C状态监测方式，这取决于应用的要求和限制。
 
 
-     (#) 基本状态监测(使用I2C_CheckEvent() 函数)
+     (#) 基本状态监测(使用 I2C_CheckEvent() 函数)
 
         它将状态寄存器(SR1和SR2)的内容与一个给定的事件(可以是一个或多个标志的组合)进行比较。
         如果当前状态包括给定的标志，它将返回SUCCESS，如果当前状态中缺少一个或多个标志，则返回ERROR。
@@ -1083,7 +1083,7 @@ void I2C_ITConfig(I2C_TypeDef* I2Cx, uint16_t I2C_IT, FunctionalState NewState) 
   * 注意:   关于事件的详细描述，请参考stm32f4xx_i2c.h文件中I2C_Events部分。
   *
   * 返回值: ErrorStatus枚举值:
-  *           - SUCCESS: 最后一个事件等同于I2C_EVENT。
+  *           - SUCCESS: 最后一个事件等同于 I2C_EVENT。
   *           - ERROR: 最后一个事件与I2C_EVENT不同
   */
 ErrorStatus I2C_CheckEvent(I2C_TypeDef* I2Cx, uint32_t I2C_EVENT) {
@@ -1105,7 +1105,7 @@ ErrorStatus I2C_CheckEvent(I2C_TypeDef* I2Cx, uint32_t I2C_EVENT) {
 
     /* 检查是否最后一个事件包含I2C_EVENT */
     if ((lastevent & I2C_EVENT) == I2C_EVENT) {
-        /* SUCCESS: 最后一个事件等于I2C_EVENT */
+        /* SUCCESS: 最后一个事件等于 I2C_EVENT */
         status = SUCCESS;
     } else {
         /* ERROR: 最后一个事件与I2C_EVENT不同 */
@@ -1243,7 +1243,7 @@ FlagStatus I2C_GetFlagStatus(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG) {
   *             @arg I2C_FLAG_BERR: 总线错误标志
   *
   * 注意: STOPF(STOP检测)通过软件顺序清除:对I2C_SR1寄存器进行
-  *       读操作(I2C_GetFlagStatus())，然后对I2C_CR1寄存器进行写操作(I2C_Cmd()以重新启用I2C外设)。
+  *       读操作(I2C_GetFlagStatus())，然后对I2C_CR1寄存器进行写操作(I2C_Cmd()以重新启用 I2C外设)。
   * 注意: ADD10(发送10位头)通过软件顺序清除:对I2C_SR1进行读操作
   *     (I2C_GetFlagStatus())，然后在DR寄存器中写入地址的第二个字节。
   * 注意: BTF (Byte Transfer Finished)通过软件顺序清除:对I2C_SR1
@@ -1335,7 +1335,7 @@ ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, uint32_t I2C_IT) {
   *
   * 注意: STOPF(STOP检测)通过软件顺序清除:对I2C_SR1寄存器进行读操作
   *       (I2C_GetITStatus())，然后对I2C_CR1寄存器进行
-  *        写操作(I2C_Cmd()以重新启用I2C外设)。
+  *        写操作(I2C_Cmd()以重新启用 I2C外设)。
   * 注意: ADD10(发送10位头)通过软件顺序清除:对I2C_SR1进行读操作
   *     (I2C_GetITStatus())，然后在I2C_DR寄存器中写入地址的第二个字节。
   * 注意: BTF (Byte Transfer Finished)通过软件顺序清除:

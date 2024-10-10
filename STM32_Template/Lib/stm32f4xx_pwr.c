@@ -148,7 +148,7 @@
         以免发生意外。寄存器和备份SRAM)被保护起来，防止可能的不需要的 写访问。
       启用对RTC域和RTC寄存器的访问，步骤如下:
         (+) 使用RCC_APB1PeriphClockCmd() 函数启用电源控制器(PWR)APB1接口时钟。
-        (+) 使用PWR_BackupAccessCmd() 函数启用对RTC域的访问。
+        (+) 使用 PWR_BackupAccessCmd() 函数启用对RTC域的访问。
 
 @endverbatim
   */
@@ -316,8 +316,8 @@ void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState) {
     [..]
       (+) 备份域包括仅可从CPU访问的4K字节备份SRAM，以及32位、16位或8位模式的地址。
           当启用低功率备用调节器时，即使在待机或VBAT模式下，其内容也会保留。当VBAT始终存在时，
-          可将其视为内部EEPROM。您可以使用PWR_BackupRegulatorCmd() 函数启用低功率备用稳压器，
-          并使用PWR_GetFlagStatus(PWR_FLAG_BRR) 检查其是否就绪。
+          可将其视为内部EEPROM。您可以使用 PWR_BackupRegulatorCmd() 函数启用低功率备用稳压器，
+          并使用 PWR_GetFlagStatus(PWR_FLAG_BRR) 检查其是否就绪。
 
       (+) 当备份域由VDD(连接到VDD的模拟开关)供电时，备份SRAM由VDD供电，
           VDD取代了VBAT电源以节省电池寿命。
@@ -565,14 +565,14 @@ void PWR_LowRegulatorLowVoltageCmd(FunctionalState NewState) {
              ##### FLASH掉电配置功能 #####
  ===============================================================================
     [..]
-      (+) 通过使用PWR_FlashPowerDownCmd() 函数设置PWR_CR寄存器中的FPDS位，
+      (+) 通过使用 PWR_FlashPowerDownCmd() 函数设置PWR_CR寄存器中的FPDS位，
           当器件进入Stop模式时，闪存也进入了掉电模式。当闪存处于掉电模式时，
           当从停止模式唤醒时，会产生额外的启动延迟。
 @endverbatim
   */
 
 /**
-  * 简介:  启用或禁用STOP模式下的Flash断电函数。
+  * 简介:  启用或禁用 STOP模式下的Flash断电函数。
   * 参数:  NewState: 闪存功率模式的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
@@ -612,10 +612,10 @@ void PWR_FlashPowerDownCmd(FunctionalState NewState) {
       在停止模式下，1.2V域中的所有时钟停止，PLL、HSI和HSE RC振荡器被禁用。保留内部SRAM和寄存器内容。
         电压调节器可以配置为正常模式或低功率模式。
       为了最小化停止模式下的消耗，可以在进入停止模式之前关闭闪存。
-        在使用PWR_FlashPowerDownCmd() 函数退出停止模式后，可以通过软件再次打开。
+        在使用 PWR_FlashPowerDownCmd() 函数退出停止模式后，可以通过软件再次打开。
 
       (+) 进入:
-        (++) 使用PWR_EnterSTOPMode(PWR_MainRegulator_ON)功能进入停止模式:
+        (++) 使用 PWR_EnterSTOPMode(PWR_MainRegulator_ON) 功能进入停止模式:
           (+++) 主调节器打开。
           (+++) 低功率调节器打开。
       (+) 退出:
@@ -631,7 +631,7 @@ void PWR_FlashPowerDownCmd(FunctionalState NewState) {
       电压调节器关闭。
 
       (+) 进入:
-        (++) 使用PWR_EnterSTANDBYMode() 函数进入待机模式。
+        (++) 使用 PWR_EnterSTANDBYMode() 函数进入待机模式。
       (+) 退出:
         (++) WKUP引脚上升沿、RTC警报(警报A和警报B)、
           RTC唤醒、篡改事件、时间戳事件、NRST引脚外部复位、IWDG复位。
@@ -834,7 +834,7 @@ void PWR_EnterSTANDBYMode(void) {
   *                              当WKUP引脚级别已经很高时，如果启用了WKUP引脚(通过设置EWUP位)，
   *                              则检测到额外的唤醒事件。
   *            @arg PWR_FLAG_SB: 备用Flage。此标志表示系统已从待机模式恢复。
-  *            @arg PWR_FLAG_PVDO: PVD Output. 仅当PWR_PVDCmd() 函数启用PVD时，此标志才有效。PVD在待机模式下停止
+  *            @arg PWR_FLAG_PVDO: PVD Output. 仅当PWR_PVDCmd() 函数启用 PVD时，此标志才有效。PVD在待机模式下停止
                                    因此，该位在待机或重置后等于0，直到PVDE位被设置。
   *            @arg PWR_FLAG_BRR: 后备调节器就绪标志。
   *                               当设备从待机模式唤醒或被系统复位或电源复位时，该位不会被重置。

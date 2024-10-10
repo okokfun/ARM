@@ -661,7 +661,7 @@ void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState) {
   * 
   * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
   * 
-  * 参数:  TxMessage: 指向包含CAN Id、CAN DLC和CAN数据的结构的指针。
+  * 参数:  TxMessage: 指向包含CAN Id、CAN DLC 和CAN数据的结构的指针。
   * 
   * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
   * 

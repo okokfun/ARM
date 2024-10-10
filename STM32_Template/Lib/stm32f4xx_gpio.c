@@ -30,7 +30,7 @@
        (++) 模拟: 引脚用作ADC通道或DAC输出时所需的模式。
 
    (#) 外设设备复用功能:
-       (++) 对于ADC和DAC，使用 GPIO_InitStruct->GPIO_mode=GPIO_mode_AN 在模拟模式下配置所需引脚;
+       (++) 对于ADC 和DAC，使用 GPIO_InitStruct->GPIO_mode=GPIO_mode_AN 在模拟模式下配置所需引脚;
             (+++) 对于其他外设设备(TIM、USART…):
             
             (+++) 使用 GPIO_PinAFConfig() 函数将管脚连接到所需外设设备的复用功能(AF)
@@ -50,7 +50,7 @@
    (#) LSE振荡器关闭时，可以将LSE振荡器引脚 OSC_IN和OSC_OUT 用作通用(分别为PC14和PC15)。
 		LSE优先于 GPIO 功能。
 
-   (#) 当HSE振荡器关闭时，HSE 振荡器引脚 OSC_IN/OSC_OUT 可分别用作通用PH0和PH1。
+   (#) 当HSE振荡器关闭时，HSE 振荡器引脚 OSC_IN/OSC_OUT 可分别用作通用 PH0和PH1。
 		HSE优先于 GPIO 职能。
 
 @endverbatim

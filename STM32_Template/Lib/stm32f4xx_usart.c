@@ -35,7 +35,7 @@
         (++) 通过以下方式在复用功能中配置所需引脚:
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
 
-        (++) 通过GPIO_PuPd、GPIO_OType和GPIO_speed成员选择类型、上拉/下拉和输出速度
+        (++) 通过 GPIO_PuPd、GPIO_OType和 GPIO_speed 成员选择类型、上拉/下拉和输出速度
         
         (++) 调用 GPIO_Init() 函数
 
@@ -44,7 +44,7 @@
 
       (#) 对于同步模式，启用时钟并使用 USART_ClockInit() 函数编程极性、相位和最后一位。
 
-      (#) 如果需要使用中断模式，请使用函数USART_ITConfig()启用NVIC和相应的中断。
+      (#) 如果需要使用中断模式，请使用函数 USART_ITConfig() 启用 NVIC 和相应的中断。
 
       (#) 使用 DMA 模式时
         (++) 使用 DMA_Init() 函数配置DMA
@@ -57,7 +57,7 @@
       -@- 有关更多详细信息，请参阅多处理器、LIN、半双工、智能卡、IrDA 子部分
 
     [..]
-    为了达到更高的通信波特率，可以使用 USART_OverSampling8Cmd()功能通过8模式启用过采样。
+    为了达到更高的通信波特率，可以使用 USART_OverSampling8Cmd() 功能通过8模式启用过采样。
     此函数应在启用 USART 时钟 (RCC_APBxPeriphClockCmd()) 之后调用，并在调用函数 USART_Init()之前调用。
 
     @endverbatim
@@ -798,10 +798,10 @@ void USART_SmartCardCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过设置CR3寄存器中的SCEN位来启用SC模式 */
+        /* 通过设置CR3寄存器中的SCEN位来启用 SC模式 */
         USARTx->CR3 |= USART_CR3_SCEN;
     } else {
-        /* 通过清除CR3寄存器中的SCEN位禁用SC模式 */
+        /* 通过清除CR3寄存器中的SCEN位禁用 SC模式 */
         USARTx->CR3 &= (uint16_t)~((uint16_t)USART_CR3_SCEN);
     }
 }
@@ -819,10 +819,10 @@ void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过设置CR3寄存器中的NACK位来启用NACK传输 */
+        /* 通过设置CR3寄存器中的NACK位来启用 NACK传输 */
         USARTx->CR3 |= USART_CR3_NACK;
     } else {
-        /* 通过清除CR3寄存器中的NACK位禁用NACK传输 */
+        /* 通过清除CR3寄存器中的NACK位禁用 NACK传输 */
         USARTx->CR3 &= (uint16_t)~((uint16_t)USART_CR3_NACK);
     }
 }
@@ -849,7 +849,7 @@ void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
       (#) 通过使用 USART_SetPrescaler() 函数配置预分频器来配置IrDA脉冲宽度。
       (#) 使用 USART_IrDAConfig()
             函数配置IrDA USART_IrDAMode_LowPower或USART_ErDAMode_ Normal模式。
-      (#) 使用 USART_IrDACmd() 函数启用IrDA。
+      (#) 使用 USART_IrDACmd() 函数启用 IrDA。
 
       -@- 宽度小于两个且大于一个PSC周期的脉冲可能会被拒绝，也可能不会被拒绝。
       -@- 接收器设置时间应由软件管理。
@@ -892,10 +892,10 @@ void USART_IrDACmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过设置CR3寄存器中的IREN位来启用IrDA 模式 */
+        /* 通过设置CR3寄存器中的IREN位来启用 IrDA 模式 */
         USARTx->CR3 |= USART_CR3_IREN;
     } else {
-        /* 通过清除CR3寄存器中的IREN位来禁用IrDA 模式 */
+        /* 通过清除CR3寄存器中的IREN位来禁用 IrDA 模式 */
         USARTx->CR3 &= (uint16_t)~((uint16_t)USART_CR3_IREN);
     }
 }

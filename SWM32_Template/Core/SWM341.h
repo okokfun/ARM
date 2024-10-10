@@ -2659,7 +2659,7 @@ typedef struct {
 #define DMA2D_PFCCR_AINV_Msk		(0x01 << DMA2D_PFCCR_AINV_Pos)
 #define DMA2D_PFCCR_RBSWAP_Pos		4		//RB Swap, 0 RGB   1 BGR
 #define DMA2D_PFCCR_RBSWAP_Msk		(0x01 << DMA2D_PFCCR_RBSWAP_Pos)
-#define DAM2D_PFCCR_AMODE_Pos		8		//Alpha Mode, 0 使用像素点自带Alpha值   1 使用PFCCR.ALPHA值   2 使用像素点自带Alpha值与PFCCR.ALPHA值的乘积
+#define DAM2D_PFCCR_AMODE_Pos		8		//Alpha Mode, 0 使用像素点自带Alpha值   1 使用 PFCCR.ALPHA值   2 使用像素点自带Alpha值与PFCCR.ALPHA值的乘积
 #define DMA2D_PFCCR_AMODE_Msk		(0x03 << DAM2D_PFCCR_AMODE_Pos)
 #define DMA2D_PFCCR_ALPHA_Pos		24
 #define DMA2D_PFCCR_ALPHA_Msk		(0xFFu<< DMA2D_PFCCR_ALPHA_Pos)

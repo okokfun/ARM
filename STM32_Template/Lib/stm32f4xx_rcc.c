@@ -351,7 +351,7 @@ void RCC_HSICmd(FunctionalState NewState) {
 /**
   * 简介:  配置外部低速振荡器 (LSE)。
   * 注意:   由于LSE位于Backup域中，重置后拒绝对该域进行写访问，
-  *         因此在配置LSE之前必须使用PWR_BackupAccessCmd(ENABLE)功能启用写访问(重置后只执行一次)。
+  *         因此在配置LSE之前必须使用 PWR_BackupAccessCmd(ENABLE) 功能启用写访问(重置后只执行一次)。
   * 注意:   启用LSE (RCC_LSE_ON或RCC_LSE_Bypass)后，
   *         应用软件需要等待LSERDY标志设置完成，表示LSE时钟稳定，可用于RTC时钟。
   * 参数:  RCC_LSE: 指定新状态-> LSE.
@@ -392,7 +392,7 @@ void RCC_LSEConfig(uint8_t RCC_LSE) {
 /**
   * 简介:  启用或禁用内部低速振荡器 (LSI)。
   * 注意:   使能LSI后，应用软件需要等待LSIRDY标志设置完成，
-  *         表示LSI时钟稳定，可用于IWDG和/或RTC的时钟。
+  *         表示LSI时钟稳定，可用于 IWDG和/或RTC的时钟。
   * 注意:   当IWDG正在运行时，不能禁用LSI。
   * 参数:  NewState: 新状态-> LSI.
   *          此参数可以是: ENABLE或DISABLE。
@@ -429,14 +429,14 @@ void RCC_LSICmd(FunctionalState NewState) {
   *          此参数必须是范围{2、4、6或8}中的数字。
   * 注意:   您必须正确设置 PLLP 参数，使其在系统时钟频率上不超过 168 MHz。
   *
-  * 参数:  PLLQ: 指定OTG FS、SDIO和RNG时钟的分频因子
+  * 参数:  PLLQ: 指定OTG FS、SDIO 和RNG时钟的分频因子
   *          此参数必须是介于 4 and 15.
   *
   * 参数:  PLLR: 指定STM32F446xx设备中I2S、SAI、SYSTEM、SPDIF的分频因子
   *          此参数必须是介于2和7之间的数字。
   *
   * 注意:   如果您的应用程序中使用 USB OTG FS，则必须正确设置PLLQ参数，
-  *        使USB具有48 MHz时钟。然而，SDIO和RNG需要低于或等于48MHz的频率才能正常工作。
+  *        使USB具有48 MHz时钟。然而，SDIO 和RNG需要低于或等于48MHz的频率才能正常工作。
   *
   * 返回值: 无
   */
@@ -481,11 +481,11 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
   * 注意:   您必须正确设置PLLP参数，
   *			使其在系统时钟频率上不超过168 MHz。
   *
-  * 参数:  PLLQ: 指定OTG FS、SDIO和RNG时钟的分频因子
+  * 参数:  PLLQ: 指定OTG FS、SDIO 和RNG时钟的分频因子
   *          此参数必须是介于 4 and 15.
   * 注意:   如果您的应用程序中使用 USB OTG FS，
 			则必须正确设置PLLQ参数，使USB具有48 MHz时钟。
-			然而，SDIO和RNG需要低于或等于48MHz的频率才能正常工作。
+			然而，SDIO 和RNG需要低于或等于48MHz的频率才能正常工作。
   *
   * 返回值: 无
   */
@@ -523,7 +523,7 @@ void RCC_PLLCmd(FunctionalState NewState) {
   *
   * 注意:   此函数只能用于STM32F405xx/407xx、STM32F415xx/417xx或STM32F401xx设备。
   *
-  * 注意:   该功能仅在禁用PLLI2S的情况下使用。
+  * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
   * 注意:   PLLI2S时钟源与主锁相环共用(在RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SN: 指定PLLI2S VCO输出时钟的乘法因子
@@ -551,7 +551,7 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR) {
   *
   * 注意:   该功能仅支持STM32F411xE设备。
   *
-  * 注意:   该功能仅在禁用PLLI2S的情况下使用。
+  * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
   * 注意:   PLLI2S时钟源与主锁相环共用(在RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SM: 指定PLLI2S VCO输入时钟的除法因子
@@ -585,7 +585,7 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR, uint32_t PLLI2SM) {
   *
   * 注意:   此函数只能用于STM32F42xxx/43xxx设备
   *
-  * 注意:   该功能仅在禁用PLLI2S的情况下使用。
+  * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
   * 注意:   PLLI2S时钟源与主锁相环共用(在RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SN: 指定PLLI2S VCO输出时钟的乘法因子
@@ -617,7 +617,7 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SQ, uint32_t PLLI2SR) {
   *
   * 注意:   此函数只能用于STM32F446xx设备
   *
-  * 注意:   该功能仅在禁用PLLI2S的情况下使用。
+  * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
   * 注意:   PLLI2S时钟源与主锁相环共用(在RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SM: 指定PLLI2S VCO输入时钟的除法因子
@@ -655,7 +655,7 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SM, uint32_t PLLI2SN, uint32_t PLLI2SP, uint
 #endif /* STM32F412xG || STM32F413_423xx || STM32F446xx */
 
 /**
-  * 简介:  启用或禁用PLLI2S.
+  * 简介:  启用或禁用 PLLI2S.
   * 注意:   在进入STOP和STANDBY模式时，PLLI2S被硬件禁用。
   * 参数:  NewState: 新状态-> PLLI2S. 此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
@@ -765,7 +765,7 @@ void RCC_PLLSAIConfig(uint32_t PLLSAIN, uint32_t PLLSAIQ, uint32_t PLLSAIR) {
 #endif /* STM32F40_41xxx || STM32F427_437xx || STM32F429_439xx || STM32F401xx || STM32F411xE */
 
 /**
-  * 简介:  启用或禁用PLLSAI.
+  * 简介:  启用或禁用 PLLSAI.
   *
   * 注意:  该功能只支持 STM32F42xxx/43xxx/446xx/469xx/479xx 设备
   *
@@ -896,11 +896,11 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
           用于为映射在这些总线上的外设设备计时。您可以使用"RCC_GetClocksFreq()"函数来检索这些时钟的频率。
 
       -@- 所有的外围时钟都来源于系统时钟(SYSCLK)，除了:
-        (+@) I2S: I2S时钟可以从特定的锁相环(PLLI2S)或映射在I2S_CKIN引脚上的外部时钟派生。
+        (+@) I2S: I2S时钟可以从特定的锁相环(PLLI2S)或映射在I2S_CKIN 引脚上的外部时钟派生。
              您必须使用RCC_I2SCLKConfig() 函数来配置此时钟。
         (+@) RTC: RTC时钟可由LSI、LSE或HSE时钟除以2 ~ 31得到。
              你必须使用RCC_RTCCLKConfig()和RCC_RTCCLKCmd() 函数来配置这个时钟。
-        (+@) USB OTG FS, SDIO和RTC: USB OTG FS需要等于48 MHz的频率才能正常工作，
+        (+@) USB OTG FS, SDIO 和RTC: USB OTG FS需要等于48 MHz的频率才能正常工作，
              而SDIO需要等于或低于48的频率。该时钟由主锁相环通过锁相环q分频器派生而来。
         (+@) IWDG时钟，总是LSI时钟。
 
@@ -1382,7 +1382,7 @@ void RCC_BackupResetCmd(FunctionalState NewState) {
   * 参数:  RCC_I2SCLKSource: 指定 I2S 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_I2SCLKSource_PLLI2S: PLLI2S 时钟用作 I2S 时钟源
-  *            @arg RCC_I2SCLKSource_Ext: I2S_CKIN引脚上映射的外部时钟用作I2S时钟源
+  *            @arg RCC_I2SCLKSource_Ext: I2S_CKIN 引脚上映射的外部时钟用作I2S时钟源
   *            @arg RCC_I2SCLKSource_PLL: PLL 时钟用作 I2S 时钟源
   *            @arg RCC_I2SCLKSource_HSI_HSE: HSI 或 HSE 取决于用作 I2S 时钟源的 PLLSRC
   * 返回值: 无
@@ -1532,7 +1532,7 @@ void RCC_I2SCLKConfig(uint32_t RCC_I2SCLKSource) {
   * 参数:  RCC_I2SCLKSource: 指定 I2S 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_I2S2CLKSource_PLLI2S: PLLI2S 时钟用作 I2S 时钟源
-  *            @arg RCC_I2S2CLKSource_Ext: I2S_CKIN引脚上映射的外部时钟用作I2S时钟源
+  *            @arg RCC_I2S2CLKSource_Ext: I2S_CKIN 引脚上映射的外部时钟用作I2S时钟源
   * 返回值: 无
   */
 void RCC_I2SCLKConfig(uint32_t RCC_I2SCLKSource) {

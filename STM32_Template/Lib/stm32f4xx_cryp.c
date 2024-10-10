@@ -169,7 +169,7 @@
                     DES-ECB, DES-CBC,
                     AES-ECB, AES-CBC, AES-CTR, AES-Key, AES-GCM, AES-CCM
        (++) 数据类型 :  32-bit data, 16-bit data, bit data or bit-string
-       (++) 密钥大小 (仅在AES模式下)
+       (++) 密钥大小 (仅在AES 模式下)
    (+) 使用 CRYP_KeyInit() 函数配置加密或解密密钥
    (+) 配置初始化使用 CRYP_IVInit() 函数的 CBC 和 CTR 模式的矢量(IV)。
    (+) 使用 CRYP_FIFOFlush() 函数刷新输入和输出 FIFO。

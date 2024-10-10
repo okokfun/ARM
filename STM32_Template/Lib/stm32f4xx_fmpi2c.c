@@ -43,10 +43,10 @@
        (++) 使用 FMPI2C_GeneralCallCmd() 函数启用一般调用功能。
        (++) 使用 FMPI2C_StretchClockCmd() 函数启用时钟拉伸功能。
        (++) 使用 FMPI2C_CalculatePEC() 函数启用 PEC 计算。
-       (++) 对于 SMBus模式。
+       (++) 对于 SMBuS 模式。
        (++) 使用 FMPI2C_SMBusAlertCmd() 函数启用 SMBusAlert 引脚。
 
-   (#) 如果需要使用中断模式，使用函数FMPI2C_ITConfig()启用NVIC和相应的中断。
+   (#) 如果需要使用中断模式，使用函数FMPI2C_ITConfig() 启用 NVIC 和相应的中断。
 
    (#) 当使用 DMA 模式时
       (++) 使用 DMA_Init() 函数配置 DMA。
@@ -550,7 +550,7 @@ void FMPI2C_10BitAddressingModeCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewS
     [..] 本节提供了一组处理FMPI2C通信的函数。
 
     [..] 自动结束模式是通过FMPI2C_AutoEndCmd() 函数启用的。
-         当通过FMPI2C_ReloadCmd()启用Reload模式时，自动结束位没有作用。
+         当通过FMPI2C_ReloadCmd() 启用Reload模式时，自动结束位没有作用。
 
     [..] FMPI2C_NumberOfBytesConfig() 函数设置要传输的字节数，
          这个配置应该在主模式下产生启动条件之前完成。
@@ -692,7 +692,7 @@ void FMPI2C_GenerateSTART(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
         /* 生成START条件 */
         FMPI2Cx->CR2 |= FMPI2C_CR2_START;
     } else {
-        /* 禁用START条件生成 */
+        /* 禁用 START条件生成 */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_START);
     }
 }
@@ -716,7 +716,7 @@ void FMPI2C_GenerateSTOP(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
         /* 生成STOP条件 */
         FMPI2Cx->CR2 |= FMPI2C_CR2_STOP;
     } else {
-        /* 禁用STOP条件生成 */
+        /* 禁用 STOP条件生成 */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_STOP);
     }
 }
@@ -875,10 +875,10 @@ void FMPI2C_TransferHandling(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address, uint8_t 
     [..] 本节提供了一组处理SMBus通信和超时检测的函数。
 
     [..] 通过调用FMPI2C_Init() 函数并将FMPI2C_InitTypeDef()结构的
-         FMPI2C_Mode成员设置为FMPI2C_Mode_SMBusDevice，启用SMBus设备默认地址(0b1100 001)。
+         FMPI2C_Mode成员设置为FMPI2C_Mode_SMBusDevice，启用 SMBus设备默认地址(0b1100 001)。
 
     [..] 通过调用FMPI2C_Init() 函数并将FMPI2C_InitTypeDef()结构的FMPI2C_Mode成员
-         设置为FMPI2C_Mode_SMBusHost，启用SMBus Host地址(0b0001 000)。
+         设置为FMPI2C_Mode_SMBusHost，启用 SMBus Host地址(0b0001 000)。
 
     [..] 使用FMPI2C_SMBusAlertCmd() 函数启用警报响应地址(0b0001 100)。
 
@@ -912,7 +912,7 @@ void FMPI2C_SMBusAlertCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
         /* 使能SMBus警报 */
         FMPI2Cx->CR1 |= FMPI2C_CR1_ALERTEN;
     } else {
-        /* 禁用SMBus警报 */
+        /* 禁用 SMBus警报 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR1_ALERTEN);
     }
 }
@@ -1066,7 +1066,7 @@ void FMPI2C_CalculatePEC(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
         /* 使能PEC计算 */
         FMPI2Cx->CR1 |= FMPI2C_CR1_PECEN;
     } else {
-        /* 禁用PEC计算 */
+        /* 禁用 PEC计算 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR1_PECEN);
     }
 }
@@ -1090,7 +1090,7 @@ void FMPI2C_PECRequestCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
         /* 使能PEC发送/接收请求 */
         FMPI2Cx->CR1 |= FMPI2C_CR2_PECBYTE;
     } else {
-        /* 禁用PEC发送/接收请求 */
+        /* 禁用 PEC发送/接收请求 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR2_PECBYTE);
     }
 }

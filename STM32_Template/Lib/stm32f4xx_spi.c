@@ -25,8 +25,8 @@
        RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, ENABLE) for SPI5
        RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, ENABLE) for SPI6.
 
-   (#) 使用 RCC_AHB1PeriphClockCmd() 函数启用 SCK、MOSI、MISO和NSS GPIO 时钟。
-        在 I2S 模式下，如果使用外部时钟源，则还应启用I2S CKIN引脚GPIO时钟。
+   (#) 使用 RCC_AHB1PeriphClockCmd() 函数启用 SCK、MOSI、MISO 和 NSS GPIO 时钟。
+        在 I2S 模式下，如果使用外部时钟源，则还应启用 I2S CKIN 引脚 GPIO时钟。
 
    (#) 外设设备替代函数:
        (++) 使用 GPIO_PinAFConfig() 函数将管脚连接到所需外设设备的复用功能(AF)
@@ -37,11 +37,11 @@
        (++) 通过 GPIO_PuPd、GPIO_OType 和 GPIO_Speed 成员选择类型、上拉/下拉和输出速度
 	   
        (++) 调用 GPIO_Init() 函数在 I2S 模式下，如果使用外部时钟源，
-            则 I2S 的 CKIN 引脚也应该配置为Alternate function Push-pull - pull-up模式。
+            则 I2S 的 CKIN 引脚也应该配置为复用 Push-pull - pull-up模式。
 
    (#) 使用 SPI_Init() 函数对极性、相位、第一数据、波特率预分频器、从机管理、外围模式和 CRC 多项式值进行编程。
        在 I2S 模式下，使用 I2S_Init() 函数编程模式，标准，数据格式，
-       MCLK输出，音频频率和极性。对于I2S模式，请确保:
+       MCLK输出，音频频率和极性。对于 I2S 模式，请确保:
        (++) I2S PLL is configured using the functions
             RCC_I2SCLKConfig(RCC_I2S2CLKSource_PLLI2S), RCC_PLLI2SCmd(ENABLE) and
             RCC_GetFlagStatus(RCC_FLAG_PLLI2SRDY);
@@ -49,7 +49,7 @@
        (++) 外部时钟源使用函数 RCC_I2SCLKConfig(RCC_I2S2CLKSource_Ext) 配置，
             并在 stm32f4xx_conf.h 文件中正确设置定义常量 I2S_EXTERNAL_CLOCK_VAL 之后配置。
 
-   (#) 如果需要使用中断模式，可以使用SPI_ITConfig() 函数启用NVIC和相应的中断。
+   (#) 如果需要使用中断模式，可以使用 SPI_ITConfig() 函数启用 NVIC 和相应的中断。
 
    (#) 当使用 DMA 模式时
        (++) 使用 DMA_Init() 函数配置DMA
@@ -64,12 +64,12 @@
             SPI_Init() 函数的数据方向参数时，可以使用 SPI_BiDirectionalLineConfig() 函数
             在 SPI_Direction_Tx 或 SPI_Direction_Rx 之间切换。
 			
-       (++) 当 SPI_NSS_Soft 被选择为使用SPI_Init() 函数的 Slave Select Management 参数时，
+       (++) 当 SPI_NSS_Soft 被选择为使用 SPI_Init() 函数的 Slave Select Management 参数时，
             可以使用 SPI_NSSInternalSoftwareConfig() 函数来管理NSS内部信号。
 			
        (++) 使用 SPI_DataSizeConfig() 函数重新配置数据大小
 	   
-       (++) 使用 SPI_SSOutputCmd() 函数启用或禁用SS输出
+       (++) 使用 SPI_SSOutputCmd() 函数启用或禁用 SS输出
 
     (#) 要使用 CRC 硬件计算功能，请参阅外设 CRC 硬件计算小节。
 
@@ -84,7 +84,7 @@
 
       (#) 使用传递给 I2S_Init() 函数的相同结构调用 I2S_FullDuplexConfig() 函数。
 
-      (#) 为 SPIx调用I2S_Cmd()，然后为它的扩展块调用。
+      (#) 为 SPIx调用 I2S_Cmd()，然后为它的扩展块调用。
 
       (#) 要配置中断或DMA请求以及获取/清除标志状态，请为扩展块使用 I2Sxext 实例。
 
@@ -92,7 +92,7 @@
       SPI_I2S_SendData()， SPI_I2S_DMACmd()， SPI_I2S_ITConfig()， SPI_I2S_GetFlagStatus()，
       SPI_I2S_ClearFlag()， SPI_I2S_GetITStatus()和SPI_I2S_ClearITPendingBit()。
 
-      示例: 在全双工模式下使用SPI3 (SPI3是主Tx, I2S3ext是从Rx):
+      示例: 在全双工模式下使用 SPI3 (SPI3是主Tx, I2S3ext是从Rx):
 
       RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI3, ENABLE);
       I2S_StructInit(&I2SInitStruct);
@@ -112,10 +112,10 @@
       ...
 
  [..]
-   (@) 在I2S模式下:如果I2S使用外部时钟作为源时钟，则需要启用stm32f4xx_conf.h
+   (@) 在I2S 模式下:如果I2S使用外部时钟作为源时钟，则需要启用 Stm32f4xx_conf.h
        文件中的define I2S_EXTERNAL_CLOCK_VAL，并将其设置为源时钟频率(单位为Hz)。
 
-   (@) 在SPI模式下:要使用SPI TI模式，在调用SPI_Init() 函数之后调用SPI_TIModeCmd() 函数。
+   (@) 在SPI模式下:要使用 SPI TI模式，在调用 SPI_Init() 函数之后调用 SPI_TIModeCmd() 函数。
 
 @endverbatim
   *
@@ -189,7 +189,7 @@
 
 /**
   * 简介:  将 SPIx 外设寄存器取消初始化为其缺省复位值。
-  * 参数:  SPIx: 选择SPIx/I2Sx外设，其中x在SPI模式下为1、2、3、4、5或6，在I2S模式下为2或3。
+  * 参数:  SPIx: 选择SPIx/I2Sx外设，其中x在SPI模式下为1、2、3、4、5或6，在I2S 模式下为2或3。
   *
   * 注意:   扩展的I2S块(即。I2S2ext和I2S3ext块)在相对
 			      I2S外设去初始化时被去初始化(扩展块的时钟由I2S外设时钟管理)。
@@ -291,15 +291,15 @@ void SPI_Init(SPI_TypeDef* SPIx, SPI_InitTypeDef* SPI_InitStruct) {
 /**
   * 简介:  根据I2S_InitStruct中指定的参数初始化 SPIx 外设。
   * 
-  * 参数:  SPIx: 其中x可以是2或3，以选择SPI外设设备(在I2S模式下配置)。
+  * 参数:  SPIx: 其中x可以是2或3，以选择SPI外设设备(在I2S 模式下配置)。
   * 
   * 参数:  I2S_InitStruct: 指向I2S_InitTypeDef结构的指针，
-  *        该结构包含I2S模式下配置的指定SPI外设的配置信息。
+  *        该结构包含I2S 模式下配置的指定SPI外设的配置信息。
   *
-  * 注意:   该函数计算获得最精确音频频率所需的最佳预标器(取决于I2S时钟源、锁相环值和产品配置)。
+  * 注意:   该函数计算获得最精确音频频率所需的最佳预标器(取决于 I2S时钟源、锁相环值和产品配置)。
   *         但如果预分频器值大于511，则将配置默认值(0x02)。
   *
-  * 注意:   如果I2S使用外部时钟作为源时钟，则应启用stm32f4xx_conf.h文件中
+  * 注意:   如果I2S使用外部时钟作为源时钟，则应启用 Stm32f4xx_conf.h文件中
   *         的define I2S_EXTERNAL_CLOCK_VAL，并将其设置为源时钟频率的值(单位为Hz)。
   *
   * 返回值: 无
@@ -510,7 +510,7 @@ void SPI_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState) {
 }
 
 /**
-  * 简介:  启用或禁用指定的SPI外设(在I2S模式下)。
+  * 简介:  启用或禁用指定的SPI外设(在I2S 模式下)。
   * 参数:  SPIx: 其中x可以是2或3以选择SPI外设设备(或I2Sxext用于全双工模式)。
   * 参数:  NewState: 新状态-> SPIx 外设.
   *         此参数可以是: ENABLE或DISABLE。
@@ -710,7 +710,7 @@ void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct)
  [..] 本节提供了一组允许管理SPI数据传输的函数。在接收中，数据被接收，
 	  然后存储到一个内部Rx缓冲区中。在传输中，数据在传输之前首先存储到内部Tx缓冲区中。
 
- [..] SPI_DR寄存器的读取访问可以使用SPI_I2S_ReceiveData()
+ [..] SPI_DR寄存器的读取访问可以使用 SPI_I2S_ReceiveData()
 	  函数完成，并返回Rx缓冲值。而对SPI_DR的写入访问可以使用
 	  SPI_I2S_SendData() 函数来完成，并将写入的数据存储到Tx缓冲器中。
 
@@ -720,7 +720,7 @@ void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct)
 /**
   * 简介:  返回 SPIx/I2Sx 外设最近接收到的数据。
   * 参数:  SPIx: 选择SPIx/I2Sx外设，其中x可以是：
-				 在SPI模式下为1、2、3、4、5或6，在I2S模式下
+				 在SPI模式下为1、2、3、4、5或6，在I2S 模式下
 				 为2或3，或者在I2S全双工模式下为I2Sxext。
   * 返回值: The value of 接收的数据。
   */
@@ -735,7 +735,7 @@ uint16_t SPI_I2S_ReceiveData(SPI_TypeDef* SPIx) {
 /**
   * 简介:  通过 SPIx/I2Sx 外设传输数据。
   * 参数:  SPIx: 选择SPIx/I2Sx外设设备，其中x可以是：
-				 在SPI模式下为1、2、3、4、5或6，在I2S模式下为2或3，
+				 在SPI模式下为1、2、3、4、5或6，在I2S 模式下为2或3，
 				 或者在I2S全双工模式下为I2Sxext。
   * 参数:  Data: 要传输的数据。
   * 返回值: 无
@@ -760,15 +760,15 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
  [..] 本节提供了一组允许管理SPI CRC硬件计算的函数
 
  [..] 通过以下程序，可以使用CRC进行SPI通信:
-   (#) 使用SPI_Init() 函数对数据方向、极性、相位、第一数据、波特率预分频器、
+   (#) 使用 SPI_Init() 函数对数据方向、极性、相位、第一数据、波特率预分频器、
         从机管理、外围模式和CRC多项式值进行编程。
-   (#) 使用SPI_CalculateCRC() 函数启用CRC计算。
-   (#) 使用SPI_Cmd() 函数启用SPI
-   (#) 在将最后的数据写入TX缓冲区之前，使用SPI_TransmitCRC() 函数
+   (#) 使用 SPI_CalculateCRC() 函数启用CRC计算。
+   (#) 使用 SPI_Cmd() 函数启用 SPI
+   (#) 在将最后的数据写入TX缓冲区之前，使用 SPI_TransmitCRC() 函数
         设置CRCNext位，以指示在传输最后的数据后，应传输CRC。
    (#) 在传输最后一个数据后，SPI传输CRC。SPI_CR1_CRCNEXT位复位。
         还将接收CRC并与SPI_RXCRCR值进行比较。
-        如果该值不匹配，则设置SPI_FLAG_CRCERR标志，并在启用SPI_I2S_IT_ERR中断时生成中断。
+        如果该值不匹配，则设置SPI_FLAG_CRCERR标志，并在启用 SPI_I2S_IT_ERR中断时生成中断。
 
  [..]
    (@) 建议不要在通信期间读取计算的CRC值。
@@ -784,7 +784,7 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
 
    (@) 对于高比特率频率，建议使用 DMA 模式，以避免由于CPU访问影响SPI带宽而导致SPI速度性能下降。
 
-   (@) 当STM32F4xx配置为从机并且使用NSS硬件模式时，NSS引脚需要在数据相位和CRC相位之间保持低电平。
+   (@) 当STM32F4xx配置为从机并且使用 NSS硬件模式时，NSS引脚需要在数据相位和CRC相位之间保持低电平。
 
    (@) 当SPI在启用CRC功能的从属模式下配置时，即使NSS引脚上应用了高电平，也会进行CRC计算。
        例如，在通信主机交替寻址从机的多从机环境中，可能会发生这种情况。
@@ -793,10 +793,10 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
         应清除主设备和从设备侧的CRC值，以便重新同步主设备和从属设备进行各自的CRC计算。
 
    (@) 要清除CRC，请遵循以下程序:
-       (#@) 使用SPI_Cmd() 函数禁用SPI
-       (#@) 使用SPI_CalculateCRC() 函数禁用CRC计算。
-       (#@) 使用SPI_CalculateCRC() 函数启用CRC计算。
-       (#@) 使用SPI_Cmd() 函数启用SPI。
+       (#@) 使用 SPI_Cmd() 函数禁用 SPI
+       (#@) 使用 SPI_CalculateCRC() 函数禁用CRC计算。
+       (#@) 使用 SPI_CalculateCRC() 函数启用CRC计算。
+       (#@) 使用 SPI_Cmd() 函数启用 SPI。
 
 @endverbatim
   */
@@ -890,7 +890,7 @@ uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx) {
 /**
   * 简介:  启用或禁用 SPIx/I2Sx DMA 接口。
   * 参数:  SPIx: 选择SPIx/I2Sx外设设备，其中x可以是：在SPI模式下为1、2、3、4、5或6，
-				 在I2S模式下为2或3，或者在I2S全双工模式下为I2Sxext。
+				 在I2S 模式下为2或3，或者在I2S全双工模式下为I2Sxext。
   * 参数:  SPI_I2S_DMAReq: 指定要启用或禁用的SPI DMA传输请求。
   *          此参数可以是以下值的任意组合:
   *            @arg SPI_I2S_DMAReq_Tx: Tx缓冲区DMA传输请求
@@ -954,7 +954,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
 	 (##) SPI_IT_CRCERR：指示是否发生CRC计算错误(仅在SPI模式下可用)
 	 (##) SPI_IT_MODF：指示是否发生模式故障错误(仅适用于SPI模式)
 	 (##) SPI_I2S_IT_OVR：指示是否发生超限错误
-	 (##) I2S_IT_UDR：指示发生欠载错误(仅在I2S模式下可用)。
+	 (##) I2S_IT_UDR：指示发生欠载错误(仅在I2S 模式下可用)。
 	 (##) I2S_FLAG_TIFRFE：指示发生帧格式错误(仅在TI模式下可用)。
 
    (+) 中断源:
@@ -983,7 +983,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
 /**
   * 简介:  启用或禁用指定的 SPI/I2S 中断。
   * 参数:  SPIx: 选择SPIx/I2Sx外设设备，其中x可以是：
-				在SPI模式下为1、2、3、4、5或6，在I2S模式下为2或3，
+				在SPI模式下为1、2、3、4、5或6，在I2S 模式下为2或3，
 				或者在I2S全双工模式下为I2Sxext。
   * 参数:  SPI_I2S_IT: 指定要启用或禁用的SPI中断源。
   *          此参数可以是以下值之一:
@@ -1056,7 +1056,7 @@ FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {
 /**
   * 简介:  清除 SPIx CRC 错误 (CRCERR) 标志。
   * 参数:  SPIx：选择SPIx/I2Sx外设设备，其中x可以是：
-			SPI模式下的1、2、3、4、5或6，I2S模式下的2或3，I2S全双工模式下的I2Sxext。
+			SPI模式下的1、2、3、4、5或6，I2S 模式下的2或3，I2S全双工模式下的I2Sxext。
   * 参数:  SPI_I2S_FLAG：指定要清除的SPI标志。
   *			此功能仅清除CRCERR标志。
   *				@arg SPI_FLAG_CERRR:CRC错误标志。
@@ -1065,7 +1065,7 @@ FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {
 			读取操作，然后对SPI_SR寄存器(SPI_I2S_GetFlagStatus())执行读取操作。
   * 注意:   通过对SPI_SR寄存器的读取操作(SPI_I2S_GetFlagStatus())清除UDR(运行不足错误)标志。
   * 注意:   MODF(模式故障)标志由软件序列清除：对SPI_SR寄存器(SPI_I2S_GetFlagStatus())
-			进行读/写操作，然后对SPI_CR1寄存器(SPI_Cmd()进行写操作以启用SPI)。
+			进行读/写操作，然后对SPI_CR1寄存器(SPI_Cmd()进行写操作以启用 SPI)。
   * 返回值: 无
   */
 void SPI_I2S_ClearFlag(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {
@@ -1128,7 +1128,7 @@ ITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT) {
 /**
   * 简介:  清除SPIx CRC错误(CRCERR)中断挂起位。
   * 参数:  SPIx: 选择SPIx/I2Sx外设设备，其中x可以是:SPI模式下的1、2、3、4、5或6，
-  *         I2S模式下的2或3，或I2S全双工模式下的I2Sxext。
+  *         I2S 模式下的2或3，或I2S全双工模式下的I2Sxext。
   * 参数:  SPI_I2S_IT: 指定要清除的SPI中断挂起位。
   *         此函数仅清除CRCERR中断挂起位。
   *            @arg SPI_IT_CRCERR: CRC错误中断。
@@ -1140,7 +1140,7 @@ ITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT) {
   *          operation to SPI_SR register (SPI_I2S_GetITStatus()).
   * 注意:   MODF(模式故障)中断挂起位通过软件序列清除:
   *          对SPI_SR寄存器(SPI_I2S_GetITStatus())执行读/写操作，
-  *             然后对SPI_CR1寄存器(SPI-Cmd())进行写操作，以启用SPI。
+  *             然后对SPI_CR1寄存器(SPI-Cmd())进行写操作，以启用 SPI。
   * 返回值: 无
   */
 void SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT) {

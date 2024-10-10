@@ -91,7 +91,7 @@ const FMC_NORSRAMTimingInitTypeDef FMC_DefaultTimingStruct = {0x0F, /* FMC_Addre
  [......]应该遵循以下顺序来配置FMC，以便与连接到NOR/SRAM库的SRAM、PSRAM、NOR或OneNAND存储器连接。
       与连接到NOR/SRAM库的SRAM、PSRAM、NOR或OneNAND存储器的接口。
 
-   (#) 使用以下函数为FMC和相关的GPIO启用时钟。
+   (#) 使用以下函数为FMC 和相关的GPIO启用时钟。
           RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FMC, ENABLE)。
           RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE)。
 
@@ -109,7 +109,7 @@ const FMC_NORSRAMTimingInitTypeDef FMC_DefaultTimingStruct = {0x0F, /* FMC_Addre
    (#) 通过调用函数来初始化NOR/SRAM控制器
           FMC_NORSRAMInit(&FMC_NORSRAMInitStructure)。
 
-   (#) 然后启用NOR/SRAM库，比如说
+   (#) 然后启用 NOR/SRAM库，比如说
           FMC_NORSRAMCmd(FMC_Bank1_NORSRAM2, ENABLE)。
 
    (#) 在这个阶段，你可以从/到连接到NOR/SRAM库的内存中读/写。
@@ -324,7 +324,7 @@ void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
 
  [..]应遵循以下顺序来配置FMC与连接到NAND Bank的8位或16位NAND存储器的接口。
 
-  (#) 使用下列函数为FMC和相关的GPIO启用时钟。
+  (#) 使用下列函数为FMC 和相关的GPIO启用时钟。
       (++) RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FMC, ENABLE)。
       (++) RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE)。
 
@@ -341,7 +341,7 @@ void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
   (#) 通过调用函数来初始化NAND控制器
       FMC_NANDInit(&FMC_NANDInitStructure)。
 
-  (#) 然后启用NAND Bank，比如说。
+  (#) 然后启用 NAND Bank，比如说。
       FMC_NANDCmd(FMC_Bank3_NAND, ENABLE)。
 
   (#) 在这个阶段，你可以从/向连接到NAND Bank的存储器读/写。
@@ -613,7 +613,7 @@ uint32_t FMC_GetECC(uint32_t FMC_Bank) {
 
  [..]  应遵循以下顺序来配置FMC，使其与连接到PCCARD Bank的16位PC卡兼容存储器连接。
 
-  (#) 使用下列函数为FMC和相关的GPIO启用时钟。
+  (#) 使用下列函数为FMC 和相关的GPIO启用时钟。
        (++) RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FMC, ENABLE)。
        (++) RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE)。
 
@@ -630,7 +630,7 @@ uint32_t FMC_GetECC(uint32_t FMC_Bank) {
   (#) 通过调用函数来初始化PCCARD控制器
       FMC_PCCARDInit(&FMC_PCCARDInitStructure)。
 
-  (#) 然后启用PCCARD银行。
+  (#) 然后启用 PCCARD银行。
       FMC_PCCARDCmd(ENABLE)。
 
   (#) 在这个阶段，你可以从/到连接到PCCARD Bank的存储器中读/写。
@@ -773,7 +773,7 @@ void FMC_PCCARDStructInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct) {
 }
 
 /**
-  * 简介:  启用或禁用PCCARD Memory Bank.
+  * 简介:  启用或禁用 PCCARD Memory Bank.
   * 
   * 参数:  NewState: PCCARD内存库的新状态。
   *          此参数可以是: ENABLE或DISABLE。
@@ -803,7 +803,7 @@ void FMC_PCCARDCmd(FunctionalState NewState) {
 
  [..]  应遵循以下顺序来配置FMC与连接到SDRAM库1或SDRAM库2的SDRAM存储器连接。
 
-  (#) 使用下列函数为FMC和相关的GPIO启用时钟。
+  (#) 使用下列函数为FMC 和相关的GPIO启用时钟。
       (++) RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FMC, ENABLE)。
       (++) RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE)。
 

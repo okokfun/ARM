@@ -152,13 +152,13 @@ void RNG_Cmd(FunctionalState NewState) {
   * 注意:   在种子错误的情况下，只要SECS位为"1"，随机数的生成就
 			会中断。如果一个数字在RNG_DR寄存器中可用，则不能使用它，
 			因为它可能没有足够的熵。在这种情况下，建议清除SEIS位
-			(使用RNG_ClearFlag(RNG_FLAG_SECS)功能)，
-			然后禁用并启用RNG外设设备(使用RNG_Cmd()功能)
+			(使用RNG_ClearFlag(RNG_FLAG_SECS) 功能)，
+			然后禁用并启用RNG外设设备(使用RNG_Cmd() 功能)
 			以重新初始化并重新启动RNG。
   * 注意:   在时钟错误的情况下，由于PLL48CLK时钟不正确，
 			RNG不再能够生成随机数。用户必须检查时钟控制器
 			是否正确配置为提供RNG时钟并清除CEIS位(使用
-			RNG_ClearFlag(RNG_FLAG_CECS)功能)。
+			RNG_ClearFlag(RNG_FLAG_CECS) 功能)。
 			时钟错误对先前生成的随机数没有影响，
 			并且可以使用RNG_DR寄存器内容。
   *
@@ -207,7 +207,7 @@ uint32_t RNG_GetRandomNumber(void) {
        使用RNG_ClearITPendingBit(RNG_IT_SEI) 函数清除该中断源;
    (#) 在时钟错误的情况下 : PLL48CLK(RNG外围时钟源)没有
 		被正确地检测到(fPLL48CLK <fHCLK/16)。
-		使用RNG_ClearITPendingBit(RNG_IT_CEI)功能清除此中断源。
+		使用RNG_ClearITPendingBit(RNG_IT_CEI) 功能清除此中断源。
        -@- 注意:在这种情况下，用户必须检查时钟控制器是否正确配置以提供RNG时钟。
 
  *** 管理RNG控制器事件 : ***

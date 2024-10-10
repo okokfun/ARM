@@ -145,7 +145,7 @@ void SPDIFRX_StructInit(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
 }
 
 /**
-  * 简介:  启用或禁用SPDIFRX frame x bit.
+  * 简介:  启用或禁用 SPDIFRX frame x bit.
   * 参数:  NewState: 选定SPDIFRX帧位的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
@@ -164,7 +164,7 @@ void SPDIFRX_SetPreambleTypeBit(FunctionalState NewState) {
 }
 
 /**
-  * 简介:  启用或禁用SPDIFRX frame x bit.
+  * 简介:  启用或禁用 SPDIFRX frame x bit.
   * 参数:  NewState: 选定SPDIFRX帧位的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无

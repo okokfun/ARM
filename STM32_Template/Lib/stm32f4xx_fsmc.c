@@ -83,7 +83,7 @@ const FSMC_NORSRAMTimingInitTypeDef FSMC_DefaultTimingStruct = {0x0F, /* FSMC_Ad
 
  [...] 应遵循以下顺序来配置FSMC与连接到NOR/SRAM库的SRAM、PSRAM、NOR或OneNAND存储器的接口。
 
-   (#) 使用以下函数为FSMC和相关的GPIO启用时钟。
+   (#) 使用以下函数为FSMC 和相关的GPIO启用时钟。
           RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE)。
           RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE)。
 
@@ -99,7 +99,7 @@ const FSMC_NORSRAMTimingInitTypeDef FSMC_DefaultTimingStruct = {0x0F, /* FSMC_Ad
    (#) 通过调用函数来初始化NOR/SRAM控制器
           FSMC_NORSRAMInit(&FSMC_NORSRAMInitStructure)。
 
-   (#)然后启用NOR/SRAM库，例如。
+   (#)然后启用 NOR/SRAM库，例如。
           FSMC_NORSRAMCmd(FSMC_Bank1_NORSRAM2, ENABLE)。
 
    (#) 在这个阶段，你可以从/到连接到NOR/SRAM库的内存中读/写。
@@ -309,7 +309,7 @@ void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
 
  [..]  按照以下顺序配置FSMC与连接到NAND Bank的8位或16位NAND内存接口:
 
-  (#) 使用以下函数启用FSMC和相关GPIO的时钟。
+  (#) 使用以下函数启用FSMC 和相关GPIO的时钟。
       (++)  RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE);
       (++)  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE);
 
@@ -325,7 +325,7 @@ void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
   (#) 通过调用函数初始化NAND控制器
       FSMC_NANDInit(&FSMC_NANDInitStructure);
 
-  (#) 然后启用NAND Bank，比如说:
+  (#) 然后启用 NAND Bank，比如说:
       FSMC_NANDCmd(FSMC_Bank3_NAND, ENABLE);
 
   (#) 在这个阶段，你可以从/向连接到NAND Bank的存储器读/写。
@@ -615,7 +615,7 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
   (#) 通过调用函数来初始化PCCARD控制器
       FSMC_PCCARDInit(&FSMC_PCCARDInitStructure)。
 
-  (#) 然后启用PCCARD Back:
+  (#) 然后启用 PCCARD Back:
       FSMC_PCCARDCmd(ENABLE)。
 
   (#) 在这个阶段，你可以对连接到PCCARD Bank的内存进行读/写。
@@ -757,7 +757,7 @@ void FSMC_PCCARDStructInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
 }
 
 /**
-  * 简介:  启用或禁用PCCARD Memory Bank.
+  * 简介:  启用或禁用 PCCARD Memory Bank.
   * 
   * 参数:  NewState: PCCARD内存库的新状态。
   *          此参数可以是: ENABLE或DISABLE。

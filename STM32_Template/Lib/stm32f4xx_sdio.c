@@ -20,7 +20,7 @@
  ===================================================================
  [..]
    (#) SDIO时钟(SDIOCLK=48 MHz)来自PLL(PLL48CLK)的特定输出。
-            在开始使用SDIO外设设备之前，请确保PLL配置良好。
+            在开始使用 SDIO外设设备之前，请确保PLL配置良好。
        SDIO外设设备使用两个时钟信号:
         (++) SDIO适配器时钟(SDIOCLK=48 MHz)
         (++) APB2总线时钟(PCLK2)
@@ -28,7 +28,7 @@
        -@@- PCLK2和SDIO_CK时钟频率必须符合以下条件:
            Frequency(PCLK2) >= (3 / 8 x Frequency(SDIO_CK))
 
-   (#) 使用RCC_APB2PeriphClockCmd(RCC_AB2Periph_SDIO，Enable)启用外围时钟。
+   (#) 使用RCC_APB2PeriphClockCmd(RCC_AB2Periph_SDIO，Enable) 启用外围时钟。
 
    (#) 根据SDIO模式，使用 RCC_AHB1PeriphClockCmd() 函数。
        I/O可以是以下配置之一:
@@ -40,25 +40,25 @@
        (++) 使用 GPIO_PinAFConfig() 函数将管脚连接到所需外设设备的复用功能(AF)
        (++) 通过以下方式在复用功能中配置所需引脚:
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
-       (++) 通过GPIO_PuPd、GPIO_OType和GPIO_speed成员选择类型、上拉/下拉和输出速度
+       (++) 通过 GPIO_PuPd、GPIO_OType和 GPIO_speed 成员选择类型、上拉/下拉和输出速度
        (++) 调用 GPIO_Init() 函数
 
-   (#) 使用SDIO_Init() 函数对时钟边缘、时钟旁路、时钟节能、总线范围、硬件、
+   (#) 使用 SDIO_Init() 函数对时钟边缘、时钟旁路、时钟节能、总线范围、硬件、
         流量控制和时钟分配器进行编程。
 
-   (#) 使用SDIO_SetPowerState(SDIO_PowerState_ON) 函数启用开机状态。
+   (#) 使用 SDIO_SetPowerState(SDIO_PowerState_ON) 函数启用开机状态。
 
-   (#) 使用SDIO_ClockCmd() 函数启用时钟。
+   (#) 使用 SDIO_ClockCmd() 函数启用时钟。
 
-   (#) 如果需要使用中断模式，请使用函数SDIO_ITConfig()启用NVIC和相应的中断。
+   (#) 如果需要使用中断模式，请使用函数SDIO_ITConfig() 启用 NVIC 和相应的中断。
 
    (#) 使用 DMA 模式时:
         (++)使用 DMA_Init() 函数配置DMA
-        (++)使用SDIO_DMACmd() 函数激活所需的通道请求
+        (++)使用 SDIO_DMACmd() 函数激活所需的通道请求
 
    (#) 使用 DMA 模式时，使用 DMA_Cmd() 函数启用 DMA。
 
-   (#) 要控制CPSM(命令路径状态机)并向卡发送命令，请使用SDIO_SendCommand()、
+   (#) 要控制CPSM(命令路径状态机)并向卡发送命令，请使用 SDIO_SendCommand()、
         SDIO_GetCommandResponse()和SDIO_GetResponse() 函数。
         首先，用户必须根据要发送的选定命令填充命令结构(指向SDIO_CmdInitTypeDef的指针)。
        应填写的参数包括:
@@ -68,10 +68,10 @@
         (++)命令等待
         (++)CPSM状态(启用或禁用)。
 
-       -@@- 要检查命令是否接收良好，请使用SDIO_GetCommandResponse()读取SDIO_CMDRESP寄存器。
-           SDIO响应寄存器(SDIO_RESP1到SDIO_RESP2)使用SDIO_GetResponse() 函数。
+       -@@- 要检查命令是否接收良好，请使用 SDIO_GetCommandResponse()读取SDIO_CMDRESP寄存器。
+           SDIO响应寄存器(SDIO_RESP1到SDIO_RESP2)使用 SDIO_GetResponse() 函数。
 
-   (#) 要控制DPSM(数据路径状态机)并向/从卡发送/接收数据，请使用SDIO_DataConfig()、
+   (#) 要控制DPSM(数据路径状态机)并向/从卡发送/接收数据，请使用 SDIO_DataConfig()、
         SDIO_GetDataCounter()、SD IO_ReadData()、S DIO_WriteData()和
         SDIO_GetFIFOCount() 函数。
 
@@ -91,7 +91,7 @@
 
    (#)  发送选定的读取命令(请参阅步骤11)。
 
-   (#) 使用SDIO标志/中断检查传输状态。
+   (#) 使用 SDIO标志/中断检查传输状态。
 
  *** 写入操作 ***
  ========================
@@ -109,7 +109,7 @@
 
    (#) 发送选定的写入命令(请参阅步骤11)。
 
-   (#) 使用SDIO标志/中断检查传输状态。
+   (#) 使用 SDIO标志/中断检查传输状态。
 
 
 @endverbatim
@@ -727,7 +727,7 @@ void SDIO_SendCEATACmd(FunctionalState NewState) {
   */
 
 /**
-  * 简介:  启用或禁用SDIO DMA request.
+  * 简介:  启用或禁用 SDIO DMA request.
   * 
   * 参数:  NewState: 新状态-> 被选择的 SDIO DMA 请求.
   *          此参数可以是: ENABLE或DISABLE。
@@ -755,7 +755,7 @@ void SDIO_DMACmd(FunctionalState NewState) {
   */
 
 /**
-  * 简介:  启用或禁用SDIO 中断.
+  * 简介:  启用或禁用 SDIO 中断.
   * 
   * 参数:  SDIO_IT:开启或关闭SDIO中断源。
   *          可以为以下值之一或组合:

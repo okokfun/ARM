@@ -21,7 +21,7 @@
        
        (#) 使用 SYSCFG_ETH_MediaInterfaceConfig() 选择以太网媒体接口(RMII/RII)
 
-       -@- 必须启用SYSCFG APB时钟，才能使用RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
+       -@- 必须启用 SYSCFG APB时钟，才能使用RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
 		  获得对SYSCFG寄存器的写入访问权限;
 
  @endverbatim
@@ -184,7 +184,7 @@ void SYSCFG_ETH_MediaInterfaceConfig(uint32_t SYSCFG_ETH_MediaInterface) {
 
 /**
   * 简介:  启用或禁用 I/O 补偿单元。
-  * 注意:   仅当设备电源电压范围为2.4至3.6 V时，才能使用I/O补偿单元。
+  * 注意:   仅当设备电源电压范围为2.4至3.6 V时，才能使用 I/O补偿单元。
   * 参数:  NewState: I/O补偿单元的新状态。
   *          此参数可以是以下值之一:
   *            @arg ENABLE: I/O补偿单元已启用

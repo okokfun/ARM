@@ -25,12 +25,12 @@
        (#) 外设设备替代函数:
            (++) 使用 GPIO_PinAFConfig() 函数将引脚连接到所需外设的备用函数(AF)。
 
-           (++) 通过GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF配置复用功能中所需的引脚
+           (++) 通过 GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF配置复用功能中所需的引脚
 
-           (++) 通过GPIO_PuPd、GPIO_OType和GPIO_Speed成员选择类型、上拉/下拉和输出速度
+           (++) 通过 GPIO_PuPd、GPIO_OType和 GPIO_Speed 成员选择类型、上拉/下拉和输出速度
 
            (++) 调用 GPIO_Init() 函数
-           -@@- 如果使用外部时钟源，则I2S CKIN引脚也应配置为Alternate function Push-pull - pull-up模式。
+           -@@- 如果使用外部时钟源，则I2S CKIN 引脚也应配置为Alternate function Push-pull - pull-up模式。
 
       (#) SAI时钟可以从不同的时钟源生成:
           PLL I2S、PLL SAI或外部时钟源。
@@ -67,7 +67,7 @@
           (++) 使用 DMA_Init() 函数配置DMA
           (++) 使用 SAI_DMACmd() 函数激活所需的通道请求
 
-      (#) 使用 SAI_Cmd() 函数启用SAI。
+      (#) 使用 SAI_Cmd() 函数启用 SAI。
 
       (#) 当使用 DMA 模式时，使用 DMA_Cmd() 函数启用 DMA。
 
@@ -75,12 +75,12 @@
           (++) 当音频块是一个发射器时，使用 SAI_MuteModeCmd() 函数启用静音模式，
                并使用 SAI_MuteValueConfig() 配置静音期间传输的值。
 
-          (++) 当音频块是接收端时，使用SAI_MuteFrameCounterConfig() 检测静音模式。
-          (++) 当插槽数等于2时，使用SAI_MonoModeConfig() 函数启用MONO模式，不需要内存中的任何数据预处理。
+          (++) 当音频块是接收端时，使用 SAI_MuteFrameCounterConfig() 检测静音模式。
+          (++) 当插槽数等于2时，使用 SAI_MonoModeConfig() 函数启用MONO模式，不需要内存中的任何数据预处理。
 
-          (++) 使用SAI_CompandingModeConfig()启用数据压缩算法(U律和A律)。
+          (++) 使用 SAI_CompandingModeConfig() 启用数据压缩算法(U律和A律)。
           
-          (++) 使用SAI_TRIStateConfig() 函数在数据线上发送非活动槽时，选择输出中的SD线的行为。
+          (++) 使用 SAI_TRIStateConfig() 函数在数据线上发送非活动槽时，选择输出中的SD线的行为。
   [..]
    (@)    在主TX模式下: 即使在FIFO中没有数据，启用音频块也立即为外部从站生成位时钟，
                        然而，FS信号的产生受FIFO中数据的存在的制约。
@@ -676,8 +676,8 @@ void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x) {
   在接收过程中，数据被接收，然后被存储到内部FIFO中，同时
   在传输中，数据在传输之前首先存储在内部FIFO中。
   [..]
-  SAI_xDR寄存器的读取访问可以使用SAI_ReceiveData() 函数完成，
-  并返回Rx缓冲值。而对SAI_DR的写入访问可以使用SAI_SendData()
+  SAI_xDR寄存器的读取访问可以使用 SAI_ReceiveData() 函数完成，
+  并返回Rx缓冲值。而对SAI_DR的写入访问可以使用 SAI_SendData()
   函数来完成，并将写入的数据存储到Tx缓冲器中。
 
 @endverbatim
@@ -819,7 +819,7 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   *** SAI Block 启用状态 ***
   ===============================
   [..]
-  禁用SAI块后，建议检查(或等待)SAI块被有效禁用。如果在音频
+  禁用 SAI块后，建议检查(或等待)SAI块被有效禁用。如果在音频
   帧传输进行时禁用块，则当前帧将被传输，并且该块将仅在音频帧结束时被有效禁用。
   要监控此状态，可以使用以下函数:
     (+) FunctionalState SAI_GetCmdStatus(SAI_Block_TypeDef* SAI_Block_x);
@@ -1006,7 +1006,7 @@ void SAI_ClearITPendingBit(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT) {
   * 简介:  返回指定 SAI 块 x 的 EN 位的状态。
   * 参数:  SAI_Block_x: 其中x可以是A或B，以选择SAI块外设。
   *
-  * 注意:    禁用SAI块后，建议检查(或等待)SAI块被有效禁用。
+  * 注意:    禁用 SAI块后，建议检查(或等待)SAI块被有效禁用。
 			 如果在音频帧传输过程中禁用了块，则当前帧将被传输，
 			 并且该块将仅在音频帧结束时被有效禁用。
   *

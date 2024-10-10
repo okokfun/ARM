@@ -220,7 +220,7 @@
            (++) when VOS[1:0] = '0x11' Scale 1 mode, fHCLK的最大值为100MHz。
 
         有关更多详细信息，请参阅产品数据表
-           您可以使用PWR_MainRegulatorModeConfig() 函数来控制VOS位。
+           您可以使用 PWR_MainRegulatorModeConfig() 函数来控制VOS位。
 
       (+) void FLASH_PrefetchBufferCmd(FunctionalState NewState)
       (+) void FLASH_InstructionCacheCmd(FunctionalState NewState)
@@ -477,7 +477,7 @@ FLASH_Status FLASH_EraseSector(uint32_t FLASH_Sector, uint8_t VoltageRange) {
         /* 等待最后一次操作完成 */
         status = FLASH_WaitForLastOperation();
 
-        /* 如果擦除操作完成，则禁用SER位 */
+        /* 如果擦除操作完成，则禁用 SER位 */
         FLASH->CR &= (~FLASH_CR_SER);
         FLASH->CR &= SECTOR_MASK;
     }
@@ -1002,10 +1002,10 @@ void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState) {
   *            当PCROP模式激活时，nWRPi位的激活值被反转，这意味着如果SPRMOD=1
   *            WRPi=1(默认值)，则用户扇区i受读/写保护。
   *            为了避免为不需要的扇区激活PCROP模式，请遵循以下安全顺序:
-  *            -使用FLASH_OB_PCROP_Config(OB_PCROP Sector_all，Disable) 函数为所有扇区禁用PCROP
+  *            -使用FLASH_OB_PCROP_Config(OB_PCROP Sector_all，Disable) 函数为所有扇区禁用 PCROP
   *               对于Bank1或对于Bank2的FLASH_OB_PCROP_Sector_All，DISABLE) 函数
-  *            -使用FLASH_OB_PCROPConfig(Sector i，Enable)功能为所需扇区i启用PCROP
-  *            -激活PCROP模式FLASH_OB_PCROPSelectionConfig()功能。
+  *            -使用FLASH_OB_PCROPConfig(Sector i，Enable) 功能为所需扇区i启用 PCROP
+  *            -激活PCROP模式FLASH_OB_PCROPSelectionConfig() 功能。
   *
   * 参数:  OB_PCROP:  选择nWPRi位的保护模式
   *          此参数可以是以下值之一:
