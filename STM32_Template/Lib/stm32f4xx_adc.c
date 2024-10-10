@@ -158,10 +158,10 @@
 /* ADC JDRx寄存器偏移 */
 #define JDR_OFFSET                ((uint8_t)0x28)
 
-/* ADC CDR寄存器基址 */
+/* ADC CDR 寄存器基址 */
 #define CDR_ADDRESS               ((uint32_t)0x40012308)
 
-/* ADC CCR寄存器掩码 */
+/* ADC CCR 寄存器掩码 */
 #define CR_CLEAR_MASK             ((uint32_t)0xFFFC30E0)
 
 /* 私有宏 -------------------------------------------------------------*/
@@ -584,8 +584,8 @@ void ADC_TempSensorVrefintCmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用VBAT(蓄电池电压)通道。
   *
-  * 注意   在STM32F40xx和STM32V41xx设备上测得的电池电压等于VBAT/2，
-  *         在STM32 F42xx和ST M32F43xx设备中等于VBAT/4
+  * 注意   在STM32F40xx和STM32V41xx 设备上测得的电池电压等于VBAT/2，
+  *         在STM32 F42xx和ST M32F43xx 设备中等于VBAT/4
   *
   * 参数:  NewState: VBAT通道的新状态。
   *          此参数可以是: ENABLE或DISABLE。
@@ -841,7 +841,7 @@ FlagStatus ADC_GetSoftwareStartConvStatus(ADC_TypeDef* ADCx) {
   * 
   * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
   * 
-  * 参数:  NewState: 所选ADC的新状态 EOC标志上升
+  * 参数:  NewState: 所选ADC 的新状态 EOC标志上升
   *          此参数可以是: ENABLE或DISABLE。
   * 
   * 返回值: 无
@@ -985,17 +985,17 @@ uint32_t ADC_GetMultiModeConversionValue(void) {
  ===============================================================================
             ##### 常规通道DMA配置功能 #####
  ===============================================================================
-    [..] 本节提供了允许为ADC常规通道配置DMA的功能。
+    [..] 本节提供了允许为ADC常规通道配置 DMA的功能。
          由于转换后的常规信道值存储在唯一的数据寄存器中，
-            因此使用 DMA转换多个常规信道是有用的。这避免了已存储在ADC数据寄存器中的数据丢失。
-         启用 DMA 模式时(使用ADC_DMACmd() 函数)，在每次转换常规频道后，都会生成DMA请求。
+            因此使用 DMA转换多个常规信道是有用的。这避免了已存储在ADC 数据寄存器中的数据丢失。
+         启用 DMA 模式时(使用ADC_DMACmd() 函数)，在每次转换常规频道后，都会生成DMA 请求。
     [..] 根据"独立ADC模式的DMA禁用选择"配置(使用ADC_DMARequestAfterLastTransferCmd() 函数)，
             在最后一次DMA传输结束时，允许两种可能性:
-      (+) 没有向DMA控制器发出新的DMA请求(功能已禁用)
+      (+) 没有向DMA控制器发出新的DMA 请求(功能已禁用)
       (+) 可以继续生成请求(功能已启用)。
     [..] 根据"针对多ADC模式的DMA禁用选择"配置(使用void ADC_MultiModeDMARequestAfterLastTransferCmd() 函数)，
             在最后一次DMA传输结束时，允许两种可能性:
-        (+) 没有向DMA控制器发出新的DMA请求(功能已禁用)
+        (+) 没有向DMA控制器发出新的DMA 请求(功能已禁用)
         (+) 可以继续生成请求(功能已启用)。
 
 @endverbatim
@@ -1031,7 +1031,7 @@ void ADC_DMACmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
   * 
   * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
   * 
-  * 参数:  NewState: 最后一次传输后所选ADC DMA请求的新状态。
+  * 参数:  NewState: 最后一次传输后所选ADC DMA 请求的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 
   * 返回值: 无
@@ -1042,10 +1042,10 @@ void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewSt
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 在最后一次传输后启用选定的ADC DMA请求 */
+        /* 在最后一次传输后启用选定的ADC DMA 请求 */
         ADCx->CR2 |= (uint32_t)ADC_CR2_DDS;
     } else {
-        /* 在最后一次传输后禁用选定的ADC DMA请求 */
+        /* 在最后一次传输后禁用选定的ADC DMA 请求 */
         ADCx->CR2 &= (uint32_t)(~ADC_CR2_DDS);
     }
 }
@@ -1053,10 +1053,10 @@ void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewSt
 /**
   * 简介:  在多 ADC 模式下最后一次传输后启用或禁用 ADC DMA 请求。
   * 
-  * 参数:  NewState: 最后一次传输后所选ADC DMA请求的新状态。
+  * 参数:  NewState: 最后一次传输后所选ADC DMA 请求的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 
-  * 注意   如果启用，则只要转换数据，就会发出DMA请求，
+  * 注意   如果启用，则只要转换数据，就会发出DMA 请求，
 		   并且多ADC模式的DMA 模式(由ADC_CommonInitStruct.ADC_DMAAccessMode
 		   结构成员使用ADC_CommonInit() 函数选择)为ADC_DMAAccessMode_1、
 		   ADC_DMAccessMode_2或ADC_DMAAccessMode_3。
@@ -1068,10 +1068,10 @@ void ADC_MultiModeDMARequestAfterLastTransferCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 在最后一次传输后启用选定的ADC DMA请求 */
+        /* 在最后一次传输后启用选定的ADC DMA 请求 */
         ADC->CCR |= (uint32_t)ADC_CCR_DDS;
     } else {
-        /* 在最后一次传输后禁用选定的ADC DMA请求 */
+        /* 在最后一次传输后禁用选定的ADC DMA 请求 */
         ADC->CCR &= (uint32_t)(~ADC_CCR_DDS);
     }
 }
@@ -1089,7 +1089,7 @@ void ADC_MultiModeDMARequestAfterLastTransferCmd(FunctionalState NewState) {
 
     [..] 本节提供了允许配置ADC注入通道的功能。它由2个子部分组成。
 
-      (#) 注入通道的配置功能。本节提供了 功能，允许配置ADC的注入通道。
+      (#) 注入通道的配置功能。本节提供了 功能，允许配置ADC 的注入通道。
         (++) 配置每个通道的注入组序列器中的等级
         (++) 配置每个通道的采样时间
         (++) 激活自动注入模式
@@ -1402,7 +1402,7 @@ void ADC_AutoInjectedConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
 }
 
 /**
-  * 简介:  为指定ADC的注入组通道启用或禁用不连续模式
+  * 简介:  为指定ADC 的注入组通道启用或禁用不连续模式
   * 
   * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
   * 
@@ -1497,7 +1497,7 @@ uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedC
       (+) 中断 :
         (##) ADC_IT_JEOC : 指定注入通道转换结束事件的中断源。
 
-  *** ADC的一般标志和中断 ***
+  *** ADC 的一般标志和中断 ***
   ================================================
     [..]
       (+)标志 :

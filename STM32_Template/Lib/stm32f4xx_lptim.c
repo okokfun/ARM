@@ -149,7 +149,7 @@ void LPTIM_DeInit(LPTIM_TypeDef* LPTIMx) {
   * 
   * 参数:  LPTIMx: 其中x可以是1。
   * 
-  * 参数:  LPTIM_InitStruct: 指向LPTIM_InitTypeDef结构的指针，该结构包含指定LPTIM外设的配置信息。
+  * 参数:  LPTIM_InitStruct: 指向LPTIM_InitTypeDef结构的指针，该结构包含指定LPTIM 外设的配置信息。
   * 
   * 返回值: 无
   *
@@ -697,7 +697,7 @@ uint32_t LPTIM_GetCounterValue(LPTIM_TypeDef* LPTIMx) {
     /* 检查参数 */
     assert_param(IS_LPTIM_ALL_PERIPH(LPTIMx));
 
-    /* 获取Counter寄存器值 */
+    /* 获取Counter 寄存器值 */
     return LPTIMx->CNT;
 }
 
@@ -712,7 +712,7 @@ uint32_t LPTIM_GetAutoreloadValue(LPTIM_TypeDef* LPTIMx) {
     /* 检查参数 */
     assert_param(IS_LPTIM_ALL_PERIPH(LPTIMx));
 
-    /* 获取Counter寄存器值 */
+    /* 获取Counter 寄存器值 */
     return LPTIMx->ARR;
 }
 
@@ -727,7 +727,7 @@ uint32_t LPTIM_GetCompareValue(LPTIM_TypeDef* LPTIMx) {
     /* 检查参数 */
     assert_param(IS_LPTIM_ALL_PERIPH(LPTIMx));
 
-    /* 获取Counter寄存器值 */
+    /* 获取Counter 寄存器值 */
     return LPTIMx->CMP;
 }
 
@@ -749,7 +749,7 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
     /* 检查参数 */
     assert_param(IS_LPTIM_ALL_PERIPH(LPTIMx));
 
-    /* 获取Counter寄存器值 */
+    /* 获取Counter 寄存器值 */
     LPTIMx->OR = LPTIM_OPTR;
 }
 
@@ -763,7 +763,7 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
  ===============================================================================
   本节提供了允许配置LPTIM中断、获取状态和清除标志位的函数。
 
-  LPTIM提供7个标志和中断源(只有配备编码器模式接口的LPTIM外设设备上才有2个标志和干扰源)
+  LPTIM提供7个标志和中断源(只有配备编码器模式接口的LPTIM 外设设备上才有2个标志和干扰源)
 
   标志和中断源:
   =============================
@@ -772,8 +772,8 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
   3. 外部触发事件。
   4. 自动重新加载寄存器写入完成。
   5. 比较寄存器写入完成。
-  6. 方向改变:从上到下[仅适用于带编码器模式模块的LPTIM外设设备]
-  7. 方向改变:从下到上[仅适用于带编码器模式模块的LPTIM外设设备]
+  6. 方向改变:从上到下[仅适用于带编码器模式模块的LPTIM 外设设备]
+  7. 方向改变:从下到上[仅适用于带编码器模式模块的LPTIM 外设设备]
 
   - 要启用特定的中断源，请使用"LPTIM_ITConfig"功能。
   - 要检查是否发生了中断，请调用"LPTIM_GetITStatus"函数并读取返回值。

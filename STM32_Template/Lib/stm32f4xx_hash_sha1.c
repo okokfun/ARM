@@ -150,7 +150,7 @@ ErrorStatus HASH_SHA1(uint8_t *Input, uint32_t Ilen, uint8_t Output[20]) {
   * @简介  计算HMAC SHA1摘要。
   * 
   * @参数  Key:     指向HMAC所用密钥的指针。
-  * @参数  Keylen:  用于HMAC的密钥的长度。
+  * @参数  Keylen:  用于HMAC 的密钥的长度。
   * @参数  Input:   指向要处理的输入缓冲区的指针。
   * @参数  Ilen:    输入缓冲区的长度。
   * @参数  Output:  返回的摘要

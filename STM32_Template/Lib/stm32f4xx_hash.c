@@ -174,7 +174,7 @@ void HASH_Init(HASH_InitTypeDef* HASH_InitStruct) {
                  HASH_InitStruct->HASH_DataType | \
                  HASH_InitStruct->HASH_AlgoMode);
 
-    /* 如果算法模式为HMAC，则设置密钥 */
+    /* 如果算法模式为 HMAC，则设置密钥 */
     if(HASH_InitStruct->HASH_AlgoMode == HASH_AlgoMode_HMAC) {
         assert_param(IS_HASH_HMAC_KEYTYPE(HASH_InitStruct->HASH_HMACKeyType));
         HASH->CR &= ~HASH_CR_LKEY;
@@ -190,7 +190,7 @@ void HASH_Init(HASH_InitTypeDef* HASH_InitStruct) {
   * 
   * 参数:  HASH_InitStruct : 指向将被初始化的HASH_InitTypeDef结构的指针。
   * 
-  * @note  默认值设置为:处理器模式为HASH，选择的算法为SHA1，选择的数据类型为32b，HMAC密钥类型为短键。
+  * @note  默认值设置为:处理器模式为 HASH，选择的算法为SHA1，选择的数据类型为32b，HMAC密钥类型为短键。
   * 
   * 返回值: 无
   */
@@ -394,15 +394,15 @@ void HASH_RestoreContext(HASH_Context* HASH_ContextRestore) {
     }
 }
 
-/** @defgroup HASH_Group4 HASH的DMA接口配置函数
- *  简介   HASH的DMA接口配置函数
+/** @defgroup HASH_Group4 HASH的DMA 接口配置函数
+ *  简介   HASH的DMA 接口配置函数
  *
 @verbatim
  ===============================================================================
-               ##### HASH的DMA接口配置函数 #####
+               ##### HASH的DMA 接口配置函数 #####
  ===============================================================================
 
- [..] 本节提供了允许为HASH/HMAC数据输入传输配置DMA接口的函数。
+ [..] 本节提供了允许为 HASH/HMAC 数据输入传输配置 DMA 接口的函数。
 
  [..] 启用 DMA 模式时(使用 HASH_DMACmd() 函数)，可以使用 DMA外设设备将数据发送到IN FIFO。
 
@@ -431,7 +431,7 @@ void HASH_AutoStartDigest(FunctionalState NewState) {
 }
 
 /**
-  * 简介:  启用或禁用 HASH DMA接口。
+  * 简介:  启用或禁用 HASH DMA 接口。
   * 
   * 注意:   DMA在传输结束后被硬件禁用。
   * 
@@ -445,10 +445,10 @@ void HASH_DMACmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 HASH DMA请求 */
+        /* 启用 HASH DMA 请求 */
         HASH->CR |= HASH_CR_DMAE;
     } else {
-        /* 禁用 HASH DMA请求 */
+        /* 禁用 HASH DMA 请求 */
         HASH->CR &= ~HASH_CR_DMAE;
     }
 }
@@ -473,7 +473,7 @@ void HASH_DMACmd(FunctionalState NewState) {
 
    (#) HASH_FLAG_DCIS :  摘要计算完成时设置
 
-   (#) HASH_FLAG_DMAS :  当HASH的DMA接口被启用(DMAE=1)或传输正在进行时设置。此标志仅由硬件清除。
+   (#) HASH_FLAG_DMAS :  当HASH的DMA 接口被启用(DMAE=1)或传输正在进行时设置。此标志仅由硬件清除。
 
    (#) HASH_FLAG_BUSY :  当散列核心正在处理数据块时设置此标志仅由硬件清除。
 
@@ -552,10 +552,10 @@ FlagStatus HASH_GetFlagStatus(uint32_t HASH_FLAG) {
     /* 检查参数 */
     assert_param(IS_HASH_GET_FLAG(HASH_FLAG));
 
-    /* 检查FLAG是否在CR寄存器中 */
+    /* 检查FLAG是否在CR 寄存器中 */
     if ((HASH_FLAG & HASH_FLAG_DINNE) != (uint32_t)RESET ) {
         tempreg = HASH->CR;
-    } else { /* FLAG在SR寄存器中 */
+    } else { /* FLAG在SR 寄存器中 */
         tempreg = HASH->SR;
     }
 

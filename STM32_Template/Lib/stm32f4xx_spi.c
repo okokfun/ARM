@@ -52,7 +52,7 @@
    (#) 如果需要使用中断模式，可以使用 SPI_ITConfig() 函数启用 NVIC 和相应的中断。
 
    (#) 当使用 DMA 模式时
-       (++) 使用 DMA_Init() 函数配置DMA
+       (++) 使用 DMA_Init() 函数配置 DMA
        (++) 使用 SPI_I2S_DMACmd() 函数激活所需的通道请求
 
    (#) 使用 SPI_Cmd() 函数启用 SPI 或使用 I2S_Cmd() 启用 I2S。
@@ -76,7 +76,7 @@
 
  [..] 可以在I2S全双工模式下使用 SPI，在这种情况下，每个 SPI 外设都能够使用两条数据线
       同时管理发送和接收数据。每个 SPI 外设都有一个名为 I2Sxext 的扩展块
-      (即。I2S2ext用于SPI2, I2S3ext用于SPI3)。
+      (即。I2S2ext用于 SPI2, I2S3ext用于 SPI3)。
       扩展块不是一个完整的SPI IP，它只是作为I2S的slave来实现全双工模式。扩展块使用与主块相同的时钟源。
       要配置I2S全双工，您必须:
 
@@ -86,7 +86,7 @@
 
       (#) 为 SPIx调用 I2S_Cmd()，然后为它的扩展块调用。
 
-      (#) 要配置中断或DMA请求以及获取/清除标志状态，请为扩展块使用 I2Sxext 实例。
+      (#) 要配置中断或DMA 请求以及获取/清除标志状态，请为扩展块使用 I2Sxext 实例。
 
  [..] 可以用 I2Sxext 实例调用的函数有: I2S_Cmd()， I2S_FullDuplexConfig()， SPI_I2S_ReceiveData()，
       SPI_I2S_SendData()， SPI_I2S_DMACmd()， SPI_I2S_ITConfig()， SPI_I2S_GetFlagStatus()，
@@ -113,7 +113,7 @@
 
  [..]
    (@) 在I2S 模式下:如果I2S使用外部时钟作为源时钟，则需要启用 Stm32f4xx_conf.h
-       文件中的define I2S_EXTERNAL_CLOCK_VAL，并将其设置为源时钟频率(单位为Hz)。
+       文件中的define I2S_EXTERNAL_CLOCK_VAL，并将其设置为源时钟频率(单位为 Hz)。
 
    (@) 在SPI模式下:要使用 SPI TI模式，在调用 SPI_Init() 函数之后调用 SPI_TIModeCmd() 函数。
 
@@ -189,7 +189,7 @@
 
 /**
   * 简介:  将 SPIx 外设寄存器取消初始化为其缺省复位值。
-  * 参数:  SPIx: 选择SPIx/I2Sx外设，其中x在SPI模式下为1、2、3、4、5或6，在I2S 模式下为2或3。
+  * 参数:  SPIx: 选择 SPIx/I2Sx外设，其中x在SPI模式下为1、2、3、4、5或6，在I2S 模式下为2或3。
   *
   * 注意:   扩展的I2S块(即。I2S2ext和I2S3ext块)在相对
 			      I2S外设去初始化时被去初始化(扩展块的时钟由I2S外设时钟管理)。
@@ -238,7 +238,7 @@ void SPI_I2S_DeInit(SPI_TypeDef* SPIx) {
 /**
   * 简介:  根据SPI_InitStruct中的指定参数初始化SPIx外设设备。
   * 
-  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
+  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择 SPI外设设备。
   * 
   * 参数:  SPI_InitStruct: 指向SPI_InitTypeDef结构的指针，该结构包含指定SPI外设的配置信息。
   * 
@@ -291,7 +291,7 @@ void SPI_Init(SPI_TypeDef* SPIx, SPI_InitTypeDef* SPI_InitStruct) {
 /**
   * 简介:  根据I2S_InitStruct中指定的参数初始化 SPIx 外设。
   * 
-  * 参数:  SPIx: 其中x可以是2或3，以选择SPI外设设备(在I2S 模式下配置)。
+  * 参数:  SPIx: 其中x可以是2或3，以选择 SPI外设设备(在I2S 模式下配置)。
   * 
   * 参数:  I2S_InitStruct: 指向I2S_InitTypeDef结构的指针，
   *        该结构包含I2S 模式下配置的指定SPI外设的配置信息。
@@ -300,7 +300,7 @@ void SPI_Init(SPI_TypeDef* SPIx, SPI_InitTypeDef* SPI_InitStruct) {
   *         但如果预分频器值大于511，则将配置默认值(0x02)。
   *
   * 注意:   如果I2S使用外部时钟作为源时钟，则应启用 Stm32f4xx_conf.h文件中
-  *         的define I2S_EXTERNAL_CLOCK_VAL，并将其设置为源时钟频率的值(单位为Hz)。
+  *         的define I2S_EXTERNAL_CLOCK_VAL，并将其设置为源时钟频率的值(单位为 Hz)。
   *
   * 返回值: 无
   */
@@ -325,7 +325,7 @@ void I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct) {
     SPIx->I2SCFGR &= I2SCFGR_CLEAR_MASK;
     SPIx->I2SPR = 0x0002;
 
-    /* 获取I2SCFGR寄存器值 */
+    /* 获取I2SCFGr 寄存器值 */
     tmpreg = SPIx->I2SCFGR;
 
     /* 如果必须写入默认值，请重新初始化i2sdiv和i2sodd*/
@@ -490,7 +490,7 @@ void I2S_StructInit(I2S_InitTypeDef* I2S_InitStruct) {
 
 /**
   * 简介:  启用或禁用指定的SPI外设。
-  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
+  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择 SPI外设设备。
   * 参数:  NewState: SPIx外设设备的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
@@ -511,7 +511,7 @@ void SPI_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用指定的SPI外设(在I2S 模式下)。
-  * 参数:  SPIx: 其中x可以是2或3以选择SPI外设设备(或I2Sxext用于全双工模式)。
+  * 参数:  SPIx: 其中x可以是2或3以选择 SPI外设设备(或I2Sxext用于全双工模式)。
   * 参数:  NewState: 新状态-> SPIx 外设.
   *         此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
@@ -532,7 +532,7 @@ void I2S_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState) {
 
 /**
   * 简介:  配置所选 SPI 的数据大小。
-  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
+  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择 SPI外设设备。
   * 参数:  SPI_DataSize: 指定SPI data size.
   *          此参数可以是以下值之一:
   *            @arg SPI_DataSize_16b: Set data frame format to 16bit
@@ -551,7 +551,7 @@ void SPI_DataSizeConfig(SPI_TypeDef* SPIx, uint16_t SPI_DataSize) {
 
 /**
   * 简介:  为指定的SPI选择双向模式下的数据传输方向。
-  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
+  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择 SPI外设设备。
   * 参数:  SPI_Direction: 指定data transfer direction in bidirectional mode.
   *          此参数可以是以下值之一:
   *            @arg SPI_Direction_Tx: Selects Tx transmission direction
@@ -574,7 +574,7 @@ void SPI_BiDirectionalLineConfig(SPI_TypeDef* SPIx, uint16_t SPI_Direction) {
 
 /**
   * 简介:  通过软件在内部配置所选SPI的NSS引脚。
-  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
+  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择 SPI外设设备。
   * 参数:  SPI_NSSInternalSoft: 指定SPI NSS internal state.
   *          此参数可以是以下值之一:
   *            @arg SPI_NSSInternalSoft_Set: Set NSS pin internally
@@ -597,7 +597,7 @@ void SPI_NSSInternalSoftwareConfig(SPI_TypeDef* SPIx, uint16_t SPI_NSSInternalSo
 
 /**
   * 简介:  启用或禁用所选 SPI 的 SS 输出。
-  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
+  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择 SPI外设设备。
   * 参数:  NewState: 新状态-> SPIx SS output.
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
@@ -676,7 +676,7 @@ void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct)
     I2Sxext->I2SCFGR &= I2SCFGR_CLEAR_MASK;
     I2Sxext->I2SPR = 0x0002;
 
-    /* 获取I2SCFGR寄存器值 */
+    /* 获取I2SCFGr 寄存器值 */
     tmpreg = I2Sxext->I2SCFGR;
 
     /* 获取mode to be configured for the extended I2S */
@@ -710,7 +710,7 @@ void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct)
  [..] 本节提供了一组允许管理SPI数据传输的函数。在接收中，数据被接收，
 	  然后存储到一个内部Rx缓冲区中。在传输中，数据在传输之前首先存储到内部Tx缓冲区中。
 
- [..] SPI_DR寄存器的读取访问可以使用 SPI_I2S_ReceiveData()
+ [..] SPI_DR 寄存器的读取访问可以使用 SPI_I2S_ReceiveData()
 	  函数完成，并返回Rx缓冲值。而对SPI_DR的写入访问可以使用
 	  SPI_I2S_SendData() 函数来完成，并将写入的数据存储到Tx缓冲器中。
 
@@ -719,7 +719,7 @@ void I2S_FullDuplexConfig(SPI_TypeDef* I2Sxext, I2S_InitTypeDef* I2S_InitStruct)
 
 /**
   * 简介:  返回 SPIx/I2Sx 外设最近接收到的数据。
-  * 参数:  SPIx: 选择SPIx/I2Sx外设，其中x可以是：
+  * 参数:  SPIx: 选择 SPIx/I2Sx外设，其中x可以是：
 				 在SPI模式下为1、2、3、4、5或6，在I2S 模式下
 				 为2或3，或者在I2S全双工模式下为I2Sxext。
   * 返回值: The value of 接收的数据。
@@ -734,7 +734,7 @@ uint16_t SPI_I2S_ReceiveData(SPI_TypeDef* SPIx) {
 
 /**
   * 简介:  通过 SPIx/I2Sx 外设传输数据。
-  * 参数:  SPIx: 选择SPIx/I2Sx外设设备，其中x可以是：
+  * 参数:  SPIx: 选择 SPIx/I2Sx外设设备，其中x可以是：
 				 在SPI模式下为1、2、3、4、5或6，在I2S 模式下为2或3，
 				 或者在I2S全双工模式下为I2Sxext。
   * 参数:  Data: 要传输的数据。
@@ -744,7 +744,7 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
     /* 检查参数 */
     assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
 
-    /* 在DR寄存器中写入要发送的数据 */
+    /* 在DR 寄存器中写入要发送的数据 */
     SPIx->DR = Data;
 }
 
@@ -803,7 +803,7 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
 
 /**
   * 简介:  启用或禁用传输字节的CRC值计算。
-  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
+  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择 SPI外设设备。
   * 参数:  NewState: SPIx CRC值计算的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
@@ -824,7 +824,7 @@ void SPI_CalculateCRC(SPI_TypeDef* SPIx, FunctionalState NewState) {
 
 /**
   * 简介:  传输SPIx CRC值。
-  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
+  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择 SPI外设设备。
   * 返回值: 无
   */
 void SPI_TransmitCRC(SPI_TypeDef* SPIx) {
@@ -836,13 +836,13 @@ void SPI_TransmitCRC(SPI_TypeDef* SPIx) {
 }
 
 /**
-  * 简介:  返回指定SPI的发送或接收CRC寄存器值。
-  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
-  * 参数:  SPI_CRC: 指定要读取的CRC寄存器。
+  * 简介:  返回指定SPI的发送或接收CRC 寄存器值。
+  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择 SPI外设设备。
+  * 参数:  SPI_CRC: 指定要读取的CRC 寄存器。
   *          此参数可以是以下值之一:
-  *            @arg SPI_CRC_Tx: 选择Tx CRC寄存器
-  *            @arg SPI_CRC_Rx: 选择Rx CRC寄存器
-  * 返回值: 所选CRC寄存器值。
+  *            @arg SPI_CRC_Tx: 选择Tx CRC 寄存器
+  *            @arg SPI_CRC_Rx: 选择Rx CRC 寄存器
+  * 返回值: 所选CRC 寄存器值。
   */
 uint16_t SPI_GetCRC(SPI_TypeDef* SPIx, uint8_t SPI_CRC) {
     uint16_t crcreg = 0;
@@ -864,7 +864,7 @@ uint16_t SPI_GetCRC(SPI_TypeDef* SPIx, uint8_t SPI_CRC) {
 
 /**
   * 简介:  返回指定SPI的CRC多项式寄存器值。
-  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择SPI外设设备。
+  * 参数:  SPIx: 其中x可以是1、2、3、4、5或6，以选择 SPI外设设备。
   * 返回值: CRC多项式寄存器值。
   */
 uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx) {
@@ -889,7 +889,7 @@ uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx) {
 
 /**
   * 简介:  启用或禁用 SPIx/I2Sx DMA 接口。
-  * 参数:  SPIx: 选择SPIx/I2Sx外设设备，其中x可以是：在SPI模式下为1、2、3、4、5或6，
+  * 参数:  SPIx: 选择 SPIx/I2Sx外设设备，其中x可以是：在SPI模式下为1、2、3、4、5或6，
 				 在I2S 模式下为2或3，或者在I2S全双工模式下为I2Sxext。
   * 参数:  SPI_I2S_DMAReq: 指定要启用或禁用的SPI DMA传输请求。
   *          此参数可以是以下值的任意组合:
@@ -939,7 +939,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
   (#) I2S_FLAG_UDR: 指示发生欠载错误。
   (#) I2S_FLAG_CHSIDE: 表示通道侧。
 
-  (@) 不要使用BSY标志来处理每个数据传输或接收。最好使用TXE和RXNE标志。
+  (@) 不要使用BSY标志来处理每个数据传输或接收。最好使用 TXE和RXNE标志。
 
  [..] 在此模式下，建议使用以下函数:
    (+) FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG);
@@ -952,7 +952,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
 	 (##) SPI_I2S_IT_TXE：指示发送缓冲寄存器的状态
 	 (##) SPI_I2S_IT_RXNE：指示接收缓冲寄存器的状态
 	 (##) SPI_IT_CRCERR：指示是否发生CRC计算错误(仅在SPI模式下可用)
-	 (##) SPI_IT_MODF：指示是否发生模式故障错误(仅适用于SPI模式)
+	 (##) SPI_IT_MODF：指示是否发生模式故障错误(仅适用于 SPI模式)
 	 (##) SPI_I2S_IT_OVR：指示是否发生超限错误
 	 (##) I2S_IT_UDR：指示发生欠载错误(仅在I2S 模式下可用)。
 	 (##) I2S_FLAG_TIFRFE：指示发生帧格式错误(仅在TI模式下可用)。
@@ -982,7 +982,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
 
 /**
   * 简介:  启用或禁用指定的 SPI/I2S 中断。
-  * 参数:  SPIx: 选择SPIx/I2Sx外设设备，其中x可以是：
+  * 参数:  SPIx: 选择 SPIx/I2Sx外设设备，其中x可以是：
 				在SPI模式下为1、2、3、4、5或6，在I2S 模式下为2或3，
 				或者在I2S全双工模式下为I2Sxext。
   * 参数:  SPI_I2S_IT: 指定要启用或禁用的SPI中断源。
@@ -1055,16 +1055,16 @@ FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {
 
 /**
   * 简介:  清除 SPIx CRC 错误 (CRCERR) 标志。
-  * 参数:  SPIx：选择SPIx/I2Sx外设设备，其中x可以是：
+  * 参数:  SPIx：选择 SPIx/I2Sx外设设备，其中x可以是：
 			SPI模式下的1、2、3、4、5或6，I2S 模式下的2或3，I2S全双工模式下的I2Sxext。
   * 参数:  SPI_I2S_FLAG：指定要清除的SPI标志。
   *			此功能仅清除CRCERR标志。
   *				@arg SPI_FLAG_CERRR:CRC错误标志。
   *
-  * 注意:   OVR(OverRun error)标志由软件序列清除：对SPI_DR寄存器(SPI_I2S_ReceiveData())进行
-			读取操作，然后对SPI_SR寄存器(SPI_I2S_GetFlagStatus())执行读取操作。
-  * 注意:   通过对SPI_SR寄存器的读取操作(SPI_I2S_GetFlagStatus())清除UDR(运行不足错误)标志。
-  * 注意:   MODF(模式故障)标志由软件序列清除：对SPI_SR寄存器(SPI_I2S_GetFlagStatus())
+  * 注意:   OVR(OverRun error)标志由软件序列清除：对SPI_DR 寄存器(SPI_I2S_ReceiveData())进行
+			读取操作，然后对SPI_SR 寄存器(SPI_I2S_GetFlagStatus())执行读取操作。
+  * 注意:   通过对SPI_SR 寄存器的读取操作(SPI_I2S_GetFlagStatus())清除UDR(运行不足错误)标志。
+  * 注意:   MODF(模式故障)标志由软件序列清除：对SPI_SR 寄存器(SPI_I2S_GetFlagStatus())
 			进行读/写操作，然后对SPI_CR1寄存器(SPI_Cmd()进行写操作以启用 SPI)。
   * 返回值: 无
   */
@@ -1127,7 +1127,7 @@ ITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT) {
 
 /**
   * 简介:  清除SPIx CRC错误(CRCERR)中断挂起位。
-  * 参数:  SPIx: 选择SPIx/I2Sx外设设备，其中x可以是:SPI模式下的1、2、3、4、5或6，
+  * 参数:  SPIx: 选择 SPIx/I2Sx外设设备，其中x可以是:SPI模式下的1、2、3、4、5或6，
   *         I2S 模式下的2或3，或I2S全双工模式下的I2Sxext。
   * 参数:  SPI_I2S_IT: 指定要清除的SPI中断挂起位。
   *         此函数仅清除CRCERR中断挂起位。
@@ -1139,7 +1139,7 @@ ITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT) {
   * 注意:   UDR (UnderRun Error) interrupt pending bit is cleared by a read
   *          operation to SPI_SR register (SPI_I2S_GetITStatus()).
   * 注意:   MODF(模式故障)中断挂起位通过软件序列清除:
-  *          对SPI_SR寄存器(SPI_I2S_GetITStatus())执行读/写操作，
+  *          对SPI_SR 寄存器(SPI_I2S_GetITStatus())执行读/写操作，
   *             然后对SPI_CR1寄存器(SPI-Cmd())进行写操作，以启用 SPI。
   * 返回值: 无
   */

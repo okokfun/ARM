@@ -94,7 +94,7 @@ typedef struct {
 #define DMA_EXHS_TIMR3		(3 | DMA_HS_EXT | DMA_DIR_RX)
 #define DMA_EXHS_TIMR4		(4 | DMA_HS_EXT | DMA_DIR_RX)
 #define DMA_EXHS_TRIG0		(5 | DMA_HS_EXT | DMA_DIR_RX)	// DMA_TRIG0引脚
-#define DMA_EXHS_TRIG1		(6 | DMA_HS_EXT | DMA_DIR_RX)	// DMA_TRIG1引脚
+#define DMA_EXHS_TRIG1		(6 | DMA_HS_EXT | DMA_DIR_RX)	// DMA_TRIG1 引脚
 
 
 

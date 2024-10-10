@@ -458,7 +458,7 @@ ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
     /* 通过清除CRYP_DMACR中的DIEN位停止IN FIFO上的DMA传输。 */
     CRYP->DMACR &= ~(uint32_t)CRYP_DMACR_DIEN;
 
-    /* 等到IN和OUT FIFO都是空的(CRYP_SR寄存器中IFEM=1和OfNE=0)，BUSY位被清除。 */
+    /* 等到IN和OUT FIFO 都是空的(CRYP_SR 寄存器中IFEM=1和OfNE=0)，BUSY位被清除。 */
 
     if ((CRYP->CR & (uint32_t)(CRYP_CR_ALGOMODE_TDES_ECB | CRYP_CR_ALGOMODE_TDES_CBC)) != (uint32_t)0 ) { /* TDES */
         ckeckmask =  CRYP_SR_IFEM | CRYP_SR_BUSY ;
@@ -475,13 +475,13 @@ ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
         status = ERROR;
     } else {
         /* 通过以下方式停止OUT FIFO上的DMA传输
-           - 将CRYP_DMACR寄存器中的DOEN位写为0
+           - 将CRYP_DMACR 寄存器中的DOEN位写为0
            - 并清除CRYPEN位。 */
 
         CRYP->DMACR &= ~(uint32_t)CRYP_DMACR_DOEN;
         CRYP->CR &= ~(uint32_t)CRYP_CR_CRYPEN;
 
-        /* 保存当前配置(CRYP_CR寄存器中的第19位、第[17:16]位和第[9:2]位)。*/
+        /* 保存当前配置(CRYP_CR 寄存器中的第19位、第[17:16]位和第[9:2]位)。*/
         CRYP_ContextSave->CR_CurrentConfig  = CRYP->CR & (CRYP_CR_GCM_CCMPH |
                                               CRYP_CR_KEYSIZE  |
                                               CRYP_CR_DATATYPE |
@@ -587,14 +587,14 @@ void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore) {
     CRYP->CR |= CRYP_CR_CRYPEN;
 }
 
-/** @defgroup CRYP_Group4 CRYP的DMA接口配置功能
- *  简介   CRYP的DMA接口配置功能
+/** @defgroup CRYP_Group4 CRYP的DMA 接口配置功能
+ *  简介   CRYP的DMA 接口配置功能
  *
 @verbatim
  ===============================================================================
-             ##### CRYP的DMA接口配置功能 #####
+             ##### CRYP的DMA 接口配置功能 #####
  ===============================================================================
- [..] 本节提供的功能允许 为 CRYP 数据输入和输出传输配置DMA接口。
+ [..] 本节提供的功能允许 为 CRYP 数据输入和输出传输配置 DMA 接口。
 
  [..] 当 DMA 模式被启用时(使用 CRYP_DMACmd() 函数)，数据可以被传输。
    (+) 通过启用 CRYP_DMAReq_DataIN 请求，使用 DMA 外设从内存到 CRYP IN FIFO。
@@ -622,10 +622,10 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用选定的CRYP DMA请求 */
+        /* 启用选定的CRYP DMA 请求 */
         CRYP->DMACR |= CRYP_DMAReq;
     } else {
-        /* 禁用选定的CRYP DMA请求 */
+        /* 禁用选定的CRYP DMA 请求 */
         CRYP->DMACR &= (uint8_t)~CRYP_DMAReq;
     }
 }

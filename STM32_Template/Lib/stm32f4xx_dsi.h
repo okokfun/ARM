@@ -725,8 +725,8 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg); // 选�
 void DSI_ConfigAdaptedCommandMode(DSI_TypeDef *DSIx, DSI_CmdCfgTypeDef *CmdCfg); // 选择适应的命令模式并配置相应的参数
 void DSI_ConfigCommand(DSI_TypeDef *DSIx, DSI_LPCmdTypeDef *LPCmd); // 配置命令传输模式:高速或低功率，并在数据包传输后启用/禁用确认请求
 void DSI_ConfigFlowControl(DSI_TypeDef *DSIx, uint32_t FlowControl); // 配置流量控制参数
-void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers); // 配置DSI PHY计时器参数
-void DSI_ConfigHostTimeouts(DSI_TypeDef *DSIx, DSI_HOST_TimeoutTypeDef *HostTimeouts); // 配置DSI HOST超时参数
+void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers); // 配置 DSI PHY计时器参数
+void DSI_ConfigHostTimeouts(DSI_TypeDef *DSIx, DSI_HOST_TimeoutTypeDef *HostTimeouts); // 配置 DSI HOST超时参数
 void DSI_PatternGeneratorStart(DSI_TypeDef *DSIx, uint32_t Mode, uint32_t Orientation); // 开始测试模式生成
 void DSI_PatternGeneratorStop(DSI_TypeDef *DSIx); // 停止测试模式生成
 void DSI_Start(DSI_TypeDef *DSIx); // 启动DSI模块

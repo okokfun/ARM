@@ -3,7 +3,7 @@
 ;* Author             : MCD Application Team
 ;* @version           : V1.8.1
 ;* @date              : 27-January-2022
-;* Description        : MDK-ARM工具链的STM32F40xxx/41xxx设备向量表。
+;* Description        : MDK-ARM工具链的STM32F40xxx/41xxx 设备向量表。
 ;*                      本模块执行:
 ;*                      - 设置初始SP
 ;*                      - 设置初始PC == Reset_Handler

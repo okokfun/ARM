@@ -112,9 +112,9 @@
   * 
   * 注意:   默认情况下，GPIO引脚配置为输入浮动模式(JTAG引脚除外)。
   * 
-  * 参数:  GPIOx: 其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)，为STM32F42xxx/43xxx设备选择GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx: 其中x可以是(A..K)，用于为 STM32F405xx/407xx和STM32P415xx/417xx 设备选择GPIO外设设备
+  *                      x可以是(A..I)，为STM32F42xxx/43xxx 设备选择GPIO外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的GPIO外设设备。
   * 
   * 返回值: 无
   */
@@ -280,12 +280,12 @@ void GPIO_PinLockConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
 /**
   * 简介:  读取指定的输入端口引脚。
   * 
-  * 参数:  GPIOx: 其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx: 其中x可以是(A..K)，用于为 STM32F405xx/407xx和STM32P415xx/417xx 设备选择GPIO外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的GPIO外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的GPIO外设设备。
   * 
   * 参数:  GPIO_Pin: 指定要读取的端口位。
-  *         此参数可以是GPIO_Pin_x，其中x可以是(0..15)。
+  *         此参数可以是 GPIO_Pin_x，其中x可以是(0..15)。
   * 
   * 返回值: 输入端口引脚值。
   */
@@ -368,15 +368,15 @@ uint16_t GPIO_ReadOutputData(GPIO_TypeDef* GPIOx) {
 /**
   * 简介:  设置所选数据端口位。
   * 
-  * 注意:   此函数使用 GPIOx_BSRR寄存器允许原子读取/修改访问。
+  * 注意:   此函数使用 GPIOx_BSRR 寄存器允许原子读取/修改访问。
 		这样，在读取和修改访问之间就不会发生IRQ风险。
 
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx:其中x可以是(A..K)，用于为 STM32F405xx/407xx和STM32P415xx/417xx 设备选择GPIO外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的GPIO外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的GPIO外设设备。
   * 
   * 参数:  GPIO_Pin: 指定要写入的端口位。
-  *          此参数可以是GPIO_Pin_x的任意组合，其中x可以是(0..15)。
+  *          此参数可以是 GPIO_Pin_x的任意组合，其中x可以是(0..15)。
   * 
   * 返回值: 无
   */
@@ -391,15 +391,15 @@ void GPIO_SetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
 /**
   * 简介:  清除选定的数据端口位。
   * 
-  * 注意:   此函数使用 GPIOx_BSRR寄存器允许原子读取/修改访问。
+  * 注意:   此函数使用 GPIOx_BSRR 寄存器允许原子读取/修改访问。
 		这样，在读取和修改访问之间就不会发生IRQ风险。
 
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx:其中x可以是(A..K)，用于为 STM32F405xx/407xx和STM32P415xx/417xx 设备选择GPIO外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的GPIO外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的GPIO外设设备。
   * 
   * 参数:  GPIO_Pin: 指定要写入的端口位。
-  *          此参数可以是GPIO_Pin_x的任意组合，其中x可以是(0..15)。
+  *          此参数可以是 GPIO_Pin_x的任意组合，其中x可以是(0..15)。
   * 
   * 返回值: 无
   */
@@ -414,12 +414,12 @@ void GPIO_ResetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
 /**
   * 简介:  设置或清除所选数据端口位。
   * 
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx:其中x可以是(A..K)，用于为 STM32F405xx/407xx和STM32P415xx/417xx 设备选择GPIO外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的GPIO外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的GPIO外设设备。
   * 
   * 参数:  GPIO_Pin:指定要写入的端口位。
-  *          此参数可以是GPIO_Pin_x之一，其中x可以是(0..15)。
+  *          此参数可以是 GPIO_Pin_x之一，其中x可以是(0..15)。
   * 
   * 参数:  BitVal: 指定要写入选定位的值。
   *          此参数可以是BitAction枚举值之一:
@@ -444,9 +444,9 @@ void GPIO_WriteBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, BitAction BitVal) {
 /**
   * 简介:  将数据写入指定的GPIO数据端口。
   * 
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx:其中x可以是(A..K)，用于为 STM32F405xx/407xx和STM32P415xx/417xx 设备选择GPIO外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的GPIO外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的GPIO外设设备。
   * 
   * 参数:  PortVal:指定要写入端口输出数据寄存器的值。
   * 
@@ -462,9 +462,9 @@ void GPIO_Write(GPIO_TypeDef* GPIOx, uint16_t PortVal) {
 /**
   * 简介:  切换指定的GPIO引脚。
   * 
-  * 参数:  GPIOx: 其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx: 其中x可以是(A..K)，用于为 STM32F405xx/407xx和STM32P415xx/417xx 设备选择GPIO外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的GPIO外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的GPIO外设设备。
   * 
   * 参数:  GPIO_Pin: 指定要切换的管脚。
   * 
@@ -492,12 +492,12 @@ void GPIO_ToggleBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
 /**
   * 简介:  更改指定引脚的映射。
   * 
-  * 参数:  GPIOx:其中x可以是(A..K)，用于为STM32F405xx/407xx和STM32P415xx/417xx设备选择GPIO外设设备
-  *                      x可以是(A..I)以选择STM32F42xxx/43xxx设备的GPIO外设设备。
-  *                      x可以是(A、B、C、D和H)，以选择STM32F401xx设备的GPIO外设设备。
+  * 参数:  GPIOx:其中x可以是(A..K)，用于为 STM32F405xx/407xx和STM32P415xx/417xx 设备选择GPIO外设设备
+  *                      x可以是(A..I)以选择 STM32F42xxx/43xxx 设备的GPIO外设设备。
+  *                      x可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的GPIO外设设备。
   * 
   * 参数:  GPIO_PinSource:指定复用功能的管脚。
-  *         此参数可以是GPIO_PinSourcex，其中x可以是(0..15)。
+  *         此参数可以是 GPIO_PinSourcex，其中x可以是(0..15)。
   * 
   * 参数:  GPIO_AFS选择:选择要用作复用功能的管脚。(重置后默认)
   *          此参数可以是以下值之一:

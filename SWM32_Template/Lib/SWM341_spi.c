@@ -335,7 +335,7 @@ void I2S_Init(SPI_TypeDef * SPIx, I2S_InitStructure * initStruct) {
 * 注意事项: 无
 ******************************************************************************************************************************************/
 void I2S_Open(SPI_TypeDef * SPIx) {
-    SPIx->CTRL |= (0x01 << SPI_CTRL_EN_Pos);	//使能SPI才能使用TX Complete中断
+    SPIx->CTRL |= (0x01 << SPI_CTRL_EN_Pos);	//使能SPI才能使用 TX Complete中断
     SPIx->I2SCR |= (0x01 << SPI_I2SCR_EN_Pos);
 }
 

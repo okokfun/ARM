@@ -481,7 +481,7 @@ ITStatus DCMI_GetITStatus(uint16_t DCMI_IT) {
   * 返回值: 无
   */
 void DCMI_ClearITPendingBit(uint16_t DCMI_IT) {
-    /* 清除通过在相应的挂起位位置写入ICR寄存器1来中断挂起位*/
+    /* 清除通过在相应的挂起位位置写入ICR 寄存器1来中断挂起位*/
 
     DCMI->ICR = DCMI_IT;
 }

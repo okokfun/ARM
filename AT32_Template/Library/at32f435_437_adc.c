@@ -65,7 +65,7 @@ void ADC_Enable(ADC_Type *ADC_x, confirm_state new_state) {
   *         该参数可以是:TRUE or FALSE
   * @param  repeat_Mode: 设置adc重复转换模式的状态.
   *         该参数可以是:TRUE or FALSE
-  * @param  data_align: 设置adc数据对齐的状态.
+  * @param  data_align: 设置adC 数据对齐的状态.
   *         该参数可以是以下值之一:
   *         - ADC_RIGHT_ALIGNMENT
   *         - ADC_LEFT_ALIGNMENT
@@ -90,7 +90,7 @@ void ADC_Base_Default_Para_Init(ADC_Base_Config_Type *ADC_Base_struct) {
   *         该参数可以是:TRUE or FALSE
   * @param  repeat_Mode: 设置adc重复转换模式的状态.
   *         该参数可以是:TRUE or FALSE
-  * @param  data_align: 设置adc数据对齐的状态.
+  * @param  data_align: 设置adC 数据对齐的状态.
   *         该参数可以是以下值之一:
   *         - ADC_RIGHT_ALIGNMENT
   *         - ADC_LEFT_ALIGNMENT

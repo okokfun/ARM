@@ -156,7 +156,7 @@ static ITStatus CheckITStatus(uint32_t CAN_Reg, uint32_t It_Bit);
   * 
   * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: 无.
   */
@@ -179,7 +179,7 @@ void CAN_DeInit(CAN_TypeDef* CANx) {
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_CAN2, DISABLE);
     }
 
-    else { /* CAN3仅适用于STM32F413_423xx */
+    else { /* CAN3仅适用于 STM32F413_423xx */
         /* 启用CAN3重置状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_CAN3, ENABLE);
         /* 从复位状态释放CAN3 */
@@ -204,7 +204,7 @@ void CAN_DeInit(CAN_TypeDef* CANx) {
   * 
   * 参数:  CAN_InitStruct: 指向包含CAN外设设备配置信息的CAN_InitTypeDef结构的指针。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: 常量表示初始化成功，即CAN_InitStatus_Failed或CAN_InitStatus_Success。
   */
@@ -583,7 +583,7 @@ void CAN_SlaveStartBank(uint8_t CAN_BankNumber) {
   *          此参数可以是: ENABLE(调试期间CAN接收/传输被冻结。仍可以正常访问/控制接收FIFO)
   *                       或DISABLE(CAN在调试期间工作)。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: 无
   */
@@ -612,7 +612,7 @@ void CAN_DBGFreeze(CAN_TypeDef* CANx, FunctionalState NewState) {
   * 参数:  NewState: 模式新状态。 此参数可以是: ENABLE或DISABLE。
   *         启用时，在8字节消息的最后两个数据字节中发送时间戳(Time[15:0])值:数据字节6中的Time[7:0]，数据字节7中的Time[15:8]。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: 无
   */
@@ -622,7 +622,7 @@ void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用TTCM模式 */
+        /* 启用 TTCM模式 */
         CANx->MCR |= CAN_MCR_TTCM;
 
         /* Set TGT 位 */
@@ -630,7 +630,7 @@ void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState) {
         CANx->sTxMailBox[1].TDTR |= ((uint32_t)CAN_TDT1R_TGT);
         CANx->sTxMailBox[2].TDTR |= ((uint32_t)CAN_TDT2R_TGT);
     } else {
-        /* 禁用TTCM模式 */
+        /* 禁用 TTCM模式 */
         CANx->MCR &= (uint32_t)(~(uint32_t)CAN_MCR_TTCM);
 
         /* 重置 TGT 位 */
@@ -663,7 +663,7 @@ void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState) {
   * 
   * 参数:  TxMessage: 指向包含CAN Id、CAN DLC 和CAN数据的结构的指针。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: 用于传输的邮箱的编号，如果没有空邮箱，则为CAN_TxStatus_NoMailBox。
   */
@@ -701,7 +701,7 @@ uint8_t CAN_Transmit(CAN_TypeDef* CANx, CanTxMsg* TxMessage) {
                     TxMessage->RTR);
         }
 
-        /* 设置DLC */
+        /* 设置 DLC */
         TxMessage->DLC &= (uint8_t)0x0000000F;
         CANx->sTxMailBox[transmit_mailbox].TDTR &= (uint32_t)0xFFFFFFF0;
         CANx->sTxMailBox[transmit_mailbox].TDTR |= TxMessage->DLC;
@@ -729,7 +729,7 @@ uint8_t CAN_Transmit(CAN_TypeDef* CANx, CanTxMsg* TxMessage) {
   * 
   * 参数:  TransmitMailbox: 用于传输的邮箱的编号。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: CAN_TxStatus_Ok如果CAN驱动器传输消息，
   *         则在其他情况下CAN_Tx Status_Failed(CAN_Tx-Status_失败)。
@@ -806,7 +806,7 @@ uint8_t CAN_TransmitStatus(CAN_TypeDef* CANx, uint8_t TransmitMailbox) {
   * 
   * 参数:  Mailbox: 邮箱编号
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: 无
   */
@@ -861,7 +861,7 @@ void CAN_CancelTransmit(CAN_TypeDef* CANx, uint8_t Mailbox) {
   * 
   * 参数:  RxMessage: 指向包含CAN Id、CAN DLC、CAN数据和FMI编号的结构接收帧的指针。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: 无
   */
@@ -911,7 +911,7 @@ void CAN_Receive(CAN_TypeDef* CANx, uint8_t FIFONumber, CanRxMsg* RxMessage) {
   * 
   * 参数:  FIFONumber: 要释放的FIFO，CAN_FIFO0或CAN_FFIFO1。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: 无
   */
@@ -937,7 +937,7 @@ void CAN_FIFORelease(CAN_TypeDef* CANx, uint8_t FIFONumber) {
   * 
   * 参数:  FIFONumber: 接收FIFO编号、CAN_FIFO0或CAN_FFIFO1。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: NbMessage : 这是挂起消息的数量。
   */
@@ -1050,7 +1050,7 @@ uint8_t CAN_OperatingModeRequest(CAN_TypeDef* CANx, uint8_t CAN_OperatingMode) {
   * 简介:  CAN 进入低功耗模式
   * 
   * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: 如果进入睡眠，CAN_Sleep_Ok，否则CAN_Sleep_Failed。
   */
@@ -1078,7 +1078,7 @@ uint8_t CAN_Sleep(CAN_TypeDef* CANx) {
   * 
   * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: CAN_WakeUp_Ok(如果睡眠模式离开)，否则CAN_WakeUp_Failed(CAN_WakeUp_失败)。
   */
@@ -1165,7 +1165,7 @@ uint8_t CAN_GetLastErrorCode(CAN_TypeDef* CANx) {
   * 
   * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: CAN接收错误计数器。
   */
@@ -1188,7 +1188,7 @@ uint8_t CAN_GetReceiveErrorCounter(CAN_TypeDef* CANx) {
   * 
   * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: 9位CAN传输错误计数器的LSB。
   */
@@ -1360,7 +1360,7 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
   * 
   * 参数:  NewState:CAN中断的新状态。
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   *          此参数可以是: ENABLE或DISABLE。
   * 
   * 返回值: 无
@@ -1401,7 +1401,7 @@ void CAN_ITConfig(CAN_TypeDef* CANx, uint32_t CAN_IT, FunctionalState NewState) 
   *            @arg CAN_FLAG_EPV: 错误被动标志
   *            @arg CAN_FLAG_BOF:总线关闭标志
   *            @arg CAN_FLAG_LEC:最后的错误代码标志
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: CAN_FLAG的新状态(SET或RESET)。
   */
@@ -1482,7 +1482,7 @@ FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
   *            @arg CAN_FLAG_SLAK: 睡眠确认标志
   *            @arg CAN_FLAG_LEC:最后的错误代码标志
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 返回值: 无
   */
 void CAN_ClearFlag(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
@@ -1535,7 +1535,7 @@ void CAN_ClearFlag(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
   *            @arg CAN_IT_LEC: 最后的错误代码中断
   *            @arg CAN_IT_ERR: 错误中断
   * 
-  * 注意:   CAN3外设设备仅适用于STM32F413_423xx设备
+  * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: CAN_IT的当前状态(SET或RESET)。
   */

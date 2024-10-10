@@ -594,15 +594,15 @@ typedef struct {
 /* Exported functions ------------------------------------------------------- */
 
 /* 初始化功能 ***************************************************/
-void DFSDM_DeInit(void); // 将DFSDM外围寄存器取消初始化为其默认重置值。
-void DFSDM_TransceiverInit(DFSDM_Channel_TypeDef* DFSDM_Channelx, DFSDM_TransceiverInitTypeDef* DFSDM_TransceiverInitStruct); // 根据DFSDM_TranceiverInit中的指定参数初始化DFSDM串行通道收发器。
+void DFSDM_DeInit(void); // 将DFSDM 外围寄存器取消初始化为其默认重置值。
+void DFSDM_TransceiverInit(DFSDM_Channel_TypeDef* DFSDM_Channelx, DFSDM_TransceiverInitTypeDef* DFSDM_TransceiverInitStruct); // 根据 DFSDM_TranceiverInit中的指定参数初始化DFSDM串行通道收发器。
 void DFSDM_TransceiverStructInit(DFSDM_TransceiverInitTypeDef* DFSDM_TransceiverInitStruct); // 使用默认值填充每个DFSDM_TranceiverInitStruct成员。
-void DFSDM_FilterInit(DFSDM_Filter_TypeDef* DFSDMx, DFSDM_FilterInitTypeDef* DFSDM_FilterInitStruct); // 根据DFSDM_FilterInitStruct中的指定参数初始化DFSDMx筛选器。
+void DFSDM_FilterInit(DFSDM_Filter_TypeDef* DFSDMx, DFSDM_FilterInitTypeDef* DFSDM_FilterInitStruct); // 根据 DFSDM_FilterInitStruct中的指定参数初始化DFSDMx筛选器。
 void DFSDM_FilterStructInit(DFSDM_FilterInitTypeDef* DFSDM_FilterInitStruct); // 用默认值填充每个DFSDM_FilterInitStruct成员。
 
 /* 配置功能 ****************************************************/
 #if defined(STM32F412xG)
-void DFSDM_Command(FunctionalState NewState); // 启用或停用 DFSDM外设。
+void DFSDM_Command(FunctionalState NewState); // 启用或停用 DFSDM 外设。
 #else /* STM32F413_423xx */
 void DFSDM_Cmd(uint32_t Instance, FunctionalState NewState); // 启用或禁用 DFSDM 外设.
 #endif /* STM32F412xG */

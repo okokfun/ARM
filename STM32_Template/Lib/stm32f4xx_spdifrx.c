@@ -231,10 +231,10 @@ void SPDIFRX_RxDMACmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用选定的SPDIFRX DMA请求 */
+        /* 启用选定的SPDIFRX DMA 请求 */
         SPDIFRX->CR |= SPDIFRX_CR_RXDMAEN;
     } else {
-        /* 禁用选定的SPDIFRX DMA请求 */
+        /* 禁用选定的SPDIFRX DMA 请求 */
         SPDIFRX->CR &= ~(SPDIFRX_CR_RXDMAEN);
     }
 }
@@ -250,10 +250,10 @@ void SPDIFRX_CbDMACmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用选定的SPDIFRX DMA请求 */
+        /* 启用选定的SPDIFRX DMA 请求 */
         SPDIFRX->CR |= SPDIFRX_CR_CBDMAEN;
     } else {
-        /* 禁用选定的SPDIFRX DMA请求 */
+        /* 禁用选定的SPDIFRX DMA 请求 */
         SPDIFRX->CR &= ~(SPDIFRX_CR_CBDMAEN);
     }
 }

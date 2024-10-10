@@ -84,13 +84,13 @@ extern "C" {
 /* Exported functions --------------------------------------------------------*/
 
 /* 预分频器和计数器配置功能 ******************************/
-void IWDG_WriteAccessCmd(uint16_t IWDG_WriteAccess); // 启用或禁用对IWDG_PR和IWDG_RLR寄存器的写入访问权限。
+void IWDG_WriteAccessCmd(uint16_t IWDG_WriteAccess); // 启用或禁用对IWDG_PR和IWDG_RLR 寄存器的写入访问权限。
 void IWDG_SetPrescaler(uint8_t IWDG_Prescaler); // 设置IWDG预分频器值。
 void IWDG_SetReload(uint16_t Reload); // 设置 IWDG 重新加载值。
-void IWDG_ReloadCounter(void); // 使用重新加载寄存器中定义的值重新加载 IWDG 计数器(禁用对IWDG_PR和IWDG_RLR寄存器的写入访问)。
+void IWDG_ReloadCounter(void); // 使用重新加载寄存器中定义的值重新加载 IWDG 计数器(禁用对IWDG_PR和IWDG_RLR 寄存器的写入访问)。
 
 /* IWDG 激活功能 ***************************************************/
-void IWDG_Enable(void); // 启用 IWDG(禁用对IWDG_PR和IWDG_RLR寄存器的写访问)。
+void IWDG_Enable(void); // 启用 IWDG(禁用对IWDG_PR和IWDG_RLR 寄存器的写访问)。
 
 /* 标志管理功能 ***************************************************/
 FlagStatus IWDG_GetFlagStatus(uint16_t IWDG_FLAG); // 检查是否设置了指定的 IWDG 标志。

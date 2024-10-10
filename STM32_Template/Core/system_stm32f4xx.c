@@ -5,7 +5,7 @@
   * @version V1.8.0
   * @date    09-November-2016
   * 简介:   CMSIS Cortex-M4设备外围访问层系统源文件。
-  *          此文件包含STM32F4xx设备的系统时钟配置。
+  *          此文件包含STM32F4xx 设备的系统时钟配置。
   *
   * 1.  此文件提供两个函数和一个全局变量，可从用户应用程序调用：
   *      - SystemInit(): 根据时钟xls工具中的配置，设置系统时钟(系统时钟源、PLL乘法器和
@@ -31,7 +31,7 @@
   * 5. 此文件按如下方式配置系统时钟：
   *=============================================================================
   *=============================================================================
-  *                    支持的STM32F40xxx/41xxx设备
+  *                    支持的STM32F40xxx/41xxx 设备
   *-----------------------------------------------------------------------------
   *        系统时钟源                             | PLL (HSE)
   *-----------------------------------------------------------------------------
@@ -454,7 +454,7 @@ void SystemInit(void) {
     /* 重置 HSEON, CSSON and PLLON bits */
     RCC->CR &= (uint32_t)0xFEF6FFFF;
 
-    /* 重置 PLLCFGR r寄存器 */
+    /* 重置 PLLCFGR R 寄存器 */
     RCC->PLLCFGR = 0x24003010;
 
     /* 重置 HSEBYP bit */
@@ -490,7 +490,7 @@ void SystemInit(void) {
   *
   *           - 如果 SYSCLK 源是 HSI，SystemCoreClock 将包含 HSI_VALUE(*)
   *
-  *           - 如果SYSCLK源为HSE，SystemCoreClock将包含HSE_VALUE(**)
+  *           - 如果SYSCLK源为 HSE，SystemCoreClock将包含HSE_VALUE(**)
   *
   *           - 如果SYSCLK源是PLL，则SystemCoreClock将包含HSE_VALUE(**)或HSI_VALE(*)乘以/除以PLL因子。
   *

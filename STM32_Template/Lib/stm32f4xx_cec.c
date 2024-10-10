@@ -284,7 +284,7 @@ void CEC_OwnAddressClear(void) {
  ===============================================================================
                             ##### 数据传输函数 #####
  ===============================================================================
-    [..] 本节提供了允许CEC数据传输的功能。CEC_RXDR寄存器的读取访问可以使用
+    [..] 本节提供了允许CEC 数据传输的功能。CEC_RXDR 寄存器的读取访问可以使用
          CEC_ReceiveData() 函数完成，并返回Rx缓冲值。
          而对CEC_TXDR的写访问可以使用CEC_SendData() 函数完成。
 @endverbatim
@@ -353,7 +353,7 @@ void CEC_EndOfMessage(void) {
             (+) CEC_FLAG_TXERR :  表示在传输模式中发生错误。
                                   启动器检测到CEC线路的低阻抗。
             (+) CEC_FLAG_TXUDR :  指示在传输模式下是否发生了欠运行错误。
-                                  当软件还没有将任何数值加载到TXDR寄存器时，传输被启用。启用时，软件尚未将任何数值加载到TXDR寄存器中。
+                                  当软件还没有将任何数值加载到TXDR 寄存器时，传输被启用。启用时，软件尚未将任何数值加载到TXDR 寄存器中。
             (+) CEC_FLAG_TXEND :  指示成功传输的结束。
             (+) CEC_FLAG_TXBR :   指示下一个传输数据必须写入TXDR。
             (+) CEC_FLAG_ARBLST : 在两个CEC设备同时启动的情况下表示仲裁失败。同时启动的情况下，表示仲裁失败。
@@ -362,7 +362,7 @@ void CEC_EndOfMessage(void) {
             (+) CEC_FLAG_SBPE :   指示在接收模式下产生的短比特周期错误。
             (+) CEC_FLAG_BRE :    表示在接收模式下产生的一个位上升错误。
             (+) CEC_FLAG_RXOVR :  指示是否在接收CEC信息时发生超限错误。
-                                  在RXDR寄存器中存储一个新的字节时，尚未收到一个字节。
+                                  在RXDR 寄存器中存储一个新的字节时，尚未收到一个字节。
             (+) CEC_FLAG_RXEND :  指示是否发生超限错误。
             (+) CEC_FLAG_RXBR :   表示已经从CEC线路上收到一个新的字节，并存储到RXDR缓冲器中。
     [..]
@@ -376,10 +376,10 @@ void CEC_EndOfMessage(void) {
            (+) CEC_IT_TXERR :   表示在传输模式中发生错误。
                                 启动器检测到CEC线路的低阻抗。
            (+) CEC_IT_TXUDR :   表示在传输模式下发生了欠载错误。
-                                当软件还没有将任何数值加载到TXDR寄存器时，传输被启用。
-                                启用时，软件尚未将任何数值加载到TXDR寄存器中。
+                                当软件还没有将任何数值加载到TXDR 寄存器时，传输被启用。
+                                启用时，软件尚未将任何数值加载到TXDR 寄存器中。
            (+) CEC_IT_TXEND :   表示传输成功结束。
-           (+) CEC_IT_TXBR :    指示下一个传输数据必须写入TXDR寄存器。
+           (+) CEC_IT_TXBR :    指示下一个传输数据必须写入TXDR 寄存器。
            (+) CEC_IT_ARBLST :  在两个CEC设备同时启动的情况下表示仲裁失败。
            (+) CEC_IT_ARBLST :  在两个CEC设备同时启动的情况下，表示仲裁失败。
            (+) CEC_IT_RXACKE :  表示在接收模式下的确认丢失。
@@ -387,7 +387,7 @@ void CEC_EndOfMessage(void) {
            (+) CEC_IT_SBPE :    指示在接收模式下产生的短比特周期错误。
            (+) CEC_IT_BRE :     表示在接收模式下产生的一个位上升错误。
            (+) CEC_IT_RXOVR :   指示在接收CEC信息时是否发生超限错误。
-                                在RXDR寄存器中存储一个新的字节时，尚未收到一个字节。
+                                在RXDR 寄存器中存储一个新的字节时，尚未收到一个字节。
            (+) CEC_IT_RXEND :   表示接收结束。
            (+) CEC_IT_RXBR :    表示已经从CEC线路接收到一个新的字节，并存储到RXDR缓冲器。
     [..]
@@ -478,7 +478,7 @@ FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG) {
 }
 
 /**
-  * 简介:  清除CEC的挂起标志。
+  * 简介:  清除CEC 的挂起标志。
   * 
   * 参数:  CEC_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
@@ -550,7 +550,7 @@ ITStatus CEC_GetITStatus(uint16_t CEC_IT) {
 }
 
 /**
-  * 简介:  清除CEC的中断挂起位。
+  * 简介:  清除CEC 的中断挂起位。
   * 
   * 参数:  CEC_IT: 指定要清除的CEC中断挂起位。
   *          此参数可以是以下值的任意组合:

@@ -35,7 +35,7 @@
         (++) 通过以下方式在复用功能中配置所需引脚:
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
 
-        (++) 通过 GPIO_PuPd、GPIO_OType和 GPIO_speed 成员选择类型、上拉/下拉和输出速度
+        (++) 通过 GPIO_PuPd、GPIO_OType 和 GPIO_speed 成员选择类型、上拉/下拉和输出速度
         
         (++) 调用 GPIO_Init() 函数
 
@@ -47,7 +47,7 @@
       (#) 如果需要使用中断模式，请使用函数 USART_ITConfig() 启用 NVIC 和相应的中断。
 
       (#) 使用 DMA 模式时
-        (++) 使用 DMA_Init() 函数配置DMA
+        (++) 使用 DMA_Init() 函数配置 DMA
         (++) 使用 USART_DMACmd() 函数激活所需的信道请求
 
       (#) 使用 USART_Cmd() 函数启用 USART。
@@ -300,7 +300,7 @@ void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct) {
         tmpreg |= ((((fractionaldivider * 16) + 50) / 100)) & ((uint8_t)0x0F);
     }
 
-    /* 写入USART BRR寄存器 */
+    /* 写入USART BRR 寄存器 */
     USARTx->BRR = (uint16_t)tmpreg;
 }
 
@@ -457,12 +457,12 @@ void USART_OneBitMethodCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     本小节提供了一组允许管理USART数据传输的函数。
     [..]
     在USART接收期间，数据首先通过RX引脚以最低有效位移位。
-    在此模式下，USART_DR寄存器由内部总线和接收的移位寄存器之间的缓冲区(RDR)组成。
+    在此模式下，USART_DR 寄存器由内部总线和接收的移位寄存器之间的缓冲区(RDR)组成。
     [..]
-    传输发生时，USART_DR寄存器的写入指令将数据存储在TDR寄存器中，
+    传输发生时，USART_DR 寄存器的写入指令将数据存储在TDR 寄存器中，
     并在当前传输结束时复制到移位寄存器中。
     [..]
-    USART_DR寄存器的读取访问可以使用 USART_ReceiveData() 函数完成，
+    USART_DR 寄存器的读取访问可以使用 USART_ReceiveData() 函数完成，
     并返回RDR缓冲值。而对USART_DR的写入访问可以使用 USART_SendData() 函数完成，
     并将写入的数据存储到TDR缓冲区中。
 
@@ -838,7 +838,7 @@ void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     [..]
     本小节提供了一组允许管理USART IrDA通信的功能。
     [..]
-    IrDA是一种半双工通信协议。如果发射机繁忙，IrDA解码器将忽略IrDA接收线上的任何数据，
+    IrDA是一种半双工通信协议。如果发射机繁忙，IrDA解码器将忽略IrDA 接收线上的任何数据，
         如果接收机繁忙，则IrDA不会对USART到IrDA的TX数据进行编码。
     在接收数据时，应避免传输，因为要传输的数据可能会损坏。
     [..]
@@ -913,13 +913,13 @@ void USART_IrDACmd(USART_TypeDef* USARTx, FunctionalState NewState) {
   */
 
 /**
-  * 简介:  启用或禁用 USART的DMA接口。
+  * 简介:  启用或禁用 USART的DMA 接口。
   * 参数:  USARTx: 其中x可以是1、2、3、4、5、6、7或8，以选择USART或UART外设设备。
-  * 参数:  USART_DMAReq: 指定DMA请求。
+  * 参数:  USART_DMAReq: 指定DMA 请求。
   *          此参数可以是以下值的任意组合:
   *            @arg USART_DMAReq_Tx: USART DMA传输请求
-  *            @arg USART_DMAReq_Rx: USART DMA接收请求
-  * 参数:  NewState: DMA请求源的新状态。
+  *            @arg USART_DMAReq_Rx: USART DMA 接收请求
+  * 参数:  NewState: DMA 请求源的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
@@ -930,7 +930,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过在USART CR3寄存器中设置DMAT和/或DMAR位，为所选请求启用 DMA传输 */
+        /* 通过在USART CR3寄存器中设置 DMAT和/或DMAR位，为所选请求启用 DMA传输 */
         USARTx->CR3 |= USART_DMAReq;
     } else {
         /* 通过清除USART CR3寄存器中的DMAT和/或DMAR位，禁用所选请求的DMA传输 */
@@ -1120,12 +1120,12 @@ FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG) {
   *            @arg USART_FLAG_RXNE: 接收数据寄存器非空标志。
   *
   * 注意:   PE(奇偶校验错误)、FE(帧错误)、NE(噪声错误)、ORE(OverRun错误)和
-  *         IDLE(检测到空闲行)标志按软件顺序清除:先读取USART_SR寄存器
-  *         (USART_GetFlagStatus())，然后读取USART_DR寄存器(USERT_ReceiveData())。
-  * 注意:   RXNE标志也可以通过读取USART_DR寄存器(USART_ReceiveData())来清除。
-  * 注意:   TC标志也可以通过软件序列清除:先读取USART_SR寄存器(USART_GetFlagStatus())，
-  *             然后写入USART_DR寄存器(USATT_SendData())。
-  * 注意:   TXE标志只能通过写入USART_DR寄存器(USART_SendData())来清除。
+  *         IDLE(检测到空闲行)标志按软件顺序清除:先读取USART_SR 寄存器
+  *         (USART_GetFlagStatus())，然后读取USART_DR 寄存器(USERT_ReceiveData())。
+  * 注意:   RXNE标志也可以通过读取USART_DR 寄存器(USART_ReceiveData())来清除。
+  * 注意:   TC标志也可以通过软件序列清除:先读取USART_SR 寄存器(USART_GetFlagStatus())，
+  *             然后写入USART_DR 寄存器(USATT_SendData())。
+  * 注意:   TXE标志只能通过写入USART_DR 寄存器(USART_SendData())来清除。
   *
   * 返回值: 无
   */
@@ -1211,12 +1211,12 @@ ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT) {
   *
   * 注意:   PE(奇偶校验错误)、FE(帧错误)、NE(噪声错误)、ORE(OverRun错误)和
   *             IDLE(检测到空闲线)挂起的位按软件顺序清除:
-  *             先读取USART_SR寄存器(USART_GetITStatus())，
-  *             然后读取USART_DR寄存器(USERT_ReceiveData())
-  * 注意:   RXNE挂起位也可以通过读取USART_DR寄存器(USART_ReceiveData())来清除。
-  * 注意:   TC挂起位也可以通过软件序列清除:先读取USART_SR寄存器(USART_GetITStatus())，
-  *             然后写入USART_DR寄存器(USATT_SendData())。
-  * 注意:   TXE挂起位仅通过写入USART_DR寄存器(USART_SendData())来清除。
+  *             先读取USART_SR 寄存器(USART_GetITStatus())，
+  *             然后读取USART_DR 寄存器(USERT_ReceiveData())
+  * 注意:   RXNE挂起位也可以通过读取USART_DR 寄存器(USART_ReceiveData())来清除。
+  * 注意:   TC挂起位也可以通过软件序列清除:先读取USART_SR 寄存器(USART_GetITStatus())，
+  *             然后写入USART_DR 寄存器(USATT_SendData())。
+  * 注意:   TXE挂起位仅通过写入USART_DR 寄存器(USART_SendData())来清除。
   *
   * 返回值: 无
   */

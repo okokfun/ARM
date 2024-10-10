@@ -15,7 +15,7 @@
                  ##### 如何使用这个驱动程序 #####
  ===================================================================
  [..]
-   (#) 启用RNG控制器时钟使用 RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_RNG, ENABLE) 函数。
+   (#) 启用 RNG控制器时钟使用 RCC_AHB2PeriphClockCmd(RCC_AHB2Periph_RNG, ENABLE) 函数。
 
    (#) 使用 RNG_Cmd() 函数激活 RNG 外设设备。
 
@@ -79,7 +79,7 @@
  ===============================================================================
  [..] 本节提供的功能允许
    (+) 初始化RNG外设
-   (+) 使能或禁用RNG外设
+   (+) 使能或禁用 RNG外设
 
 @endverbatim
   */
@@ -117,10 +117,10 @@ void RNG_Cmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用RNG */
+        /* 启用 RNG */
         RNG->CR |= RNG_CR_RNGEN;
     } else {
-        /* 禁用RNG */
+        /* 禁用 RNG */
         RNG->CR &= ~RNG_CR_RNGEN;
     }
 }
@@ -136,7 +136,7 @@ void RNG_Cmd(FunctionalState NewState) {
  [..] 本节提供了一个函数，允许获取32位随机数
 
    (@)  在调用这个函数之前，你必须等待DRDY标志被设置，
-        使用RNG_GetFlagStatus(RNG_FLAG_DRDY) 函数。
+        使用 RNG_GetFlagStatus(RNG_FLAG_DRDY) 函数。
 
 @endverbatim
   */
@@ -145,22 +145,22 @@ void RNG_Cmd(FunctionalState NewState) {
 /**
   * 简介:  返回一个 32 位随机数。
   *
-  * 注意:   在调用此函数之前，您必须使用RNG_GetFlagStatus(RNG_flag_DRDY)
-			函数等待设置DRDY(数据就绪)标志。
-  * 注意:   每次读取随机数数据(使用RNG_GetRandomNumber() 函数)
+  * 注意:   在调用此函数之前，您必须使用 RNG_GetFlagStatus(RNG_flag_DRDY)
+			函数等待设置 DRDY(数据就绪)标志。
+  * 注意:   每次读取随机数数据(使用 RNG_GetRandomNumber() 函数)
 			时，RNG_FLAG_DRDY标志会自动清除。
   * 注意:   在种子错误的情况下，只要SECS位为"1"，随机数的生成就
-			会中断。如果一个数字在RNG_DR寄存器中可用，则不能使用它，
+			会中断。如果一个数字在RNG_DR 寄存器中可用，则不能使用它，
 			因为它可能没有足够的熵。在这种情况下，建议清除SEIS位
-			(使用RNG_ClearFlag(RNG_FLAG_SECS) 功能)，
-			然后禁用并启用RNG外设设备(使用RNG_Cmd() 功能)
+			(使用 RNG_ClearFlag(RNG_FLAG_SECS) 功能)，
+			然后禁用并启用 RNG外设设备(使用 RNG_Cmd() 功能)
 			以重新初始化并重新启动RNG。
   * 注意:   在时钟错误的情况下，由于PLL48CLK时钟不正确，
 			RNG不再能够生成随机数。用户必须检查时钟控制器
 			是否正确配置为提供RNG时钟并清除CEIS位(使用
 			RNG_ClearFlag(RNG_FLAG_CECS) 功能)。
 			时钟错误对先前生成的随机数没有影响，
-			并且可以使用RNG_DR寄存器内容。
+			并且可以使用 RNG_DR 寄存器内容。
   *
   * 参数:  无
   * 返回值: 32-bit 随机数.
@@ -187,8 +187,8 @@ uint32_t RNG_GetRandomNumber(void) {
  *** Flags : ***
  ===============
  [..]
-    (#) RNG_FLAG_DRDY :  在RNG_DR寄存器包含有效随机数据的情况下。
-		通过读取有效数据(使用RNG_GetRandomNumber() 函数)来清除它。
+    (#) RNG_FLAG_DRDY :  在RNG_DR 寄存器包含有效随机数据的情况下。
+		通过读取有效数据(使用 RNG_GetRandomNumber() 函数)来清除它。
 
     (#) RNG_FLAG_CECS : 在种子错误检测的情况下。
 
@@ -198,16 +198,16 @@ uint32_t RNG_GetRandomNumber(void) {
  ==================
  [..] 如果启用，则RNG中断处于挂起状态 :
 
-   (#) 在RNG_DR寄存器包含有效随机数据的情况下。
-		一旦读取了RNG_DR寄存器(使用RNG_GetRandomNumber() 函数)，
+   (#) 在RNG_DR 寄存器包含有效随机数据的情况下。
+		一旦读取了RNG_DR 寄存器(使用 RNG_GetRandomNumber() 函数)，
 		该中断源将被清除，直到计算出新的有效值;
    (#) 在种子错误的情况下 : 检测到以下故障序列之一:
        (++) 具有相同值(0或1)的64个以上连续位
        (++) 0和1的连续交替次数超过32次(0101010101…01)
-       使用RNG_ClearITPendingBit(RNG_IT_SEI) 函数清除该中断源;
+       使用 RNG_ClearITPendingBit(RNG_IT_SEI) 函数清除该中断源;
    (#) 在时钟错误的情况下 : PLL48CLK(RNG外围时钟源)没有
 		被正确地检测到(fPLL48CLK <fHCLK/16)。
-		使用RNG_ClearITPendingBit(RNG_IT_CEI) 功能清除此中断源。
+		使用 RNG_ClearITPendingBit(RNG_IT_CEI) 功能清除此中断源。
        -@- 注意:在这种情况下，用户必须检查时钟控制器是否正确配置以提供RNG时钟。
 
  *** 管理RNG控制器事件 : ***
@@ -235,7 +235,7 @@ uint32_t RNG_GetRandomNumber(void) {
   *           - 计算数据就绪事件(DRDY)，以及
   *           - 种子错误中断(SEI)和
   *           - 时钟错误中断(CEI)，
-  *         所有这些中断源都是通过在CR寄存器中设置IE位来启用的。
+  *         所有这些中断源都是通过在CR 寄存器中设置IE位来启用的。
 			但是，每个中断都有其特定的状态位(请参阅RNG_GetITStatus()
 			函数)和清除位(请参见RNG_ClearITPendingBit() 函数，DRDY事件除外)。
   * 参数:  NewState: 新状态-> RNG 中断.

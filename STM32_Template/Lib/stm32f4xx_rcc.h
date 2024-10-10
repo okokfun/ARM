@@ -821,13 +821,13 @@ void        RCC_APB2PeriphClockCmd(uint32_t RCC_APB2Periph, FunctionalState NewS
 
 void        RCC_AHB1PeriphResetCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState); // 强制或释放AHB1外设复位。
 void        RCC_AHB2PeriphResetCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState); // 强制或释放AHB2外设复位。
-void        RCC_AHB3PeriphResetCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState); // 强制或释放AHB3外设复位。
+void        RCC_AHB3PeriphResetCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState); // 强制或释放AHB3 外设复位。
 void        RCC_APB1PeriphResetCmd(uint32_t RCC_APB1Periph, FunctionalState NewState); // 强制或释放APB1外设复位。
 void        RCC_APB2PeriphResetCmd(uint32_t RCC_APB2Periph, FunctionalState NewState); // 强制或释放APB2外设复位。
 
 void        RCC_AHB1PeriphClockLPModeCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用AHB1外设时钟。
 void        RCC_AHB2PeriphClockLPModeCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用AHB2外设时钟。
-void        RCC_AHB3PeriphClockLPModeCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用AHB3外设时钟。
+void        RCC_AHB3PeriphClockLPModeCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用AHB3 外设时钟。
 void        RCC_APB1PeriphClockLPModeCmd(uint32_t RCC_APB1Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用APB1外设时钟。
 void        RCC_APB2PeriphClockLPModeCmd(uint32_t RCC_APB2Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用APB2外设时钟。
 

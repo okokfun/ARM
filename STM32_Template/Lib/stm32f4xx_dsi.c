@@ -89,7 +89,7 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx, uint32_t ChannelID, uint32
                 ##### 初始化和配置函数 #####
  ===============================================================================
     [..]  本节提供的功能允许:
-      (+) 初始化并配置DSI
+      (+) 初始化并配置 DSI
       (+) 解除对DSI的初始化
 
 @endverbatim
@@ -186,7 +186,7 @@ void DSI_Init(DSI_TypeDef *DSIx, DSI_InitTypeDef* DSI_InitStruct, DSI_PLLInitTyp
     DSIx->PCONFR &= ~DSI_PCONFR_NL;
     DSIx->PCONFR |= DSI_InitStruct->NumberOfLanes;
 
-    /************************ 设置DSI时钟参数 ************************/
+    /************************ 设置 DSI时钟参数 ************************/
     /* 设置TTX转义时钟分频因子 */
     DSIx->CCR &= ~DSI_CCR_TXECKDIV;
     DSIx->CCR = DSI_InitStruct->TXEscapeCkdiv;
@@ -215,7 +215,7 @@ void DSI_Init(DSI_TypeDef *DSIx, DSI_InitTypeDef* DSI_InitStruct, DSI_PLLInitTyp
   * 返回值: 无
   */
 void DSI_StructInit(DSI_InitTypeDef* DSI_InitStruct, DSI_HOST_TimeoutTypeDef* DSI_HOST_TimeoutInitStruct) {
-    /*--------------- 重置DSI初始化结构参数值 ---------------*/
+    /*--------------- 重置 DSI初始化结构参数值 ---------------*/
     /* 初始化 AutomaticClockLaneControl 成员 */
     DSI_InitStruct->AutomaticClockLaneControl = DSI_AUTO_CLK_LANE_CTRL_DISABLE;
     /* 初始化 NumberOfLanes 成员 */
@@ -223,7 +223,7 @@ void DSI_StructInit(DSI_InitTypeDef* DSI_InitStruct, DSI_HOST_TimeoutTypeDef* DS
     /* 初始化TX Escape时钟分区 */
     DSI_InitStruct->TXEscapeCkdiv = 0;
 
-    /*--------------- 重置DSI定时初始化结构参数值 -------*/
+    /*--------------- 重置 DSI定时初始化结构参数值 -------*/
     /* 初始化 TimeoutCkdiv 成员 */
     DSI_HOST_TimeoutInitStruct->TimeoutCkdiv = 0;
     /* 初始化 HighSpeedTransmissionTimeout 成员 */
@@ -535,7 +535,7 @@ void DSI_ConfigFlowControl(DSI_TypeDef *DSIx, uint32_t FlowControl) {
 }
 
 /**
-  * 简介:  配置DSI PHY计时器参数
+  * 简介:  配置 DSI PHY计时器参数
   * 
   * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
   * 
@@ -569,7 +569,7 @@ void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers) {
 }
 
 /**
-  * 简介:  配置DSI HOST超时参数
+  * 简介:  配置 DSI HOST超时参数
   * 
   * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
   * 
@@ -1479,7 +1479,7 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
             ##### 中断和标记管理函数 #####
  ===============================================================================
 
- [..] 本节提供了一组函数，允许配置DSI中断源并检查或清除标志或挂起位状态。
+ [..] 本节提供了一组函数，允许配置 DSI中断源并检查或清除标志或挂起位状态。
       用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式或中断模式。
 
  *** 轮询模式 ***

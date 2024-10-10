@@ -827,7 +827,7 @@ void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN); //
 /* 输入捕获管理 ***************************************************/
 void TIM_ICInit(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct); // 根据TIM_ICInitStruct中指定的参数初始化 TIM 外设。
 void TIM_ICStructInit(TIM_ICInitTypeDef* TIM_ICInitStruct); // 用其默认值填充每个TIM_ICInitStruct成员。
-void TIM_PWMIConfig(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct); // 根据TIM_ICInitStruct中的指定参数配置TIM外设，以测量外部PWM信号。
+void TIM_PWMIConfig(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct); // 根据TIM_ICInitStruct中的指定参数配置TIM 外设，以测量外部PWM信号。
 uint32_t TIM_GetCapture1(TIM_TypeDef* TIMx); // 获取 TIMx 输入捕获 1 值。
 uint32_t TIM_GetCapture2(TIM_TypeDef* TIMx); // 获取 TIMx 输入捕获 2 值。
 uint32_t TIM_GetCapture3(TIM_TypeDef* TIMx); // 获取 TIMx 输入捕获 3 值。

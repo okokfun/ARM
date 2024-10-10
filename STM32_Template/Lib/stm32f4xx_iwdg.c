@@ -23,7 +23,7 @@
 
       IWDG在VDD电压域中实现，在STOP和STANDBY模式下仍然有效(IWDG复位可以从STANDBY唤醒)。
 
-      RCC_CSR寄存器中的IWDGRST标志可用于通知何时发生IWDG复位。
+      RCC_CSR 寄存器中的IWDGRST标志可用于通知何时发生IWDG复位。
 
       最小-最大超时值@32KHz(LSI): ~125us/~32.7s
       由于LSI频率分散，IWDG超时可能会有所不同。STM32F4xx器件提供了测量LSI频率的能力
@@ -81,7 +81,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* 私有宏 ------------------------------------------------------------*/
 
-/* KR寄存器位掩码 */
+/* KR 寄存器位掩码 */
 #define KR_KEY_RELOAD    ((uint16_t)0xAAAA)
 #define KR_KEY_ENABLE    ((uint16_t)0xCCCC)
 
@@ -109,8 +109,8 @@
   * 
   * 参数:  IWDG_WriteAccess: 对 IWDG_PR 和 IWDG_RLR 寄存器进行写操作的新状态。
   *          此参数可以是以下值之一:
-  *            @arg IWDG_WriteAccess_Enable:  启用对IWDG_PR和IWDG_RLR寄存器的写入权限
-  *            @arg IWDG_WriteAccess_Disable: 禁止对IWDG_PR和IWDG_RLR寄存器的写访问
+  *            @arg IWDG_WriteAccess_Enable:  启用对IWDG_PR和IWDG_RLR 寄存器的写入权限
+  *            @arg IWDG_WriteAccess_Disable: 禁止对IWDG_PR和IWDG_RLR 寄存器的写访问
   * 
   * 返回值: 无
   */
@@ -180,7 +180,7 @@ void IWDG_ReloadCounter(void) {
   */
 
 /**
-  * 简介:  启用 IWDG(禁用对IWDG_PR和IWDG_RLR寄存器的写访问)。
+  * 简介:  启用 IWDG(禁用对IWDG_PR和IWDG_RLR 寄存器的写访问)。
   * 
   * 参数:  无
   * 

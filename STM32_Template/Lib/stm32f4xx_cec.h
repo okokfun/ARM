@@ -229,9 +229,9 @@ void CEC_EndOfMessage(void); // 用EOM位传输消息。
 /* CEC_Interrupts 和标志管理功能 ******************************/
 void CEC_ITConfig(uint16_t CEC_IT, FunctionalState NewState); // 启用或禁用选定的CEC中断。
 FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG); // 获取CEC标志状态。
-void CEC_ClearFlag(uint32_t CEC_FLAG); // 清除CEC的挂起标志。
+void CEC_ClearFlag(uint32_t CEC_FLAG); // 清除CEC 的挂起标志。
 ITStatus CEC_GetITStatus(uint16_t CEC_IT); // 检查指定的CEC中断是否已发生。
-void CEC_ClearITPendingBit(uint16_t CEC_IT); // 清除CEC的中断挂起位。
+void CEC_ClearITPendingBit(uint16_t CEC_IT); // 清除CEC 的中断挂起位。
 #endif /* STM32F446xx */
 
 

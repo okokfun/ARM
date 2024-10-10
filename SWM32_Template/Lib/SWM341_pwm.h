@@ -88,8 +88,8 @@ typedef struct {
 
 
 void PWM_Init(PWM_TypeDef * PWMx, PWM_InitStructure * initStruct);			//PWM初始化
-void PWM_Start(uint32_t pwm);												//启动PWM，开始PWM输出
-void PWM_Stop(uint32_t pwm);												//关闭PWM，停止PWM输出
+void PWM_Start(uint32_t pwm);												//启动PWM，开始PWM 输出
+void PWM_Stop(uint32_t pwm);												//关闭PWM，停止PWM 输出
 void PWM_Restart(uint32_t pwm);
 
 void PWM_ReloadEn(uint32_t pwm);

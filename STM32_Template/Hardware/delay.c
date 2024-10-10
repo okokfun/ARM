@@ -26,7 +26,7 @@ static uint16_t fac_ms = 0; //ms延时倍乘数,在ucos下,代表每个节拍的
   * @Name    delay_init
   * @brief   初始化延迟函数
              当使用 Ucos的时候,此函数会初始化ucos的时钟节拍
-             SYSTICK的时钟固定为HCLK时钟的1/8   
+             SYSTICK的时钟固定为 HCLK时钟的1/8   
   * @param   SYSCLK: 系统时钟
   * @retval  None
   * @author  txt1994
@@ -75,7 +75,7 @@ void delay_us(uint32_t nus) {
   * <description> :
           SysTick->LOAD为24位寄存器,所以,最大延时为:
           nms<=0xffffff*8*1000/SYSCLK
-          SYSCLK单位为Hz,nms单位为ms
+          SYSCLK单位为 Hz,nms单位为ms
  **/
 void delay_xms(uint16_t nms) {
     uint32_t temp;

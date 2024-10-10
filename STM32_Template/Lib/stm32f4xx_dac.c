@@ -55,7 +55,7 @@
 
           -@-  可以使用 DAC_WaveGeneration_None 禁用波形生成
 
-       *** DAC数据格式 ***
+       *** DAC 数据格式 ***
        =======================
        [..]
        DAC 数据格式可以是:
@@ -192,7 +192,7 @@ void DAC_DeInit(void) {
 void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct) {
     uint32_t tmpreg1 = 0, tmpreg2 = 0;
 
-    /* 检查 DAC的参数 */
+    /* 检查 DAC 的参数 */
     assert_param(IS_DAC_TRIGGER(DAC_InitStruct->DAC_Trigger));
     assert_param(IS_DAC_GENERATE_WAVE(DAC_InitStruct->DAC_WaveGeneration));
     assert_param(IS_DAC_LFSR_UNMASK_TRIANGLE_AMPLITUDE(DAC_InitStruct->DAC_LFSRUnmask_TriangleAmplitude));
@@ -204,14 +204,14 @@ void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct) {
     /* 清除 BOFFx, TENx, TSELx, WAVEx and MAMPx 位 */
     tmpreg1 &= ~(CR_CLEAR_MASK << DAC_Channel);
     /* 为选定的DAC通道进行配置:缓冲器输出、触发器、波形生成、波形生成的掩码/振幅 */
-    /* 根据DAC_Trigger设置TSELx和TENx位值 */
-    /* 根据DAC_WaveGeneration设置WAVEx位值 */
-    /* 根据DAC_LFSRUnmask_TriangleAmplitude设置MAMPx位值 */
-    /* 根据DAC_OutputBuffer设置BOFFx位值 */
+    /* 根据 DAC_Trigger设置TSELx和TENx位值 */
+    /* 根据 DAC_WaveGeneration设置WAVEx位值 */
+    /* 根据 DAC_LFSRUnmask_TriangleAmplitude设置MAMPx位值 */
+    /* 根据 DAC_OutputBuffer设置BOFFx位值 */
     tmpreg2 = (DAC_InitStruct->DAC_Trigger | DAC_InitStruct->DAC_WaveGeneration |
                DAC_InitStruct->DAC_LFSRUnmask_TriangleAmplitude | \
                DAC_InitStruct->DAC_OutputBuffer);
-    /* 根据DAC_Channel计算CR寄存器的值 */
+    /* 根据 DAC_Channel计算CR 寄存器的值 */
     tmpreg1 |= tmpreg2 << DAC_Channel;
     /* 写入DAC CR */
     DAC->CR = tmpreg1;
@@ -225,7 +225,7 @@ void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct) {
   * 返回值: 无
   */
 void DAC_StructInit(DAC_InitTypeDef* DAC_InitStruct) {
-    /*--------------- 重置DAC初始结构参数值-----------------*/
+    /*--------------- 重置 DAC 初始结构参数值-----------------*/
     /* 初始化 DAC_Trigger 成员 */
     DAC_InitStruct->DAC_Trigger = DAC_Trigger_None;
     /* 初始化 DAC_WaveGeneration 成员 */
@@ -403,7 +403,7 @@ void DAC_SetChannel2Data(uint32_t DAC_Align, uint16_t Data) {
 /**
   * 简介:  为双通道 DAC 设置指定的数据保持寄存器值。
   * 
-  * 参数:  DAC_Align: 指定双通道DAC的数据排列。
+  * 参数:  DAC_Align: 指定双通道DAC 的数据排列。
   *          此参数可以是以下值之一:
   *            @arg DAC_Align_8b_R: 选择8位右侧数据对齐
   *            @arg DAC_Align_12b_L: 选择了12位的左边数据排列
@@ -484,7 +484,7 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
   *            @arg DAC_Channel_1: 选择DAC通道1
   *            @arg DAC_Channel_2: 选择DAC通道2
   * 
-  * 参数:  NewState: 所选DAC通道DMA请求的新状态。
+  * 参数:  NewState: 所选DAC通道DMA 请求的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 
   * 注意:   DAC通道1被映射到DMA1流5通道7上，该通道必须已经被配置。

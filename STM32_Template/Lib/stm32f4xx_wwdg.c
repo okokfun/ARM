@@ -15,13 +15,13 @@
  ===============================================================================
     [..]
         启用后，WWDG在编程时间段到期时生成系统重置，
-          除非程序在达到0x3F值之前刷新计数器(下行计数器)(即当计数器值从0x40滚动到0x3F时生成重置)。
+          除非程序在达到 0x3F 值之前刷新计数器(下行计数器)(即当计数器值从 0x40 滚动到 0x3F 时生成重置)。
         如果在计数器达到刷新窗口值之前刷新计数器值，
           也会生成MCU重置。这意味着必须在有限的窗口中刷新计数器。
 
-        启用后，除通过系统重置外，无法禁用WWDG。
+        启用后，除通过系统重置外，无法禁用 WWDG。
 
-        RCC_CSR寄存器中的WWDGRST标志可用于通知何时发生WWDG重置。
+        RCC_CSR 寄存器中的WWDGRST标志可用于通知何时发生WWDG重置。
 
         WWDG计数器输入时钟由APB时钟除以可编程预分频器得到。
 
@@ -33,20 +33,20 @@
                       ##### 如何使用这个驱动程序 #####
  ===============================================================================
     [..]
-      (#) 使用RCC_APB1PeriphClockCmd(RCC_APP1Periph-WWDG，Enable) 函数启用WWDG时钟
+      (#) 使用 RCC_APB1PeriphClockCmd(RCC_APP1Periph-WWDG，Enable) 函数启用 WWDG时钟
 
-      (#) 使用WWDG_SetPrescaler() 函数配置WWDG预分频器
+      (#) 使用 WWDG_SetPrescaler() 函数配置WWDG预分频器
 
-      (#) 使用WWDG_SetWindowValue() 函数配置WWDG刷新窗口
+      (#) 使用 WWDG_SetWindowValue() 函数配置WWDG刷新窗口
 
-      (#) 设置WWDG计数器值，并使用WWDG_Enable() 函数启动它。
-          启用WWDG时，计数器值应配置为大于0x40的值，以防止生成立即重置。
+      (#) 设置WWDG计数器值，并使用 WWDG_Enable() 函数启动它。
+          启用 WWDG时，计数器值应配置为大于0x40的值，以防止生成立即重置。
 
-      (#) 您可以选择启用计数器达到0x40时生成的早期唤醒中断。
+      (#) 您可以选择启用计数器达到 0x40时生成的早期唤醒中断。
           一旦启用，除非系统复位，否则不能禁用此中断。
 
       (#) 然后，应用程序必须在正常操作期间定期刷新WWDG计数器，以防止MCU重置，
-          方法是使用WWDG_SetCounter() 函数。仅当计数器值低于使用WWDG_SetWindowValue()
+          方法是使用 WWDG_SetCounter() 函数。仅当计数器值低于使用 WWDG_SetWindowValue()
           编程的刷新窗口值时，才能执行此操作。
 
     @endverbatim
@@ -92,7 +92,7 @@
 #define CFR_EWI_BB        (PERIPH_BB_BASE + (CFR_OFFSET * 32) + (EWI_BitNumber * 4))
 
 /* --------------------- WWDG寄存器位掩码 ------------------------ */
-/* CFR寄存器位掩码 */
+/* CFR 寄存器位掩码 */
 #define CFR_WDGTB_MASK    ((uint32_t)0xFFFFFE7F)
 #define CFR_W_MASK        ((uint32_t)0xFFFFFF80)
 #define BIT_MASK          ((uint8_t)0x7F)
@@ -171,7 +171,7 @@ void WWDG_SetWindowValue(uint8_t WindowValue) {
 }
 
 /**
-  * 简介:  启用WWDG早期唤醒中断(EWI)。
+  * 简介:  启用 WWDG早期唤醒中断(EWI)。
   * 注意:   一旦启用，除非系统复位，否则不能禁用此中断。
   * 参数:  无
   * 返回值: 无
@@ -205,7 +205,7 @@ void WWDG_SetCounter(uint8_t Counter) {
   */
 
 /**
-  * 简介:  启用WWDG并加载计数器值。
+  * 简介:  启用 WWDG并加载计数器值。
   * 参数:  Counter: 指定看门狗计数器值。
   *        此参数必须是 0x40 和 0x7F 之间的数字(以防止生成立即重置)
   * 返回值: 无

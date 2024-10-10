@@ -178,7 +178,7 @@ void HASH_GetDigest(HASH_MsgDigest* HASH_MessageDigest); // 提供消息摘要�
 void HASH_SaveContext(HASH_Context* HASH_ContextSave); // 保存哈希外围上下文。
 void HASH_RestoreContext(HASH_Context* HASH_ContextRestore); // 还原哈希外围上下文。
 
-/* HASH DMA接口功能 ************************************************/
+/* HASH DMA 接口功能 ************************************************/
 void HASH_DMACmd(FunctionalState NewState); // 启用或禁用哈希 DMA 接口。
 
 /* HASH 中断和标志管理功能 *****************************/

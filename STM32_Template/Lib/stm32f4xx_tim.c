@@ -4,11 +4,11 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    该文件提供固件功能，以管理TIM外设设备的以下功能:
+  * 简介:    该文件提供固件功能，以管理TIM 外设设备的以下功能:
   *            + TimeBase管理
   *            + 输出比较管理
   *            + 输入捕获管理
-  *            + 高级控制定时器(TIM1和TIM8)特定功能
+  *            + 高级控制定时器(TIM1 和 TIM8)特定功能
   *            + 中断、DMA和标志管理
   *            + 时钟管理
   *            + 同步管理
@@ -20,7 +20,7 @@
                    #####  如何使用这个驱动程序 #####
  ===============================================================================
     [..]
-    此驱动程序提供配置和编程所有STM32F4xx设备的TIM的功能。
+    此驱动程序提供配置和编程所有 STM32F4xx 设备的TIM的功能。
     这些功能分为9组:
 
       (#) TIM时基管理: 该组包括配置TM时基单元所需的所有功能:
@@ -34,7 +34,7 @@
         (++) 自动预加载配置
         (++) 启用/禁用计数器
 
-      (#) TIM输出比较管理: 该组包括配置输出比较模式中使用的捕获/比较单元所需的所有功能:
+      (#) TIM 输出比较管理: 该组包括配置输出比较模式中使用的捕获/比较单元所需的所有功能:
         (++) 在输出比较模式下独立配置每个通道
         (++) 选择输出比较模式
         (++) 选择每个通道的极性
@@ -46,15 +46,15 @@
         (++) 选择OCREF Clear信号
         (++) 启用/禁用捕获/比较通道
 
-      (#) TIM输入捕获管理: 该组包括配置输入捕获模式中使用的捕获/比较单元所需的所有功能:
+      (#) TIM 输入捕获管理: 该组包括配置输入捕获模式中使用的捕获/比较单元所需的所有功能:
         (++) 在输入捕获模式下配置每个通道
-        (++) 在PWM输入模式下配置通道1/2
+        (++) 在 PWM 输入模式下配置通道1/2
         (++) 设置输入捕获预分频器
         (++) 获取捕获/比较值
 
-      (#) 高级控制定时器(TIM1和TIM8)特定功能
+      (#) 高级控制定时器(TIM1 和 TIM8)特定功能
         (++) 配置中断输入、停滞时间、锁定级别、OSSI、OSSR状态和AOE(自动输出启用)
-        (++) 启用/禁用TIM外设设备主输出
+        (++) 启用/禁用 TIM 外设设备主输出
         (++) 选择换向事件
         (++) 设置/重置捕获比较预加载控制位
 
@@ -62,9 +62,9 @@
         (++) 启用/禁用中断源
         (++) 获取标志状态
         (++) 清除标志/挂起位
-        (++) 启用/禁用 DMA请求
-        (++) 配置DMA突发模式
-        (++) 选择CaptureCompare DMA请求
+        (++) 启用/禁用 DMA 请求
+        (++) 配置 DMA 突发模式
+        (++) 选择CaptureCompare DMA 请求
 
       (#) TIM时钟管理: 该组包括配置时钟控制器单元所需的所有功能:
         (++)选择内部/外部时钟
@@ -165,7 +165,7 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
 
         (#) 使用函数 TIM_ITConfig(TIMx，TIM_IT_Update) 启用相应的中断
 
-        (#) 调用 TIM_Cmd(ENABLE) 函数以启用TIM计数器。
+        (#) 调用 TIM_Cmd(ENABLE) 函数以启用 TIM计数器。
 
        -@- 如果需要，可以单独使用所有其他函数来修改计时器的特定功能。
 
@@ -274,7 +274,7 @@ void TIM_TimeBaseInit(TIM_TypeDef* TIMx, TIM_TimeBaseInitTypeDef* TIM_TimeBaseIn
         TIMx->RCR = TIM_TimeBaseInitStruct->TIM_RepetitionCounter;
     }
 
-    /* 生成更新事件以立即重新加载预分频器和重复计数器（仅适用于TIM1和TIM8）值 */
+    /* 生成更新事件以立即重新加载预分频器和重复计数器（仅适用于TIM1 和 TIM8）值 */
     TIMx->EGR = TIM_PSCReloadMode_Immediate;
 }
 
@@ -294,7 +294,7 @@ void TIM_TimeBaseStructInit(TIM_TimeBaseInitTypeDef* TIM_TimeBaseInitStruct) {
 
 /**
   * 简介:  配置 TIMx 预分频器。
-  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM 外设设备。
   * 参数:  Prescaler: 指定预分频器寄存器的值
   * 参数:  TIM_PSCReloadMode: 指定TIM预分频器重新加载模式。
   *          此参数可以是以下值之一:
@@ -314,7 +314,7 @@ void TIM_PrescalerConfig(TIM_TypeDef* TIMx, uint16_t Prescaler, uint16_t TIM_PSC
 
 /**
   * 简介:  指定要使用的 TIMx 计数器模式。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_CounterMode: 指明计数器要使用的模式
   *          此参数可以是以下值之一:
   *            @arg TIM_CounterMode_Up: TIM 向上计数模式
@@ -345,7 +345,7 @@ void TIM_CounterModeConfig(TIM_TypeDef* TIMx, uint16_t TIM_CounterMode) {
 
 /**
   * 简介:  设置 TIMx 计数器寄存器值。
-  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM 外设设备。
   * 参数:  Counter: 指明计数器寄存器的新值。
   * 返回值: 无
   */
@@ -359,7 +359,7 @@ void TIM_SetCounter(TIM_TypeDef* TIMx, uint32_t Counter) {
 
 /**
   * 简介:  设置 TIMx 自动重新加载寄存器值。
-  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM 外设设备。
   * 参数:  Autoreload: 指定自动加载寄存器的新值。
   * 返回值: 无
   */
@@ -373,7 +373,7 @@ void TIM_SetAutoreload(TIM_TypeDef* TIMx, uint32_t Autoreload) {
 
 /**
   * 简介:  获取 TIMx 计数器值。
-  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM 外设设备。
   * 返回值: 计数器寄存器值
   */
 uint32_t TIM_GetCounter(TIM_TypeDef* TIMx) {
@@ -519,10 +519,10 @@ void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用TIM计数器 */
+        /* 启用 TIM计数器 */
         TIMx->CR1 |= TIM_CR1_CEN;
     } else {
-        /* 禁用TIM计数器 */
+        /* 禁用 TIM计数器 */
         TIMx->CR1 &= (uint16_t)~TIM_CR1_CEN;
     }
 }
@@ -530,7 +530,7 @@ void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState) {
 /** @defgroup TIM_Group2 输出比较管理功能
  *  简介    输出比较管理功能
  *
-@verbatim输出比较管理
+@verbatiM 输出比较管理
  ===============================================================================
               ##### 输出比较管理功能 #####
  ===============================================================================
@@ -541,7 +541,7 @@ void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState) {
     [..]
     要在输出比较模式下使用计时器，必须执行以下步骤:
 
-      (#) 使用RCC_APBxPeriphClockCmd(RCC_ABPxPeriph-TIMx，Enable) 函数启用TIM时钟
+      (#) 使用 RCC_APBxPeriphClockCmd(RCC_ABPxPeriph-TIMx，Enable) 函数启用 TIM时钟
 
       (#) 通过配置相应的GPIO引脚来配置TIM引脚
 
@@ -553,23 +553,23 @@ void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState) {
         (++) 时钟分区=TIM_CKD_DIV1
 
       (#) 用所需参数填充TIM_OCInitStruct，包括:
-        (++) TIM输出比较模式:TIM_OC模式
-        (++) TIM输出状态:TIM_OutputState
+        (++) TIM 输出比较模式:TIM_OC模式
+        (++) TIM 输出状态:TIM_OutputState
         (++) TIM脉冲值:TIM_Pulse
-        (++) TIM输出比较极性:TIM_OC极性
+        (++) TIM 输出比较极性:TIM_OC极性
 
       (#) 调用 TIM_OCxInit(TIMx，&TIM_OCInitStruct)，用相应的配置配置所需的通道
 
-      (#) 调用 TIM_Cmd(ENABLE) 函数以启用TIM计数器。
+      (#) 调用 TIM_Cmd(ENABLE) 函数以启用 TIM计数器。
 
       -@- 如果需要，可以单独使用所有其他功能来修改计时器的特定功能。
 
-      -@- 在PWM模式下，此功能是必需的:TIM_OCxPreloadConfig(TIMx，TIM_OCPreload_ENABLE);
+      -@- 在 PWM模式下，此功能是必需的:TIM_OCxPreloadConfig(TIMx，TIM_OCPreload_ENABLE);
 
-      -@- 如果需要相应的中断或DMA请求，用户应:
-        (+@) 启用 NVIC(或DMA)以使用TIM中断(或DMA请求)。
+      -@- 如果需要相应的中断或DMA 请求，用户应:
+        (+@) 启用 NVIC(或DMA)以使用 TIM中断(或DMA 请求)。
         (+@) 使用功能TIM_ITConfig(TIMx，TIM_IT_CCx)
-        (或TIM_DMA_Cmd(TIMx，TIM_DMA _CCx)) 启用相应的中断(或DMA请求)
+        (或TIM_DMA_Cmd(TIMx，TIM_DMA _CCx)) 启用相应的中断(或DMA 请求)
 
 @endverbatim
   */
@@ -592,7 +592,7 @@ void TIM_OC1Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct) {
     /* 禁用通道 1: 重设 CC1E 位 */
     TIMx->CCER &= (uint16_t)~TIM_CCER_CC1E;
 
-    /* 获取TIMx CCER寄存器的值 */
+    /* 获取TIMx CCER 寄存器的值 */
     tmpccer = TIMx->CCER;
     /* 获取TIMx CR2寄存器的值 */
     tmpcr2 =  TIMx->CR2;
@@ -669,7 +669,7 @@ void TIM_OC2Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct) {
     /* 禁用通道 2: 重设 CC2E 位 */
     TIMx->CCER &= (uint16_t)~TIM_CCER_CC2E;
 
-    /* 获取TIMx CCER寄存器的值 */
+    /* 获取TIMx CCER 寄存器的值 */
     tmpccer = TIMx->CCER;
     /* 获取TIMx CR2寄存器的值 */
     tmpcr2 =  TIMx->CR2;
@@ -731,8 +731,8 @@ void TIM_OC2Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct) {
 
 /**
   * 简介:  根据TIM_OCInitStruct中指定的参数初始化 TIMx 通道 3。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
-  * 参数:  TIM_OCInitStruct: 指向TIM_OCInitTypeDef结构的指针，该结构包含指定TIM外设设备的配置信息。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
+  * 参数:  TIM_OCInitStruct: 指向TIM_OCInitTypeDef结构的指针，该结构包含指定TIM 外设设备的配置信息。
   * 返回值: 无
   */
 void TIM_OC3Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct) {
@@ -747,7 +747,7 @@ void TIM_OC3Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct) {
     /* 禁用通道 3: 重设 CC2E 位 */
     TIMx->CCER &= (uint16_t)~TIM_CCER_CC3E;
 
-    /* 获取TIMx CCER寄存器的值 */
+    /* 获取TIMx CCER 寄存器的值 */
     tmpccer = TIMx->CCER;
     /* 获取TIMx CR2寄存器的值 */
     tmpcr2 =  TIMx->CR2;
@@ -824,7 +824,7 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct) {
     /* 禁用通道 4: 重设 CC4E 位 */
     TIMx->CCER &= (uint16_t)~TIM_CCER_CC4E;
 
-    /* 获取TIMx CCER寄存器的值 */
+    /* 获取TIMx CCER 寄存器的值 */
     tmpccer = TIMx->CCER;
     /* 获取TIMx CR2寄存器的值 */
     tmpcr2 =  TIMx->CR2;
@@ -896,7 +896,7 @@ void TIM_OCStructInit(TIM_OCInitTypeDef* TIM_OCInitStruct) {
   *            @arg TIM_Channel_2: TIM 通道 2
   *            @arg TIM_Channel_3: TIM 通道 3
   *            @arg TIM_Channel_4: TIM 通道 4
-  * 参数:  TIM_OCMode: 指定TIM输出比较模式。
+  * 参数:  TIM_OCMode: 指定TIM 输出比较模式。
   *           此参数可以是以下值之一:
   *            @arg TIM_OCMode_Timing
   *            @arg TIM_OCMode_Active
@@ -1251,11 +1251,11 @@ void TIM_OC1FastConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCFast) {
 
 /**
   * 简介:  配置TIMx输出比较2快速功能。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 参数:  TIM_OCFast: 输出比较快速启用位的新状态。
   *          此参数可以是以下值之一:
-  *            @arg TIM_OCFast_Enable: TIM输出比较快速启用
-  *            @arg TIM_OCFast_Disable: TIM输出比较快速禁用
+  *            @arg TIM_OCFast_Enable: TIM 输出比较快速启用
+  *            @arg TIM_OCFast_Disable: TIM 输出比较快速禁用
   * 返回值: 无
   */
 void TIM_OC2FastConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCFast) {
@@ -1338,7 +1338,7 @@ void TIM_OC4FastConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCFast) {
 
 /**
   * 简介:  清除或保护外部事件上的 OCREF1 信号。
-  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM 外设设备。
   * 参数:  TIM_OCClear: 输出比较清除启用位的新状态。
   *          此参数可以是以下值之一:
   *            @arg TIM_OCClear_Enable: TIM 输出清零启用
@@ -1366,7 +1366,7 @@ void TIM_ClearOC1Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear) {
 
 /**
   * 简介:  清除或保护外部事件上的 OCREF2 信号。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 参数:  TIM_OCClear: 输出比较清除启用位的新状态。
   *          此参数可以是以下值之一:
   *            @arg TIM_OCClear_Enable: TIM 输出清零启用
@@ -1394,7 +1394,7 @@ void TIM_ClearOC2Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear) {
 
 /**
   * 简介:  清除或保护外部事件上的 OCREF3 信号。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_OCClear: 输出比较清除启用位的新状态。
   *          此参数可以是以下值之一:
   *            @arg TIM_OCClear_Enable: TIM 输出清零启用
@@ -1422,7 +1422,7 @@ void TIM_ClearOC3Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear) {
 
 /**
   * 简介:  清除或保护外部事件上的 OCREF4 信号。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_OCClear: 输出比较清除启用位的新状态。
   *          此参数可以是以下值之一:
   *            @arg TIM_OCClear_Enable: TIM 输出清零启用
@@ -1450,7 +1450,7 @@ void TIM_ClearOC4Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear) {
 
 /**
   * 简介:  配置 TIMx 通道 1 极性。
-  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM 外设设备。
   * 参数:  TIM_OCPolarity: 指定OC1极性
   *          此参数可以是以下值之一:
   *            @arg TIM_OCPolarity_High: 输出比较激活高
@@ -1470,13 +1470,13 @@ void TIM_OC1PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity) {
     tmpccer &= (uint16_t)(~TIM_CCER_CC1P);
     tmpccer |= TIM_OCPolarity;
 
-    /* 写入TIMx CCER寄存器 */
+    /* 写入TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
 /**
   * 简介:  配置 TIMx 通道 1N 极性。
-  * 参数:  TIMx: 其中x可以是1或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1或8，以选择TIM 外设设备。
   * 参数:  TIM_OCNPolarity: 指定OC1N极性
   *          此参数可以是以下值之一:
   *            @arg TIM_OCNPolarity_High: 输出比较激活高
@@ -1495,13 +1495,13 @@ void TIM_OC1NPolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCNPolarity) {
     tmpccer &= (uint16_t)~TIM_CCER_CC1NP;
     tmpccer |= TIM_OCNPolarity;
 
-    /* 写入TIMx CCER寄存器 */
+    /* 写入TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
 /**
   * 简介:  配置 TIMx 通道 2 极性。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 参数:  TIM_OCPolarity: 指定OC2极性
   *          此参数可以是以下值之一:
   *            @arg TIM_OCPolarity_High: 输出比较激活高
@@ -1521,13 +1521,13 @@ void TIM_OC2PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity) {
     tmpccer &= (uint16_t)(~TIM_CCER_CC2P);
     tmpccer |= (uint16_t)(TIM_OCPolarity << 4);
 
-    /* 写入TIMx CCER寄存器 */
+    /* 写入TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
 /**
   * 简介:  配置 TIMx 通道 2N 极性。
-  * 参数:  TIMx: 其中x可以是1或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1或8，以选择TIM 外设设备。
   * 参数:  TIM_OCNPolarity: 指定OC2N极性
   *          此参数可以是以下值之一:
   *            @arg TIM_OCNPolarity_High: 输出比较激活高
@@ -1547,13 +1547,13 @@ void TIM_OC2NPolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCNPolarity) {
     tmpccer &= (uint16_t)~TIM_CCER_CC2NP;
     tmpccer |= (uint16_t)(TIM_OCNPolarity << 4);
 
-    /* 写入TIMx CCER寄存器 */
+    /* 写入TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
 /**
   * 简介:  配置 TIMx 通道 3 极性。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_OCPolarity: 指定OC3极性
   *          此参数可以是以下值之一:
   *            @arg TIM_OCPolarity_High: 输出比较激活高
@@ -1573,13 +1573,13 @@ void TIM_OC3PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity) {
     tmpccer &= (uint16_t)~TIM_CCER_CC3P;
     tmpccer |= (uint16_t)(TIM_OCPolarity << 8);
 
-    /* 写入TIMx CCER寄存器 */
+    /* 写入TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
 /**
   * 简介:  配置 TIMx 通道 3N 极性。
-  * 参数:  TIMx: 其中x可以是1或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1或8，以选择TIM 外设设备。
   * 参数:  TIM_OCNPolarity: 指定OC3N极性
   *          此参数可以是以下值之一:
   *            @arg TIM_OCNPolarity_High: 输出比较激活高
@@ -1599,13 +1599,13 @@ void TIM_OC3NPolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCNPolarity) {
     tmpccer &= (uint16_t)~TIM_CCER_CC3NP;
     tmpccer |= (uint16_t)(TIM_OCNPolarity << 8);
 
-    /* 写入TIMx CCER寄存器 */
+    /* 写入TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
 /**
   * 简介:  配置 TIMx 通道 4 极性。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_OCPolarity: 指定OC4极性
   *          此参数可以是以下值之一:
   *            @arg TIM_OCPolarity_High: 输出比较激活高
@@ -1625,13 +1625,13 @@ void TIM_OC4PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity) {
     tmpccer &= (uint16_t)~TIM_CCER_CC4P;
     tmpccer |= (uint16_t)(TIM_OCPolarity << 12);
 
-    /* 写入TIMx CCER寄存器 */
+    /* 写入TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
 /**
   * 简介:  启用或禁用 TIM 捕获比较通道 x。
-  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM 外设设备。
   * 参数:  TIM_Channel: 指定TIM通道
   *          此参数可以是以下值之一:
   *            @arg TIM_Channel_1: TIM通道 1
@@ -1661,7 +1661,7 @@ void TIM_CCxCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCx) {
 
 /**
   * 简介:  启用或禁用 TIM 捕获比较通道 xN。
-  * 参数:  TIMx: 其中x可以是1或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1或8，以选择TIM 外设设备。
   * 参数:  TIM_Channel: 指定TIM通道
   *          此参数可以是以下值之一:
   *            @arg TIM_Channel_1: TIM通道 1
@@ -1701,7 +1701,7 @@ void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN) {
     [..]
     要在输入捕获模式下使用计时器，必须执行以下步骤:
 
-      (#) 使用RCC_APBxPeriphClockCmd(RCC_ABPxPeriph-TIMx，Enable) 函数启用TIM时钟
+      (#) 使用 RCC_APBxPeriphClockCmd(RCC_ABPxPeriph-TIMx，Enable) 函数启用 TIM时钟
 
       (#) 通过配置相应的GPIO引脚来配置TIM引脚
 
@@ -1713,21 +1713,21 @@ void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN) {
 
       (#) 用所需参数填充TIM_ICInitStruct，包括:
         (++)TIM通道:TIM_Channel
-        (++)TIM输入捕捉极性:TIM_IC极性
-        (++)TIM输入捕捉选择:TIM_ICS选择
-        (++)TIM输入捕获预定标器:TIM_IC预定标器
-        (++)TIM输入捕获过滤器值:TIM_IC过滤器
+        (++)TIM 输入捕捉极性:TIM_IC极性
+        (++)TIM 输入捕捉选择:TIM_ICS选择
+        (++)TIM 输入捕获预定标器:TIM_IC预定标器
+        (++)TIM 输入捕获过滤器值:TIM_IC过滤器
 
-      (#) 调用TIM_ICInit(TIMx， &TIM_ICInitStruct)用相应的配置配置所需的信道，
-		  只测量输入信号的频率或占空比，或者调用TIM_PWMIConfig(TIMx， &TIM_ICInitStruct)
+      (#) 调用 TIM_ICInit(TIMx， &TIM_ICInitStruct)用相应的配置配置所需的信道，
+		  只测量输入信号的频率或占空比，或者调用 TIM_PWMIConfig(TIMx， &TIM_ICInitStruct)
 		  用相应的配置配置所需的信道，测量输入信号的频率和占空比
 
       (#) 使能NVIC或DMA读取测量频率。
 
       (#) 使用函数TIM_ITConfig(TIMx, TIM_IT_CCx)
-		 (或TIM_DMA_Cmd(TIMx, TIM_DMA_CCx)) 启用相应的中断(或DMA请求)来读取捕获值
+		 (或TIM_DMA_Cmd(TIMx, TIM_DMA_CCx)) 启用相应的中断(或DMA 请求)来读取捕获值
 
-      (#) 调用TIM_Cmd(ENABLE) 函数启用TIM计数器.
+      (#) 调用 TIM_Cmd(ENABLE) 函数启用 TIM计数器.
 
       (#) 使用 TIM_GetCapturex(TIMx)读取捕获的值.
 
@@ -1738,8 +1738,8 @@ void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN) {
 
 /**
   * 简介:  根据TIM_ICInitStruct中指定的参数初始化 TIM 外设。
-  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM外设设备。
-  * 参数:  TIM_ICInitStruct: 指向TIM_ICInitTypeDef结构的指针，该结构包含指定TIM外设设备的配置信息。
+  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM 外设设备。
+  * 参数:  TIM_ICInitStruct: 指向TIM_ICInitTypeDef结构的指针，该结构包含指定TIM 外设设备的配置信息。
   * 返回值: 无
   */
 void TIM_ICInit(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct) {
@@ -1799,9 +1799,9 @@ void TIM_ICStructInit(TIM_ICInitTypeDef* TIM_ICInitStruct) {
 }
 
 /**
-  * 简介:  根据TIM_ICInitStruct中的指定参数配置TIM外设，以测量外部PWM信号。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
-  * 参数:  TIM_ICInitStruct: 指向包含指定TIM外设设备配置信息的TIM_ICInitTypeDef结构的指针。
+  * 简介:  根据TIM_ICInitStruct中的指定参数配置TIM 外设，以测量外部PWM信号。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
+  * 参数:  TIM_ICInitStruct: 指向包含指定TIM 外设设备配置信息的TIM_ICInitTypeDef结构的指针。
   * 返回值: 无
   */
 void TIM_PWMIConfig(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct) {
@@ -1850,7 +1850,7 @@ void TIM_PWMIConfig(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct) {
 
 /**
   * 简介:  获取 TIMx 输入捕获 1 值。
-  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM 外设设备。
   * 返回值: 捕获比较1寄存器的值。
   */
 uint32_t TIM_GetCapture1(TIM_TypeDef* TIMx) {
@@ -1863,7 +1863,7 @@ uint32_t TIM_GetCapture1(TIM_TypeDef* TIMx) {
 
 /**
   * 简介:  获取 TIMx 输入捕获 2 值。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 返回值: 捕获比较2寄存器的值。
   */
 uint32_t TIM_GetCapture2(TIM_TypeDef* TIMx) {
@@ -1876,7 +1876,7 @@ uint32_t TIM_GetCapture2(TIM_TypeDef* TIMx) {
 
 /**
   * 简介:  获取 TIMx 输入捕获 3 值。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 返回值: 捕获比较3寄存器的值。
   */
 uint32_t TIM_GetCapture3(TIM_TypeDef* TIMx) {
@@ -1889,7 +1889,7 @@ uint32_t TIM_GetCapture3(TIM_TypeDef* TIMx) {
 
 /**
   * 简介:  获取 TIMx 输入捕获 4 值。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 返回值: 捕获比较4寄存器的值。
   */
 uint32_t TIM_GetCapture4(TIM_TypeDef* TIMx) {
@@ -1902,7 +1902,7 @@ uint32_t TIM_GetCapture4(TIM_TypeDef* TIMx) {
 
 /**
   * 简介:  设置 TIMx 输入捕获 1 预分频器。
-  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，6和7除外，以选择TIM 外设设备。
   * 参数:  TIM_ICPSC: 指定输入捕获1预分频器的新值。
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPSC_DIV1: 没有预分频器
@@ -1925,7 +1925,7 @@ void TIM_SetIC1Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC) {
 
 /**
   * 简介:  设置 TIMx 输入捕获 2 预分频器。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 参数:  TIM_ICPSC: 指定输入捕获2预分频器的新值。
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPSC_DIV1: 没有预分频器
@@ -1948,7 +1948,7 @@ void TIM_SetIC2Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC) {
 
 /**
   * 简介:  设置 TIMx 输入捕获 3 预分频器。
-  * 参数:  TIMx:其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx:其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_ICPSC: 指定Input Capture3预分频器的新值。
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPSC_DIV1: 无预分频器
@@ -1971,7 +1971,7 @@ void TIM_SetIC3Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC) {
 
 /**
   * 简介:  设置 TIMx 输入捕获 4 预分频器。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_ICPSC: 指定Input Capture4 prescaler new value.
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPSC_DIV1: 没有预分频器
@@ -1992,12 +1992,12 @@ void TIM_SetIC4Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC) {
     TIMx->CCMR2 |= (uint16_t)(TIM_ICPSC << 8);
 }
 
-/** @defgroup TIM_Group4 高级控制定时器(TIM1和TIM8)特定功能
- *  简介   高级控制定时器(TIM1和TIM8)特定功能
+/** @defgroup TIM_Group4 高级控制定时器(TIM1 和 TIM8)特定功能
+ *  简介   高级控制定时器(TIM1 和 TIM8)特定功能
  *
 @verbatim
  ===============================================================================
-      ##### 高级控制定时器(TIM1和TIM8)特定功能 #####
+      ##### 高级控制定时器(TIM1 和 TIM8)特定功能 #####
  ===============================================================================
 
              ##### TIM驱动程序:如何使用中断功能 #####
@@ -2008,9 +2008,9 @@ void TIM_SetIC4Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC) {
       (#) 在TIM_BDTRInitStruct中填入定时器中断极性、死区时间、锁定电平、OSSI/OSSR状态和
         AOE(自动输出启用)的所需参数。
 
-      (#)调用TIM_BDTRConfig(TIMx，&TIM_BTTRInitStruct)配置计时器
+      (#)调用 TIM_BDTRConfig(TIMx，&TIM_BTTRInitStruct)配置计时器
 
-      (#)使用TIM_CtrlPWM输出(TIM1，Enable) 启用主输出
+      (#)使用 TIM_CtrlPWM 输出(TIM1，Enable) 启用主输出
 
       (#)一旦出现收支平衡，定时器的输出信号将被置于重置状态或已知状态(根据TIM_BDTRConfig() 函数中的配置)。
 
@@ -2062,7 +2062,7 @@ void TIM_BDTRStructInit(TIM_BDTRInitTypeDef* TIM_BDTRInitStruct) {
 /**
   * 简介:  启用或禁用 TIM 外设主输出。
   * 参数:  TIMx: 其中x可以是1或8，以选择TIMx外设。
-  * 参数:  NewState: TIM外设主要输出的新状态。
+  * 参数:  NewState: TIM 外设主要输出的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
@@ -2072,10 +2072,10 @@ void TIM_CtrlPWMOutputs(TIM_TypeDef* TIMx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用TIM主输出 */
+        /* 启用 TIM主输出 */
         TIMx->BDTR |= TIM_BDTR_MOE;
     } else {
-        /* 禁用TIM主输出 */
+        /* 禁用 TIM主输出 */
         TIMx->BDTR &= (uint16_t)~TIM_BDTR_MOE;
     }
 }
@@ -2151,7 +2151,7 @@ void TIM_CCPreloadControl(TIM_TypeDef* TIMx, FunctionalState NewState) {
   * 注意:   对于TIM9和TIM12，只能使用以下参数之一:
 		    TIM_IT_Update、TIM_IT_CC1、TIM_IT_CC2或TIM_IT_Trigger。
   * 注意:   对于TIM10、TIM11、TIM13和TIM14，只能使用以下参数之一:TIM_IT_Update或TIM_IT_CC1
-  * 注意:   TIM_IT_COM和TIM_IT_Break只能与TIM1和TIM8一起使用
+  * 注意:   TIM_IT_COM和TIM_IT_Break只能与TIM1 和 TIM8一起使用
   *
   * 参数:  NewState: TIM中断的新状态。
   *          此参数可以是: ENABLE或DISABLE。
@@ -2174,7 +2174,7 @@ void TIM_ITConfig(TIM_TypeDef* TIMx, uint16_t TIM_IT, FunctionalState NewState) 
 
 /**
   * 简介:  将 TIMx 事件配置为由 软件生成。
-  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM 外设设备。
   * 参数:  TIM_EventSource: 指定事件源。
   *          此参数可以是以下一个或多个值:
   *            @arg TIM_EventSource_Update: 计时器更新事件源
@@ -2187,7 +2187,7 @@ void TIM_ITConfig(TIM_TypeDef* TIMx, uint16_t TIM_IT, FunctionalState NewState) 
   *            @arg TIM_EventSource_Break: 计时器中断事件源
   *
   * 注意:   TIM6和TIM7只能生成一个更新事件。
-  * 注意:   TIM_EventSource_COM和TIM_EventSource _Break仅与TIM1和TIM8一起使用。
+  * 注意:   TIM_EventSource_COM和TIM_EventSource _Break仅与TIM1 和 TIM8一起使用。
   *
   * 返回值: 无
   */
@@ -2202,7 +2202,7 @@ void TIM_GenerateEvent(TIM_TypeDef* TIMx, uint16_t TIM_EventSource) {
 
 /**
   * 简介:  检查是否设置了指定的 TIM 标志。
-  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM 外设设备。
   * 参数:  TIM_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
   *            @arg TIM_FLAG_Update: TIM update Flag
@@ -2219,7 +2219,7 @@ void TIM_GenerateEvent(TIM_TypeDef* TIMx, uint16_t TIM_EventSource) {
   *            @arg TIM_FLAG_CC4OF: TIM捕获比较4超过捕获标志
   *
   * 注意:   TIM6和TIM7只能有一个更新标志。
-  * 注意:   FLAG_ COM和TIM_FLAG_ Break仅与TIM1和TIM8一起使用。
+  * 注意:   FLAG_ COM和TIM_FLAG_ Break仅与TIM1 和 TIM8一起使用。
   *
   * 返回值: TIM_FLAG的新状态(SET或RESET)。
   */
@@ -2241,7 +2241,7 @@ FlagStatus TIM_GetFlagStatus(TIM_TypeDef* TIMx, uint16_t TIM_FLAG) {
 
 /**
   * 简介:  清除 TIMx 的挂起标志。
-  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM 外设设备。
   * 参数:  TIM_FLAG: 指定要清除的标志位。
   *          此参数可以是以下值的任意组合:
   *            @arg TIM_FLAG_Update: TIM更新标志
@@ -2258,7 +2258,7 @@ FlagStatus TIM_GetFlagStatus(TIM_TypeDef* TIMx, uint16_t TIM_FLAG) {
   *            @arg TIM_FLAG_CC4OF: TIM捕获比较4超过捕获标志
   *
   * 注意:   TIM6和TIM7只能具有一个更新标志。
-  * 注意:   FLAG_ COM和TIM_FLAG_ Break仅与TIM1和TIM8一起使用。
+  * 注意:   FLAG_ COM和TIM_FLAG_ Break仅与TIM1 和 TIM8一起使用。
   *
   * 返回值: 无
   */
@@ -2272,7 +2272,7 @@ void TIM_ClearFlag(TIM_TypeDef* TIMx, uint16_t TIM_FLAG) {
 
 /**
   * 简介:  检查是否发生了 TIM 中断。
-  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM 外设设备。
   * 参数:  TIM_IT: 指定要检查的TIM中断源。
   *          此参数可以是以下值之一:
   *            @arg TIM_IT_Update: TIM更新中断源
@@ -2285,7 +2285,7 @@ void TIM_ClearFlag(TIM_TypeDef* TIMx, uint16_t TIM_FLAG) {
   *            @arg TIM_IT_Break: TIM中断中断源
   *
   * 注意:   TIM6和TIM7只能产生一个更新中断。
-  * 注意:   TIM_IT_COM和TIM_IT_ Break仅与TIM1和TIM8一起使用。
+  * 注意:   TIM_IT_COM和TIM_IT_ Break仅与TIM1 和 TIM8一起使用。
   *
   * 返回值: TIM_IT的新状态(SET或RESET)。
   */
@@ -2311,7 +2311,7 @@ ITStatus TIM_GetITStatus(TIM_TypeDef* TIMx, uint16_t TIM_IT) {
 
 /**
   * 简介:  清除 TIMx 的中断挂起位。
-  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1到14，用于选择TIM 外设设备。
   * 参数:  TIM_IT: 指定要清除的挂起位。
   *          此参数可以是以下值的任意组合:
   *            @arg TIM_IT_Update: TIM更新中断源
@@ -2324,7 +2324,7 @@ ITStatus TIM_GetITStatus(TIM_TypeDef* TIMx, uint16_t TIM_IT) {
   *            @arg TIM_IT_Break: TIM Break Interrupt source
   *
   * 注意:   TIM6和TIM7只能产生一个更新中断。
-  * 注意:   TIM_IT_COM和TIM_IT_ Break仅与TIM1和TIM8一起使用。
+  * 注意:   TIM_IT_COM和TIM_IT_ Break仅与TIM1 和 TIM8一起使用。
   *
   * 返回值: 无
   */
@@ -2338,7 +2338,7 @@ void TIM_ClearITPendingBit(TIM_TypeDef* TIMx, uint16_t TIM_IT) {
 
 /**
   * 简介:  配置 TIMx 的 DMA 接口。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_DMABase: DMA Base address.
   *          此参数可以是以下值之一:
   *            @arg TIM_DMABase_CR1
@@ -2360,7 +2360,7 @@ void TIM_ClearITPendingBit(TIM_TypeDef* TIMx, uint16_t TIM_IT) {
   *            @arg TIM_DMABase_CCR4
   *            @arg TIM_DMABase_BDTR
   *            @arg TIM_DMABase_DCR
-  * 参数:  TIM_DMABurstLength: DMA突发长度。该参数可以是一个介于。
+  * 参数:  TIM_DMABurstLength: DMA 突发长度。该参数可以是一个介于。
   *         TIM_DMABurstLength_1Transfer和TIM_DMABurstLength_18Transfers。
   * 返回值: 无
   */
@@ -2370,14 +2370,14 @@ void TIM_DMAConfig(TIM_TypeDef* TIMx, uint16_t TIM_DMABase, uint16_t TIM_DMABurs
     assert_param(IS_TIM_DMA_BASE(TIM_DMABase));
     assert_param(IS_TIM_DMA_LENGTH(TIM_DMABurstLength));
 
-    /* 设置 DMA基址和DMA突发长度 */
+    /* 设置 DMA基址和DMA 突发长度 */
     TIMx->DCR = TIM_DMABase | TIM_DMABurstLength;
 }
 
 /**
   * 简介:  启用或禁用 TIMx 的 DMA 请求。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、6、7或8，以选择TIM外设设备。
-  * 参数:  TIM_DMASource: 指定DMA请求源。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、6、7或8，以选择TIM 外设设备。
+  * 参数:  TIM_DMASource: 指定DMA 请求源。
   *          此参数可以是以下值的任意组合:
   *            @arg TIM_DMA_Update: TIM更新中断源
   *            @arg TIM_DMA_CC1: TIM捕获比较1 DMA源
@@ -2386,7 +2386,7 @@ void TIM_DMAConfig(TIM_TypeDef* TIMx, uint16_t TIM_DMABase, uint16_t TIM_DMABurs
   *            @arg TIM_DMA_CC4: TIM捕获比较4 DMA源
   *            @arg TIM_DMA_COM: TIM交换DMA源
   *            @arg TIM_DMA_Trigger: TIM触发器DMA源
-  * 参数:  NewState: DMA请求源的新状态。
+  * 参数:  NewState: DMA 请求源的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
   */
@@ -2407,7 +2407,7 @@ void TIM_DMACmd(TIM_TypeDef* TIMx, uint16_t TIM_DMASource, FunctionalState NewSt
 
 /**
   * 简介:  选择 TIMx 外设捕获比较 DMA 源。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  NewState: 捕获比较DMA源的新状态
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
@@ -2439,7 +2439,7 @@ void TIM_SelectCCDMA(TIM_TypeDef* TIMx, FunctionalState NewState) {
 
 /**
   * 简介:  配置TIMx内部时钟
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 返回值: 无
   */
 void TIM_InternalClockConfig(TIM_TypeDef* TIMx) {
@@ -2452,7 +2452,7 @@ void TIM_InternalClockConfig(TIM_TypeDef* TIMx) {
 
 /**
   * 简介:  将 TIMx 内部触发器配置为外部时钟。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 参数:  TIM_InputTriggerSource: Trigger source.
   *          此参数可以是以下值之一:
   *            @arg TIM_TS_ITR0: 内部触发器0
@@ -2475,7 +2475,7 @@ void TIM_ITRxExternalClockConfig(TIM_TypeDef* TIMx, uint16_t TIM_InputTriggerSou
 
 /**
   * 简介:  将 TIMx 触发器配置为外部时钟。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9、10、11、12、13或14，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9、10、11、12、13或14，以选择TIM 外设设备。
   * 参数:  TIM_TIxExternalCLKSource: Trigger source.
   *          此参数可以是以下值之一:
   *            @arg TIM_TIxExternalCLK1Source_TI1ED: TI1 Edge Detector
@@ -2511,7 +2511,7 @@ void TIM_TIxExternalClockConfig(TIM_TypeDef* TIMx, uint16_t TIM_TIxExternalCLKSo
 
 /**
   * 简介:  配置外部时钟模式1。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_ExtTRGPrescaler: 外部触发预分频器。
   *          此参数可以是以下值之一:
   *            @arg TIM_ExtTRGPSC_OFF: ETRP预分频器关闭。
@@ -2538,7 +2538,7 @@ void TIM_ETRClockMode1Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
     /* 配置ETR时钟源 */
     TIM_ETRConfig(TIMx, TIM_ExtTRGPrescaler, TIM_ExtTRGPolarity, ExtTRGFilter);
 
-    /* 获取TIMx SMCR寄存器值 */
+    /* 获取TIMx SMCr 寄存器值 */
     tmpsmcr = TIMx->SMCR;
 
     /* 重设 SMS 位 */
@@ -2557,7 +2557,7 @@ void TIM_ETRClockMode1Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
 
 /**
   * 简介:  配置外部时钟模式1。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_ExtTRGPrescaler: 外部触发预分频器。
   *          此参数可以是以下值之一:
   *            @arg TIM_ExtTRGPSC_OFF: ETRP预分频器关闭。
@@ -2624,7 +2624,7 @@ void TIM_ETRClockMode2Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
 
 /**
   * 简介:  选择输入触发器源。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9、10、11、12、13或14，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9、10、11、12、13或14，以选择TIM 外设设备。
   * 参数:  TIM_InputTriggerSource: 输入触发器源。
   *          此参数可以是以下值之一:
   *            @arg TIM_TS_ITR0: 内部触发器0
@@ -2644,7 +2644,7 @@ void TIM_SelectInputTrigger(TIM_TypeDef* TIMx, uint16_t TIM_InputTriggerSource) 
     assert_param(IS_TIM_LIST1_PERIPH(TIMx));
     assert_param(IS_TIM_TRIGGER_SELECTION(TIM_InputTriggerSource));
 
-    /* 获取TIMx SMCR寄存器值 */
+    /* 获取TIMx SMCr 寄存器值 */
     tmpsmcr = TIMx->SMCR;
 
     /* 重设 TS 位 */
@@ -2659,13 +2659,13 @@ void TIM_SelectInputTrigger(TIM_TypeDef* TIMx, uint16_t TIM_InputTriggerSource) 
 
 /**
   * 简介:  选择 TIMx 触发输出模式。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、6、7或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、6、7或8，以选择TIM 外设设备。
   *
   * 参数:  TIM_TRGOSource: 指定触发器输出源。
   *   此参数可以是以下值之一:
   *
   *  - For all TIMx
-  *            @arg TIM_TRGOSource_Reset:  TIM_EGR寄存器中的UG位用作触发输出(TRGO)
+  *            @arg TIM_TRGOSource_Reset:  TIM_EGR 寄存器中的UG位用作触发输出(TRGO)
   *            @arg TIM_TRGOSource_Enable: 计数器使能CEN用作触发输出(TRGO)
   *            @arg TIM_TRGOSource_Update: 选择更新事件作为触发输出(TRGO)
   *
@@ -2692,7 +2692,7 @@ void TIM_SelectOutputTrigger(TIM_TypeDef* TIMx, uint16_t TIM_TRGOSource) {
 
 /**
   * 简介:  选择 TIMx 从模式。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 参数:  TIM_SlaveMode: 指定定时器从模式。
   *          此参数可以是以下值之一:
   *            @arg TIM_SlaveMode_Reset: 所选触发信号(TRGI)的上升沿重新初始化计数器并触发寄存器更新
@@ -2715,7 +2715,7 @@ void TIM_SelectSlaveMode(TIM_TypeDef* TIMx, uint16_t TIM_SlaveMode) {
 
 /**
   * 简介:  设置或重置 TIMx 主/从模式。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 参数:  TIM_MasterSlaveMode: 指定定时器主从模式。
   *          此参数可以是以下值之一:
   *            @arg TIM_MasterSlaveMode_Enable: 当前定时器及其从机之间的同步(通过TRGO)
@@ -2736,7 +2736,7 @@ void TIM_SelectMasterSlaveMode(TIM_TypeDef* TIMx, uint16_t TIM_MasterSlaveMode) 
 
 /**
   * 简介:  配置 TIMx 外部触发器 (ETR)。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_ExtTRGPrescaler: 外部触发预分频器。
   *          此参数可以是以下值之一:
   *            @arg TIM_ExtTRGPSC_OFF: ETRP预分频器关闭。
@@ -2786,12 +2786,12 @@ void TIM_ETRConfig(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
 
 /**
   * 简介:  配置 TIMx 编码器接口。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 参数:  TIM_EncoderMode: 指定TIMx编码器模式。
   *          此参数可以是以下值之一:
   *            @arg TIM_EncoderMode_TI1: TI1FP1边缘上的计数器计数取决于TI2FP2级别。
   *            @arg TIM_EncoderMode_TI2: TI2FP2边缘上的计数器计数取决于TI1FP1级别。
-  *            @arg TIM_EncoderMode_TI12: TI1FP1和TI2FP2边缘上的计数器计数取决于其他输入的电平。
+  *            @arg TIM_EncoderMode_TI12: TI1FP1 和 TI2FP2边缘上的计数器计数取决于其他输入的电平。
   * 参数:  TIM_IC1Polarity: 指定IC1极性
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPolarity_Falling: IC下降沿。
@@ -2814,13 +2814,13 @@ void TIM_EncoderInterfaceConfig(TIM_TypeDef* TIMx, uint16_t TIM_EncoderMode,
     assert_param(IS_TIM_IC_POLARITY(TIM_IC1Polarity));
     assert_param(IS_TIM_IC_POLARITY(TIM_IC2Polarity));
 
-    /* 获取TIMx SMCR寄存器值 */
+    /* 获取TIMx SMCr 寄存器值 */
     tmpsmcr = TIMx->SMCR;
 
     /* 获取TIMx CCMR1寄存器值 */
     tmpccmr1 = TIMx->CCMR1;
 
-    /* 获取TIMx CCER寄存器的值 */
+    /* 获取TIMx CCER 寄存器的值 */
     tmpccer = TIMx->CCER;
 
     /* 设置 encoder Mode */
@@ -2847,7 +2847,7 @@ void TIM_EncoderInterfaceConfig(TIM_TypeDef* TIMx, uint16_t TIM_EncoderMode,
 
 /**
   * 简介:  启用或禁用 TIMx 的霍尔传感器接口。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 参数:  NewState: TIMx霍尔传感器接口的新状态。
   *          此参数可以是: ENABLE或DISABLE。
   * 返回值: 无
@@ -2880,7 +2880,7 @@ void TIM_SelectHallSensor(TIM_TypeDef* TIMx, FunctionalState NewState) {
 /**
   * 简介:  配置 TIM2、TIM5 和 TIM11 重新映射输入功能。
   * 参数:  TIMx: where x can be 2, 5 or 11 to select the TIM 外设.
-  * 参数:  TIM_Remap: 指定TIM输入重映射源。
+  * 参数:  TIM_Remap: 指定TIM 输入重映射源。
   *          此参数可以是以下值之一:
   *            @arg TIM2_TIM8_TRGO: TIM2 ITR1输入连接至TIM8触发器输出(默认)
   *            @arg TIM2_ETH_PTP:   TIM2 ITR1输入连接到ETH PTP触发输出。
@@ -2905,7 +2905,7 @@ void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap) {
 
 /**
   * 简介:  将TI1配置为输入。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9、10、11、12、13或14，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9、10、11、12、13或14，以选择TIM 外设设备。
   * 参数:  TIM_ICPolarity : 输入极性。
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPolarity_Rising
@@ -2913,9 +2913,9 @@ void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap) {
   *            @arg TIM_ICPolarity_BothEdge
   * 参数:  TIM_ICSelection: 指定要使用的输入。
   *          此参数可以是以下值之一:
-  *            @arg TIM_ICSelection_DirectTI: 选择TIM输入1连接至IC1。
-  *            @arg TIM_ICSelection_IndirectTI: 选择TIM输入1连接至IC2。
-  *            @arg TIM_ICSelection_TRC: 选择TIM输入1连接至TRC。
+  *            @arg TIM_ICSelection_DirectTI: 选择TIM 输入1连接至IC1。
+  *            @arg TIM_ICSelection_IndirectTI: 选择TIM 输入1连接至IC2。
+  *            @arg TIM_ICSelection_TRC: 选择TIM 输入1连接至TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
   *          此参数的值必须介于0x00和0x0F之间。
   * 返回值: 无
@@ -2944,7 +2944,7 @@ static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
 
 /**
   * 简介:  将TI2配置为输入。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5、8、9或12，以选择TIM 外设设备。
   * 参数:  TIM_ICPolarity : 输入极性。
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPolarity_Rising
@@ -2952,9 +2952,9 @@ static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICPolarity_BothEdge
   * 参数:  TIM_ICSelection: 指定要使用的输入。
   *          此参数可以是以下值之一:
-  *            @arg TIM_ICSelection_DirectTI: TIM输入2被选择为连接到IC2。
-  *            @arg TIM_ICSelection_IndirectTI: TIM输入2被选择为连接到IC1。
-  *            @arg TIM_ICSelection_TRC: TIM输入2被选择连接到TRC。
+  *            @arg TIM_ICSelection_DirectTI: TIM 输入2被选择为连接到IC2。
+  *            @arg TIM_ICSelection_IndirectTI: TIM 输入2被选择为连接到IC1。
+  *            @arg TIM_ICSelection_TRC: TIM 输入2被选择连接到TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
   *          此参数的值必须介于0x00和0x0F之间。
   * 返回值: 无
@@ -2985,7 +2985,7 @@ static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
 
 /**
   * 简介:  将TI3配置为输入。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_ICPolarity : 输入极性。
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPolarity_Rising
@@ -2993,9 +2993,9 @@ static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICPolarity_BothEdge
   * 参数:  TIM_ICSelection: 指定要使用的输入。
   *          此参数可以是以下值之一:
-  *            @arg TIM_ICSelection_DirectTI: TIM输入3被选择为连接到IC3。
-  *            @arg TIM_ICSelection_IndirectTI: TIM输入3被选择为连接到IC4。
-  *            @arg TIM_ICSelection_TRC: TIM输入3被选择为连接到TRC。
+  *            @arg TIM_ICSelection_DirectTI: TIM 输入3被选择为连接到IC3。
+  *            @arg TIM_ICSelection_IndirectTI: TIM 输入3被选择为连接到IC4。
+  *            @arg TIM_ICSelection_TRC: TIM 输入3被选择为连接到TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
   *          此参数的值必须介于0x00和0x0F之间。
   * 返回值: 无
@@ -3025,7 +3025,7 @@ static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
 
 /**
   * 简介:  将TI4配置为输入。
-  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM外设设备。
+  * 参数:  TIMx: 其中x可以是1、2、3、4、5或8，以选择TIM 外设设备。
   * 参数:  TIM_ICPolarity : 输入极性。
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPolarity_Rising
@@ -3033,9 +3033,9 @@ static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICPolarity_BothEdge
   * 参数:  TIM_ICSelection: 指定要使用的输入。
   *          此参数可以是以下值之一:
-  *            @arg TIM_ICSelection_DirectTI: 选择TIM输入4连接至IC4。
-  *            @arg TIM_ICSelection_IndirectTI: 选择TIM输入4连接至IC3。
-  *            @arg TIM_ICSelection_TRC: 选择TIM输入4连接至TRC。
+  *            @arg TIM_ICSelection_DirectTI: 选择TIM 输入4连接至IC4。
+  *            @arg TIM_ICSelection_IndirectTI: 选择TIM 输入4连接至IC3。
+  *            @arg TIM_ICSelection_TRC: 选择TIM 输入4连接至TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
   *          此参数的值必须介于0x00和0x0F之间。
   * 返回值: 无
@@ -3059,7 +3059,7 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
     tmpccer &= (uint16_t)~(TIM_CCER_CC4P | TIM_CCER_CC4NP);
     tmpccer |= (uint16_t)(tmp | (uint16_t)TIM_CCER_CC4E);
 
-    /* 写入TIMx CCMR2和CCER寄存器 */
+    /* 写入TIMx CCMR2和CCER 寄存器 */
     TIMx->CCMR2 = tmpccmr2;
     TIMx->CCER = tmpccer ;
 }

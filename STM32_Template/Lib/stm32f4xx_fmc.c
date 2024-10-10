@@ -51,7 +51,7 @@ const FMC_NORSRAMTimingInitTypeDef FMC_DefaultTimingStruct = {0x0F, /* FMC_Addre
                                                               0x0F, /* FMC_DataLatency */
                                                               FMC_AccessMode_A /* FMC_AccessMode */
                                                              };
-/* --------------------- FMC寄存器位掩码 ---------------------------- */
+/* --------------------- FMC 寄存器位掩码 ---------------------------- */
 /* FMC BCRx Mask */
 #define BCR_MBKEN_SET              ((uint32_t)0x00000001)
 #define BCR_MBKEN_RESET            ((uint32_t)0x000FFFFE)
@@ -180,7 +180,7 @@ void FMC_NORSRAMInit(FMC_NORSRAMInitTypeDef* FMC_NORSRAMInitStruct) {
     assert_param(IS_FMC_DATA_LATENCY(FMC_NORSRAMInitStruct->FMC_ReadWriteTimingStruct->FMC_DataLatency));
     assert_param(IS_FMC_ACCESS_MODE(FMC_NORSRAMInitStruct->FMC_ReadWriteTimingStruct->FMC_AccessMode));
 
-    /* 获取BTCR寄存器值 */
+    /* 获取 BTCR 寄存器值 */
     tmpbcr = FMC_Bank1->BTCR[FMC_NORSRAMInitStruct->FMC_Bank];
 
     /* 清除 MBKEN, MUXEN, MTYP, MWID, FACCEN, BURSTEN, WAITPOL, WRAPMOD, WAITCFG, WREN,
@@ -239,7 +239,7 @@ void FMC_NORSRAMInit(FMC_NORSRAMInitTypeDef* FMC_NORSRAMInitStruct) {
         assert_param(IS_FMC_TURNAROUND_TIME(FMC_NORSRAMInitStruct->FMC_WriteTimingStruct->FMC_BusTurnAroundDuration));
         assert_param(IS_FMC_ACCESS_MODE(FMC_NORSRAMInitStruct->FMC_WriteTimingStruct->FMC_AccessMode));
 
-        /* 获取BWTR寄存器值 */
+        /* 获取 BWTR 寄存器值 */
         tmpbwr = FMC_Bank1E->BWTR[FMC_NORSRAMInitStruct->FMC_Bank];
 
         /* 清除 ADDSET, ADDHLD, DATAST, BUSTURN and ACCMOD 位 */
@@ -529,7 +529,7 @@ void FMC_NANDCmd(uint32_t FMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过在PCRx中设置PBKEN位来选择NAND组寄存器 */
+        /* 启用通过在 PCRx中设置PBKEN位来选择NAND组寄存器 */
         if(FMC_Bank == FMC_Bank2_NAND) {
             FMC_Bank2->PCR2 |= PCR_PBKEN_SET;
         } else {
@@ -562,7 +562,7 @@ void FMC_NANDECCCmd(uint32_t FMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过在PCRx中设置ECCEN位来选择NAND组ECC功能寄存器 */
+        /* 启用通过在 PCRx中设置ECCEN位来选择NAND组ECC功能寄存器 */
         if(FMC_Bank == FMC_Bank2_NAND) {
             FMC_Bank2->PCR2 |= PCR_ECCEN_SET;
         } else {
@@ -784,7 +784,7 @@ void FMC_PCCARDCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过在PCR4中设置PBKEN位，PCCARD Bank寄存器 */
+        /* 启用通过在 PCR4中设置PBKEN位，PCCARD Bank寄存器 */
         FMC_Bank4->PCR4 |= PCR_PBKEN_SET;
     } else {
         /* 禁用通过清除PCR4中的PBKEN位，PCCARD Bank寄存器 */
@@ -909,7 +909,7 @@ void FMC_SDRAMInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct) {
     if(FMC_SDRAMInitStruct->FMC_Bank == FMC_Bank1_SDRAM ) {
         FMC_Bank5_6->SDCR[FMC_SDRAMInitStruct->FMC_Bank] = tmpr1;
     } else { /* SDCR2 "don't care" bits 配置*/
-        /* Get SDCR寄存器值 */
+        /* Get SDCr 寄存器值 */
         tmpr3 = FMC_Bank5_6->SDCR[FMC_Bank1_SDRAM];
 
         /* 清除 NC, NR, MWID, NB, CAS, WP, SDCLK, RBURST, and RPIPE 位 */
@@ -927,7 +927,7 @@ void FMC_SDRAMInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct) {
 
     /* SDRAM组定时寄存器配置*/
     if(FMC_SDRAMInitStruct->FMC_Bank == FMC_Bank1_SDRAM ) {
-        /* Get SDTR寄存器值 */
+        /* Get SDTr 寄存器值 */
         tmpr2 = FMC_Bank5_6->SDTR[FMC_SDRAMInitStruct->FMC_Bank];
 
         /* 清除 TMRD, TXSR, TRAS, TRC, TWR, TRP and TRCD 位 */
@@ -945,7 +945,7 @@ void FMC_SDRAMInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct) {
 
         FMC_Bank5_6->SDTR[FMC_SDRAMInitStruct->FMC_Bank] = tmpr2;
     } else { /* SDTR "don't care bits 配置*/
-        /* Get SDTR寄存器值 */
+        /* Get SDTr 寄存器值 */
         tmpr2 = FMC_Bank5_6->SDTR[FMC_SDRAMInitStruct->FMC_Bank];
 
         /* 清除 TMRD, TXSR, TRAS, TRC, TWR, TRP and TRCD 位 */
@@ -958,7 +958,7 @@ void FMC_SDRAMInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct) {
                    (((FMC_SDRAMInitStruct->FMC_SDRAMTimingStruct->FMC_SelfRefreshTime) - 1) << 8) |
                    (((FMC_SDRAMInitStruct->FMC_SDRAMTimingStruct->FMC_WriteRecoveryTime) - 1) << 16);
 
-        /* Get SDTR寄存器值 */
+        /* Get SDTr 寄存器值 */
         tmpr4 = FMC_Bank5_6->SDTR[FMC_Bank1_SDRAM];
 
         /* 清除 TMRD, TXSR, TRAS, TRC, TWR, TRP and TRCD 位 */
@@ -1037,7 +1037,7 @@ void FMC_SDRAMCmdConfig(FMC_SDRAMCommandTypeDef* FMC_SDRAMCommandStruct) {
   * 参数:  SDRAM_Bank: 定义FMC SDRAM库。
   *                    这个参数可以是FMC_Bank1_SDRAM或FMC_Bank2_SDRAM。
   * 
-  * 返回值: FMC的SDRAM库模式状态
+  * 返回值: FMC 的SDRAM库模式状态
   */
 uint32_t FMC_GetModeStatus(uint32_t SDRAM_Bank) {
     uint32_t tmpreg = 0;

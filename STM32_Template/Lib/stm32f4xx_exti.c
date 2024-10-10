@@ -35,7 +35,7 @@
    (#) 使用 NVIC_Init() 配置映射到 EXTI 行的 NVIC IRQ 通道
 
  [..]
-   (@) 必须启用 SYSCFG APB时钟，才能使用RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
+   (@) 必须启用 SYSCFG APB时钟，才能使用 RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
        对SYSCFG_EXTICRx寄存器进行写入访问;
 
 @endverbatim

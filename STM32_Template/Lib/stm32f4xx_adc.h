@@ -45,7 +45,7 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 
 /**
-  * 简介:    ADC初始化结构定义
+  * 简介:    ADC 初始化结构定义
   */
 typedef struct {
     uint32_t ADC_Resolution;                /*!< 配置 ADC 分辨率双模式。

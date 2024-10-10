@@ -808,7 +808,7 @@ typedef struct {
 } TIMRG_TypeDef;
 
 
-#define TIMRG_HALLIE_HALL0_Pos		0		//HALL0中断使能，HALL0使用Timer0计数器
+#define TIMRG_HALLIE_HALL0_Pos		0		//HALL0中断使能，HALL0使用 Timer0计数器
 #define TIMRG_HALLIE_HALL0_Msk		(0x01 << TIMRG_HALLIE_HALL0_Pos)
 #define TIMRG_HALLIE_HALL3_Pos		1
 #define TIMRG_HALLIE_HALL3_Msk		(0x01 << TIMRG_HALLIE_HALL3_Pos)
@@ -826,7 +826,7 @@ typedef struct {
 #define TIMRG_HALLIF_H3IN2_Pos		5
 #define TIMRG_HALLIF_H3IN2_Msk		(0x01 << TIMRG_HALLIF_H3IN2_Pos)
 
-#define TIMRG_HALLEN_HALL0_Pos		0		//HALL0功能开关，HALL0使用Timer0计数器
+#define TIMRG_HALLEN_HALL0_Pos		0		//HALL0功能开关，HALL0使用 Timer0计数器
 #define TIMRG_HALLEN_HALL0_Msk		(0x01 << TIMRG_HALLEN_HALL0_Pos)
 #define TIMRG_HALLEN_HALL3_Pos		1
 #define TIMRG_HALLEN_HALL3_Msk		(0x01 << TIMRG_HALLEN_HALL3_Pos)
@@ -1918,7 +1918,7 @@ typedef struct {
 
 #define QEI_IE_INDEX_Pos 			0		//检测到Index脉冲
 #define QEI_IE_INDEX_Msk			(0x01 << QEI_IE_INDEX_Pos)
-#define QEI_IE_MATCH_Pos 			1		//POSCNT递增到与MAXCNT相等，或POSCNT从MAXCNT递减到0
+#define QEI_IE_MATCH_Pos 			1		//POSCNT递增到与MAXCNT相等，或POSCNT从MAXCNT递减到 0
 #define QEI_IE_MATCH_Msk			(0x01 << QEI_IE_MATCH_Pos)
 #define QEI_IE_CNTOV_Pos 			2		//Counter Overrun，计数器溢出
 #define QEI_IE_CNTOV_Msk			(0x01 << QEI_IE_CNTOV_Pos)
@@ -2747,9 +2747,9 @@ typedef struct {
 #define CORDIC_INPUT_F_Msk			(0x3FFF << CORDIC_INPUT_F_Pos)
 #define CORDIC_INPUT_I_Pos			14		//输入数据整数部分
 #define CORDIC_INPUT_I_Msk			(0x03 << CORDIC_INPUT_I_Pos)
-#define CORDIC_INPUT_F2_Pos			16		//输入数据小数部分，乘法中的第二个参数、除法中的被除数，乘法结果存于SIN、除法结果存于ARCTAN
+#define CORDIC_INPUT_F2_Pos			16		//输入数据小数部分，乘法中的第二个参数、除法中的被除数，乘法结果存于 SIN、除法结果存于ARCTAN
 #define CORDIC_INPUT_F2_Msk			(0x3FFF << CORDIC_INPUT_F2_Pos)
-#define CORDIC_INPUT_I2_Pos			30		//输入数据整数部分，乘法中的第二个参数、除法中的被除数，乘法结果存于SIN、除法结果存于ARCTAN
+#define CORDIC_INPUT_I2_Pos			30		//输入数据整数部分，乘法中的第二个参数、除法中的被除数，乘法结果存于 SIN、除法结果存于ARCTAN
 #define CORDIC_INPUT_I2_Msk			(0x03u<< CORDIC_INPUT_I2_Pos)
 
 #define CORDIC_COS_F_Pos			0		//COS计算结果的小数部分

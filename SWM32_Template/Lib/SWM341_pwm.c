@@ -97,7 +97,7 @@ void PWM_Init(PWM_TypeDef * PWMx, PWM_InitStructure * initStruct) {
 
 /******************************************************************************************************************************************
 * 函数名称:	PWM_Start()
-* 功能说明:	启动PWM，开始PWM输出
+* 功能说明:	启动PWM，开始PWM 输出
 * 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其"或"
 * 输    出: 无
 * 注意事项: 无
@@ -108,7 +108,7 @@ void PWM_Start(uint32_t pwm) {
 
 /******************************************************************************************************************************************
 * 函数名称:	PWM_Stop()
-* 功能说明:	关闭PWM，停止PWM输出
+* 功能说明:	关闭PWM，停止PWM 输出
 * 输    入: uint32_t pwm			PWM0_MSK、PWM1_MSK、PWM2_MSK、PWM3_MSK、PWM4_MSK、PWM5_MSK 及其"或"
 * 输    出: 无
 * 注意事项: 无
@@ -244,7 +244,7 @@ void PWM_CmpTrigger(PWM_TypeDef * PWMx, uint16_t match, uint32_t dir, uint32_t w
 
 /******************************************************************************************************************************************
 * 函数名称:	PWM_OutMask()
-* 功能说明:	输出屏蔽，当指定输入信号为高时，PWM输出固定电平
+* 功能说明:	输出屏蔽，当指定输入信号为高时，PWM 输出固定电平
 * 输    入: PWM_TypeDef * PWMx 		指定要被设置的PWM，有效值包括PWM0、PWM1、PWM2、PWM3、PWM4
 *			uint32_t chn			指定要被设置的PWM通道，有效值包括PWM_CH_A、PWM_CH_B
 *			uint32_t evt			PWMxY 由哪路 event 输入信号屏蔽，取值PWM_EVT_DIS、PWM_EVT_0、PWM_EVT_1、...、PWM_EVT_6

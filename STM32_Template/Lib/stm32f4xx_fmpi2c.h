@@ -339,7 +339,7 @@ void FMPI2C_CalculatePEC(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 
 void FMPI2C_PECRequestCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 启用或禁用 FMPI2C PEC 发送/接收请求。
 uint8_t FMPI2C_GetPEC(FMPI2C_TypeDef* FMPI2Cx); // 返回 FMPI2C PEC。
 
-/* FMPI2C寄存器管理功能 *****************************************/
+/* FMPI2C 寄存器管理功能 *****************************************/
 uint32_t FMPI2C_ReadRegister(FMPI2C_TypeDef* FMPI2Cx, uint8_t FMPI2C_Register); // 读取指定的 FMPI2C 寄存器并返回其值。
 
 /* 数据传输管理功能 ****************************************/

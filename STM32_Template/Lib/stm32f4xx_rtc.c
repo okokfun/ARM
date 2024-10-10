@@ -37,41 +37,41 @@
         (#) PC13到PC15 I/O，加上PI8 I/O(如果可用)
 
  [..] 当备份域由VDD(连接到VDD的模拟交换机)提供时，以下功能可用:
-        (#) PC14和PC15可用作GPIO或LSE引脚
-        (#) PC13可用作GPIO或RTC_AF1引脚
-        (#) PI8可用作GPIO或RTC_AF2引脚
+        (#) PC14和PC15可用作GPIO或LSE 引脚
+        (#) PC13可用作GPIO或RTC_AF1 引脚
+        (#) PI8可用作GPIO或RTC_AF2 引脚
 
  [..] 当备份域由VBAT(由于VDD不存在而连接到VBAT的模拟交换机)提供时，以下功能可用:
-        (#) PC14和PC15只能用作LSE引脚
-        (#) PC13可用作RTC_AF1引脚
-        (#) PI8可用作RTC_AF2引脚
+        (#) PC14和PC15只能用作LSE 引脚
+        (#) PC13可用作RTC_AF1 引脚
+        (#) PI8可用作RTC_AF2 引脚
 
 
                    ##### 备份域重置 #####
  ===================================================================
- [..] 备份域重置将所有RTC寄存器和寄存器设置为其重置值。BKPSRAM不受此复位的影响。
+ [..] 备份域重置将所有RTC 寄存器和寄存器设置为其重置值。BKPSRAM不受此复位的影响。
         重置BKPSRAM的唯一方法是通过Flash接口请求保护级别从1更改为0。
  [..] 发生以下事件之一时，将生成备份域重置:
    (#) 软件重置，通过设置RCC备份域控制寄存器(RCC_BDCR)中的BDRST位触发。
-        您可以使用RCC_BackupResetCmd()。
+        您可以使用 RCC_BackupResetCmd()。
    (#) VDD或VBAT电源打开(如果两个电源之前都已关闭)。
 
 
                    ##### 备份域访问 #####
  ===================================================================
- [..] 重置后，备份域(RTC寄存器、RTC备份数据寄存器和备份SRAM)
+ [..] 重置后，备份域(RTC 寄存器、RTC备份数据寄存器和备份SRAM)
         将受到保护，以防可能出现不需要的写入访问。
  [..] 要启用对 RTC 域和 RTC 寄存器的访问，请执行以下操作:
     (+) 启用电源控制器 (PWR)APB1 接口使用 RCC_APB1PeriphClockCmd() 函数。
-    (+) 使用 PWR_BackupAccessCmd()  函数启用对RTC域的访问。
+    (+) 使用 PWR_BackupAccessCmd()  函数启用对 RTC 域的访问。
     (+) 使用 RCC_RTCCLKConfig() 函数选择RTC时钟源。
-    (+) 使用 RCC_RTCCLKCmd()  函数启用RTC时钟。
+    (+) 使用 RCC_RTCCLKCmd()  函数启用 RTC时钟。
 
 
-                  ##### 如何使用RTC驱动程序 #####
+                  ##### 如何使用 RTC驱动程序 #####
  ===================================================================
  [..]
-   (+) 启用 RTC域访问(请参阅上一节中的描述)
+   (+) 启用 RTC 域访问(请参阅上一节中的描述)
    (+) 使用 RTC_Init() 函数配置 RTC 预分频器(异步和同步)和RTC小时格式。
 
  *** 时间和日期配置 ***
@@ -101,35 +101,35 @@
  =============================
  [..] RTC有两种不同的输出:
    (+) AFO_ALARM: 该输出用于管理RTC警报A、警报B和WaKeUp信号。
-                  要在RTC_AF1引脚上输出选定的RTC信号，请使用RTC_OutputConfig() 函数。
+                  要在RTC_AF1 引脚上输出选定的RTC信号，请使用 RTC_OutputConfig() 函数。
    (+) AFO_CALIB: 该输出为512Hz信号或1Hz。
-                  要在RTC_AF1引脚上输出RTC时钟，请使用RTC_CalibOutputCmd() 函数。
+                  要在RTC_AF1 引脚上输出RTC时钟，请使用 RTC_CalibOutputCmd() 函数。
 
  *** 平滑数字校准配置 ***
  ================================================
  [..]
-   (+) 使用RTC_SmoothCalibConfig() 函数
+   (+) 使用 RTC_SmoothCalibConfig() 函数
         配置RTC原始数字校准值和相应的校准周期周期(32秒、16秒和8秒)。
 
  *** 粗略数字校准配置 ***
  ================================================
  [..]
-    (+) 使用RTC_CoarseCalibConfig() 函数配置RTC粗略校准值和相应符号。
-    (+) 使用RTC_CoarseCalibCmd() 函数启用RTC粗校准
+    (+) 使用 RTC_CoarseCalibConfig() 函数配置RTC粗略校准值和相应符号。
+    (+) 使用 RTC_CoarseCalibCmd() 函数启用 RTC粗校准
 
  *** 时间戳配置 ***
  ===============================
  [..]
-   (+) 配置RTC_AF1触发器，并使用RTC_TimeStampCmd() 函数启用RTC时间戳。
-   (+) 要读取RTC时间戳时间和日期寄存器，请使用RTC_GetTimeStamp() 函数。
-   (+) 要读取RTC TimeStamp SubSecond寄存器，请使用RTC_GetTimeStampSubSecond() 函数。
-   (+) 根据RTC_TAFCR寄存器中TAMP1INSEL位的值，TAMPER1替代函数可以映射到RTC_AF1(PC13)
-       或RTC_AF2(PI8)。您可以使用RTC_TamperPinSelection() 函数选择相应的管脚。
+   (+) 配置RTC_AF1触发器，并使用 RTC_TimeStampCmd() 函数启用 RTC时间戳。
+   (+) 要读取RTC时间戳时间和日期寄存器，请使用 RTC_GetTimeStamp() 函数。
+   (+) 要读取RTC TimeStamp SubSecond寄存器，请使用 RTC_GetTimeStampSubSecond() 函数。
+   (+) 根据RTC_TAFCR 寄存器中TAMP1INSEL位的值，TAMPER1替代函数可以映射到RTC_AF1(PC13)
+       或RTC_AF2(PI8)。您可以使用 RTC_TamperPinSelection() 函数选择相应的管脚。
 
  *** 篡改配置 ***
  ============================
  [..]
-    (+) 使用 RTC_TamperCmd() 函数启用RTC篡改。
+    (+) 使用 RTC_TamperCmd() 函数启用 RTC篡改。
     (+) 使用 RTC_TamperFilterConfig() 函数配置篡改过滤器计数。
     (+) 使用 RTC_TamperConfig() 函数，根据 Tamper 过滤器(如果等于0 Edge else Level)
 		    值配置 RTC Tamper 触发器Edge或Level。
@@ -160,7 +160,7 @@
 
           ##### RTC_AF1复用功能的选择 #####
  ===================================================================
- [..] RTC_AF1引脚(PC13)可用于以下目的:
+ [..] RTC_AF1 引脚(PC13)可用于以下目的:
    (+) AFO_ALARM output
    (+) AFO_CALIB output
    (+) AFI_TAMPER
@@ -197,7 +197,7 @@
 
         #####  RTC_AF2复用功能的选择 #####
  ===================================================================
- [..] RTC_AF2引脚(PI8)可用于以下目的:
+ [..] RTC_AF2 引脚(PI8)可用于以下目的:
    (+) AFI_TAMPER
    (+) AFI_TIMESTAMP
  [..]
@@ -291,13 +291,13 @@ static uint8_t RTC_Bcd2ToByte(uint8_t Value);
  ===============================================================================
 
  [..] 本节提供的功能允许初始化和配置RTC预分频器(同步和异步)、RTC小时格式、
-      禁用RTC寄存器写保护、进入和退出RTC初始化模式、RTC寄存器同步检查和基准时钟检测启用。
+      禁用 RTC 寄存器写保护、进入和退出RTC 初始化模式、RTC 寄存器同步检查和基准时钟检测启用。
 
    (#) RTC 预分频器被编程为生成RTC 1Hz时基。它分为2个可编程预分频器，以最小化功耗。
        (++) 一个7位异步预分频器和一个13位同步预分频器。
        (++) 当两个预分频器都使用时，建议将异步预分频器配置为高值，以减少消耗。
 
-   (#) 所有的RTC寄存器都有写保护。对RTC寄存器的写入是通过向写保护寄存器RTC_WPR写一个键来实现的。
+   (#) 所有的RTC 寄存器都有写保护。对 RTC 寄存器的写入是通过向写保护寄存器RTC_WPR写一个键来实现的。
 
    (#) 要配置RTC日历，用户应用程序应进入初始化模式。在这个模式下，日历计数器被停止，
        其值可以被更新。当初始化序列完成后，日历在4个RTCCLK周期后重新开始计数。
@@ -317,15 +317,15 @@ static uint8_t RTC_Bcd2ToByte(uint8_t Value);
   * 参数:  无
   * 
   * 返回值: ErrorStatus枚举值:
-  *          - SUCCESS: RTC寄存器被取消初始化
-  *          - ERROR: RTC寄存器没有被反初始化
+  *          - SUCCESS: RTC 寄存器被取消初始化
+  *          - ERROR: RTC 寄存器没有被反初始化
   */
 ErrorStatus RTC_DeInit(void) {
     __IO uint32_t wutcounter = 0x00;
     uint32_t wutwfstatus = 0x00;
     ErrorStatus status = ERROR;
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -333,13 +333,13 @@ ErrorStatus RTC_DeInit(void) {
     if (RTC_EnterInitMode() == ERROR) {
         status = ERROR;
     } else {
-        /* 复位TR、DR和CR寄存器 */
+        /* 复位TR、DR和CR 寄存器 */
         RTC->TR = (uint32_t)0x00000000;
         RTC->DR = (uint32_t)0x00002101;
         /* Reset All CR bits except CR[2:0] */
         RTC->CR &= (uint32_t)0x00000007;
 
-        /* 等到RTC的WUTWF标志被设置，如果达到超时则退出 */
+        /* 等到RTC 的WUTWF标志被设置，如果达到超时则退出 */
         do {
             wutwfstatus = RTC->ISR & RTC_ISR_WUTWF;
             wutcounter++;
@@ -348,7 +348,7 @@ ErrorStatus RTC_DeInit(void) {
         if ((RTC->ISR & RTC_ISR_WUTWF) == RESET) {
             status = ERROR;
         } else {
-            /* 复位所有RTC CR寄存器位 */
+            /* 复位所有RTC CR 寄存器位 */
             RTC->CR &= (uint32_t)0x00000000;
             RTC->WUTR = (uint32_t)0x0000FFFF;
             RTC->PRER = (uint32_t)0x007F00FF;
@@ -360,7 +360,7 @@ ErrorStatus RTC_DeInit(void) {
             RTC->ALRMASSR = (uint32_t)0x00000000;
             RTC->ALRMBSSR = (uint32_t)0x00000000;
 
-            /* 复位ISR寄存器并退出初始化模式 */
+            /* 复位ISR 寄存器并退出初始化模式 */
             RTC->ISR = (uint32_t)0x00000000;
 
             /* Reset Tamper and alternate functions configuration 寄存器 */
@@ -374,7 +374,7 @@ ErrorStatus RTC_DeInit(void) {
         }
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return status;
@@ -387,8 +387,8 @@ ErrorStatus RTC_DeInit(void) {
   * 注意:   RTC预分频器寄存器有写保护，只能在初始化模式下写入。
   * 
   * 返回值: ErrorStatus枚举值:
-  *          - SUCCESS: RTC寄存器已初始化
-  *          - ERROR: RTC寄存器未初始化
+  *          - SUCCESS: RTC 寄存器已初始化
+  *          - ERROR: RTC 寄存器未初始化
   */
 ErrorStatus RTC_Init(RTC_InitTypeDef* RTC_InitStruct) {
     ErrorStatus status = ERROR;
@@ -398,7 +398,7 @@ ErrorStatus RTC_Init(RTC_InitTypeDef* RTC_InitStruct) {
     assert_param(IS_RTC_ASYNCH_PREDIV(RTC_InitStruct->RTC_AsynchPrediv));
     assert_param(IS_RTC_SYNCH_PREDIV(RTC_InitStruct->RTC_SynchPrediv));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -421,7 +421,7 @@ ErrorStatus RTC_Init(RTC_InitTypeDef* RTC_InitStruct) {
         status = SUCCESS;
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return status;
@@ -447,7 +447,7 @@ void RTC_StructInit(RTC_InitTypeDef* RTC_InitStruct) {
 
 /**
   * 简介:  启用或禁用 RTC 寄存器写保护。
-  * 注意:   除了RTC_ISR[13:8]、RTC_TAFCR和RTC_BKPxR之外，所有的RTC寄存器都有写保护。
+  * 注意:   除了RTC_ISR[13:8]、RTC_TAFCR和RTC_BKPxR之外，所有的RTC 寄存器都有写保护。
   * 注意:   写错的键会重新激活写保护。
   * 注意:   保护机制不受系统重置的影响。
   * 
@@ -461,10 +461,10 @@ void RTC_WriteProtectionCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用对RTC寄存器的写保护 */
+        /* 启用对 RTC 寄存器的写保护 */
         RTC->WPR = 0xFF;
     } else {
-        /* 禁用RTC寄存器的写保护 */
+        /* 禁用 RTC 寄存器的写保护 */
         RTC->WPR = 0xCA;
         RTC->WPR = 0x53;
     }
@@ -473,7 +473,7 @@ void RTC_WriteProtectionCmd(FunctionalState NewState) {
 /**
   * 简介:  进入 RTC 初始化模式。
   * 
-  * 注意:   RTC初始化模式是受写保护的，在调用此函数前请使用RTC_WriteProtectionCmd(DISABLE)。
+  * 注意:   RTC 初始化模式是受写保护的，在调用此函数前请使用 RTC_WriteProtectionCmd(DISABLE)。
   * 
   * 参数:  无
   * 
@@ -513,7 +513,7 @@ ErrorStatus RTC_EnterInitMode(void) {
   * 简介:  退出 RTC 初始化模式。
   * 
   * 注意:   当初始化序列完成后，日历在4个RTCCLK周期后重新开始计数。
-  * 注意:   RTC初始化模式是受写保护的，在调用此函数前请使用RTC_WriteProtectionCmd(DISABLE)。
+  * 注意:   RTC 初始化模式是受写保护的，在调用此函数前请使用 RTC_WriteProtectionCmd(DISABLE)。
   * 
   * 参数:  无
   * 返回值: 无
@@ -526,7 +526,7 @@ void RTC_ExitInitMode(void) {
 /**
   * 简介:  等到 RTC 时间和日期寄存器(RTC_TR和RTC_DR)与 RTC APB 时钟同步。
   * 
-  * 注意:   RTC重新同步模式是受写保护的，在调用此函数前请使用RTC_WriteProtectionCmd(DISABLE)。
+  * 注意:   RTC重新同步模式是受写保护的，在调用此函数前请使用 RTC_WriteProtectionCmd(DISABLE)。
   * 
   * 注意:   在日历初始化、日历更新或从低功耗模式唤醒后，要通过影子寄存器读取日历，软件必须首先清除RSF标志。
   *         然后，软件必须等到它再次被设置后才能读取日历，这意味着日历寄存器已经被正确地
@@ -535,15 +535,15 @@ void RTC_ExitInitMode(void) {
   * 参数:  无
   * 
   * 返回值: ErrorStatus枚举值:
-  *          - SUCCESS: RTC寄存器同步
-  *          - ERROR: RTC寄存器不同步
+  *          - SUCCESS: RTC 寄存器同步
+  *          - ERROR: RTC 寄存器不同步
   */
 ErrorStatus RTC_WaitForSynchro(void) {
     __IO uint32_t synchrocounter = 0;
     ErrorStatus status = ERROR;
     uint32_t synchrostatus = 0x00;
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -562,14 +562,14 @@ ErrorStatus RTC_WaitForSynchro(void) {
         status = ERROR;
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return (status);
 }
 
 /**
-  * 简介:  启用或禁用RTC参考时钟检测。
+  * 简介:  启用或禁用 RTC参考时钟检测。
   * 
   * 参数:  NewState: RTC基准时钟的新状态。
   *          此参数可以是: ENABLE或DISABLE。
@@ -584,7 +584,7 @@ ErrorStatus RTC_RefClockCmd(FunctionalState NewState) {
     /* 检查参数 */
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -593,10 +593,10 @@ ErrorStatus RTC_RefClockCmd(FunctionalState NewState) {
         status = ERROR;
     } else {
         if (NewState != DISABLE) {
-            /* 启用RTC参考时钟检测 */
+            /* 启用 RTC参考时钟检测 */
             RTC->CR |= RTC_CR_REFCKON;
         } else {
-            /* 禁用RTC参考时钟检测 */
+            /* 禁用 RTC参考时钟检测 */
             RTC->CR &= ~RTC_CR_REFCKON;
         }
 
@@ -606,7 +606,7 @@ ErrorStatus RTC_RefClockCmd(FunctionalState NewState) {
         status = SUCCESS;
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return status;
@@ -626,7 +626,7 @@ void RTC_BypassShadowCmd(FunctionalState NewState) {
     /* 检查参数 */
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -638,7 +638,7 @@ void RTC_BypassShadowCmd(FunctionalState NewState) {
         RTC->CR &= (uint8_t)~RTC_CR_BYPSHAD;
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 }
 
@@ -651,7 +651,7 @@ void RTC_BypassShadowCmd(FunctionalState NewState) {
                  ##### 时间和日期配置功能 #####
  ===============================================================================
 
- [..] 本节提供的功能允许对RTC日历(时间和日期)进行编程和读取。
+ [..] 本节提供的功能允许对 RTC日历(时间和日期)进行编程和读取。
 
 @endverbatim
   */
@@ -664,7 +664,7 @@ void RTC_BypassShadowCmd(FunctionalState NewState) {
   *            @arg RTC_Format_BIN:  二进制数据格式
   *            @arg RTC_Format_BCD:  BCD数据格式
   * 
-  * 参数:  RTC_TimeStruct: 指向RTC_TimeTypeDef结构的指针，该结构包含RTC的时间配置信息。
+  * 参数:  RTC_TimeStruct: 指向RTC_TimeTypeDef结构的指针，该结构包含RTC 的时间配置信息。
   * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC时间寄存器已被配置
@@ -715,7 +715,7 @@ ErrorStatus RTC_SetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct) {
                             (((uint32_t)RTC_TimeStruct->RTC_H12) << 16));
     }
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -741,7 +741,7 @@ ErrorStatus RTC_SetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct) {
         }
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return status;
@@ -802,7 +802,7 @@ void RTC_GetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct) {
 /**
   * 简介:  获取 RTC 当前日历子秒值。
   * 
-  * 注意:   此函数在读取SSR寄存器后冻结时间和日期寄存器。
+  * 注意:   此函数在读取SSR 寄存器后冻结时间和日期寄存器。
   * 
   * 参数:  无
   * 
@@ -814,7 +814,7 @@ uint32_t RTC_GetSubSecond(void) {
     /* 从相应寄存器获取次秒值*/
     tmpreg = (uint32_t)(RTC->SSR);
 
-    /* 读取DR寄存器以解冻日历寄存器 */
+    /* 读取DR 寄存器以解冻日历寄存器 */
     (void) (RTC->DR);
 
     return (tmpreg);
@@ -872,7 +872,7 @@ ErrorStatus RTC_SetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct) {
                   ((uint32_t)RTC_DateStruct->RTC_WeekDay << 13));
     }
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -898,7 +898,7 @@ ErrorStatus RTC_SetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct) {
         }
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return status;
@@ -972,7 +972,7 @@ void RTC_GetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct) {
 /**
   * 简介:  设置指定的 RTC 警报。
   * 
-  * 注意:   只有在禁用相应的报警时才能写入报警寄存器(使用RTC_AlarmCmd(DISABLE))。
+  * 注意:   只有在禁用相应的报警时才能写入报警寄存器(使用 RTC_AlarmCmd(DISABLE))。
   * 
   * 参数:  RTC_Format: 指定返回参数的格式。
   *          此参数可以是以下值之一:
@@ -1055,7 +1055,7 @@ void RTC_SetAlarm(uint32_t RTC_Format, uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC
                   ((uint32_t)RTC_AlarmStruct->RTC_AlarmMask));
     }
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -1066,7 +1066,7 @@ void RTC_SetAlarm(uint32_t RTC_Format, uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC
         RTC->ALRMBR = (uint32_t)tmpreg;
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 }
 
@@ -1171,7 +1171,7 @@ ErrorStatus RTC_AlarmCmd(uint32_t RTC_Alarm, FunctionalState NewState) {
     assert_param(IS_RTC_CMD_ALARM(RTC_Alarm));
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -1197,7 +1197,7 @@ ErrorStatus RTC_AlarmCmd(uint32_t RTC_Alarm, FunctionalState NewState) {
         }
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return status;
@@ -1214,40 +1214,40 @@ ErrorStatus RTC_AlarmCmd(uint32_t RTC_Alarm, FunctionalState NewState) {
   *     @arg RTC_Alarm_B: 选择报警B
   * 
   * 参数:  RTC_AlarmSubSecondValue: 指定子秒值。
-  *   此参数可以是0到0x00007FFF之间的值。
+  *   此参数可以是0到 0x00007FFF之间的值。
   * 
   * 参数:  RTC_AlarmSubSecondMask:  指定子秒屏蔽。
   *   此参数可以是以下值的任意组合:
   *     @arg RTC_AlarmSubSecondMask_All    : 所有的报警SS字段都被屏蔽了。
   *                                          报警的子秒数没有比较。
   *     @arg RTC_AlarmSubSecondMask_SS14_1 : SS[14:1]在Alarm比较中是不被关心的。
-  *                                          只有SS[0]被比较
+  *                                          只有 SS[0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_2 : SS[14:2]在Alarm比较中是不被关心的。
-  *                                          只有SS[1:0]被比较
+  *                                          只有 SS[1:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_3 : SS[14:3]在Alarm比较中是不被关心的。
-  *                                          只有SS[2:0]被比较
+  *                                          只有 SS[2:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_4 : SS[14:4]在Alarm比较中是不被关心的。
-  *                                          只有SS[3:0]被比较
+  *                                          只有 SS[3:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_5 : SS[14:5]在Alarm比较中是不被关心的。
-  *                                          只有SS[4:0]被比较
+  *                                          只有 SS[4:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_6 : SS[14:6]在Alarm比较中是不被关心的。
-  *                                          只有SS[5:0]被比较
+  *                                          只有 SS[5:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_7 : SS[14:7]在Alarm比较中是不被关心的。
-  *                                          只有SS[6:0]被比较
+  *                                          只有 SS[6:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_8 : SS[14:8]在Alarm比较中是不被关心的。
-  *                                          只有SS[7:0]被比较
+  *                                          只有 SS[7:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_9 : SS[14:9]在Alarm比较中是不被关心的。
-  *                                          只有SS[8:0]被比较
+  *                                          只有 SS[8:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_10: SS[14:10]在Alarm比较中是不被关心的。
-  *                                          只有SS[9:0]被比较
+  *                                          只有 SS[9:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_11: SS[14:11]在Alarm比较中是不被关心的。
-  *                                          只有SS[10:0]被比较
+  *                                          只有 SS[10:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_12: SS[14:12]在Alarm比较中是不被关心的。
-  *                                          只有SS[11:0]被比较
+  *                                          只有 SS[11:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14_13: SS[14:13]在Alarm比较中是不被关心的。
-  *                                          只有SS[12:0]被比较
+  *                                          只有 SS[12:0]被比较
   *     @arg RTC_AlarmSubSecondMask_SS14   : SS[14]在报警器比较中是不关心的。
-  *                                          只有SS[13:0]被比较
+  *                                          只有 SS[13:0]被比较
   *     @arg RTC_AlarmSubSecondMask_None   : SS[14:0]被比较，必须匹配才能激活报警。
   * 
   * 返回值: 无
@@ -1260,7 +1260,7 @@ void RTC_AlarmSubSecondConfig(uint32_t RTC_Alarm, uint32_t RTC_AlarmSubSecondVal
     assert_param(IS_RTC_ALARM_SUB_SECOND_VALUE(RTC_AlarmSubSecondValue));
     assert_param(IS_RTC_ALARM_SUB_SECOND_MASK(RTC_AlarmSubSecondMask));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -1275,7 +1275,7 @@ void RTC_AlarmSubSecondConfig(uint32_t RTC_Alarm, uint32_t RTC_AlarmSubSecondVal
         RTC->ALRMBSSR = tmpreg;
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
 }
@@ -1322,7 +1322,7 @@ uint32_t RTC_GetAlarmSubSecond(uint32_t RTC_Alarm) {
 /**
   * 简介:  配置 RTC 唤醒时钟源。
   * 
-  * 注意:   只有在禁用RTC唤醒时才能更改唤醒时钟源(使用RTC_WakeUpCmd(DISABLE))。
+  * 注意:   只有在禁用 RTC唤醒时才能更改唤醒时钟源(使用 RTC_WakeUpCmd(DISABLE))。
   * 
   * 参数:  RTC_WakeUpClock: 唤醒时钟源。
   *          此参数可以是以下值之一:
@@ -1339,7 +1339,7 @@ void RTC_WakeUpClockConfig(uint32_t RTC_WakeUpClock) {
     /* 检查参数 */
     assert_param(IS_RTC_WAKEUP_CLOCK(RTC_WakeUpClock));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -1349,17 +1349,17 @@ void RTC_WakeUpClockConfig(uint32_t RTC_WakeUpClock) {
     /* 配置时钟源 */
     RTC->CR |= (uint32_t)RTC_WakeUpClock;
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 }
 
 /**
   * 简介:  配置RTC唤醒计数器。
   * 
-  * 注意:   RTC WakeUp计数器只能在禁用RTC WakeUp时写入(使用RTC_WakeUpCmd(DISABLE))。
+  * 注意:   RTC WakeUp计数器只能在禁用 RTC WakeUp时写入(使用 RTC_WakeUpCmd(DISABLE))。
   * 
   * 参数:  RTC_WakeUpCounter: 指定唤醒计数器.
-  *          此参数可以是0x0000到0xFFFF之间的值。
+  *          此参数可以是0x0000到 0xFFFF之间的值。
   * 
   * 返回值: 无
   */
@@ -1367,14 +1367,14 @@ void RTC_SetWakeUpCounter(uint32_t RTC_WakeUpCounter) {
     /* 检查参数 */
     assert_param(IS_RTC_WAKEUP_COUNTER(RTC_WakeUpCounter));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
     /* 配置唤醒计数器。 */
     RTC->WUTR = (uint32_t)RTC_WakeUpCounter;
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 }
 
@@ -1391,7 +1391,7 @@ uint32_t RTC_GetWakeUpCounter(void) {
 }
 
 /**
-  * 简介:  启用或禁用RTC 唤醒计数器.
+  * 简介:  启用或禁用 RTC 唤醒计数器.
   * 
   * 参数:  NewState: 新状态-> WakeUp timer.
   *          此参数可以是: ENABLE或DISABLE。
@@ -1406,7 +1406,7 @@ ErrorStatus RTC_WakeUpCmd(FunctionalState NewState) {
     /* 检查参数 */
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -1418,7 +1418,7 @@ ErrorStatus RTC_WakeUpCmd(FunctionalState NewState) {
         /* 禁用 唤醒计数器 */
         RTC->CR &= (uint32_t)~RTC_CR_WUTE;
 
-        /* 等到RTC的WUTWF标志被设置，如果达到超时则退出 */
+        /* 等到RTC 的WUTWF标志被设置，如果达到超时则退出 */
         do {
             wutwfstatus = RTC->ISR & RTC_ISR_WUTWF;
             wutcounter++;
@@ -1431,7 +1431,7 @@ ErrorStatus RTC_WakeUpCmd(FunctionalState NewState) {
         }
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return status;
@@ -1459,7 +1459,7 @@ ErrorStatus RTC_WakeUpCmd(FunctionalState NewState) {
   *            @arg RTC_DayLightSaving_SUB1H: Substract one hour (winter time)
   *            @arg RTC_DayLightSaving_ADD1H: Add one hour (summer time)
   * 
-  * 参数:  RTC_StoreOperation: 指定要写入CR寄存器BCK位以存储操作的值。
+  * 参数:  RTC_StoreOperation: 指定要写入CR 寄存器BCK位以存储操作的值。
   *          此参数可以是以下值之一:
   *            @arg RTC_StoreOperation_Reset: BCK位重置
   *            @arg RTC_StoreOperation_Set: BCK Bit Set
@@ -1471,7 +1471,7 @@ void RTC_DayLightSavingConfig(uint32_t RTC_DayLightSaving, uint32_t RTC_StoreOpe
     assert_param(IS_RTC_DAYLIGHT_SAVING(RTC_DayLightSaving));
     assert_param(IS_RTC_STORE_OPERATION(RTC_StoreOperation));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -1481,7 +1481,7 @@ void RTC_DayLightSavingConfig(uint32_t RTC_DayLightSaving, uint32_t RTC_StoreOpe
     /* 配置 RTC_CR 寄存器 */
     RTC->CR |= (uint32_t)(RTC_DayLightSaving | RTC_StoreOperation);
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 }
 
@@ -1534,7 +1534,7 @@ void RTC_OutputConfig(uint32_t RTC_Output, uint32_t RTC_OutputPolarity) {
     assert_param(IS_RTC_OUTPUT(RTC_Output));
     assert_param(IS_RTC_OUTPUT_POL(RTC_OutputPolarity));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -1544,7 +1544,7 @@ void RTC_OutputConfig(uint32_t RTC_Output, uint32_t RTC_OutputPolarity) {
     /* 配置输出选择和极性 */
     RTC->CR |= (uint32_t)(RTC_Output | RTC_OutputPolarity);
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 }
 
@@ -1585,7 +1585,7 @@ ErrorStatus RTC_CoarseCalibConfig(uint32_t RTC_CalibSign, uint32_t Value) {
     assert_param(IS_RTC_CALIB_SIGN(RTC_CalibSign));
     assert_param(IS_RTC_CALIB_VALUE(Value));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -1601,7 +1601,7 @@ ErrorStatus RTC_CoarseCalibConfig(uint32_t RTC_CalibSign, uint32_t Value) {
         status = SUCCESS;
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return status;
@@ -1623,7 +1623,7 @@ ErrorStatus RTC_CoarseCalibCmd(FunctionalState NewState) {
     /* 检查参数 */
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -1645,7 +1645,7 @@ ErrorStatus RTC_CoarseCalibCmd(FunctionalState NewState) {
         status = SUCCESS;
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return status;
@@ -1663,19 +1663,19 @@ void RTC_CalibOutputCmd(FunctionalState NewState) {
     /* 检查参数 */
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
     if (NewState != DISABLE) {
-        /* 启用RTC时钟输出 */
+        /* 启用 RTC时钟输出 */
         RTC->CR |= (uint32_t)RTC_CR_COE;
     } else {
-        /* 禁用RTC时钟输出 */
+        /* 禁用 RTC时钟输出 */
         RTC->CR &= (uint32_t)~RTC_CR_COE;
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 }
 
@@ -1693,17 +1693,17 @@ void RTC_CalibOutputConfig(uint32_t RTC_CalibOutput) {
     /* 检查参数 */
     assert_param(IS_RTC_CALIB_OUTPUT(RTC_CalibOutput));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
     /* 清除之前的标志配置 */
     RTC->CR &= (uint32_t)~(RTC_CR_COSEL);
 
-    /* 配置RTC_CR寄存器 */
+    /* 配置RTC_CR 寄存器 */
     RTC->CR |= (uint32_t)RTC_CalibOutput;
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 }
 
@@ -1722,7 +1722,7 @@ void RTC_CalibOutputConfig(uint32_t RTC_CalibOutput) {
   *     @arg RTC_SmoothCalibPlusPulses_Reset: 未添加RTCCLK脉冲。
   * 
   * 参数:  RTC_SmouthCalibMinusPulsesValue: 选择CALM[8:0]位的值。
-  *        此参数可以是0到0x000001FF之间的任意值。
+  *        此参数可以是0到 0x000001FF之间的任意值。
   * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC校准寄存器已配置
@@ -1739,7 +1739,7 @@ ErrorStatus RTC_SmoothCalibConfig(uint32_t RTC_SmoothCalibPeriod,
     assert_param(IS_RTC_SMOOTH_CALIB_PLUS(RTC_SmoothCalibPlusPulses));
     assert_param(IS_RTC_SMOOTH_CALIB_MINUS(RTC_SmouthCalibMinusPulsesValue));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -1761,7 +1761,7 @@ ErrorStatus RTC_SmoothCalibConfig(uint32_t RTC_SmoothCalibPeriod,
         status = ERROR;
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return (ErrorStatus)(status);
@@ -1810,14 +1810,14 @@ void RTC_TimeStampCmd(uint32_t RTC_TimeStampEdge, FunctionalState NewState) {
         tmpreg |= (uint32_t)(RTC_TimeStampEdge);
     }
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
     /* 配置时间戳 TSEDGE 和 Enable 位 */
     RTC->CR = (uint32_t)tmpreg;
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 }
 
@@ -2083,7 +2083,7 @@ void RTC_TamperPullUpCmd(FunctionalState NewState) {
   * 简介:  在指定的 RTC 备份数据寄存器中写入数据。
   * 
   * 参数:  RTC_BKP_DR: RTC备份数据寄存器号。
-  *          此参数可以是: RTC_BKP_DRx，其中x可以从0到19指定寄存器。
+  *          此参数可以是: RTC_BKP_DRx，其中x可以从 0到19指定寄存器。
   * 
   * 参数:  Data: 写入指定RTC备份数据寄存器的数据。
   * 
@@ -2106,7 +2106,7 @@ void RTC_WriteBackupRegister(uint32_t RTC_BKP_DR, uint32_t Data) {
   * 简介:  从指定的 RTC 备份数据寄存器读取数据。
   * 
   * 参数:  RTC_BKP_DR: RTC备份数据寄存器号。
-  *          此参数可以是: RTC_BKP_DRx，其中x可以从0到19指定寄存器。
+  *          此参数可以是: RTC_BKP_DRx，其中x可以从 0到19指定寄存器。
   * 
   * 返回值: 无
   */
@@ -2224,7 +2224,7 @@ ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSu
     assert_param(IS_RTC_SHIFT_ADD1S(RTC_ShiftAdd1S));
     assert_param(IS_RTC_SHIFT_SUBFS(RTC_ShiftSubFS));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
@@ -2255,7 +2255,7 @@ ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSu
         status = ERROR;
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 
     return (ErrorStatus)(status);
@@ -2271,32 +2271,32 @@ ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSu
  ===============================================================================
  [..] 所有的RTC中断都连接到EXTI控制器。
 
-   (+) 要启用RTC报警中断，需要按以下顺序进行。
+   (+) 要启用 RTC报警中断，需要按以下顺序进行。
        (++) 使用EXTI_Init() 函数配置并启用中断模式下的EXTI 17号线，并选择上升沿灵敏度。
        (++) 使用NVIC_Init() 函数配置并启用NVIC中的RTC_Alarm IRQ通道。
-       (++) 使用RTC_SetAlarm()和RTC_AlarmCmd() 函数配置RTC以产生RTC报警(报警A和/或报警B)。
+       (++) 使用 RTC_SetAlarm()和RTC_AlarmCmd() 函数配置RTC以产生RTC报警(报警A和/或报警B)。
 
-   (+) 要启用RTC唤醒中断，需要按以下顺序进行。
+   (+) 要启用 RTC唤醒中断，需要按以下顺序进行。
        (++) 在中断模式下配置和启用EXTI 22号线，并使用EXTI_Init() 函数
             选择上升沿灵敏度。使用EXTI_Init() 函数选择上升沿灵敏度。
        (++) 使用NVIC_Init() 函数配置并启用NVIC中的RTC_WKUP IRQ通道。
-            NVIC_Init() 函数配置并启用RTC_WKUP IRQ通道。
+            NVIC_Init() 函数配置并启用 RTC_WKUP IRQ通道。
        (++) 配置RTC，使其产生RTC唤醒定时器事件，使用 RTC_WakeUpClockConfig(),
             RTC_SetWakeUpCounter()和RTC_WakeUpCmd() 函数。
 
-   (+) 要启用RTC Tamper中断，需要按以下顺序进行。
+   (+) 要启用 RTC Tamper中断，需要按以下顺序进行。
        (++) 配置并启用中断模式下的EXTI 21号线，并使用EXTI_Init() 函数
             选择上升沿灵敏度。使用EXTI_Init() 函数选择上升沿灵敏度。
        (++) 使用NVIC_Init() 函数配置并启用NVIC中的TAMP_STAMP IRQ通道。
-            NVIC_Init() 函数配置并启用NVIC的TAMP_STAMP IRQ通道。
+            NVIC_Init() 函数配置并启用NVIC 的TAMP_STAMP IRQ通道。
        (++) 配置RTC，以检测RTC篡改事件，使用 RTC_TamperTriggerConfig()和
             RTC_TamperCmd() 函数配置RTC以检测RTC篡改事件。
 
-   (+) 要启用RTC时间戳中断，需要按以下顺序进行。
+   (+) 要启用 RTC时间戳中断，需要按以下顺序进行。
        (++) 配置并启用中断模式下的EXTI 21号线，并使用EXTI_Init() 函数
             选择上升沿灵敏度。使用EXTI_Init() 函数选择上升沿灵敏度。
        (++) 使用NVIC_Init() 函数配置并启用NVIC中的TAMP_STAMP IRQ通道。NVIC_Init() 函数
-            配置并启用NVIC的TAMP_STAMP IRQ通道。
+            配置并启用NVIC 的TAMP_STAMP IRQ通道。
        (++) 配置RTC，以检测RTC时间戳事件，使用 RTC_TimeStampCmd() 函数检测RTC时间戳事件。
 
 @endverbatim
@@ -2323,23 +2323,23 @@ void RTC_ITConfig(uint32_t RTC_IT, FunctionalState NewState) {
     assert_param(IS_RTC_CONFIG_IT(RTC_IT));
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-    /* 禁用RTC寄存器的写保护 */
+    /* 禁用 RTC 寄存器的写保护 */
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
     if (NewState != DISABLE) {
-        /* 配置RTC_CR寄存器中的中断。 */
+        /* 配置RTC_CR 寄存器中的中断。 */
         RTC->CR |= (uint32_t)(RTC_IT & ~RTC_TAFCR_TAMPIE);
         /* 在RTC_TAFCR中配置防篡改中断 */
         RTC->TAFCR |= (uint32_t)(RTC_IT & RTC_TAFCR_TAMPIE);
     } else {
-        /* 配置RTC_CR寄存器中的中断。 */
+        /* 配置RTC_CR 寄存器中的中断。 */
         RTC->CR &= (uint32_t)~(RTC_IT & (uint32_t)~RTC_TAFCR_TAMPIE);
         /* 在RTC_TAFCR中配置防篡改中断 */
         RTC->TAFCR &= (uint32_t)~(RTC_IT & RTC_TAFCR_TAMPIE);
     }
 
-    /* 启用对RTC寄存器的写保护 */
+    /* 启用对 RTC 寄存器的写保护 */
     RTC->WPR = 0xFF;
 }
 

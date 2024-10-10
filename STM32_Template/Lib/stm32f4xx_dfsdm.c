@@ -79,7 +79,7 @@
   */
 
 /**
-  * 简介:  将DFSDM外围寄存器取消初始化为其默认重置值。
+  * 简介:  将DFSDM 外围寄存器取消初始化为其默认重置值。
   * 
   * 参数:  无.
   * 
@@ -97,7 +97,7 @@ void DFSDM_DeInit(void) {
 }
 
 /**
-  * 简介:  根据DFSDM_TranceiverInit中的指定参数初始化DFSDM串行通道收发器。
+  * 简介:  根据 DFSDM_TranceiverInit中的指定参数初始化DFSDM串行通道收发器。
   * 
   * 参数:  DFSDM_Channelx: 指定要选择的通道。
   *         此参数可以是以下值之一:
@@ -105,14 +105,14 @@ void DFSDM_DeInit(void) {
   *            @arg DFSDM1_Channel1 : DFSDM 1 Channel 1
   *            @arg DFSDM1_Channel2 : DFSDM 1 Channel 2
   *            @arg DFSDM1_Channel3 : DFSDM 1 Channel 3
-  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_TransceiverInitStruct: 指向包含指定通道配置信息的DFSDM_TranceiverInitTypeDef
   *                                     结构的指针。
@@ -202,16 +202,16 @@ void DFSDM_TransceiverStructInit(DFSDM_TransceiverInitTypeDef* DFSDM_Transceiver
 }
 
 /**
-  * 简介:  根据DFSDM_FilterInitStruct中的指定参数初始化DFSDMx筛选器。
+  * 简介:  根据 DFSDM_FilterInitStruct中的指定参数初始化DFSDMx筛选器。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_FilterInitStruct: 指向DFSDM_FilterInitTypeDef结构的指针，
   *                                该结构包含指定筛选器的配置信息。
@@ -273,7 +273,7 @@ void DFSDM_FilterStructInit(DFSDM_FilterInitTypeDef* DFSDM_FilterInitStruct) {
                        配置功能
  ===============================================================================
     本节提供的功能允许 configure DFSDM:
-    - 启用/禁用(DFSDM外围，通道，过滤器)
+    - 启用/禁用(DFSDM 外围，通道，过滤器)
     - 配置时钟输出
     - 配置用于转换的注入/常规通道
     - 配置短路检测器
@@ -284,7 +284,7 @@ void DFSDM_FilterStructInit(DFSDM_FilterInitTypeDef* DFSDM_FilterInitStruct) {
 
 #if defined(STM32F412xG)
 /**
-  * 简介:  启用或停用 DFSDM外设。
+  * 简介:  启用或停用 DFSDM 外设。
   * 
   * 参数:  NewState: DFSDM接口的新状态。
   *         此参数可以是: ENABLE或DISABLE。
@@ -348,14 +348,14 @@ void DFSDM_Cmd(uint32_t Instance, FunctionalState NewState) {
   *            @arg DFSDM1_Channel1 : DFSDM 1 Channel 1
   *            @arg DFSDM1_Channel2 : DFSDM 1 Channel 2
   *            @arg DFSDM1_Channel3 : DFSDM 1 Channel 3
-  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  NewState: DFSDM串行通道x的新状态。
   *         此参数可以是: ENABLE或DISABLE。
@@ -383,10 +383,10 @@ void DFSDM_ChannelCmd(DFSDM_Channel_TypeDef* DFSDM_Channelx, FunctionalState New
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  NewState: 所选DFSDM模块的新状态。
   *         此参数可以是: ENABLE或DISABLE。
@@ -574,14 +574,14 @@ void DFSDM_ConfigClkOutputSource(uint32_t Instance, uint32_t DFSDM_ClkOutSource)
   *            @arg DFSDM1_Channel1 : DFSDM 1 Channel 1
   *            @arg DFSDM1_Channel2 : DFSDM 1 Channel 2
   *            @arg DFSDM1_Channel3 : DFSDM 1 Channel 3
-  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_SCDBreak_i: 其中i可以是0到3之间的值，以选择指定的中断信号。
   * 
@@ -614,14 +614,14 @@ void DFSDM_ConfigBRKAnalogWatchDog(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32
   *            @arg DFSDM1_Channel1 : DFSDM 1 Channel 1
   *            @arg DFSDM1_Channel2 : DFSDM 1 Channel 2
   *            @arg DFSDM1_Channel3 : DFSDM 1 Channel 3
-  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_SCDBreak_i: 其中i可以是0到3之间的值，以选择指定的中断信号。
   * 
@@ -654,14 +654,14 @@ void DFSDM_ConfigBRKShortCircuitDetector(DFSDM_Channel_TypeDef* DFSDM_Channelx, 
   *            @arg DFSDM1_Channel1 : DFSDM 1 Channel 1
   *            @arg DFSDM1_Channel2 : DFSDM 1 Channel 2
   *            @arg DFSDM1_Channel3 : DFSDM 1 Channel 3
-  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_SCDThreshold: 阈值计数器，此参数可以是0到255之间的值。
   * 
@@ -694,10 +694,10 @@ void DFSDM_ConfigShortCircuitThreshold(DFSDM_Channel_TypeDef* DFSDM_Channelx, ui
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_AWDChannelx: 其中x可以是0到7之间的值，以选择DFSDM通道。
   * 
@@ -747,10 +747,10 @@ void DFSDM_ConfigAnalogWatchdog(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_AWD
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_ExtremChannelx: 其中x可以是0到7之间的值，以选择要连接到极端探测器的通道。
   * 
@@ -783,10 +783,10 @@ void DFSDM_SelectExtremesDetectorChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t 
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 转换后的常规数据。
   * 
@@ -816,10 +816,10 @@ int32_t DFSDM_GetRegularConversionData(DFSDM_Filter_TypeDef* DFSDMx) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 转换后的常规数据。
   * 
@@ -849,10 +849,10 @@ int32_t DFSDM_GetInjectedConversionData(DFSDM_Filter_TypeDef* DFSDMx) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 最高转换值。
   * 
@@ -876,10 +876,10 @@ int32_t DFSDM_GetMaxValue(DFSDM_Filter_TypeDef* DFSDMx) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 最低转换值。
   * 
@@ -903,10 +903,10 @@ int32_t DFSDM_GetMinValue(DFSDM_Filter_TypeDef* DFSDMx) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 最高转换值。
   */
@@ -925,10 +925,10 @@ int32_t DFSDM_GetMaxValueChannel(DFSDM_Filter_TypeDef* DFSDMx) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 最低转换值。
   */
@@ -947,10 +947,10 @@ int32_t DFSDM_GetMinValueChannel(DFSDM_Filter_TypeDef* DFSDMx) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 转换时间。
   */
@@ -963,7 +963,7 @@ uint32_t DFSDM_GetConversionTime(DFSDM_Filter_TypeDef* DFSDMx) {
 }
 
 /**
-  * 简介:  通过为指定的DFSDM_Channelx设置Sinc滤波器顺序和过采样率，为模拟看门狗配置Sinc滤波器。
+  * 简介:  通过为指定的DFSDM_Channelx 设置Sinc滤波器顺序和过采样率，为模拟看门狗配置Sinc滤波器。
   * 
   * 参数:  DFSDM_Channelx: 指定要选择的通道。
   *         此参数可以是以下值之一:
@@ -971,14 +971,14 @@ uint32_t DFSDM_GetConversionTime(DFSDM_Filter_TypeDef* DFSDMx) {
   *            @arg DFSDM1_Channel1 : DFSDM 1 Channel 1
   *            @arg DFSDM1_Channel2 : DFSDM 1 Channel 2
   *            @arg DFSDM1_Channel3 : DFSDM 1 Channel 3
-  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_AWDSincOrder: Sinc筛选器顺序此参数的值可以是 @ref DFSDM_AWD_Scic_order。
   * 
@@ -1016,14 +1016,14 @@ void DFSDM_ConfigAWDFilter(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32_t DFSDM
   *            @arg DFSDM1_Channel1 : DFSDM 1 Channel 1
   *            @arg DFSDM1_Channel2 : DFSDM 1 Channel 2
   *            @arg DFSDM1_Channel3 : DFSDM 1 Channel 3
-  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_Channel0 : DFSDM 2 Channel 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel1 : DFSDM 2 Channel 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel2 : DFSDM 2 Channel 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel3 : DFSDM 2 Channel 3 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel4 : DFSDM 2 Channel 4 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel5 : DFSDM 2 Channel 5 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 数据转换值。
   */
@@ -1043,10 +1043,10 @@ uint32_t DFSDM_GetAWDConversionValue(DFSDM_Channel_TypeDef* DFSDM_Channelx) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_HighThreshold: 高阈值。此参数的值可以介于0和0xFFFFFF之间。
   * 
@@ -1097,10 +1097,10 @@ void DFSDM_SetAWDThreshold(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_HighThre
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_InjectedChannelx: 其中x可以是0到7之间的值，以选择要配置为注入通道的通道。
   * 
@@ -1135,10 +1135,10 @@ void DFSDM_SelectInjectedChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_In
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_RegularChannelx: 其中x可以是0到7之间的值，以选择要配置为常规通道的通道。
   * 
@@ -1173,10 +1173,10 @@ void DFSDM_SelectRegularChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_Reg
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 无
   */
@@ -1195,10 +1195,10 @@ void DFSDM_StartSoftwareInjectedConversion(DFSDM_Filter_TypeDef* DFSDMx) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 无
   */
@@ -1217,10 +1217,10 @@ void DFSDM_StartSoftwareRegularConversion(DFSDM_Filter_TypeDef* DFSDMx) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_InjectedTrigger: 触发信号。
   *         此参数的值可以是: @ref DFSDM_Injected_Trigger_signal
@@ -1266,10 +1266,10 @@ void DFSDM_ConfigInjectedTrigger(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_Tr
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 无
   * 
@@ -1290,10 +1290,10 @@ void DFSDM_SynchronousFilter0InjectedStart(DFSDM_Filter_TypeDef* DFSDMx) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 返回值: 无
   * 
@@ -1314,10 +1314,10 @@ void DFSDM_SynchronousFilter0RegularStart(DFSDM_Filter_TypeDef* DFSDMx) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  NewState: 连续模式的新状态。
   *         此参数可以是: ENABLE或DISABLE。
@@ -1345,10 +1345,10 @@ void DFSDM_RegularContinuousModeCmd(DFSDM_Filter_TypeDef* DFSDMx, FunctionalStat
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  NewState: 快速模式的新状态。
   *         此参数可以是: ENABLE或DISABLE。
@@ -1382,10 +1382,10 @@ void DFSDM_FastModeCmd(DFSDM_Filter_TypeDef* DFSDMx, FunctionalState NewState) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_InjectConvMode: 注入转换模式，此参数可以是:
   *             @arg DFSDM_InjectConvMode_Single
@@ -1414,10 +1414,10 @@ void DFSDM_SelectInjectedConversionMode(DFSDM_Filter_TypeDef* DFSDMx, uint32_t D
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_DMAConversionMode: 选择要配置为DMA读取的模式。
   *            @arg DFSDM_DMAConversionMode_Regular:  DMA通道已启用/禁用，用于读取数据以进行常规转换
@@ -1452,7 +1452,7 @@ void DFSDM_DMATransferConfig(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_DMACon
  ===============================================================================
                   中断和标记管理函数
  ===============================================================================
-  本节提供的功能允许配置DFSDM中断，获取状态和清除标志位。
+  本节提供的功能允许配置 DFSDM中断，获取状态和清除标志位。
 
   LPT提供7个标志和中断源(只有配备编码器模式接口的LPT外设设备上才有2个标志和干扰源)
 
@@ -1486,10 +1486,10 @@ void DFSDM_DMATransferConfig(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_DMACon
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_IT: 指定要启用或禁用的DFSDM中断源。
   *         此参数可以是以下值的任意组合:
@@ -1641,10 +1641,10 @@ void DFSDM_ITShortCircuitDetectorCmd(uint32_t Instance, FunctionalState NewState
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  LPT_FLAG: 指定要检查的标志。
   *         此参数可以是以下值的任意组合:
@@ -1800,10 +1800,10 @@ FlagStatus DFSDM_GetShortCircuitFlagStatus(uint32_t Instance, uint32_t DFSDM_FLA
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_AWDChannelx: 其中x可以是0到7之间的值，以选择DFSDM通道。
   * 
@@ -1836,10 +1836,10 @@ FlagStatus DFSDM_GetWatchdogFlagStatus(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DF
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_CLEARF: 指定要清除的挂起位。
   *         此参数可以是以下值的任意组合:
@@ -1947,10 +1947,10 @@ void DFSDM_ClearShortCircuitFlag(uint32_t Instance, uint32_t DFSDM_CLEARF_SCD) {
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_AWDChannelx: 其中x可以是0到7之间的值，以选择DFSDM通道。
   * 
@@ -1978,10 +1978,10 @@ void DFSDM_ClearAnalogWatchdogFlag(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_
   *         此参数可以是以下值之一:
   *            @arg DFSDM1_0 : DFSDM 1 Filter 0
   *            @arg DFSDM1_1 : DFSDM 1 Filter 1
-  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于STM32F413_423xx设备)
-  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于STM32F413_423xx设备)
+  *            @arg DFSDM2_0 : DFSDM 2 Filter 0 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_1 : DFSDM 2 Filter 1 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
+  *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
   * 参数:  DFSDM_IT: 指定要检查的DFSDM中断源。
   *            @arg DFSDM_IT_JEOC: 注入的转换中断源的结束

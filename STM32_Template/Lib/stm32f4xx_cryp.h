@@ -252,7 +252,7 @@ ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
                              CRYP_KeyInitTypeDef* CRYP_KeyInitStruct); // 保存 CRYP 外设设备上下文。
 void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore); // 恢复 CRYP 外设设备上下文。
 
-/* CRYP DMA接口功能 ************************************************/
+/* CRYP DMA 接口功能 ************************************************/
 void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState); // 启用或禁用 CRYP DMA 接口。
 
 /* 中断和标志管理功能 **********************************/

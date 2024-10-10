@@ -343,7 +343,7 @@ void DMA_Init(DMA_Stream_TypeDef* DMAy_Streamx, DMA_InitTypeDef* DMA_InitStruct)
   * 返回值: 无
   */
 void DMA_StructInit(DMA_InitTypeDef* DMA_InitStruct) {
-    /*-------------- 重置DMA初始化结构参数值 ----------------*/
+    /*-------------- 重置 DMA初始化结构参数值 ----------------*/
     /* 初始化 DMA_Channel 成员 */
     DMA_InitStruct->DMA_Channel = 0;
 
@@ -402,7 +402,7 @@ void DMA_StructInit(DMA_InitTypeDef* DMA_InitStruct) {
   *        调用此函数以禁用流将导致传输暂停。将保留所有配置寄存器和剩余数据的数量。
   *        再次调用此函数以重新启用流时，传输将从暂停的点恢复。
   *
-  * 注意:  配置DMA流(DMA_Init() 函数)并启用该流后，建议检查(或等待)
+  * 注意:  配置 DMA流(DMA_Init() 函数)并启用该流后，建议检查(或等待)
   *        DMA流是否有效启用。如果配置参数错误，流可能会保持禁用状态。
   *        禁用 DMA流后，还建议检查(或等待)DMA流被有效禁用。如果流在数据传输过程中被禁用，
   *        则当前数据将被传输，只有在完成单个数据的传输后，流才会被有效禁用。
@@ -498,7 +498,7 @@ void DMA_FlowControllerConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_Flo
       -@- 在只需要重新加载数据缓冲区的情况下，建议使用此函数而不是DMA_Init()。
       -@- 如果"源数据大小"和"目标数据大小"不同，
           则写入数据计数器的值(表示传输数)与"外设设备"的传输数相关。
-          例如，如果内存数据大小为Word，外设设备数据大小为Half Words，
+          例如，如果内存数据大小为Word，外设设备数据大小为 Half Words，
           则数据计数器中要配置的值是要从/传输到外设设备的Half Word数。
     [..]
     可以读取DMA数据计数器，以指示相对DMA流的剩余传输数。
@@ -517,7 +517,7 @@ void DMA_FlowControllerConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_Flo
   * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
   * 
-  * 参数:  Counter: 要传输的数据单元数(从0到65535)数据项数仅取决于外设设备数据格式。
+  * 参数:  Counter: 要传输的数据单元数(从 0到65535)数据项数仅取决于外设设备数据格式。
   *
   * 注意:   如果外设设备数据格式为字节:数据单元数等于要传输的总字节数。
   *
@@ -525,7 +525,7 @@ void DMA_FlowControllerConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_Flo
   *
   * 注意:   如果外设设备数据格式为Word:数据单元数等于要传输的总字节数/4。
   *
-  * 注意:   在内存到内存传输模式中，DMAy_SxPAR寄存器指向的内存缓冲区被视为外设。
+  * 注意:   在内存到内存传输模式中，DMAy_SxPAR 寄存器指向的内存缓冲区被视为外设。
   *
   * 返回值: 当前DMAy Streamx传输中剩余的数据单元数。
   */
@@ -566,7 +566,7 @@ uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx) {
     在将数据从内存传输到内存时，不能使用双缓冲区模式。
 
     [..]
-    双缓冲区模式允许设置DMA控制器交替访问的两个不同内存地址
+    双缓冲区模式允许设置 DMA控制器交替访问的两个不同内存地址
         (完成与目标内存0的传输后，将开始与目标内存1的传输)。
     这可以减少双缓冲的软件开销，并减少CPU访问时间。
 
@@ -728,11 +728,11 @@ uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx) {
 本小节提供了以下功能:
 (+) 检查DMA启用状态
 (+) 检查FIFO状态
-(+)配置DMA中断源并检查或清除标志或挂起位状态。
+(+)配置 DMA中断源并检查或清除标志或挂起位状态。
 
     [..]
       (#) DMA启用状态:
-          配置DMA流(DMA_Init() 函数)并启用该流后，建议检查(或等待)DMA流是否有效启用。
+          配置 DMA流(DMA_Init() 函数)并启用该流后，建议检查(或等待)DMA流是否有效启用。
           如果配置参数错误，流可能会保持禁用状态。禁用 DMA流后，还建议检查(或等待)DMA流被有效禁用。
           如果流在数据传输过程中被禁用，则当前数据将被传输，只有在数据传输完成后，流才会被有效禁用。
           要监视此状态，可以使用以下功能:
@@ -787,7 +787,7 @@ uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx) {
   * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择DMA，x可以是0到7以选择DMAStream。
   *
-  * 注意:    配置DMA流(DMA_Init() 函数)并启用该流后，建议检查(或等待)
+  * 注意:    配置 DMA流(DMA_Init() 函数)并启用该流后，建议检查(或等待)
   *              DMA流是否有效启用。如果配置参数错误，流可能会保持禁用状态。
   *          禁用 DMA流后，还建议检查(或等待)DMA流被有效禁用。如果流在数据
   *              传输过程中被禁用，则当前数据将被传输，只有在完成单个数据的传输后，
@@ -872,10 +872,10 @@ FlagStatus DMA_GetFlagStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_FLAG
 
     /* 如果标志在 HISR 或 LISR 中 */
     if ((DMA_FLAG & HIGH_ISR_MASK) != (uint32_t)RESET) {
-        /* 得到 DMAy HISR寄存器值 */
+        /* 得到 DMAy HISr 寄存器值 */
         tmpreg = DMAy->HISR;
     } else {
-        /* 得到 DMAy LISR寄存器值 */
+        /* 得到 DMAy LISr 寄存器值 */
         tmpreg = DMAy->LISR;
     }
 
@@ -1031,10 +1031,10 @@ ITStatus DMA_GetITStatus(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT) {
 
     /* 检查中断挂起标志是否在 LISR 或 HISR 中 */
     if ((DMA_IT & HIGH_ISR_MASK) != (uint32_t)RESET) {
-        /* 得到 DMAy HISR 寄存器值 */
+        /* 得到 DMAy HISr 寄存器值 */
         tmpreg = DMAy->HISR ;
     } else {
-        /* 得到 DMAy LISR 寄存器值 */
+        /* 得到 DMAy LISr 寄存器值 */
         tmpreg = DMAy->LISR ;
     }
 

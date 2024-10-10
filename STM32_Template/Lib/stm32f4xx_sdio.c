@@ -28,7 +28,7 @@
        -@@- PCLK2和SDIO_CK时钟频率必须符合以下条件:
            Frequency(PCLK2) >= (3 / 8 x Frequency(SDIO_CK))
 
-   (#) 使用RCC_APB2PeriphClockCmd(RCC_AB2Periph_SDIO，Enable) 启用外围时钟。
+   (#) 使用 RCC_APB2PeriphClockCmd(RCC_AB2Periph_SDIO，Enable) 启用外围时钟。
 
    (#) 根据SDIO模式，使用 RCC_AHB1PeriphClockCmd() 函数。
        I/O可以是以下配置之一:
@@ -40,7 +40,7 @@
        (++) 使用 GPIO_PinAFConfig() 函数将管脚连接到所需外设设备的复用功能(AF)
        (++) 通过以下方式在复用功能中配置所需引脚:
             GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF
-       (++) 通过 GPIO_PuPd、GPIO_OType和 GPIO_speed 成员选择类型、上拉/下拉和输出速度
+       (++) 通过 GPIO_PuPd、GPIO_OType 和 GPIO_speed 成员选择类型、上拉/下拉和输出速度
        (++) 调用 GPIO_Init() 函数
 
    (#) 使用 SDIO_Init() 函数对时钟边缘、时钟旁路、时钟节能、总线范围、硬件、
@@ -53,7 +53,7 @@
    (#) 如果需要使用中断模式，请使用函数SDIO_ITConfig() 启用 NVIC 和相应的中断。
 
    (#) 使用 DMA 模式时:
-        (++)使用 DMA_Init() 函数配置DMA
+        (++)使用 DMA_Init() 函数配置 DMA
         (++)使用 SDIO_DMACmd() 函数激活所需的通道请求
 
    (#) 使用 DMA 模式时，使用 DMA_Cmd() 函数启用 DMA。

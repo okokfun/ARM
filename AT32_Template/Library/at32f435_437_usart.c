@@ -273,7 +273,7 @@ void USART_DMATransmitter_Enable(USART_Type* USART_x, confirm_state new_state) {
 }
 
 /**
-  * @brief  启用或禁用 Usart的dma接收机接口。
+  * @brief  启用或禁用 Usart的dmA 接收机接口。
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.

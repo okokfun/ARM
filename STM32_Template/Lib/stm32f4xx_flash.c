@@ -15,7 +15,7 @@
                         ##### 如何使用这个驱动程序 #####
  ===============================================================================
     [..]
-      此驱动程序提供配置和编程所有STM32F4xx设备的闪存的功能。这些功能分为4组:
+      此驱动程序提供配置和编程所有 STM32F4xx 设备的闪存的功能。这些功能分为4组:
 
       (#) FLASH接口配置功能: 该组包括以下功能的管理:
           (++) 设置延迟
@@ -98,7 +98,7 @@
           要从闪存正确读取数据，必须根据CPU时钟频率(HCLK)和
           设备电源电压正确编程等待状态(LATENCY)的数量。
     [..]
-      对于STM32F405xx/07xx和STM32P415xx/17xx设备
+      对于 STM32F405xx/07xx和STM32P415xx/17xx 设备
  +---------------------------------------------------------------------------------------+
  | Latency       |                HCLK时钟频率 (MHz)                                     |
  |               |-----------------------------------------------------------------------|
@@ -256,10 +256,10 @@
   *            @arg FLASH_Latency_14: FLASH Fourteen 延迟周期
   *            @arg FLASH_Latency_15: FLASH十五个延迟周期
   *
-  * 注意: 对于STM32F405xx/407xx、STM32F2F415xx/417xx、ST M32F401xx/411xE/STM32F 412xG和
-  *       STM32V413_423xx设备，此参数可以是介于FLASH_Latency_0和FLASH_Latency_7之间的值。
+  * 注意: 对于 STM32F405xx/407xx、STM32F2F415xx/417xx、ST M32F401xx/411xE/STM32F 412xG和
+  *       STM32V413_423xx 设备，此参数可以是介于FLASH_Latency_0和FLASH_Latency_7之间的值。
   *
-  * 注意: 对于STM32F42xxx/43xxx设备，此参数可以是介于FLASH_Latency_0和FLASH_Latency_15之间的值。
+  * 注意: 对于 STM32F42xxx/43xxx 设备，此参数可以是介于FLASH_Latency_0和FLASH_Latency_15之间的值。
   *
   * 返回值: 无
   */
@@ -370,7 +370,7 @@ void FLASH_DataCacheReset(void) {
       (+) FLASH_Status FLASH_ProgramWord(uint32_t Address, uint32_t Data)
       (+) FLASH_Status FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data)
       (+) FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data)
-          以下功能只能用于STM32F42xxx/43xxx设备。
+          以下功能只能用于 STM32F42xxx/43xxx 设备。
       (+) FLASH_Status FLASH_EraseAllBank1Sectors(uint8_t VoltageRange)
       (+) FLASH_Status FLASH_EraseAllBank2Sectors(uint8_t VoltageRange)
     [..]
@@ -417,19 +417,19 @@ void FLASH_Lock(void) {
   *
   * 参数:  FLASH_Sector: 要擦除的扇区编号。
   *
-  *  @note  对于STM32F405xx/407xx和STM32V415xx/417xx设备，
+  *  @note  对于 STM32F405xx/407xx和STM32V415xx/417xx 设备，
   *         此参数可以是介于FLASH_Sector_0和FLASH_Sentor_11之间的值。
   *
-  *         对于STM32F42xxx/43xxx设备此参数可以是FLASH_Sector_0和FLASH_Sector_23之间的值。
+  *         对于 STM32F42xxx/43xxx 设备此参数可以是FLASH_Sector_0和FLASH_Sector_23之间的值。
   *
-  *         对于STM32F401xx设备，此参数可以是介于FLASH_Sector_0和FLASH_Sctor_5之间的值。
+  *         对于 STM32F401xx 设备，此参数可以是介于FLASH_Sector_0和FLASH_Sctor_5之间的值。
   *
-  *         对于STM32F411xE和STM32V412xG设备，此参数可以是介于
+  *         对于 STM32F411xE和STM32V412xG设备，此参数可以是介于
   *         FLASH_Sector_0和FLASH_Sctor_7之间的值。
   *
-  *         对于STM32F410xx设备，此参数可以是介于FLASH_Sector_0和FLASH_Sctor_4之间的值。
+  *         对于 STM32F410xx 设备，此参数可以是介于FLASH_Sector_0和FLASH_Sctor_4之间的值。
   *
-  *         对于STM32F413_423xx设备，此参数可以是介于FLASH_Sector_0和FLASH_Sctor_15之间的值。
+  *         对于 STM32F413_423xx 设备，此参数可以是介于FLASH_Sector_0和FLASH_Sctor_15之间的值。
   *
   * 参数:  VoltageRange: 定义擦除并行度的设备电压范围。
   *          此参数可以是以下值之一:
@@ -556,7 +556,7 @@ FLASH_Status FLASH_EraseAllSectors(uint8_t VoltageRange) {
 /**
   * 简介:  擦除 Bank 1 中的所有 FLASH 扇区。
   *
-  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
@@ -611,7 +611,7 @@ FLASH_Status FLASH_EraseAllBank1Sectors(uint8_t VoltageRange) {
 /**
   * 简介:  擦除 Bank 2 中的所有 FLASH 扇区。
   *
-  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
@@ -863,7 +863,7 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
       (+) uint8_t FLASH_OB_GetRDP(void)
       (+) uint8_t FLASH_OB_GetBOR(void)
     [..]
-      以下功能只能用于STM32F42xxx/43xxx设备。
+      以下功能只能用于 STM32F42xxx/43xxx 设备。
       (+) void FLASH_OB_BootConfig(uint8_t OB_BOOT)
     [..]
      擦除或程序的任何操作都应遵循以下步骤:
@@ -879,7 +879,7 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
 
       (#)正确写入所有需要编程的选项字节后，
            调用FLASH_OB_Launch() 函数启动选项字节编程过程。
-      -@-将IWDG模式从HW更改为SW或从SW更改为HW时，
+      -@-将IWDG模式从HW更改为SW或从SW更改为 HW时，
            需要进行系统重置以使更改生效。
       (#)调用FLASH_OB_Lock() 函数以禁用FLASH选项控制寄存器访问
           (建议用于保护选项字节免受可能不需要的操作)
@@ -952,7 +952,7 @@ void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState) {
 /**
   * 简介:  为闪存的第二个 1 Mb 启用或禁用所需扇区的写保护。
   *
-  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
   * 注意:   选择内存读取保护时(RDP级别=1)，如果连接了CortexM4调试功能或
   *         在RAM中执行引导代码，则无法编程或擦除闪存扇区i，即使nWRPi=1
@@ -990,7 +990,7 @@ void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState) {
 /**
   * 简介:  选择保护模式 (SPRMOD)。
   *
-  * 注意:   此函数只能用于STM32F42xxx/43xxx和STM32V401xx/411xE设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx和STM32V401xx/411xE设备。
   *
   * 注意:   PCROP激活后，无法修改选项字节。
   *         全局读取保护修改级别(级别1到级别0)出现异常
@@ -1029,11 +1029,11 @@ void FLASH_OB_PCROPSelectionConfig(uint8_t OB_PcROP) {
 /**
   * 简介:  为 Flash 的前 1 MB 启用或禁用所需扇区的读/写保护 (PCROP)。
   *
-  * 注意:   此函数只能用于STM32F42xxx/43xxx、STM32F2F401xx/411xE STM32F112xG和STM32P413_423xx设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx、STM32F2F401xx/411xE STM32F112xG和STM32P413_423xx 设备。
   *
   * 参数:  OB_PCROP: 指定要读/写保护或不保护的扇区。
   *          此参数可以是以下值之一:
-  *            @arg OB_PCROP: STM32F42xxx/43xxx设备的OB_PCROP_Sector0和
+  *            @arg OB_PCROP: STM32F42xxx/43xxx 设备的OB_PCROP_Sector0和
   *                           OB_PCROP_Sector11之间的值，STM32V401xx/411xE设备的
   *                           OB-PCROP_Sector0和OB-PCROP_Sector5之间的值。
   *            @arg OB_PCROP_Sector_All
@@ -1064,7 +1064,7 @@ void FLASH_OB_PCROPConfig(uint32_t OB_PCROP, FunctionalState NewState) {
 /**
    * 简介: 启用或禁用所需扇区的读/写保护 (PCROP)。
   *
-  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
   * 参数:  OB_PCROP: 指定要读/写保护或不保护的扇区。
   *          此参数可以是以下值之一:
@@ -1171,7 +1171,7 @@ void FLASH_OB_UserConfig(uint8_t OB_IWDG, uint8_t OB_STOP, uint8_t OB_STDBY) {
 /**
   * 简介:  配置双组引导。
   *
-  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
   * 参数:  OB_BOOT: 指定Dual Bank Boot Option字节。
   *          此参数可以是以下值之一:
@@ -1259,7 +1259,7 @@ uint16_t FLASH_OB_GetWRP(void) {
 /**
   * 简介:  返回 FLASH 写保护选项字节值。
   *
-  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
   * 参数:  无
   * 
@@ -1273,7 +1273,7 @@ uint16_t FLASH_OB_GetWRP1(void) {
 /**
   * 简介:  返回 FLASH PC 读/写保护选项字节值。
   *
-  * 注意:   此函数只能用于STM32F42xxx/43xxx设备 and STM32F401xx/411xE devices.
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备 and STM32F401xx/411xE devices.
   *
   * 参数:  无
   * 
@@ -1287,7 +1287,7 @@ uint16_t FLASH_OB_GetPCROP(void) {
 /**
   * 简介:  Returns FLASH PC读/写保护选项字节值.
   *
-  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
   * 参数:  无
   * 

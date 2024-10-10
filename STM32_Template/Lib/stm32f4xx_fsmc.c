@@ -52,7 +52,7 @@ const FSMC_NORSRAMTimingInitTypeDef FSMC_DefaultTimingStruct = {0x0F, /* FSMC_Ad
                                                                };
 /* 私有宏 ------------------------------------------------------------*/
 
-/* --------------------- FSMC寄存器位掩码 ---------------------------- */
+/* --------------------- FSMC 寄存器位掩码 ---------------------------- */
 /* FSMC BCRx Mask */
 #define BCR_MBKEN_SET          ((uint32_t)0x00000001)
 #define BCR_MBKEN_RESET        ((uint32_t)0x000FFFFE)
@@ -169,7 +169,7 @@ void FSMC_NORSRAMInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct) {
     assert_param(IS_FSMC_DATA_LATENCY(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency));
     assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode));
 
-    /* 获取BTCR寄存器值 */
+    /* 获取 BTCR 寄存器值 */
     tmpbcr = FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank];
 
     /* 清除 MBKEN, MUXEN, MTYP, MWID, FACCEN, BURSTEN, WAITPOL, WRAPMOD, WAITCFG, WREN,
@@ -200,7 +200,7 @@ void FSMC_NORSRAMInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct) {
         FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] |= (uint32_t)BCR_FACCEN_SET;
     }
 
-    /* 获取BTCR寄存器值 */
+    /* 获取 BTCR 寄存器值 */
     tmpbtr = FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank + 1];
 
     /* 清除 ADDSET, ADDHLD, DATAST, BUSTURN, CLKDIV, DATLAT and ACCMOD 位 */
@@ -227,7 +227,7 @@ void FSMC_NORSRAMInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct) {
         assert_param(IS_FSMC_TURNAROUND_TIME(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_BusTurnAroundDuration));
         assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AccessMode));
 
-        /* 获取BWTR寄存器值 */
+        /* 获取 BWTR 寄存器值 */
         tmpbwr = FSMC_Bank1E->BWTR[FSMC_NORSRAMInitStruct->FSMC_Bank];
 
         /* 清除 ADDSET, ADDHLD, DATAST, BUSTURN, and ACCMOD 位 */
@@ -515,7 +515,7 @@ void FSMC_NANDCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过在PCRx中设置PBKEN位来选择NAND组寄存器 */
+        /* 启用通过在 PCRx中设置PBKEN位来选择NAND组寄存器 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
             FSMC_Bank2->PCR2 |= PCR_PBKEN_SET;
         } else {
@@ -548,7 +548,7 @@ void FSMC_NANDECCCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过在PCRx中设置ECCEN位来选择NAND组ECC功能寄存器 */
+        /* 启用通过在 PCRx中设置ECCEN位来选择NAND组ECC功能寄存器 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
             FSMC_Bank2->PCR2 |= PCR_ECCEN_SET;
         } else {
@@ -599,7 +599,7 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
 
  [..]  应遵循以下顺序来配置FSMC，使其与连接到PCCARD Bank的16位PC卡兼容存储器连接。
 
-  (#) 使用以下功能启用FSMC的时钟和相关的GPIO。
+  (#) 使用以下功能启用FSMC 的时钟和相关的GPIO。
        (++)  RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE);
        (++)  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE);
 
@@ -768,7 +768,7 @@ void FSMC_PCCARDCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过在PCR4中设置PBKEN位，PCCARD Bank寄存器 */
+        /* 启用通过在 PCR4中设置PBKEN位，PCCARD Bank寄存器 */
         FSMC_Bank4->PCR4 |= PCR_PBKEN_SET;
     } else {
         /* 禁用通过清除PCR4中的PBKEN位，PCCARD Bank寄存器 */

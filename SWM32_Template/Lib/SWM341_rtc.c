@@ -25,7 +25,7 @@
 static uint32_t calcWeekDay(uint32_t year, uint32_t month, uint32_t date);
 /******************************************************************************************************************************************
 * 函数名称:	RTC_Init()
-* 功能说明:	RTC初始化
+* 功能说明:	RTC 初始化
 * 输    入: RTC_TypeDef * RTCx	指定要被设置的RTC，有效值包括RTC
 *			RTC_InitStructure * initStruct    包含RTC相关设定值的结构体
 * 输    出: 无

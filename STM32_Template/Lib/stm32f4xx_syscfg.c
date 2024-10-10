@@ -21,7 +21,7 @@
        
        (#) 使用 SYSCFG_ETH_MediaInterfaceConfig() 选择以太网媒体接口(RMII/RII)
 
-       -@- 必须启用 SYSCFG APB时钟，才能使用RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
+       -@- 必须启用 SYSCFG APB时钟，才能使用 RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
 		  获得对SYSCFG寄存器的写入访问权限;
 
  @endverbatim
@@ -125,14 +125,14 @@ void SYSCFG_MemoryRemapConfig(uint8_t SYSCFG_MemoryRemap) {
 /**
   * 简介:  启用或禁用内部闪存组交换。
   *
-  * 注意:   此函数只能用于STM32F42xxx/43xxx设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
   * 参数:  NewState: 内部闪存库交换的新状态。
   *          此参数可以是以下值之一:
   *            @arg ENABLE: Flash Bank2映射于0x080000000(别名为@0x00000000)，
   *                         Flash Bank1映射于0x00810000(别名为0x001000000)
-  *            @arg DISABLE:(默认状态)Flash Bank1映射到0x0800000(别名为@0x0000 0000)，
-  *                         Flash Bank2映射到0x8810000(别名为0x00100000)
+  *            @arg DISABLE:(默认状态)Flash Bank1映射到 0x0800000(别名为@0x0000 0000)，
+  *                         Flash Bank2映射到 0x8810000(别名为0x00100000)
   * 返回值: 无
   */
 void SYSCFG_MemorySwappingBank(FunctionalState NewState) {
@@ -145,14 +145,14 @@ void SYSCFG_MemorySwappingBank(FunctionalState NewState) {
 /**
   * 简介:  选择用作 EXTI 线路的 GPIO 引脚。
   * 参数:  EXTI_PortSourceGPIOx : 选择要用作EXTI线路源的GPIO端口，其中x可以是
-  *                               STM32F42xxx/43xxx设备的(A..K)，(A..I)
-  *                               用于STM32P405xx/407xx和STM32C415xx/417xx设备，
-  *                               或(A、B、C、D和H)用于STM2401xx设备。
+  *                               STM32F42xxx/43xxx 设备的(A..K)，(A..I)
+  *                               用于 STM32P405xx/407xx和STM32C415xx/417xx 设备，
+  *                               或(A、B、C、D和H)用于 STM2401xx 设备。
   *
   * 参数:  EXTI_PinSourcex: 指定要配置的EXTI行。
   *           此参数可以是EXTI_PinSourcex，其中x可以是(0..15，除了EXTI_PortSourceGPIOI x
-  *           对于STM32F405xx/407xx和STM32P405xx/407xxx设备可以为(0..11)，
-  *           对于EXTI_Port SourceGPIOK x对于STM2F42xxx/43xxx设备可为(0..7)。
+  *           对于 STM32F405xx/407xx和STM32P405xx/407xxx 设备可以为(0..11)，
+  *           对于EXTI_Port SourceGPIOK x对于 STM2F42xxx/43xxx 设备可为(0..7)。
   *
   * 返回值: 无
   */

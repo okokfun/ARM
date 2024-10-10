@@ -18,7 +18,7 @@
                        ##### 如何使用这个驱动程序 #####
  ===============================================================================
     [..]
-        (#) 使用RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_QSPI,ENABLE) 函数启用外围时钟。
+        (#) 使用 RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_QSPI,ENABLE) 函数启用外围时钟。
 
         (#) 启用CLK、BK1_IO0、BK1_IO1、BK1_IO2、BK1_IO3、BK1_NCS、BK2_IO0。BK2_IO1,
             BK2_IO2, BK2_IO3 和 BK2_NCS 的 GPIO 时钟，使用 RCC_AHB1PeriphClockCmd() 函数。
@@ -308,9 +308,9 @@ void QSPI_Cmd(FunctionalState NewState) {
 /**
   * 简介:  配置 QSPI 自动轮询模式。
   * 参数:  QSPI_Match: 要与被屏蔽的状态寄存器进行比较以获得匹配的值。
-  *                    这个参数可以是0x00000000到0xFFFFFFFF之间的任何值。
+  *                    这个参数可以是0x00000000到 0xFFFFFFFF之间的任何值。
   * 参数:  QSPI_Mask: 在轮询模式下，对收到的状态字节进行屏蔽。
-  *                    这个参数可以是0x00000000到0xFFFFFFFF之间的任何值。
+  *                    这个参数可以是0x00000000到 0xFFFFFFFF之间的任何值。
   * 参数:  QSPI_Match_Mode: 表示在自动轮询模式下应该使用哪种方法来确定 "匹配"。
   *        此参数可以是以下任意值。
   * 参数   QSPI_PMM_AND: AND 匹配模式--如果从闪存接收到的所有未屏蔽的位与匹配寄存

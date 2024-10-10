@@ -20,26 +20,26 @@
         (#) 配置LTDC
           (++) 按照面板数据手册配置所需的Pixel时钟
           (++) 配置同步时序。VSYNC, HSYNC, 垂直和水平的后序，活动数据区和前序时序
-          (++) 在LTDC_GCR寄存器中配置同步信号和时钟极性
+          (++) 在LTDC_GCR 寄存器中配置同步信号和时钟极性
 
         (#) 配置Layer1/2参数
-          (++) 在LTDC_LxWHPCR和LTDC_WVPCR寄存器中配置层窗口的水平和垂直位置。层窗口必须在活动数据区。
-          (++) LTDC_LxPFCR寄存器中的像素输入格式
-          (++) LTDC_LxCFBAR寄存器中的彩色帧缓冲器起始地址
-          (++) LTDC_LxCFBAR寄存器中的彩色帧缓冲区的行长和间距。LTDC_LxCFBLR 寄存器中的彩色帧缓冲区的行长和间距
-          (++) LTDC_LxCFBLR寄存器中彩色帧缓冲器的行数。LTDC_LxCFBLNR寄存器中彩色帧缓冲区的行数
-          (++) 如果需要的话，用RGB值和地址加载CLUT 在LTDC_LxCLUTWR寄存器中。
-          (++) 如果需要，在LTDC_LxCLUTWR寄存器中分别配置默认颜色和混合系数。
-               分别在LTDC_LxDCCR和LTDC_LxBFCR寄存器中配置默认颜色和混合系数
+          (++) 在LTDC_LxWHPCR和LTDC_WVPCR 寄存器中配置层窗口的水平和垂直位置。层窗口必须在活动数据区。
+          (++) LTDC_LxPFCR 寄存器中的像素输入格式
+          (++) LTDC_LxCFBAR 寄存器中的彩色帧缓冲器起始地址
+          (++) LTDC_LxCFBAR 寄存器中的彩色帧缓冲区的行长和间距。LTDC_LxCFBLR 寄存器中的彩色帧缓冲区的行长和间距
+          (++) LTDC_LxCFBLR 寄存器中彩色帧缓冲器的行数。LTDC_LxCFBLNR 寄存器中彩色帧缓冲区的行数
+          (++) 如果需要的话，用 RGB值和地址加载CLUT 在LTDC_LxCLUTWR 寄存器中。
+          (++) 如果需要，在LTDC_LxCLUTWR 寄存器中分别配置默认颜色和混合系数。
+               分别在LTDC_LxDCCR和LTDC_LxBFCR 寄存器中配置默认颜色和混合系数
 
-          (++) 如果需要，可以分别在LTDC_GCR和LTDC_LxBFCR寄存器中启用抖动和抠色功能。
-               在LTDC_GCR和LTDC_LxCKCR寄存器中分别启用抖动和抠色。它也可以被启用 也可以在运行中启用。
+          (++) 如果需要，可以分别在LTDC_GCR和LTDC_LxBFCR 寄存器中启用抖动和抠色功能。
+               在LTDC_GCR和LTDC_LxCKCR 寄存器中分别启用抖动和抠色。它也可以被启用 也可以在运行中启用。
 
-        (#) 在LTDC_LxCR寄存器中启用Layer1/2，必要时启用CLUT
+        (#) 在LTDC_LxCR 寄存器中启用Layer1/2，必要时启用CLUT
 
-        (#) 通过LTDC_SRCR寄存器将影子寄存器重新加载到活动寄存器。(#) 通过LTDC_SRCR寄存器将影子寄存器重新载入活动寄存器。
+        (#) 通过LTDC_SRCR 寄存器将影子寄存器重新加载到活动寄存器。(#) 通过LTDC_SRCR 寄存器将影子寄存器重新载入活动寄存器。
           -@- 除了CLUT之外，所有的层参数都可以被即时修改。
-              新的配置必须立即被重新加载 或在垂直消隐期间通过配置LTDC_SRCR寄存器重新加载新的配置。
+              新的配置必须立即被重新加载 或在垂直消隐期间通过配置LTDC_SRCR 寄存器重新加载新的配置。
         (#) 调用LTDC_Cmd()来启用LTDC控制器。
 
     @endverbatim
@@ -121,7 +121,7 @@ void LTDC_DeInit(void) {
 
 /**
   * 简介:  根据LTDC_InitStruct中指定的参数初始化LTDC外设。
-  * 注意:   这个功能只有在禁用LTDC的情况下才能使用。
+  * 注意:   这个功能只有在禁用LTDC 的情况下才能使用。
   * 参数:  LTDC_InitStruct: 指向 LTDC_InitTypeDef 结构的指针，
   *                         该结构包含指定 LTDC 外设的配置信息。
   * 返回值: 无
@@ -189,7 +189,7 @@ void LTDC_Init(LTDC_InitTypeDef* LTDC_InitStruct) {
   * 返回值: 无
   */
 void LTDC_StructInit(LTDC_InitTypeDef* LTDC_InitStruct) {
-    /*--------------- 重置LTCC初始化结构参数值 ----------------*/
+    /*--------------- 重置LTCC 初始化结构参数值 ----------------*/
     LTDC_InitStruct->LTDC_HSPolarity = LTDC_HSPolarity_AL;      /*!< 初始化这个 LTDC_HSPolarity           成员 */
     LTDC_InitStruct->LTDC_VSPolarity = LTDC_VSPolarity_AL;      /*!< 初始化这个 LTDC_VSPolarity           成员 */
     LTDC_InitStruct->LTDC_DEPolarity = LTDC_DEPolarity_AL;      /*!< 初始化这个 LTDC_DEPolarity           成员 */
@@ -237,7 +237,7 @@ void LTDC_DitherCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能通过设置DTEN抖动位 */
+        /* 使能通过设置 DTEN抖动位 */
         LTDC->GCR |= (uint32_t)LTDC_GCR_DTEN;
     } else {
         /* 通过清除DTEN禁用抖动位 */
@@ -307,7 +307,7 @@ void LTDC_ReloadConfig(uint32_t LTDC_Reload) {
 
 /**
   * 简介:  根据LTDC_LayerStruct中指定的参数初始化 LTDC 层。
-  * 注意:  这个功能只有在禁用LTDC的情况下才能使用。
+  * 注意:  这个功能只有在禁用LTDC 的情况下才能使用。
   * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一: 
   *                     LTDC_Layer1, LTDC_Layer2。
   * 参数:  LTDC_LayerStruct: 指向 LTDC_LayerTypeDef 结构的指针，
@@ -821,7 +821,7 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
     *** 中断 ***
     ==================
     [..]
-      (+) LTDC_IT_LI: 当达到一个编程的线路时，会产生线路中断。线路中断的位置是在LTDC_LIPR寄存器中编程的。
+      (+) LTDC_IT_LI: 当达到一个编程的线路时，会产生线路中断。线路中断的位置是在LTDC_LIPR 寄存器中编程的。
       (+) LTDC_IT_FU: 当从一个空层FIFO请求一个像素时，产生FIFO Underrun中断。
       (+) LTDC_IT_TERR: 传输错误中断是在数据传输过程中发生AHB总线错误时产生的。
       (+) LTDC_IT_RR:当在垂直消隐期间执行影子寄存器重新加载时，产生寄存器重新加载中断。
