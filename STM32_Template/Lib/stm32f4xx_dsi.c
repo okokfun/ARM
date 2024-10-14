@@ -90,7 +90,7 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx, uint32_t ChannelID, uint32
  ===============================================================================
     [..]  本节提供的功能允许:
       (+) 初始化并配置 DSI
-      (+) 解除对DSI的初始化
+      (+) 解除对 DSI 的初始化
 
 @endverbatim
   */
@@ -98,7 +98,7 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx, uint32_t ChannelID, uint32
 /**
   * 简介:  将 DSI 外设寄存器取消初始化为其默认复位值。
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 返回值: 无
   */
@@ -132,13 +132,13 @@ void DSI_DeInit(DSI_TypeDef *DSIx) {
 /**
   * 简介: 将 DSIx 外设寄存器取消初始化为其默认复位值。
   * 
-  * 参数: DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
-  * 参数: DSI_InitStruct: 指向DSI_InitTypeDef结构的指针。
-  *                       该结构包含指定DSI外设的配置信息。
+  * 参数: DSI_InitStruct: 指向 DSI_InitTypeDef 结构的指针。
+  *                       该结构包含指定 DSI 外设的配置信息。
   * 
-  * 参数: DSI_InitTIMStruct: 指向DSI_TIMTypeDef结构的指针，
-  *                          该结构包含指定DSI定时器的配置信息。
+  * 参数: DSI_InitTIMStruct: 指向 DSI_TIMTypeDef 结构的指针，
+  *                          该结构包含指定 DSI定时器的配置信息。
   * 
   * 返回值: 无
   */
@@ -187,7 +187,7 @@ void DSI_Init(DSI_TypeDef *DSIx, DSI_InitTypeDef* DSI_InitStruct, DSI_PLLInitTyp
     DSIx->PCONFR |= DSI_InitStruct->NumberOfLanes;
 
     /************************ 设置 DSI时钟参数 ************************/
-    /* 设置TTX转义时钟分频因子 */
+    /* 设置 TTX转义时钟分频因子 */
     DSIx->CCR &= ~DSI_CCR_TXECKDIV;
     DSIx->CCR = DSI_InitStruct->TXEscapeCkdiv;
 
@@ -210,7 +210,7 @@ void DSI_Init(DSI_TypeDef *DSIx, DSI_InitTypeDef* DSI_InitStruct, DSI_PLLInitTyp
 /**
   * 简介: 用默认值填充每个 DSI_InitStruct 成员。
   * 
-  * 参数: DSI_InitStruct: 指向DSI_InitTypeDef结构的指针，该结构将被初始化。
+  * 参数: DSI_InitStruct: 指向 DSI_InitTypeDef 结构的指针，该结构将被初始化。
   * 
   * 返回值: 无
   */
@@ -247,7 +247,7 @@ void DSI_StructInit(DSI_InitTypeDef* DSI_InitStruct, DSI_HOST_TimeoutTypeDef* DS
 /**
   * 简介:  配置通用接口回读的虚拟通道ID。
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 参数:  VirtualChannelID: 虚拟通道ID
   * 
@@ -262,9 +262,9 @@ void DSI_SetGenericVCID(DSI_TypeDef *DSIx, uint32_t VirtualChannelID) {
 /**
   * 简介:  选择视频模式并配置相应的参数
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
-  * 参数:  VidCfg: 指向一个包含DSI视频模式配置参数的DSI_VidCfgTypeDef结构的指针。
+  * 参数:  VidCfg: 指向一个包含DSI视频模式配置参数的 DSI_VidCfgTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -284,12 +284,12 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg) {
     assert_param(IS_DSI_VSYNC_POLARITY(VidCfg->VSPolarity));
     assert_param(IS_DSI_HSYNC_POLARITY(VidCfg->HSPolarity));
 
-    /* 检查仅在18位模式下的LooselyPacked变体 */
+    /* 检查仅在18位模式下的 LooselyPacked变体 */
     if(VidCfg->ColorCoding == DSI_RGB666) {
         assert_param(IS_DSI_LOOSELY_PACKED(VidCfg->LooselyPacked));
     }
 
-    /* 通过重置CMDM和DSIM来选择视频模式位 */
+    /* 通过重置 CMDM 和DSIM来选择视频模式位 */
     DSIx->MCR &= ~DSI_MCR_CMDM;
     DSIx->WCFGR &= ~DSI_WCFGR_DSIM;
 
@@ -367,7 +367,7 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg) {
     DSIx->LPMCR &= ~DSI_LPMCR_LPSIZE;
     DSIx->LPMCR |= ((VidCfg->LPLargestPacketSize) << 16);
 
-    /* 低功率VACT最大数据包大小 */
+    /* 低功率VACT 最大数据包大小 */
     DSIx->LPMCR &= ~DSI_LPMCR_VLPSIZE;
     DSIx->LPMCR |= VidCfg->LPVACTLargestPacketSize;
 
@@ -375,23 +375,23 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg) {
     DSIx->VMCR &= ~DSI_VMCR_LPHFPE;
     DSIx->VMCR |= VidCfg->LPHorizontalFrontPorchEnable;
 
-    /* 使能HBP期间的LP转换 */
+    /* 使能HBP期间的 LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPHBPE;
     DSIx->VMCR |= VidCfg->LPHorizontalBackPorchEnable;
 
-    /* 使能VACT期间的LP转换 */
+    /* 使能VACT期间的 LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPVAE;
     DSIx->VMCR |= VidCfg->LPVerticalActiveEnable;
 
-    /* 使能VFP期间的LP转换 */
+    /* 使能VFP期间的 LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPVFPE;
     DSIx->VMCR |= VidCfg->LPVerticalFrontPorchEnable;
 
-    /* 使能VBP时期的LP转换 */
+    /* 使能VBP时期的 LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPVBPE;
     DSIx->VMCR |= VidCfg->LPVerticalBackPorchEnable;
 
-    /* 使能垂直同步周期中的LP转换 */
+    /* 使能垂直同步周期中的 LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPVSAE;
     DSIx->VMCR |= VidCfg->LPVerticalSyncActiveEnable;
 
@@ -403,9 +403,9 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg) {
 /**
   * 简介:  选择适应的命令模式并配置相应的参数
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
-  * 参数:  CmdCfg: 指向一个包含DSI命令模式配置参数的DSI_CmdCfgTypeDef结构的指针。
+  * 参数:  CmdCfg: 指向一个包含DSI命令模式配置参数的 DSI_CmdCfgTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -421,7 +421,7 @@ void DSI_ConfigAdaptedCommandMode(DSI_TypeDef *DSIx, DSI_CmdCfgTypeDef *CmdCfg) 
     assert_param(IS_DSI_VSYNC_POLARITY(CmdCfg->VSPolarity));
     assert_param(IS_DSI_HSYNC_POLARITY(CmdCfg->HSPolarity));
 
-    /* 通过设置CMDM和DSIM选择命令模式位 */
+    /* 通过设置 CMDM 和DSIM选择命令模式位 */
     DSIx->MCR |= DSI_MCR_CMDM;
     DSIx->WCFGR &= ~DSI_WCFGR_DSIM;
     DSIx->WCFGR |= DSI_WCFGR_DSIM;
@@ -463,9 +463,9 @@ void DSI_ConfigAdaptedCommandMode(DSI_TypeDef *DSIx, DSI_CmdCfgTypeDef *CmdCfg) 
 /**
   * 简介:  配置命令传输模式:高速或低功率，并在数据包传输后启用/禁用确认请求
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
-  * 参数:  LPCmd: 指向包含DSI命令传输模式配置参数的DSI_LPCmdTypeDef结构的指针
+  * 参数:  LPCmd: 指向包含DSI命令传输模式配置参数的 DSI_LPCmdTypeDef 结构的指针
   * 
   * 返回值: 无
   */
@@ -518,7 +518,7 @@ void DSI_ConfigCommand(DSI_TypeDef *DSIx, DSI_LPCmdTypeDef *LPCmd) {
 /**
   * 简介:  配置流量控制参数
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 参数:  FlowControl: 要启用的流量控制功能。
   *                      此参数可以是 @ref DSI_FlowControl的任意组合。
@@ -537,9 +537,9 @@ void DSI_ConfigFlowControl(DSI_TypeDef *DSIx, uint32_t FlowControl) {
 /**
   * 简介:  配置 DSI PHY计时器参数
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
-  * 参数:  PhyTimers: 包含DSI PHY计时参数的DSI_PHY_TimerTypeDef结构
+  * 参数:  PhyTimers: 包含DSI PHY计时参数的 DSI_PHY_TimerTypeDef 结构
   * 
   * 返回值: 无
   */
@@ -551,10 +551,10 @@ void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers) {
     /* 时钟通道计时器配置*/
     /* 在自动时钟通道控制模式下，DSI主机可以关闭两个高速传输之间的时钟通道。
        为此，DSI主机计算时钟通道从高速变为低功率和从低功率变为高速所需的时间。
-       此定时由DSI主机时钟通道定时器配置寄存器(DSI_CLTCR)中的HS2LP_TIME和LP2HS_TIME配置。
+       此定时由DSI主机时钟通道定时器配置寄存器(DSI_CLTCR)中的 HS2LP_TIME 和 LP2HS_TIME配置。
        但是DSI主机不是在计算LP2HS_TIME+HS2LP_TIME，而是在计算2 x HS2LP_ TIME。
 
-       解决方法：配置HS2LP_TIME和LP2HS_TIME，使其具有相同的值，即HS2LP_ TIME或LP2HS_ TIME的最大值。
+       解决方法：配置HS2LP_TIME 和 LP2HS_TIME，使其具有相同的值，即HS2LP_ TIME 或LP2HS_ TIME的最大值。
     */
     DSIx->CLTCR &= ~(DSI_CLTCR_LP2HS_TIME | DSI_CLTCR_HS2LP_TIME);
     DSIx->CLTCR |= (maxTime | ((maxTime) << 16));
@@ -571,9 +571,9 @@ void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers) {
 /**
   * 简介:  配置 DSI HOST超时参数
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
-  * 参数:  HostTimeouts: 包含DSI主机超时参数的DSI_HOST_TimeoutTypeDef结构
+  * 参数:  HostTimeouts: 包含DSI主机超时参数的 DSI_HOST_TimeoutTypeDef 结构
   * 
   * 返回值: 无
   */
@@ -616,10 +616,10 @@ void DSI_ConfigHostTimeouts(DSI_TypeDef *DSIx, DSI_HOST_TimeoutTypeDef *HostTime
 }
 
 /**
-  * 简介:  启动DSI模块
+  * 简介:  启动DSI 模块
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
-  *               DSI的配置信息。
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
+  *               DSI 的配置信息。
   * 
   * 返回值: 无
   */
@@ -631,9 +631,9 @@ void DSI_Start(DSI_TypeDef *DSIx) {
 }
 
 /**
-  * 简介:  停止DSI模块
+  * 简介:  停止DSI 模块
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 返回值: 无
   */
@@ -648,8 +648,8 @@ void DSI_Stop(DSI_TypeDef *DSIx) {
 /**
   * 简介:  在命令模式下刷新显示
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
-  *               DSI的配置信息。
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
+  *               DSI 的配置信息。
   * 
   * 返回值: 无
   */
@@ -661,7 +661,7 @@ void DSI_Refresh(DSI_TypeDef *DSIx) {
 /**
   * 简介:  控制视频模式中的显示颜色模式
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 参数:  ColorMode: 颜色模式(全色或8色)。
   *                    此参数可以是 @ref DSI_Color_Mode的任何值
@@ -680,7 +680,7 @@ void DSI_ColorMode(DSI_TypeDef *DSIx, uint32_t ColorMode) {
 /**
   * 简介:  控制视频模式下的显示器关闭
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 参数:  Shutdown: 关闭(显示器打开或显示器关闭)。
   *                   此参数可以是 @ref DSI_ShutDown的任何值
@@ -710,7 +710,7 @@ void DSI_Shutdown(DSI_TypeDef *DSIx, uint32_t Shutdown) {
 /**
   * 简介:  DCS或通用短写命令
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 参数:  ChannelID: 虚拟通道ID.
   * 
@@ -747,7 +747,7 @@ void DSI_ShortWrite(DSI_TypeDef *DSIx,
 /**
   * 简介:  DCS或通用长写命令
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 参数:  ChannelID: 虚拟通道ID.
   * 
@@ -806,7 +806,7 @@ void DSI_LongWrite(DSI_TypeDef *DSIx,
 /**
   * 简介:  读取命令(DCS或通用)
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 参数:  ChannelNbr: 虚拟通道ID
   * 
@@ -850,7 +850,7 @@ void DSI_Read(DSI_TypeDef *DSIx,
         DSI_ConfigPacketHeader(DSIx, ChannelNbr, Mode, ParametersTable[0], ParametersTable[1]);
     }
 
-    /* 检查有效负载读取FIFO不是空的 */
+    /* 检查有效负载读取 FIFO不是空的 */
     while((DSIx->GPSR & DSI_GPSR_PRDFE) == DSI_GPSR_PRDFE)
     {}
 
@@ -873,11 +873,11 @@ void DSI_Read(DSI_TypeDef *DSIx,
 }
 
 /**
-  * 简介:  通用 DSI数据包头配置
+  * 简介:  通用 DSI 数据包头配置
   * 
-  * 参数:  DSIx: 指向DSI寄存器基址的指针
+  * 参数:  DSIx: 指向 DSI寄存器基址的指针
   * 
-  * 参数:  ChannelID: 虚拟通道头数据包的ID
+  * 参数:  ChannelID: 虚拟通道头数据包的 ID
   * 
   * 参数:  DataType: 头数据包的数据包数据类型
   *                   此参数可以是以下任意值:
@@ -897,7 +897,7 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx,
                                    uint32_t DataType,
                                    uint32_t Data0,
                                    uint32_t Data1) {
-    /* 用新信息更新DSI数据包头 */
+    /* 用新信息更新DSI 数据包头 */
     DSIx->GHCR = (DataType | (ChannelID << 6) | (Data0 << 8) | (Data1 << 16));
 }
 
@@ -914,18 +914,18 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx,
   */
 
 /**
-  * 简介:  在D-PHY PLL运行的情况下进入ULPM(超低功率模式)(只有数据通道在ULPM中)
+  * 简介:  在D-PHY PLL运行的情况下进入 ULPM(超低功率模式)(只有数据通道在 ULPM 中)
   * 
-  * 参数:  DSIx: 指向DSI寄存器基址的指针
+  * 参数:  DSIx: 指向 DSI寄存器基址的指针
   * 
   * 返回值: 无
   */
 void DSI_EnterULPMData(DSI_TypeDef *DSIx) {
-    /* 数据通道上的ULPS请求 */
+    /* 数据通道上的 ULPS请求 */
     DSIx->PUCR |= DSI_PUCR_URDL;
 
 
-    /* 等待，直到D-PHY活动通道进入ULPM */
+    /* 等待，直到D-PHY活动通道进入 ULPM */
     if((DSIx->PCONFR & DSI_PCONFR_NL) == DSI_ONE_DATA_LANE) {
         while((DSIx->PSR & DSI_PSR_UAN0) != 0)
         {}
@@ -936,9 +936,9 @@ void DSI_EnterULPMData(DSI_TypeDef *DSIx) {
 }
 
 /**
-  * 简介:  在D-PHY PLL运行的情况下退出ULPM(超低功率模式)(只有数据通道在ULPM中)
+  * 简介:  在D-PHY PLL运行的情况下退出ULPM(超低功率模式)(只有数据通道在 ULPM 中)
   * 
-  * 参数:  DSIx: 指向DSI寄存器基址的指针
+  * 参数:  DSIx: 指向 DSI寄存器基址的指针
   * 
   * 返回值: 无
   */
@@ -955,14 +955,14 @@ void DSI_ExitULPMData(DSI_TypeDef *DSIx) {
         {}
     }
 
-    /* 取消断言ULPM请求和ULPM退出位 */
+    /* 取消断言ULPM请求和 ULPM退出位 */
     DSIx->PUCR = 0;
 }
 
 /**
-  * 简介:  在D-PHY PLL关闭的情况下进入ULPM(超低功率模式)(数据和时钟通道都在ULPM中)
+  * 简介:  在D-PHY PLL关闭的情况下进入 ULPM(超低功率模式)(数据和时钟通道都在 ULPM 中)
   * 
-  * 参数:  DSIx: 指向DSI寄存器基址的指针
+  * 参数:  DSIx: 指向 DSI寄存器基址的指针
   * 
   * 返回值: 无
   */
@@ -973,7 +973,7 @@ void DSI_EnterULPM(DSI_TypeDef *DSIx) {
     /* 在停止DSIPHY时钟源之前，使用系统PLL作为字节通道时钟源 */
     RCC_DSIClockSourceConfig(RCC_DSICLKSource_PLLR);
 
-    /* 时钟和数据通道上的ULPS请求 */
+    /* 时钟和数据通道上的 ULPS请求 */
     DSIx->PUCR |= (DSI_PUCR_URCL | DSI_PUCR_URDL);
 
     /* 等到所有活动车道都离开ULPM */
@@ -990,9 +990,9 @@ void DSI_EnterULPM(DSI_TypeDef *DSIx) {
 }
 
 /**
-  * 简介:  在D-PHY PLL关闭的情况下退出ULPM(超低功率模式)(数据和时钟通道都在ULPM中)
+  * 简介:  在D-PHY PLL关闭的情况下退出ULPM(超低功率模式)(数据和时钟通道都在 ULPM 中)
   * 
-  * 参数:  DSIx: 指向DSI寄存器基址的指针
+  * 参数:  DSIx: 指向 DSI寄存器基址的指针
   * 
   * 返回值: 无
   */
@@ -1016,7 +1016,7 @@ void DSI_ExitULPM(DSI_TypeDef *DSIx) {
         {}
     }
 
-    /* 取消断言ULPM请求和ULPM退出位 */
+    /* 取消断言ULPM请求和 ULPM退出位 */
     DSIx->PUCR = 0;
 
     /* 将RCC中的字节时钟源从系统PLL切换到D-PHY */
@@ -1029,7 +1029,7 @@ void DSI_ExitULPM(DSI_TypeDef *DSIx) {
 /**
   * 简介:  开始测试模式生成
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 参数:  Mode: 图形生成器模式
   *          此参数可以是以下值之一:
@@ -1057,7 +1057,7 @@ void DSI_PatternGeneratorStart(DSI_TypeDef *DSIx, uint32_t Mode, uint32_t Orient
 /**
   * 简介:  停止测试模式生成
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 返回值: 无
   */
@@ -1069,7 +1069,7 @@ void DSI_PatternGeneratorStop(DSI_TypeDef *DSIx) {
 /**
   * 简介:  设置回转率和延迟调整
   * 
-  * 参数:  DSIx: 指向DSI寄存器基址的指针
+  * 参数:  DSIx: 指向 DSI寄存器基址的指针
   * 
   * 参数:  CommDelay: 通信延迟有待调整。
   *                    此参数可以是 @ref DSI_Communication_Delay
@@ -1134,9 +1134,9 @@ void DSI_SetSlewRateAndDelayTuning(DSI_TypeDef *DSIx, uint32_t CommDelay, uint32
 /**
   * 简介:  低功率接收滤波器调谐
   * 
-  * 参数:  DSIx: 指向DSI寄存器基址的指针
+  * 参数:  DSIx: 指向 DSI寄存器基址的指针
   * 
-  * 参数:  Frequency: LPRX输入低通滤波器的截止频率
+  * 参数:  Frequency: LPRX 输入低通滤波器的截止频率
   * 
   * 返回值: 无
   */
@@ -1147,10 +1147,10 @@ void DSI_SetLowPowerRXFilter(DSI_TypeDef *DSIx, uint32_t Frequency) {
 }
 
 /**
-  * 简介:  激活所有车道上的其他当前路径，以满足MIPI D-PHY规范中定义的SDDTx参数
+  * 简介:  激活所有车道上的其他当前路径，以满足MIPI D-PHY规范中定义的 SDDTx参数
   * 
-  * 参数:  hdsi: 指向DSI_HandleTypeDef结构的指针，该结构包含
-  *               DSI的配置信息。
+  * 参数:  hdsi: 指向 DSI_HandleTypeDef 结构的指针，该结构包含
+  *               DSI 的配置信息。
   * 
   * 参数:  State: ENABLE or DISABLE
   * 
@@ -1168,7 +1168,7 @@ void DSI_SetSDD(DSI_TypeDef *DSIx, FunctionalState State) {
 /**
   * 简介:  自定义通道管脚配置
   * 
-  * 参数:  DSIx: 指向DSI寄存器基址的指针
+  * 参数:  DSIx: 指向 DSI寄存器基址的指针
   * 
   * 参数:  CustomLane: 要应用于选定车道的功能。
   *                     此参数可以是 @ref DSI_CustomLane
@@ -1206,15 +1206,15 @@ void DSI_SetLanePinsConfiguration(DSI_TypeDef *DSIx, uint32_t CustomLane, uint32
 
         case DSI_INVERT_HS_SIGNAL:
             if(Lane == DSI_CLOCK_LANE) {
-                /* 反转时钟通道上的HS信号 */
+                /* 反转时钟通道上的 HS信号 */
                 DSIx->WPCR[0] &= ~DSI_WPCR0_HSICL;
                 DSIx->WPCR[0] |= ((uint32_t)State << 9);
             } else if(Lane == DSI_DATA_LANE0) {
-                /* 反转数据通道0上的HS信号 */
+                /* 反转数据通道0上的 HS信号 */
                 DSIx->WPCR[0] &= ~DSI_WPCR0_HSIDL0;
                 DSIx->WPCR[0] |= ((uint32_t)State << 10);
             } else { /* DSI_DATA_LANE1 */
-                /* 反转数据通道1上的HS信号 */
+                /* 反转数据通道1上的 HS信号 */
                 DSIx->WPCR[0] &= ~DSI_WPCR0_HSIDL1;
                 DSIx->WPCR[0] |= ((uint32_t)State << 11);
             }
@@ -1229,7 +1229,7 @@ void DSI_SetLanePinsConfiguration(DSI_TypeDef *DSIx, uint32_t CustomLane, uint32
 /**
   * 简介:  为PHY设置自定义定时
   * 
-  * 参数:  DSIx: 指向DSI寄存器基址的指针
+  * 参数:  DSIx: 指向 DSI寄存器基址的指针
   * 
   * 参数:  Timing: 要调整的PHY定时。
   *                 此参数可以是 @ref DSI_PHY_Timing
@@ -1369,9 +1369,9 @@ void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State
 }
 
 /**
-  * 简介:  强制时钟/数据通道处于TX停止模式
+  * 简介:  强制时钟/数据通道处于 TX停止模式
   * 
-  * 参数:  DSIx: 指向DSI寄存器基址的指针
+  * 参数:  DSIx: 指向 DSI寄存器基址的指针
   * 
   * 参数:  Lane: 在时钟或数据通道之间进行选择。
   *               此参数可以是 @ref DSI_Lane_Group
@@ -1386,11 +1386,11 @@ void DSI_ForceTXStopMode(DSI_TypeDef *DSIx, uint32_t Lane, FunctionalState State
     assert_param(IS_FUNCTIONAL_STATE(State));
 
     if(Lane == DSI_CLOCK_LANE) {
-        /* 在TX停止模式下强制/展开时钟通道 */
+        /* 在 TX停止模式下强制/展开时钟通道 */
         DSIx->WPCR[0] &= ~DSI_WPCR0_FTXSMCL;
         DSIx->WPCR[0] |= ((uint32_t)State << 12);
     } else { /* DSI_DATA_LANES */
-        /* 在TX停止模式下强制/展开数据通道 */
+        /* 在 TX停止模式下强制/展开数据通道 */
         DSIx->WPCR[0] &= ~DSI_WPCR0_FTXSMDL;
         DSIx->WPCR[0] |= ((uint32_t)State << 13);
     }
@@ -1399,7 +1399,7 @@ void DSI_ForceTXStopMode(DSI_TypeDef *DSIx, uint32_t Lane, FunctionalState State
 /**
   * 简介:  强制LP接收器处于低功率模式
   * 
-  * 参数:  hdsi: 指向DSI_HandleTypeDef结构的指针，该结构包含DSI的配置信息。
+  * 参数:  hdsi: 指向 DSI_HandleTypeDef 结构的指针，该结构包含DSI 的配置信息。
   * 
   * 参数:  State: ENABLE or DISABLE
   * 
@@ -1417,7 +1417,7 @@ void DSI_ForceRXLowPower(DSI_TypeDef *DSIx, FunctionalState State) {
 /**
   * 简介:  BTA后强制数据通道处于RX模式
   * 
-  * 参数:  hdsi: 指向DSI_HandleTypeDef结构的指针，该结构包含DSI的配置信息。
+  * 参数:  hdsi: 指向 DSI_HandleTypeDef 结构的指针，该结构包含DSI 的配置信息。
   * 
   * 参数:  State: ENABLE or DISABLE
   * 
@@ -1435,8 +1435,8 @@ void DSI_ForceDataLanesInRX(DSI_TypeDef *DSIx, FunctionalState State) {
 /**
   * 简介:  启用车道上的下拉按钮，以防止未使用时出现浮动状态
   * 
-  * 参数:  hdsi: 指向DSI_HandleTypeDef结构的指针，该结构包含
-  *               DSI的配置信息。
+  * 参数:  hdsi: 指向 DSI_HandleTypeDef 结构的指针，该结构包含
+  *               DSI 的配置信息。
   * 
   * 参数:  State: ENABLE or DISABLE
   * 
@@ -1454,8 +1454,8 @@ void DSI_SetPullDown(DSI_TypeDef *DSIx, FunctionalState State) {
 /**
   * 简介:  关闭数据通道上的竞争检测
   * 
-  * 参数:  hdsi: 指向DSI_HandleTypeDef结构的指针，该结构包含
-  *               DSI的配置信息。
+  * 参数:  hdsi: 指向 DSI_HandleTypeDef 结构的指针，该结构包含
+  *               DSI 的配置信息。
   * 
   * 参数:  State: ENABLE or DISABLE
   * 
@@ -1523,11 +1523,11 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
   */
 
 /**
-  * 简介: 启用或禁用指定的DSI中断。
+  * 简介: 启用或禁用指定的 DSI中断。
   * 
-  * 参数: DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
-  * 参数: DSI_IT: 指定要启用或禁用的DSI中断源。
+  * 参数: DSI_IT: 指定要启用或禁用的 DSI中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg DSI_IT_TE: 撕裂效果中断
   *            @arg DSI_IT_ER: 刷新中断结束
@@ -1535,8 +1535,8 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
   *            @arg DSI_IT_PLLU: PLL解锁中断
   *            @arg DSI_IT_RR: 调节器就绪中断
   * 
-  * 参数:  NewState: 指定DSI中断的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 指定 DSI中断的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -1556,11 +1556,11 @@ void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState) 
 }
 
 /**
-  * 简介: 检查是否设置了指定的DSI标志。
+  * 简介: 检查是否设置了指定的 DSI标志。
   * 
-  * 参数: DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
-  * 参数: DSI_FLAG: 指定要检查的SPI标志。
+  * 参数: DSI_FLAG: 指定要检查的 SPI标志。
   *          此参数可以是以下值之一:
   *          @arg DSI_FLAG_TE: 撕裂效果中断标志
   *          @arg DSI_FLAG_ER: 刷新中断结束标志
@@ -1571,7 +1571,7 @@ void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState) 
   *          @arg DSI_FLAG_RRS: 调节器就绪标志
   *          @arg DSI_FLAG_RR: 调节器就绪中断标志
   * 
-  * 返回值: DSI_FLAG的新状态(SET或RESET)。
+  * 返回值: DSI_FLAG 的新状态(SET 或 RESET)。
   */
 FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
     FlagStatus bitstatus = RESET;
@@ -1579,7 +1579,7 @@ FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
     assert_param(IS_DSI_ALL_PERIPH(DSIx));
     assert_param(IS_DSI_GET_FLAG(DSI_FLAG));
 
-    /* 检查指定DSI标志的状态 */
+    /* 检查指定 DSI标志的状态 */
     if((DSIx->WISR & DSI_FLAG) != (uint32_t)RESET) {
         /* DSI_FLAG 被设置 */
         bitstatus = SET;
@@ -1593,11 +1593,11 @@ FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
 }
 
 /**
-  * 简介: 清除指定的DSI标志。
+  * 简介: 清除指定的 DSI标志。
   * 
-  * 参数: DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
-  * 参数: DSI_FLAG: 指定要清除的SPI标志。
+  * 参数: DSI_FLAG: 指定要清除的 SPI标志。
   *          此参数可以是以下值之一:
   *            @arg DSI_FLAG_TE   : 撕裂效果中断标志
   *            @arg DSI_FLAG_ER   : 刷新中断结束标志
@@ -1612,16 +1612,16 @@ void DSI_ClearFlag(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
     assert_param(IS_DSI_ALL_PERIPH(DSIx));
     assert_param(IS_DSI_CLEAR_FLAG(DSI_FLAG));
 
-    /* 清除选定DSI标志 */
+    /* 清除选定 DSI标志 */
     DSIx->WIFCR = (uint32_t)DSI_FLAG;
 }
 
 /**
-  * 简介: 检查指定的DSIx中断是否已发生。
+  * 简介: 检查指定的 DSIx中断是否已发生。
   * 
-  * 参数: DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
-  * 参数: DSI_IT: 指定要检查的DSI中断源。
+  * 参数: DSI_IT: 指定要检查的 DSI中断源。
   *          此参数可以是以下值之一:
   *          @arg DSI_IT_TE    : 撕裂效果中断
   *          @arg DSI_IT_ER    : 刷新中断结束
@@ -1642,7 +1642,7 @@ ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
     /* 获取 DSI_IT enable bit 状态 */
     enablestatus = (DSIx->WIER & DSI_IT);
 
-    /* 检查指定SPI中断的状态 */
+    /* 检查指定 SPI中断的状态 */
     if (((DSIx->WISR & DSI_IT) != (uint32_t)RESET) && enablestatus) {
         /* DSI_IT 被设置 */
         bitstatus = SET;
@@ -1658,9 +1658,9 @@ ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
 /**
   * 简介: 清除DSIx中断挂起位。
   * 
-  * 参数: DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
-  * 参数: DSI_IT: 指定要清除的DSI中断源。
+  * 参数: DSI_IT: 指定要清除的 DSI中断源。
   *        此参数可以是以下值之一:
   *            @arg DSI_IT_TE:撕裂效果中断
   *            @arg DSI_IT_ER:刷新中断结束
@@ -1682,7 +1682,7 @@ void DSI_ClearITPendingBit(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
 /**
   * 简介:  启用错误监视器标志
   * 
-  * 参数:  DSIx: 要选择DSIx外设，其中x可以是不同的DSI实例
+  * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI实例
   * 
   * 参数:  ActiveErrors: 指示将启用哪些错误中断。
   *                      此参数可以是 @ref DSI_Error_Data_Type的任意组合。

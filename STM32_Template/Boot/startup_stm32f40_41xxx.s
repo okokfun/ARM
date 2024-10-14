@@ -3,15 +3,15 @@
 ;* Author             : MCD Application Team
 ;* @version           : V1.8.1
 ;* @date              : 27-January-2022
-;* Description        : MDK-ARM工具链的STM32F40xxx/41xxx 设备向量表。
+;* Description        : MDK-ARM工具链的 STM32F40xxx/41xxx 设备向量表。
 ;*                      本模块执行:
 ;*                      - 设置初始SP
 ;*                      - 设置初始PC == Reset_Handler
 ;*                      - 设置具有异常ISR地址的向量表条目
-;*                      - 将系统时钟和安装在STM324xG EVAL板上的外部
+;*                      - 将系统时钟和安装在 STM324xG EVAL板上的外部
 ;*                        SRAM配置为用作数据存储器(可选，由用户启用)
-;*                      - 分支到C库中的__main(它最终调用main())。
-;*                      Reset后，CortexM4处理器处于Thread模式，
+;*                      - 分支到 C库中的__main(它最终调用main())。
+;*                      Reset后，CortexM4处理器处于 Thread模式，
 ;*                      priority为privilege, Stack设置为Main。
 ;* <<< 在上下文菜单中使用配置向导 >>>   
 ;******************************************************************************
@@ -79,8 +79,8 @@ __Vectors       DCD     __initial_sp               ; 栈的顶部
                 ; 外部中断
                 DCD     WWDG_IRQHandler                   ; 窗口监视狗                                        
                 DCD     PVD_IRQHandler                    ; PVD通过EXTI测线检测                      
-                DCD     TAMP_STAMP_IRQHandler             ; 通过EXTI行篡改和TimeStamp           
-                DCD     RTC_WKUP_IRQHandler               ; RTC通过EXTI线路唤醒                      
+                DCD     TAMP_STAMP_IRQHandler             ; 通过EXTI行篡改和 TimeStamp           
+                DCD     RTC_WKUP_IRQHandler               ; RTC 通过EXTI线路唤醒                      
                 DCD     FLASH_IRQHandler                  ; FLASH                                           
                 DCD     RCC_IRQHandler                    ; RCC                                             
                 DCD     EXTI0_IRQHandler                  ; EXTI Line0                                             

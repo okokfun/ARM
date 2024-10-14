@@ -62,9 +62,9 @@ void ADC_Enable(ADC_Type *ADC_x, confirm_state new_state) {
 /**
   * @brief  为 adc_base_struct 指定初始默认值.
   * @param  sequence_Mode: 设置adc序列模式的状态.
-  *         该参数可以是:TRUE or FALSE
+  *         该参数可以是: TRUE or FALSE
   * @param  repeat_Mode: 设置adc重复转换模式的状态.
-  *         该参数可以是:TRUE or FALSE
+  *         该参数可以是: TRUE or FALSE
   * @param  data_align: 设置adC 数据对齐的状态.
   *         该参数可以是以下值之一:
   *         - ADC_RIGHT_ALIGNMENT
@@ -87,9 +87,9 @@ void ADC_Base_Default_Para_Init(ADC_Base_Config_Type *ADC_Base_struct) {
   *         该参数可以是以下值之一:
   *         - ADC1, ADC2, ADC3.
   * @param  sequence_Mode: 设置adc序列模式的状态.
-  *         该参数可以是:TRUE or FALSE
+  *         该参数可以是: TRUE or FALSE
   * @param  repeat_Mode: 设置adc重复转换模式的状态.
-  *         该参数可以是:TRUE or FALSE
+  *         该参数可以是: TRUE or FALSE
   * @param  data_align: 设置adC 数据对齐的状态.
   *         该参数可以是以下值之一:
   *         - ADC_RIGHT_ALIGNMENT
@@ -130,7 +130,7 @@ void ADC_Base_Config(ADC_Type *ADC_x, ADC_Base_Config_Type *ADC_Base_struct) {
   *         - ADC_Common_DMAMODE_4 <mode 4 can be used: two slaver ordinary simultaneous mode in 6/8 bit resolution,two slave ordinary shifting mode in 6/8 bit resolution>
   *         - ADC_Common_DMAMODE_5 <mode 5 can be used: all two slaver ordinary simultaneous mode,all two slave ordinary shifting mode>
   * @param  common_DMA_Request_Repeat_state: set the adc common dma request repeat state.
-  *         该参数可以是:TRUE or FALSE
+  *         该参数可以是: TRUE or FALSE
   * @param  sampling_interval: configure the ordinary shifting mode adjacent adc sampling interval.
   *         该参数可以是以下值之一:
   *         - ADC_SAMPLING_INTERVAL_5CYCLES     - ADC_SAMPLING_INTERVAL_6CYCLES     - ADC_SAMPLING_INTERVAL_7CYCLES     - ADC_SAMPLING_INTERVAL_8CYCLES
@@ -138,9 +138,9 @@ void ADC_Base_Config(ADC_Type *ADC_x, ADC_Base_Config_Type *ADC_Base_struct) {
   *         - ADC_SAMPLING_INTERVAL_13CYCLES    - ADC_SAMPLING_INTERVAL_14CYCLES    - ADC_SAMPLING_INTERVAL_15CYCLES    - ADC_SAMPLING_INTERVAL_16CYCLES
   *         - ADC_SAMPLING_INTERVAL_17CYCLES    - ADC_SAMPLING_INTERVAL_18CYCLES    - ADC_SAMPLING_INTERVAL_19CYCLES    - ADC_SAMPLING_INTERVAL_20CYCLES
   * @param  tempervintrv_state: set the adc temperature sensor and vintrv state.
-  *         该参数可以是:TRUE or FALSE
+  *         该参数可以是: TRUE or FALSE
   * @param  vbat_state: set the adc voltage battery state.
-  *         该参数可以是:TRUE or FALSE
+  *         该参数可以是: TRUE or FALSE
   * @retval 无
   */
 void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
@@ -177,7 +177,7 @@ void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
   *         - ADC_Common_DMAMODE_4 <mode 4 can be used: two slaver ordinary simultaneous mode in 6/8 bit resolution,two slave ordinary shifting mode in 6/8 bit resolution>
   *         - ADC_Common_DMAMODE_5 <mode 5 can be used: all two slaver ordinary simultaneous mode,all two slave ordinary shifting mode>
   * @param  common_DMA_Request_Repeat_state: set the adc common dma request repeat state.
-  *         该参数可以是:TRUE or FALSE
+  *         该参数可以是: TRUE or FALSE
   * @param  sampling_interval: configure the ordinary shifting mode adjacent adc sampling interval.
   *         该参数可以是以下值之一:
   *         - ADC_SAMPLING_INTERVAL_5CYCLES     - ADC_SAMPLING_INTERVAL_6CYCLES     - ADC_SAMPLING_INTERVAL_7CYCLES     - ADC_SAMPLING_INTERVAL_8CYCLES
@@ -185,9 +185,9 @@ void ADC_Common_Default_Para_Init(ADC_Common_Config_Type *ADC_Common_struct) {
   *         - ADC_SAMPLING_INTERVAL_13CYCLES    - ADC_SAMPLING_INTERVAL_14CYCLES    - ADC_SAMPLING_INTERVAL_15CYCLES    - ADC_SAMPLING_INTERVAL_16CYCLES
   *         - ADC_SAMPLING_INTERVAL_17CYCLES    - ADC_SAMPLING_INTERVAL_18CYCLES    - ADC_SAMPLING_INTERVAL_19CYCLES    - ADC_SAMPLING_INTERVAL_20CYCLES
   * @param  tempervintrv_state: set the adc temperature sensor and vintrv state.
-  *         该参数可以是:TRUE or FALSE
+  *         该参数可以是: TRUE or FALSE
   * @param  vbat_state: set the adc voltage battery state.
-  *         该参数可以是:TRUE or FALSE
+  *         该参数可以是: TRUE or FALSE
   * @retval 无
   */
 void ADC_Common_Config(ADC_Common_Config_Type *ADC_Common_struct) {

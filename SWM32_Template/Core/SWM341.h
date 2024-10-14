@@ -210,7 +210,7 @@ typedef struct {
 
     uint32_t RESERVED11[(0x720 - 0x404) / 4 - 1];
 
-    __IO uint32_t PRSTEN;					//外设复位使能，只有当PRSTEN的值为0x55时，才能写PRSTR0、PRSTR1
+    __IO uint32_t PRSTEN;					//外设复位使能，只有当PRSTEN 的值为0x55时，才能写PRSTR0、PRSTR1
     __IO uint32_t PRSTR0;
     __IO uint32_t PRSTR1;
 
@@ -269,7 +269,7 @@ typedef struct {
 #define SYS_CLKSEL_RTC_Msk			(0x01 << SYS_CLKSEL_RTC_Pos)
 #define SYS_CLKSEL_IOFILT_Pos		6		//IO Filter时钟选择，0 HRC   2 XTAL   3 LRC
 #define SYS_CLKSEL_IOFILT_Msk		(0x03 << SYS_CLKSEL_IOFILT_Pos)
-#define SYS_CLKSEL_SDIO_Pos			10		//SDIO时钟选择，0 SYSCLK/2   1 SYSCLK/8   2 SYSCLK/4   3 SYSCLK
+#define SYS_CLKSEL_SDIO_Pos			10		//SDIO 时钟选择，0 SYSCLK/2   1 SYSCLK/8   2 SYSCLK/4   3 SYSCLK
 #define SYS_CLKSEL_SDIO_Msk			(0x03 << SYS_CLKSEL_SDIO_Pos)
 #define SYS_CLKSEL_WDT_Pos			12		//看门狗时钟选择  0 HRC   1 XTAL   2 LRC   3 XTAL_32K
 #define SYS_CLKSEL_WDT_Msk			(0x03 << SYS_CLKSEL_WDT_Pos)
@@ -394,15 +394,15 @@ typedef struct {
 #define SYS_USBPHYCR_PLLEN_Pos		7		//PHY内置PLL开关
 #define SYS_USBPHYCR_PLLEN_Msk		(0x01 << SYS_USBPHYCR_PLLEN_Pos)
 
-#define SYS_USBCR_RST48M_Pos		0		//USB控制器48M时钟域复位
+#define SYS_USBCR_RST48M_Pos		0		//USB控制器48M 时钟域复位
 #define SYS_USBCR_RST48M_Msk		(0x01 << SYS_USBCR_RST48M_Pos)
-#define SYS_USBCR_RST12M_Pos		1		//USB控制器12M时钟域复位
+#define SYS_USBCR_RST12M_Pos		1		//USB控制器12M 时钟域复位
 #define SYS_USBCR_RST12M_Msk		(0x01 << SYS_USBCR_RST12M_Pos)
 #define SYS_USBCR_RSTPLL_Pos		2		//USB控制器PLL时钟域复位
 #define SYS_USBCR_RSTPLL_Msk		(0x01 << SYS_USBCR_RSTPLL_Pos)
 #define SYS_USBCR_ROLE_Pos			3		//0 由ID引脚决定   2 Host   3 Device
 #define SYS_USBCR_ROLE_Msk			(0x03 << SYS_USBCR_ROLE_Pos)
-#define SYS_USBCR_VBUS_Pos			5		//0 由VBUS引脚决定   1 强制为高
+#define SYS_USBCR_VBUS_Pos			5		//0 由 VBUS引脚决定   1 强制为高
 #define SYS_USBCR_VBUS_Msk			(0x01 << SYS_USBCR_VBUS_Pos)
 
 #define SYS_PRNGCR_CLR_Pos			0		//种子清零，至少保持一个LRC时钟周期
@@ -416,7 +416,7 @@ typedef struct {
 #define SYS_IOFILT_TIM_Msk			(0x0F << SYS_IOFILT_TIM_Pos)
 #define SYS_IOFILT_CLKDIV_Pos		4		//0 时钟不分频   1 时钟32分频
 #define SYS_IOFILT_CLKDIV_Msk		(0x01 << SYS_IOFILT_CLKDIV_Pos)
-#define SYS_IOFILT_IOSEL_Pos		5		//被滤波IO选择，每个IOFILT可为四个IO中的一个进行滤波
+#define SYS_IOFILT_IOSEL_Pos		5		//被滤波IO选择，每个IOFILT 可为四个IO 中的一个进行滤波
 #define SYS_IOFILT_IOSEL_Msk		(0x03 << SYS_IOFILT_IOSEL_Pos)
 
 #define SYS_PRSTR0_GPIOA_Pos		0		//1 复位GPIOA    0 不复位
@@ -498,7 +498,7 @@ typedef struct {
 
 #define SYS_BODCR_IE_Pos		    1		//Interrupt Enable
 #define SYS_BODCR_IE_Msk		    (0x01 << SYS_BODCR_IE_Pos)
-#define SYS_BODCR_INTLVL_Pos		4		//BOD中断触发电平，0 1.9v   1 2.1v   2 2.3v   3 2.5v   4 2.7v
+#define SYS_BODCR_INTLVL_Pos		4		//BOD 中断触发电平，0 1.9v   1 2.1v   2 2.3v   3 2.5v   4 2.7v
 #define SYS_BODCR_INTLVL_Msk		(0x07 << SYS_BODCR_INTLVL_Pos)
 #define SYS_BODCR_RSTLVL_Pos		7		//BOD复位电平，0 1.7v   1 1.9v   2 2.1v   3 2.7v
 #define SYS_BODCR_RSTLVL_Msk		(0x07 << SYS_BODCR_RSTLVL_Pos)
@@ -685,7 +685,7 @@ typedef struct {
 
     __IO uint32_t INTLVLTRG;				//Interrupt Level Trigger  1 电平触发中断	0 边沿触发中断
 
-    __IO uint32_t INTBE;					//Both Edge，当INTLVLTRG设为边沿触发中断时，此位置1表示上升沿和下降沿都触发中断，置0时触发边沿由INTRISEEN选择
+    __IO uint32_t INTBE;					//Both Edge，当INTLVLTRG设为边沿触发中断时，此位置1表示上升沿和下降沿都触发中断，置0时触发边沿由INTRISEEN 选择
 
     __IO uint32_t INTRISEEN;				//Interrupt Rise Edge Enable   1 上升沿/高电平触发中断	0 下降沿/低电平触发中断
 
@@ -705,7 +705,7 @@ typedef struct {
 
     uint32_t RESERVED2[3];
 
-    __IO uint32_t DATAPIN0;					//PIN0引脚的DATA寄存器，单个引脚对应整个32位寄存器，方便实现原子写操作
+    __IO uint32_t DATAPIN0;					//PIN0引脚的 DATA寄存器，单个引脚对应整个32位寄存器，方便实现原子写操作
     __IO uint32_t DATAPIN1;
     __IO uint32_t DATAPIN2;
     __IO uint32_t DATAPIN3;
@@ -794,9 +794,9 @@ typedef struct {
 
     __IO uint32_t HALLEN;					//HALL功能开关
 
-    __IO uint32_t HALL0V;					//HALL0输入跳变沿将Timer0(加载值 - 当前值)存入此寄存器
+    __IO uint32_t HALL0V;					//HALL0输入跳变沿将 Timer0(加载值 - 当前值)存入此寄存器
 
-    __IO uint32_t HALL3V;					//HALL3输入跳变沿将Timer3(加载值 - 当前值)存入此寄存器
+    __IO uint32_t HALL3V;					//HALL3输入跳变沿将 Timer3(加载值 - 当前值)存入此寄存器
 
     uint32_t RESERVED2;
 
@@ -897,7 +897,7 @@ typedef struct {
 
 #define UART_DATA_DATA_Pos			0
 #define UART_DATA_DATA_Msk			(0x1FF << UART_DATA_DATA_Pos)
-#define UART_DATA_VALID_Pos			9		//当DATA字段有有效的接收数据时，该位硬件置1，读取数据后自动清零
+#define UART_DATA_VALID_Pos			9		//当 DATA字段有有效的接收数据时，该位硬件置1，读取数据后自动清零
 #define UART_DATA_VALID_Msk			(0x01 << UART_DATA_VALID_Pos)
 #define UART_DATA_PAERR_Pos			10		//Parity Error
 #define UART_DATA_PAERR_Msk			(0x01 << UART_DATA_PAERR_Pos)
@@ -914,7 +914,7 @@ typedef struct {
 #define UART_CTRL_RXIE_Msk			(0x01 << UART_CTRL_RXIE_Pos)
 #define UART_CTRL_RXOV_Pos			5		//RX FIFO Overflow，写1清零
 #define UART_CTRL_RXOV_Msk			(0x01 << UART_CTRL_RXOV_Pos)
-#define UART_CTRL_TXDOIE_Pos		6		//TX Done 中断使能，发送FIFO空且发送发送移位寄存器已将最后一位发送出去
+#define UART_CTRL_TXDOIE_Pos		6		//TX Done 中断使能，发送 FIFO 空且发送发送移位寄存器已将最后一位发送出去
 #define UART_CTRL_TXDOIE_Msk		(0x01 << UART_CTRL_TXDOIE_Pos)
 #define UART_CTRL_EN_Pos			9
 #define UART_CTRL_EN_Msk			(0x01 << UART_CTRL_EN_Pos)
@@ -939,9 +939,9 @@ typedef struct {
 #define UART_BAUD_RXTOIF_Msk		(0x01 << UART_BAUD_RXTOIF_Pos)
 #define UART_BAUD_TXIF_Pos			17		//发送中断标志 = TXTHRF & TXIE
 #define UART_BAUD_TXIF_Msk			(0x01 << UART_BAUD_TXIF_Pos)
-#define UART_BAUD_RXTHRF_Pos		19		//RX FIFO Threshold Flag，RX FIFO中数据达到设定个数(RXLVL >  RXTHR)时硬件置1
+#define UART_BAUD_RXTHRF_Pos		19		//RX FIFO Threshold Flag，RX FIFO 中数据达到设定个数(RXLVL >  RXTHR)时硬件置1
 #define UART_BAUD_RXTHRF_Msk		(0x01 << UART_BAUD_RXTHRF_Pos)
-#define UART_BAUD_TXTHRF_Pos		20		//TX FIFO Threshold Flag，TX FIFO中数据少于设定个数(TXLVL <= TXTHR)时硬件置1
+#define UART_BAUD_TXTHRF_Pos		20		//TX FIFO Threshold Flag，TX FIFO 中数据少于设定个数(TXLVL <= TXTHR)时硬件置1
 #define UART_BAUD_TXTHRF_Msk		(0x01 << UART_BAUD_TXTHRF_Pos)
 #define UART_BAUD_TOIF_Pos			21		//TimeOut 中断标志，超过 TOTIME/BAUDRAUD 秒没有接收到新的数据时若TOIE=1，此位由硬件置位
 #define UART_BAUD_TOIF_Msk			(0x01 << UART_BAUD_TOIF_Pos)
@@ -956,7 +956,7 @@ typedef struct {
 #define UART_BAUD_ABRBIT_Msk		(0x03 << UART_BAUD_ABRBIT_Pos)
 #define UART_BAUD_ABRERR_Pos		26		//Auto Baudrate Error，0 自动波特率校准成功     1 自动波特率校准失败
 #define UART_BAUD_ABRERR_Msk		(0x01 << UART_BAUD_ABRERR_Pos)
-#define UART_BAUD_TXDOIF_Pos		27		//TX Done 中断标志，发送FIFO空且发送发送移位寄存器已将最后一位发送出去
+#define UART_BAUD_TXDOIF_Pos		27		//TX Done 中断标志，发送 FIFO 空且发送发送移位寄存器已将最后一位发送出去
 #define UART_BAUD_TXDOIF_Msk		(0x01 << UART_BAUD_TXDOIF_Pos)
 #define UART_BAUD_FRAC_Pos			28		//波特率分频值小数部分
 #define UART_BAUD_FRAC_Msk			(0x0Fu << UART_BAUD_FRAC_Pos)
@@ -1010,7 +1010,7 @@ typedef struct {
 
 #define UART_TOCR_TIME_Pos			0		//超时时间长度，单位为 10/BAUDRATE 秒
 #define UART_TOCR_TIME_Msk			(0xFFF<< UART_TOCR_TIME_Pos)
-#define UART_TOCR_MODE_Pos			12		//0 只有当FIFO中有数时才触发超时中断    1 即使FIFO中没有数也可触发超时中断
+#define UART_TOCR_MODE_Pos			12		//0 只有当FIFO 中有数时才触发超时中断    1 即使FIFO 中没有数也可触发超时中断
 #define UART_TOCR_MODE_Msk			(0x01 << UART_TOCR_MODE_Pos)
 #define UART_TOCR_IFCLR_Pos			13		//TO Interrupt Flag Clear，写1清除超时中断标志
 #define UART_TOCR_IFCLR_Msk			(0x01 << UART_TOCR_IFCLR_Pos)
@@ -1041,7 +1041,7 @@ typedef struct {
 #define SPI_CTRL_EN_Msk				(0x01 << SPI_CTRL_EN_Pos)
 #define SPI_CTRL_SIZE_Pos			4		//Data Size Select, 取值3--15，表示4--16位
 #define SPI_CTRL_SIZE_Msk			(0x0F << SPI_CTRL_SIZE_Pos)
-#define SPI_CTRL_CPHA_Pos			8		//0 在SCLK的第一个跳变沿采样数据	1 在SCLK的第二个跳变沿采样数据
+#define SPI_CTRL_CPHA_Pos			8		//0 在 SCLK的第一个跳变沿采样数据	1 在 SCLK的第二个跳变沿采样数据
 #define SPI_CTRL_CPHA_Msk			(0x01 << SPI_CTRL_CPHA_Pos)
 #define SPI_CTRL_CPOL_Pos			9		//0 空闲状态下SCLK为低电平		  1 空闲状态下SCLK为高电平
 #define SPI_CTRL_CPOL_Msk			(0x01 << SPI_CTRL_CPOL_Pos)
@@ -1055,13 +1055,13 @@ typedef struct {
 #define SPI_CTRL_DMATXEN_Msk		(0x01 << SPI_CTRL_DMATXEN_Pos)
 #define SPI_CTRL_DMARXEN_Pos		15		//1 通过DMA读FIFO    0 通过MCU读FIFO
 #define SPI_CTRL_DMARXEN_Msk		(0x01 << SPI_CTRL_DMARXEN_Pos)
-#define SPI_CTRL_FILTE_Pos			16		//1 对SPI输入信号进行去抖操作    0 对SPI输入信号不进行去抖操作
+#define SPI_CTRL_FILTE_Pos			16		//1 对 SPI输入信号进行去抖操作    0 对 SPI输入信号不进行去抖操作
 #define SPI_CTRL_FILTE_Msk			(0x01 << SPI_CTRL_FILTE_Pos)
-#define SPI_CTRL_SSN_H_Pos			17		//0 传输过程中SSN始终为0    	 1 传输过程中每字符之间会将SSN拉高半个SCLK周期
+#define SPI_CTRL_SSN_H_Pos			17		//0 传输过程中SSN始终为0    	 1 传输过程中每字符之间会将 SSN拉高半个 SCLK周期
 #define SPI_CTRL_SSN_H_Msk			(0x01 << SPI_CTRL_SSN_H_Pos)
-#define SPI_CTRL_RFTHR_Pos			18		//RX FIFO Threshold，0 接收FIFO中至少有1个数据   ...   7 接收FIFO中至少有8个数据
+#define SPI_CTRL_RFTHR_Pos			18		//RX FIFO Threshold，0 接收 FIFO 中至少有1个数据   ...   7 接收 FIFO 中至少有8个数据
 #define SPI_CTRL_RFTHR_Msk			(0x07 << SPI_CTRL_RFTHR_Pos)
-#define SPI_CTRL_TFTHR_Pos			21		//TX FIFO Threshold，0 发送FIFO中至多有0个数据   ...   7 发送FIFO中至多有7个数据
+#define SPI_CTRL_TFTHR_Pos			21		//TX FIFO Threshold，0 发送 FIFO 中至多有0个数据   ...   7 发送 FIFO 中至多有7个数据
 #define SPI_CTRL_TFTHR_Msk			(0x07 << SPI_CTRL_TFTHR_Pos)
 #define SPI_CTRL_RFCLR_Pos			24		//RX FIFO Clear
 #define SPI_CTRL_RFCLR_Msk			(0x01 << SPI_CTRL_RFCLR_Pos)
@@ -1069,24 +1069,24 @@ typedef struct {
 #define SPI_CTRL_TFCLR_Msk			(0x01 << SPI_CTRL_TFCLR_Pos)
 #define SPI_CTRL_LSBF_Pos			28		//LSB Fisrt
 #define SPI_CTRL_LSBF_Msk			(0x01 << SPI_CTRL_LSBF_Pos)
-#define SPI_CTRL_NSYNC_Pos			29		//1 对SPI输入信号进行采样同步    0 对SPI输入信号不进行采样同步
+#define SPI_CTRL_NSYNC_Pos			29		//1 对 SPI输入信号进行采样同步    0 对 SPI输入信号不进行采样同步
 #define SPI_CTRL_NSYNC_Msk			(0x01 << SPI_CTRL_NSYNC_Pos)
 
 #define SPI_STAT_WTC_Pos			0		//Word Transmit Complete，每传输完成一个数据字由硬件置1，软件写1清零
 #define SPI_STAT_WTC_Msk			(0x01 << SPI_STAT_WTC_Pos)
-#define SPI_STAT_TFE_Pos			1		//发送FIFO Empty
+#define SPI_STAT_TFE_Pos			1		//发送 FIFO Empty
 #define SPI_STAT_TFE_Msk			(0x01 << SPI_STAT_TFE_Pos)
-#define SPI_STAT_TFNF_Pos			2		//发送FIFO Not Full
+#define SPI_STAT_TFNF_Pos			2		//发送 FIFO Not Full
 #define SPI_STAT_TFNF_Msk			(0x01 << SPI_STAT_TFNF_Pos)
-#define SPI_STAT_RFNE_Pos			3		//接收FIFO Not Empty
+#define SPI_STAT_RFNE_Pos			3		//接收 FIFO Not Empty
 #define SPI_STAT_RFNE_Msk			(0x01 << SPI_STAT_RFNE_Pos)
-#define SPI_STAT_RFF_Pos			4		//接收FIFO Full
+#define SPI_STAT_RFF_Pos			4		//接收 FIFO Full
 #define SPI_STAT_RFF_Msk			(0x01 << SPI_STAT_RFF_Pos)
-#define SPI_STAT_RFOV_Pos			5		//接收FIFO Overflow
+#define SPI_STAT_RFOV_Pos			5		//接收 FIFO Overflow
 #define SPI_STAT_RFOV_Msk			(0x01 << SPI_STAT_RFOV_Pos)
-#define SPI_STAT_TFLVL_Pos			6		//发送FIFO中数据个数， 0 TFNF=0时表示FIFO内有8个数据，TFNF=1时表示FIFO内有0个数据	1--7 FIFO内有1--7个数据
+#define SPI_STAT_TFLVL_Pos			6		//发送 FIFO 中数据个数， 0 TFNF=0时表示FIFO内有8个数据，TFNF=1时表示FIFO内有0个数据	1--7 FIFO内有1--7个数据
 #define SPI_STAT_TFLVL_Msk			(0x07 << SPI_STAT_TFLVL_Pos)
-#define SPI_STAT_RFLVL_Pos			9		//接收FIFO中数据个数， 0 RFF =1时表示FIFO内有8个数据，RFF =0时表示FIFO内有0个数据	1--7 FIFO内有1--7个数据
+#define SPI_STAT_RFLVL_Pos			9		//接收 FIFO 中数据个数， 0 RFF =1时表示FIFO内有8个数据，RFF =0时表示FIFO内有0个数据	1--7 FIFO内有1--7个数据
 #define SPI_STAT_RFLVL_Msk			(0x07 << SPI_STAT_RFLVL_Pos)
 #define SPI_STAT_BUSY_Pos			15
 #define SPI_STAT_BUSY_Msk			(0x01 << SPI_STAT_BUSY_Pos)
@@ -1099,11 +1099,11 @@ typedef struct {
 #define SPI_IE_RFHF_Msk				(0x01 << SPI_IE_RFHF_Pos)
 #define SPI_IE_TFE_Pos				3
 #define SPI_IE_TFE_Msk				(0x01 << SPI_IE_TFE_Pos)
-#define SPI_IE_TFHF_Pos				4		//发送FIFO中数据个数大于4
+#define SPI_IE_TFHF_Pos				4		//发送 FIFO 中数据个数大于4
 #define SPI_IE_TFHF_Msk				(0x01 << SPI_IE_TFHF_Pos)
-#define SPI_IE_RFTHR_Pos			5		//接收FIFO中数据个数大于CTRL.RFTHR设定值中断使能
+#define SPI_IE_RFTHR_Pos			5		//接收 FIFO 中数据个数大于CTRL.RFTHR设定值中断使能
 #define SPI_IE_RFTHR_Msk			(0x01 << SPI_IE_RFTHR_Pos)
-#define SPI_IE_TFTHR_Pos			6		//发送FIFO中数据个数小于CTRL.TFTHR设定值中断使能
+#define SPI_IE_TFTHR_Pos			6		//发送 FIFO 中数据个数小于CTRL.TFTHR设定值中断使能
 #define SPI_IE_TFTHR_Msk			(0x01 << SPI_IE_TFTHR_Pos)
 #define SPI_IE_WTC_Pos				8		//Word Transmit Complete
 #define SPI_IE_WTC_Msk				(0x01 << SPI_IE_WTC_Pos)
@@ -1213,7 +1213,7 @@ typedef struct {
 
 #define I2C_TR_TXACK_Pos			0		//作为接收时，反馈ACK位的电平值
 #define I2C_TR_TXACK_Msk			(0x01 << I2C_TR_TXACK_Pos)
-#define I2C_TR_RXACK_Pos			1		//作为发送时，接收到的ACK位电平值
+#define I2C_TR_RXACK_Pos			1		//作为发送时，接收到的 ACK位电平值
 #define I2C_TR_RXACK_Msk			(0x01 << I2C_TR_RXACK_Pos)
 #define I2C_TR_TXCLR_Pos			2		//TX Data Clear, 自动清零
 #define I2C_TR_TXCLR_Msk			(0x01 << I2C_TR_TXCLR_Pos)
@@ -1352,7 +1352,7 @@ typedef struct {
 #define ADC_CR_AVG_Msk				(0x03 << ADC_CR_AVG_Pos)
 #define ADC_CR_RESET_Pos			3		//复位模拟模块，置位至少需两个采样周期
 #define ADC_CR_RESET_Msk			(0x01 << ADC_CR_RESET_Pos)
-#define ADC_CR_DMAEN_Pos			4		//四位，每位对应一个序列，同一时刻只能一个有一个序列使能DMA，0 能通过CPU读取DATA_FIFO   1 只能通过DMA读取DATA_FIFO
+#define ADC_CR_DMAEN_Pos			4		//四位，每位对应一个序列，同一时刻只能一个有一个序列使能DMA，0 能通过 CPU读取DATA_FIFO   1 只能通过DMA读取DATA_FIFO
 #define ADC_CR_DMAEN_Msk			(0x0F << ADC_CR_DMAEN_Pos)
 #define ADC_CR_FFCLR_Pos			8		//FIFO Clear，四位，每位对应一个序列
 #define ADC_CR_FFCLR_Msk			(0x0F << ADC_CR_FFCLR_Pos)
@@ -1378,7 +1378,7 @@ typedef struct {
 #define ADC_IE_SEQ0FULL_Msk			(0x01 << ADC_IE_SEQ0FULL_Pos)
 #define ADC_IE_SEQ0CMPMAX_Pos		4		//序列0转换结果大于COMP.MAX中断使能
 #define ADC_IE_SEQ0CMPMAX_Msk		(0x01 << ADC_IE_SEQ0CMPMAX_Pos)
-#define ADC_IE_SEQ0CMPMIN_Pos		5		//序列0转换结果小于COMP.MIN中断使能
+#define ADC_IE_SEQ0CMPMIN_Pos		5		//序列0转换结果小于COMP.MIN 中断使能
 #define ADC_IE_SEQ0CMPMIN_Msk		(0x01 << ADC_IE_SEQ0CMPMIN_Pos)
 #define ADC_IE_SEQ1EOC_Pos			8
 #define ADC_IE_SEQ1EOC_Msk			(0x01 << ADC_IE_SEQ1EOC_Pos)
@@ -1427,7 +1427,7 @@ typedef struct {
 #define ADC_IF_SEQ0FULL_Msk			(0x01 << ADC_IF_SEQ0FULL_Pos)
 #define ADC_IF_SEQ0CMPMAX_Pos		4		//序列0转换结果大于COMP.MAX中断标志
 #define ADC_IF_SEQ0CMPMAX_Msk		(0x01 << ADC_IF_SEQ0CMPMAX_Pos)
-#define ADC_IF_SEQ0CMPMIN_Pos		5		//序列0转换结果小于COMP.MIN中断标志
+#define ADC_IF_SEQ0CMPMIN_Pos		5		//序列0转换结果小于COMP.MIN 中断标志
 #define ADC_IF_SEQ0CMPMIN_Msk		(0x01 << ADC_IF_SEQ0CMPMIN_Pos)
 #define ADC_IF_SEQ1EOC_Pos			8
 #define ADC_IF_SEQ1EOC_Msk			(0x01 << ADC_IF_SEQ1EOC_Pos)
@@ -1476,7 +1476,7 @@ typedef struct {
 #define ADC_SR_FULL_Msk				(0x01 << ADC_SR_FULL_Pos)
 #define ADC_SR_EMPTY_Pos			4		//FIFO Empty
 #define ADC_SR_EMPTY_Msk			(0x01 << ADC_SR_EMPTY_Pos)
-#define ADC_SR_LEVEL_Pos			5		//FIFO中数据个数，1~7：FIFO中有1~7个数据    0 FIFO Empty时表示0个数据，FIFO Full时表示8个数据
+#define ADC_SR_LEVEL_Pos			5		//FIFO 中数据个数，1~7：FIFO 中有1~7个数据    0 FIFO Empty时表示0个数据，FIFO Full时表示8个数据
 #define ADC_SR_LEVEL_Msk			(0x07 << ADC_SR_LEVEL_Pos)
 
 #define ADC_DR_VALUE_Pos			0
@@ -1909,16 +1909,16 @@ typedef struct {
 #define QEI_CR_X2X4_Msk				(0x01 << QEI_CR_X2X4_Pos)
 #define QEI_CR_RSTSRC_Pos  			6		//Reset Source		0 计数匹配复位		1 索引信号复位
 #define QEI_CR_RSTSRC_Msk			(0x01 << QEI_CR_RSTSRC_Pos)
-#define QEI_CR_MODE_Pos  			7		//工作模式选择		1 QEI模式
+#define QEI_CR_MODE_Pos  			7		//工作模式选择		1 QEI 模式
 #define QEI_CR_MODE_Msk				(0x01 << QEI_CR_MODE_Pos)
 #define QEI_CR_INDEX_Pos 			9		//0 索引引脚为低电平		1 索引引脚为高电平
 #define QEI_CR_INDEX_Msk			(0x01 << QEI_CR_INDEX_Pos)
 #define QEI_CR_PAUSE_Pos 			10		//1 空闲模式停止位
 #define QEI_CR_PAUSE_Msk			(0x01 << QEI_CR_PAUSE_Pos)
 
-#define QEI_IE_INDEX_Pos 			0		//检测到Index脉冲
+#define QEI_IE_INDEX_Pos 			0		//检测到 Index脉冲
 #define QEI_IE_INDEX_Msk			(0x01 << QEI_IE_INDEX_Pos)
-#define QEI_IE_MATCH_Pos 			1		//POSCNT递增到与MAXCNT相等，或POSCNT从MAXCNT递减到 0
+#define QEI_IE_MATCH_Pos 			1		//POSCNT递增到与MAXCNT相等，或POSCNT 从MAXCNT递减到 0
 #define QEI_IE_MATCH_Msk			(0x01 << QEI_IE_MATCH_Pos)
 #define QEI_IE_CNTOV_Pos 			2		//Counter Overrun，计数器溢出
 #define QEI_IE_CNTOV_Msk			(0x01 << QEI_IE_CNTOV_Pos)
@@ -1967,23 +1967,23 @@ typedef struct {
 typedef struct {
     __IO uint32_t EN;                       //[0] ENABLE
 
-    __IO uint32_t IE;                       //只有为1时，IF[CHx]在DMA传输结束时才能变为1，否则将一直保持在0
+    __IO uint32_t IE;                       //只有为1时，IF[CHx]在DMA 传输结束时才能变为1，否则将一直保持在0
 
     __IO uint32_t IM;                       //当为1时，即使IF[CHx]为1，dma_int也不会因此变1
 
     __IO uint32_t IF;                       //写1清零
 
-    __IO uint32_t DSTSGIE;					//只在Scatter Gather模式下使用
+    __IO uint32_t DSTSGIE;					//只在 Scatter Gather模式下使用
 
-    __IO uint32_t DSTSGIM;					//只在Scatter Gather模式下使用
+    __IO uint32_t DSTSGIM;					//只在 Scatter Gather模式下使用
 
-    __IO uint32_t DSTSGIF;					//只在Scatter Gather模式下使用
+    __IO uint32_t DSTSGIF;					//只在 Scatter Gather模式下使用
 
-    __IO uint32_t SRCSGIE;					//只在Scatter Gather模式下使用
+    __IO uint32_t SRCSGIE;					//只在 Scatter Gather模式下使用
 
-    __IO uint32_t SRCSGIM;					//只在Scatter Gather模式下使用
+    __IO uint32_t SRCSGIM;					//只在 Scatter Gather模式下使用
 
-    __IO uint32_t SRCSGIF;					//只在Scatter Gather模式下使用
+    __IO uint32_t SRCSGIF;					//只在 Scatter Gather模式下使用
 
     uint32_t RESERVED[5];
 
@@ -1996,21 +1996,21 @@ typedef struct {
 
         __IO uint32_t DST;
 
-        __IO uint32_t DSTSGADDR1;			//只在Scatter Gather模式下使用
+        __IO uint32_t DSTSGADDR1;			//只在 Scatter Gather模式下使用
 
-        __IO uint32_t DSTSGADDR2;			//只在Scatter Gather模式下使用
+        __IO uint32_t DSTSGADDR2;			//只在 Scatter Gather模式下使用
 
-        __IO uint32_t DSTSGADDR3;			//只在Scatter Gather模式下使用
+        __IO uint32_t DSTSGADDR3;			//只在 Scatter Gather模式下使用
 
         __IO uint32_t MUX;
 
         __IO uint32_t SRC;
 
-        __IO uint32_t SRCSGADDR1;			//只在Scatter Gather模式下使用
+        __IO uint32_t SRCSGADDR1;			//只在 Scatter Gather模式下使用
 
-        __IO uint32_t SRCSGADDR2;			//只在Scatter Gather模式下使用
+        __IO uint32_t SRCSGADDR2;			//只在 Scatter Gather模式下使用
 
-        __IO uint32_t SRCSGADDR3;			//只在Scatter Gather模式下使用
+        __IO uint32_t SRCSGADDR3;			//只在 Scatter Gather模式下使用
 
         __I  uint32_t DSTSR;
 
@@ -2169,9 +2169,9 @@ typedef struct {
 #define CAN_CMD_SRR_Pos				4		//Self Reception Request
 #define CAN_CMD_SRR_Msk				(0x01 << CAN_CMD_SRR_Pos)
 
-#define CAN_SR_RXDA_Pos				0		//Receive Data Available，接收FIFO中有完整消息可以读取
+#define CAN_SR_RXDA_Pos				0		//Receive Data Available，接收 FIFO 中有完整消息可以读取
 #define CAN_SR_RXDA_Msk				(0x01 << CAN_SR_RXDA_Pos)
-#define CAN_SR_RXOV_Pos				1		//Receive FIFO Overrun，新接收的信息由于接收FIFO已满而丢掉
+#define CAN_SR_RXOV_Pos				1		//Receive FIFO Overrun，新接收的信息由于接收 FIFO已满而丢掉
 #define CAN_SR_RXOV_Msk				(0x01 << CAN_SR_RXOV_Pos)
 #define CAN_SR_TXBR_Pos				2		//Transmit Buffer Release，0 正在处理前面的发送，现在不能写新的消息    1 可以写入新的消息发送
 #define CAN_SR_TXBR_Msk				(0x01 << CAN_SR_TXBR_Pos)
@@ -2194,7 +2194,7 @@ typedef struct {
 #define CAN_IF_ERRWARN_Msk			(0x01 << CAN_IF_ERRWARN_Pos)
 #define CAN_IF_RXOV_Pos				3		//IF.RXOV = SR.RXOV & IE.RXOV
 #define CAN_IF_RXOV_Msk				(0x01 << CAN_IF_RXOV_Pos)
-#define CAN_IF_WKUP_Pos				4		//当IE.WKUP=1时，在睡眠模式下的CAN控制器检测到总线活动时硬件置位
+#define CAN_IF_WKUP_Pos				4		//当IE.WKUP=1时，在睡眠模式下的 CAN控制器检测到总线活动时硬件置位
 #define CAN_IF_WKUP_Msk				(0x01 << CAN_IF_WKUP_Pos)
 #define CAN_IF_ERRPASS_Pos			5		//
 #define CAN_IF_ERRPASS_Msk			(0x01 << CAN_IF_ERRPASS_Pos)
@@ -2223,14 +2223,14 @@ typedef struct {
 #define CAN_BT2_BRP_Pos				0
 #define CAN_BT2_BRP_Msk				(0x0F << CAN_BT2_BRP_Pos)
 
-#define CAN_BT0_BRP_Pos				0		//Baud Rate Prescaler，CAN时间单位=2*Tsysclk*((BT2.BRP<<6) + BT0.BRP + 1)
+#define CAN_BT0_BRP_Pos				0		//Baud Rate Prescaler，CAN 时间单位=2*Tsysclk*((BT2.BRP<<6) + BT0.BRP + 1)
 #define CAN_BT0_BRP_Msk				(0x3F << CAN_BT0_BRP_Pos)
 #define CAN_BT0_SJW_Pos				6		//Synchronization Jump Width
 #define CAN_BT0_SJW_Msk				(0x03 << CAN_BT0_SJW_Pos)
 
-#define CAN_BT1_TSEG1_Pos			0		//t_tseg1 = CAN时间单位 * (TSEG1+1)
+#define CAN_BT1_TSEG1_Pos			0		//t_tseg1 = CAN 时间单位 * (TSEG1+1)
 #define CAN_BT1_TSEG1_Msk			(0x0F << CAN_BT1_TSEG1_Pos)
-#define CAN_BT1_TSEG2_Pos			4		//t_tseg2 = CAN时间单位 * (TSEG2+1)
+#define CAN_BT1_TSEG2_Pos			4		//t_tseg2 = CAN 时间单位 * (TSEG2+1)
 #define CAN_BT1_TSEG2_Msk			(0x07 << CAN_BT1_TSEG2_Pos)
 #define CAN_BT1_SAM_Pos				7		//采样次数  0: sampled once  1: sampled three times
 #define CAN_BT1_SAM_Msk				(0x01 << CAN_BT1_SAM_Pos)
@@ -2561,13 +2561,13 @@ typedef struct {
 #define LCD_CR_BURSTLEN_Pos			21		//Burst Length，0 Burst INCR4   1 Burst INCR8   2 Burst INCR16
 #define LCD_CR_BURSTLEN_Msk			(0x03 << LCD_CR_BURSTLEN_Pos)
 
-#define LCD_CRH_HSW_Pos				0		//Hsync Width, 输出HSYNC低电平持续多少个DOTCLK周期，0表示1个周期
+#define LCD_CRH_HSW_Pos				0		//Hsync Width, 输出HSYNC低电平持续多少个 DOTCLK周期，0表示1个周期
 #define LCD_CRH_HSW_Msk				(0xFF << LCD_CRH_HSW_Pos)
-#define LCD_CRH_HBP_Pos			    8		//0表示1个DOTCLK周期
+#define LCD_CRH_HBP_Pos			    8		//0表示1个 DOTCLK周期
 #define LCD_CRH_HBP_Msk			    (0xFF << LCD_CRH_HBP_Pos)
 #define LCD_CRH_PIX_Pos				16		//水平方向的像素个数，0表示1个，最大为1023
 #define LCD_CRH_PIX_Msk				(0x3FF<< LCD_CRH_PIX_Pos)
-#define LCD_CRH_HFP_Pos			    26		//0表示1个DOTCLK周期
+#define LCD_CRH_HFP_Pos			    26		//0表示1个 DOTCLK周期
 #define LCD_CRH_HFP_Msk			    (0x3Fu<< LCD_CRH_HFP_Pos)
 
 #define LCD_CRV_VSW_Pos				0		//Vsync Width，输出VSYNC低电平持续多少个行周期，0表示1个周期
@@ -2579,7 +2579,7 @@ typedef struct {
 #define LCD_CRV_VFP_Pos			    26		//0表示1个水平行周期
 #define LCD_CRV_VFP_Msk			    (0x3Fu<< LCD_CRV_VFP_Pos)
 
-#define LCD_LCR_ALPHA_Pos			0		//Blend时该层的Alpha值
+#define LCD_LCR_ALPHA_Pos			0		//Blend时该层的 Alpha值
 #define LCD_LCR_ALPHA_Msk			(0xFF << LCD_LCR_ALPHA_Pos)
 #define LCD_LCR_EN_Pos				8		//Layer Enable
 #define LCD_LCR_EN_Msk				(0x01 << LCD_LCR_EN_Pos)
@@ -2602,7 +2602,7 @@ typedef struct {
 #define LCD_MPUCR_RDHOLD_Msk		(0x1F << LCD_MPUCR_RDHOLD_Pos)
 #define LCD_MPUCR_WCS1_0_Pos		10		//写操作时，CS上升沿到下降沿时间间隔
 #define LCD_MPUCR_WCS1_0_Msk		(0x0F << LCD_MPUCR_WCS1_0_Pos)
-#define LCD_MPUCR_WR1CS1_Pos		14		//WR上升沿到CS上升沿延时
+#define LCD_MPUCR_WR1CS1_Pos		14		//WR上升沿到 CS上升沿延时
 #define LCD_MPUCR_WR1CS1_Msk		(0x03 << LCD_MPUCR_WR1CS1_Pos)
 #define LCD_MPUCR_WRHOLD_Pos		16		//WR低电平保持时间
 #define LCD_MPUCR_WRHOLD_Msk		(0x0F << LCD_MPUCR_WRHOLD_Pos)
@@ -2673,7 +2673,7 @@ typedef struct {
 
 
 typedef struct {
-    __IO uint32_t TIM;						//SDRAM时序配置
+    __IO uint32_t TIM;						//SDRAM 时序配置
 
     __IO uint32_t CFG;
 
@@ -2714,8 +2714,8 @@ typedef struct {
 typedef struct {
     __IO uint32_t CMD;
 
-    __IO uint32_t INPUT;					//CORDIC计算输入数据，计算SIN和COS时，表示待计算的弧度
-    //计算ARCTAN时，为防止溢出，需要将待计算数处理后再写入INPUT寄存器：
+    __IO uint32_t INPUT;					//CORDIC 计算输入数据，计算SIN 和 COS 时，表示待计算的弧度
+    //计算ARCTAN 时，为防止溢出，需要将待计算数处理后再写入INPUT寄存器：
     //待计算数 ∈ (0.05, 0.5]时，将待计算数乘以2后写入INPUT
     //待计算数 ∈ (0.5, 2]时，   将待计算数直接写入INPUT
     //待计算数 > 2时，           将待计算数除以2后写入INPUT
@@ -2736,9 +2736,9 @@ typedef struct {
 
 #define CORDIC_CMD_START_Pos		0		//写1启动运算，运算完成后自动清零
 #define CORDIC_CMD_START_Msk		(0x01 << CORDIC_CMD_START_Pos)
-#define CORDIC_CMD_RANGE_Pos		1		//计算ARCTAN时输入数值的范围 0 (0.05, 0.5]   1 (0.5, 2]   2 >2
+#define CORDIC_CMD_RANGE_Pos		1		//计算ARCTAN 时输入数值的范围 0 (0.05, 0.5]   1 (0.5, 2]   2 >2
 #define CORDIC_CMD_RANGE_Msk		(0x03 << CORDIC_CMD_RANGE_Pos)
-#define CORDIC_CMD_SINCOS_Pos		3		//1 计算SIN和COS    0 计算ARCTAN
+#define CORDIC_CMD_SINCOS_Pos		3		//1 计算SIN 和 COS    0 计算ARCTAN
 #define CORDIC_CMD_SINCOS_Msk		(0x01 << CORDIC_CMD_SINCOS_Pos)
 #define CORDIC_CMD_MULDIV_Pos		4		//0 计算SIN\COS\ARCTAN，具体由SINCOS位决定   2 计算除法   3 计算乘法
 #define CORDIC_CMD_MULDIV_Msk		(0x03 << CORDIC_CMD_MULDIV_Pos)
@@ -2775,7 +2775,7 @@ typedef struct {
 
 #define CORDIC_IF_DONE_Pos			0		//1 计算完成，写1清零
 #define CORDIC_IF_DONE_Msk			(0x01 << CORDIC_IF_DONE_Pos)
-#define CORDIC_IF_ERR_Pos			1		//1 计算出错，SIN或COS结果不在[0, 1]范围内，或ARCTAN计算结果不在[0, 2]范围内时置位，写1清零
+#define CORDIC_IF_ERR_Pos			1		//1 计算出错，SIN或 COS结果不在[0, 1]范围内，或ARCTAN计算结果不在[0, 2]范围内时置位，写1清零
 #define CORDIC_IF_ERR_Msk			(0x01 << CORDIC_IF_ERR_Pos)
 
 #define CORDIC_IE_DONE_Pos			0
@@ -2925,9 +2925,9 @@ typedef struct {
 #define SFC_TIM_WIP_CHK_ITV_Msk		(0xFF << SFC_TIM_WIP_CHK_ITV_Pos)
 #define SFC_TIM_WIP_CHK_LMT_Pos		8		//硬件自动查询WIP次数限值
 #define SFC_TIM_WIP_CHK_LMT_Msk		(0xFF << SFC_TIM_WIP_CHK_LMT_Pos)
-#define SFC_TIM_IDLETO_Pos			16		//空闲超时，超时后释放CS
+#define SFC_TIM_IDLETO_Pos			16		//空闲超时，超时后释放 CS
 #define SFC_TIM_IDLETO_Msk			(0x3F << SFC_TIM_IDLETO_Pos)
-#define SFC_TIM_CSHIGH_Pos			22		//CS拉高时间：0 1个SCLK时钟周期   1 2个   2 3个   3 4个
+#define SFC_TIM_CSHIGH_Pos			22		//CS拉高时间：0 1个 SCLK时钟周期   1 2个   2 3个   3 4个
 #define SFC_TIM_CSHIGH_Msk			(0x03 << SFC_TIM_CSHIGH_Pos)
 
 #define SFC_SR_BUSY_Pos				0
@@ -3149,7 +3149,7 @@ typedef struct {
 #define RTC_IF_QSEC_Pos				7
 #define RTC_IF_QSEC_Msk				(0x01 << RTC_IF_QSEC_Pos)
 
-#define RTC_TRIM_ADJ_Pos		    0       //用于调整BASECNT的计数周期，默认为32768，如果DEC为1，则计数周期调整为32768-ADJ，否则调整为32768+ADJ
+#define RTC_TRIM_ADJ_Pos		    0       //用于调整BASECNT 的计数周期，默认为32768，如果DEC为1，则计数周期调整为32768-ADJ，否则调整为32768+ADJ
 #define RTC_TRIM_ADJ_Msk		    (0xFF << RTC_TRIM_ADJ_Pos)
 #define RTC_TRIM_DEC_Pos		    8
 #define RTC_TRIM_DEC_Msk		    (0x01 << RTC_TRIM_DEC_Pos)

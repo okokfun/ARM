@@ -11,7 +11,7 @@ typedef struct {
     uint16_t Hbp;			//horizonal back porch， 最大取值256
     uint8_t  Vfp;			//vertical front porch， 最大取值64
     uint16_t Vbp;			//vertical back porch，  最大取值256
-    uint16_t HsyncWidth;	//HSYNC低电平持续多少个DOTCLK，最大取值256
+    uint16_t HsyncWidth;	//HSYNC低电平持续多少个 DOTCLK，最大取值256
     uint16_t VsyncWidth;	//VSYNC低电平持续多少个行时间，最大取值256
 
     uint32_t DataSource;	//显示数据地址

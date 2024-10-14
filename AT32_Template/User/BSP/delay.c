@@ -5,7 +5,7 @@
   *                    All Rights Reserved
   *
   *                 https://github.com/txt1994
-  *			        email:linguangyuan88@gmail.com
+  *			        email:linguangyuan88@icloud.com
   *
   * FileName     : delay.c
   * Version      : v1.0

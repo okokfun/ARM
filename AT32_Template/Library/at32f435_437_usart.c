@@ -238,7 +238,7 @@ void USART_Clock_Enable(USART_Type* USART_x, confirm_state new_state) {
   * @param  USART_x: 选择usart或uart外设。
   *         该参数可以是以下值之一:
   *         USART1, USART2, USART3, UART4, UART5, USART6, UART7 or UART8.
-  * @param  USART_int: 指定USART interrupt sources to be enabled or disabled.
+  * @param  USART_int: 指定 USART interrupt sources to be enabled or disabled.
   *         该参数可以是以下值之一:
   *         - USART_IDLE_INT:  idle interrupt
   *         - USART_RDBF_INT:  rdbf interrupt

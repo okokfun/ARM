@@ -4,7 +4,7 @@
   *                  All Rights Reserved
   *
   *				https://github.com/txt1994
-  *				email:linguangyuan88@gmail.com
+  *				email:linguangyuan88@icloud.com
   *
   * FileName     : oled.h
   * Version      : v1.0

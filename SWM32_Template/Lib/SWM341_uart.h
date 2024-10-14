@@ -11,13 +11,13 @@ typedef struct {
     uint8_t  StopBits;			//停止位位数，可取值UART_STOP_1BIT、UART_STOP_2BIT
 
     uint8_t  RXThreshold;		//取值0--7
-    uint8_t  RXThresholdIEn;	//当RX FIFO中数据个数 >  RXThreshold时触发中断
+    uint8_t  RXThresholdIEn;	//当RX FIFO 中数据个数 >  RXThreshold时触发中断
 
     uint8_t  TXThreshold;		//取值0--7
-    uint8_t  TXThresholdIEn;	//当TX FIFO中数据个数 <= TXThreshold时触发中断
+    uint8_t  TXThresholdIEn;	//当TX FIFO 中数据个数 <= TXThreshold时触发中断
 
     uint8_t  TimeoutTime;		//超时时长 = TimeoutTime/(Baudrate/10) 秒
-    uint8_t  TimeoutIEn;		//超时中断，超过 TimeoutTime/(Baudrate/10) 秒没有在RX线上接收到数据时触发中断
+    uint8_t  TimeoutIEn;		//超时中断，超过 TimeoutTime/(Baudrate/10) 秒没有在RX 线上接收到数据时触发中断
 } UART_InitStructure;
 
 
@@ -54,8 +54,8 @@ void UART_WriteByte(UART_TypeDef * UARTx, uint8_t data);				//发送一个字节
 uint32_t UART_ReadByte(UART_TypeDef * UARTx, uint32_t * data);			//读取一个字节数据，并指出数据是否Valid
 
 uint32_t UART_IsTXBusy(UART_TypeDef * UARTx);
-uint32_t UART_IsRXFIFOEmpty(UART_TypeDef * UARTx);						//接收FIFO是否空，如果不空则可以继续UART_ReadByte()
-uint32_t UART_IsTXFIFOFull(UART_TypeDef * UARTx);						//发送FIFO是否满，如果不满则可以继续UART_WriteByte()
+uint32_t UART_IsRXFIFOEmpty(UART_TypeDef * UARTx);						//接收 FIFO是否空，如果不空则可以继续UART_ReadByte()
+uint32_t UART_IsTXFIFOFull(UART_TypeDef * UARTx);						//发送 FIFO是否满，如果不满则可以继续UART_WriteByte()
 
 
 void UART_SetBaudrate(UART_TypeDef * UARTx, uint32_t baudrate);			//设置波特率

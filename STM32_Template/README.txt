@@ -1,6 +1,6 @@
 本实验为新建工程实验，仅供大家新建工程时参考。
 
-Email: linguangyuan88@gmail.com
+Email: linguangyuan88@icloud.com
 	   2643989637@qq.com
 QQ:	   2643989637
 

@@ -109,7 +109,7 @@ void RNG_DeInit(void) {
 /**
   * 简介:  启用或禁用 RNG 外设设备。
   * 参数:  NewState: RNG外设设备的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void RNG_Cmd(FunctionalState NewState) {
@@ -151,13 +151,13 @@ void RNG_Cmd(FunctionalState NewState) {
 			时，RNG_FLAG_DRDY标志会自动清除。
   * 注意:   在种子错误的情况下，只要SECS位为"1"，随机数的生成就
 			会中断。如果一个数字在RNG_DR 寄存器中可用，则不能使用它，
-			因为它可能没有足够的熵。在这种情况下，建议清除SEIS位
+			因为它可能没有足够的熵。在这种情况下，建议清除 SEIS位
 			(使用 RNG_ClearFlag(RNG_FLAG_SECS) 功能)，
 			然后禁用并启用 RNG外设设备(使用 RNG_Cmd() 功能)
 			以重新初始化并重新启动RNG。
   * 注意:   在时钟错误的情况下，由于PLL48CLK时钟不正确，
 			RNG不再能够生成随机数。用户必须检查时钟控制器
-			是否正确配置为提供RNG时钟并清除CEIS位(使用
+			是否正确配置为提供RNG时钟并清除 CEIS位(使用
 			RNG_ClearFlag(RNG_FLAG_CECS) 功能)。
 			时钟错误对先前生成的随机数没有影响，
 			并且可以使用 RNG_DR 寄存器内容。
@@ -180,7 +180,7 @@ uint32_t RNG_GetRandomNumber(void) {
              ##### 中断和标记管理函数 #####
  ===============================================================================
 
- [..] 本节提供的功能允许配置RNG中断，并获取状态和清除标志以及中断挂起位。
+ [..] 本节提供的功能允许配置 RNG中断，并获取状态和清除标志以及中断挂起位。
 
  [..] RNG提供3个中断源和3个标志:
 
@@ -203,7 +203,7 @@ uint32_t RNG_GetRandomNumber(void) {
 		该中断源将被清除，直到计算出新的有效值;
    (#) 在种子错误的情况下 : 检测到以下故障序列之一:
        (++) 具有相同值(0或1)的64个以上连续位
-       (++) 0和1的连续交替次数超过32次(0101010101…01)
+       (++) 0 和1 的连续交替次数超过32次(0101010101…01)
        使用 RNG_ClearITPendingBit(RNG_IT_SEI) 函数清除该中断源;
    (#) 在时钟错误的情况下 : PLL48CLK(RNG外围时钟源)没有
 		被正确地检测到(fPLL48CLK <fHCLK/16)。
@@ -239,7 +239,7 @@ uint32_t RNG_GetRandomNumber(void) {
 			但是，每个中断都有其特定的状态位(请参阅RNG_GetITStatus()
 			函数)和清除位(请参见RNG_ClearITPendingBit() 函数，DRDY事件除外)。
   * 参数:  NewState: 新状态-> RNG 中断.
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void RNG_ITConfig(FunctionalState NewState) {
@@ -278,7 +278,7 @@ FlagStatus RNG_GetFlagStatus(uint8_t RNG_FLAG) {
         bitstatus = RESET;
     }
 
-    /* 返回RNG_FLAG 状态 */
+    /* 返回 RNG_FLAG 状态 */
     return  bitstatus;
 }
 
@@ -323,7 +323,7 @@ ITStatus RNG_GetITStatus(uint8_t RNG_IT) {
         bitstatus = RESET;
     }
 
-    /* 返回RNG_IT 状态 */
+    /* 返回 RNG_IT 状态 */
     return bitstatus;
 }
 

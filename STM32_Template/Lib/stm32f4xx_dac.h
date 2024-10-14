@@ -204,7 +204,7 @@ typedef struct {
 /*  用于将 DAC 配置设置为默认复位状态的函数 *****/
 void DAC_DeInit(void);
 
-/*  DAC通道配置:触发、输出缓冲器、数据格式功能 */
+/*  DAC 通道配置:触发、输出缓冲器、数据格式功能 */
 void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct); // 根据 DAC_InitStruct 中指定的参数初始化 DAC 外设。
 void DAC_StructInit(DAC_InitTypeDef* DAC_InitStruct); // 用默认值填充每个 DAC_InitStruct 成员。
 void DAC_Cmd(uint32_t DAC_Channel, FunctionalState NewState); // 根据 DAC_InitStruct 中指定的参数初始化 DAC 外设。

@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * @简介   该文件提供了计算输入消息的HASH SHA1和HMAC SHA1摘要的高级函数。
+  * @简介   该文件提供了计算输入消息的 HASH SHA1和HMAC SHA1摘要的高级函数。
   *          它使用 Stm32f4xx_hash.c/h驱动程序访问STM32F4xx HASH外设设备。
   *
 @verbatim

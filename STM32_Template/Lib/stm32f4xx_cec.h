@@ -213,25 +213,25 @@ typedef struct {
 void CEC_DeInit(void);
 
 /* CEC_Initialization 和配置功能 *****************************/
-void CEC_Init(CEC_InitTypeDef* CEC_InitStruct); // 根据CEC_InitStruct中指定的参数，初始化CEC外设设备。
-void CEC_StructInit(CEC_InitTypeDef* CEC_InitStruct); // 用默认值填充每个CEC_InitStruct成员。
-void CEC_Cmd(FunctionalState NewState); // 启用或禁用CEC外设设备。
-void CEC_ListenModeCmd(FunctionalState NewState); // 启用或禁用CEC侦听模式。
+void CEC_Init(CEC_InitTypeDef* CEC_InitStruct); // 根据 CEC_InitStruct 中指定的参数，初始化 CEC 外设设备。
+void CEC_StructInit(CEC_InitTypeDef* CEC_InitStruct); // 用默认值填充每个CEC_InitStruct 成员。
+void CEC_Cmd(FunctionalState NewState); // 启用或禁用 CEC 外设设备。
+void CEC_ListenModeCmd(FunctionalState NewState); // 启用或禁用 CEC侦听模式。
 void CEC_OwnAddressConfig(uint8_t CEC_OwnAddress); // 定义CEC设备的自有地址。
-void CEC_OwnAddressClear(void); // 清除CEC设备的自有地址。
+void CEC_OwnAddressClear(void); // 清除 CEC设备的自有地址。
 
 /* CEC_Data 传输功能 ***********************************************/
-void CEC_SendData(uint8_t Data); // 通过CEC外设设备传输单个数据。
-uint8_t CEC_ReceiveData(void); // 返回CEC外设设备最近接收的数据。
+void CEC_SendData(uint8_t Data); // 通过 CEC 外设设备传输单个数据。
+uint8_t CEC_ReceiveData(void); // 返回CEC 外设设备最近接收的数据。
 void CEC_StartOfMessage(void); // 启动新消息
 void CEC_EndOfMessage(void); // 用EOM位传输消息。
 
 /* CEC_Interrupts 和标志管理功能 ******************************/
-void CEC_ITConfig(uint16_t CEC_IT, FunctionalState NewState); // 启用或禁用选定的CEC中断。
-FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG); // 获取CEC标志状态。
-void CEC_ClearFlag(uint32_t CEC_FLAG); // 清除CEC 的挂起标志。
-ITStatus CEC_GetITStatus(uint16_t CEC_IT); // 检查指定的CEC中断是否已发生。
-void CEC_ClearITPendingBit(uint16_t CEC_IT); // 清除CEC 的中断挂起位。
+void CEC_ITConfig(uint16_t CEC_IT, FunctionalState NewState); // 启用或禁用选定的 CEC中断。
+FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG); // 获取CEC 标志状态。
+void CEC_ClearFlag(uint32_t CEC_FLAG); // 清除 CEC 的挂起标志。
+ITStatus CEC_GetITStatus(uint16_t CEC_IT); // 检查指定的 CEC中断是否已发生。
+void CEC_ClearITPendingBit(uint16_t CEC_IT); // 清除 CEC 的中断挂起位。
 #endif /* STM32F446xx */
 
 

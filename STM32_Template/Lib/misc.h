@@ -50,7 +50,7 @@ extern "C" {
 typedef struct {
     uint8_t NVIC_IRQChannel;                    /*!< 指定要启用或禁用的 IRQ 通道。
                                                 该参数可以是 @ref IRQn_Type枚举的枚举器(完整的
-                                                STM32 Devices IRQ Channels列表请参考stm32f4xx.h文件) */
+                                                STM32 Devices IRQ Channels列表请参考stm32f4xx.h 文件) */
 
     uint8_t NVIC_IRQChannelPreemptionPriority;  /*!< 指定 NVIC_IRQChannel 中指定的 IRQ 通道的抢占优先级。
                                                 此参数可以是 0 到 15 之间的值，

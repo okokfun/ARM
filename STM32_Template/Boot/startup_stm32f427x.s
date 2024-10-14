@@ -12,7 +12,7 @@
 ;*                      - 配置系统时钟 and the external SRAM/SDRAM mounted  
 ;*                        on STM324x9I-EVAL/STM324x7I-EVALs board to be used as data memory  
 ;*                        (optional, to be enabled by user)
-;*                      - 分支到C库中的__main(最终调用main())。
+;*                      - 分支到 C库中的__main(最终调用main())。
 ;*                      重置后，CortexM4 处理器处于线程模式，优先级为特权，栈设置为主。
 ;* <<< 在上下文菜单中使用配置向导 >>>   
 ;*******************************************************************************

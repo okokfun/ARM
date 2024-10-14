@@ -7,7 +7,7 @@
   * 简介:    此文件提供固件功能，用于管理串行音频接口(SAI)的以下功能:
   *           + 初始化和配置
   *           + 数据传输函数
-  *           + DMA传输管理
+  *           + DMA 传输管理
   *           + 中断和标志管理
   *
   @verbatim
@@ -25,7 +25,7 @@
        (#) 外设设备替代函数:
            (++) 使用 GPIO_PinAFConfig() 函数将引脚连接到所需外设的备用函数(AF)。
 
-           (++) 通过 GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF配置复用功能中所需的引脚
+           (++) 通过 GPIO_InitStruct->GPIO_Mode = GPIO_Mode_AF 配置复用功能中所需的引脚
 
            (++) 通过 GPIO_PuPd、GPIO_OType 和 GPIO_Speed 成员选择类型、上拉/下拉和输出速度
 
@@ -33,25 +33,25 @@
            -@@- 如果使用外部时钟源，则I2S CKIN 引脚也应配置为Alternate function Push-pull - pull-up模式。
 
       (#) SAI时钟可以从不同的时钟源生成:
-          PLL I2S、PLL SAI或外部时钟源。
-          (++) PLLI2S使用以下函数配置RCC_PLLI2SConfig()，
+          PLL I2S、PLL SAI 或外部时钟源。
+          (++) PLLI2S使用以下函数配置 RCC_PLLI2SConfig()，
                                     RCC_PLLI2SCmd(ENABLE)，
                                     RCC_GetFlagStatus(RCC_FLAG_PLLI2SRDY)和
                                     RCC_SAIPLLI2SClkDivConfig()或;
 
-          (++) PLLSAI使用以下函数配置RCC_PLLSAIConfig()，
+          (++) PLLSAI使用以下函数配置 RCC_PLLSAIConfig()，
                                       RCC_PLLSAICmd(ENABLE)，
                                       RCC_GetFlagStatus(RCC_FLAG_PLLSAIRDY)和
                                       RCC_SAIPLLSAIClkDivConfig()或;
 
           (++) 通过该函数配置外部时钟源
-               RCC_I2S2CLKSource_Ext)，在stm32f4xx_conf.h文件中正确设置定义常量I2S_EXTERNAL_CLOCK_VAL之后。
+               RCC_I2S2CLKSource_Ext)，在stm32f4xx_conf.h 文件中正确设置定义常量 I2S_EXTERNAL_CLOCK_VAL 之后。
 
-      (#) 每个SAI块A或B都有自己的时钟发生器，使这两个块完全独立。
-          时钟生成器使用 RCC_SAIBlockACLKConfig()和RCC_SAIBlockBCLKConfig() 函数配置。
+      (#) 每个 SAI 块A或B都有自己的时钟发生器，使这两个块完全独立。
+          时钟生成器使用 RCC_SAIBlockACLKConfig() 和 RCC_SAIBlockBCLKConfig() 函数配置。
 
-      (#) 每个SAI Block A或B可以单独配置:
-          (++) 使用 SAI_Init() 函数编程主时钟分压器，音频模式，协议，数据长度，时钟匹配边缘，同步模式，输出驱动器和FIFO阈值。
+      (#) 每个 SAI Block A或B可以单独配置:
+          (++) 使用 SAI_Init() 函数编程主时钟分压器，音频模式，协议，数据长度，时钟匹配边缘，同步模式，输出驱动器和 FIFO 阈值。
                在主模式下，使用以下公式编程主时钟分压器(MCKDIV):
                (+++) MCLK_x = SAI_CK_x / (MCKDIV * 2) with MCLK_x = 256 * FS
                (+++) FS = SAI_CK_x / (MCKDIV * 2) * 256
@@ -78,14 +78,14 @@
           (++) 当音频块是接收端时，使用 SAI_MuteFrameCounterConfig() 检测静音模式。
           (++) 当插槽数等于2时，使用 SAI_MonoModeConfig() 函数启用MONO模式，不需要内存中的任何数据预处理。
 
-          (++) 使用 SAI_CompandingModeConfig() 启用数据压缩算法(U律和A律)。
+          (++) 使用 SAI_CompandingModeConfig() 启用数据压缩算法(U律和 A律)。
           
-          (++) 使用 SAI_TRIStateConfig() 函数在数据线上发送非活动槽时，选择输出中的SD线的行为。
+          (++) 使用 SAI_TRIStateConfig() 函数在数据线上发送非活动槽时，选择输出中的 SD线的行为。
   [..]
-   (@)    在主TX模式下: 即使在FIFO中没有数据，启用音频块也立即为外部从站生成位时钟，
-                       然而，FS信号的产生受FIFO中数据的存在的制约。
+   (@)    在主TX模式下: 即使在FIFO 中没有数据，启用音频块也立即为外部从站生成位时钟，
+                       然而，FS信号的产生受FIFO 中数据的存在的制约。
 
-   (@)    在主RX模式下:使能音频块立即为外部从机生成位时钟和FS信号。
+   (@)    在主RX模式下:使能音频块立即为外部从机生成位时钟和 FS信号。
 
    (@)    为了避免不良SAI行为，必须遵守以下条件:
             (+@)  First bit Offset <= (SLOT size - Data size)
@@ -153,18 +153,18 @@ defined (STM32F413_423xx)
             ##### 初始化和配置函数 #####
  ===============================================================================
   [..]
-  本节提供了一组功能，允许初始化SAI音频块模式、音频协议、数据大小、
-  音频块之间的同步、主时钟分频器、Fifo阈值、帧配置、
+  本节提供了一组功能，允许初始化 SAI 音频块模式、音频协议、数据大小、
+  音频块之间的同步、主时钟分频器、Fifo 阈值、帧配置、
   插槽配置、三态模式、压缩模式和静音模式。
   [..]
-  SAI_Init()、SAI_FrameInit()和SAI_SlotInit()。
+  SAI_Init()、SAI_FrameInit() 和 SAI_SlotInit()。
 
 @endverbatim
   */
 
 /**
   * 简介:  将 SAIx 外设寄存器取消初始化为其默认复位值。
-  * 参数:  SAIx: 要选择 SAIx外设，其中x可以是不同的实例
+  * 参数:  SAIx: 要选择 SAIx 外设，其中 x 可以是不同的实例
   *
   * 返回值: 无
   */
@@ -194,10 +194,10 @@ void SAI_DeInit(SAI_TypeDef* SAIx) {
 /**
   * 简介:  根据 SAI_InitStruct 中指定的参数初始化 SAI Block x 外设。
   *
-  * 注意:   SAI时钟是从PLLSAI的特定输出或PLLI2S的特定输出产生的，
+  * 注意:   SAI时钟是从PLLSAI 的特定输出或PLLI2S的特定输出产生的，
 			或者是从绕过PLL I2S的替代功能产生的。
   *
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  SAI_InitStruct: 指向 SAI_InitTypeDef 结构的指针，该结构包含指定 SAI 块的配置信息外设.
   * 返回值: 无
   */
@@ -221,7 +221,7 @@ void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct) {
     assert_param(IS_SAI_BLOCK_FIFO_THRESHOLD(SAI_InitStruct->SAI_FIFOThreshold));
 
     /* SAI Block_x CR1 配置*/
-    /* 获取SAI Block_x CR1 值 */
+    /* 获取 SAI Block_x CR1 值 */
     tmpreg = SAI_Block_x->CR1;
     /* 清除 MODE, PRTCFG, DS, LSBFIRST, CKSTR, SYNCEN, OUTDRIV, NODIV, and MCKDIV 位 */
     tmpreg &= CR1_CLEAR_MASK;
@@ -245,7 +245,7 @@ void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct) {
     SAI_Block_x->CR1 = tmpreg;
 
     /* SAI Block_x CR2 配置*/
-    /* 获取SAIBlock_x CR2 值 */
+    /* 获取 SAIBlock_x CR2 值 */
     tmpreg = SAI_Block_x->CR2;
     /* 清除 FTH 位 */
     tmpreg &= ~(SAI_xCR2_FTH);
@@ -261,9 +261,9 @@ void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct) {
   *
   * 注意:   如果选择了AC’97或SPDIF音频协议，则此功能没有任何意义。
   *
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
-  * 参数:  SAI_FrameInitStruct: 指向SAI_FrameInitTypeDef结构的指针，
-		   该结构包含指定SAI块的音频帧配置
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
+  * 参数:  SAI_FrameInitStruct: 指向 SAI_FrameInitTypeDef 结构的指针，
+		   该结构包含指定 SAI 块的音频帧配置
 
   * 返回值: 无
   */
@@ -281,7 +281,7 @@ void SAI_FrameInit(SAI_Block_TypeDef* SAI_Block_x, SAI_FrameInitTypeDef* SAI_Fra
     assert_param(IS_SAI_BLOCK_FS_OFFSET(SAI_FrameInitStruct->SAI_FSOffset));
 
     /* SAI Block_x FRCR 配置*/
-    /* 获取SAI Block_x FRCR 值 */
+    /* 获取 SAI Block_x FRCR 值 */
     tmpreg = SAI_Block_x->FRCR;
     /* 清除 FRL, FSALL, FSDEF, FSPOL, FSOFF 位 */
     tmpreg &= FRCR_CLEAR_MASK;
@@ -306,9 +306,9 @@ void SAI_FrameInit(SAI_Block_TypeDef* SAI_Block_x, SAI_FrameInitTypeDef* SAI_Fra
   *
   * 注意:   如果选择了AC’97或SPDIF音频协议，则此函数没有任何意义。
   *
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
-  * 参数:  SAI_SlotInitStruct: 指向SAI_SlotInitTypeDef结构的指针，
-		   该结构包含指定SAI块的音频插槽配置
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
+  * 参数:  SAI_SlotInitStruct: 指向 SAI_SlotInitTypeDef 结构的指针，
+		   该结构包含指定 SAI 块的音频插槽配置
   * 返回值: 无
   */
 void SAI_SlotInit(SAI_Block_TypeDef* SAI_Block_x, SAI_SlotInitTypeDef* SAI_SlotInitStruct) {
@@ -324,7 +324,7 @@ void SAI_SlotInit(SAI_Block_TypeDef* SAI_Block_x, SAI_SlotInitTypeDef* SAI_SlotI
     assert_param(IS_SAI_SLOT_ACTIVE(SAI_SlotInitStruct->SAI_SlotActive));
 
     /* SAI Block_x SLOTR 配置*/
-    /* 获取SAI Block_x SLOTR 值 */
+    /* 获取 SAI Block_x SLOTR 值 */
     tmpreg = SAI_Block_x->SLOTR;
     /* 清除 FBOFF, SLOTSZ, NBSLOT, SLOTEN 位 */
     tmpreg &= SLOTR_CLEAR_MASK;
@@ -345,7 +345,7 @@ void SAI_SlotInit(SAI_Block_TypeDef* SAI_Block_x, SAI_SlotInitTypeDef* SAI_SlotI
 
 /**
   * 简介:  用默认值填充每个 SAI_InitStruct 成员。
-  * 参数:  SAI_InitStruct: 指向将被初始化的SAI_InitTypeDef结构的指针。
+  * 参数:  SAI_InitStruct: 指向将被初始化的 SAI_InitTypeDef 结构的指针。
   * 返回值: 无
   */
 void SAI_StructInit(SAI_InitTypeDef* SAI_InitStruct) {
@@ -376,7 +376,7 @@ void SAI_StructInit(SAI_InitTypeDef* SAI_InitStruct) {
 
 /**
   * 简介:  用默认值填充每个 SAI_FrameInitStruct 成员。
-  * 参数:  SAI_FrameInitStruct: 指向将被初始化的SAI_FrameInitTypeDef结构的指针。
+  * 参数:  SAI_FrameInitStruct: 指向将被初始化的 SAI_FrameInitTypeDef 结构的指针。
   * 返回值: 无
   */
 void SAI_FrameStructInit(SAI_FrameInitTypeDef* SAI_FrameInitStruct) {
@@ -395,7 +395,7 @@ void SAI_FrameStructInit(SAI_FrameInitTypeDef* SAI_FrameInitStruct) {
 
 /**
   * 简介:  用默认值填充每个 SAI_SlotInitStruct 成员。
-  * 参数:  SAI_SlotInitStruct: 指向将被初始化的SAI_SlotInitTypeDef结构的指针。
+  * 参数:  SAI_SlotInitStruct: 指向将被初始化的 SAI_SlotInitTypeDef 结构的指针。
   * 返回值: 无
   */
 void SAI_SlotStructInit(SAI_SlotInitTypeDef* SAI_SlotInitStruct) {
@@ -413,9 +413,9 @@ void SAI_SlotStructInit(SAI_SlotInitTypeDef* SAI_SlotInitStruct) {
 
 /**
   * 简介:  启用或禁用指定的 SAI Block 外设。
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设设备。
-  * 参数:  NewState: SAI_Block_x外设设备的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设设备。
+  * 参数:  NewState: SAI_Block_x 外设设备的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void SAI_Cmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
@@ -424,10 +424,10 @@ void SAI_Cmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用所选SAI外设设备 */
+        /* 启用所选SAI 外设设备 */
         SAI_Block_x->CR1 |= SAI_xCR1_SAIEN;
     } else {
-        /* 禁用所选SAI外设设备 */
+        /* 禁用所选SAI 外设设备 */
         SAI_Block_x->CR1 &= ~(SAI_xCR1_SAIEN);
     }
 }
@@ -437,8 +437,8 @@ void SAI_Cmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   *
   * 注意:  只有当插槽数量等于2时，此函数才有意义。
   *
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
-  * 参数:  SAI_MonoMode: 指定SAI block mono mode.
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
+  * 参数:  SAI_MonoMode: 指定 SAI block mono mode.
   *          此参数可以是以下值之一:
   *            @arg SAI_MonoMode : Set mono audio mode
   *            @arg SAI_StreoMode : Set streo audio mode
@@ -457,10 +457,10 @@ void SAI_MonoModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Mono_StreoM
 /**
   * 简介:  为选定的 SAI 块配置数据线上的 TRIState 管理。
   *
-  * 注意:  只有在变送器中配置SAI块时，此功能才有意义
+  * 注意:  只有在变送器中配置SAI 块时，此功能才有意义
   *
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
-  * 参数:  SAI_TRIState: 指定SAI block TRIState management.
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
+  * 参数:  SAI_TRIState: 指定 SAI block TRIState management.
   *          此参数可以是以下值之一:
   *            @arg SAI_Output_NotReleased :SD 输出线仍然由 SAI 驱动。
   *            @arg SAI_Output_Released : SD 输出线释放（HI-Z）
@@ -480,10 +480,10 @@ void SAI_TRIStateConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_TRIState) {
 /**
   * 简介:  为选定的 SAI 模块配置压扩模式。
   *
-  * 注意:  数据扩展或数据压缩由所选SAI块（发射机或接收机）的状态决定。
+  * 注意:  数据扩展或数据压缩由所选SAI 块（发射机或接收机）的状态决定。
 
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
-  * 参数:  SAI_CompandingMode: 指定SAI block companding mode.
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
+  * 参数:  SAI_CompandingMode: 指定 SAI block companding mode.
   *          此参数可以是以下值之一:
   *            @arg SAI_NoCompanding : 无压扩算法集
   *            @arg SAI_ULaw_1CPL_Companding : Set U law (算法1 的补码表示)
@@ -511,9 +511,9 @@ void SAI_CompandingModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Compa
 			当设置在音频帧的某个位置时，它在音频帧结束时变为活动。
   *         静音模式退出发生在设置了位Mute的帧的末尾。
   *
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  NewState: 新状态-> SAIx block.
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
@@ -525,7 +525,7 @@ void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
         /* 启用被选定的 SAI block 静音模式 */
         SAI_Block_x->CR2 |= SAI_xCR2_MUTE;
     } else {
-        /* 选择的SAI SS输出 */
+        /* 选择的 SAI SS输出 */
         SAI_Block_x->CR2 &= ~(SAI_xCR2_MUTE);
     }
 }
@@ -537,8 +537,8 @@ void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   * 注意:   在静音模式期间发送的配置最后值只有在时隙数量小于或等于2
 			并且设置了mute比特时才有意义。
   *
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
-  * 参数:  SAI_MuteValue: 指定SAI块静音值。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
+  * 参数:  SAI_MuteValue: 指定 SAI 块静音值。
   *          此参数可以是以下值之一:
   *            @arg SAI_ZeroValue : 在静音模式期间发送位值0
   *            @arg SAI_LastSentValue : 静音模式下发送最后一个值
@@ -558,9 +558,9 @@ void SAI_MuteValueConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_MuteValue)
 /**
   * 简介:  启用或禁用选定 SAI 模块的静音模式。
   *
-  * 注意:  只有当音频块为Receiver时，此函数才有意义
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
-  * 参数:  SAI_MuteCounter: 指定SAI block mute value.
+  * 注意:  只有当音频块为 Receiver时，此函数才有意义
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
+  * 参数:  SAI_MuteCounter: 指定 SAI block mute value.
   *         此参数可以是 0 到 6 3之间的数字。
 
   * 返回值: 无
@@ -579,8 +579,8 @@ void SAI_MuteFrameCounterConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Mut
 defined(STM32F469_479xx) || defined(STM32F413_423xx) || defined(STM32F446xx)
 /**
   * 简介:  配置 SAI Block 同步模式
-  * 参数:  SAI_InitStruct: 指向SAI_InitTypeDef结构的指针，该结构包含指定SAI块的配置信息外设.
-  * 参数:  SAIx: 选择 SAIx外设设备，其中x可以是不同的实例
+  * 参数:  SAI_InitStruct: 指向 SAI_InitTypeDef 结构的指针，该结构包含指定 SAI 块的配置信息外设.
+  * 参数:  SAIx: 选择 SAIx 外设设备，其中 x 可以是不同的实例
   * 返回值: 无
   */
 void SAI_BlockSynchroConfig(SAI_InitTypeDef* SAI_InitStruct, SAI_TypeDef* SAIx) {
@@ -588,7 +588,7 @@ void SAI_BlockSynchroConfig(SAI_InitTypeDef* SAI_InitStruct, SAI_TypeDef* SAIx) 
 
     #if defined(STM32F446xx)
 
-    /* 必须在禁用音频块(A和B)的情况下进行此设置         */
+    /* 必须在禁用音频块(A 和B)的情况下进行此设置         */
     switch(SAI_InitStruct->SAI_SynchroExt) {
         case SAI_SyncExt_Disable :
             tmpregisterGCR = 0U;
@@ -620,7 +620,7 @@ void SAI_BlockSynchroConfig(SAI_InitTypeDef* SAI_InitStruct, SAI_TypeDef* SAIx) 
     #if defined(STM32F427xx) || defined(STM32F437xx) || defined(STM32F429xx) || defined(STM32F439xx) || \
     defined(STM32F469_479xx) || defined(STM32F413_423xx)
 
-    /* 必须在禁用音频块（A和B）的情况下进行此设置         */
+    /* 必须在禁用音频块（A 和B）的情况下进行此设置         */
     switch(SAI_InitStruct->SAI_SynchroExt) {
         case SAI_SyncExt_Disable :
             tmpregisterGCR = 0U;
@@ -648,9 +648,9 @@ void SAI_BlockSynchroConfig(SAI_InitTypeDef* SAI_InitStruct, SAI_TypeDef* SAIx) 
   *
   * 注意:   FIFO 指针可以随时重新初始化。如果 FIFO 中的数据不是空的，则会丢失。
   *
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  NewState: 新状态-> 选择 SAI TI 通信模式。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -671,21 +671,21 @@ void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x) {
                        ##### 数据传输函数 #####
  ===============================================================================
   [..]
-  本节提供了一组允许管理SAI数据传输的功能。
+  本节提供了一组允许管理SAI 数据传输的功能。
   [..]
-  在接收过程中，数据被接收，然后被存储到内部FIFO中，同时
-  在传输中，数据在传输之前首先存储在内部FIFO中。
+  在接收过程中，数据被接收，然后被存储到内部FIFO 中，同时
+  在传输中，数据在传输之前首先存储在内部FIFO 中。
   [..]
   SAI_xDR 寄存器的读取访问可以使用 SAI_ReceiveData() 函数完成，
-  并返回Rx缓冲值。而对SAI_DR的写入访问可以使用 SAI_SendData()
-  函数来完成，并将写入的数据存储到Tx缓冲器中。
+  并返回 Rx缓冲值。而对 SAI_DR 的写入访问可以使用 SAI_SendData()
+  函数来完成，并将写入的数据存储到 Tx缓冲器中。
 
 @endverbatim
   */
 
 /**
   * 简介:  返回 SAI 模块 x 外设最近接收到的数据。
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   *
   * 返回值: The value of 接收的数据。
   */
@@ -699,7 +699,7 @@ uint32_t SAI_ReceiveData(SAI_Block_TypeDef* SAI_Block_x) {
 
 /**
   * 简介:  通过 SAI 模块 x 外设传输数据。
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   *
   * 参数:  Data: 要传输的数据。
   * 返回值: 无
@@ -713,12 +713,12 @@ void SAI_SendData(SAI_Block_TypeDef* SAI_Block_x, uint32_t Data) {
 }
 
 
-/** @defgroup SAI_Group3 DMA传输管理功能 
- *  简介   DMA传输管理功能 
+/** @defgroup SAI_Group3 DMA 传输管理功能 
+ *  简介   DMA 传输管理功能 
   *
 @verbatim
  ===============================================================================
-                  ##### DMA传输管理功能 #####
+                  ##### DMA 传输管理功能 #####
  ===============================================================================
 
 @endverbatim
@@ -727,10 +727,10 @@ void SAI_SendData(SAI_Block_TypeDef* SAI_Block_x, uint32_t Data) {
 /**
   * 简介:  启用或禁用 SAI Block x DMA 接口。
   * 
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 
-  * 参数:  NewState: 新状态-> 选择 SAI块DMA传输请求。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 新状态-> 选择 SAI 块DMA 传输请求。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -740,10 +740,10 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用选择 SAI块静音模式 */
+        /* 启用选择 SAI 块静音模式 */
         SAI_Block_x->CR1 |= SAI_xCR1_DMAEN;
     } else {
-        /* 选择的SAI SS输出 */
+        /* 选择的 SAI SS输出 */
         SAI_Block_x->CR1 &= ~(SAI_xCR1_DMAEN);
     }
 }
@@ -758,18 +758,18 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
  ===============================================================================
   [..]
   本节提供了一组功能，允许配置SAI中断源并检查或清除标志或挂起位状态。
-  用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或DMA 模式。
+  用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或 DMA 模式。
 
   *** 轮询模式 ***
   ====================
   [..]
   在轮询模式下，SAI通信可以由7个标志管理:
-     (#) SAI_FLAG_FREQ :    以指示是否存在要写入或要读取的FIFO请求。
+     (#) SAI_FLAG_FREQ :    以指示是否存在要写入或要读取的 FIFO请求。
      (#) SAI_FLAG_MUTEDET : 以指示是否检测到MUTE帧
      (#) SAI_FLAG_OVRUDR :  指示是否发生溢出或不足错误
      (#) SAI_FLAG_AFSDET :  以指示是否存在比预期更早的音频帧同步(FS)的检测
      (#) SAI_FLAG_LFSDET :  以指示是否检测到晚于预期的音频帧同步(FS)
-     (#) SAI_FLAG_CNRDY :   以指示编解码器在接收AC97音频帧的TAG 0(slot0)期间是否未准备好通信
+     (#) SAI_FLAG_CNRDY :   以指示编解码器在接收AC97音频帧的 TAG 0(slot0)期间是否未准备好通信
      (#) SAI_FLAG_WCKCFG:   以指示主模式中的错误时钟配置是否发生错误。
   [..]
   在此模式下，建议使用以下函数:
@@ -781,12 +781,12 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   [..]
   在中断模式, SAI通信可以由7个中断源和7个未决位管理:
   (+) 挂起的位:
-     (##) SAI_IT_FREQ : 以指示是否存在要写入或要读取的FIFO请求。
+     (##) SAI_IT_FREQ : 以指示是否存在要写入或要读取的 FIFO请求。
      (##) SAI_IT_MUTEDET : 以指示是否检测到MUTE帧。
      (##) SAI_IT_OVRUDR : 以指示是否发生溢出或不足运行错误。
      (##) SAI_IT_AFSDET : 以指示是否存在比预期更早的音频帧同步(FS)的检测。
      (##) SAI_IT_LFSDET : 以指示是否存在晚于预期的音频帧同步(FS)的检测。
-     (##) SAI_IT_CNRDY : 以指示编解码器在接收AC97音频帧的TAG 0(slot0)期间是否未准备好通信。
+     (##) SAI_IT_CNRDY : 以指示编解码器在接收AC97音频帧的 TAG 0(slot0)期间是否未准备好通信。
      (##) SAI_IT_WCKCFG: 以指示主模式中的错误时钟配置是否发生错误。
 
   (+) 中断源:
@@ -806,25 +806,25 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   *** DMA 模式 ***
   ================
   [..]
-  在DMA 模式, 每个SAI音频块具有独立的DMA 接口，以便读取或写入SAI_xDR 寄存器(以命中内部FIFO)。
-  按照基本DMA 请求/确认协议，音频块有一个DMA通道。
+  在DMA 模式, 每个 SAI 音频块具有独立的 DMA 接口，以便读取或写入SAI_xDR 寄存器(以命中内部FIFO)。
+  按照基本DMA 请求/确认协议，音频块有一个 DMA通道。
   [..]
   在此模式下，建议使用以下函数:
     (+) void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState);
   [..]
   本节还提供了允许
-   (+) 检查SAI块启用状态
+   (+) 检查SAI 块启用状态
    (+) 检查FIFO状态
 
   *** SAI Block 启用状态 ***
   ===============================
   [..]
-  禁用 SAI块后，建议检查(或等待)SAI块被有效禁用。如果在音频
+  禁用 SAI 块后，建议检查(或等待)SAI 块被有效禁用。如果在音频
   帧传输进行时禁用块，则当前帧将被传输，并且该块将仅在音频帧结束时被有效禁用。
   要监控此状态，可以使用以下函数:
     (+) FunctionalState SAI_GetCmdStatus(SAI_Block_TypeDef* SAI_Block_x);
 
-  *** SAI块FIFO状态 ***
+  *** SAI 块FIFO状态 ***
   =============================
   [..]
   当传输正在进行时，可以使用以下功能监控FIFO状态:
@@ -836,9 +836,9 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用指定的 SAI 块中断。
   * 
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 
-  * 参数:  SAI_IT: 指定要启用或禁用的SAI中断源。
+  * 参数:  SAI_IT: 指定要启用或禁用的 SAI中断源。
   *          此参数可以是以下值之一:
   *            @arg SAI_IT_FREQ: FIFO请求中断掩码
   *            @arg SAI_IT_MUTEDET: MUTE检测中断掩码
@@ -849,7 +849,7 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   *            @arg SAI_IT_WCKCFG: 错误的时钟配置中断掩码
   * 
   * 参数:  NewState: 新状态-> specified SAI 中断.
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -871,9 +871,9 @@ void SAI_ITConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT, FunctionalSta
 /**
   * 简介:  检查是否设置了指定的 SAI 块 x 标志。
   * 
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 
-  * 参数:  SAI_FLAG: 指定要检查的SAI块标志。
+  * 参数:  SAI_FLAG: 指定要检查的 SAI 块标志。
   *          此参数可以是以下值之一:
   *            @arg SAI_FLAG_FREQ: FIFO 请求标志.
   *            @arg SAI_FLAG_MUTEDET: MUTE detection flag.
@@ -907,8 +907,8 @@ FlagStatus SAI_GetFlagStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG) 
 
 /**
   * 简介:  清除指定的 SAI Block x 标志。
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
-  * 参数:  SAI_FLAG: 指定要检查的SAI块标志。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
+  * 参数:  SAI_FLAG: 指定要检查的 SAI 块标志。
   *          此参数可以是以下值之一:
   *            @arg SAI_FLAG_MUTEDET: MUTE detection flag.
   *            @arg SAI_FLAG_OVRUDR: overrun/underrun flag.
@@ -936,8 +936,8 @@ void SAI_ClearFlag(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG) {
 
 /**
   * 简介:  检查指定的 SAI Block x 中断是否发生。
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
-  * 参数:  SAI_IT: 指定要启用或禁用的SAI中断源。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
+  * 参数:  SAI_IT: 指定要启用或禁用的 SAI中断源。
   *          此参数可以是以下值之一:
   *            @arg SAI_IT_FREQ: FIFO Request interrupt
   *            @arg SAI_IT_MUTEDET: MUTE detection interrupt
@@ -957,7 +957,7 @@ ITStatus SAI_GetITStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT) {
     assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
     assert_param(IS_SAI_BLOCK_CONFIG_IT(SAI_IT));
 
-    /* 获取SAI_IT enable bit 状态 */
+    /* 获取 SAI_IT enable bit 状态 */
     enablestatus = (SAI_Block_x->IMR & SAI_IT) ;
 
     /* 检查 the status of the specified SAI 中断 */
@@ -975,8 +975,8 @@ ITStatus SAI_GetITStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT) {
 
 /**
   * 简介:  清除 SAI Block x 中断挂起位。
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
-  * 参数:  SAI_IT: 指定要清除的SAI块中断挂起位。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
+  * 参数:  SAI_IT: 指定要清除的 SAI 块中断挂起位。
   *          此参数可以是以下值之一:
   *            @arg SAI_IT_MUTEDET: 静音检测中断。
   *            @arg SAI_IT_OVRUDR: 超限/欠载运行中断。
@@ -998,19 +998,19 @@ void SAI_ClearITPendingBit(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT) {
     assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
     assert_param(IS_SAI_BLOCK_CONFIG_IT(SAI_IT));
 
-    /* 清除 所选SAI块x中断挂起位 */
+    /* 清除 所选SAI 块x中断挂起位 */
     SAI_Block_x->CLRFR |= SAI_IT;
 }
 
 /**
   * 简介:  返回指定 SAI 块 x 的 EN 位的状态。
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   *
-  * 注意:    禁用 SAI块后，建议检查(或等待)SAI块被有效禁用。
+  * 注意:    禁用 SAI 块后，建议检查(或等待)SAI 块被有效禁用。
 			 如果在音频帧传输过程中禁用了块，则当前帧将被传输，
 			 并且该块将仅在音频帧结束时被有效禁用。
   *
-  * 返回值: DMAy Streamx的当前状态(ENABLE或DISABLE)。
+  * 返回值: DMAy Streamx的当前状态(ENABLE 或 DISABLE)。
   */
 FunctionalState SAI_GetCmdStatus(SAI_Block_TypeDef* SAI_Block_x) {
     FunctionalState state = DISABLE;
@@ -1019,10 +1019,10 @@ FunctionalState SAI_GetCmdStatus(SAI_Block_TypeDef* SAI_Block_x) {
     assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
 
     if ((SAI_Block_x->CR1 & (uint32_t)SAI_xCR1_SAIEN) != 0) {
-        /* 已设置所选SAI Block x EN位(正在进行音频帧传输) */
+        /* 已设置所选SAI Block x EN 位(正在进行音频帧传输) */
         state = ENABLE;
     } else {
-        /* 所选SAI块x EN位被清除(SAI块被禁用，所有传输都完成) */
+        /* 所选SAI 块x EN 位被清除(SAI 块被禁用，所有传输都完成) */
         state = DISABLE;
     }
 
@@ -1031,7 +1031,7 @@ FunctionalState SAI_GetCmdStatus(SAI_Block_TypeDef* SAI_Block_x) {
 
 /**
   * 简介:  返回当前 SAI 块 x FIFO 填充级别。
-  * 参数:  SAI_Block_x: 其中x可以是A或B，以选择 SAI块外设。
+  * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   *
   * 返回值: FIFO填充状态。
   *           - SAI_FIFOStatus_Empty: 当FIFO为空时
@@ -1048,7 +1048,7 @@ uint32_t SAI_GetFIFOStatus(SAI_Block_TypeDef* SAI_Block_x) {
     /* 检查参数 */
     assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
 
-    /* 获取FIFO level 位 */
+    /* 获取 FIFO level 位 */
     tmpreg = (uint32_t)((SAI_Block_x->SR & SAI_xSR_FLVL));
 
     return tmpreg;

@@ -958,7 +958,7 @@ typedef struct {
 #endif /* STM32F446xx */
 
 /**
-  * @brief CRC计算单元
+  * @brief CRC 计算单元
   */
 typedef struct {
     __IO uint32_t DR;         /*!< CRC Data register,             Address offset: 0x00 */
@@ -4002,7 +4002,7 @@ typedef struct {
 
 /******************************************************************************/
 /*                                                                            */
-/*                          CRC计算单元                              */
+/*                          CRC 计算单元                              */
 /*                                                                            */
 /******************************************************************************/
 /*******************  位定义 CRC_DR 寄存器  *********************/
@@ -11743,7 +11743,7 @@ typedef struct {
 #define ETH_DMABMR_DA        ((uint32_t)0x00000002)  /* DMA arbitration scheme */
 #define ETH_DMABMR_SR        ((uint32_t)0x00000001)  /* Software reset */
 
-/* 以太网DMA传输轮询请求寄存器的位定义 */
+/* 以太网DMA 传输轮询请求寄存器的位定义 */
 #define ETH_DMATPDR_TPD      ((uint32_t)0xFFFFFFFF)  /* Transmit poll demand */
 
 /* 以太网 DMA 接收轮询请求寄存器的位定义 */

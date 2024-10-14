@@ -328,7 +328,7 @@ uint8_t FMPI2C_GetAddressMatched(FMPI2C_TypeDef* FMPI2Cx); // 返回 FMPI2C 从�
 uint16_t FMPI2C_GetTransferDirection(FMPI2C_TypeDef* FMPI2Cx); // 返回 FMPI2C 从机接收到的请求。
 void FMPI2C_TransferHandling(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address, uint8_t Number_Bytes, uint32_t ReloadEndMode, uint32_t StartStopMode); // 在开始传输或传输期间(TC 或 TCR 标志置位)处理 FMPI2Cx 通信。
 
-/*  SMBUS管理功能 ************************************************/
+/*  SMBUS 管理功能 ************************************************/
 void FMPI2C_SMBusAlertCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 启用或禁用 FMPI2C SMBus 警报。
 void FMPI2C_ClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 启用或禁用 FMPI2C 时钟超时(SCL 超时检测)。
 void FMPI2C_ExtendedClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState); // 启用或禁用 FMPI2C 扩展时钟超时(SCL 累积超时检测)。

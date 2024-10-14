@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    此文件提供固件功能，用于管理EXTI外设设备的以下功能:
+  * 简介:    此文件提供固件功能，用于管理EXTI 外设设备的以下功能:
   *           + 初始化和配置
   *           + 中断和标志管理
   *
@@ -21,14 +21,14 @@
    (#) EXTI线路 18 连接到 USB OTG FS 唤醒暂停事件
    (#) EXTI线路 19 连接到以太网唤醒事件
    (#) EXTI线路 20 连接到 USB OTG HS(在FS中配置)唤醒事件
-   (#) EXTI线路 21 连接到 RTC篡改和时间戳事件
+   (#) EXTI线路 21 连接到 RTC 篡改和时间戳事件
    (#) EXTI线路 22 连接至 RTC唤醒事件
    (#) EXTI线路 23 连接到LPTIM 唤醒事件
 
                        ##### 如何使用这个驱动程序 #####
  ===============================================================================
 
- [..] 为了将I/O引脚用作外部中断源，请执行以下步骤:
+ [..] 为了将I/O 引脚用作外部中断源，请执行以下步骤:
    (#) 使用 GPIO_Init() 在输入模式下配置I/O
    (#) 使用 SYSCFG_EXTILineConfig() 为EXTI线选择输入源引脚
    (#) 使用 EXTI_Init() 选择模式(中断、事件)并配置触发器选择(上升、下降或两者)
@@ -36,7 +36,7 @@
 
  [..]
    (@) 必须启用 SYSCFG APB时钟，才能使用 RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
-       对SYSCFG_EXTICRx寄存器进行写入访问;
+       对 SYSCFG_EXTICRx寄存器进行写入访问;
 
 @endverbatim
   *
@@ -112,7 +112,7 @@ void EXTI_DeInit(void) {
 /**
   * 简介:  根据 EXTI_InitStruct 中指定的参数初始化 EXTI 外设。
   * 
-  * 参数:  EXTI_InitStruct: 指向包含EXTI外设设备配置信息的EXTI_InitTypeDef结构的指针。
+  * 参数:  EXTI_InitStruct: 指向包含EXTI 外设设备配置信息的 EXTI_InitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -176,8 +176,8 @@ void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct) {
 /**
   * 简介:  在选定的 EXTI 线上产生一个软件中断。
   * 
-  * 参数:  EXTI_Line: 指定将在其上生成软件中断的EXTI行。
-  *         此参数可以是EXTI_Linex的任意组合，其中x可以是(0..22)
+  * 参数:  EXTI_Line: 指定将在其上生成软件中断的 EXTI行。
+  *         此参数可以是EXTI_Linex的任意组合，其中 x 可以是(0..22)
   * 
   * 返回值: 无
   */
@@ -203,10 +203,10 @@ void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line) {
 /**
   * 简介:  检查是否设置了指定的 EXTI 行标志。
   * 
-  * 参数:  EXTI_Line: 指定要检查的EXTI行标志。
-  *          此参数可以是EXTI_Linex，其中x可以是(0..22)
+  * 参数:  EXTI_Line: 指定要检查的 EXTI行标志。
+  *          此参数可以是EXTI_Linex，其中 x 可以是(0..22)
   * 
-  * 返回值: EXTI_Line的新状态(SET或RESET)。
+  * 返回值: EXTI_Line的新状态(SET 或 RESET)。
   */
 FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line) {
     FlagStatus bitstatus = RESET;
@@ -225,8 +225,8 @@ FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line) {
 /**
   * 简介:  清除 EXTI 的行挂起标志。
   * 
-  * 参数:  EXTI_Line: 指定要清除的EXTI行标志。
-  *          此参数可以是EXTI_Linex的任意组合，其中x可以是(0..22)
+  * 参数:  EXTI_Line: 指定要清除的 EXTI行标志。
+  *          此参数可以是EXTI_Linex的任意组合，其中 x 可以是(0..22)
   * 
   * 返回值: 无
   */
@@ -240,10 +240,10 @@ void EXTI_ClearFlag(uint32_t EXTI_Line) {
 /**
   * 简介:  检查指定的 EXTI 行是否被断言。
   * 
-  * 参数:  EXTI_Line: 指定要检查的EXTI行。
-  *          此参数可以是EXTI_Linex，其中x可以是(0..22)
+  * 参数:  EXTI_Line: 指定要检查的 EXTI行。
+  *          此参数可以是EXTI_Linex，其中 x 可以是(0..22)
   * 
-  * 返回值: EXTI_Line的新状态(SET或RESET)。
+  * 返回值: EXTI_Line的新状态(SET 或 RESET)。
   */
 ITStatus EXTI_GetITStatus(uint32_t EXTI_Line) {
     FlagStatus bitstatus = RESET;
@@ -263,8 +263,8 @@ ITStatus EXTI_GetITStatus(uint32_t EXTI_Line) {
 /**
   * 简介:  清除 EXTI 的行挂起位。
   * 
-  * 参数:  EXTI_Line: 指定要清除的EXTI行。
-  *          此参数可以是EXTI_Linex的任意组合，其中x可以是(0..22)
+  * 参数:  EXTI_Line: 指定要清除的 EXTI行。
+  *          此参数可以是EXTI_Linex的任意组合，其中 x 可以是(0..22)
   * 
   * 返回值: 无
   */

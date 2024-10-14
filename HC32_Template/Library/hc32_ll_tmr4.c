@@ -1292,7 +1292,7 @@ void TMR4_OC_SetCompareBufCond(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, uint16_t 
  * @param  [in] u32Ch                   TMR4 OC channel.
  *         This parameter can be one of the following values:
  * @retval The TMR4 OC high channel mode
- * @note   The function only can get high channel mode:TMR4_OC_CH_xH(x = U/V/W)
+ * @note   The function only can get high channel mode: TMR4_OC_CH_xH(x = U/V/W)
  */
 uint16_t TMR4_OC_GetHighChCompareMode(const CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
     __I uint16_t *OCMRxH;
@@ -1314,7 +1314,7 @@ uint16_t TMR4_OC_GetHighChCompareMode(const CM_TMR4_TypeDef *TMR4x, uint32_t u32
  *         This parameter can be one of the following values:
  * @param  [in] unTmr4Ocmrh             The TMR4 OC high channel mode @ref un_tmr4_oc_ocmrh_t
  * @retval 无
- * @note   The function only can set high channel mode:TMR4_OC_CH_xH(x = U/V/W)
+ * @note   The function only can set high channel mode: TMR4_OC_CH_xH(x = U/V/W)
  */
 void TMR4_OC_SetHighChCompareMode(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, un_tmr4_oc_ocmrh_t unTmr4Ocmrh) {
     __IO uint16_t *OCMRxH;
@@ -1335,7 +1335,7 @@ void TMR4_OC_SetHighChCompareMode(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, un_tmr
  * @param  [in] u32Ch                   TMR4 OC channel.
  *         This parameter can be one of the following values:
  * @retval The TMR4 OC low channel mode
- * @note   The function only can get low channel mode:TMR4_OC_CH_xL(x = U/V/W)
+ * @note   The function only can get low channel mode: TMR4_OC_CH_xL(x = U/V/W)
  */
 uint32_t TMR4_OC_GetLowChCompareMode(const CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch) {
     __I uint32_t *OCMRxL;
@@ -1357,7 +1357,7 @@ uint32_t TMR4_OC_GetLowChCompareMode(const CM_TMR4_TypeDef *TMR4x, uint32_t u32C
  *         This parameter can be one of the following values:
  * @param  [in] unTmr4Ocmrl             The TMR4 OC low channel mode @ref un_tmr4_oc_ocmrl_t
  * @retval 无
- * @note   The function only can set low channel mode:TMR4_OC_CH_xL(x = U/V/W)
+ * @note   The function only can set low channel mode: TMR4_OC_CH_xL(x = U/V/W)
  */
 void TMR4_OC_SetLowChCompareMode(CM_TMR4_TypeDef *TMR4x, uint32_t u32Ch, un_tmr4_oc_ocmrl_t unTmr4Ocmrl) {
     __IO uint32_t *OCMRxL;

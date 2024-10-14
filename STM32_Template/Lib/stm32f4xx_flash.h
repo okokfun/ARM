@@ -357,7 +357,7 @@ typedef enum {
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 
-/* FLASH接口配置功能 ************************************/
+/* FLASH 接口配置功能 ************************************/
 void FLASH_SetLatency(uint32_t FLASH_Latency); // 设置代码延迟值。
 void FLASH_PrefetchBufferCmd(FunctionalState NewState); // 启用或禁用预取缓冲区。
 void FLASH_InstructionCacheCmd(FunctionalState NewState); // 启用或禁用指令缓存功能。

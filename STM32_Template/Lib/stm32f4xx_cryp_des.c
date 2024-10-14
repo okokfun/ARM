@@ -66,12 +66,12 @@
 /** @defgroup CRYP_Private_Functions
   */
 
-/** @defgroup CRYP_Group8 高级别的DES功能
- *  简介   高级别的DES功能
+/** @defgroup CRYP_Group8 高级别的 DES功能
+ *  简介   高级别的 DES功能
  *
 @verbatim
  ===============================================================================
-                       ##### 高级别的DES功能 #####
+                       ##### 高级别的 DES功能 #####
  ===============================================================================
 @endverbatim
   */
@@ -141,7 +141,7 @@ ErrorStatus CRYP_DES_ECB(uint8_t Mode, uint8_t Key[8], uint8_t *Input,
     } else {
         for(i = 0; ((i < Ilength) && (status != ERROR)); i += 8) {
 
-            /* 在输入FIFO中写入输入块 */
+            /* 在输入FIFO 中写入输入块 */
             CRYP_DataIn(*(uint32_t*)(inputaddr));
             inputaddr += 4;
             CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -159,7 +159,7 @@ ErrorStatus CRYP_DES_ECB(uint8_t Mode, uint8_t Key[8], uint8_t *Input,
                 status = ERROR;
             } else {
 
-                /* 从输出FIFO中读取输出块 */
+                /* 从输出FIFO 中读取输出块 */
                 *(uint32_t*)(outputaddr) = CRYP_DataOut();
                 outputaddr += 4;
                 *(uint32_t*)(outputaddr) = CRYP_DataOut();
@@ -248,7 +248,7 @@ ErrorStatus CRYP_DES_CBC(uint8_t Mode, uint8_t Key[8], uint8_t InitVectors[8],
         status = ERROR;
     } else {
         for(i = 0; ((i < Ilength) && (status != ERROR)); i += 8) {
-            /* 在输入FIFO中写入输入块 */
+            /* 在输入FIFO 中写入输入块 */
             CRYP_DataIn(*(uint32_t*)(inputaddr));
             inputaddr += 4;
             CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -265,7 +265,7 @@ ErrorStatus CRYP_DES_CBC(uint8_t Mode, uint8_t Key[8], uint8_t InitVectors[8],
             if (busystatus != RESET) {
                 status = ERROR;
             } else {
-                /* 从输出FIFO中读取输出块 */
+                /* 从输出FIFO 中读取输出块 */
                 *(uint32_t*)(outputaddr) = CRYP_DataOut();
                 outputaddr += 4;
                 *(uint32_t*)(outputaddr) = CRYP_DataOut();

@@ -123,7 +123,7 @@ void DCMI_DeInit(void) {
 /**
   * 简介:  根据 DCMI_InitStruct 中指定的参数初始化 DCMI。
   * 
-  * 参数:  DCMI_InitStruct: 指向DCMI_InitTypeDef结构的指针，该结构包含DCMI的配置信息。
+  * 参数:  DCMI_InitStruct: 指向 DCMI_InitTypeDef 结构的指针，该结构包含DCMI 的配置信息。
   * 
   * 返回值: 无
   */
@@ -164,7 +164,7 @@ void DCMI_Init(DCMI_InitTypeDef* DCMI_InitStruct) {
 /**
   * 简介:  用默认值填充每个 DCMI_InitStruct 成员。
   * 
-  * 参数:  DCMI_InitStruct : 指向DCMI_InitTypeDef结构的指针，该结构将被初始化。
+  * 参数:  DCMI_InitStruct : 指向 DCMI_InitTypeDef 结构的指针，该结构将被初始化。
   * 
   * 返回值: 无
   */
@@ -184,17 +184,17 @@ void DCMI_StructInit(DCMI_InitTypeDef* DCMI_InitStruct) {
   * 
   * 注意:   这个函数应该在启用和启动DCMI接口之前被调用
   * 。
-  * 参数:  DCMI_CROPInitStruct:  指向DCMI_CROPInitTypeDef结构的指针，
-  *                              该结构包含DCMI外围CROP模式的配置信息。
+  * 参数:  DCMI_CROPInitStruct:  指向 DCMI_CROPInitTypeDef 结构的指针，
+  *                              该结构包含DCMI 外围CROP模式的配置信息。
   * 
   * 返回值: 无
   */
 void DCMI_CROPConfig(DCMI_CROPInitTypeDef* DCMI_CROPInitStruct) {
-    /* 设置CROP窗口坐标 */
+    /* 设置 CROP窗口坐标 */
     DCMI->CWSTRTR = (uint32_t)((uint32_t)DCMI_CROPInitStruct->DCMI_HorizontalOffsetCount |
                                ((uint32_t)DCMI_CROPInitStruct->DCMI_VerticalStartLine << 16));
 
-    /* 设置CROP窗口大小 */
+    /* 设置 CROP窗口大小 */
     DCMI->CWSIZER = (uint32_t)(DCMI_CROPInitStruct->DCMI_CaptureCount |
                                ((uint32_t)DCMI_CROPInitStruct->DCMI_VerticalLineCount << 16));
 }
@@ -204,8 +204,8 @@ void DCMI_CROPConfig(DCMI_CROPInitTypeDef* DCMI_CROPInitStruct) {
   * 
   * 注意:   这个函数应该在启用和启动DCMI接口之前被调用。
   * 
-  * 参数:  NewState: 新状态的DCMI作物功能。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 新状态的 DCMI作物功能。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -225,8 +225,8 @@ void DCMI_CROPCmd(FunctionalState NewState) {
 /**
   * 简介:  设置嵌入式同步代码。
   * 
-  * 参数:  DCMI_CodesInitTypeDef: 指向DCMI_CodesInitTypeDef结构的指针，
-  *                               该结构包含DCMI外设的嵌入式同步代码。
+  * 参数:  DCMI_CodesInitTypeDef: 指向 DCMI_CodesInitTypeDef 结构的指针，
+  *                               该结构包含DCMI 外设的嵌入式同步代码。
   * 
   * 返回值: 无
   */
@@ -243,7 +243,7 @@ void DCMI_SetEmbeddedSynchroCodes(DCMI_CodesInitTypeDef* DCMI_CodesInitStruct) {
   * 注意:   裁剪和嵌入式同步功能不能在此模式下使用。
   * 
   * 参数:  NewState: DCMI JPEG 格式的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -296,7 +296,7 @@ void DCMI_Cmd(FunctionalState NewState) {
   * 简介:  启用或禁用 DCMI 捕获。
   * 
   * 参数:  NewState: DCMI捕获的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -338,7 +338,7 @@ uint32_t DCMI_ReadData(void) {
 /**
   * 简介:  启用或禁用 DCMI 接口中断。
   * 
-  * 参数:  DCMI_IT: 指定要启用或禁用的DCMI中断源。
+  * 参数:  DCMI_IT: 指定要启用或禁用的 DCMI中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg DCMI_IT_FRAME: 帧捕获完成中断掩码
   *            @arg DCMI_IT_OVF: 溢出中断掩码
@@ -346,8 +346,8 @@ uint32_t DCMI_ReadData(void) {
   *            @arg DCMI_IT_VSYNC: VSYNC中断掩码
   *            @arg DCMI_IT_LINE: 线路中断屏蔽
   * 
-  * 参数:  NewState: 指定的DCMI中断的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 指定的 DCMI中断的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -380,11 +380,11 @@ void DCMI_ITConfig(uint16_t DCMI_IT, FunctionalState NewState) {
   *              @arg DCMI_FLAG_ERRMI:   同步错误 掩码标志掩码
   *              @arg DCMI_FLAG_VSYNCMI: VSYNC 掩码标志掩码
   *              @arg DCMI_FLAG_LINEMI:  线路掩码标志掩码
-  *              @arg DCMI_FLAG_HSYNC:   HSYNC标志掩码
-  *              @arg DCMI_FLAG_VSYNC:   VSYNC标志掩码
+  *              @arg DCMI_FLAG_HSYNC:   HSYNC 标志掩码
+  *              @arg DCMI_FLAG_VSYNC:   VSYNC 标志掩码
   *              @arg DCMI_FLAG_FNE: Fifo 非空标志掩码
   * 
-  * 返回值。DCMI_FLAG的新状态(SET或RESET)。
+  * 返回值。DCMI_FLAG 的新状态(SET 或 RESET)。
   */
 FlagStatus DCMI_GetFlagStatus(uint16_t DCMI_FLAG) {
     FlagStatus bitstatus = RESET;
@@ -431,7 +431,7 @@ void DCMI_ClearFlag(uint16_t DCMI_FLAG) {
     /* 检查参数 */
     assert_param(IS_DCMI_CLEAR_FLAG(DCMI_FLAG));
 
-    /* 通过在 ICR 寄存器1中写到相应的flag 位置*/
+    /* 通过在 ICR 寄存器1 中写到相应的flag 位置*/
 
     DCMI->ICR = DCMI_FLAG;
 }
@@ -439,7 +439,7 @@ void DCMI_ClearFlag(uint16_t DCMI_FLAG) {
 /**
   * 简介:  检查是否发生了 DCMI 中断。
   * 
-  * 参数:  DCMI_IT: 指定要检查的DCMI中断源。
+  * 参数:  DCMI_IT: 指定要检查的 DCMI中断源。
   *         此参数可以是以下值之一。
   *          @arg DCMI_IT_FRAME: 帧捕获完成的中断掩码
   *          @arg DCMI_IT_OVF: 溢出中断掩码
@@ -447,7 +447,7 @@ void DCMI_ClearFlag(uint16_t DCMI_FLAG) {
   *          @arg DCMI_IT_VSYNC: VSYNC中断掩码
   *          @arg DCMI_IT_LINE: 线路中断掩码
   * 
-  * 返回值: DCMI_IT的新状态(SET或RESET)。
+  * 返回值: DCMI_IT 的新状态(SET 或 RESET)。
   */
 ITStatus DCMI_GetITStatus(uint16_t DCMI_IT) {
     ITStatus bitstatus = RESET;
@@ -470,7 +470,7 @@ ITStatus DCMI_GetITStatus(uint16_t DCMI_IT) {
 /**
   * 简介:  清除 DCMI 的中断挂起位。
   * 
-  * 参数:  DCMI_IT: 指定要清除的DCMI中断等待位。
+  * 参数:  DCMI_IT: 指定要清除的 DCMI中断等待位。
   *          此参数可以是以下值的任意组合:
     *           @arg DCMI_IT_FRAME: 帧捕获完成中断掩码
     *           @arg DCMI_IT_OVF: 溢出中断掩码

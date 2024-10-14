@@ -772,8 +772,8 @@ typedef struct {
 
 /* 时间基准管理 ********************************************************/
 void TIM_DeInit(TIM_TypeDef* TIMx); // 将 TIMx 外设寄存器去初始化为其默认复位值。
-void TIM_TimeBaseInit(TIM_TypeDef* TIMx, TIM_TimeBaseInitTypeDef* TIM_TimeBaseInitStruct); // 根据TIM_TimeBaseInitStruct中指定的参数初始化TIMx时基单元外设。
-void TIM_TimeBaseStructInit(TIM_TimeBaseInitTypeDef* TIM_TimeBaseInitStruct); // 用每个TIM_TimeBaseInitStruct成员的默认值填充其默认值。
+void TIM_TimeBaseInit(TIM_TypeDef* TIMx, TIM_TimeBaseInitTypeDef* TIM_TimeBaseInitStruct); // 根据 TIM_TimeBaseInitStruct 中指定的参数初始化TIMx时基单元外设。
+void TIM_TimeBaseStructInit(TIM_TimeBaseInitTypeDef* TIM_TimeBaseInitStruct); // 用每个 TIM_TimeBaseInitStruct 成员的默认值填充其默认值。
 void TIM_PrescalerConfig(TIM_TypeDef* TIMx, uint16_t Prescaler, uint16_t TIM_PSCReloadMode); // 配置 TIMx 预分频器。
 void TIM_CounterModeConfig(TIM_TypeDef* TIMx, uint16_t TIM_CounterMode); // 指定要使用的 TIMx 计数器模式。
 void TIM_SetCounter(TIM_TypeDef* TIMx, uint32_t Counter); // 设置 TIMx 计数器寄存器值。
@@ -788,11 +788,11 @@ void TIM_SetClockDivision(TIM_TypeDef* TIMx, uint16_t TIM_CKD); // 设置 TIMx �
 void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState); // 启用或禁用指定的 TIM 外设。
 
 /* 输出比较管理 **************************************************/
-void TIM_OC1Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct); // 根据TIM_OCInitStruct中指定的参数初始化 TIMx 通道 1。
-void TIM_OC2Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct); // 根据TIM_OCInitStruct中指定的参数初始化 TIMx 通道 2。
-void TIM_OC3Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct); // 根据TIM_OCInitStruct中指定的参数初始化 TIMx 通道 3。
-void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct); // 根据TIM_OCInitStruct中指定的参数初始化 TIMx 通道 4。
-void TIM_OCStructInit(TIM_OCInitTypeDef* TIM_OCInitStruct); // 用其默认值填充每个TIM_OCInitStruct成员。
+void TIM_OC1Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct); // 根据 TIM_OCInitStruct 中指定的参数初始化 TIMx 通道 1。
+void TIM_OC2Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct); // 根据 TIM_OCInitStruct 中指定的参数初始化 TIMx 通道 2。
+void TIM_OC3Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct); // 根据 TIM_OCInitStruct 中指定的参数初始化 TIMx 通道 3。
+void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct); // 根据 TIM_OCInitStruct 中指定的参数初始化 TIMx 通道 4。
+void TIM_OCStructInit(TIM_OCInitTypeDef* TIM_OCInitStruct); // 用其默认值填充每个 TIM_OCInitStruct 成员。
 void TIM_SelectOCxM(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_OCMode); // 选择 TIM 输出比较模式。
 void TIM_SetCompare1(TIM_TypeDef* TIMx, uint32_t Compare1); // 设置 TIMx 捕获比较1 寄存器值。
 void TIM_SetCompare2(TIM_TypeDef* TIMx, uint32_t Compare2); // 设置 TIMx 捕获比较2 寄存器值。
@@ -825,9 +825,9 @@ void TIM_CCxCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCx); // �
 void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN); // 启用或禁用 TIM 捕获比较通道 xN。
 
 /* 输入捕获管理 ***************************************************/
-void TIM_ICInit(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct); // 根据TIM_ICInitStruct中指定的参数初始化 TIM 外设。
-void TIM_ICStructInit(TIM_ICInitTypeDef* TIM_ICInitStruct); // 用其默认值填充每个TIM_ICInitStruct成员。
-void TIM_PWMIConfig(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct); // 根据TIM_ICInitStruct中的指定参数配置TIM 外设，以测量外部PWM信号。
+void TIM_ICInit(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct); // 根据 TIM_ICInitStruct 中指定的参数初始化 TIM 外设。
+void TIM_ICStructInit(TIM_ICInitTypeDef* TIM_ICInitStruct); // 用其默认值填充每个 TIM_ICInitStruct 成员。
+void TIM_PWMIConfig(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct); // 根据 TIM_ICInitStruct 中的指定参数配置 TIM 外设，以测量外部 PWM 信号。
 uint32_t TIM_GetCapture1(TIM_TypeDef* TIMx); // 获取 TIMx 输入捕获 1 值。
 uint32_t TIM_GetCapture2(TIM_TypeDef* TIMx); // 获取 TIMx 输入捕获 2 值。
 uint32_t TIM_GetCapture3(TIM_TypeDef* TIMx); // 获取 TIMx 输入捕获 3 值。
@@ -839,7 +839,7 @@ void TIM_SetIC4Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC); // 设置 TIMx 
 
 /* 高级控制定时器(TIM1 和 TIM8)特定功能 ******************/
 void TIM_BDTRConfig(TIM_TypeDef* TIMx, TIM_BDTRInitTypeDef *TIM_BDTRInitStruct); // 配置中断功能、死区时间、锁定级别、OSSI/OSSR 状态和 AOE(自动输出启用)。
-void TIM_BDTRStructInit(TIM_BDTRInitTypeDef* TIM_BDTRInitStruct); // 用其默认值填充每个TIM_BDTRInitStruct成员。
+void TIM_BDTRStructInit(TIM_BDTRInitTypeDef* TIM_BDTRInitStruct); // 用其默认值填充每个 TIM_BDTRInitStruct 成员。
 void TIM_CtrlPWMOutputs(TIM_TypeDef* TIMx, FunctionalState NewState); // 启用或禁用 TIM 外设主输出。
 void TIM_SelectCOM(TIM_TypeDef* TIMx, FunctionalState NewState); // 选择 TIM 外设换向事件。
 void TIM_CCPreloadControl(TIM_TypeDef* TIMx, FunctionalState NewState); // 设置或复位 TIM 外设捕获比较预紧力控制位。

@@ -5,7 +5,7 @@
   *                    All Rights Reserved
   *
   *                 https://github.com/txt1994
-  *			        email:linguangyuan88@gmail.com
+  *			        email:linguangyuan88@icloud.com
   *
   * FileName     : sys.c
   * Version      : v1.0
@@ -23,7 +23,7 @@
 __asm void WFI_SET(void) {
     WFI;
 }
-//关闭所有中断(但是不包括fault和 NMI中断)
+//关闭所有中断(但是不包括fault 和 NMI中断)
 __asm void INTX_DISABLE(void) {
     CPSID   I
     BX      LR

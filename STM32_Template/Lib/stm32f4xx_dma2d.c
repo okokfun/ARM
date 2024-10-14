@@ -19,7 +19,7 @@
             (++) 传输模式
             (++) 像素格式，行_编号，像素_每行
             (++) 输出内存地址
-            (++) alpha值
+            (++) alpha 值
             (++) 输出偏移
             (++) 默认颜色(RGB)
 
@@ -117,9 +117,9 @@ void DMA2D_DeInit(void) {
 /**
   * 简介:  根据 DMA2D_InitStruct 中指定的参数初始化 DMA2D 外设。
   * 
-  * 注意:   仅当DMA2D被禁用时，才能使用此函数。
+  * 注意:   仅当 DMA2D 被禁用时，才能使用此函数。
   * 
-  * 参数:  DMA2D_InitStruct: 指向DMA2D_InitTypeDef结构的指针，该结构包含指定DMA2D的配置信息外设.
+  * 参数:  DMA2D_InitStruct: 指向 DMA2D_InitTypeDef 结构的指针，该结构包含指定 DMA2D 的配置信息外设.
   * 
   * 返回值: 无
   */
@@ -189,9 +189,9 @@ void DMA2D_Init(DMA2D_InitTypeDef* DMA2D_InitStruct) {
 }
 
 /**
-  * 简介:  用默认值填充每个DMA2D_InitStruct成员。
+  * 简介:  用默认值填充每个 DMA2D_InitStruct 成员。
   * 
-  * 参数:  DMA2D_InitStruct: 指向将被初始化的DMA2D_InitTypeDef结构的指针。
+  * 参数:  DMA2D_InitStruct: 指向将被初始化的 DMA2D_InitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -247,8 +247,8 @@ void DMA2D_AbortTransfer(void) {
 /**
   * 简介:  停止或继续 DMA2D 传输。
   * 
-  * 参数:  NewState: DMA2D的新状态外设.
-  *   此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: DMA2D 的新状态外设.
+  *   此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -270,7 +270,7 @@ void DMA2D_Suspend(FunctionalState NewState) {
   * 
   * 注意:   仅当传输被禁用时，才能使用此功能。
   * 
-  * 参数:  DMA2D_FGStruct: 指向DMA2D_FGTypeDef结构的指针，该结构包含指定背景的配置信息。
+  * 参数:  DMA2D_FGStruct: 指向 DMA2D_FGTypeDef 结构的指针，该结构包含指定背景的配置信息。
   * 
   * 返回值: 无
   */
@@ -320,9 +320,9 @@ void DMA2D_FGConfig(DMA2D_FG_InitTypeDef* DMA2D_FG_InitStruct) {
 }
 
 /**
-  * 简介:  用默认值填充每个DMA2D_FGStruct成员。
+  * 简介:  用默认值填充每个 DMA2D_FGStruct 成员。
   * 
-  * 参数:  DMA2D_FGStruct: 指向将被初始化的DMA2D_FGTypeDef结构的指针。
+  * 参数:  DMA2D_FGStruct: 指向将被初始化的 DMA2D_FGTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -367,7 +367,7 @@ void DMA2D_FG_StructInit(DMA2D_FG_InitTypeDef* DMA2D_FG_InitStruct) {
   * 
   * 注意:   仅当传输被禁用时，才能使用此功能。
   * 
-  * 参数:  DMA2D_BGStruct: 指向DMA2D_BGTypeDef结构的指针，该结构包含指定后台的配置信息。
+  * 参数:  DMA2D_BGStruct: 指向 DMA2D_BGTypeDef 结构的指针，该结构包含指定后台的配置信息。
   * 
   * 返回值: 无
   */
@@ -420,7 +420,7 @@ void DMA2D_BGConfig(DMA2D_BG_InitTypeDef* DMA2D_BG_InitStruct) {
 /**
   * 简介:  用默认值填充每个 DMA2D_BGStruct 成员。
   * 
-  * 参数:  DMA2D_BGStruct: 指向将被初始化的DMA2D_BGTypeDef结构的指针。
+  * 参数:  DMA2D_BGStruct: 指向将被初始化的 DMA2D_BGTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -462,8 +462,8 @@ void DMA2D_BG_StructInit(DMA2D_BG_InitTypeDef* DMA2D_BG_InitStruct) {
 /**
   * 简介:  开始自动加载 CLUT 或中止传输。
   * 
-  * 参数:  NewState: DMA2D的新状态外设.
-  *   此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: DMA2D 的新状态外设.
+  *   此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -481,10 +481,10 @@ void DMA2D_FGStart(FunctionalState NewState) {
 }
 
 /**
-  * 简介:  启动CLUT的自动加载或中止传输。
+  * 简介:  启动CLUT 的自动加载或中止传输。
   * 
-  * 参数:  NewState: DMA2D的新状态外设.
-  *   此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: DMA2D 的新状态外设.
+  *   此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -504,7 +504,7 @@ void DMA2D_BGStart(FunctionalState NewState) {
 /**
   * 简介:  配置 DMA2D 死区时间。
   * 
-  * 参数:  DMA2D_DeadTime: 指定DMA2D死区时间。
+  * 参数:  DMA2D_DeadTime: 指定 DMA2D死区时间。
   *        此参数可以是以下值之一:
   * 
   * 返回值: 无
@@ -550,8 +550,8 @@ void DMA2D_LineWatermarkConfig(uint32_t DMA2D_LWatermarkConfig) {
             ##### 中断和标记管理函数 #####
  ===============================================================================
 
-    [..] 本节提供的功能允许配置 DMA2D中断并获取状态、清除标志和中断挂起位。
-    [..] DMA2D提供6个中断源和6个标志
+    [..] 本节提供的功能允许配置 DMA2D 中断并获取状态、清除标志和中断挂起位。
+    [..] DMA2D 提供6个中断源和6个标志
 
     *** 标志 ***
     =============
@@ -577,7 +577,7 @@ void DMA2D_LineWatermarkConfig(uint32_t DMA2D_LWatermarkConfig) {
 /**
   * 简介:  启用或禁用指定的 DMA2D's 中断
   * 
-  * 参数:  DMA2D_IT: 指定要启用或禁用的DMA2D中断源。
+  * 参数:  DMA2D_IT: 指定要启用或禁用的 DMA2D 中断源。
   *   此参数可以是以下值的任意组合:
   *     @arg DMA2D_IT_CE: 配置错误中断启用。
   *     @arg DMA2D_IT_CTC: CLUT传输完成中断启用。
@@ -586,8 +586,8 @@ void DMA2D_LineWatermarkConfig(uint32_t DMA2D_LWatermarkConfig) {
   *     @arg DMA2D_IT_TC: 传输完成中断启用。
   *     @arg DMA2D_IT_TE: 传输错误中断启用。
   * 
-  * 参数: NewState: 指定DMA2D中断的新状态。
-  *   此参数可以是: ENABLE或DISABLE。
+  * 参数: NewState: 指定 DMA2D 中断的新状态。
+  *   此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -617,7 +617,7 @@ void DMA2D_ITConfig(uint32_t DMA2D_IT, FunctionalState NewState) {
   *     @arg DMA2D_FLAG_TC: 传输完成中断标志。
   *     @arg DMA2D_FLAG_TE: 传输错误中断标志。
   * 
-  * 返回值: DMA2D_FLAG 的新状态(SET或RESET)。
+  * 返回值: DMA2D_FLAG 的新状态(SET 或 RESET)。
   */
 FlagStatus DMA2D_GetFlagStatus(uint32_t DMA2D_FLAG) {
     FlagStatus bitstatus = RESET;
@@ -663,7 +663,7 @@ void DMA2D_ClearFlag(uint32_t DMA2D_FLAG) {
 /**
   * 简介:  检查指定的 DMA2D 的中断是否发生。
   * 
-  * 参数:  DMA2D_IT: 指定要检查的DMA2D中断源。
+  * 参数:  DMA2D_IT: 指定要检查的 DMA2D 中断源。
   *   此参数可以是以下值之一:
   *     @arg DMA2D_IT_CE: 配置错误中断启用。
   *     @arg DMA2D_IT_CTC: CLUT传输完成中断启用。
@@ -672,7 +672,7 @@ void DMA2D_ClearFlag(uint32_t DMA2D_FLAG) {
   *     @arg DMA2D_IT_TC: 传输完成中断启用。
   *     @arg DMA2D_IT_TE: 传输错误中断启用。
   * 
-  * 返回值: DMA2D_IT 的新状态(SET或RESET)。
+  * 返回值: DMA2D_IT 的新状态(SET 或 RESET)。
   */
 ITStatus DMA2D_GetITStatus(uint32_t DMA2D_IT) {
     ITStatus bitstatus = RESET;
@@ -715,7 +715,7 @@ void DMA2D_ClearITPendingBit(uint32_t DMA2D_IT) {
     assert_param(IS_DMA2D_IT(DMA2D_IT));
     DMA2D_IT = DMA2D_IT >> 8;
 
-    /* 清除相应的DMA2D中断 */
+    /* 清除相应的 DMA2D 中断 */
     DMA2D->IFCR = (uint32_t)DMA2D_IT;
 }
 

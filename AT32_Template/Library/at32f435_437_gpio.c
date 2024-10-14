@@ -37,7 +37,7 @@
   */
 
 /**
-  * @brief  reset the gpio register
+  * @brief  重置 goip 寄存器
   * @param  gpio_x: to select the gpio peripheral.
   *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
@@ -72,8 +72,8 @@ void gpio_Reset(GPIO_Type *gpio_x) {
 }
 
 /**
-  * @brief  初始化GOIO外设.
-  * @param  gpio_x: 选择这个GPIO外设.
+  * @brief  初始化GOIO 外设.
+  * @param  gpio_x: 选择这个GPIO 外设.
   *         该参数可以是以下值之一:
   *         GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH.
   * @param  gpio_Init_struct: pointer to gpio init structure.

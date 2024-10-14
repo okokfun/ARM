@@ -86,7 +86,7 @@ __Vectors       DCD     __initial_sp                      ; 栈顶
 ;               /* 外部中断 handler */
                 DCD     WWDGT_IRQHandler                  ; 16:Window Watchdog Timer
                 DCD     LVD_IRQHandler                    ; 17:LVD through EXTI Line detect
-                DCD     TAMPER_STAMP_IRQHandler           ; 18:Tamper and TimeStamp through EXTI Line detect
+                DCD     TAMPER_STAMP_IRQHandler           ; 18: Tamper and TimeStamp through EXTI Line detect
                 DCD     RTC_WKUP_IRQHandler               ; 19:RTC Wakeup through EXTI Line
                 DCD     FMC_IRQHandler                    ; 20:FMC
                 DCD     RCU_CTC_IRQHandler                ; 21:RCU and CTC
@@ -108,13 +108,13 @@ __Vectors       DCD     __initial_sp                      ; 栈顶
                 DCD     CAN0_RX1_IRQHandler               ; 37:CAN0 RX1
                 DCD     CAN0_EWMC_IRQHandler              ; 38:CAN0 EWMC
                 DCD     EXTI5_9_IRQHandler                ; 39:EXTI5 to EXTI9
-                DCD     TIMER0_BRK_TIMER8_IRQHandler      ; 40:TIMER0 Break and TIMER8
-                DCD     TIMER0_UP_TIMER9_IRQHandler       ; 41:TIMER0 Update and TIMER9
-                DCD     TIMER0_TRG_CMT_TIMER10_IRQHandler ; 42:TIMER0 Trigger and Commutation and TIMER10
-                DCD     TIMER0_Channel_IRQHandler         ; 43:TIMER0 Channel Capture Compare
-                DCD     TIMER1_IRQHandler                 ; 44:TIMER1
-                DCD     TIMER2_IRQHandler                 ; 45:TIMER2
-                DCD     TIMER3_IRQHandler                 ; 46:TIMER3
+                DCD     TIMER0_BRK_TIMER8_IRQHandler      ; 40: TIMER0 Break and TIMER8
+                DCD     TIMER0_UP_TIMER9_IRQHandler       ; 41: TIMER0 Update and TIMER9
+                DCD     TIMER0_TRG_CMT_TIMER10_IRQHandler ; 42: TIMER0 Trigger and Commutation and TIMER10
+                DCD     TIMER0_Channel_IRQHandler         ; 43: TIMER0 Channel Capture Compare
+                DCD     TIMER1_IRQHandler                 ; 44: TIMER1
+                DCD     TIMER2_IRQHandler                 ; 45: TIMER2
+                DCD     TIMER3_IRQHandler                 ; 46: TIMER3
                 DCD     I2C0_EV_IRQHandler                ; 47:I2C0 Event
                 DCD     I2C0_ER_IRQHandler                ; 48:I2C0 Error
                 DCD     I2C1_EV_IRQHandler                ; 49:I2C1 Event
@@ -127,19 +127,19 @@ __Vectors       DCD     __initial_sp                      ; 栈顶
                 DCD     EXTI10_15_IRQHandler              ; 56:EXTI10 to EXTI15
                 DCD     RTC_Alarm_IRQHandler              ; 57:RTC Alarm
                 DCD     USBFS_WKUP_IRQHandler             ; 58:USBFS Wakeup
-                DCD     TIMER7_BRK_TIMER11_IRQHandler     ; 59:TIMER7 Break and TIMER11
-                DCD     TIMER7_UP_TIMER12_IRQHandler      ; 60:TIMER7 Update and TIMER12
-                DCD     TIMER7_TRG_CMT_TIMER13_IRQHandler ; 61:TIMER7 Trigger and Commutation and TIMER13
-                DCD     TIMER7_Channel_IRQHandler         ; 62:TIMER7 Channel Capture Compare
+                DCD     TIMER7_BRK_TIMER11_IRQHandler     ; 59: TIMER7 Break and TIMER11
+                DCD     TIMER7_UP_TIMER12_IRQHandler      ; 60: TIMER7 Update and TIMER12
+                DCD     TIMER7_TRG_CMT_TIMER13_IRQHandler ; 61: TIMER7 Trigger and Commutation and TIMER13
+                DCD     TIMER7_Channel_IRQHandler         ; 62: TIMER7 Channel Capture Compare
                 DCD     DMA0_Channel7_IRQHandler          ; 63:DMA0 Channel7
                 DCD     0                                 ; 64:Reserved
                 DCD     SDIO_IRQHandler                   ; 65:SDIO
-                DCD     TIMER4_IRQHandler                 ; 66:TIMER4
+                DCD     TIMER4_IRQHandler                 ; 66: TIMER4
                 DCD     SPI2_IRQHandler                   ; 67:SPI2
                 DCD     UART3_IRQHandler                  ; 68:UART3
                 DCD     UART4_IRQHandler                  ; 69:UART4
-                DCD     TIMER5_DAC_IRQHandler             ; 70:TIMER5 and DAC0 DAC1 Underrun error
-                DCD     TIMER6_IRQHandler                 ; 71:TIMER6
+                DCD     TIMER5_DAC_IRQHandler             ; 70: TIMER5 and DAC0 DAC1 Underrun error
+                DCD     TIMER6_IRQHandler                 ; 71: TIMER6
                 DCD     DMA1_Channel0_IRQHandler          ; 72:DMA1 Channel0
                 DCD     DMA1_Channel1_IRQHandler          ; 73:DMA1 Channel1
                 DCD     DMA1_Channel2_IRQHandler          ; 74:DMA1 Channel2
@@ -164,7 +164,7 @@ __Vectors       DCD     __initial_sp                      ; 栈顶
                 DCD     USBHS_IRQHandler                  ; 93:USBHS
                 DCD     DCI_IRQHandler                    ; 94:DCI
                 DCD     0                                 ; 95:Reserved
-                DCD     TRNG_IRQHandler                   ; 96:TRNG
+                DCD     TRNG_IRQHandler                   ; 96: TRNG
                 DCD     FPU_IRQHandler                    ; 97:FPU
 
 __Vectors_End

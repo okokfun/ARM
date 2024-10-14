@@ -398,7 +398,7 @@ typedef struct {
 /* 操作模式标志 */
 #define CAN_FLAG_WKU               ((uint32_t)0x31000008) /*!< 唤醒标志 */
 #define CAN_FLAG_SLAK              ((uint32_t)0x31000012) /*!< 睡眠确认标志 */
-/* @note 当SLAK中断被禁用(SLKIE=0)时，无法对SLAKI进行轮询。
+/* @note 当SLAK中断被禁用(SLKIE=0)时，无法对 SLAKI进行轮询。
           在这种情况下，可以轮询SLAK位。*/
 
 /* 错误标志 */

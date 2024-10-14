@@ -42,9 +42,9 @@ typedef struct {
 
 
 #define DMA_HS_NO			(0 << 4)	// 无握手(Handshake)信号，启动传输后全部传完
-#define DMA_HS_SRC			(1 << 4)	// 源  侧握手信号，启动传输后源  侧生成一个数据，DMA搬运一个Unit
-#define DMA_HS_DST			(2 << 4)	// 目标侧握手信号，启动传输后目标侧索取一个数据，DMA搬运一个Unit
-#define DMA_HS_EXT			(4 << 4)	// 外部  握手信号，启动传输后外部握手来一个脉冲，DMA搬运一个Unit
+#define DMA_HS_SRC			(1 << 4)	// 源  侧握手信号，启动传输后源  侧生成一个数据，DMA搬运一个 Unit
+#define DMA_HS_DST			(2 << 4)	// 目标侧握手信号，启动传输后目标侧索取一个数据，DMA搬运一个 Unit
+#define DMA_HS_EXT			(4 << 4)	// 外部  握手信号，启动传输后外部握手来一个脉冲，DMA搬运一个 Unit
 #define DMA_HS_MSK			(7 << 4)
 
 #define DMA_DIR_RX			(0 << 7)	// SRC --> DST

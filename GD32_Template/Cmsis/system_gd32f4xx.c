@@ -130,7 +130,7 @@ static void system_clock_config(void);
 void SystemInit (void) {
     /* FPU settings */
 #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
-    SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* 设置CP10和CP11完全访问 */
+    SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* 设置 CP10 和 CP11 完全访问 */
 #endif
     /* Reset the RCU clock configuration to the default reset state */
     /* Set IRC16MEN bit */

@@ -26,7 +26,7 @@
 * 函数名称: TIMR_Init()
 * 功能说明:	TIMR定时器/计数器初始化
 * 输    入: TIMR_TypeDef * TIMRx	指定要被设置的定时器，有效值包括TIMR0、TIMR1、TIMR2、TIMR3、TIMR4、BTIMR0、BTIMR1、...、BTIMR11
-*			uint32_t mode			对于TIMR0~4: TIMR_MODE_TIMER、TIMR_MODE_COUNTER、TIMR_MODE_OC、TIMR_MODE_IC
+*			uint32_t mode			对于 TIMR0~4: TIMR_MODE_TIMER、TIMR_MODE_COUNTER、TIMR_MODE_OC、TIMR_MODE_IC
 *									对于BTIMR0~11: TIMR_MODE_TIMER、TIMR_MODE_OC
 *			uint16_t prediv			预分频，取值1-256
 *			uint32_t period			定时/计数周期，取值1-16777216

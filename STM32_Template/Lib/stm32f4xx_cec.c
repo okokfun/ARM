@@ -154,12 +154,12 @@ void CEC_DeInit(void) {
 }
 
 /**
-  * 简介:  根据CEC_InitStruct中指定的参数，初始化CEC外设设备。
+  * 简介:  根据 CEC_InitStruct 中指定的参数，初始化 CEC 外设设备。
   * 
-  * 注意:   在启用CEC外设之前，必须先配置CEC参数。
+  * 注意:   在启用 CEC 外设之前，必须先配置 CEC参数。
   * 
-  * 参数:  CEC_InitStruct: 指向一个CEC_InitTypeDef结构的指针，
-  *                        该结构包含了 该结构包含指定CEC外设的配置信息。
+  * 参数:  CEC_InitStruct: 指向一个CEC_InitTypeDef 结构的指针，
+  *                        该结构包含了 该结构包含指定CEC 外设的配置信息。
   * 
   * 返回值: 无
   */
@@ -192,9 +192,9 @@ void CEC_Init(CEC_InitTypeDef* CEC_InitStruct) {
 }
 
 /**
-  * 简介:  用默认值填充每个CEC_InitStruct成员。
+  * 简介:  用默认值填充每个CEC_InitStruct 成员。
   * 
-  * 参数:  CEC_InitStruct: 指向CEC_InitTypeDef结构的指针，将被初始化。
+  * 参数:  CEC_InitStruct: 指向CEC_InitTypeDef 结构的指针，将被初始化。
   * 
   * 返回值: 无
   */
@@ -209,10 +209,10 @@ void CEC_StructInit(CEC_InitTypeDef* CEC_InitStruct) {
 }
 
 /**
-  * 简介:  启用或禁用CEC外设设备。
+  * 简介:  启用或禁用 CEC 外设设备。
   * 
-  * 参数:  NewState: CEC外设的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: CEC 外设的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -229,10 +229,10 @@ void CEC_Cmd(FunctionalState NewState) {
 }
 
 /**
-  * 简介:  启用或禁用CEC侦听模式。
+  * 简介:  启用或禁用 CEC侦听模式。
   * 
   * 参数:  NewState: 侦听模式的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -265,7 +265,7 @@ void CEC_OwnAddressConfig(uint8_t CEC_OwnAddress) {
 }
 
 /**
-  * 简介:  清除CEC设备的自有地址。
+  * 简介:  清除 CEC设备的自有地址。
   * 
   * 参数:  CEC_OwnAddress:CEC自己的地址。
   * 
@@ -285,8 +285,8 @@ void CEC_OwnAddressClear(void) {
                             ##### 数据传输函数 #####
  ===============================================================================
     [..] 本节提供了允许CEC 数据传输的功能。CEC_RXDR 寄存器的读取访问可以使用
-         CEC_ReceiveData() 函数完成，并返回Rx缓冲值。
-         而对CEC_TXDR的写访问可以使用CEC_SendData() 函数完成。
+         CEC_ReceiveData() 函数完成，并返回 Rx缓冲值。
+         而对CEC_TXDR 的写访问可以使用 CEC_SendData() 函数完成。
 @endverbatim
   */
 
@@ -302,7 +302,7 @@ void CEC_SendData(uint8_t Data) {
 }
 
 /**
-  * 简介:  返回CEC外设设备最近接收的数据。
+  * 简介:  返回CEC 外设设备最近接收的数据。
   * 
   * 参数:  无
   * 
@@ -345,15 +345,15 @@ void CEC_EndOfMessage(void) {
  ===============================================================================
                             ##### 中断和标记管理函数 #####
  ===============================================================================
-    [..] 本节提供的功能允许 配置CEC中断源，并检查或清除标志或挂起位状态。
+    [..] 本节提供的功能允许 配置 CEC中断源，并检查或清除标志或挂起位状态。
     [..] 用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式或中断模式。
 
     [..] 在轮询模式下，CEC可以通过以下标志进行管理:
             (+) CEC_FLAG_TXACKE : 表示在传输模式下有一个丢失的确认。
             (+) CEC_FLAG_TXERR :  表示在传输模式中发生错误。
-                                  启动器检测到CEC线路的低阻抗。
+                                  启动器检测到 CEC线路的低阻抗。
             (+) CEC_FLAG_TXUDR :  指示在传输模式下是否发生了欠运行错误。
-                                  当软件还没有将任何数值加载到TXDR 寄存器时，传输被启用。启用时，软件尚未将任何数值加载到TXDR 寄存器中。
+                                  当软件还没有将任何数值加载到 TXDR 寄存器时，传输被启用。启用时，软件尚未将任何数值加载到 TXDR 寄存器中。
             (+) CEC_FLAG_TXEND :  指示成功传输的结束。
             (+) CEC_FLAG_TXBR :   指示下一个传输数据必须写入TXDR。
             (+) CEC_FLAG_ARBLST : 在两个CEC设备同时启动的情况下表示仲裁失败。同时启动的情况下，表示仲裁失败。
@@ -364,20 +364,20 @@ void CEC_EndOfMessage(void) {
             (+) CEC_FLAG_RXOVR :  指示是否在接收CEC信息时发生超限错误。
                                   在RXDR 寄存器中存储一个新的字节时，尚未收到一个字节。
             (+) CEC_FLAG_RXEND :  指示是否发生超限错误。
-            (+) CEC_FLAG_RXBR :   表示已经从CEC线路上收到一个新的字节，并存储到RXDR缓冲器中。
+            (+) CEC_FLAG_RXBR :   表示已经从CEC线路上收到一个新的字节，并存储到RXDR 缓冲器中。
     [..]
            (@)在这种模式下，建议使用以下函数:
               FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG);
               void CEC_ClearFlag(uint16_t CEC_FLAG);
 
     [..] 在中断模式下，CEC可通过以下中断源进行管理:
-           (+)CEC_IT_TXACKE :   表示一个TX缺失确认。
+           (+)CEC_IT_TXACKE :   表示一个 TX缺失确认。
            (+) CEC_IT_TXACKE :  表示在传输模式下的确认丢失。
            (+) CEC_IT_TXERR :   表示在传输模式中发生错误。
-                                启动器检测到CEC线路的低阻抗。
+                                启动器检测到 CEC线路的低阻抗。
            (+) CEC_IT_TXUDR :   表示在传输模式下发生了欠载错误。
-                                当软件还没有将任何数值加载到TXDR 寄存器时，传输被启用。
-                                启用时，软件尚未将任何数值加载到TXDR 寄存器中。
+                                当软件还没有将任何数值加载到 TXDR 寄存器时，传输被启用。
+                                启用时，软件尚未将任何数值加载到 TXDR 寄存器中。
            (+) CEC_IT_TXEND :   表示传输成功结束。
            (+) CEC_IT_TXBR :    指示下一个传输数据必须写入TXDR 寄存器。
            (+) CEC_IT_ARBLST :  在两个CEC设备同时启动的情况下表示仲裁失败。
@@ -389,7 +389,7 @@ void CEC_EndOfMessage(void) {
            (+) CEC_IT_RXOVR :   指示在接收CEC信息时是否发生超限错误。
                                 在RXDR 寄存器中存储一个新的字节时，尚未收到一个字节。
            (+) CEC_IT_RXEND :   表示接收结束。
-           (+) CEC_IT_RXBR :    表示已经从CEC线路接收到一个新的字节，并存储到RXDR缓冲器。
+           (+) CEC_IT_RXBR :    表示已经从CEC线路接收到一个新的字节，并存储到RXDR 缓冲器。
     [..]
            (@)在这种模式下，建议使用以下函数:
               void CEC_ITConfig( uint16_t CEC_IT, FunctionalState NewState);
@@ -401,9 +401,9 @@ void CEC_EndOfMessage(void) {
   */
 
 /**
-  * 简介:  启用或禁用选定的CEC中断。
+  * 简介:  启用或禁用选定的 CEC中断。
   * 
-  * 参数:  CEC_IT: 指定要启用的CEC中断源。
+  * 参数:  CEC_IT: 指定要启用的 CEC中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg CEC_IT_TXACKE:  Tx缺失确认错误。
   *            @arg CEC_IT_TXERR:   Tx错误。
@@ -414,12 +414,12 @@ void CEC_EndOfMessage(void) {
   *            @arg CEC_IT_RXACKE:  Rx缺少确认.
   *            @arg CEC_IT_LBPE:    Rx长周期错误.
   *            @arg CEC_IT_SBPE:    Rx短周期错误
-  *            @arg CEC_IT_BRE:     Rx位上升错误
+  *            @arg CEC_IT_BRE:     Rx 位上升错误
   *            @arg CEC_IT_RXOVR:   Rx超限。
   *            @arg CEC_IT_RXEND:   接收结束
-  *            @arg CEC_IT_RXBR:    接收的Rx字节
+  *            @arg CEC_IT_RXBR:    接收的 Rx字节
   * 
-  * 参数:  NewState: 选定的CEC中断的新状态。
+  * 参数:  NewState: 选定的 CEC中断的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -439,9 +439,9 @@ void CEC_ITConfig(uint16_t CEC_IT, FunctionalState NewState) {
 }
 
 /**
-  * 简介:  获取CEC标志状态。
+  * 简介:  获取CEC 标志状态。
   * 
-  * 参数:  CEC_FLAG: 指定要检查的CEC标志。
+  * 参数:  CEC_FLAG: 指定要检查的 CEC 标志。
   *     此参数可以是以下值之一:
   *            @arg CEC_FLAG_TXACKE: Tx缺失确认错误。
   *            @arg CEC_FLAG_TXERR:  Tx错误。
@@ -452,33 +452,33 @@ void CEC_ITConfig(uint16_t CEC_IT, FunctionalState NewState) {
   *            @arg CEC_FLAG_RXACKE: Rx缺少确认.
   *            @arg CEC_FLAG_LBPE:   Rx长周期错误.
   *            @arg CEC_FLAG_SBPE:   Rx短周期错误
-  *            @arg CEC_FLAG_BRE:    Rx位上升错误
+  *            @arg CEC_FLAG_BRE:    Rx 位上升错误
   *            @arg CEC_FLAG_RXOVR:  Rx超限。
   *            @arg CEC_FLAG_RXEND:  接收结束.
-  *            @arg CEC_FLAG_RXBR:   接收的Rx字节.
+  *            @arg CEC_FLAG_RXBR:   接收的 Rx字节.
   * 
-  * 返回值: CEC_FLAG的新状态(SET或RESET)
+  * 返回值: CEC_FLAG 的新状态(SET 或 RESET)
   */
 FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG) {
     FlagStatus bitstatus = RESET;
 
     assert_param(IS_CEC_GET_FLAG(CEC_FLAG));
 
-    /* 检查 指定CEC标志的状态 */
+    /* 检查 指定CEC 标志的状态 */
     if ((CEC->ISR & CEC_FLAG) != (uint16_t)RESET) {
-        /* 设置了CEC标志 */
+        /* 设置了CEC 标志 */
         bitstatus = SET;
     } else {
-        /* CEC标志复位 */
+        /* CEC 标志复位 */
         bitstatus = RESET;
     }
 
-    /* 返回CEC标志状态 */
+    /* 返回CEC 标志状态 */
     return  bitstatus;
 }
 
 /**
-  * 简介:  清除CEC 的挂起标志。
+  * 简介:  清除 CEC 的挂起标志。
   * 
   * 参数:  CEC_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
@@ -491,24 +491,24 @@ FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG) {
   *            @arg CEC_FLAG_RXACKE: Rx缺少确认
   *            @arg CEC_FLAG_LBPE:   Rx长周期错误.
   *            @arg CEC_FLAG_SBPE:   Rx短周期错误
-  *            @arg CEC_FLAG_BRE:    Rx位上升错误
+  *            @arg CEC_FLAG_BRE:    Rx 位上升错误
   *            @arg CEC_FLAG_RXOVR:  Rx超限
   *            @arg CEC_FLAG_RXEND:  接收结束
-  *            @arg CEC_FLAG_RXBR:   接收的Rx字节
+  *            @arg CEC_FLAG_RXBR:   接收的 Rx字节
   * 
   * 返回值: 无
   */
 void CEC_ClearFlag(uint32_t CEC_FLAG) {
     assert_param(IS_CEC_CLEAR_FLAG(CEC_FLAG));
 
-    /* 清除 所选CEC标志 */
+    /* 清除 所选CEC 标志 */
     CEC->ISR = CEC_FLAG;
 }
 
 /**
-  * 简介:  检查指定的CEC中断是否已发生。
+  * 简介:  检查指定的 CEC中断是否已发生。
   * 
-  * 参数:  CEC_IT: 指定要检查的CEC中断源。
+  * 参数:  CEC_IT: 指定要检查的 CEC中断源。
   *          此参数可以是以下值之一:
   *            @arg CEC_IT_TXACKE: Tx缺失确认错误。
   *            @arg CEC_IT_TXERR:  Tx错误。
@@ -519,12 +519,12 @@ void CEC_ClearFlag(uint32_t CEC_FLAG) {
   *            @arg CEC_IT_RXACKE: Rx缺少确认..
   *            @arg CEC_IT_LBPE:   Rx长周期错误..
   *            @arg CEC_IT_SBPE:   Rx短周期错误.
-  *            @arg CEC_IT_BRE:    Rx位上升错误.
+  *            @arg CEC_IT_BRE:    Rx 位上升错误.
   *            @arg CEC_IT_RXOVR:  Rx超限。
   *            @arg CEC_IT_RXEND:  接收结束.
-  *            @arg CEC_IT_RXBR:   接收的Rx字节
+  *            @arg CEC_IT_RXBR:   接收的 Rx字节
   * 
-  * 返回值: CEC_IT的新状态(SET或RESET)。
+  * 返回值: CEC_IT 的新状态(SET 或 RESET)。
   */
 ITStatus CEC_GetITStatus(uint16_t CEC_IT) {
     ITStatus bitstatus = RESET;
@@ -550,9 +550,9 @@ ITStatus CEC_GetITStatus(uint16_t CEC_IT) {
 }
 
 /**
-  * 简介:  清除CEC 的中断挂起位。
+  * 简介:  清除 CEC 的中断挂起位。
   * 
-  * 参数:  CEC_IT: 指定要清除的CEC中断挂起位。
+  * 参数:  CEC_IT: 指定要清除的 CEC中断挂起位。
   *          此参数可以是以下值的任意组合:
   *            @arg CEC_IT_TXACKE: Tx缺失确认错误。
   *            @arg CEC_IT_TXERR:  Tx 错误
@@ -563,10 +563,10 @@ ITStatus CEC_GetITStatus(uint16_t CEC_IT) {
   *            @arg CEC_IT_RXACKE: Rx缺少确认.
   *            @arg CEC_IT_LBPE:   Rx长周期错误.
   *            @arg CEC_IT_SBPE:   Rx短周期错误
-  *            @arg CEC_IT_BRE:    Rx位上升错误
+  *            @arg CEC_IT_BRE:    Rx 位上升错误
   *            @arg CEC_IT_RXOVR:  Rx超限
   *            @arg CEC_IT_RXEND:  接收结束
-  *            @arg CEC_IT_RXBR:   接收的Rx字节
+  *            @arg CEC_IT_RXBR:   接收的 Rx字节
   * 
   * 返回值: 无
   */

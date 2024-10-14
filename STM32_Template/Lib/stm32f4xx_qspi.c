@@ -9,7 +9,7 @@
   *           + 间接数据读/写功能
   *           + 内存映射模式的数据读取功能
   *           + 自动轮询功能
-  *           + DMA传输管理
+  *           + DMA 传输管理
   *           + 中断和标志管理
   *
   *  @verbatim
@@ -20,7 +20,7 @@
     [..]
         (#) 使用 RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_QSPI,ENABLE) 函数启用外围时钟。
 
-        (#) 启用CLK、BK1_IO0、BK1_IO1、BK1_IO2、BK1_IO3、BK1_NCS、BK2_IO0。BK2_IO1,
+        (#) 启用 CLK、BK1_IO0、BK1_IO1、BK1_IO2、BK1_IO3、BK1_NCS、BK2_IO0。BK2_IO1,
             BK2_IO2, BK2_IO3 和 BK2_NCS 的 GPIO 时钟，使用 RCC_AHB1PeriphClockCmd() 函数。
 
         (#) 外设设备替代函数。
@@ -40,7 +40,7 @@
 
         (#) 使用 QSPI_Cmd() 函数启用QSPI。
 
-        (#) 使用 QSPI_SetDataLength() 函数设置QSPI数据长度。
+        (#) 使用 QSPI_SetDataLength() 函数设置QSPI 数据长度。
 
         (#) 使用 QSPI_SetFIFOThreshold() 函数配置 FIFO 阈值，选择在哪个阈值上产生FTF事件。
 
@@ -121,7 +121,7 @@
  ===============================================================================
 
        [..] < 可选的:
-              在这里添加关于这组功能所涵盖的IP功能的最重要信息。
+              在这里添加关于这组功能所涵盖的 IP功能的最重要信息。
 
               对于系统IP，本节包含如何使用本组API。
             >
@@ -143,7 +143,7 @@ void QSPI_DeInit(void) {
 
 /**
   * 简介:  用其默认值填充每个 QSPI_InitStruct 成员。
-  * 参数:  QSPI_InitStruct: 指向QSPI_InitTypeDef结构的指针，将被初始化。
+  * 参数:  QSPI_InitStruct: 指向QSPI_InitTypeDef 结构的指针，将被初始化。
   * 返回值: 无
   */
 void QSPI_StructInit(QSPI_InitTypeDef* QSPI_InitStruct) {
@@ -166,7 +166,7 @@ void QSPI_StructInit(QSPI_InitTypeDef* QSPI_InitStruct) {
 
 /**
   * 简介:  用其默认值填充每个 QSPI_ComConfig_InitStruct 成员。
-  * 参数:  QSPI_ComConfig_InitStruct: 指向QSPI_Comfig_InitTypeDef结构的指针，将被初始化。
+  * 参数:  QSPI_ComConfig_InitStruct: 指向QSPI_Comfig_InitTypeDef 结构的指针，将被初始化。
   * 返回值: 无
   */
 void QSPI_ComConfig_StructInit(QSPI_ComConfig_InitTypeDef* QSPI_ComConfig_InitStruct) {
@@ -201,7 +201,7 @@ void QSPI_ComConfig_StructInit(QSPI_ComConfig_InitTypeDef* QSPI_ComConfig_InitSt
 
 /**
   * 简介:  根据 QSPI_InitStruct 中指定的参数初始化 QSPI 外设。
-  * 参数:  QSPI_InitStruct: 指向QSPI_InitTypeDef结构的指针，该结构包含指定QSPI外设的配置信息。
+  * 参数:  QSPI_InitStruct: 指向QSPI_InitTypeDef 结构的指针，该结构包含指定QSPI 外设的配置信息。
   * 返回值: 无
   */
 void QSPI_Init(QSPI_InitTypeDef* QSPI_InitStruct) {
@@ -244,7 +244,7 @@ void QSPI_Init(QSPI_InitTypeDef* QSPI_InitStruct) {
 
 /**
   * 简介:  根据 QSPI_ComConfig_InitStruct 中指定的参数初始化 QSPI CCR。
-  * 参数:  QSPI_ComConfig_InitStruct: 指向QSPI_ComConfig_InitTypeDef结构的指针，该结构包含有关QSPI外设设备的通信配置信息。
+  * 参数:  QSPI_ComConfig_InitStruct: 指向QSPI_ComConfig_InitTypeDef 结构的指针，该结构包含有关QSPI 外设设备的通信配置信息。
   * 返回值: 无
   */
 void QSPI_ComConfig_Init(QSPI_ComConfig_InitTypeDef* QSPI_ComConfig_InitStruct) {
@@ -289,7 +289,7 @@ void QSPI_ComConfig_Init(QSPI_ComConfig_InitTypeDef* QSPI_ComConfig_InitStruct) 
 /**
   * 简介:  使能或失能 QSPI 外设.
   * 参数:  NewState: 新状态-> QSPI 外设.
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void QSPI_Cmd(FunctionalState NewState) {
@@ -351,7 +351,7 @@ void QSPI_AutoPollingMode_Config(uint32_t QSPI_Match, uint32_t QSPI_Mask, uint32
 /**
   * 简介:  设置自动轮询阶段两次读取之间的 CLK 周期数。
   * 参数:  QSPI_Interval: 自动轮询阶段两次读取之间的时钟周期数。
-  *          此参数可以是0x0000和0xFFFF之间的任何值
+  *          此参数可以是0x0000 和0xFFFF之间的任何值
   * 注意:   此功能仅在自动轮询模式下使用
   * 返回值: 无
   */
@@ -377,9 +377,9 @@ void QSPI_AutoPollingMode_SetInterval(uint32_t QSPI_Interval) {
 
 /**
   * 简介:  设置内存映射模式下的超时值
-  * 参数:  QSPI_Timeout: 此字段指示FIFO满后QSPI等待多少CLK周期，
+  * 参数:  QSPI_Timeout: 此字段指示FIFO 满后QSPI等待多少CLK周期，
   *                      直到它引发nCS，使闪存处于低消耗状态。
-  *         此参数可以是0x0000和0xFFFF之间的任何值
+  *         此参数可以是0x0000 和0xFFFF之间的任何值
   * 注意:   此函数仅在内存映射模式中使用
   * 返回值: 无
   */
@@ -406,7 +406,7 @@ void QSPI_MemoryMappedMode_SetTimeout(uint32_t QSPI_Timeout) {
 /**
   * 简介:  设置地址的值
   * 参数:  QSPI_Address: 要发送到外部闪存的地址。
-  *         此参数可以在0x00000000和0xFFFFFFFFFF之间具有任何值。
+  *         此参数可以在0x00000000 和0xFFFFFFFFFF之间具有任何值。
   * 注意:   此功能仅在间接模式下使用
   * 返回值: 无
   */
@@ -422,7 +422,7 @@ void QSPI_SetAddress(uint32_t QSPI_Address) {
 /**
   * 简介:  设置备用字节的值
   * 参数:  QSPI_AlternateByte: 可选数据发送到地址后的外部QSPI设备。
-  *         此参数可以在0x00000000和0xFFFFFFFFFF之间具有任何值。
+  *         此参数可以在0x00000000 和0xFFFFFFFFFF之间具有任何值。
   * 注意:   此功能仅在间接模式下使用
   * 返回值: 无
   */
@@ -437,9 +437,9 @@ void QSPI_SetAlternateByte(uint32_t QSPI_AlternateByte) {
 
 /**
   * 简介:  设置 FIFO 阈值
-  * 参数:  QSPI_FIFOThres: 在间接模式下，定义FIFO中的阈值字节数，
-  *                        这将导致设置FIFO阈值标志FTF。
-  *         此参数可以是0x00和0x0F之间的任何值
+  * 参数:  QSPI_FIFOThres: 在间接模式下，定义FIFO 中的阈值字节数，
+  *                        这将导致设置FIFO 阈值标志FTF。
+  *         此参数可以是0x00 和0x0F之间的任何值
   * 返回值: 无
   */
 void QSPI_SetFIFOThreshold(uint32_t QSPI_FIFOThreshold) {
@@ -463,7 +463,7 @@ void QSPI_SetFIFOThreshold(uint32_t QSPI_FIFOThreshold) {
   * 参数:  QSPI_DataLength: 在间接和状态轮询模式下要检索的数据数(值+1)。
   *                         状态轮询模式应使用不大于3(表示4字节)的值。
   *         间接模式中的所有1表示未定义的长度，其中QSPI将持续到内存结束，如FSIZE所定义
-  *         此参数可以在0x00000000和0xFFFFFFFFFF之间具有任何值。
+  *         此参数可以在0x00000000 和0xFFFFFFFFFF之间具有任何值。
   *             0x0000_0000:要传输1个字节
   *             0x0000_0001:要传输2个字节
   *             0x0000_0002:要传输3个字节
@@ -488,7 +488,7 @@ void QSPI_SetDataLength(uint32_t QSPI_DataLength) {
 /**
   * 简介:  启用或禁用超时计数器。
   * 参数:  NewState: 新状态-> 超时计数器。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 注意:   此函数仅在内存映射模式中使用.
   * 返回值: 无
   */
@@ -512,7 +512,7 @@ void QSPI_TimeoutCounterCmd(FunctionalState NewState) {
 /**
   * 简介:  发生匹配时启用或禁用自动轮询模式停止。
   * 参数:  NewState: 新状态-> 自动轮询模式停止。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 注意:   此功能仅在自动轮询模式下使用.
   * 返回值: 无
   */
@@ -616,12 +616,12 @@ uint32_t QSPI_ReceiveData32(void) {
     return QUADSPI->DR;
 }
 
-/* DMA传输管理 functions *****************************************/
+/* DMA 传输管理 functions *****************************************/
 
 /**
   * 简介:  启用或禁用间接模式的 DMA。
   * 参数:  NewState: 新状态-> Timeout Counter.
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void QSPI_DMACmd(FunctionalState NewState) {
@@ -645,11 +645,11 @@ void QSPI_DMACmd(FunctionalState NewState) {
   *          此参数可以是以下值之一:
   *                @arg QSPI_IT_TO:超时中断
   *                @arg QSPI_IT_SM:状态匹配中断
-  *                @arg QSPI_IT_FT:FIFO阈值
+  *                @arg QSPI_IT_FT:FIFO 阈值
   *                @arg QSPI_IT_TC:传输完成
   *                @arg QSPI_IT_TE:传输错误
   * 参数:  NewState: 新状态-> 指定的QSPI中断。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void QSPI_ITConfig(uint32_t QSPI_IT, FunctionalState NewState) {
@@ -676,7 +676,7 @@ void QSPI_ITConfig(uint32_t QSPI_IT, FunctionalState NewState) {
 
 /**
   * 简介:  返回当前 QSPI FIFO 填充级别。
-  * 返回值: FIFO中保存的有效字节数。
+  * 返回值: FIFO 中保存的有效字节数。
   *         0x00 : FIFO 是空的
   *         0x1F : FIFO 是满的
   */
@@ -705,7 +705,7 @@ uint32_t QSPI_GetFMode(void) {
   *          此参数可以是以下值之一:
   *          @arg QSPI_FLAG_TO: 超时中断标志
   *          @arg QSPI_FLAG_SM: 状态匹配中断标志
-  *          @arg QSPI_FLAG_FT: FIFO阈值标志
+  *          @arg QSPI_FLAG_FT: FIFO 阈值标志
   *          @arg QSPI_FLAG_TC: 传输完成标志
   *          @arg QSPI_FLAG_TE: 传输错误标志
   *          @arg QSPI_FLAG_BUSY: 忙标志
@@ -753,7 +753,7 @@ void QSPI_ClearFlag(uint32_t QSPI_FLAG) {
   *          此参数可以是以下值之一:
   *          @arg QSPI_IT_TO: 超时中断
   *          @arg QSPI_IT_SM: 状态匹配中断
-  *          @arg QSPI_IT_FT: FIFO阈值
+  *          @arg QSPI_IT_FT: FIFO 阈值
   *          @arg QSPI_IT_TC: 传输完成
   *          @arg QSPI_IT_TE: 传输错误
   * 返回值: 新状态-> QSPI_IT (SET or RESET).
@@ -806,7 +806,7 @@ void QSPI_ClearITPendingBit(uint32_t QSPI_IT) {
 /**
   * 简介:  启用或禁用 QSPI 双Flash模式。
   * 参数:  NewState: 新状态-> QSPI 双Flash模式。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void QSPI_DualFlashMode_Cmd(FunctionalState NewState) {

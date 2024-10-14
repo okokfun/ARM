@@ -37,8 +37,8 @@ typedef struct {
 
 /* Alpha Mode */
 #define DMA2D_AMODE_PIXEL	(0 | (0 << 5))	// 使用像素点自带Alpha值
-#define DMA2D_AMODE_ALPHA	(0 | (1 << 5))	// 使用软件指定的Alpha值
-#define DMA2D_AMODE_PMULA	(0 | (2 << 5))	// 使用像素点自带Alpha值与软件指定的Alpha值的乘积
+#define DMA2D_AMODE_ALPHA	(0 | (1 << 5))	// 使用软件指定的 Alpha值
+#define DMA2D_AMODE_PMULA	(0 | (2 << 5))	// 使用像素点自带Alpha值与软件指定的 Alpha值的乘积
 
 
 void DMA2D_Init(DMA2D_InitStructure * initStruct);

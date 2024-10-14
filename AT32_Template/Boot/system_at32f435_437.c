@@ -52,7 +52,7 @@ void SystemInit (void) {
                    (3U << 11U * 2U)  );       /* set cp11 full access */
     #endif
 
-    /* 将CRM时钟配置重置为默认重置状态(用于调试目的) */
+    /* 将CRM 时钟配置重置为默认重置状态(用于调试目的) */
     /* set hicken bit */
     CRM->ctrl_bit.hicken = TRUE;
 
@@ -81,7 +81,7 @@ void SystemInit (void) {
     CRM->clkint = 0x009F0000U;
 
     #ifdef VECT_TAB_SRAM
-    SCB->VTOR = SRAM_BASE  | VECT_TAB_OFFSET;  /* 内部SRAM中的矢量表重定位. */
+    SCB->VTOR = SRAM_BASE  | VECT_TAB_OFFSET;  /* 内部 SRAM 中的矢量表重定位. */
     #else
     SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET;  /* 内部FLASH中的矢量表重定位. */
     #endif

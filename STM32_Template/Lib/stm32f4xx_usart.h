@@ -279,9 +279,9 @@ void USART_DeInit(USART_TypeDef* USARTx); // 将 USARTx 外设寄存器去初始
 
 /* 初始化和配置功能 *********************************/
 void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct);  // 根据 USART_InitStruct 中的指定参数初始化 USARTx 外设。
-void USART_StructInit(USART_InitTypeDef* USART_InitStruct);                   // 用每个USART_InitStruct成员的默认值填充该成员。
+void USART_StructInit(USART_InitTypeDef* USART_InitStruct);                   // 用每个 USART_InitStruct 成员的默认值填充该成员。
 void USART_ClockInit(USART_TypeDef* USARTx, USART_ClockInitTypeDef* USART_ClockInitStruct); // 根据 USART_ClockInitStruct 中的指定参数初始化 USARTx 外设时钟。
-void USART_ClockStructInit(USART_ClockInitTypeDef* USART_ClockInitStruct);    // 用其默认值填充每个USART_ClockInitStruct成员。
+void USART_ClockStructInit(USART_ClockInitTypeDef* USART_ClockInitStruct);    // 用其默认值填充每个 USART_ClockInitStruct 成员。
 void USART_Cmd(USART_TypeDef* USARTx, FunctionalState NewState);              // 启用或禁用指定的 USART 外设。
 void USART_SetPrescaler(USART_TypeDef* USARTx, uint8_t USART_Prescaler);      // 设置系统时钟预分频器。
 void USART_OverSampling8Cmd(USART_TypeDef* USARTx, FunctionalState NewState); // 启用或禁用 USART 的 8x 过采样模式。

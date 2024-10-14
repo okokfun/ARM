@@ -8,7 +8,7 @@
   *          模数转换器 (ADC) 外设的功能:
   *           + 初始化和配置(除了 ADC 多模式选择)
   *           + 模拟看门狗配置
-  *           + 温度传感器和 Vrefint(内部电压参考)和 VBAT管理
+  *           + 温度传感器和 Vrefint(内部电压参考)和 VBAT 管理
   *           + 常规频道配置
   *           + 常规通道 DMA 配置
   *           + 注入通道配置
@@ -48,7 +48,7 @@
       *** 多模式 ADC 常规通道配置 ***
      ======================================================
      [..]
-        (+) 参考"常规通道组配置"说明配置ADC1、ADC2和ADC3常规通道。
+        (+) 参考"常规通道组配置"说明配置 ADC1、ADC2 和 ADC3 常规通道。
 
         (+) 使用 ADC_CommonInit() 函数选择多模式 ADC 常规通道功能(双模式或三模式)，
             并使用 ADC_MultiModeDMARequestAfterLastTransferCmd() 函数配置 DMA 模式。
@@ -121,7 +121,7 @@
 /* ADC 模拟看门狗使能模式掩码 */
 #define CR1_AWDMode_RESET         ((uint32_t)0xFF3FFDFF)
 
-/* CR1寄存器掩码 */
+/* CR1 寄存器掩码 */
 #define CR1_CLEAR_MASK            ((uint32_t)0xFCFFFEFF)
 
 /* ADC EXTEN掩码 */
@@ -378,12 +378,12 @@ void ADC_CommonStructInit(ADC_CommonInitTypeDef* ADC_CommonInitStruct) {
 }
 
 /**
-  * 简介:  启用或禁用指定的ADC外设设备。
+  * 简介:  启用或禁用指定的 ADC 外设设备。
   * 
-  * 参数:  ADCx:其中x可以是1、2或3，以选择ADC外设设备。
+  * 参数:  ADCx:其中 x 可以是1、2 或3，以选择 ADC 外设设备。
   * 
-  * 参数:  NewState: ADCx外设设备的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: ADCx 外设设备的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -424,9 +424,9 @@ void ADC_Cmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用单个/所有常规或注入通道上的模拟看门狗
   * 
-  * 参数:  ADCx:其中x可以是1、2或3，以选择ADC外设设备。
+  * 参数:  ADCx:其中 x 可以是1、2 或3，以选择 ADC 外设设备。
   * 
-  * 参数:  ADC_AnalogWatchdog:ADC模拟看门狗配置。
+  * 参数:  ADC_AnalogWatchdog:ADC 模拟看门狗配置。
   *        此参数可以是以下值之一:
   * 		   @arg ADC_AnalogWatchdog_SingleRegEnable			    : 单个常规通道上的模拟看门狗
   * 		   @arg ADC_AnalogWatchdog_SingleInjecEnable		    : 单注入通道上的模拟看门狗
@@ -460,12 +460,12 @@ void ADC_AnalogWatchdogCmd(ADC_TypeDef* ADCx, uint32_t ADC_AnalogWatchdog) {
 /**
   * 简介:  配置模拟看门狗的高阈值和低阈值。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设设备。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设设备。
   * 
-  * 参数:  高阈值: ADC模拟看门狗高阈值。
+  * 参数:  高阈值: ADC 模拟看门狗高阈值。
   *          此参数必须是12位值。
   * 
-  * 参数:  低阈值: ADC模拟看门狗低阈值。
+  * 参数:  低阈值: ADC 模拟看门狗低阈值。
   *          此参数必须是12位值。
   * 
   * 返回值: 无
@@ -535,23 +535,23 @@ void ADC_AnalogWatchdogSingleChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channe
   * }
   */
 
-/** defgroup ADC_Group3温度传感器、Vrefint(内部参考电压)和VBAT(蓄电池电压)管理功能
- *  简介   温度传感器、Vrefint和VBAT管理功能
+/** defgroup ADC_Group3 温度传感器、Vrefint(内部参考电压)和 VBAT(蓄电池电压)管理功能
+ *  简介   温度传感器、Vrefint 和 VBAT管理功能
  *
 @verbatim
  ===============================================================================
-      ##### 温度传感器、Vrefint和VBAT管理功能 #####
+      ##### 温度传感器、Vrefint 和 VBAT管理功能 #####
  ===============================================================================
-    [..] 本节提供允许启用/禁用ADC与温度传感器、Vrefint和Vbat源之间的内部连接的功能。
+    [..] 本节提供允许启用/禁用 ADC 与温度传感器、Vrefint 和 Vbat 源之间的内部连接的功能。
 
-    [..] 获取温度传感器和Vrefint通道电压的典型配置如下步骤:
-      (#) 使用 ADC_TempSensorVrefintCmd()  函数启用温度传感器和Vrefint源与 ADC 通道的内部连接。
+    [..] 获取温度传感器和 Vrefint 通道电压的典型配置如下步骤:
+      (#) 使用 ADC_TempSensorVrefintCmd()  函数启用温度传感器和 Vrefint 源与 ADC 通道的内部连接。
       (#) 使用 ADC_RegularChannelConfig()  或    ADC_InjectedChannelConfiguration() 函数
           选择 ADC_Channel_TempSensor      和/或 ADC_Cannel_Refint
       (#) 使用 ADC_GetConversionValue()    或    ADC_GetInjectedConversionValue() 获取电压值。
 
     [..] 按照以下步骤完成获取VBAT信道电压的典型配置:
-      (#) 使用 ADC_VBATCmd() 函数启用VBAT源与ADC通道的内部连接。
+      (#) 使用 ADC_VBATCmd() 函数启用VBAT源与ADC 通道的内部连接。
       (#) 使用 ADC_RegularChannelConfig() 或 ADC_InjectedChannelConfiguration() 函数选择 ADC_Channel_Vbat
       (#) 使用 ADC_GetConversionValue() 或 ADC_GetInjectedConversionValue() 获取电压值。
 
@@ -561,10 +561,10 @@ void ADC_AnalogWatchdogSingleChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channe
 
 
 /**
-  * 简介:  启用或禁用温度传感器和Vrefint通道。
+  * 简介:  启用或禁用温度传感器和 Vrefint 通道。
   * 
-  * 参数:  NewState: 温度传感器和Vrefint通道的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 温度传感器和 Vrefint 通道的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -573,10 +573,10 @@ void ADC_TempSensorVrefintCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用温度传感器和Vrefint通道 */
+        /* 启用温度传感器和 Vrefint 通道 */
         ADC->CCR |= (uint32_t)ADC_CCR_TSVREFE;
     } else {
-        /* 禁用温度传感器和Vrefint通道 */
+        /* 禁用温度传感器和 Vrefint 通道 */
         ADC->CCR &= (uint32_t)(~ADC_CCR_TSVREFE);
     }
 }
@@ -584,11 +584,11 @@ void ADC_TempSensorVrefintCmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用VBAT(蓄电池电压)通道。
   *
-  * 注意   在STM32F40xx和STM32V41xx 设备上测得的电池电压等于VBAT/2，
-  *         在STM32 F42xx和ST M32F43xx 设备中等于VBAT/4
+  * 注意   在 STM32F40xx 和 STM32V41xx 设备上测得的电池电压等于 VBAT/2，
+  *         在 STM32 F42xx 和 ST M32F43xx 设备中等于 VBAT/4
   *
-  * 参数:  NewState: VBAT通道的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: VBAT 通道的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void ADC_VBATCmd(FunctionalState NewState) {
@@ -596,10 +596,10 @@ void ADC_VBATCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用VBAT通道 */
+        /* 启用VBAT 通道 */
         ADC->CCR |= (uint32_t)ADC_CCR_VBATE;
     } else {
-        /* 禁用VBAT通道 */
+        /* 禁用VBAT 通道 */
         ADC->CCR &= (uint32_t)(~ADC_CCR_VBATE);
     }
 }
@@ -616,16 +616,16 @@ void ADC_VBATCmd(FunctionalState NewState) {
              ##### 常规通道配置功能 #####
  ===============================================================================
 
-    [..] 本节提供了允许管理ADC常规通道的功能，它由2个子节组成:
+    [..] 本节提供了允许管理 ADC 常规通道的功能，它由2个子节组成:
 
-      (#) 常规通道的配置和管理功能:本小节提供允许配置ADC常规通道的功能:
+      (#) 常规通道的配置和管理功能:本小节提供允许配置 ADC 常规通道的功能:
          (++) 在常规组序列器中为每个通道配置列组
          (++) 配置每个通道的采样时间
          (++) 为常规频道选择转换触发器
-         (++) 选择所需的EOC事件行为配置
+         (++) 选择所需的 EOC事件行为配置
          (++) 激活连续模式(*)
          (++) 激活不连续模式
-         -@@- 请注意，常规频道的以下功能是使用ADC_Init() 函数配置的:
+         -@@- 请注意，常规频道的以下功能是使用 ADC_Init() 函数配置的:
            (+@@) 扫描模式激活
            (+@@) 连续模式激活(**)
            (+@@) 外部触发源
@@ -634,21 +634,21 @@ void ADC_VBATCmd(FunctionalState NewState) {
 
          -@@- (*)和(**)正在执行相同的配置
 
-      (#) 获取转换数据:本小节在ADC外设设备中提供了一个重要的函数，
-          因为它返回当前常规通道的转换数据。读取转换值时，EOC标志自动清除。
+      (#) 获取转换数据:本小节在 ADC 外设设备中提供了一个重要的函数，
+          因为它返回当前常规通道的转换数据。读取转换值时，EOC 标志自动清除。
 
-          -@- 对于多ADC模式，可以使用ADC_GetMultiModeConversionValue()
-          函数同时返回最后一个ADC1、ADC2和ADC3常规转换结果数据(在选定的多模式中)。
+          -@- 对于多 ADC 模式，可以使用 ADC_GetMultiModeConversionValue()
+          函数同时返回最后一个 ADC1、ADC2 和 ADC3 常规转换结果数据(在选定的多模式中)。
 
 @endverbatim
   * {
   */
 /**
-  * 简介:  为所选ADC常规通道配置其在序列器中的相应秩及其采样时间。
+  * 简介:  为所选 ADC 常规通道配置其在序列器中的相应秩及其采样时间。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设设备。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设设备。
   * 
-  * 参数:  ADC_Channel: 要配置的ADC通道。
+  * 参数:  ADC_Channel: 要配置的 ADC 通道。
   *          此参数可以是以下值之一:
   *            @arg ADC_Channel_0:  已选择 ADC 通道 0
   *            @arg ADC_Channel_1:  已选择 ADC 通道 1
@@ -671,7 +671,7 @@ void ADC_VBATCmd(FunctionalState NewState) {
   *            @arg ADC_Channel_18: 已选择 ADC 通道 18
   * 
   * 参数:  Rank: 常规组序列器中的秩。
-  *          此参数必须介于1到16之间。
+  *          此参数必须介于1 到16之间。
   * 
   * 参数:  ADC_SampleTime: 要为选定通道设置的采样时间值。
   *          此参数可以是以下值之一:
@@ -713,7 +713,7 @@ void ADC_RegularChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Ra
 
         /* 存储新的寄存器值 */
         ADCx->SMPR1 = tmpreg1;
-    } else { /* ADC_Channel包含在ADC_Cchannel_[0..9]中 */
+    } else { /* ADC_Channel包含在 ADC_Cchannel_[0..9]中 */
         /* 获取旧寄存器值 */
         tmpreg1 = ADCx->SMPR2;
 
@@ -741,13 +741,13 @@ void ADC_RegularChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Ra
         /* 计算要清除的掩码 */
         tmpreg2 = SQR3_SQ_SET << (5 * (Rank - 1));
 
-        /* 清除所选列组的旧SQx位 */
+        /* 清除所选列组的旧 SQx 位 */
         tmpreg1 &= ~tmpreg2;
 
         /* 计算要设置的掩码 */
         tmpreg2 = (uint32_t)ADC_Channel << (5 * (Rank - 1));
 
-        /* 设置所选列组的SQx位 */
+        /* 设置所选列组的 SQx 位 */
         tmpreg1 |= tmpreg2;
 
         /* 存储新的寄存器值 */
@@ -761,13 +761,13 @@ void ADC_RegularChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Ra
         /* 计算要清除的掩码 */
         tmpreg2 = SQR2_SQ_SET << (5 * (Rank - 7));
 
-        /* 清除所选列组的旧SQx位 */
+        /* 清除所选列组的旧 SQx 位 */
         tmpreg1 &= ~tmpreg2;
 
         /* 计算要设置的掩码 */
         tmpreg2 = (uint32_t)ADC_Channel << (5 * (Rank - 7));
 
-        /* 设置所选列组的SQx位 */
+        /* 设置所选列组的 SQx 位 */
         tmpreg1 |= tmpreg2;
 
         /* 存储新的寄存器值 */
@@ -781,13 +781,13 @@ void ADC_RegularChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Ra
         /* 计算要清除的掩码 */
         tmpreg2 = SQR1_SQ_SET << (5 * (Rank - 13));
 
-        /* 清除所选列组的旧SQx位 */
+        /* 清除所选列组的旧 SQx 位 */
         tmpreg1 &= ~tmpreg2;
 
         /* 计算要设置的掩码 */
         tmpreg2 = (uint32_t)ADC_Channel << (5 * (Rank - 13));
 
-        /* 设置所选列组的SQx位 */
+        /* 设置所选列组的 SQx 位 */
         tmpreg1 |= tmpreg2;
 
         /* 存储新的寄存器值 */
@@ -798,7 +798,7 @@ void ADC_RegularChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Ra
 /**
   * 简介:  启用常规通道的选定 ADC 软件启动转换。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
   * 返回值: 无
   */
@@ -806,23 +806,23 @@ void ADC_SoftwareStartConv(ADC_TypeDef* ADCx) {
     /* 检查参数 */
     assert_param(IS_ADC_ALL_PERIPH(ADCx));
 
-    /* 为常规组启用选定的ADC转换 */
+    /* 为常规组启用选定的 ADC 转换 */
     ADCx->CR2 |= (uint32_t)ADC_CR2_SWSTART;
 }
 
 /**
   * 简介:  获取 ADC 软件转换启动状态
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 返回值:: ADC软件启动转换的新状态(SET或RESET)。
+  * 返回值:: ADC 软件启动转换的新状态(SET 或 RESET)。
   */
 FlagStatus ADC_GetSoftwareStartConvStatus(ADC_TypeDef* ADCx) {
     FlagStatus bitstatus = RESET;
     /* 检查参数 */
     assert_param(IS_ADC_ALL_PERIPH(ADCx));
 
-    /* 检查SWSTART的状态位 */
+    /* 检查SWSTART 的状态位 */
     if ((ADCx->CR2 & ADC_CR2_SWSTART) != (uint32_t)RESET) {
         /* SWSTART位已设置 */
         bitstatus = SET;
@@ -839,10 +839,10 @@ FlagStatus ADC_GetSoftwareStartConvStatus(ADC_TypeDef* ADCx) {
 /**
   * 简介:  在每个常规通道转换中启用或禁用EOC。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  NewState: 所选ADC 的新状态 EOC标志上升
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 所选 ADC 的新状态 EOC 标志上升
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -852,10 +852,10 @@ void ADC_EOCOnEachRegularChannelCmd(ADC_TypeDef* ADCx, FunctionalState NewState)
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 在每个常规通道转换中启用选定的ADC EOC上升 */
+        /* 在每个常规通道转换中启用选定的 ADC EOC上升 */
         ADCx->CR2 |= (uint32_t)ADC_CR2_EOCS;
     } else {
-        /* 在每个常规通道转换中禁用选定的ADC EOC上升 */
+        /* 在每个常规通道转换中禁用选定的 ADC EOC上升 */
         ADCx->CR2 &= (uint32_t)(~ADC_CR2_EOCS);
     }
 }
@@ -863,10 +863,10 @@ void ADC_EOCOnEachRegularChannelCmd(ADC_TypeDef* ADCx, FunctionalState NewState)
 /**
   * 简介:  启用或禁用 ADC 连续转换模式。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  NewState: 所选ADC连续转换模式的新状态
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 所选 ADC连续转换模式的新状态
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -876,10 +876,10 @@ void ADC_ContinuousModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用选定的ADC连续转换模式 */
+        /* 启用选定的 ADC连续转换模式 */
         ADCx->CR2 |= (uint32_t)ADC_CR2_CONT;
     } else {
-        /* 禁用选定的ADC连续转换模式 */
+        /* 禁用选定的 ADC连续转换模式 */
         ADCx->CR2 &= (uint32_t)(~ADC_CR2_CONT);
     }
 }
@@ -887,10 +887,10 @@ void ADC_ContinuousModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
 /**
   * 简介:  对 ADC 规则组通道配置间断模式
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
   * 参数:  Number: 指定非连续模式下的常规信道计数值。
-  *          这个数字必须在1到8之间。
+  *          这个数字必须在1 到8之间。
   * 
   * 返回值: 无
   */
@@ -919,10 +919,10 @@ void ADC_DiscModeChannelCountConfig(ADC_TypeDef* ADCx, uint8_t Number) {
 /**
   * 简介:  使能或者失能指定的 ADC 规则组通道的间断模式
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  NewState: 选定的ADC非连续模式的新状态在常规组通道。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 选定的 ADC非连续模式的新状态在常规组通道。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -932,10 +932,10 @@ void ADC_DiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用用选定的ADC常规不连续模式 */
+        /* 启用用选定的 ADC 常规不连续模式 */
         ADCx->CR1 |= (uint32_t)ADC_CR1_DISCEN;
     } else {
-        /* 禁用选定的ADC常规不连续模式 */
+        /* 禁用选定的 ADC 常规不连续模式 */
         ADCx->CR1 &= (uint32_t)(~ADC_CR1_DISCEN);
     }
 }
@@ -943,7 +943,7 @@ void ADC_DiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
 /**
   * 简介:  返回最近一次 ADCx 规则组的转换结果
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
   * 返回值:: 数据转换值。
   */
@@ -967,8 +967,8 @@ uint16_t ADC_GetConversionValue(ADC_TypeDef* ADCx) {
   *           Data[31:16]: 这些比特位包含 ADC2 的常规数据。
   * 
   * 注意   在三重模式下，此函数返回的值如下
-  *           Data[15:0] : 这些比特交替地包含ADC1、ADC3和ADC2的常规数据。
-  *           Data[31:16]: 这些位交替包含ADC2、ADC1和ADC3的常规数据。
+  *           Data[15:0] : 这些比特交替地包含ADC1、ADC3 和 ADC2的常规数据。
+  *           Data[31:16]: 这些位交替包含ADC2、ADC1和 ADC3的常规数据。
   */
 uint32_t ADC_GetMultiModeConversionValue(void) {
     /* 返回multi mode conversion 值 */
@@ -978,24 +978,24 @@ uint32_t ADC_GetMultiModeConversionValue(void) {
   * }
   */
 
-/** defgroup ADC_Group5 常规通道DMA配置功能
- *  简介   常规通道DMA配置功能
+/** defgroup ADC_Group5 常规通道DMA 配置功能
+ *  简介   常规通道DMA 配置功能
  *
 @verbatim
  ===============================================================================
-            ##### 常规通道DMA配置功能 #####
+            ##### 常规通道DMA 配置功能 #####
  ===============================================================================
-    [..] 本节提供了允许为ADC常规通道配置 DMA的功能。
+    [..] 本节提供了允许为ADC 常规通道配置 DMA的功能。
          由于转换后的常规信道值存储在唯一的数据寄存器中，
-            因此使用 DMA转换多个常规信道是有用的。这避免了已存储在ADC 数据寄存器中的数据丢失。
-         启用 DMA 模式时(使用ADC_DMACmd() 函数)，在每次转换常规频道后，都会生成DMA 请求。
-    [..] 根据"独立ADC模式的DMA禁用选择"配置(使用ADC_DMARequestAfterLastTransferCmd() 函数)，
-            在最后一次DMA传输结束时，允许两种可能性:
-      (+) 没有向DMA控制器发出新的DMA 请求(功能已禁用)
+            因此使用 DMA转换多个常规信道是有用的。这避免了已存储在 ADC 数据寄存器中的数据丢失。
+         启用 DMA 模式时(使用 ADC_DMACmd() 函数)，在每次转换常规频道后，都会生成DMA 请求。
+    [..] 根据"独立ADC 模式的 DMA禁用选择"配置(使用 ADC_DMARequestAfterLastTransferCmd() 函数)，
+            在最后一次DMA 传输结束时，允许两种可能性:
+      (+) 没有向 DMA控制器发出新的 DMA 请求(功能已禁用)
       (+) 可以继续生成请求(功能已启用)。
-    [..] 根据"针对多ADC模式的DMA禁用选择"配置(使用void ADC_MultiModeDMARequestAfterLastTransferCmd() 函数)，
-            在最后一次DMA传输结束时，允许两种可能性:
-        (+) 没有向DMA控制器发出新的DMA 请求(功能已禁用)
+    [..] 根据"针对多 ADC 模式的 DMA禁用选择"配置(使用void ADC_MultiModeDMARequestAfterLastTransferCmd() 函数)，
+            在最后一次DMA 传输结束时，允许两种可能性:
+        (+) 没有向 DMA控制器发出新的 DMA 请求(功能已禁用)
         (+) 可以继续生成请求(功能已启用)。
 
 @endverbatim
@@ -1005,10 +1005,10 @@ uint32_t ADC_GetMultiModeConversionValue(void) {
 /**
  * 简介:  使能或者失能指定的 ADC 的 DMA 请求
  * 
- * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+ * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
  * 
  * 参数:  NewState: 新状态-> selected ADC DMA transfer.
- *          此参数可以是: ENABLE或DISABLE。
+ *          此参数可以是: ENABLE 或 DISABLE。
  * 
  * 返回值: 无
  */
@@ -1029,10 +1029,10 @@ void ADC_DMACmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
 /**
   * 简介:  在最后一次传输后启用或禁用 ADC DMA 请求(单 ADC 模式)
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  NewState: 最后一次传输后所选ADC DMA 请求的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 最后一次传输后所选 ADC DMA 请求的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -1042,10 +1042,10 @@ void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewSt
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 在最后一次传输后启用选定的ADC DMA 请求 */
+        /* 在最后一次传输后启用选定的 ADC DMA 请求 */
         ADCx->CR2 |= (uint32_t)ADC_CR2_DDS;
     } else {
-        /* 在最后一次传输后禁用选定的ADC DMA 请求 */
+        /* 在最后一次传输后禁用选定的 ADC DMA 请求 */
         ADCx->CR2 &= (uint32_t)(~ADC_CR2_DDS);
     }
 }
@@ -1053,13 +1053,13 @@ void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewSt
 /**
   * 简介:  在多 ADC 模式下最后一次传输后启用或禁用 ADC DMA 请求。
   * 
-  * 参数:  NewState: 最后一次传输后所选ADC DMA 请求的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 最后一次传输后所选 ADC DMA 请求的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 注意   如果启用，则只要转换数据，就会发出DMA 请求，
-		   并且多ADC模式的DMA 模式(由ADC_CommonInitStruct.ADC_DMAAccessMode
-		   结构成员使用ADC_CommonInit() 函数选择)为ADC_DMAAccessMode_1、
-		   ADC_DMAccessMode_2或ADC_DMAAccessMode_3。
+		   并且多 ADC 模式的 DMA 模式(由ADC_CommonInitStruct.ADC_DMAAccessMode
+		   结构成员使用 ADC_CommonInit() 函数选择)为ADC_DMAAccessMode_1、
+		   ADC_DMAccessMode_2 或ADC_DMAAccessMode_3。
 
   * 返回值: 无
   */
@@ -1068,10 +1068,10 @@ void ADC_MultiModeDMARequestAfterLastTransferCmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 在最后一次传输后启用选定的ADC DMA 请求 */
+        /* 在最后一次传输后启用选定的 ADC DMA 请求 */
         ADC->CCR |= (uint32_t)ADC_CCR_DDS;
     } else {
-        /* 在最后一次传输后禁用选定的ADC DMA 请求 */
+        /* 在最后一次传输后禁用选定的 ADC DMA 请求 */
         ADC->CCR &= (uint32_t)(~ADC_CCR_DDS);
     }
 }
@@ -1087,9 +1087,9 @@ void ADC_MultiModeDMARequestAfterLastTransferCmd(FunctionalState NewState) {
               ##### 注入的通道 配置功能 #####
  ===============================================================================
 
-    [..] 本节提供了允许配置ADC注入通道的功能。它由2个子部分组成。
+    [..] 本节提供了允许配置 ADC注入通道的功能。它由2个子部分组成。
 
-      (#) 注入通道的配置功能。本节提供了 功能，允许配置ADC 的注入通道。
+      (#) 注入通道的配置功能。本节提供了 功能，允许配置 ADC 的注入通道。
         (++) 配置每个通道的注入组序列器中的等级
         (++) 配置每个通道的采样时间
         (++) 激活自动注入模式
@@ -1100,7 +1100,7 @@ void ADC_MultiModeDMARequestAfterLastTransferCmd(FunctionalState NewState) {
         (++) 注入的通道排序器。
 
       (#) 获取指定的注入通道转换数据。这个小节
-            在ADC外设中提供了一个重要的功能，因为它返回了 特定注入通道的转换数据。
+            在 ADC 外设中提供了一个重要的功能，因为它返回了 特定注入通道的转换数据。
 
 @endverbatim
   * {
@@ -1108,32 +1108,32 @@ void ADC_MultiModeDMARequestAfterLastTransferCmd(FunctionalState NewState) {
 /**
   * 简介:  设置指定 ADC 的注入组通道，设置它们的转化顺序和采样时间
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  ADC_Channel: 要配置的ADC通道。
+  * 参数:  ADC_Channel: 要配置的 ADC 通道。
   *          此参数可以是以下值之一:
-  *            @arg ADC_Channel_0: 已选择ADC通道0
-  *            @arg ADC_Channel_1: 已选择ADC通道1
-  *            @arg ADC_Channel_2: 已选择ADC通道2
-  *            @arg ADC_Channel_3: 已选择ADC通道3
-  *            @arg ADC_Channel_4: 已选择ADC通道4
-  *            @arg ADC_Channel_5: 已选择ADC通道5
-  *            @arg ADC_Channel_6: 已选择ADC通道6
-  *            @arg ADC_Channel_7: 已选择ADC通道7
-  *            @arg ADC_Channel_8: 已选择ADC通道8
-  *            @arg ADC_Channel_9: 已选择ADC通道9
-  *            @arg ADC_Channel_10: 已选择ADC通道10
-  *            @arg ADC_Channel_11: 已选择ADC通道11
-  *            @arg ADC_Channel_12: 已选择ADC通道12
-  *            @arg ADC_Channel_13: 已选择ADC通道13
-  *            @arg ADC_Channel_14: 已选择ADC通道14
-  *            @arg ADC_Channel_15: 已选择ADC通道15
-  *            @arg ADC_Channel_16: 已选择ADC通道16
-  *            @arg ADC_Channel_17: 已选择ADC通道17
-  *            @arg ADC_Channel_18: 已选择ADC通道18
+  *            @arg ADC_Channel_0: 已选择 ADC 通道0
+  *            @arg ADC_Channel_1: 已选择 ADC 通道1
+  *            @arg ADC_Channel_2: 已选择 ADC 通道2
+  *            @arg ADC_Channel_3: 已选择 ADC 通道3
+  *            @arg ADC_Channel_4: 已选择 ADC 通道4
+  *            @arg ADC_Channel_5: 已选择 ADC 通道5
+  *            @arg ADC_Channel_6: 已选择 ADC 通道6
+  *            @arg ADC_Channel_7: 已选择 ADC 通道7
+  *            @arg ADC_Channel_8: 已选择 ADC 通道8
+  *            @arg ADC_Channel_9: 已选择 ADC 通道9
+  *            @arg ADC_Channel_10: 已选择 ADC 通道10
+  *            @arg ADC_Channel_11: 已选择 ADC 通道11
+  *            @arg ADC_Channel_12: 已选择 ADC 通道12
+  *            @arg ADC_Channel_13: 已选择 ADC 通道13
+  *            @arg ADC_Channel_14: 已选择 ADC 通道14
+  *            @arg ADC_Channel_15: 已选择 ADC 通道15
+  *            @arg ADC_Channel_16: 已选择 ADC 通道16
+  *            @arg ADC_Channel_17: 已选择 ADC 通道17
+  *            @arg ADC_Channel_18: 已选择 ADC 通道18
   * 
   * 参数:  Rank: 注入组排序器中的等级。
-  *          这个参数必须在1到4之间。
+  *          这个参数必须在1 到4之间。
   * 
   * 参数:  ADC_SampleTime: 要为所选通道设置的采样时间值。
   *          此参数可以是以下值之一:
@@ -1170,7 +1170,7 @@ void ADC_InjectedChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t R
         tmpreg1 |= tmpreg2;
         /* 存储新的寄存器值 */
         ADCx->SMPR1 = tmpreg1;
-    } else { /* ADC_Channel包含在ADC_Cchannel_[0..9]中 */
+    } else { /* ADC_Channel包含在 ADC_Cchannel_[0..9]中 */
         /* 获取旧寄存器值 */
         tmpreg1 = ADCx->SMPR2;
         /* 计算要清除的掩码 */
@@ -1192,11 +1192,11 @@ void ADC_InjectedChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t R
     tmpreg3 =  (tmpreg1 & JSQR_JL_SET) >> 20;
     /* 计算要清除的掩码: ((Rank-1)+(4-JL-1)) */
     tmpreg2 = JSQR_JSQ_SET << (5 * (uint8_t)((Rank + 3) - (tmpreg3 + 1)));
-    /* 清除所选列组的旧JSQx位 */
+    /* 清除所选列组的旧JSQx 位 */
     tmpreg1 &= ~tmpreg2;
     /* 计算要设置的掩码: ((Rank-1)+(4-JL-1)) */
     tmpreg2 = (uint32_t)ADC_Channel << (5 * (uint8_t)((Rank + 3) - (tmpreg3 + 1)));
-    /* 为所选列组设置JSQx位 */
+    /* 为所选列组设置JSQx 位 */
     tmpreg1 |= tmpreg2;
     /* 存储新的寄存器值 */
     ADCx->JSQR = tmpreg1;
@@ -1205,10 +1205,10 @@ void ADC_InjectedChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t R
 /**
   * 简介:  配置注入通道的定序器长度
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
   * 参数:  Length: 序列器长度。
-  *          此参数必须是1到4之间的数字。
+  *          此参数必须是1 到4之间的数字。
   * 
   * 返回值: 无
   */
@@ -1236,7 +1236,7 @@ void ADC_InjectedSequencerLengthConfig(ADC_TypeDef* ADCx, uint8_t Length) {
 /**
   * 简介:  设置注入通道转换值偏移
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
   * 参数:  ADC_InjectedChannel: ADC注入通道以设置其偏移。
   *          此参数可以是以下值之一:
@@ -1245,7 +1245,7 @@ void ADC_InjectedSequencerLengthConfig(ADC_TypeDef* ADCx, uint8_t Length) {
   *            @arg ADC_InjectedChannel_3: 已选择注入通道3
   *            @arg ADC_InjectedChannel_4: 已选择注入通道4
   * 
-  * 参数:  Offset: 所选ADC注入通道的偏移值
+  * 参数:  Offset: 所选 ADC注入通道的偏移值
   *          此参数必须是12位值。
   * 
   * 返回值: 无
@@ -1265,11 +1265,11 @@ void ADC_SetInjectedOffset(ADC_TypeDef* ADCx, uint8_t ADC_InjectedChannel, uint1
 }
 
 /**
- * 简介:  为注入通道转换配置ADCx外部触发器。
+ * 简介:  为注入通道转换配置 ADCx 外部触发器。
  * 
- * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+ * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
  * 
- * 参数:  ADC_ExternalTrigInjecConv: 指定启动注入转换的ADC触发器。
+ * 参数:  ADC_ExternalTrigInjecConv: 指定启动注入转换的 ADC触发器。
  *          此参数可以是以下值之一:
  *            @arg ADC_ExternalTrigInjecConv_T1_CC4:   已选择计时器 1 捕获比较4
  *            @arg ADC_ExternalTrigInjecConv_T1_TRGO:  已选择定时器 1 TRGO事件
@@ -1310,11 +1310,11 @@ void ADC_ExternalTrigInjectedConvConfig(ADC_TypeDef* ADCx, uint32_t ADC_External
 }
 
 /**
-  * 简介:  为注入通道转换配置ADCx外部触发边缘。
+  * 简介:  为注入通道转换配置 ADCx 外部触发边缘。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  ADC_ExternalTrigInjecConvEdge: 指定启动注入转换的ADC外部触发器边缘。
+  * 参数:  ADC_ExternalTrigInjecConvEdge: 指定启动注入转换的 ADC 外部触发器边缘。
   *          此参数可以是以下值之一:
   *            @arg ADC_ExternalTrigInjecConvEdge_None: 为注入转换禁用外部触发器
   *            @arg ADC_ExternalTrigInjecConvEdge_Rising: 上升沿检测
@@ -1339,25 +1339,25 @@ void ADC_ExternalTrigInjectedConvEdgeConfig(ADC_TypeDef* ADCx, uint32_t ADC_Exte
 }
 
 /**
-  * 简介:  启用所选ADC软件启动注入通道的转换。
+  * 简介:  启用所选 ADC 软件启动注入通道的转换。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
   * 返回值: 无
   */
 void ADC_SoftwareStartInjectedConv(ADC_TypeDef* ADCx) {
     /* 检查参数 */
     assert_param(IS_ADC_ALL_PERIPH(ADCx));
-    /* 为注入组启用选定的ADC转换 */
+    /* 为注入组启用选定的 ADC 转换 */
     ADCx->CR2 |= (uint32_t)ADC_CR2_JSWSTART;
 }
 
 /**
-  * 简介:  获取所选ADC软件开始注入的转换状态。
+  * 简介:  获取所选 ADC 软件开始注入的转换状态。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 返回值:: ADC软件的新状态开始注入转换(SET或RESET)。
+  * 返回值:: ADC 软件的新状态开始注入转换(SET 或 RESET)。
   */
 FlagStatus ADC_GetSoftwareStartInjectedConvCmdStatus(ADC_TypeDef* ADCx) {
     FlagStatus bitstatus = RESET;
@@ -1378,12 +1378,12 @@ FlagStatus ADC_GetSoftwareStartInjectedConvCmdStatus(ADC_TypeDef* ADCx) {
 }
 
 /**
-  * 简介:  在常规ADC自动注入组转换之后，启用或禁用所选ADC自动插入组转换。
+  * 简介:  在常规ADC自动注入组转换之后，启用或禁用所选 ADC自动插入组转换。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  NewState: 所选ADC自动注入转换的新状态
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 所选 ADC自动注入转换的新状态
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -1393,10 +1393,10 @@ void ADC_AutoInjectedConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用所选ADC自动注入组转换 */
+        /* 启用所选 ADC自动注入组转换 */
         ADCx->CR1 |= (uint32_t)ADC_CR1_JAUTO;
     } else {
-        /* 禁用所选ADC自动注入组转换 */
+        /* 禁用所选 ADC自动注入组转换 */
         ADCx->CR1 &= (uint32_t)(~ADC_CR1_JAUTO);
     }
 }
@@ -1404,10 +1404,10 @@ void ADC_AutoInjectedConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
 /**
   * 简介:  为指定ADC 的注入组通道启用或禁用不连续模式
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  NewState: 注入组通道上所选ADC不连续模式的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 注入组通道上所选 ADC不连续模式的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -1417,10 +1417,10 @@ void ADC_InjectedDiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用所选ADC注入不连续模式 */
+        /* 启用所选 ADC注入不连续模式 */
         ADCx->CR1 |= (uint32_t)ADC_CR1_JDISCEN;
     } else {
-        /* 禁用所选ADC注入不连续模式 */
+        /* 禁用所选 ADC注入不连续模式 */
         ADCx->CR1 &= (uint32_t)(~ADC_CR1_JDISCEN);
     }
 }
@@ -1428,9 +1428,9 @@ void ADC_InjectedDiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
 /**
   * 简介:  返回ADC注入通道转换结果
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  ADC_InjectedChannel: 转换后的ADC注入通道。
+  * 参数:  ADC_InjectedChannel: 转换后的 ADC注入通道。
   *          此参数可以是以下值之一:
   *            @arg ADC_InjectedChannel_1: 已选择注入通道1
   *            @arg ADC_InjectedChannel_2: 已选择注入通道2
@@ -1464,11 +1464,11 @@ uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedC
             ##### 中断和标记管理函数 #####
  ===============================================================================
 
-    [..] 本节提供了允许配置ADC中断、获取状态、清除标志和中断挂起位的函数。
+    [..] 本节提供了允许配置 ADC中断、获取状态、清除标志和中断挂起位的函数。
 
-    [..] 每个ADC提供4个中断源和6个标志，可分为3组:
+    [..] 每个 ADC提供4个中断源和6个标志，可分为3组:
 
-  *** ADC常规通道的标志和中断 ***
+  *** ADC 常规通道的标志和中断 ***
   =====================================================
     [..]
       (+) Flags :
@@ -1490,7 +1490,7 @@ uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedC
   ======================================================
     [..]
       (+) Flags :
-        (##) ADC_FLAG_JEOC : 注入的通道转换结束==>表示注入的GROUP转换结束
+        (##) ADC_FLAG_JEOC : 注入的通道转换结束==>表示注入的 GROUP转换结束
 
         (##) ADC_FLAG_JSTRT: 注入通道启动==>以指示注入GROUP转换开始时的硬件。
     [..]
@@ -1507,7 +1507,7 @@ uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedC
         (##) ADC_IT_AWD : 指定模拟看门狗事件的中断源。
 
 
-    [..] 用户应确定在其应用程序中将使用哪种模式来管理ADC控制器事件:轮询模式或中断模式。
+    [..] 用户应确定在其应用程序中将使用哪种模式来管理 ADC控制器事件:轮询模式或中断模式。
 
     [..] 在轮询模式下，建议使用以下功能:
       (+) ADC_GetFlagStatus() : 以检查是否发生标志事件。
@@ -1521,11 +1521,11 @@ uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedC
   * {
   */
 /**
-  * 简介:  启用或禁用指定的ADC中断。
+  * 简介:  启用或禁用指定的 ADC中断。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  ADC_IT: 指定要启用或禁用的ADC中断源。
+  * 参数:  ADC_IT: 指定要启用或禁用的 ADC中断源。
   *          此参数可以是以下值之一:
   *            @arg ADC_IT_EOC: 转换中断屏蔽结束
   *            @arg ADC_IT_AWD: 模拟看门狗中断屏蔽
@@ -1533,7 +1533,7 @@ uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedC
   *            @arg ADC_IT_OVR: 超限中断启用
   * 
   * 参数:  NewState: 指定ADC中断的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -1549,18 +1549,18 @@ void ADC_ITConfig(ADC_TypeDef* ADCx, uint16_t ADC_IT, FunctionalState NewState) 
     itmask = (uint32_t)0x01 << itmask;
 
     if (NewState != DISABLE) {
-        /* 启用所选ADC中断 */
+        /* 启用所选 ADC中断 */
         ADCx->CR1 |= itmask;
     } else {
-        /* 禁用所选ADC中断 */
+        /* 禁用所选 ADC中断 */
         ADCx->CR1 &= (~(uint32_t)itmask);
     }
 }
 
 /**
-  * 简介:  检查是否设置了指定的ADC标志。
+  * 简介:  检查是否设置了指定的 ADC 标志。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
   * 参数:  ADC_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
@@ -1571,7 +1571,7 @@ void ADC_ITConfig(ADC_TypeDef* ADCx, uint16_t ADC_IT, FunctionalState NewState) 
   *            @arg ADC_FLAG_STRT:  常规组转换标志的开始
   *            @arg ADC_FLAG_OVR:   溢出标志
   * 
-  * 返回值:: ADC_FLAG的新状态(SET或RESET)。
+  * 返回值:: ADC_FLAG 的新状态(SET 或 RESET)。
   */
 FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG) {
     FlagStatus bitstatus = RESET;
@@ -1579,7 +1579,7 @@ FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG) {
     assert_param(IS_ADC_ALL_PERIPH(ADCx));
     assert_param(IS_ADC_GET_FLAG(ADC_FLAG));
 
-    /* 检查指定ADC标志的状态 */
+    /* 检查指定ADC 标志的状态 */
     if ((ADCx->SR & ADC_FLAG) != (uint8_t)RESET) {
         /* ADC_FLAG已设置 */
         bitstatus = SET;
@@ -1595,7 +1595,7 @@ FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG) {
 /**
   * 简介:  清除ADCx的挂起标志。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
   * 参数:  ADC_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
@@ -1613,23 +1613,23 @@ void ADC_ClearFlag(ADC_TypeDef* ADCx, uint8_t ADC_FLAG) {
     assert_param(IS_ADC_ALL_PERIPH(ADCx));
     assert_param(IS_ADC_CLEAR_FLAG(ADC_FLAG));
 
-    /* 清除所选ADC标志 */
+    /* 清除所选 ADC 标志 */
     ADCx->SR = ~(uint32_t)ADC_FLAG;
 }
 
 /**
-  * 简介:  检查指定的ADC中断是否发生。
+  * 简介:  检查指定的 ADC中断是否发生。
   * 
-  * 参数:  ADCx:   其中x可以是1、2或3，以选择ADC外设设备。
+  * 参数:  ADCx:   其中 x 可以是1、2 或3，以选择 ADC 外设设备。
   * 
-  * 参数:  ADC_IT: 指定要检查的ADC中断源。
+  * 参数:  ADC_IT: 指定要检查的 ADC中断源。
   *          此参数可以是以下值之一:
   *            @arg ADC_IT_EOC:  转换中断屏蔽结束
   *            @arg ADC_IT_AWD:  模拟看门狗中断屏蔽
   *            @arg ADC_IT_JEOC: 注入转换中断掩码结束
   *            @arg ADC_IT_OVR:  溢出中断掩码
   * 
-  * 返回值:: ADC_IT的新状态(SET或RESET)。
+  * 返回值:: ADC_IT 的新状态(SET 或 RESET)。
   */
 ITStatus ADC_GetITStatus(ADC_TypeDef* ADCx, uint16_t ADC_IT) {
     ITStatus bitstatus = RESET;
@@ -1661,9 +1661,9 @@ ITStatus ADC_GetITStatus(ADC_TypeDef* ADCx, uint16_t ADC_IT) {
 /**
   * 简介:  清除ADCx的中断挂起位。
   * 
-  * 参数:  ADCx: 其中x可以是1、2或3，以选择ADC外设设备。
+  * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设设备。
   * 
-  * 参数:  ADC_IT: 指定要清除的ADC中断挂起位。
+  * 参数:  ADC_IT: 指定要清除的 ADC中断挂起位。
   *          此参数可以是以下值之一:
   *            @arg ADC_IT_EOC:  转换中断屏蔽结束
   *            @arg ADC_IT_AWD:  模拟看门狗中断屏蔽
@@ -1679,7 +1679,7 @@ void ADC_ClearITPendingBit(ADC_TypeDef* ADCx, uint16_t ADC_IT) {
     assert_param(IS_ADC_IT(ADC_IT));
     /* 获取ADC IT索引 */
     itmask = (uint8_t)(ADC_IT >> 8);
-    /* 清除所选ADC中断挂起位 */
+    /* 清除所选 ADC中断挂起位 */
     ADCx->SR = ~(uint32_t)itmask;
 }
 /**

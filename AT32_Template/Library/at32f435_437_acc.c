@@ -112,7 +112,7 @@ uint8_t ACC_Hickcal_Get(void) {
 }
 
 /**
-  * @brief  将值传送到wtire the value to  acc c1寄存器.
+  * @brief  将值传送到wtire the value to  acc c1 寄存器.
   * @param  ACC_C1_value
   * @retval 无.
   */
@@ -130,7 +130,7 @@ void ACC_Write_C2(uint16_t ACC_C2_value) {
 }
 
 /**
-  * @brief  将值传送到acc c3寄存器.
+  * @brief  将值传送到acc c3 寄存器.
   * @param  ACC_C3_value
   * @retval 无.
   */

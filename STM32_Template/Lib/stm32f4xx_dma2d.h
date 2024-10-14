@@ -349,7 +349,7 @@ void DMA2D_DeInit(void); // 将 DMA2D 外设寄存器取消初始化为其默认
 
 /* 初始化和配置功能 *********************************/
 void DMA2D_Init(DMA2D_InitTypeDef* DMA2D_InitStruct); // 根据 DMA2D_InitStruct 中指定的参数初始化 DMA2D 外设。
-void DMA2D_StructInit(DMA2D_InitTypeDef* DMA2D_InitStruct); // 用默认值填充每个DMA2D_InitStruct成员。
+void DMA2D_StructInit(DMA2D_InitTypeDef* DMA2D_InitStruct); // 用默认值填充每个 DMA2D_InitStruct 成员。
 void DMA2D_StartTransfer(void); // 启动 DMA2D 传输。
 void DMA2D_AbortTransfer(void); // 中止 DMA2D 传输。
 void DMA2D_Suspend(FunctionalState NewState); // 停止或继续 DMA2D 传输。

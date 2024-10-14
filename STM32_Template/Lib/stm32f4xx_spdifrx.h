@@ -189,7 +189,7 @@ void SPDIFRX_SetParityBit(FunctionalState NewState); // 启用或禁用 SPDIFRX 
 /* 数据传输功能 ***************************************************/
 uint32_t SPDIFRX_ReceiveData(void);
 
-/* DMA传输管理功能 *****************************************/
+/* DMA 传输管理功能 *****************************************/
 void SPDIFRX_RxDMACmd(FunctionalState NewState); // 启用或禁用 SPDIFRX DMA 接口 (RX)。
 void SPDIFRX_CbDMACmd(FunctionalState NewState); // 启用或禁用 SPDIFRX DMA 接口(控制缓冲区)。
 

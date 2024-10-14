@@ -1997,10 +1997,10 @@ int32_t ETH_DMA_SoftwareReset(void) {
  * @brief  Set DMA Transmit priority ratio.
  * @param  [in] u32Ratio                Priority ratio
  *         This parameter can be one of the following values:
- *           @arg ETH_DMA_ARBITRATION_LOOP_RXTX_1_1:        Rx:Tx = 1:1
- *           @arg ETH_DMA_ARBITRATION_LOOP_RXTX_2_1:        Rx:Tx = 2:1
- *           @arg ETH_DMA_ARBITRATION_LOOP_RXTX_3_1:        Rx:Tx = 3:1
- *           @arg ETH_DMA_ARBITRATION_LOOP_RXTX_4_1:        Rx:Tx = 4:1
+ *           @arg ETH_DMA_ARBITRATION_LOOP_RXTX_1_1:        Rx: Tx = 1:1
+ *           @arg ETH_DMA_ARBITRATION_LOOP_RXTX_2_1:        Rx: Tx = 2:1
+ *           @arg ETH_DMA_ARBITRATION_LOOP_RXTX_3_1:        Rx: Tx = 3:1
+ *           @arg ETH_DMA_ARBITRATION_LOOP_RXTX_4_1:        Rx: Tx = 4:1
  *           @arg ETH_DMA_ARBITRATION_LOOP_TXRX_1_1:        Tx:Rx = 1:1
  *           @arg ETH_DMA_ARBITRATION_LOOP_TXRX_2_1:        Tx:Rx = 2:1
  *           @arg ETH_DMA_ARBITRATION_LOOP_TXRX_3_1:        Tx:Rx = 3:1

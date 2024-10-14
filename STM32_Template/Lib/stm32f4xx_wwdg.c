@@ -230,7 +230,7 @@ void WWDG_Enable(uint8_t Counter) {
 /**
   * 简介:  检查是否设置了早期唤醒中断标志。
   * 参数:  无
-  * 返回值: 早期唤醒中断标志(SET或RESET)的新状态
+  * 返回值: 早期唤醒中断标志(SET 或 RESET)的新状态
   */
 FlagStatus WWDG_GetFlagStatus(void) {
     FlagStatus bitstatus = RESET;

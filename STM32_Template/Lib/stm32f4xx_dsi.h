@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    DSI模块头文件.
+  * 简介:    DSI 模块头文件.
   ******************************************************************************
   * @attention
   *
@@ -729,8 +729,8 @@ void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers); // 
 void DSI_ConfigHostTimeouts(DSI_TypeDef *DSIx, DSI_HOST_TimeoutTypeDef *HostTimeouts); // 配置 DSI HOST超时参数
 void DSI_PatternGeneratorStart(DSI_TypeDef *DSIx, uint32_t Mode, uint32_t Orientation); // 开始测试模式生成
 void DSI_PatternGeneratorStop(DSI_TypeDef *DSIx); // 停止测试模式生成
-void DSI_Start(DSI_TypeDef *DSIx); // 启动DSI模块
-void DSI_Stop(DSI_TypeDef *DSIx); // 停止DSI模块
+void DSI_Start(DSI_TypeDef *DSIx); // 启动DSI 模块
+void DSI_Stop(DSI_TypeDef *DSIx); // 停止DSI 模块
 void DSI_Refresh(DSI_TypeDef *DSIx); // 在命令模式下刷新显示
 void DSI_ColorMode(DSI_TypeDef *DSIx, uint32_t ColorMode); // 控制视频模式中的显示颜色模式
 void DSI_Shutdown(DSI_TypeDef *DSIx, uint32_t Shutdown); // 控制视频模式下的显示器关闭
@@ -744,26 +744,26 @@ void DSI_LongWrite(DSI_TypeDef *DSIx, uint32_t ChannelID, uint32_t Mode, uint32_
 void DSI_Read(DSI_TypeDef *DSIx, uint32_t ChannelNbr, uint8_t* Array, uint32_t Size, uint32_t Mode, uint32_t DCSCmd, uint8_t* ParametersTable); // 读取命令(DCS或通用)
 
 /* 低功耗功能 ********************************************************/
-void DSI_EnterULPMData(DSI_TypeDef *DSIx); // 在D-PHY PLL运行的情况下进入ULPM(超低功率模式)(只有数据通道在ULPM中)
-void DSI_ExitULPMData(DSI_TypeDef *DSIx); // 在D-PHY PLL运行的情况下退出ULPM(超低功率模式)(只有数据通道在ULPM中)
-void DSI_EnterULPM(DSI_TypeDef *DSIx); // 在D-PHY PLL关闭的情况下进入ULPM(超低功率模式)(数据和时钟通道都在ULPM中)
-void DSI_ExitULPM(DSI_TypeDef *DSIx); // 在D-PHY PLL关闭的情况下退出ULPM(超低功率模式)(数据和时钟通道都在ULPM中)
+void DSI_EnterULPMData(DSI_TypeDef *DSIx); // 在D-PHY PLL运行的情况下进入 ULPM(超低功率模式)(只有数据通道在 ULPM 中)
+void DSI_ExitULPMData(DSI_TypeDef *DSIx); // 在D-PHY PLL运行的情况下退出ULPM(超低功率模式)(只有数据通道在 ULPM 中)
+void DSI_EnterULPM(DSI_TypeDef *DSIx); // 在D-PHY PLL关闭的情况下进入 ULPM(超低功率模式)(数据和时钟通道都在 ULPM 中)
+void DSI_ExitULPM(DSI_TypeDef *DSIx); // 在D-PHY PLL关闭的情况下退出ULPM(超低功率模式)(数据和时钟通道都在 ULPM 中)
 void DSI_SetSlewRateAndDelayTuning(DSI_TypeDef *DSIx, uint32_t CommDelay, uint32_t Lane, uint32_t Value); // 设置回转率和延迟调整
 void DSI_SetLowPowerRXFilter(DSI_TypeDef *DSIx, uint32_t Frequency); // 低功率接收滤波器调谐
-void DSI_SetSDD(DSI_TypeDef *DSIx, FunctionalState State); // 激活所有车道上的其他当前路径，以满足MIPI D-PHY规范中定义的SDDTx参数
+void DSI_SetSDD(DSI_TypeDef *DSIx, FunctionalState State); // 激活所有车道上的其他当前路径，以满足MIPI D-PHY规范中定义的 SDDTx参数
 void DSI_SetLanePinsConfiguration(DSI_TypeDef *DSIx, uint32_t CustomLane, uint32_t Lane, FunctionalState State); // 自定义通道管脚配置
 void DSI_SetPHYTimings(DSI_TypeDef *DSIx, uint32_t Timing, FunctionalState State, uint32_t Value);
-void DSI_ForceTXStopMode(DSI_TypeDef *DSIx, uint32_t Lane, FunctionalState State); // 强制时钟/数据通道处于TX停止模式
+void DSI_ForceTXStopMode(DSI_TypeDef *DSIx, uint32_t Lane, FunctionalState State); // 强制时钟/数据通道处于 TX停止模式
 void DSI_ForceRXLowPower(DSI_TypeDef *DSIx, FunctionalState State); // 强制LP接收器处于低功率模式
 void DSI_ForceDataLanesInRX(DSI_TypeDef *DSIx, FunctionalState State); // BTA后强制数据通道处于RX模式
 void DSI_SetPullDown(DSI_TypeDef *DSIx, FunctionalState State); // 启用车道上的下拉按钮，以防止未使用时出现浮动状态
 void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State); // 关闭数据通道上的竞争检测
 
 /* 中断和标志管理功能 **********************************/
-void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState); // 启用或禁用指定的DSI中断。
-FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG); // 检查是否设置了指定的DSI标志。
-void DSI_ClearFlag(DSI_TypeDef* DSIx, uint16_t DSI_FLAG); // 清除指定的DSI标志。
-ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT); // 检查指定的DSIx中断是否已发生。
+void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState); // 启用或禁用指定的 DSI中断。
+FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG); // 检查是否设置了指定的 DSI标志。
+void DSI_ClearFlag(DSI_TypeDef* DSIx, uint16_t DSI_FLAG); // 清除指定的 DSI标志。
+ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT); // 检查指定的 DSIx中断是否已发生。
 void DSI_ClearITPendingBit(DSI_TypeDef* DSIx, uint32_t DSI_IT); // 清除DSIx中断挂起位。
 void DSI_ConfigErrorMonitor(DSI_TypeDef *DSIx, uint32_t ActiveErrors); // 启用错误监视器标志
 

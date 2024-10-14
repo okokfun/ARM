@@ -136,17 +136,17 @@ static ITStatus CheckITStatus(uint32_t CAN_Reg, uint32_t It_Bit);
               ##### 初始化和配置函数 #####
  ===============================================================================
     [..] 本节提供的功能允许
-      (+) 初始化CAN外设设备:预分频器、操作模式、执行重新同步的最大时间量、
+      (+) 初始化 CAN 外设设备:预分频器、操作模式、执行重新同步的最大时间量、
             位段1和2中的时间量以及许多其他模式。
-          有关更多详细信息，请参阅@ref CAN_InitTypeDef。
+          有关更多详细信息，请参阅 @ref CAN_InitTypeDef。
 
-      (+) 配置CAN接收滤波器。
+      (+) 配置 CAN 接收滤波器。
 
-      (+) 为从属CAN选择启动组过滤器。
+      (+) 为从属 CAN 选择启动组过滤器。
 
-      (+) 启用或禁用CAN的调试冻结模式
+      (+) 启用或禁用 CAN 的调试冻结模式
 
-      (+) 启用或禁用CAN时间触发器操作通信模式
+      (+) 启用或禁用 CAN 时间触发器操作通信模式
 
 @endverbatim
   */
@@ -154,7 +154,7 @@ static ITStatus CheckITStatus(uint32_t CAN_Reg, uint32_t It_Bit);
 /**
   * 简介:  用于将 CAN 配置设置为默认复位状态的函数
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
@@ -165,32 +165,32 @@ void CAN_DeInit(CAN_TypeDef* CANx) {
     assert_param(IS_CAN_ALL_PERIPH(CANx));
 
     if (CANx == CAN1) {
-        /* 启用CAN1重置状态 */
+        /* 启用 CAN1重置状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_CAN1, ENABLE);
-        /* 从复位状态释放CAN1 */
+        /* 从复位状态释放 CAN1 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_CAN1, DISABLE);
     }
 
     #if defined(STM32F413_423xx)
     else if(CANx == CAN2) {
-        /* 启用CAN2重置状态 */
+        /* 启用 CAN2 重置状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_CAN2, ENABLE);
-        /* 从复位状态释放CAN2 */
+        /* 从复位状态释放 CAN2 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_CAN2, DISABLE);
     }
 
     else { /* CAN3仅适用于 STM32F413_423xx */
-        /* 启用CAN3重置状态 */
+        /* 启用 CAN3重置状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_CAN3, ENABLE);
-        /* 从复位状态释放CAN3 */
+        /* 从复位状态释放 CAN3 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_CAN3, DISABLE);
     }
 
     #else
     else {
-        /* 启用CAN2重置状态 */
+        /* 启用 CAN2 重置状态 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_CAN2, ENABLE);
-        /* 从复位状态释放CAN2 */
+        /* 从复位状态释放 CAN2 */
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_CAN2, DISABLE);
     }
 
@@ -200,13 +200,13 @@ void CAN_DeInit(CAN_TypeDef* CANx) {
 /**
   * 简介:  根据 CAN_InitStruct 中指定的参数初始化外设 CAN 的寄存器
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
-  * 参数:  CAN_InitStruct: 指向包含CAN外设设备配置信息的CAN_InitTypeDef结构的指针。
+  * 参数:  CAN_InitStruct: 指向包含 CAN 外设设备配置信息的 CAN_InitTypeDef 结构的指针。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
-  * 返回值: 常量表示初始化成功，即CAN_InitStatus_Failed或CAN_InitStatus_Success。
+  * 返回值: 常量表示初始化成功，即 CAN_InitStatus_Failed 或 CAN_InitStatus_Success。
   */
 uint8_t CAN_Init(CAN_TypeDef* CANx, CAN_InitTypeDef* CAN_InitStruct) {
     uint8_t InitStatus = CAN_InitStatus_Failed;
@@ -268,7 +268,7 @@ uint8_t CAN_Init(CAN_TypeDef* CANx, CAN_InitTypeDef* CAN_InitStruct) {
             CANx->MCR &= ~(uint32_t)CAN_MCR_NART;
         }
 
-        /* 设置 接收FIFO锁定模式 */
+        /* 设置 接收 FIFO锁定模式 */
         if (CAN_InitStruct->CAN_RFLM == ENABLE) {
             CANx->MCR |= CAN_MCR_RFLM;
         } else {
@@ -313,11 +313,11 @@ uint8_t CAN_Init(CAN_TypeDef* CANx, CAN_InitTypeDef* CAN_InitStruct) {
 
 #if defined(STM32F413_423xx)
 /**
-  * 简介:  根据CAN_FilterInitStruct中的指定参数配置CAN接收滤波器。
+  * 简介:  根据 CAN_FilterInitStruct 中的指定参数配置 CAN 接收滤波器。
   * 
-  * 参数:  CANx: 其中x可以是1或3，以选择 CAN 外设设备。
+  * 参数:  CANx: 其中 x 可以是1或3，以选择 CAN 外设设备。
   * 
-  * 参数:  CAN_FilterInitStruct: 指向包含配置信息的CAN_FilterInitTypeDef结构的指针。
+  * 参数:  CAN_FilterInitStruct: 指向包含配置信息的 CAN_FilterInitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -371,21 +371,21 @@ void CAN_FilterInit(CAN_TypeDef* CANx, CAN_FilterInitTypeDef* CAN_FilterInitStru
 
     /* 过滤器模式 */
     if (CAN_FilterInitStruct->CAN_FilterMode == CAN_FilterMode_IdMask) {
-        /* 过滤器的Id/Mask模式 */
+        /* 过滤器的 Id/Mask模式 */
         CANx->FM1R &= ~(uint32_t)filter_number_bit_pos;
     } else { /* CAN_FilterInitStruct->CAN_FilterMode == CAN_FilterMode_IdList */
         /*筛选器的标识符列表模式*/
         CANx->FM1R |= (uint32_t)filter_number_bit_pos;
     }
 
-    /* 过滤器FIFO分配 */
+    /* 过滤器 FIFO 分配 */
     if (CAN_FilterInitStruct->CAN_FilterFIFOAssignment == CAN_Filter_FIFO0) {
-        /* 过滤器的FIFO 0分配 */
+        /* 过滤器的 FIFO 0分配 */
         CANx->FFA1R &= ~(uint32_t)filter_number_bit_pos;
     }
 
     if (CAN_FilterInitStruct->CAN_FilterFIFOAssignment == CAN_Filter_FIFO1) {
-        /* 过滤器的FIFO 1分配 */
+        /* 过滤器的 FIFO 1分配 */
         CANx->FFA1R |= (uint32_t)filter_number_bit_pos;
     }
 
@@ -399,9 +399,9 @@ void CAN_FilterInit(CAN_TypeDef* CANx, CAN_FilterInitTypeDef* CAN_FilterInitStru
 }
 #else
 /**
-  * 简介:  根据CAN_FilterInitStruct中的指定参数配置CAN接收滤波器。
+  * 简介:  根据 CAN_FilterInitStruct 中的指定参数配置 CAN 接收滤波器。
   * 
-  * 参数:  CAN_FilterInitStruct: 指向包含配置信息的CAN_FilterInitTypeDef结构的指针。
+  * 参数:  CAN_FilterInitStruct: 指向包含配置信息的 CAN_FilterInitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -455,21 +455,21 @@ void CAN_FilterInit(CAN_FilterInitTypeDef* CAN_FilterInitStruct) {
 
     /* 过滤器模式 */
     if (CAN_FilterInitStruct->CAN_FilterMode == CAN_FilterMode_IdMask) {
-        /*过滤器的Id/Mask模式*/
+        /*过滤器的 Id/Mask模式*/
         CAN1->FM1R &= ~(uint32_t)filter_number_bit_pos;
     } else { /* CAN_FilterInitStruct->CAN_FilterMode == CAN_FilterMode_IdList */
         /*筛选器的标识符列表模式*/
         CAN1->FM1R |= (uint32_t)filter_number_bit_pos;
     }
 
-    /* 过滤器FIFO分配 */
+    /* 过滤器 FIFO 分配 */
     if (CAN_FilterInitStruct->CAN_FilterFIFOAssignment == CAN_Filter_FIFO0) {
-        /* 过滤器的FIFO 0分配 */
+        /* 过滤器的 FIFO 0分配 */
         CAN1->FFA1R &= ~(uint32_t)filter_number_bit_pos;
     }
 
     if (CAN_FilterInitStruct->CAN_FilterFIFOAssignment == CAN_Filter_FIFO1) {
-        /* 过滤器的FIFO 1分配 */
+        /* 过滤器的 FIFO 1分配 */
         CAN1->FFA1R |= (uint32_t)filter_number_bit_pos;
     }
 
@@ -486,12 +486,12 @@ void CAN_FilterInit(CAN_FilterInitTypeDef* CAN_FilterInitStruct) {
 /**
   * 简介:  把 CAN_InitStruct 中的每一个参数按缺省值填入
   * 
-  * 参数:  CAN_InitStruct: 指向将被初始化的CAN_InitTypeDef结构的指针。
+  * 参数:  CAN_InitStruct: 指向将被初始化的 CAN_InitTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
 void CAN_StructInit(CAN_InitTypeDef* CAN_InitStruct) {
-    /* 重置CAN初始化结构参数值 */
+    /* 重置 CAN初始化结构参数值 */
 
     /* 初始化 时间触发通信模式 */
     CAN_InitStruct->CAN_TTCM = DISABLE;
@@ -505,7 +505,7 @@ void CAN_StructInit(CAN_InitTypeDef* CAN_InitStruct) {
     /* 初始化 无自动重发 */
     CAN_InitStruct->CAN_NART = DISABLE;
 
-    /* 初始化 接收FIFO锁定模式*/
+    /* 初始化 接收 FIFO锁定模式*/
     CAN_InitStruct->CAN_RFLM = DISABLE;
 
     /* 初始化 传输FIFO优先级 */
@@ -531,7 +531,7 @@ void CAN_StructInit(CAN_InitTypeDef* CAN_InitStruct) {
 /**
   * 简介:  把 CAN_InitStruct 中的每一个参数按缺省值填入
   * 
-  * 参数:  CANx: 其中x可以是1或3，以选择 CAN 外设设备。
+  * 参数:  CANx: 其中 x 可以是1或3，以选择 CAN 外设设备。
   * 
   * 参数:  CAN_BankNumber: 从1..27中选择启动从组过滤器。
   * 
@@ -577,11 +577,11 @@ void CAN_SlaveStartBank(uint8_t CAN_BankNumber) {
 /**
   * 简介:  启用或禁用 CAN 的 DBG 冻结。
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
-  * 参数:  NewState: CAN外设设备的新状态。
-  *          此参数可以是: ENABLE(调试期间CAN接收/传输被冻结。仍可以正常访问/控制接收FIFO)
-  *                       或DISABLE(CAN在调试期间工作)。
+  * 参数:  NewState: CAN 外设设备的新状态。
+  *          此参数可以是: ENABLE(调试期间CAN 接收/传输被冻结。仍可以正常访问/控制接收 FIFO)
+  *                       或 DISABLE(CAN在调试期间工作)。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
@@ -605,12 +605,12 @@ void CAN_DBGFreeze(CAN_TypeDef* CANx, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 CAN Time TriggerOperation 通信模式。
   * 
-  * 注意:   DLC必须编程为8，以便通过CAN总线发送时间戳(2字节)。
+  * 注意:   DLC必须编程为8，以便通过 CAN总线发送时间戳(2字节)。
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
-  * 参数:  NewState: 模式新状态。 此参数可以是: ENABLE或DISABLE。
-  *         启用时，在8字节消息的最后两个数据字节中发送时间戳(Time[15:0])值:数据字节6中的Time[7:0]，数据字节7中的Time[15:8]。
+  * 参数:  NewState: 模式新状态。 此参数可以是: ENABLE 或 DISABLE。
+  *         启用时，在8字节消息的最后两个数据字节中发送时间戳(Time[15:0])值:数据字节6中的 Time[7:0]，数据字节7中的 Time[15:8]。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
@@ -659,9 +659,9 @@ void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState) {
 /**
   * 简介:  开始一个消息的传输
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
-  * 参数:  TxMessage: 指向包含CAN Id、CAN DLC 和CAN数据的结构的指针。
+  * 参数:  TxMessage: 指向包含 CAN Id、CAN DLC 和 CAN数据的结构的指针。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
@@ -725,7 +725,7 @@ uint8_t CAN_Transmit(CAN_TypeDef* CANx, CanTxMsg* TxMessage) {
 /**
   * 简介:  检查消息传输的状态
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
   * 参数:  TransmitMailbox: 用于传输的邮箱的编号。
   * 
@@ -802,7 +802,7 @@ uint8_t CAN_TransmitStatus(CAN_TypeDef* CANx, uint8_t TransmitMailbox) {
 /**
   * 简介:  取消一个传输请求
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
   * 参数:  Mailbox: 邮箱编号
   * 
@@ -843,11 +843,11 @@ void CAN_CancelTransmit(CAN_TypeDef* CANx, uint8_t Mailbox) {
                 ##### CAN帧接收功能 #####
  ===============================================================================
     [..] 本节提供的功能允许
-        (+) 接收正确的CAN帧
+        (+) 接收正确的 CAN帧
 
-        (+) 释放指定的接收FIFO(2个FIFO可用)
+        (+) 释放指定的接收 FIFO(2个FIFO可用)
 
-        (+) 返回等待接收的CAN帧的数量
+        (+) 返回等待接收的 CAN帧的数量
 
 @endverbatim
   */
@@ -855,11 +855,11 @@ void CAN_CancelTransmit(CAN_TypeDef* CANx, uint8_t Mailbox) {
 /**
   * 简介:  接收一个消息
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
-  * 参数:  FIFONumber: 接收FIFO编号、CAN_FIFO0或CAN_FFIFO1。
+  * 参数:  FIFONumber: 接收 FIFO编号、CAN_FIFO0或 CAN_FFIFO1。
   * 
-  * 参数:  RxMessage: 指向包含CAN Id、CAN DLC、CAN数据和FMI编号的结构接收帧的指针。
+  * 参数:  RxMessage: 指向包含 CAN Id、CAN DLC、CAN数据和 FMI编号的结构接收帧的指针。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
@@ -881,7 +881,7 @@ void CAN_Receive(CAN_TypeDef* CANx, uint8_t FIFONumber, CanRxMsg* RxMessage) {
     RxMessage->RTR = (uint8_t)0x02 & CANx->sFIFOMailBox[FIFONumber].RIR;
     /* 获取DLC */
     RxMessage->DLC = (uint8_t)0x0F & CANx->sFIFOMailBox[FIFONumber].RDTR;
-    /* 获取FMI */
+    /* 获取 FMI */
     RxMessage->FMI = (uint8_t)0xFF & (CANx->sFIFOMailBox[FIFONumber].RDTR >> 8);
     /* 获取数据字段 */
     RxMessage->Data[0] = (uint8_t)0xFF & CANx->sFIFOMailBox[FIFONumber].RDLR;
@@ -907,9 +907,9 @@ void CAN_Receive(CAN_TypeDef* CANx, uint8_t FIFONumber, CanRxMsg* RxMessage) {
 /**
   * 简介:  释放一个 FIFO
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
-  * 参数:  FIFONumber: 要释放的FIFO，CAN_FIFO0或CAN_FFIFO1。
+  * 参数:  FIFONumber: 要释放的 FIFO，CAN_FIFO0或 CAN_FFIFO1。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
@@ -933,9 +933,9 @@ void CAN_FIFORelease(CAN_TypeDef* CANx, uint8_t FIFONumber) {
 /**
   * 简介:  返回挂号的信息数量
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
-  * 参数:  FIFONumber: 接收FIFO编号、CAN_FIFO0或CAN_FFIFO1。
+  * 参数:  FIFONumber: 接收 FIFO编号、CAN_FIFO0或 CAN_FFIFO1。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
@@ -1049,7 +1049,7 @@ uint8_t CAN_OperatingModeRequest(CAN_TypeDef* CANx, uint8_t CAN_OperatingMode) {
 /**
   * 简介:  CAN 进入低功耗模式
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: 如果进入睡眠，CAN_Sleep_Ok，否则CAN_Sleep_Failed。
@@ -1074,9 +1074,9 @@ uint8_t CAN_Sleep(CAN_TypeDef* CANx) {
 }
 
 /**
-  * 简介:  从休眠模式唤醒CAN外设设备。
+  * 简介:  从休眠模式唤醒CAN 外设设备。
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
@@ -1119,11 +1119,11 @@ uint8_t CAN_WakeUp(CAN_TypeDef* CANx) {
 
         (+) 返回CANx接收错误计数器(REC)
 
-        (+) 返回9位CANx传输错误计数器(TEC)的LSB。
+        (+) 返回9位CANx传输错误计数器(TEC)的 LSB。
 
     -@- 如果TEC大于255，则CAN处于总线关闭状态。
-    -@- 如果REC或TEC大于96，则会出现错误警告标志。
-    -@- 如果REC或TEC大于127，则会出现错误被动标志。
+    -@- 如果REC或 TEC大于96，则会出现错误警告标志。
+    -@- 如果REC或 TEC大于127，则会出现错误被动标志。
 
 @endverbatim
   */
@@ -1131,7 +1131,7 @@ uint8_t CAN_WakeUp(CAN_TypeDef* CANx) {
 /**
   * 简介:  返回 CANx 的最后一个错误代码 (LEC)。
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
   * 返回值: 错误代码:
   *          - CAN_ERRORCODE_NoErr:无错误
@@ -1159,15 +1159,15 @@ uint8_t CAN_GetLastErrorCode(CAN_TypeDef* CANx) {
 /**
   * 简介:  返回 CANx 接收错误计数器 (REC)。
   * 
-  * 注意:   如果在接收过程中出现错误，此计数器将根据CAN标准定义的错误条件增加1或8。
+  * 注意:   如果在接收过程中出现错误，此计数器将根据 CAN标准定义的错误条件增加1或8。
   *             每次成功接收后，计数器将递减1，如果其值高于128，则重置为120。
   *         当计数器值超过127时，CAN控制器进入错误被动状态。
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
-  * 返回值: CAN接收错误计数器。
+  * 返回值: CAN 接收错误计数器。
   */
 uint8_t CAN_GetReceiveErrorCounter(CAN_TypeDef* CANx) {
     uint8_t counter = 0;
@@ -1186,11 +1186,11 @@ uint8_t CAN_GetReceiveErrorCounter(CAN_TypeDef* CANx) {
 /**
   * 简介:  返回 9 位 CANx 发送错误计数器 (TEC) 的 LSB。
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
-  * 返回值: 9位CAN传输错误计数器的LSB。
+  * 返回值: 9位CAN传输错误计数器的 LSB。
   */
 uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
     uint8_t counter = 0;
@@ -1198,10 +1198,10 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
     /* 检查参数 */
     assert_param(IS_CAN_ALL_PERIPH(CANx));
 
-    /* 获取9位CANx传输错误计数器(TEC)的LSB*/
+    /* 获取9位CANx传输错误计数器(TEC)的 LSB*/
     counter = (uint8_t)((CANx->ESR & CAN_ESR_TEC) >> 16);
 
-    /* 返回9位CANx传输错误计数器(TEC)的LSB */
+    /* 返回9位CANx传输错误计数器(TEC)的 LSB */
     return counter;
 }
 
@@ -1213,7 +1213,7 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
               ##### 中断和标记管理函数 #####
  ===============================================================================
 
-     [..] 本节提供的功能允许 配置CAN中断并获取状态、清除标志和中断挂起位。
+     [..] 本节提供的功能允许 配置 CAN 中断并获取状态、清除标志和中断挂起位。
 
           CAN提供14个中断源和15个标志:
 
@@ -1231,21 +1231,21 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
 
 
         (++) CAN_FLAG_FMP0,
-        (++) CAN_FLAG_FMP1   : FIFO 0和1消息挂起标志设置为表示消息在接收FIFO中挂起。
+        (++) CAN_FLAG_FMP1   : FIFO 0 和1消息挂起标志设置为表示消息在接收 FIFO 中挂起。
                                这些标志仅由硬件清除。
 
         (++) CAN_FLAG_FF0,
-        (++) CAN_FLAG_FF1    : FIFO 0和1满标志
-                               当三条消息存储在选定的FIFO中时设置。
+        (++) CAN_FLAG_FF1    : FIFO 0 和1满标志
+                               当三条消息存储在选定的 FIFO 中时设置。
 
         (++) CAN_FLAG_FOV0
-        (++) CAN_FLAG_FOV1   : FIFO 0和1溢出标志
+        (++) CAN_FLAG_FOV1   : FIFO 0 和1溢出标志
                                当接收到新消息并在FIFO已满时通过过滤器时设置。
 
       (+) 操作模式标志
 
         (++) CAN_FLAG_WKU    : 唤醒标志
-                               设置为在CAN硬件处于休眠模式时检测到SOF位的信号。
+                               设置为在CAN硬件处于休眠模式时检测到 SOF位的信号。
 
         (++) CAN_FLAG_SLAK   : 睡眠确认标志
                                设置为发出CAN已进入休眠模式的信号。
@@ -1278,22 +1278,22 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
       (+) 接收中断
 
         (++) CAN_IT_FMP0,
-        (++) CAN_IT_FMP1    :  FIFO 0和FIFO1消息挂起中断
-                                    如果启用，当消息在接收FIFO中挂起时，这些中断源将挂起。
+        (++) CAN_IT_FMP1    :  FIFO 0 和 FIFO1消息挂起中断
+                                    如果启用，当消息在接收 FIFO 中挂起时，这些中断源将挂起。
                                     相应的中断挂起位仅由硬件清除。
 
         (++) CAN_IT_FF0,
-        (++) CAN_IT_FF1     :  如果启用FIFO 0和FIFO1完全中断，
-                                    则当三条消息存储在选定的FIFO中时，这些中断源处于挂起状态。
+        (++) CAN_IT_FF1     :  如果启用FIFO 0 和 FIFO1 完全中断，
+                                    则当三条消息存储在选定的 FIFO 中时，这些中断源处于挂起状态。
 
         (++) CAN_IT_FOV0,
-        (++) CAN_IT_FOV1    :  FIFO 0和FIFO1溢出中断(如果启用)，
+        (++) CAN_IT_FOV1    :  FIFO 0 和 FIFO1溢出中断(如果启用)，
                                     当FIFO已满时接收到新消息并通过过滤器时，这些中断源处于待定状态。
 
       (+) 操作模式中断
 
         (++) CAN_IT_WKU     :  唤醒中断
-                                    如果启用，则当CAN硬件处于休眠模式时检测到SOF位时，此中断源处于挂起状态。
+                                    如果启用，则当CAN硬件处于休眠模式时检测到 SOF位时，此中断源处于挂起状态。
 
         (++) CAN_IT_SLK     :  睡眠确认中断
                                     如果启用，当CAN进入休眠模式时，此中断源处于待定状态。
@@ -1307,7 +1307,7 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
                                如果启用，当达到错误被动限制(接收错误计数器或发送错误计数器>127)时，这个中断源被挂起。
 
         (++) CAN_IT_BOF : 总线关闭中断
-                               如果启用，当CAN进入总线关闭状态时，这个中断源被挂起。总线关闭状态是在TEC溢出时进入的，大于255。
+                               如果启用，当CAN进入总线关闭状态时，这个中断源被挂起。总线关闭状态是在 TEC溢出时进入的，大于255。
                                这个标志只能由硬件来清除。
 
         (++) CAN_IT_LEC : 最后的错误代码中断
@@ -1330,18 +1330,18 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
         (++) CAN_ITConfig() : 启用或禁用中断源。
         (++) CAN_GetITStatus() : 检查是否发生中断。
         (++) CAN_ClearITPendingBit() : 清除中断挂起的位 (相应的标志)。
-        -@@- 这个函数对CAN_IT_FMP0和CAN_IT_FMP1中断等待位没有影响，因为它们只被硬件清除。
+        -@@- 这个函数对CAN_IT_FMP0 和 CAN_IT_FMP1 中断等待位没有影响，因为它们只被硬件清除。
 
 通过www.DeepL.com/Translator(免费版)翻译
 
 @endverbatim
   */
 /**
-  * 简介: 启用或停用指定的CANx中断。
+  * 简介: 启用或停用指定的 CANx中断。
   * 
-  * 参数: CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数: CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
-  * 参数:  CAN_IT: 指定要启用或禁用的CAN中断源。
+  * 参数:  CAN_IT: 指定要启用或禁用的 CAN 中断源。
   *        这个参数可以是:
   *             @参数CAN_IT_TME:发送邮箱空中断。
   *             @arg CAN_IT_FMP0: FIFO 0消息等待中断。
@@ -1358,10 +1358,10 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
   *             @arg CAN_IT_LEC: 最后的错误代码中断
   *             @arg CAN_IT_ERR: 错误中断
   * 
-  * 参数:  NewState:CAN中断的新状态。
+  * 参数:  NewState:CAN 中断的新状态。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -1372,17 +1372,17 @@ void CAN_ITConfig(CAN_TypeDef* CANx, uint32_t CAN_IT, FunctionalState NewState) 
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用选定的CANx中断 */
+        /* 启用选定的 CANx中断 */
         CANx->IER |= CAN_IT;
     } else {
-        /* 禁用选定的CANx中断 */
+        /* 禁用选定的 CANx中断 */
         CANx->IER &= ~CAN_IT;
     }
 }
 /**
   * 简介:  检查指定的 CAN 标志位被设置与否
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
   * 参数:  CAN_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
@@ -1403,7 +1403,7 @@ void CAN_ITConfig(CAN_TypeDef* CANx, uint32_t CAN_IT, FunctionalState NewState) 
   *            @arg CAN_FLAG_LEC:最后的错误代码标志
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
-  * 返回值: CAN_FLAG的新状态(SET或RESET)。
+  * 返回值: CAN_FLAG 的新状态(SET 或 RESET)。
   */
 FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
     FlagStatus bitstatus = RESET;
@@ -1414,7 +1414,7 @@ FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
 
 
     if((CAN_FLAG & CAN_FLAGS_ESR) != (uint32_t)RESET) {
-        /* 检查指定的CAN标志的状态 */
+        /* 检查指定的 CAN标志的状态 */
         if ((CANx->ESR & (CAN_FLAG & 0x000FFFFF)) != (uint32_t)RESET) {
             /* CAN_FLAG被设置 */
             bitstatus = SET;
@@ -1423,7 +1423,7 @@ FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
             bitstatus = RESET;
         }
     } else if((CAN_FLAG & CAN_FLAGS_MSR) != (uint32_t)RESET) {
-        /* 检查指定的CAN标志的状态 */
+        /* 检查指定的 CAN标志的状态 */
         if ((CANx->MSR & (CAN_FLAG & 0x000FFFFF)) != (uint32_t)RESET) {
             /* CAN_FLAG被设置 */
             bitstatus = SET;
@@ -1432,7 +1432,7 @@ FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
             bitstatus = RESET;
         }
     } else if((CAN_FLAG & CAN_FLAGS_TSR) != (uint32_t)RESET) {
-        /* 检查指定的CAN标志的状态 */
+        /* 检查指定的 CAN标志的状态 */
         if ((CANx->TSR & (CAN_FLAG & 0x000FFFFF)) != (uint32_t)RESET) {
             /* CAN_FLAG被设置 */
             bitstatus = SET;
@@ -1441,7 +1441,7 @@ FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
             bitstatus = RESET;
         }
     } else if((CAN_FLAG & CAN_FLAGS_RF0R) != (uint32_t)RESET) {
-        /* 检查指定的CAN标志的状态 */
+        /* 检查指定的 CAN标志的状态 */
         if ((CANx->RF0R & (CAN_FLAG & 0x000FFFFF)) != (uint32_t)RESET) {
             /* CAN_FLAG被设置 */
             bitstatus = SET;
@@ -1450,7 +1450,7 @@ FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
             bitstatus = RESET;
         }
     } else { /* If(CAN_FLAG & CAN_FLAGS_RF1R != (uint32_t)RESET) */
-        /* 检查指定的CAN标志的状态 */
+        /* 检查指定的 CAN标志的状态 */
         if ((uint32_t)(CANx->RF1R & (CAN_FLAG & 0x000FFFFF)) != (uint32_t)RESET) {
             /* CAN_FLAG被设置 */
             bitstatus = SET;
@@ -1467,7 +1467,7 @@ FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
 /**
   * 简介:  清除 CAN 的待处理标志位
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
   * 参数:  CAN_FLAG: 指定要清除的标志。
   *          此参数可以是以下值之一:
@@ -1492,9 +1492,9 @@ void CAN_ClearFlag(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
     assert_param(IS_CAN_CLEAR_FLAG(CAN_FLAG));
 
     if (CAN_FLAG == CAN_FLAG_LEC) { /* ESR 寄存器 */
-        /* 清除选定的CAN标志 */
+        /* 清除选定的 CAN标志 */
         CANx->ESR = (uint32_t)RESET;
-    } else { /* MSR或TSR或RF0R或RF1R */
+    } else { /* MSR或 TSR或 RF0R或 RF1R */
         flagtmp = CAN_FLAG & 0x000FFFFF;
 
         if ((CAN_FLAG & CAN_FLAGS_RF0R) != (uint32_t)RESET) {
@@ -1516,9 +1516,9 @@ void CAN_ClearFlag(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
 /**
   * 简介:  检查指定的 CAN 中断发生与否
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
-  * 参数:  CAN_IT: 指定要检查的CAN中断源。
+  * 参数:  CAN_IT: 指定要检查的 CAN 中断源。
   *          此参数可以是以下值之一:
   *            @arg CAN_IT_TME: 发送邮箱空中断。
   *            @arg CAN_IT_FMP0: FIFO 0消息等待中断。
@@ -1537,7 +1537,7 @@ void CAN_ClearFlag(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
-  * 返回值: CAN_IT的当前状态(SET或RESET)。
+  * 返回值: CAN_IT 的当前状态(SET 或 RESET)。
   */
 ITStatus CAN_GetITStatus(CAN_TypeDef* CANx, uint32_t CAN_IT) {
     ITStatus itstatus = RESET;
@@ -1620,12 +1620,12 @@ ITStatus CAN_GetITStatus(CAN_TypeDef* CANx, uint32_t CAN_IT) {
                 break;
 
             default:
-                /* 如果出现错误，返回RESET */
+                /* 如果出现错误，返回 RESET */
                 itstatus = RESET;
                 break;
         }
     } else {
-        /* 如果中断未被启用，则返回RESET */
+        /* 如果中断未被启用，则返回 RESET */
         itstatus  = RESET;
     }
 
@@ -1636,7 +1636,7 @@ ITStatus CAN_GetITStatus(CAN_TypeDef* CANx, uint32_t CAN_IT) {
 /**
   * 简介:  清除 CAN 的中断待处理标志位
   * 
-  * 参数:  CANx: 其中x可以是1、2或3，以选择can外设设备。
+  * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
   * 参数:  CAN_IT: 指定要清除的中断等待位。
   *          此参数可以是以下值之一:
@@ -1727,7 +1727,7 @@ void CAN_ClearITPendingBit(CAN_TypeDef* CANx, uint32_t CAN_IT) {
             CANx->ESR = RESET;
             /* 清除 CAN_MSR_ERRI (rc_w1) */
             CANx->MSR = CAN_MSR_ERRI;
-            /* 注:BOFF、EPVF和EWGF标志由硬件根据CAN总线状态进行清除。*/
+            /* 注:BOFF、EPVF和EWGF标志由硬件根据 CAN总线状态进行清除。*/
             break;
 
         default:
@@ -1737,13 +1737,13 @@ void CAN_ClearITPendingBit(CAN_TypeDef* CANx, uint32_t CAN_IT) {
 
 
 /**
-  * 简介:  检查CAN中断是否已经发生。
+  * 简介:  检查CAN 中断是否已经发生。
   * 
-  * 参数:  CAN_Reg: 指定要检查的CAN中断寄存器。
+  * 参数:  CAN_Reg: 指定要检查的 CAN 中断寄存器。
   * 
   * 参数:  It_Bit: 指定要检查的中断源位。
   * 
-  * 返回值: CAN中断的新状态(SET或RESET)。
+  * 返回值: CAN 中断的新状态(SET 或 RESET)。
   */
 static ITStatus CheckITStatus(uint32_t CAN_Reg, uint32_t It_Bit) {
     ITStatus pendingbitstatus = RESET;

@@ -23,19 +23,19 @@
           (++) 在LTDC_GCR 寄存器中配置同步信号和时钟极性
 
         (#) 配置Layer1/2参数
-          (++) 在LTDC_LxWHPCR和LTDC_WVPCR 寄存器中配置层窗口的水平和垂直位置。层窗口必须在活动数据区。
+          (++) 在LTDC_LxWHPCR和 LTDC_WVPCR 寄存器中配置层窗口的水平和垂直位置。层窗口必须在活动数据区。
           (++) LTDC_LxPFCR 寄存器中的像素输入格式
           (++) LTDC_LxCFBAR 寄存器中的彩色帧缓冲器起始地址
           (++) LTDC_LxCFBAR 寄存器中的彩色帧缓冲区的行长和间距。LTDC_LxCFBLR 寄存器中的彩色帧缓冲区的行长和间距
           (++) LTDC_LxCFBLR 寄存器中彩色帧缓冲器的行数。LTDC_LxCFBLNR 寄存器中彩色帧缓冲区的行数
           (++) 如果需要的话，用 RGB值和地址加载CLUT 在LTDC_LxCLUTWR 寄存器中。
           (++) 如果需要，在LTDC_LxCLUTWR 寄存器中分别配置默认颜色和混合系数。
-               分别在LTDC_LxDCCR和LTDC_LxBFCR 寄存器中配置默认颜色和混合系数
+               分别在LTDC_LxDCCR和 LTDC_LxBFCR 寄存器中配置默认颜色和混合系数
 
-          (++) 如果需要，可以分别在LTDC_GCR和LTDC_LxBFCR 寄存器中启用抖动和抠色功能。
-               在LTDC_GCR和LTDC_LxCKCR 寄存器中分别启用抖动和抠色。它也可以被启用 也可以在运行中启用。
+          (++) 如果需要，可以分别在LTDC_GCR和 LTDC_LxBFCR 寄存器中启用抖动和抠色功能。
+               在LTDC_GCR和 LTDC_LxCKCR 寄存器中分别启用抖动和抠色。它也可以被启用 也可以在运行中启用。
 
-        (#) 在LTDC_LxCR 寄存器中启用Layer1/2，必要时启用CLUT
+        (#) 在LTDC_LxCR 寄存器中启用Layer1/2，必要时启用 CLUT
 
         (#) 通过LTDC_SRCR 寄存器将影子寄存器重新加载到活动寄存器。(#) 通过LTDC_SRCR 寄存器将影子寄存器重新载入活动寄存器。
           -@- 除了CLUT之外，所有的层参数都可以被即时修改。
@@ -102,7 +102,7 @@
         (+) 用新参数重新加载层寄存器
         (+) 初始化并配置第1层和第2层
         (+) 设置和配置颜色键控功能
-        (+) 配置并启用或禁用CLUT
+        (+) 配置并启用或禁用 CLUT
 
 @endverbatim
   */
@@ -120,7 +120,7 @@ void LTDC_DeInit(void) {
 }
 
 /**
-  * 简介:  根据LTDC_InitStruct中指定的参数初始化LTDC外设。
+  * 简介:  根据 LTDC_InitStruct 中指定的参数初始化LTDC 外设。
   * 注意:   这个功能只有在禁用LTDC 的情况下才能使用。
   * 参数:  LTDC_InitStruct: 指向 LTDC_InitTypeDef 结构的指针，
   *                         该结构包含指定 LTDC 外设的配置信息。
@@ -210,7 +210,7 @@ void LTDC_StructInit(LTDC_InitTypeDef* LTDC_InitStruct) {
 /**
   * 简介:  启用或禁用 LTDC 控制器。
   * 参数:  NewState: 新状态-> LTDC 外设.
-  *   此参数可以是: ENABLE或DISABLE。
+  *   此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void LTDC_Cmd(FunctionalState NewState) {
@@ -229,7 +229,7 @@ void LTDC_Cmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用抖动。
   * 参数:  NewState: 新状态-> Dither.
-  *   此参数可以是: ENABLE或DISABLE。
+  *   此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void LTDC_DitherCmd(FunctionalState NewState) {
@@ -247,7 +247,7 @@ void LTDC_DitherCmd(FunctionalState NewState) {
 
 /**
   * 简介:  获取抖动 RGB 宽度。
-  * 参数:  LTDC_RGB_InitStruct: 指向LTDC_RGBTypeDef结构的指针，该结构含有 Dither RGB宽度。
+  * 参数:  LTDC_RGB_InitStruct: 指向LTDC_RGBTypeDef 结构的指针，该结构含有 Dither RGB宽度。
   * 返回值: 无
   */
 
@@ -264,8 +264,8 @@ LTDC_RGBTypeDef LTDC_GetRGBWidth(void) {
 }
 
 /**
-  * 简介:  用每个LTDC_RGBStruct成员的默认值填充该成员。
-  * 参数:  LTDC_RGB_InitStruct: 指向LTDC_RGBTypeDef结构的指针，该结构将被初始化。
+  * 简介:  用每个LTDC_RGBStruct 成员的默认值填充该成员。
+  * 参数:  LTDC_RGB_InitStruct: 指向LTDC_RGBTypeDef 结构的指针，该结构将被初始化。
   * 返回值: 无
   */
 void LTDC_RGBStructInit(LTDC_RGBTypeDef* LTDC_RGB_InitStruct) {
@@ -306,7 +306,7 @@ void LTDC_ReloadConfig(uint32_t LTDC_Reload) {
 
 
 /**
-  * 简介:  根据LTDC_LayerStruct中指定的参数初始化 LTDC 层。
+  * 简介:  根据 LTDC_LayerStruct 中指定的参数初始化 LTDC 层。
   * 注意:  这个功能只有在禁用LTDC 的情况下才能使用。
   * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一: 
   *                     LTDC_Layer1, LTDC_Layer2。
@@ -432,7 +432,7 @@ void LTDC_LayerStructInit(LTDC_Layer_InitTypeDef * LTDC_Layer_InitStruct) {
   *         这个参数可以是以下值之一:
   *         LTDC_Layer1, LTDC_Layer2
   * 参数:  NewState: 新状态-> LTDC_Layer 外设.
-  *        此参数可以是: ENABLE或DISABLE。
+  *        此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void LTDC_LayerCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
@@ -440,7 +440,7 @@ void LTDC_LayerCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能通过设置LEN的LTCC_Layer位 */
+        /* 使能通过设置LEN 的 LTCC_Layer位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_LEN;
     } else {
         /* 通过清除LEN禁用LTCC_Layer位 */
@@ -451,7 +451,7 @@ void LTDC_LayerCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
 
 /**
   * 简介:  获取当前位置。
-  * 参数:  LTDC_Pos_InitStruct: 指向包含当前位置的LTDC_PosTypeDef结构的指针。
+  * 参数:  LTDC_Pos_InitStruct: 指向包含当前位置的 LTDC_PosTypeDef 结构的指针。
   * 返回值: 无
   */
 LTDC_PosTypeDef LTDC_GetPosStatus(void) {
@@ -466,8 +466,8 @@ LTDC_PosTypeDef LTDC_GetPosStatus(void) {
 }
 
 /**
-  * 简介:  用每个LTDC_Pos_InitStruct成员的默认值填充该成员。
-  * 参数:  LTDC_Pos_InitStruct: 指向LTDC_PosTypeDef结构的指针，该结构将被初始化。
+  * 简介:  用每个LTDC_Pos_InitStruct 成员的默认值填充该成员。
+  * 参数:  LTDC_Pos_InitStruct: 指向LTDC_PosTypeDef 结构的指针，该结构将被初始化。
   * 返回值: 无
   */
 void LTDC_PosStructInit(LTDC_PosTypeDef* LTDC_Pos_InitStruct) {
@@ -504,7 +504,7 @@ FlagStatus LTDC_GetCDStatus(uint32_t LTDC_CD) {
 
 /**
   * 简介:  设置和配置颜色键控。
-  * 参数:  LTDC_colorkeying_InitStruct: 指向LTDC_ColorKeying_InitTypeDef结构的指针，
+  * 参数:  LTDC_colorkeying_InitStruct: 指向LTDC_ColorKeying_InitTypeDef 结构的指针，
   *                                     该结构包含颜色键控配置。
   * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一: 
   *                     LTDC_Layer1, LTDC_Layer2
@@ -521,7 +521,7 @@ void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_In
     assert_param(IS_LTDC_CKEYING(LTDC_colorkeying_InitStruct->LTDC_ColorKeyRed));
 
     if (NewState != DISABLE) {
-        /* 使能通过设置COLKEN设置LTDC颜色键控位 */
+        /* 使能通过设置 COLKEN设置LTDC颜色键控位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_COLKEN;
 
         /* 设置颜色关键帧值 */
@@ -530,7 +530,7 @@ void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_In
         LTDC_Layerx->CKCR  &= ~(LTDC_LxCKCR_CKBLUE | LTDC_LxCKCR_CKGREEN | LTDC_LxCKCR_CKRED);
         LTDC_Layerx->CKCR |= (LTDC_colorkeying_InitStruct->LTDC_ColorKeyBlue | ckgreen | ckred);
     } else {
-        /* 通过清除COLKEN禁用LTCC颜色键控位 */
+        /* 通过清除 COLKEN禁用LTCC颜色键控位 */
         LTDC_Layerx->CR &= ~(uint32_t)LTDC_LxCR_COLKEN;
     }
 
@@ -539,8 +539,8 @@ void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_In
 }
 
 /**
-  * 简介:  用每个LTDC_colorkeying_InitStruct成员的默认值填充其默认值。
-  * 参数:  LTDC_colorkeying_InitStruct: 指向LTDC_ColorKeying_InitTypeDef结构
+  * 简介:  用每个LTDC_colorkeying_InitStruct 成员的默认值填充其默认值。
+  * 参数:  LTDC_colorkeying_InitStruct: 指向LTDC_ColorKeying_InitTypeDef 结构
   *                                     的指针，它将被初始化,被初始化。
   * 返回值: 无
   */
@@ -557,7 +557,7 @@ void LTDC_ColorKeyingStructInit(LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_I
   * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以下值之一:
   *        LTDC_Layer1, LTDC_Layer2
   * 参数:  NewState: 新状态-> 此参数可以是: 
-  *        ENABLE或DISABLE。
+  *        ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
@@ -568,7 +568,7 @@ void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
         /* 使能CLUT by setting CLUTEN 位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_CLUTEN;
     } else {
-        /* 通过清除CLUTEN禁用CLUT位 */
+        /* 通过清除 CLUTEN禁用 CLUT位 */
         LTDC_Layerx->CR &= ~(uint32_t)LTDC_LxCR_CLUTEN;
     }
 
@@ -578,8 +578,8 @@ void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
 
 /**
   * 简介:  配置 CLUT。
-  * 参数: LTDC_CLUT_InitStruct: 指向包含CLUT配置的
-  *                              LTDC_CLUT_InitTypeDef结构的指针。
+  * 参数: LTDC_CLUT_InitStruct: 指向包含 CLUT配置的
+  *                              LTDC_CLUT_InitTypeDef 结构的指针。
   * 参数:  LTDC_layerx: 选择要配置的层，这个参数可以是以
   *                     下值之一: LTDC_Layer1, LTDC_Layer2
   * 返回值: 无
@@ -595,7 +595,7 @@ void LTDC_CLUTInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_CLUT_InitTypeDef* LTDC_
     assert_param(IS_LTDC_CLUTWR(LTDC_CLUT_InitStruct->LTDC_GreenValue));
     assert_param(IS_LTDC_CLUTWR(LTDC_CLUT_InitStruct->LTDC_BlueValue));
 
-    /* 指定CLUT地址和RGB值 */
+    /* 指定CLUT 地址和 RGB值 */
     green = (LTDC_CLUT_InitStruct->LTDC_GreenValue << 8);
     red = (LTDC_CLUT_InitStruct->LTDC_RedValue << 16);
     clutadd = (LTDC_CLUT_InitStruct->LTDC_CLUTAdress << 24);
@@ -604,8 +604,8 @@ void LTDC_CLUTInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_CLUT_InitTypeDef* LTDC_
 }
 
 /**
-  * 简介:  用每个LTDC_CLUT_InitStruct成员的默认值填充该成员。
-  * 参数:  LTDC_CLUT_InitStruct: 指向LTDC_CLUT_InitTypeDef结构的指针，该结构将被初始化。
+  * 简介:  用每个LTDC_CLUT_InitStruct 成员的默认值填充该成员。
+  * 参数:  LTDC_CLUT_InitStruct: 指向LTDC_CLUT_InitTypeDef 结构的指针，该结构将被初始化。
   * 返回值: 无
   */
 void LTDC_CLUTStructInit(LTDC_CLUT_InitTypeDef* LTDC_CLUT_InitStruct) {
@@ -838,7 +838,7 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
   *         @arg LTDC_IT_TERR:  传输错误中断启用。
   *         @arg LTDC_IT_RR:    寄存器重新加载中断使能。
   * 参数: NewState 新状态->指定的 LTDC 中断。
-  *       此参数可以是: ENABLE或DISABLE。
+  *       此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void LTDC_ITConfig(uint32_t LTDC_IT, FunctionalState NewState) {
@@ -892,13 +892,13 @@ void LTDC_ClearFlag(uint32_t LTDC_FLAG) {
     /* 检查参数 */
     assert_param(IS_LTDC_FLAG(LTDC_FLAG));
 
-    /* 清除相应的LTDC标志 */
+    /* 清除相应的 LTDC 标志 */
     LTDC->ICR = (uint32_t)LTDC_FLAG;
 }
 
 /**
   * 简介:  检查指定的 LTDC 的中断是否发生。
-  * 参数:  LTDC_IT: 指定要检查的LTDC中断源。
+  * 参数:  LTDC_IT: 指定要检查的 LTDC中断源。
   *   此参数可以是以下值之一:
   *     @arg LTDC_IT_LI:    线路中断使能。
   *     @arg LTDC_IT_FU: FIFO Underrun 中断使能。

@@ -1442,7 +1442,7 @@ uint32_t TIMER_Channel_Capture_Value_Register_Read(uint32_t TIMER_periph, uint16
                 only one parameter can be selected which is shown as below:
       参数:        TIMER_CH_0: TIMER channel0
       参数:        TIMER_CH_1: TIMER channel1
-     参数[输入]:  icpwm:TIMER channel intput pwm parameter struct
+     参数[输入]:  icpwm: TIMER channel intput pwm parameter struct
                  icpolarity: TIMER_IC_Polarity_RISING,TIMER_IC_Polarity_FALLING
                  icselection: TIMER_IC_Selection_DIRECTTI,TIMER_IC_Selection_INDIRECTTI
                  icprescaler: TIMER_IC_PSC_DIV1,TIMER_IC_PSC_DIV2,TIMER_IC_PSC_DIV4,TIMER_IC_PSC_DIV8

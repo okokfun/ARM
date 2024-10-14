@@ -4,8 +4,8 @@
 
 typedef struct {
     uint8_t ClkDiv;				//SPI_SCLK是系统时钟的几分频，取值：SFC_CLKDIV_1、SFC_CLKDIV_2、SFC_CLKDIV_4、SFC_CLKDIV_8
-    uint8_t Cmd_Read;			//读取SPI Flash用的指令码
-    uint8_t Width_Read;			//读取SPI Flash时数据线位数，取值SFC_RDWIDTH_1、SFC_RDWIDTH_2、SFC_RDWIDTH_4
+    uint8_t Cmd_Read;			//读取 SPI Flash用的指令码
+    uint8_t Width_Read;			//读取 SPI Flash时数据线位数，取值SFC_RDWIDTH_1、SFC_RDWIDTH_2、SFC_RDWIDTH_4
     uint8_t Cmd_PageProgram;	//页编程SPI Flash用的指令码
     uint8_t Width_PageProgram;	//页编程SPI Flash时数据线位数，取值SFC_PPWIDTH_1、SFC_PPWIDTH_4
 } SFC_InitStructure;

@@ -7,7 +7,7 @@
   * 简介:    此文件提供固件功能，用于管理串行音频接口(SPDIFRX)的以下函数:
   *           + 初始化和函数
   *           + 数据传输函数
-  *           + DMA传输管理
+  *           + DMA 传输管理
   *           + 中断和标志管理
   ******************************************************************************
   * @attention
@@ -59,18 +59,18 @@
             ##### 初始化和配置函数 #####
  ===============================================================================
   [..]
-  本节提供了一组允许初始化SPDIFRX音频的函数
+  本节提供了一组允许初始化 SPDIFRX音频的函数
 
   块模式、音频协议、数据大小、音频块之间的同步、主时钟分频器、
-  FIFO阈值、帧配置、插槽配置、三态模式、压缩模式和静音模式。
+  FIFO 阈值、帧配置、插槽配置、三态模式、压缩模式和静音模式。
   [..]
-  SPDIFRX_Init()、SPDIFRX_FrameInit()和SPDIFRX块配置程序遵循主模式和从模式的SPDIFRX块配置程序(有关这些程序的详细信息，请参阅参考手册(RMxxxx))。
+  SPDIFRX_Init()、SPDIFRX_FrameInit()和 SPDIFRX块配置程序遵循主模式和从模式的 SPDIFRX块配置程序(有关这些程序的详细信息，请参阅参考手册(RMxxxx))。
 
 @endverbatim
   */
 
 /**
-  * 简介:  将SPDIFRXx外围寄存器取消初始化为其默认重置值。
+  * 简介:  将 SPDIFRXx 外围寄存器取消初始化为其默认重置值。
   * 参数:  void
   * 返回值: 无
   */
@@ -86,7 +86,7 @@ void SPDIFRX_DeInit(void) {
   *
   * 注意:   SPDIFRX时钟由PLLSPDIFRX的特定输出或PLLI2S的特定输出或绕过PLLI2S的替代函数生成。
   *
-  * 参数:  SPDIFRX_InitStruct: 指向SPDIFRX_InitTypeDef结构的指针，该结构包含指定SPDIFRX块外设设备的配置信息。
+  * 参数:  SPDIFRX_InitStruct: 指向 SPDIFRX_InitTypeDef 结构的指针，该结构包含指定 SPDIFRX块外设设备的配置信息。
   * 返回值: 无
   */
 void SPDIFRX_Init(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
@@ -101,7 +101,7 @@ void SPDIFRX_Init(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
     assert_param(IS_SPDIFRX_DATA_FORMAT(SPDIFRX_InitStruct->SPDIFRX_DataFormat));
 
     /* SPDIFRX CR 配置*/
-    /* 获取SPDIFRX CR 值 */
+    /* 获取 SPDIFRX CR 值 */
     tmpreg = SPDIFRX->CR;
     /* 清除 INSEL, WFA, NBTR, CHSEL, DRFMT and RXSTEO 位 */
     tmpreg &= CR_CLEAR_MASK;
@@ -146,8 +146,8 @@ void SPDIFRX_StructInit(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
 
 /**
   * 简介:  启用或禁用 SPDIFRX frame x bit.
-  * 参数:  NewState: 选定SPDIFRX帧位的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 选定 SPDIFRX帧位的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_SetPreambleTypeBit(FunctionalState NewState) {
@@ -165,8 +165,8 @@ void SPDIFRX_SetPreambleTypeBit(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 SPDIFRX frame x bit.
-  * 参数:  NewState: 选定SPDIFRX帧位的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 选定 SPDIFRX帧位的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_SetUserDataChannelStatusBits(FunctionalState NewState) {
@@ -184,8 +184,8 @@ void SPDIFRX_SetUserDataChannelStatusBits(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 SPDIFRX 帧 x 位。
-  * 参数:  NewState: 选定SPDIFRX帧位的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 选定 SPDIFRX帧位的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_SetValidityBit(FunctionalState NewState) {
@@ -203,8 +203,8 @@ void SPDIFRX_SetValidityBit(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 SPDIFRX 帧 x 位。
-  * 参数:  NewState: 选定SPDIFRX帧位的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 选定 SPDIFRX帧位的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_SetParityBit(FunctionalState NewState) {
@@ -212,18 +212,18 @@ void SPDIFRX_SetParityBit(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用选定的SPDIFRX帧位 */
+        /* 启用选定的 SPDIFRX帧位 */
         SPDIFRX->CR |= SPDIFRX_CR_PMSK;
     } else {
-        /* 禁用选定的SPDIFRX帧位 */
+        /* 禁用选定的 SPDIFRX帧位 */
         SPDIFRX->CR &= ~(SPDIFRX_CR_PMSK);
     }
 }
 
 /**
   * 简介:  启用或禁用 SPDIFRX DMA 接口 (RX)。
-  * 参数:  NewState: 所选SPDIFRX DMA传输请求的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 所选SPDIFRX DMA 传输请求的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_RxDMACmd(FunctionalState NewState) {
@@ -231,18 +231,18 @@ void SPDIFRX_RxDMACmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用选定的SPDIFRX DMA 请求 */
+        /* 启用选定的 SPDIFRX DMA 请求 */
         SPDIFRX->CR |= SPDIFRX_CR_RXDMAEN;
     } else {
-        /* 禁用选定的SPDIFRX DMA 请求 */
+        /* 禁用选定的 SPDIFRX DMA 请求 */
         SPDIFRX->CR &= ~(SPDIFRX_CR_RXDMAEN);
     }
 }
 
 /**
   * 简介:  启用或禁用 SPDIFRX DMA 接口(控制缓冲区)。
-  * 参数:  NewState: 所选SPDIFRX DMA传输请求的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 所选SPDIFRX DMA 传输请求的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
 void SPDIFRX_CbDMACmd(FunctionalState NewState) {
@@ -250,17 +250,17 @@ void SPDIFRX_CbDMACmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用选定的SPDIFRX DMA 请求 */
+        /* 启用选定的 SPDIFRX DMA 请求 */
         SPDIFRX->CR |= SPDIFRX_CR_CBDMAEN;
     } else {
-        /* 禁用选定的SPDIFRX DMA 请求 */
+        /* 禁用选定的 SPDIFRX DMA 请求 */
         SPDIFRX->CR &= ~(SPDIFRX_CR_CBDMAEN);
     }
 }
 
 /**
   * 简介:  启用或禁用 SPDIFRX 外设。
-  * 参数:  SPDIFRX_State: 指定SPDIFRX外设设备状态。
+  * 参数:  SPDIFRX_State: 指定 SPDIFRX外设设备状态。
   *          此参数可以是以下值之一:
   *            @arg SPDIFRX_STATE_IDLE : Disable SPDIFRX-RX (STATE_IDLE)
   *            @arg SPDIFRX_STATE_SYNC : Enable SPDIFRX-RX Synchronization only
@@ -280,7 +280,7 @@ void SPDIFRX_Cmd(uint32_t SPDIFRX_State) {
 /**
   * 简介:  启用或禁用指定的 SPDIFRX 块中断。
   * 
-  * 参数:  SPDIFRX_IT: 指定要启用或禁用的SPDIFRX中断源。
+  * 参数:  SPDIFRX_IT: 指定要启用或禁用的 SPDIFRX中断源。
   *          此参数可以是以下值之一:
   *            @arg SPDIFRX_IT_RXNE:  RXNE中断启用
   *            @arg SPDIFRX_IT_CSRNE: 控制缓冲就绪中断启用
@@ -291,7 +291,7 @@ void SPDIFRX_Cmd(uint32_t SPDIFRX_State) {
   *            @arg SPDIFRX_IT_IFEIE: 串行接口错误中断启用
   * 
   * 参数:  NewState: 新状态-> 指定的 SPDIFRX 中断。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -301,17 +301,17 @@ void SPDIFRX_ITConfig(uint32_t SPDIFRX_IT, FunctionalState NewState) {
     assert_param(IS_SPDIFRX_CONFIG_IT(SPDIFRX_IT));
 
     if (NewState != DISABLE) {
-        /* 启用选定的SPDIFRX中断 */
+        /* 启用选定的 SPDIFRX中断 */
         SPDIFRX->IMR |= SPDIFRX_IT;
     } else {
-        /* 禁用选定的SPDIFRX中断 */
+        /* 禁用选定的 SPDIFRX中断 */
         SPDIFRX->IMR &= ~(SPDIFRX_IT);
     }
 }
 
 /**
-  * 简介:  检查是否设置了指定的SPDIFRX标志。
-  * 参数:  SPDIFRX_FLAG: 指定要检查的SPDIFRX标志。
+  * 简介:  检查是否设置了指定的 SPDIFRX标志。
+  * 参数:  SPDIFRX_FLAG: 指定要检查的 SPDIFRX标志。
   *          此参数可以是以下值之一:
   *            @arg SPDIFRX_FLAG_RXNE: 读取数据寄存器非空标志。
   *            @arg SPDIFRX_FLAG_CSRNE: 控制缓冲寄存器非空标志。
@@ -345,7 +345,7 @@ FlagStatus SPDIFRX_GetFlagStatus(uint32_t SPDIFRX_FLAG) {
 
 /**
   * 简介:  清除指定的 SPDIFRX 标志。
-  * 参数:  SPDIFRX_FLAG: 指定要检查的SPDIFRX标志。
+  * 参数:  SPDIFRX_FLAG: 指定要检查的 SPDIFRX标志。
   *          此参数可以是以下值之一:
   *            @arg SPDIFRX_FLAG_PERR: 奇偶校验错误标志。
   *            @arg SPDIFRX_FLAG_OVR: 溢出错误标志。
@@ -365,7 +365,7 @@ void SPDIFRX_ClearFlag(uint32_t SPDIFRX_FLAG) {
 /**
   * 简介:  检查指定的 SPDIFRX 中断是否发生。
   * 
-  * 参数:  SPDIFRX_IT: 指定要启用或禁用的SPDIFRX中断源。
+  * 参数:  SPDIFRX_IT: 指定要启用或禁用的 SPDIFRX中断源。
   *          此参数可以是以下值之一:
   *            @arg SPDIFRX_IT_RXNE:  RXNE中断启用
   *            @arg SPDIFRX_IT_CSRNE: 控制缓冲就绪中断启用
@@ -375,7 +375,7 @@ void SPDIFRX_ClearFlag(uint32_t SPDIFRX_FLAG) {
   *            @arg SPDIFRX_IT_SYNCDIE: 同步完成
   *            @arg SPDIFRX_IT_IFEIE: 串行接口错误中断启用
   * 
-  * 返回值: SPDIFRX_IT的新状态(SET或RESET)。
+  * 返回值: SPDIFRX_IT 的新状态(SET 或 RESET)。
   */
 ITStatus SPDIFRX_GetITStatus(uint32_t SPDIFRX_IT) {
     ITStatus bitstatus = RESET;
@@ -384,7 +384,7 @@ ITStatus SPDIFRX_GetITStatus(uint32_t SPDIFRX_IT) {
     /* 检查参数 */
     assert_param(IS_SPDIFRX_CONFIG_IT(SPDIFRX_IT));
 
-    /* 获取SPDIFRX_IT enable bit 状态 */
+    /* 获取 SPDIFRX_IT enable bit 状态 */
     enablestatus = (SPDIFRX->IMR & SPDIFRX_IT) ;
 
     /* 检查 the status of the specified SPDIFRX 中断 */
@@ -403,7 +403,7 @@ ITStatus SPDIFRX_GetITStatus(uint32_t SPDIFRX_IT) {
 /**
   * 简介:  清除 SPDIFRX 中断挂起位。
   * 
-  * 参数:  SAI_IT: 指定要清除的SPDIFRX中断挂起位。
+  * 参数:  SAI_IT: 指定要清除的 SPDIFRX中断挂起位。
   *          此参数可以是以下值之一:
   *            @arg SPDIFRX_IT_MUTEDET: 静音检测中断。
   *            @arg SPDIFRX_IT_OVRUDR: 超限/欠载运行中断。

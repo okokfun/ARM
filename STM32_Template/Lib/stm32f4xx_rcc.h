@@ -742,16 +742,16 @@ void        RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, 
 void        RCC_PLLI2SCmd(FunctionalState NewState); // 启用或禁用 PLLI2S。
 
 #if defined(STM32F40_41xxx) || defined(STM32F401xx)
-void        RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR); // 配置PLLI2S时钟乘除因子。
+void        RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR); // 配置PLLI2S 时钟乘除因子。
 #endif /* STM32F40_41xxx || STM32F401xx */
 #if defined(STM32F411xE)
-void        RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR, uint32_t PLLI2SM); // 配置PLLI2S时钟乘除因子。
+void        RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR, uint32_t PLLI2SM); // 配置PLLI2S 时钟乘除因子。
 #endif /* STM32F411xE */
 #if defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F469_479xx)
-void        RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SQ, uint32_t PLLI2SR); // 配置PLLI2S时钟乘除因子。
+void        RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SQ, uint32_t PLLI2SR); // 配置PLLI2S 时钟乘除因子。
 #endif /* STM32F427_437xx || STM32F429_439xx || STM32F469_479xx */
 #if defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx)
-void        RCC_PLLI2SConfig(uint32_t PLLI2SM, uint32_t PLLI2SN, uint32_t PLLI2SP, uint32_t PLLI2SQ, uint32_t PLLI2SR); // 配置PLLI2S时钟乘除因子。
+void        RCC_PLLI2SConfig(uint32_t PLLI2SM, uint32_t PLLI2SN, uint32_t PLLI2SP, uint32_t PLLI2SQ, uint32_t PLLI2SR); // 配置PLLI2S 时钟乘除因子。
 #endif /* STM32F412xG || STM32F413_423xx || STM32F446xx */
 
 void        RCC_PLLSAICmd(FunctionalState NewState); // 启用或禁用 PLLSAI。
@@ -825,11 +825,11 @@ void        RCC_AHB3PeriphResetCmd(uint32_t RCC_AHB3Periph, FunctionalState NewS
 void        RCC_APB1PeriphResetCmd(uint32_t RCC_APB1Periph, FunctionalState NewState); // 强制或释放APB1外设复位。
 void        RCC_APB2PeriphResetCmd(uint32_t RCC_APB2Periph, FunctionalState NewState); // 强制或释放APB2外设复位。
 
-void        RCC_AHB1PeriphClockLPModeCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用AHB1外设时钟。
-void        RCC_AHB2PeriphClockLPModeCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用AHB2外设时钟。
-void        RCC_AHB3PeriphClockLPModeCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用AHB3 外设时钟。
-void        RCC_APB1PeriphClockLPModeCmd(uint32_t RCC_APB1Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用APB1外设时钟。
-void        RCC_APB2PeriphClockLPModeCmd(uint32_t RCC_APB2Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用APB2外设时钟。
+void        RCC_AHB1PeriphClockLPModeCmd(uint32_t RCC_AHB1Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用 AHB1外设时钟。
+void        RCC_AHB2PeriphClockLPModeCmd(uint32_t RCC_AHB2Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用 AHB2外设时钟。
+void        RCC_AHB3PeriphClockLPModeCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用 AHB3 外设时钟。
+void        RCC_APB1PeriphClockLPModeCmd(uint32_t RCC_APB1Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用 APB1外设时钟。
+void        RCC_APB2PeriphClockLPModeCmd(uint32_t RCC_APB2Periph, FunctionalState NewState); // 在低功耗(睡眠)模式下启用或禁用 APB2外设时钟。
 
 /* 仅适用于 STM32F410xx/STM32F411xx/STM32F446xx/STM32F469_479xx 器件的功能 */
 void        RCC_LSEModeConfig(uint8_t RCC_Mode); // 配置外部低速振荡器模式(LSE 模式)。
@@ -842,12 +842,12 @@ void        RCC_DSIClockSourceConfig(uint8_t RCC_ClockSource);
 /* 仅适用于 STM32F412xG/STM32F413_423xx/STM32F446xx/STM32F469_479xx 器件的功能 */
 #if defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx) || defined(STM32F469_479xx)
 void        RCC_48MHzClockSourceConfig(uint8_t RCC_ClockSource); // 配置48MHz时钟源。
-void        RCC_SDIOClockSourceConfig(uint8_t RCC_ClockSource); // 配置SDIO时钟源。
+void        RCC_SDIOClockSourceConfig(uint8_t RCC_ClockSource); // 配置 SDIO 时钟源。
 #endif /* STM32F412xG || STM32F413_423xx || STM32F446xx || STM32F469_479xx */
 
 /* 仅适用于 STM32F446xx 器件的功能 */
 #if defined(STM32F446xx)
-void        RCC_AHB1ClockGatingCmd(uint32_t RCC_AHB1ClockGating, FunctionalState NewState); // 启用或禁用指定IP的AHB1时钟门控。
+void        RCC_AHB1ClockGatingCmd(uint32_t RCC_AHB1ClockGating, FunctionalState NewState); // 启用或禁用指定IP的 AHB1时钟门控。
 void        RCC_SPDIFRXClockSourceConfig(uint8_t RCC_ClockSource);
 void        RCC_CECClockSourceConfig(uint8_t RCC_ClockSource);
 #endif /* STM32F446xx */

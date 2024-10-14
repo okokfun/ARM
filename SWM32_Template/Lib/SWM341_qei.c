@@ -37,7 +37,7 @@ void QEI_Init(QEI_TypeDef * QEIx, QEI_InitStructure * initStruct) {
             break;
     }
 
-    QEI_Stop(QEIx);		//配置前关闭QEI模块
+    QEI_Stop(QEIx);		//配置前关闭QEI 模块
 
     QEIx->CR = (initStruct->swapAB << QEI_CR_ABSWAP_Pos) |
                (initStruct->mode   << QEI_CR_X2X4_Pos)   |

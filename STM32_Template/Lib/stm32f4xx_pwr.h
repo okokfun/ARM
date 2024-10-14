@@ -182,7 +182,7 @@ void PWR_LowRegulatorLowVoltageCmd(FunctionalState NewState); // 启用或禁用
 #endif /* STM32F401xx || STM32F410xx || STM32F411xE || STM32F412xG || STM32F413_423xx */
 
 /* FLASH Power Down 配置功能 ***********************************/
-void PWR_FlashPowerDownCmd(FunctionalState NewState); // 启用或禁用 STOP模式下的Flash断电函数。
+void PWR_FlashPowerDownCmd(FunctionalState NewState); // 启用或禁用 STOP模式下的 Flash断电函数。
 
 /* 低功率模式配置功能 ************************************/
 void PWR_EnterSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry); // 进入停止模式。

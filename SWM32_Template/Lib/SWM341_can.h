@@ -8,7 +8,7 @@ typedef struct {
     uint8_t  CAN_bs2;			//CAN_BS2_1tq、CAN_BS2_2tq、... ... 、CAN_BS2_8tq
     uint8_t  CAN_sjw;			//CAN_SJW_1tq、CAN_SJW_2tq、CAN_SJW_3tq、CAN_SJW_4tq
     uint32_t Baudrate;			//波特率，即位传输速率，取值1--1000000
-    uint8_t  RXNotEmptyIEn;		//接收FIFO非空，有数据可读
+    uint8_t  RXNotEmptyIEn;		//接收 FIFO非空，有数据可读
     uint8_t  ArbitrLostIEn;		//控制器丢失仲裁变成接收方
     uint8_t  ErrPassiveIEn;		//接收/发送错误计数值达到127
 } CAN_InitStructure;

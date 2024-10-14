@@ -351,7 +351,7 @@ uint8_t  QSPI_ReceiveData8(void); // 返回 QSPI 外设最近接收到的 8 位�
 uint16_t QSPI_ReceiveData16(void); // 返回 QSPI 外设最近接收到的 16 位数据。
 uint32_t QSPI_ReceiveData32(void); // 返回 QSPI 外设最近接收到的 32 位数据。
 
-/* DMA传输管理功能 *****************************************/
+/* DMA 传输管理功能 *****************************************/
 void QSPI_DMACmd(FunctionalState NewState); // 启用或禁用间接模式的 DMA。
 
 /* 中断和标志管理功能 **********************************/

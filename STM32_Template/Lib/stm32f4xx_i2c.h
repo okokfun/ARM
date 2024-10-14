@@ -208,7 +208,7 @@ typedef struct {
 #define I2C_FLAG_MSL                    ((uint32_t)0x00010000)
 
 /**
-  * 简介:  SR1寄存器标志
+  * 简介:  SR1 寄存器标志
   */
 #define I2C_FLAG_SMBALERT               ((uint32_t)0x10008000)
 #define I2C_FLAG_TIMEOUT                ((uint32_t)0x10004000)
@@ -270,7 +270,7 @@ typedef struct {
   *
   *  2) 在主发送器(7位寻址)的情况下：设置I2C_EVENT_Master_Transmitter_MODE_SELECTED
   *
-  *  3) 在10位寻址模式的情况下，主机(在生成START并检查EV5之后)
+  *  3) 在10位寻址模式的情况下，主机(在生成START并检查EV5 之后)
   * 必须发送10位寻址方式的标头(I2C_SendData() 函数)。那么主应该在EV9上等待。
   * 这意味着10位寻址标头已在总线上正确发送。然后，master应该使用函数I2C_Send7bitAddress()
   * 发送10位地址(LSB)的第二部分。那么主控器应该等待事件EV6。
@@ -302,7 +302,7 @@ typedef struct {
   *     EV8_2也比EV8更适合在最后一次数据传输上进行测试(在生成停止条件之前)。
   *
   *  @note 如果用户软件不能保证在当前字节传输结束之前管理此事件EV7，
-  *        则用户可以同时检查EV7和BTF标志(即(I2C_event_MASTER_byte_RECEIVED|I2C_flag_BTF))。
+  *        则用户可以同时检查EV7 和BTF标志(即(I2C_event_MASTER_byte_RECEIVED|I2C_flag_BTF))。
   *		   在这种情况下，通信可能会更慢。
   *
   */
@@ -373,13 +373,13 @@ typedef struct {
   *
   * - Slave 发射器模式:
   *    - EV3: 当一个字节已经被从服务器传输，并且应用程序正在等待字节传输的结束。
-  *           两个事件I2C_EVENT_SLAVE_BYTE_TRANSMITTED和I2C_EVENT_SLAVE-BYTE_TRANSMITTING相似。 
+  *           两个事件I2C_EVENT_SLAVE_BYTE_TRANSMITTED和 I2C_EVENT_SLAVE-BYTE_TRANSMITTING相似。 
   *           当用户软件不能保证在当前字节传输结束之前管理EV3时，可以选择性地使用第二个。
   *    - EV3_2: 当主设备发送NACK以告知从设备数据传输应结束时(在发送STOP条件之前)。
   *             在这种情况下，从设备必须停止发送数据字节，并在总线上等待"停止"条件。
   *
   *  @note 如果用户软件不能保证在当前字节传输结束之前管理事件EV2，
-  * 则用户可以同时检查EV2和BTF标志(即(I2C_EVENT_SLAVE_BYTE_RECEIVED | I2C_FLAG_BTF))。在这种情况下，通信可能会更慢。
+  * 则用户可以同时检查EV2 和BTF标志(即(I2C_EVENT_SLAVE_BYTE_RECEIVED | I2C_FLAG_BTF))。在这种情况下，通信可能会更慢。
   *
   */
 
@@ -436,11 +436,11 @@ typedef struct {
 /* Exported functions --------------------------------------------------------*/
 
 /*  用于将I2C配置设置为默认重置状态的功能 *****/
-void I2C_DeInit(I2C_TypeDef* I2Cx); // 将I2Cx外设寄存器取消初始化为其默认复位值。
+void I2C_DeInit(I2C_TypeDef* I2Cx); // 将I2Cx 外设寄存器取消初始化为其默认复位值。
 
 /* 初始化和配置功能 *********************************/
-void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct); // 根据I2C_InitStruct中的指定参数初始化I2Cx外设。
-void I2C_StructInit(I2C_InitTypeDef* I2C_InitStruct); // 用每个I2C_InitStruct成员的默认值填充其默认值。
+void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct); // 根据 I2C_InitStruct 中的指定参数初始化I2Cx 外设。
+void I2C_StructInit(I2C_InitTypeDef* I2C_InitStruct); // 用每个I2C_InitStruct 成员的默认值填充其默认值。
 void I2C_Cmd(I2C_TypeDef* I2Cx, FunctionalState NewState); // 启用或禁用指定的 I2C 外设。
 void I2C_DigitalFilterConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DigitalFilter); // 配置 I2C 外设的数字噪声滤波器。
 void I2C_AnalogFilterCmd(I2C_TypeDef* I2Cx, FunctionalState NewState); // 启用或禁用 I2C 外设的模拟滤波器。
@@ -468,7 +468,7 @@ void I2C_PECPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_PECPosition); // 选�
 void I2C_CalculatePEC(I2C_TypeDef* I2Cx, FunctionalState NewState); // 启用或禁用传输字节的 PEC 值计算。
 uint8_t I2C_GetPEC(I2C_TypeDef* I2Cx); // 返回指定 I2C 的 PEC 值。
 
-/* DMA传输管理 functions *****************************************/
+/* DMA 传输管理 functions *****************************************/
 void I2C_DMACmd(I2C_TypeDef* I2Cx, FunctionalState NewState); // 启用或禁用指定的 I2C DMA 请求。
 void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState); // 指定下一次 DMA 传输是最后一次传输。
 

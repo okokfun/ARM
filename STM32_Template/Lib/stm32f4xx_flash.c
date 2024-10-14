@@ -5,7 +5,7 @@
   * 版本:    V1.8.0
   * 日期:    04-November-2016
   * 简介:    此文件提供固件功能，以管理FLASH外设设备的以下功能:
-  *            + FLASH接口配置
+  *            + FLASH 接口配置
   *            + FLASH编程
   *            + 选项字节编程
   *            + 中断和标志管理
@@ -17,7 +17,7 @@
     [..]
       此驱动程序提供配置和编程所有 STM32F4xx 设备的闪存的功能。这些功能分为4组:
 
-      (#) FLASH接口配置功能: 该组包括以下功能的管理:
+      (#) FLASH 接口配置功能: 该组包括以下功能的管理:
           (++) 设置延迟
           (++) 启用/禁用预取缓冲区
           (++) 启用/禁用指令缓存和数据缓存
@@ -39,7 +39,7 @@
           (++) 启用/禁用闪存中断源
           (++) 获取标志状态
           (++) 清除标志
-          (++) 获取FLASH操作状态
+          (++) 获取 FLASH 操作状态
           (++) 等待最后一次闪存操作
  @endverbatim
   ******************************************************************************
@@ -84,21 +84,21 @@
 /** @defgroup FLASH_Private_Functions
   */
 
-/** @defgroup FLASH_Group1 FLASH接口配置功能
-  *  简介   FLASH接口配置功能
+/** @defgroup FLASH_Group1 FLASH 接口配置功能
+  *  简介   FLASH 接口配置功能
  *
 
 @verbatim
  ===============================================================================
-              ##### FLASH接口配置功能 #####
+              ##### FLASH 接口配置功能 #####
  ===============================================================================
     [..]
       该组包括以下函数:
       (+) void FLASH_SetLatency(uint32_t FLASH_Latency)
-          要从闪存正确读取数据，必须根据CPU时钟频率(HCLK)和
+          要从闪存正确读取数据，必须根据 CPU时钟频率(HCLK)和
           设备电源电压正确编程等待状态(LATENCY)的数量。
     [..]
-      对于 STM32F405xx/07xx和STM32P415xx/17xx 设备
+      对于 STM32F405xx/07xx 和 STM32P415xx/17xx 设备
  +---------------------------------------------------------------------------------------+
  | Latency       |                HCLK时钟频率 (MHz)                                     |
  |               |-----------------------------------------------------------------------|
@@ -254,12 +254,12 @@
   *            @arg FLASH_Latency_12: FLASH Twelve 延迟周期
   *            @arg FLASH_Latency_13: FLASH Thirteen 延迟周期
   *            @arg FLASH_Latency_14: FLASH Fourteen 延迟周期
-  *            @arg FLASH_Latency_15: FLASH十五个延迟周期
+  *            @arg FLASH_Latency_15: FLASH 十五个延迟周期
   *
-  * 注意: 对于 STM32F405xx/407xx、STM32F2F415xx/417xx、ST M32F401xx/411xE/STM32F 412xG和
-  *       STM32V413_423xx 设备，此参数可以是介于FLASH_Latency_0和FLASH_Latency_7之间的值。
+  * 注意: 对于 STM32F405xx/407xx、STM32F2F415xx/417xx、ST M32F401xx/411xE/STM32F 412xG 和
+  *       STM32V413_423xx 设备，此参数可以是介于 FLASH_Latency_0 和 FLASH_Latency_7 之间的值。
   *
-  * 注意: 对于 STM32F42xxx/43xxx 设备，此参数可以是介于FLASH_Latency_0和FLASH_Latency_15之间的值。
+  * 注意: 对于 STM32F42xxx/43xxx 设备，此参数可以是介于 FLASH_Latency_0 和 FLASH_Latency_15 之间的值。
   *
   * 返回值: 无
   */
@@ -417,19 +417,19 @@ void FLASH_Lock(void) {
   *
   * 参数:  FLASH_Sector: 要擦除的扇区编号。
   *
-  *  @note  对于 STM32F405xx/407xx和STM32V415xx/417xx 设备，
-  *         此参数可以是介于FLASH_Sector_0和FLASH_Sentor_11之间的值。
+  *  @note  对于 STM32F405xx/407xx 和 STM32V415xx/417xx 设备，
+  *         此参数可以是介于 FLASH_Sector_0 和 FLASH_Sentor_11之间的值。
   *
-  *         对于 STM32F42xxx/43xxx 设备此参数可以是FLASH_Sector_0和FLASH_Sector_23之间的值。
+  *         对于 STM32F42xxx/43xxx 设备此参数可以是FLASH_Sector_0 和 FLASH_Sector_23之间的值。
   *
-  *         对于 STM32F401xx 设备，此参数可以是介于FLASH_Sector_0和FLASH_Sctor_5之间的值。
+  *         对于 STM32F401xx 设备，此参数可以是介于 FLASH_Sector_0 和 FLASH_Sctor_5 之间的值。
   *
-  *         对于 STM32F411xE和STM32V412xG设备，此参数可以是介于
-  *         FLASH_Sector_0和FLASH_Sctor_7之间的值。
+  *         对于 STM32F411xE 和 STM32V412xG设备，此参数可以是介于
+  *         FLASH_Sector_0 和 FLASH_Sctor_7 之间的值。
   *
-  *         对于 STM32F410xx 设备，此参数可以是介于FLASH_Sector_0和FLASH_Sctor_4之间的值。
+  *         对于 STM32F410xx 设备，此参数可以是介于 FLASH_Sector_0 和 FLASH_Sctor_4之间的值。
   *
-  *         对于 STM32F413_423xx 设备，此参数可以是介于FLASH_Sector_0和FLASH_Sctor_15之间的值。
+  *         对于 STM32F413_423xx 设备，此参数可以是介于 FLASH_Sector_0 和 FLASH_Sctor_15 之间的值。
   *
   * 参数:  VoltageRange: 定义擦除并行度的设备电压范围。
   *          此参数可以是以下值之一:
@@ -918,7 +918,7 @@ void FLASH_OB_Lock(void) {
   * 简介:  为 Flash 的前 1 Mb 启用或禁用所需扇区的写保护。
   *
   * 注意:   选择内存读取保护级别(RDP级别=1)时，如果连接了CortexM4调试功能
-  *         或在RAM中执行引导代码，则无法对闪存扇区i进行编程或擦除，即使nWRPi=1
+  *         或在RAM 中执行引导代码，则无法对闪存扇区i进行编程或擦除，即使nWRPi=1
   * 注意:   当PCROP模式处于活动状态(SPRMOD=1)时，nWRPi位的活动值被反转。
   *
   * 参数:  OB_WRP: 指定要写保护或不保护的扇区。
@@ -927,7 +927,7 @@ void FLASH_OB_Lock(void) {
   *            @arg OB_WRP_Sector_All
   * 
   * 参数:  Newstate: 写保护的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -955,17 +955,17 @@ void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState) {
   * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
   * 注意:   选择内存读取保护时(RDP级别=1)，如果连接了CortexM4调试功能或
-  *         在RAM中执行引导代码，则无法编程或擦除闪存扇区i，即使nWRPi=1
+  *         在RAM 中执行引导代码，则无法编程或擦除闪存扇区i，即使nWRPi=1
   * 
   * 注意:   当PCROP模式处于活动状态(SPRMOD=1)时，nWRPi位的活动值被反转。
   *
   * 参数:  OB_WRP: 指定要写保护或不保护的扇区。
   *          此参数可以是以下值之一:
-  *            @arg OB_WRP: OB_WRP_Sector12和OB_WRP _Sector23之间的值
+  *            @arg OB_WRP: OB_WRP_Sector12 和OB_WRP _Sector23之间的值
   *            @arg OB_WRP_Sector_All
   * 
   * 参数:  Newstate: 写保护的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -990,20 +990,20 @@ void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState) {
 /**
   * 简介:  选择保护模式 (SPRMOD)。
   *
-  * 注意:   此函数只能用于 STM32F42xxx/43xxx和STM32V401xx/411xE设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 和 STM32V401xx/411xE设备。
   *
   * 注意:   PCROP激活后，无法修改选项字节。
-  *         全局读取保护修改级别(级别1到级别0)出现异常
+  *         全局读取保护修改级别(级别1 到级别0)出现异常
   * 注意:   一旦SPRMOD位处于活动状态，就不可能取消保护受保护扇区
   *
-  * 注意:   读取受保护扇区将设置RDERR标志，写入受保护扇区将设置WRPERR标志
+  * 注意:   读取受保护扇区将设置 RDERR标志，写入受保护扇区将设置WRPERR标志
   *
   * 注意:   激活PCROP功能时应采取一些预防措施:
-  *            当PCROP模式激活时，nWRPi位的激活值被反转，这意味着如果SPRMOD=1
+  *            当PCROP模式激活时，nWRPi位的激活值被反转，这意味着如果 SPRMOD=1
   *            WRPi=1(默认值)，则用户扇区i受读/写保护。
   *            为了避免为不需要的扇区激活PCROP模式，请遵循以下安全顺序:
   *            -使用FLASH_OB_PCROP_Config(OB_PCROP Sector_all，Disable) 函数为所有扇区禁用 PCROP
-  *               对于Bank1或对于Bank2的FLASH_OB_PCROP_Sector_All，DISABLE) 函数
+  *               对于Bank1或对于Bank2的 FLASH_OB_PCROP_Sector_All，DISABLE) 函数
   *            -使用FLASH_OB_PCROPConfig(Sector i，Enable) 功能为所需扇区i启用 PCROP
   *            -激活PCROP模式FLASH_OB_PCROPSelectionConfig() 功能。
   *
@@ -1029,17 +1029,17 @@ void FLASH_OB_PCROPSelectionConfig(uint8_t OB_PcROP) {
 /**
   * 简介:  为 Flash 的前 1 MB 启用或禁用所需扇区的读/写保护 (PCROP)。
   *
-  * 注意:   此函数只能用于 STM32F42xxx/43xxx、STM32F2F401xx/411xE STM32F112xG和STM32P413_423xx 设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx、STM32F2F401xx/411xE STM32F112xG 和 STM32P413_423xx 设备。
   *
   * 参数:  OB_PCROP: 指定要读/写保护或不保护的扇区。
   *          此参数可以是以下值之一:
-  *            @arg OB_PCROP: STM32F42xxx/43xxx 设备的OB_PCROP_Sector0和
+  *            @arg OB_PCROP: STM32F42xxx/43xxx 设备的OB_PCROP_Sector0 和
   *                           OB_PCROP_Sector11之间的值，STM32V401xx/411xE设备的
-  *                           OB-PCROP_Sector0和OB-PCROP_Sector5之间的值。
+  *                           OB-PCROP_Sector0 和OB-PCROP_Sector5 之间的值。
   *            @arg OB_PCROP_Sector_All
   * 
   * 参数:  Newstate: 写保护的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -1068,10 +1068,10 @@ void FLASH_OB_PCROPConfig(uint32_t OB_PCROP, FunctionalState NewState) {
   *
   * 参数:  OB_PCROP: 指定要读/写保护或不保护的扇区。
   *          此参数可以是以下值之一:
-  *            @arg OB_PCROP: OB_PCROP_Sector12和OB_PCROP_Sector23之间的值
+  *            @arg OB_PCROP: OB_PCROP_Sector12 和OB_PCROP_Sector23之间的值
   *            @arg OB_PCROP_Sector_All
   * 参数:  Newstate: 写保护的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -1173,7 +1173,7 @@ void FLASH_OB_UserConfig(uint8_t OB_IWDG, uint8_t OB_STOP, uint8_t OB_STDBY) {
   *
   * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
-  * 参数:  OB_BOOT: 指定Dual Bank Boot Option字节。
+  * 参数:  OB_BOOT: 指定 Dual Bank Boot Option字节。
   *          此参数可以是以下值之一:
   *            @arg OB_Dual_BootEnabled: 双排启动已启用
   *            @arg OB_Dual_BootDisabled: 双排启动已禁用
@@ -1237,7 +1237,7 @@ FLASH_Status FLASH_OB_Launch(void) {
   * 
   * 参数:  无
   * 
-  * 返回值: FLASH用户选项字节值:IWDG_SW(位0)、RST_STOP(位1)和RST_STDBY(位2)。
+  * 返回值: FLASH用户选项字节值:IWDG_SW(位0)、RST_STOP(位1)和 RST_STDBY(位2)。
   */
 uint8_t FLASH_OB_GetUser(void) {
     /* 返回User Option Byte */
@@ -1349,7 +1349,7 @@ uint8_t FLASH_OB_GetBOR(void) {
 /**
   * 简介:  启用或禁用指定的 FLASH 中断。
   * 
-  * 参数:  FLASH_IT: 指定要启用或禁用的FLASH中断源。
+  * 参数:  FLASH_IT: 指定要启用或禁用的 FLASH中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg FLASH_IT_ERR: 闪存错误中断
   *            @arg FLASH_IT_EOP: 闪存操作结束中断
@@ -1373,18 +1373,18 @@ void FLASH_ITConfig(uint32_t FLASH_IT, FunctionalState NewState) {
 /**
   * 简介:  检查是否设置了指定的 FLASH 标志。
   * 
-  * 参数:  FLASH_FLAG: 指定要检查的FLASH标志。
+  * 参数:  FLASH_FLAG: 指定要检查的 FLASH标志。
   *          此参数可以是以下值之一:
-  *             @arg FLASH_FLAG_EOP:FLASH操作结束标志
-  *             @arg FLASH_FLAG_OPERR:FLASH操作错误标志
+  *             @arg FLASH_FLAG_EOP:FLASH 操作结束标志
+  *             @arg FLASH_FLAG_OPERR:FLASH 操作错误标志
   *             @arg FLASH_FLAG_WRPERR:FLASH写保护错误标志
   *             @arg FLASH_FLAG_PGAERR:FLASH编程校准错误标志
   *             @arg FLASH_FLAG_PGPERR:FLASH编程并行性错误标志
   *             @arg FLASH_FLAG_PGSERR:FLASH编程序列错误标志
-  *             @arg FLASH_FLAG_RDERR:FLASH(PCROP)读保护错误标志(STM32F42xx/43xxx和STM32F2F401xx/411xE设备)
+  *             @arg FLASH_FLAG_RDERR:FLASH(PCROP)读保护错误标志(STM32F42xx/43xxx 和 STM32F2F401xx/411xE设备)
   *             @arg FLASH_FLAG_BSY:FLASH Busy标志
   * 
-  * 返回值: FLASH_FLAG的新状态(SET或RESET)。
+  * 返回值: FLASH_FLAG 的新状态(SET 或 RESET)。
   */
 FlagStatus FLASH_GetFlagStatus(uint32_t FLASH_FLAG) {
     FlagStatus bitstatus = RESET;
@@ -1404,15 +1404,15 @@ FlagStatus FLASH_GetFlagStatus(uint32_t FLASH_FLAG) {
 /**
   * 简介:  清除 FLASH 的挂起标志。
   * 
-  * 参数:  FLASH_FLAG: 指定要清除的FLASH标志。
+  * 参数:  FLASH_FLAG: 指定要清除的 FLASH标志。
   *          此参数可以是以下值的任意组合:
-  *            @arg FLASH_FLAG_EOP:FLASH操作结束标志
-  *            @arg FLASH_FLAG_OPERR:FLASH操作错误标志
+  *            @arg FLASH_FLAG_EOP:FLASH 操作结束标志
+  *            @arg FLASH_FLAG_OPERR:FLASH 操作错误标志
   *            @arg FLASH_FLAG_WRPERR:FLASH写保护错误标志
   *            @arg FLASH_FLAG_PGAERR:FLASH编程校准错误标志
   *            @arg FLASH_FLAG_PGPERR:FLASH编程并行性错误标志
   *            @arg FLASH_FLAG_PGSERR:FLASH编程序列错误标志
-  *            @arg FLASH_FLAG_RDERR:闪存读取保护错误标志(STM32F42xx/43xxx和STM32V401xx/411xE设备)
+  *            @arg FLASH_FLAG_RDERR:闪存读取保护错误标志(STM32F42xx/43xxx 和 STM32V401xx/411xE设备)
   * 
   * 返回值: 无
   */
@@ -1475,8 +1475,8 @@ FLASH_Status FLASH_WaitForLastOperation(void) {
     /* 检查 FLASH 状态 */
     status = FLASH_GetStatus();
 
-    /* 通过对要重置的BUSY标志进行轮询，等待FLASH操作完成。
-       即使FLASH操作失败，BUSY标志也将重置，并设置错误标志 */
+    /* 通过对要重置的BUSY标志进行轮询，等待FLASH 操作完成。
+       即使FLASH 操作失败，BUSY标志也将重置，并设置错误标志 */
     while(status == FLASH_BUSY) {
         status = FLASH_GetStatus();
     }

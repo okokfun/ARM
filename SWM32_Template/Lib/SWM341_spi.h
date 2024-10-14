@@ -3,19 +3,19 @@
 
 typedef struct {
     uint8_t  FrameFormat;	//帧格式：SPI_FORMAT_SPI、SPI_FORMAT_TI_SSI
-    uint8_t  SampleEdge;	//在SPI帧格式下，选择数据采样边沿：SPI_FIRST_EDGE、SPI_SECOND_EDGE
-    uint8_t  IdleLevel;		//在SPI帧格式下，选择空闲时(无数据传输时)时钟线的电平：SPI_LOW_LEVEL、SPI_HIGH_LEVEL
+    uint8_t  SampleEdge;	//在 SPI帧格式下，选择数据采样边沿：SPI_FIRST_EDGE、SPI_SECOND_EDGE
+    uint8_t  IdleLevel;		//在 SPI帧格式下，选择空闲时(无数据传输时)时钟线的电平：SPI_LOW_LEVEL、SPI_HIGH_LEVEL
     uint8_t  WordSize;		//字长度, 有效值4-16
     uint8_t  Master;		//1 主机模式    0 从机模式
     uint8_t  clkDiv;		//SPI_CLK = SYS_CLK / clkDiv，有效值：SPI_CLKDIV_4、SPI_CLKDIV_8、... ... 、SPI_CLKDIV_512
 
     uint8_t  RXThreshold;	//取值1--8
-    uint8_t  RXThresholdIEn;//当RX FIFO中数据个数 >= RXThreshold时触发中断
+    uint8_t  RXThresholdIEn;//当RX FIFO 中数据个数 >= RXThreshold时触发中断
 
     uint8_t  TXThreshold;	//取值0--7
-    uint8_t  TXThresholdIEn;//当TX FIFO中数据个数 <= TXThreshold时触发中断
+    uint8_t  TXThresholdIEn;//当TX FIFO 中数据个数 <= TXThreshold时触发中断
 
-    uint8_t  TXCompleteIEn;	//发送FIFO空且发送移位寄存器空中断使能
+    uint8_t  TXCompleteIEn;	//发送 FIFO 空且发送移位寄存器空中断使能
 } SPI_InitStructure;
 
 #define SPI_FORMAT_SPI			0		//Motorola SPI 格式
@@ -46,9 +46,9 @@ typedef struct {
 #define SPI_IT_RX_HFULL		(1 << 2)	//RX FIFO Half Full
 #define SPI_IT_TX_EMPTY		(1 << 3)	//TX FIFO Empty
 #define SPI_IT_TX_HFULL		(1 << 4)	//TX FIFO Half Full
-#define SPI_IT_RX_THRES		(1 << 5)	//RX FIFO Threshold(接收FIFO中数据个数大于CTRL.RFTHR设定值)
-#define SPI_IT_TX_THRES		(1 << 6)	//TX FIFO Threshold(发送FIFO中数据个数小于CTRL.TFTHR设定值)
-#define SPI_IT_TX_DONE		(1 << 9)	//TX Done(发送FIFO空且发送移位寄存器空)
+#define SPI_IT_RX_THRES		(1 << 5)	//RX FIFO Threshold(接收 FIFO 中数据个数大于CTRL.RFTHR设定值)
+#define SPI_IT_TX_THRES		(1 << 6)	//TX FIFO Threshold(发送 FIFO 中数据个数小于CTRL.TFTHR设定值)
+#define SPI_IT_TX_DONE		(1 << 9)	//TX Done(发送 FIFO 空且发送移位寄存器空)
 #define SPI_IT_CS_FALL		(1 << 10)	//从机模式下，CS下降沿中断
 #define SPI_IT_CS_RISE		(1 << 11)	//从机模式下，CS上升沿中断
 
@@ -62,9 +62,9 @@ void SPI_Write(SPI_TypeDef * SPIx, uint32_t data);
 void SPI_WriteWithWait(SPI_TypeDef * SPIx, uint32_t data);
 uint32_t SPI_ReadWrite(SPI_TypeDef * SPIx, uint32_t data);
 
-uint32_t SPI_IsRXEmpty(SPI_TypeDef * SPIx);				//接收FIFO是否空，如果不空则可以继续SPI_Read()
-uint32_t SPI_IsTXFull(SPI_TypeDef * SPIx);				//发送FIFO是否满，如果不满则可以继续SPI_Write()
-uint32_t SPI_IsTXEmpty(SPI_TypeDef * SPIx);				//发送FIFO是否空
+uint32_t SPI_IsRXEmpty(SPI_TypeDef * SPIx);				//接收 FIFO是否空，如果不空则可以继续SPI_Read()
+uint32_t SPI_IsTXFull(SPI_TypeDef * SPIx);				//发送 FIFO是否满，如果不满则可以继续SPI_Write()
+uint32_t SPI_IsTXEmpty(SPI_TypeDef * SPIx);				//发送 FIFO是否空
 
 
 void SPI_INTEn(SPI_TypeDef * SPIx, uint32_t it);		//中断使能
@@ -82,12 +82,12 @@ typedef struct {
     uint32_t ClkFreq;		//I2S_SCLK Frequency
 
     uint8_t  RXThreshold;	//取值1--8
-    uint8_t  RXThresholdIEn;//当RX FIFO中数据个数 >= RXThreshold时触发中断
+    uint8_t  RXThresholdIEn;//当RX FIFO 中数据个数 >= RXThreshold时触发中断
 
     uint8_t  TXThreshold;	//取值0--7
-    uint8_t  TXThresholdIEn;//当TX FIFO中数据个数 <= TXThreshold时触发中断
+    uint8_t  TXThresholdIEn;//当TX FIFO 中数据个数 <= TXThreshold时触发中断
 
-    uint8_t  TXCompleteIEn;	//发送FIFO空且发送移位寄存器空中断使能
+    uint8_t  TXCompleteIEn;	//发送 FIFO 空且发送移位寄存器空中断使能
 } I2S_InitStructure;
 
 #define I2S_MASTER_RX		5

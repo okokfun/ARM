@@ -36,7 +36,7 @@
            - 使用LPTIM_SetAutoreloadValue来设置自动重载值，LPTIM_SetCompareValue来设置比较值。
 
            - 通过使用LPTIM_ConfigUpdate函数配置预加载模式。有2种模式可供选择。
-               + 自动加载和比较寄存器在APB写入后立即更新。
+               + 自动加载和比较寄存器在 APB写入后立即更新。
                + 自动加载和比较寄存器在计数器周期结束时被更新。
                
             - 通过调用LPTIM_Cmd启用外设。
@@ -49,7 +49,7 @@
            计数器模式。
            -------------
            - 使用LPTIM_SelectCounterMode来选择计数模式。在这种模式下，
-             计数器在ULPTIM上的每个有效事件上都会递增。
+             计数器在 ULPTIM上的每个有效事件上都会递增。
 
            超时功能。
            -----------------
@@ -128,7 +128,7 @@
 /**
   * 简介:  将 LPTIMx 外设寄存器取消初始化为其默认复位值。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 返回值: 无
   *
@@ -147,9 +147,9 @@ void LPTIM_DeInit(LPTIM_TypeDef* LPTIMx) {
 /**
   * 简介:  根据 LPTIM_InitStruct 中指定的参数初始化 LPTIMx 外设。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
-  * 参数:  LPTIM_InitStruct: 指向LPTIM_InitTypeDef结构的指针，该结构包含指定LPTIM 外设的配置信息。
+  * 参数:  LPTIM_InitStruct: 指向LPTIM_InitTypeDef 结构的指针，该结构包含指定LPTIM 外设的配置信息。
   * 
   * 返回值: 无
   *
@@ -185,7 +185,7 @@ void LPTIM_Init(LPTIM_TypeDef* LPTIMx, LPTIM_InitTypeDef* LPTIM_InitStruct) {
 /**
   * 简介:  用默认值填充每个 LPTIM_InitStruct 成员。
   * 
-  * 参数:  LPTIM_InitStruct : 指向LPTIM_InitTypeDef结构的指针，该结构将被初始化。
+  * 参数:  LPTIM_InitStruct : 指向LPTIM_InitTypeDef 结构的指针，该结构将被初始化。
   * 
   * 返回值: 无
   */
@@ -229,10 +229,10 @@ void LPTIM_StructInit(LPTIM_InitTypeDef* LPTIM_InitStruct) {
 /**
   * 简介:  启用或禁用指定的 LPTIM 外设.
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  NewState: 新状态-> LPTIMx 外设.
-  *         此参数可以是: ENABLE或DISABLE。
+  *         此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -253,12 +253,12 @@ void LPTIM_Cmd(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
 /**
   * 简介:  选择 LPTIM 计数器的时钟源。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_ClockSource: 选定的时钟源。
   *         这个参数可以是:
-  *         @arg LPTIM_ClockSource_APBClock_LPosc : 选择APB时钟/LP振荡器
-  *         @arg LPTIM_ClockSource_ULPTIM: 选择ULPTIM(外部输入)。
+  *         @arg LPTIM_ClockSource_APBClock_LPosc : 选择 APB时钟/LP振荡器
+  *         @arg LPTIM_ClockSource_ULPTIM: 选择 ULPTIM(外部输入)。
   * 
   * 返回值: 无
   *
@@ -279,7 +279,7 @@ void LPTIM_SelectClockSource(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_ClockSource) 
 /**
   * 简介:  如果选择了 ULPTIM 输入，则配置用于计数的边沿极性。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_ClockPolarity: 选择的时钟极性。
   * 这个参数可以是:
@@ -314,7 +314,7 @@ void LPTIM_SelectULPTIMClockPolarity(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Clock
 /**
   * 简介:  配置时钟预分频器。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_Prescaler: 选择的时钟预分频器。
   * 这个参数可以是:
@@ -354,7 +354,7 @@ void LPTIM_ConfigPrescaler(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Prescaler) {
 /**
   * 简介:  选择计数器的触发源及其极性。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_ExtTRGSource: 选定的外部触发器。
   * 这个参数可以是:
@@ -401,7 +401,7 @@ void LPTIM_ConfigExternalTrigger(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_ExtTRGSou
 /**
   * 简介:  选择计数器的软件启动。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 返回值: 无
   *
@@ -418,7 +418,7 @@ void LPTIM_SelectSoftwareStart(LPTIM_TypeDef* LPTIMx) {
 /**
   * 简介:  通过确定指定电平的连续样本数来配置触发的数字滤波器，以检测正确的转换。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_TrigSampleTime: 检测一个有效过渡的样本数。
   * 这个参数可以是:
@@ -456,7 +456,7 @@ void LPTIM_ConfigTriggerGlitchFilter(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_TrigS
 /**
   * 简介:  通过确定指定级别的连续样本数来配置外部时钟的数字滤波器，以检测正确的转换。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_ClockSampleTime: 检测一个有效过渡的样本数。
   * 这个参数可以是:
@@ -493,7 +493,7 @@ void LPTIM_ConfigClockGlitchFilter(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_ClockSa
 /**
   * 简介:  选择操作模式。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_Mode: 选择的模式。
   * 这个参数可以是:
@@ -520,10 +520,10 @@ void LPTIM_SelectOperatingMode(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Mode) {
 /**
   * 简介:  启用或禁用超时功能。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  NewState: 超时功能的新状态。
-  *         此参数可以是: ENABLE或DISABLE。
+  *         此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   *
@@ -546,7 +546,7 @@ void LPTIM_TimoutCmd(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
 /**
   * 简介:  配置波形形状。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_Waveform: 选定的波形形状。
   * 这个参数可以是。
@@ -572,7 +572,7 @@ void LPTIM_ConfigWaveform(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Waveform) {
 /**
   * 简介:  配置自动重载和比较寄存器更新模式。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_Update: 选定的更新模式。
   * 这个参数可以是:
@@ -591,17 +591,17 @@ void LPTIM_ConfigUpdate(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Update) {
     /* 清除预加载位 */
     LPTIMx->CFGR &= ~(LPTIM_CFGR_PRELOAD);
 
-    /* 设置或重置 根据LPTIM_Update预加载位 */
+    /* 设置或重置 根据 LPTIM_Update预加载位 */
     LPTIMx->CFGR |= (LPTIM_Update);
 }
 
 /**
   * 简介:  将传递的参数写入 Autoreload 寄存器。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_Autoreload: Autoreload值。
-  *         此参数的值必须介于0x0000和0xFFFF之间
+  *         此参数的值必须介于0x0000 和0xFFFF之间
   * 
   * 返回值: 无
   */
@@ -610,17 +610,17 @@ void LPTIM_SetAutoreloadValue(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Autoreload) 
     assert_param(IS_LPTIM_ALL_PERIPH(LPTIMx));
     assert_param(IS_LPTIM_AUTORELOAD(LPTIM_Autoreload));
 
-    /* 在Autoreload中写入LPTIM_Autoreload寄存器 */
+    /* 在 Autoreload中写入LPTIM_Autoreload寄存器 */
     LPTIMx->ARR = LPTIM_Autoreload;
 }
 
 /**
   * 简介:  将传递的参数写入比较寄存器。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_Compare: 比较值。
-  *         此参数的值必须介于0x0000和0xFFFF之间
+  *         此参数的值必须介于0x0000 和0xFFFF之间
   * 
   * 返回值: 无
   */
@@ -637,10 +637,10 @@ void LPTIM_SetCompareValue(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Compare) {
   * 简介:  启用或禁用计数器模式。
   *         启用计数器模式后，计数器会在 ULPTIM 上的每个有效事件中递增
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  NewState: 计数器模式的新状态。
-  *         此参数可以是: ENABLE或DISABLE。
+  *         此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   *
@@ -663,10 +663,10 @@ void LPTIM_SelectCounterMode(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用编码器模式。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  NewState: 编码器模式的新状态。
-  *         此参数可以是: ENABLE或DISABLE。
+  *         此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   *
@@ -689,7 +689,7 @@ void LPTIM_SelectEncoderMode(LPTIM_TypeDef* LPTIMx, FunctionalState NewState) {
 /**
   * 简介:  获取 LPTIMx 计数器值。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 返回值: 计数器寄存器值
   */
@@ -704,7 +704,7 @@ uint32_t LPTIM_GetCounterValue(LPTIM_TypeDef* LPTIMx) {
 /**
   * 简介:  获取LPTIMx Autoreload值。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 返回值: 计数器寄存器值
   */
@@ -719,7 +719,7 @@ uint32_t LPTIM_GetAutoreloadValue(LPTIM_TypeDef* LPTIMx) {
 /**
   * 简介:  获取 LPTIMx 比较值。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 返回值: 计数器寄存器值
   */
@@ -734,7 +734,7 @@ uint32_t LPTIM_GetCompareValue(LPTIM_TypeDef* LPTIMx) {
 /**
   * 简介:  LPTIM 输入 1 重映射。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_OPTR :
   * 此参数可以是:
@@ -761,9 +761,9 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
  ===============================================================================
                   中断和标记管理函数
  ===============================================================================
-  本节提供了允许配置LPTIM中断、获取状态和清除标志位的函数。
+  本节提供了允许配置LPTIM 中断、获取状态和清除标志位的函数。
 
-  LPTIM提供7个标志和中断源(只有配备编码器模式接口的LPTIM 外设设备上才有2个标志和干扰源)
+  LPTIM提供7个标志和中断源(只有配备编码器模式接口的 LPTIM 外设设备上才有2个标志和干扰源)
 
   标志和中断源:
   =============================
@@ -772,13 +772,13 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
   3. 外部触发事件。
   4. 自动重新加载寄存器写入完成。
   5. 比较寄存器写入完成。
-  6. 方向改变:从上到下[仅适用于带编码器模式模块的LPTIM 外设设备]
-  7. 方向改变:从下到上[仅适用于带编码器模式模块的LPTIM 外设设备]
+  6. 方向改变:从上到下[仅适用于带编码器模式模块的 LPTIM 外设设备]
+  7. 方向改变:从下到上[仅适用于带编码器模式模块的 LPTIM 外设设备]
 
   - 要启用特定的中断源，请使用"LPTIM_ITConfig"功能。
   - 要检查是否发生了中断，请调用"LPTIM_GetITStatus"函数并读取返回值。
   - 要获取标志状态，请调用"LPTIM_GetFlagStatus"函数并读取返回值。
-  - 要清除标志或中断，请使用带有相应标志(中断)的LPTIM_ClearFlag函数。
+  - 要清除标志或中断，请使用带有相应标志(中断)的 LPTIM_ClearFlag函数。
 
 @endverbatim
   */
@@ -786,9 +786,9 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
 /**
   * 简介:  启用或禁用指定的 LPTIM 中断。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
-  * 参数:  LPTIM_IT: 指定要启用或禁用的TIM中断源。
+  * 参数:  LPTIM_IT: 指定要启用或禁用的 TIM 中断源。
   *         此参数可以是以下值的任意组合:
   *         @arg LPTIM_IT_DOWN:计数器方向从上到下改变中断源
   *         @arg LPTIM_IT_UP:计数器方向向下更改为向上中断源
@@ -802,8 +802,8 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
   * 
   * 注意:   LPTIM_IT_UP仅适用于LPTIM1。
   * 
-  * 参数:  NewState: TIM中断的新状态。
-  *         此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: TIM 中断的新状态。
+  *         此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   *
@@ -827,7 +827,7 @@ void LPTIM_ITConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_IT, FunctionalState Ne
 /**
   * 简介:  检查是否设置了指定的 LPTIM 标志。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_FLAG: 指定要检查的标志。
   *         此参数可以是以下值的任意组合:
@@ -843,8 +843,8 @@ void LPTIM_ITConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_IT, FunctionalState Ne
   * 
   * 注意:   LPTIM_Flag_UP仅为LPTIM1生成。
   * 
-  * 参数:  NewState: TIM中断的新状态。
-  *         此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: TIM 中断的新状态。
+  *         此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -867,7 +867,7 @@ FlagStatus LPTIM_GetFlagStatus(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_FLAG) {
 /**
   * 简介:  清除 LPTIMx 的挂起标志。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_CLEARF: 指定要清除的挂起位。
   *         此参数可以是以下值的任意组合:
@@ -896,9 +896,9 @@ void LPTIM_ClearFlag(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_CLEARF) {
 /**
   * 简介:  检查指定的 LPTIM 中断是否发生。
   * 
-  * 参数:  LPTIMx: 其中x可以是1。
+  * 参数:  LPTIMx: 其中 x 可以是1。
   * 
-  * 参数:  LPTIM_IT: 指定要检查的LPTIM中断源。
+  * 参数:  LPTIM_IT: 指定要检查的 LPTIM 中断源。
   *            @arg LPTIM_IT_DOWN:计数器方向从上到下改变中断源
   *            @arg LPTIM_IT_UP:计数器方向向下更改为向上中断源
   *            @arg LPTIM_IT_ARROK:自动重新加载寄存器更新OK中断源
@@ -907,7 +907,7 @@ void LPTIM_ClearFlag(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_CLEARF) {
   *            @arg LPTIM_IT_ARRM:自动重新加载匹配中断源
   *            @arg LPTIM_IT_CMPM:比较匹配中断源
   * 
-  * 返回值: LPTIM_IT的新状态(SET或RESET)。
+  * 返回值: LPTIM_IT 的新状态(SET 或 RESET)。
   */
 ITStatus LPTIM_GetITStatus(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_IT) {
     ITStatus bitstatus = RESET;

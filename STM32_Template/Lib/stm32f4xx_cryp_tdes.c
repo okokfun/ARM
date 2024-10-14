@@ -66,12 +66,12 @@
 /** @defgroup CRYP_Private_Functions
   */
 
-/** @defgroup CRYP_Group7 高水平的TDES功能
- *  简介   高水平的TDES功能
+/** @defgroup CRYP_Group7 高水平的 TDES功能
+ *  简介   高水平的 TDES功能
  *
 @verbatim
  ===============================================================================
-                      ##### 高水平的TDES功能 #####
+                      ##### 高水平的 TDES功能 #####
  ===============================================================================
 
 @endverbatim
@@ -85,7 +85,7 @@
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
   * 
-  * 参数:  Key: 用于TDES算法的密钥。
+  * 参数:  Key: 用于 TDES算法的密钥。
   * 
   * 参数:  Ilength: 输入缓冲区的长度，必须是8的倍数。
   * 
@@ -149,7 +149,7 @@ ErrorStatus CRYP_TDES_ECB(uint8_t Mode, uint8_t Key[24], uint8_t *Input,
         status = ERROR;
     } else {
         for(i = 0; ((i < Ilength) && (status != ERROR)); i += 8) {
-            /* 在输入FIFO中写入输入块 */
+            /* 在输入FIFO 中写入输入块 */
             CRYP_DataIn(*(uint32_t*)(inputaddr));
             inputaddr += 4;
             CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -167,7 +167,7 @@ ErrorStatus CRYP_TDES_ECB(uint8_t Mode, uint8_t Key[24], uint8_t *Input,
                 status = ERROR;
             } else {
 
-                /* 从输出FIFO中读取输出块 */
+                /* 从输出FIFO 中读取输出块 */
                 *(uint32_t*)(outputaddr) = CRYP_DataOut();
                 outputaddr += 4;
                 *(uint32_t*)(outputaddr) = CRYP_DataOut();
@@ -190,9 +190,9 @@ ErrorStatus CRYP_TDES_ECB(uint8_t Mode, uint8_t Key[24], uint8_t *Input,
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
   * 
-  * 参数:  Key: 用于TDES算法的密钥。
+  * 参数:  Key: 用于 TDES算法的密钥。
   * 
-  * 参数:  InitVectors: 用于TDES算法的初始化矢量。
+  * 参数:  InitVectors: 用于 TDES算法的初始化矢量。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 
@@ -264,7 +264,7 @@ ErrorStatus CRYP_TDES_CBC(uint8_t Mode, uint8_t Key[24], uint8_t InitVectors[8],
         status = ERROR;
     } else {
         for(i = 0; ((i < Ilength) && (status != ERROR)); i += 8) {
-            /* 在输入FIFO中写入输入块 */
+            /* 在输入FIFO 中写入输入块 */
             CRYP_DataIn(*(uint32_t*)(inputaddr));
             inputaddr += 4;
             CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -282,7 +282,7 @@ ErrorStatus CRYP_TDES_CBC(uint8_t Mode, uint8_t Key[24], uint8_t InitVectors[8],
                 status = ERROR;
             } else {
 
-                /* 从输出FIFO中读取输出块 */
+                /* 从输出FIFO 中读取输出块 */
                 *(uint32_t*)(outputaddr) = CRYP_DataOut();
                 outputaddr += 4;
                 *(uint32_t*)(outputaddr) = CRYP_DataOut();

@@ -41,7 +41,7 @@ OF SUCH DAMAGE.
 #define CRC_FDATA_RESET_VALUE     ((uint32_t)0x00000000U)
 
 /*!
-    简介:      deinit CRC计算单元
+    简介:      deinit CRC 计算单元
     参数[输入]:  无
     参数[输出]:  无
     返回值:      无

@@ -60,7 +60,7 @@ OF SUCH DAMAGE.
 
 
 /* function declarations */
-/* deinit CRC计算单元 */
+/* deinit CRC 计算单元 */
 void CRC_DeInit(void);
 
 /* reset data register(CRC_DATA) to the value of 0xFFFFFFFF */

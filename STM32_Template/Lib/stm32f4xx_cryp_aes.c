@@ -70,12 +70,12 @@
 /** @defgroup CRYP_Private_Functions
   */
 
-/** @defgroup CRYP_Group6 高水平的AES功能
- *  简介   高水平的AES功能
+/** @defgroup CRYP_Group6 高水平的 AES功能
+ *  简介   高水平的 AES功能
  *
 @verbatim
  ===============================================================================
-                       ##### 高水平的AES功能 #####
+                       ##### 高水平的 AES功能 #####
  ===============================================================================
 
 @endverbatim
@@ -91,7 +91,7 @@
   * 
   * 参数:  Key: 用于AES算法的密钥。
   * 
-  * 参数:  Keysize: 密钥的长度必须为128、192或256。
+  * 参数:  Keysize: 密钥的长度必须为128、192 或256。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 
@@ -224,7 +224,7 @@ ErrorStatus CRYP_AES_ECB(uint8_t Mode, uint8_t* Key, uint16_t Keysize,
 
     for(i = 0; ((i < Ilength) && (status != ERROR)); i += 16) {
 
-        /* 在IN FIFO中写入输入块 */
+        /* 在 IN FIFO 中写入输入块 */
         CRYP_DataIn(*(uint32_t*)(inputaddr));
         inputaddr += 4;
         CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -246,7 +246,7 @@ ErrorStatus CRYP_AES_ECB(uint8_t Mode, uint8_t* Key, uint16_t Keysize,
             status = ERROR;
         } else {
 
-            /* 从输出FIFO中读取输出块 */
+            /* 从输出FIFO 中读取输出块 */
             *(uint32_t*)(outputaddr) = CRYP_DataOut();
             outputaddr += 4;
             *(uint32_t*)(outputaddr) = CRYP_DataOut();
@@ -276,7 +276,7 @@ ErrorStatus CRYP_AES_ECB(uint8_t Mode, uint8_t* Key, uint16_t Keysize,
   * 
   * 参数:  Key: 用于AES算法的密钥。
   * 
-  * 参数:  Keysize: 密钥的长度必须为128、192或256。
+  * 参数:  Keysize: 密钥的长度必须为128、192 或256。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 
@@ -425,7 +425,7 @@ ErrorStatus CRYP_AES_CBC(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
 
     for(i = 0; ((i < Ilength) && (status != ERROR)); i += 16) {
 
-        /* 在IN FIFO中写入输入块 */
+        /* 在 IN FIFO 中写入输入块 */
         CRYP_DataIn(*(uint32_t*)(inputaddr));
         inputaddr += 4;
         CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -446,7 +446,7 @@ ErrorStatus CRYP_AES_CBC(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
             status = ERROR;
         } else {
 
-            /* 从输出FIFO中读取输出块 */
+            /* 从输出FIFO 中读取输出块 */
             *(uint32_t*)(outputaddr) = CRYP_DataOut();
             outputaddr += 4;
             *(uint32_t*)(outputaddr) = CRYP_DataOut();
@@ -476,7 +476,7 @@ ErrorStatus CRYP_AES_CBC(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
   * 
   * 参数:  Key: 用于AES算法的密钥。
   * 
-  * 参数:  Keysize: 密钥的长度必须为128、192或256。
+  * 参数:  Keysize: 密钥的长度必须为128、192 或256。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 
@@ -599,7 +599,7 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
 
     for(i = 0; ((i < Ilength) && (status != ERROR)); i += 16) {
 
-        /* 在IN FIFO中写入输入块 */
+        /* 在 IN FIFO 中写入输入块 */
         CRYP_DataIn(*(uint32_t*)(inputaddr));
         inputaddr += 4;
         CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -620,7 +620,7 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
             status = ERROR;
         } else {
 
-            /* 从输出FIFO中读取输出块 */
+            /* 从输出FIFO 中读取输出块 */
             *(uint32_t*)(outputaddr) = CRYP_DataOut();
             outputaddr += 4;
             *(uint32_t*)(outputaddr) = CRYP_DataOut();
@@ -650,7 +650,7 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
   * 
   * 参数:  Key: 用于AES算法的密钥。
   * 
-  * 参数:  Keysize: 密钥的长度必须为128、192或256。
+  * 参数:  Keysize: 密钥的长度必须为128、192 或256。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 
@@ -796,7 +796,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
                 while(CRYP_GetFlagStatus(CRYP_FLAG_IFEM) == RESET) {
                 }
 
-                /* 在IN FIFO中写入输入块 */
+                /* 在 IN FIFO 中写入输入块 */
                 CRYP_DataIn(*(uint32_t*)(headeraddr));
                 headeraddr += 4;
                 CRYP_DataIn(*(uint32_t*)(headeraddr));
@@ -838,7 +838,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
                 while(CRYP_GetFlagStatus(CRYP_FLAG_IFEM) == RESET) {
                 }
 
-                /* 在IN FIFO中写入输入块 */
+                /* 在 IN FIFO 中写入输入块 */
                 CRYP_DataIn(*(uint32_t*)(inputaddr));
                 inputaddr += 4;
                 CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -863,7 +863,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
                     while(CRYP_GetFlagStatus(CRYP_FLAG_OFNE) == RESET) {
                     }
 
-                    /* 从输出FIFO中读取输出块 */
+                    /* 从输出FIFO 中读取输出块 */
                     *(uint32_t*)(outputaddr) = CRYP_DataOut();
                     outputaddr += 4;
                     *(uint32_t*)(outputaddr) = CRYP_DataOut();
@@ -888,7 +888,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
             return(ERROR);
         }
 
-        /* 写入FIFO中与头连接的位数 */
+        /* 写入FIFO 中与头连接的位数 */
         CRYP_DataIn(__REV(headerlength >> 32));
         CRYP_DataIn(__REV(headerlength));
         CRYP_DataIn(__REV(inputlength >> 32));
@@ -899,7 +899,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
         }
 
         tagaddr = (uint32_t)AuthTAG;
-        /* 读取IN FIFO中的Auth TAG。 */
+        /* 读取IN FIFO 中的 Auth TAG。 */
         *(uint32_t*)(tagaddr) = CRYP_DataOut();
         tagaddr += 4;
         *(uint32_t*)(tagaddr) = CRYP_DataOut();
@@ -955,7 +955,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
                 while(CRYP_GetFlagStatus(CRYP_FLAG_IFEM) == RESET) {
                 }
 
-                /* 在IN FIFO中写入输入块 */
+                /* 在 IN FIFO 中写入输入块 */
                 CRYP_DataIn(*(uint32_t*)(headeraddr));
                 headeraddr += 4;
                 CRYP_DataIn(*(uint32_t*)(headeraddr));
@@ -997,7 +997,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
                 while(CRYP_GetFlagStatus(CRYP_FLAG_IFEM) == RESET) {
                 }
 
-                /* 在IN FIFO中写入输入块 */
+                /* 在 IN FIFO 中写入输入块 */
                 CRYP_DataIn(*(uint32_t*)(inputaddr));
                 inputaddr += 4;
                 CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -1022,7 +1022,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
                     while(CRYP_GetFlagStatus(CRYP_FLAG_OFNE) == RESET) {
                     }
 
-                    /* 从输出FIFO中读取输出块 */
+                    /* 从输出FIFO 中读取输出块 */
                     *(uint32_t*)(outputaddr) = CRYP_DataOut();
                     outputaddr += 4;
                     *(uint32_t*)(outputaddr) = CRYP_DataOut();
@@ -1047,7 +1047,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
             return(ERROR);
         }
 
-        /* 写入FIFO中与头连接的位数 */
+        /* 写入FIFO 中与头连接的位数 */
         CRYP_DataIn(__REV(headerlength >> 32));
         CRYP_DataIn(__REV(headerlength));
         CRYP_DataIn(__REV(inputlength >> 32));
@@ -1058,7 +1058,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
         }
 
         tagaddr = (uint32_t)AuthTAG;
-        /* 读取IN FIFO中的Auth TAG。 */
+        /* 读取IN FIFO 中的 Auth TAG。 */
         *(uint32_t*)(tagaddr) = CRYP_DataOut();
         tagaddr += 4;
         *(uint32_t*)(tagaddr) = CRYP_DataOut();
@@ -1088,7 +1088,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
   * 
   * 参数:  Key: 用于 AES 算法的密钥。
   * 
-  * 参数:  Keysize: 密钥的长度必须为 128、192或256。
+  * 参数:  Keysize: 密钥的长度必须为 128、192 或256。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 
@@ -1294,7 +1294,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
         CRYP_PhaseConfig(CRYP_Phase_Init);
 
         b0addr = (uint32_t)blockb0;
-        /* 在IN FIFO中写入blockb0块。 */
+        /* 在 IN FIFO 中写入blockb0块。 */
         CRYP_DataIn((*(uint32_t*)(b0addr)));
         b0addr += 4;
         CRYP_DataIn((*(uint32_t*)(b0addr)));
@@ -1328,7 +1328,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
                 while(CRYP_GetFlagStatus(CRYP_FLAG_IFEM) == RESET) {
                 }
 
-                /* 在IN FIFO中写入输入块 */
+                /* 在 IN FIFO 中写入输入块 */
                 CRYP_DataIn(*(uint32_t*)(headeraddr));
                 headeraddr += 4;
                 CRYP_DataIn(*(uint32_t*)(headeraddr));
@@ -1370,7 +1370,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
                 while(CRYP_GetFlagStatus(CRYP_FLAG_IFEM) == RESET) {
                 }
 
-                /* 在IN FIFO中写入输入块 */
+                /* 在 IN FIFO 中写入输入块 */
                 CRYP_DataIn(*(uint32_t*)(inputaddr));
                 inputaddr += 4;
                 CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -1395,7 +1395,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
                     while(CRYP_GetFlagStatus(CRYP_FLAG_OFNE) == RESET) {
                     }
 
-                    /* 从输出FIFO中读取输出块 */
+                    /* 从输出FIFO 中读取输出块 */
                     *(uint32_t*)(outputaddr) = CRYP_DataOut();
                     outputaddr += 4;
                     *(uint32_t*)(outputaddr) = CRYP_DataOut();
@@ -1421,7 +1421,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
         }
 
         ctraddr = (uint32_t)ctr;
-        /* 在IN FIFO中写入计数器块 */
+        /* 在 IN FIFO 中写入计数器块 */
         CRYP_DataIn(*(uint32_t*)(ctraddr));
         ctraddr += 4;
         CRYP_DataIn(*(uint32_t*)(ctraddr));
@@ -1435,7 +1435,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
         while(CRYP_GetFlagStatus(CRYP_FLAG_OFNE) == RESET) {
         }
 
-        /* 读取IN FIFO中的Auth TAG。 */
+        /* 读取IN FIFO 中的 Auth TAG。 */
         temptag[0] = CRYP_DataOut();
         temptag[1] = CRYP_DataOut();
         temptag[2] = CRYP_DataOut();
@@ -1463,7 +1463,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
         CRYP_PhaseConfig(CRYP_Phase_Init);
 
         b0addr = (uint32_t)blockb0;
-        /* 在IN FIFO中写入blockb0块。 */
+        /* 在 IN FIFO 中写入blockb0块。 */
         CRYP_DataIn((*(uint32_t*)(b0addr)));
         b0addr += 4;
         CRYP_DataIn((*(uint32_t*)(b0addr)));
@@ -1497,7 +1497,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
                 while(CRYP_GetFlagStatus(CRYP_FLAG_IFEM) == RESET) {
                 }
 
-                /* 在IN FIFO中写入输入块 */
+                /* 在 IN FIFO 中写入输入块 */
                 CRYP_DataIn(*(uint32_t*)(headeraddr));
                 headeraddr += 4;
                 CRYP_DataIn(*(uint32_t*)(headeraddr));
@@ -1539,7 +1539,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
                 while(CRYP_GetFlagStatus(CRYP_FLAG_IFEM) == RESET) {
                 }
 
-                /* 在IN FIFO中写入输入块 */
+                /* 在 IN FIFO 中写入输入块 */
                 CRYP_DataIn(*(uint32_t*)(inputaddr));
                 inputaddr += 4;
                 CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -1564,7 +1564,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
                     while(CRYP_GetFlagStatus(CRYP_FLAG_OFNE) == RESET) {
                     }
 
-                    /* 从输出FIFO中读取输出块 */
+                    /* 从输出FIFO 中读取输出块 */
                     *(uint32_t*)(outputaddr) = CRYP_DataOut();
                     outputaddr += 4;
                     *(uint32_t*)(outputaddr) = CRYP_DataOut();
@@ -1590,7 +1590,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
         }
 
         ctraddr = (uint32_t)ctr;
-        /* 在IN FIFO中写入计数器块 */
+        /* 在 IN FIFO 中写入计数器块 */
         CRYP_DataIn(*(uint32_t*)(ctraddr));
         ctraddr += 4;
         CRYP_DataIn(*(uint32_t*)(ctraddr));
@@ -1604,7 +1604,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
         while(CRYP_GetFlagStatus(CRYP_FLAG_OFNE) == RESET) {
         }
 
-        /* 读取IN FIFO中的认证标签(MAC)。 */
+        /* 读取IN FIFO 中的认证标签(MAC)。 */
         temptag[0] = CRYP_DataOut();
         temptag[1] = CRYP_DataOut();
         temptag[2] = CRYP_DataOut();

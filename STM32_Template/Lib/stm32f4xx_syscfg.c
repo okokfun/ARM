@@ -17,12 +17,12 @@
 
        (#) 交换内部闪存 Bank1 和 Bank2 此功能仅对 STM32F42xxx/43xxx 设备设备可见。
 
-       (#) 使用 SYSCFG_EXTILineConfig() 管理到GPIO的EXTI线路连接
+       (#) 使用 SYSCFG_EXTILineConfig() 管理到GPIO 的 EXTI线路连接
        
        (#) 使用 SYSCFG_ETH_MediaInterfaceConfig() 选择以太网媒体接口(RMII/RII)
 
        -@- 必须启用 SYSCFG APB时钟，才能使用 RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
-		  获得对SYSCFG寄存器的写入访问权限;
+		  获得对 SYSCFG寄存器的写入访问权限;
 
  @endverbatim
   ******************************************************************************
@@ -144,14 +144,14 @@ void SYSCFG_MemorySwappingBank(FunctionalState NewState) {
 
 /**
   * 简介:  选择用作 EXTI 线路的 GPIO 引脚。
-  * 参数:  EXTI_PortSourceGPIOx : 选择要用作EXTI线路源的GPIO端口，其中x可以是
+  * 参数:  EXTI_PortSourceGPIOx : 选择要用作EXTI线路源的 GPIO端口，其中 x 可以是
   *                               STM32F42xxx/43xxx 设备的(A..K)，(A..I)
-  *                               用于 STM32P405xx/407xx和STM32C415xx/417xx 设备，
+  *                               用于 STM32P405xx/407xx 和 STM32C415xx/417xx 设备，
   *                               或(A、B、C、D和H)用于 STM2401xx 设备。
   *
-  * 参数:  EXTI_PinSourcex: 指定要配置的EXTI行。
-  *           此参数可以是EXTI_PinSourcex，其中x可以是(0..15，除了EXTI_PortSourceGPIOI x
-  *           对于 STM32F405xx/407xx和STM32P405xx/407xxx 设备可以为(0..11)，
+  * 参数:  EXTI_PinSourcex: 指定要配置的 EXTI行。
+  *           此参数可以是EXTI_PinSourcex，其中 x 可以是(0..15，除了EXTI_PortSourceGPIOI x
+  *           对于 STM32F405xx/407xx 和 STM32P405xx/407xxx 设备可以为(0..11)，
   *           对于EXTI_Port SourceGPIOK x对于 STM2F42xxx/43xxx 设备可为(0..7)。
   *
   * 返回值: 无
@@ -172,8 +172,8 @@ void SYSCFG_EXTILineConfig(uint8_t EXTI_PortSourceGPIOx, uint8_t EXTI_PinSourcex
   * 简介:  选择以太网媒体接口。
   * 参数:  SYSCFG_ETH_MediaInterface: 指定媒体接口模式。
   *          此参数可以是以下值之一:
-  *            @arg SYSCFG_ETH_MediaInterface_MII: 已选择MII模式
-  *            @arg SYSCFG_ETH_MediaInterface_RMII: 已选择RMII模式
+  *            @arg SYSCFG_ETH_MediaInterface_MII: 已选择MII 模式
+  *            @arg SYSCFG_ETH_MediaInterface_RMII: 已选择RMII 模式
   * 返回值: 无
   */
 void SYSCFG_ETH_MediaInterfaceConfig(uint32_t SYSCFG_ETH_MediaInterface) {
@@ -201,7 +201,7 @@ void SYSCFG_CompensationCellCmd(FunctionalState NewState) {
 /**
   * 简介:  检查是否设置了 I/O 补偿单元就绪标志。
   * 参数:  无
-  * 返回值: I/O补偿单元就绪标志的新状态(SET或RESET)
+  * 返回值: I/O补偿单元就绪标志的新状态(SET 或 RESET)
   */
 FlagStatus SYSCFG_GetCompensationCellStatus(void) {
     FlagStatus bitstatus = RESET;
@@ -221,8 +221,8 @@ FlagStatus SYSCFG_GetCompensationCellStatus(void) {
   * 注意:   所选配置已锁定，可以通过系统重置解除锁定
   * 参数:  SYSCFG_Break: 选择要连接到中断TIM1输入的配置
   *   此参数可以是以下值的任意组合:
-  *     @arg SYSCFG_Break_PVD: PVD中断连接至TIM1/8的中断输入。
-  *     @arg SYSCFG_Break_HardFault: CortexM4的锁定输出连接到TIM1/8的中断输入。
+  *     @arg SYSCFG_Break_PVD: PVD 中断连接至 TIM1/8的中断输入。
+  *     @arg SYSCFG_Break_HardFault: CortexM4的锁定输出连接到 TIM1/8的中断输入。
   * 返回值: 无
   */
 void SYSCFG_BreakConfig(uint32_t SYSCFG_Break) {

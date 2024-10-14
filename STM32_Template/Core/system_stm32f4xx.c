@@ -5,7 +5,7 @@
   * @version V1.8.0
   * @date    09-November-2016
   * 简介:   CMSIS Cortex-M4设备外围访问层系统源文件。
-  *          此文件包含STM32F4xx 设备的系统时钟配置。
+  *          此文件包含 STM32F4xx 设备的系统时钟配置。
   *
   * 1.  此文件提供两个函数和一个全局变量，可从用户应用程序调用：
   *      - SystemInit(): 根据时钟xls工具中的配置，设置系统时钟(系统时钟源、PLL乘法器和
@@ -16,14 +16,14 @@
   *      - SystemCoreClock variable: 包含核心时钟(HCLK)，
   *                                  用户应用程序可以使用它来设置SysTick计时器或配置其他参数。
   *
-  *      - SystemCoreClockUpdate(): 更新变量SystemCoreClock，
+  *      - SystemCoreClockUpdate(): 更新变量 SystemCoreClock，
   *                                 并且必须在程序执行期间更改核心时钟时调用。
   *
   * 2. 每次设备复位后，HSI(16 MHz)用作系统时钟源。
   *    然后，在"startup_stm32f4xx.s"文件中调用 SystemInit() 函数，以在分支到主程序之前配置系统时钟。
   *
   * 3. 如果用户选择的系统时钟源无法启动，SystemInit() 函数将不执行任何操作，
-  *    HSI仍用作系统时钟源。用户可以在SetSysClock() 函数中添加一些代码来处理此问题。
+  *    HSI仍用作系统时钟源。用户可以在 SetSysClock() 函数中添加一些代码来处理此问题。
   *
   * 4. HSE晶体的默认值设置为25MHz，请参阅"stm32f4xx.h"文件中的"HSE_value"定义。
   *    当HSE直接或通过PLL用作系统时钟源时，如果您使用不同的晶体，则必须根据您自己的配置调整HSE值。
@@ -31,7 +31,7 @@
   * 5. 此文件按如下方式配置系统时钟：
   *=============================================================================
   *=============================================================================
-  *                    支持的STM32F40xxx/41xxx 设备
+  *                    支持的 STM32F40xxx/41xxx 设备
   *-----------------------------------------------------------------------------
   *        系统时钟源                             | PLL (HSE)
   *-----------------------------------------------------------------------------
@@ -313,7 +313,7 @@
   */
 
 /************************* Miscellaneous Configuration ************************/
-/*!< 如果需要使用安装在 STM324xG_EVAL/STM324x7I_EVAL/STM324x9I_EVAL 板上的外部SRAM或SDRAM作为数据存储器，请取消注释以下行  */
+/*!< 如果需要使用安装在 STM324xG_EVAL/STM324x7I_EVAL/STM324x9I_EVAL 板上的外部 SRAM或SDRAM作为数据存储器，请取消注释以下行  */
 #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F469_479xx) || defined(STM32F413_423xx)
 /* #define DATA_IN_ExtSRAM */
 #endif /* STM32F40_41xxx || STM32F427_437x || STM32F429_439xx || STM32F469_479xx || STM32F413_423xx */
@@ -323,8 +323,8 @@
 #endif /* STM32F427_437x || STM32F429_439xx || STM32F446xx || STM32F469_479xx */
 
 #if defined(STM32F410xx) || defined(STM32F411xE)
-/*!< 如果您需要通过STM32F103微控制器的STLINK MCO引脚通过HSE旁路对STM32F410xx/STM32F411xE进行时钟，请取消注释以下行。频率不能更改，并且固定在8MHz。
-     Nucleo板所需的硬件配置:
+/*!< 如果您需要通过 STM32F103 微控制器的 STLINK MCO 引脚通过 HSE 旁路对 STM32F410xx/STM32F411xE 进行时钟，请取消注释以下行。频率不能更改，并且固定在8MHz。
+     Nucleo 板所需的硬件配置:
      – SB54, SB55 OFF
      – R35 removed
      – SB16, SB50 ON */
@@ -335,7 +335,7 @@
 #endif /* USE_HSE_BYPASS */
 #endif /* STM32F410xx || STM32F411xE */
 
-/*!< 如果需要在内部SRAM中重新定位矢量表，请取消注释以下行。 */
+/*!< 如果需要在内部 SRAM 中重新定位矢量表，请取消注释以下行。 */
 /* #define VECT_TAB_SRAM */
 #define VECT_TAB_OFFSET  0x00 /*!< 矢量表基偏移字段。 
                                    此值必须是 0x200 的倍数。 */
@@ -360,7 +360,7 @@
 #define PLL_Q      7
 
 #if defined(STM32F446xx)
-/* I2S、SAI、SYSTEM和SPDIF的PLL分频因子: Clock =  PLL_VCO / PLLR */
+/* I2S、SAI、SYSTEM 和 SPDIF的PLL分频因子: Clock =  PLL_VCO / PLLR */
 #define PLL_R      7
 #elif defined(STM32F412xG) || defined(STM32F413_423xx)
 #define PLL_R      2
@@ -442,7 +442,7 @@ static void SystemInit_ExtMemCtl(void);
 void SystemInit(void) {
     /* FPU 设置 ------------------------------------------------------------*/
 #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
-    SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* 设置CP10和CP11完全访问 */
+    SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* 设置 CP10 和 CP11 完全访问 */
 #endif
     /* 将RCC时钟配置重置为默认重置状态 ------------*/
     /* 重置 HSION bit */
@@ -473,7 +473,7 @@ void SystemInit(void) {
 
     /* 配置矢量表位置添加偏移地址 ------------------*/
 #ifdef VECT_TAB_SRAM
-    SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* 内部SRAM中的矢量表重定位 */
+    SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* 内部 SRAM 中的矢量表重定位 */
 #else
     SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* 内部FLASH中的矢量表重定位 */
 #endif
@@ -490,14 +490,14 @@ void SystemInit(void) {
   *
   *           - 如果 SYSCLK 源是 HSI，SystemCoreClock 将包含 HSI_VALUE(*)
   *
-  *           - 如果SYSCLK源为 HSE，SystemCoreClock将包含HSE_VALUE(**)
+  *           - 如果 SYSCLK 源为 HSE，SystemCoreClock将包含 HSE_VALUE(**)
   *
-  *           - 如果SYSCLK源是PLL，则SystemCoreClock将包含HSE_VALUE(**)或HSI_VALE(*)乘以/除以PLL因子。
+  *           - 如果 SYSCLK 源是PLL，则SystemCoreClock将包含 HSE_VALUE(**)或HSI_VALE(*)乘以/除以PLL因子。
   *
-  *         (*) HSI_VALUE是stm32f44xx.h文件中定义的常数(默认值16 MHz)，但实际值可能会根据电压和温度的变化而变化。
+  *         (*) HSI_VALUE 是 stm32f44xx.h 文件中定义的常数(默认值16 MHz)，但实际值可能会根据电压和温度的变化而变化。
   *
-  *         (**) HSE_VALUE是stm32f44xx.h文件中定义的常数(默认值25 MHz)，
-  *              用户必须确保HSE_VALUE与所用晶体的实际频率相同。否则，此函数可能会产生错误的结果。
+  *         (**) HSE_VALUE 是 stm32f44xx.h 文件中定义的常数(默认值25 MHz)，
+  *              用户必须确保 HSE_VALUE 与所用晶体的实际频率相同。否则，此函数可能会产生错误的结果。
   *
   *         - 当使用 HSE 晶体的分数值时，该函数的结果可能不正确。
   *
@@ -697,7 +697,7 @@ static void SetSysClock(void) {
     /******************************************************************************/
     __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
 
-    /* 启用 HSE和HSE BYPASS */
+    /* 启用 HSE 和HSE BYPASS */
     RCC->CR |= ((uint32_t)RCC_CR_HSEON | RCC_CR_HSEBYP);
 
     /* 等待HSE准备就绪，如果达到超时，则退出 */
@@ -809,7 +809,7 @@ void SystemInit_ExtMemCtl(void) {
     /* 启用 GPIOC, GPIOD, GPIOE, GPIOF, GPIOG, GPIOH and GPIOI 接口时钟 */
     RCC->AHB1ENR |= 0x000001F8;
 
-    /* RCC外围时钟启用后的延迟 */
+    /* RCC 外围时钟启用后的延迟 */
     tmp = READ_BIT(RCC->AHB1ENR, RCC_AHB1ENR_GPIOCEN);
 
     /* 将 PDx 引脚连接到 FMC 复用功能 */
@@ -887,7 +887,7 @@ void SystemInit_ExtMemCtl(void) {
     /*-- FMC 定义 -------------------------------------------------------*/
     /* 启用 FMC 接口时钟 */
     RCC->AHB3ENR |= 0x00000001;
-    /* RCC外围时钟启用后的延迟 */
+    /* RCC 外围时钟启用后的延迟 */
     tmp = READ_BIT(RCC->AHB3ENR, RCC_AHB3ENR_FMCEN);
 
     FMC_Bank5_6->SDCR[0] = 0x000019E4;
@@ -958,7 +958,7 @@ void SystemInit_ExtMemCtl(void) {
 /**
   * 简介:  设置外部内存控制器。
   *         在跳转到main之前，在startup_stm32f4xx.s中调用。
-  *         此功能配置安装在STM324xG_EVAL/STM324x7I板上的外部SRAM
+  *         此功能配置安装在 STM324xG_EVAL/STM324x7I板上的外部 SRAM
   *         该SRAM将用作程序数据存储器(包括堆和堆栈)。
   * 参数:  无
   * 返回值: 无
@@ -1125,7 +1125,7 @@ void SystemInit_ExtMemCtl(void) {
         clock */
     RCC->AHB1ENR |= 0x000001FC;
 
-    /* 将PCx引脚连接至FMC备用函数 */
+    /* 将PCx引脚连接至FMC 备用函数 */
     GPIOC->AFR[0]  = 0x0000000c;
     GPIOC->AFR[1]  = 0x00007700;
     /* Configure PCx pins in Alternate function mode */

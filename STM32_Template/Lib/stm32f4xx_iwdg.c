@@ -11,7 +11,7 @@
   *
     @verbatim
  ===============================================================================
-                          ##### IWDG的特点 #####
+                          ##### IWDG 的特点 #####
  ===============================================================================
     [..]
       IWDG可以由软件或硬件启动(可通过选项字节配置)。
@@ -21,13 +21,13 @@
         计数器开始从重置值0xFFF开始倒数。当它到达计数结束值(0x000)时，就会产生系统复位。
       IWDG计数器应定期重新加载以防止MCU复位。
 
-      IWDG在VDD电压域中实现，在STOP和STANDBY模式下仍然有效(IWDG复位可以从STANDBY唤醒)。
+      IWDG在 VDD 电压域中实现，在 STOP和 STANDBY模式下仍然有效(IWDG复位可以从STANDBY唤醒)。
 
-      RCC_CSR 寄存器中的IWDGRST标志可用于通知何时发生IWDG复位。
+      RCC_CSR 寄存器中的 IWDGRST标志可用于通知何时发生IWDG复位。
 
       最小-最大超时值@32KHz(LSI): ~125us/~32.7s
       由于LSI频率分散，IWDG超时可能会有所不同。STM32F4xx器件提供了测量LSI频率的能力
-      (LSI时钟内部连接到TIM5 CH4输入捕捉)。测量值可用于具有可接受精度的IWDG超时。
+      (LSI时钟内部连接到 TIM5 CH4输入捕捉)。测量值可用于具有可接受精度的 IWDG超时。
       欲了解更多信息，请参考STM32F4xx参考手册
 
                      ##### 如何使用这个驱动程序 #####
@@ -109,8 +109,8 @@
   * 
   * 参数:  IWDG_WriteAccess: 对 IWDG_PR 和 IWDG_RLR 寄存器进行写操作的新状态。
   *          此参数可以是以下值之一:
-  *            @arg IWDG_WriteAccess_Enable:  启用对IWDG_PR和IWDG_RLR 寄存器的写入权限
-  *            @arg IWDG_WriteAccess_Disable: 禁止对IWDG_PR和IWDG_RLR 寄存器的写访问
+  *            @arg IWDG_WriteAccess_Enable:  启用对IWDG_PR和 IWDG_RLR 寄存器的写入权限
+  *            @arg IWDG_WriteAccess_Disable: 禁止对IWDG_PR和 IWDG_RLR 寄存器的写访问
   * 
   * 返回值: 无
   */
@@ -180,7 +180,7 @@ void IWDG_ReloadCounter(void) {
   */
 
 /**
-  * 简介:  启用 IWDG(禁用对IWDG_PR和IWDG_RLR 寄存器的写访问)。
+  * 简介:  启用 IWDG(禁用对IWDG_PR和 IWDG_RLR 寄存器的写访问)。
   * 
   * 参数:  无
   * 
@@ -210,7 +210,7 @@ void IWDG_Enable(void) {
   *             @arg IWDG_FLAG_PVU: 预分频器值更新时的情况
   *             @arg IWDG_FLAG_RVU: 重新加载值的更新。
   * 
-  * 返回值。IWDG_FLAG的新状态(SET或RESET)。
+  * 返回值。IWDG_FLAG 的新状态(SET 或 RESET)。
   */
 FlagStatus IWDG_GetFlagStatus(uint16_t IWDG_FLAG) {
     FlagStatus bitstatus = RESET;

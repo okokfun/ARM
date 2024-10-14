@@ -1,6 +1,6 @@
 /******************************************************************************************************************************************
 * 文件名称: SWM341_sdram.c
-* 功能说明:	SWM341单片机的SDRAM驱动程序
+* 功能说明:	SWM341单片机的 SDRAM 驱动程序
 * 技术支持:	http://www.synwit.com.cn/e/tool/gbook/?bid=1
 * 注意事项:
 * 版本日期: V1.1.0		2017年10月25日
@@ -29,7 +29,7 @@
 * 注意事项: 无
 ******************************************************************************************************************************************/
 void SDRAM_Init(SDRAM_InitStructure * initStruct) {
-    uint32_t cyclesPerUs = CyclesPerUs / (initStruct->ClkDiv + 1);	// 1us有多少个SDRAM_CLK周期
+    uint32_t cyclesPerUs = CyclesPerUs / (initStruct->ClkDiv + 1);	// 1us有多少个 SDRAM_CLK周期
     uint32_t row_n;
 
     SYS->CLKEN1 |= (1 << SYS_CLKEN1_SDRAM_Pos);

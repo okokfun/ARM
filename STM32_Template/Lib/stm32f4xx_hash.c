@@ -16,7 +16,7 @@
                  ##### 如何使用此驱动程序 #####
  ===================================================================
 
- *** HASH操作 : ***
+ *** HASH 操作 : ***
  ========================
  [..]
    (#) 使用 RCC_AHB2PeriphClockCmd(RCC_AHB2Periph-HASH，Enable) 函数启用 HASH控制器时钟。
@@ -29,7 +29,7 @@
  
    (#) 如果使用 DMA 进行数据输入传输，请使用 HASH_DMACmd() 函数激活 DMA 请求
 
-   (#) 如果 DMA 不用于数据传输，请使用 HASH_DataIn() 函数将数据输入到IN FIFO。
+   (#) 如果 DMA 不用于数据传输，请使用 HASH_DataIn() 函数将数据输入到 IN FIFO。
 
    (#) 配置消息最后一个字的有效位数
        使用 HASH_SetLastWordValidBitsNbr() 函数。
@@ -156,7 +156,7 @@ void HASH_DeInit(void) {
   * 注意:  调用此函数时，哈希处理器会重置，以便hash可以计算新消息的消息摘要。
   *        不需要调用 HASH_Reset() 函数。
   * 
-  * 参数:  HASH_InitStruct: 指向包含HASH外设设备配置信息的 HASH_InitTypeDef 结构的指针。
+  * 参数:  HASH_InitStruct: 指向包含 HASH外设设备配置信息的 HASH_InitTypeDef 结构的指针。
   * 
   * 注意:   仅当算法模式为 HMAC 时，必须填充 HASH_InitTypeDef 中的字段 HASH_HMACKeyType。
   * 
@@ -186,9 +186,9 @@ void HASH_Init(HASH_InitTypeDef* HASH_InitStruct) {
 }
 
 /**
-  * 简介:  用默认值填充每个HASH_InitStruct成员。
+  * 简介:  用默认值填充每个HASH_InitStruct 成员。
   * 
-  * 参数:  HASH_InitStruct : 指向将被初始化的HASH_InitTypeDef结构的指针。
+  * 参数:  HASH_InitStruct : 指向将被初始化的 HASH_InitTypeDef 结构的指针。
   * 
   * @note  默认值设置为:处理器模式为 HASH，选择的算法为SHA1，选择的数据类型为32b，HMAC密钥类型为短键。
   * 
@@ -211,7 +211,7 @@ void HASH_StructInit(HASH_InitTypeDef* HASH_InitStruct) {
 /**
   * 简介:  重置HASH处理器内核，以便HASH可以计算新消息的消息摘要。
   * 
-  * 注意:   调用此函数将清除与HASH_IT_DCI中断和HASH_FLAG_DCIS标志相对应的HASH_SR_DCIS(摘要计算完成中断状态)位。
+  * 注意:   调用此函数将清除与HASH_IT_DCI中断和HASH_FLAG_DCIS标志相对应的 HASH_SR_DCIS(摘要计算完成中断状态)位。
   * 
   * 参数:  无
   * 
@@ -230,8 +230,8 @@ void HASH_Reset(void) {
                   ##### 函数息摘要生成功能 #####
  ===============================================================================
  [..] 本节提供了允许生成消息摘要的函数:
-   (+) 在IN FIFO中推送数据:使用 HASH_DataIn()
-   (+) 获取IN FIFO中设置的字数，使用 HASH_GetInFIFOWordsNbr()
+   (+) 在 IN FIFO 中推送数据:使用 HASH_DataIn()
+   (+) 获取IN FIFO 中设置的字数，使用 HASH_GetInFIFOWordsNbr()
    (+) 使用 HASH_SetLastWordValidBitsNbr()设置最后一个字的有效位数
    (+) 开始摘要计算:使用 HASH_StartDigest()
    (+) 获取摘要消息:使用 HASH_GetDigest()
@@ -244,7 +244,7 @@ void HASH_Reset(void) {
   * 简介:  配置消息最后一个字的有效位数
   * 
   * 参数:  ValidNumber:消息最后一个字的有效位数。
-  *           此参数必须是介于0和0x1F之间的数字。
+  *           此参数必须是介于0 和0x1F之间的数字。
   *             - 0x00: 最后写入的所有32位数据均有效
   *             - 0x01: 只有最后写入数据的位[0]有效
   *             - 0x02: 只有最后写入的数据的位[1:0]有效
@@ -278,11 +278,11 @@ void HASH_DataIn(uint32_t Data) {
 }
 
 /**
-  * 简介:  返回已推入IN FIFO的字数。
+  * 简介:  返回已推入IN FIFO 的字数。
   * 
   * 参数:  无
   * 
-  * 返回值: 已推入IN FIFO的字的值。
+  * 返回值: 已推入IN FIFO 的字的值。
   */
 uint8_t HASH_GetInFIFOWordsNbr(void) {
     /* 返回NBW位的值 */
@@ -292,11 +292,11 @@ uint8_t HASH_GetInFIFOWordsNbr(void) {
 /**
   * 简介:  提供消息摘要结果。
   * 
-  * 注意:   在MD5模式下，不使用 HASH_MsgDigest结构的Data[7]到Data[4]字段，并将其读取为零。
-  *         在SHA-1模式下，HASH_MsgDigest结构的Data[7]到Data[5]字段不使用，读取为零。
-  *         在SHA-224模式下，不使用 HASH_MsgDigest结构的Data[7]字段，读取为零。
+  * 注意:   在MD5模式下，不使用 HASH_MsgDigest结构的 Data[7]到Data[4]字段，并将其读取为零。
+  *         在 SHA-1模式下，HASH_MsgDigest结构的 Data[7]到Data[5]字段不使用，读取为零。
+  *         在 SHA-224模式下，不使用 HASH_MsgDigest结构的 Data[7]字段，读取为零。
   * 
-  * 参数:  HASH_MessageDigest:指向将保存消息摘要结果的HASH_MsgDigest结构的指针
+  * 参数:  HASH_MessageDigest:指向将保存消息摘要结果的 HASH_MsgDigest结构的指针
   * 
   * 返回值: 无
   */
@@ -351,7 +351,7 @@ void HASH_StartDigest(void) {
   * 注意:   仅当当前未处理任何块时，才能保存上下文。
     *                  因此用户必须等待DINIS=1(最后一个块已处理，输入FIFO为空)或NBW！=0(FIFO未满，未进行任何处理)。
     * 
-  * 参数:  HASH_ContextSave: 指向包含当前上下文存储库的HASH_Context结构的指针。
+  * 参数:  HASH_ContextSave: 指向包含当前上下文存储库的 HASH_Context结构的指针。
   * 
   * 返回值: 无
   */
@@ -373,7 +373,7 @@ void HASH_SaveContext(HASH_Context* HASH_ContextSave) {
   * 
   * 注意:   调用此函数后，用户可以从中断点重新启动处理。
   * 
-  * 参数:  HASH_ContextRestore: 指向包含已保存上下文的存储库的HASH_Context结构的指针。
+  * 参数:  HASH_ContextRestore: 指向包含已保存上下文的存储库的 HASH_Context结构的指针。
   * 
   * 返回值: 无
   */
@@ -394,26 +394,26 @@ void HASH_RestoreContext(HASH_Context* HASH_ContextRestore) {
     }
 }
 
-/** @defgroup HASH_Group4 HASH的DMA 接口配置函数
- *  简介   HASH的DMA 接口配置函数
+/** @defgroup HASH_Group4 HASH的 DMA 接口配置函数
+ *  简介   HASH的 DMA 接口配置函数
  *
 @verbatim
  ===============================================================================
-               ##### HASH的DMA 接口配置函数 #####
+               ##### HASH的 DMA 接口配置函数 #####
  ===============================================================================
 
  [..] 本节提供了允许为 HASH/HMAC 数据输入传输配置 DMA 接口的函数。
 
- [..] 启用 DMA 模式时(使用 HASH_DMACmd() 函数)，可以使用 DMA外设设备将数据发送到IN FIFO。
+ [..] 启用 DMA 模式时(使用 HASH_DMACmd() 函数)，可以使用 DMA外设设备将数据发送到 IN FIFO。
 
 @endverbatim
   */
 
 /**
-  * 简介:  启用或禁用 DMA传输结束时自动启动消息填充和最终消息摘要的计算。
+  * 简介:  启用或禁用 DMA 传输结束时自动启动消息填充和最终消息摘要的计算。
   * 
-  * 参数:  NewState: 所选HASH DMA传输请求的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 所选HASH DMA 传输请求的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -422,10 +422,10 @@ void HASH_AutoStartDigest(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 在DMA传输结束时启用最终消息摘要的自动启动 */
+        /* 在DMA 传输结束时启用最终消息摘要的自动启动 */
         HASH->CR &= ~HASH_CR_MDMAT;
     } else {
-        /* 在DMA传输结束时禁用最终消息摘要的自动启动 */
+        /* 在DMA 传输结束时禁用最终消息摘要的自动启动 */
         HASH->CR |= HASH_CR_MDMAT;
     }
 }
@@ -435,8 +435,8 @@ void HASH_AutoStartDigest(FunctionalState NewState) {
   * 
   * 注意:   DMA在传输结束后被硬件禁用。
   * 
-  * 参数:  NewState: 所选HASH DMA传输请求的新状态。
-  *          此参数可以是: ENABLE或DISABLE。
+  * 参数:  NewState: 所选HASH DMA 传输请求的新状态。
+  *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -468,21 +468,21 @@ void HASH_DMACmd(FunctionalState NewState) {
  *** 标志 : ***
  ===============
  [..]
-   (#) HASH_FLAG_DINIS : 当Data IN FIFO中有16个位置空闲时设置，
+   (#) HASH_FLAG_DINIS : 当 Data IN FIFO 中有16个位置空闲时设置，
 	这意味着一个新的块(512位)可以进入输入缓冲区。。
 
    (#) HASH_FLAG_DCIS :  摘要计算完成时设置
 
-   (#) HASH_FLAG_DMAS :  当HASH的DMA 接口被启用(DMAE=1)或传输正在进行时设置。此标志仅由硬件清除。
+   (#) HASH_FLAG_DMAS :  当HASH的 DMA 接口被启用(DMAE=1)或传输正在进行时设置。此标志仅由硬件清除。
 
    (#) HASH_FLAG_BUSY :  当散列核心正在处理数据块时设置此标志仅由硬件清除。
 
-   (#) HASH_FLAG_DINNE : 当数据IN FIFO不为空时设置，这意味着数据IN FIVO至少包含一个数据字。此标志仅由硬件清除。
+   (#) HASH_FLAG_DINNE : 当数据 IN FIFO不为空时设置，这意味着数据 IN FIVO至少包含一个数据字。此标志仅由硬件清除。
 
  *** 中断 : ***
  ====================
  [..]
-   (#) HASH_IT_DINI  : 如果启用，当数据输入FIFO中有16个位置空闲时，该中断源处于待定状态，
+   (#) HASH_IT_DINI  : 如果启用，当数据输入FIFO 中有16个位置空闲时，该中断源处于待定状态，
 	这意味着可以将新块(512位)输入到输入缓冲器中。
 	使用 HASH_ClearITPendingBit(HASH_IT_DINI) 函数清除此中断源。
 
@@ -506,15 +506,15 @@ void HASH_DMACmd(FunctionalState NewState) {
   */
 
 /**
-  * 简介:  启用或禁用指定的HASH中断。
+  * 简介:  启用或禁用指定的 HASH中断。
   * 
-  * 参数:  HASH_IT: 指定要启用或禁用的HASH中断源。
+  * 参数:  HASH_IT: 指定要启用或禁用的 HASH中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg HASH_IT_DINI: 数据输入中断
   *            @arg HASH_IT_DCI: 摘要计算完成中断
   * 
   * 参数:  NewState: 指定HASH中断的新状态。
-  *           此参数可以是: ENABLE或DISABLE。
+  *           此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
   */
@@ -533,9 +533,9 @@ void HASH_ITConfig(uint32_t HASH_IT, FunctionalState NewState) {
 }
 
 /**
-  * 简介:  检查是否设置了指定的HASH标志。
+  * 简介:  检查是否设置了指定的 HASH标志。
   * 
-  * 参数:  HASH_FLAG: 指定要检查的HASH标志。
+  * 参数:  HASH_FLAG: 指定要检查的 HASH标志。
   *          此参数可以是以下值之一:
   *            @arg HASH_FLAG_DINIS: 数据输入中断状态标志
   *            @arg HASH_FLAG_DCIS: 摘要计算完成中断状态标志
@@ -543,7 +543,7 @@ void HASH_ITConfig(uint32_t HASH_IT, FunctionalState NewState) {
   *            @arg HASH_FLAG_DMAS: DMAS状态标志
   *            @arg HASH_FLAG_DINNE: 数据输入寄存器(DIN)非空状态标志
   * 
-  * 返回值: HASH_FLAG的新状态(SET或RESET)
+  * 返回值: HASH_FLAG 的新状态(SET 或 RESET)
   */
 FlagStatus HASH_GetFlagStatus(uint32_t HASH_FLAG) {
     FlagStatus bitstatus = RESET;
@@ -555,7 +555,7 @@ FlagStatus HASH_GetFlagStatus(uint32_t HASH_FLAG) {
     /* 检查FLAG是否在CR 寄存器中 */
     if ((HASH_FLAG & HASH_FLAG_DINNE) != (uint32_t)RESET ) {
         tempreg = HASH->CR;
-    } else { /* FLAG在SR 寄存器中 */
+    } else { /* FLAG在 SR 寄存器中 */
         tempreg = HASH->SR;
     }
 
@@ -585,18 +585,18 @@ void HASH_ClearFlag(uint32_t HASH_FLAG) {
     /* 检查参数 */
     assert_param(IS_HASH_CLEAR_FLAG(HASH_FLAG));
 
-    /* 清除选定的HASH标志 */
+    /* 清除选定的 HASH标志 */
     HASH->SR = ~(uint32_t)HASH_FLAG;
 }
 /**
-  * 简介:  检查指定的HASH中断是否发生。
+  * 简介:  检查指定的 HASH中断是否发生。
   * 
-  * 参数:  HASH_IT: 指定要检查的HASH中断源。
+  * 参数:  HASH_IT: 指定要检查的 HASH中断源。
   *          此参数可以是以下值之一:
   *            @arg HASH_IT_DINI: 数据输入中断
   *            @arg HASH_IT_DCI: 摘要计算完成中断
   * 
-  * 返回值: HASH_IT的新状态(SET或RESET)。
+  * 返回值: HASH_IT 的新状态(SET 或 RESET)。
   */
 ITStatus HASH_GetITStatus(uint32_t HASH_IT) {
     ITStatus bitstatus = RESET;
@@ -624,7 +624,7 @@ ITStatus HASH_GetITStatus(uint32_t HASH_IT) {
 /**
   * 简介:  清除HASH中断挂起位。
   * 
-  * 参数:  HASH_IT: 指定要清除的HASH中断挂起位。
+  * 参数:  HASH_IT: 指定要清除的 HASH中断挂起位。
   *          此参数可以是以下值的任意组合:
   *            @arg HASH_IT_DINI: 数据输入中断
   *            @arg HASH_IT_DCI: 摘要计算完成中断

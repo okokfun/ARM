@@ -1,6 +1,6 @@
 /******************************************************************************************************************************************
 * 文件名称: SWM341_sdio.c
-* 功能说明:	SWM341单片机的SDIO接口驱动库
+* 功能说明:	SWM341单片机的 SDIO接口驱动库
 * 技术支持:	http://www.synwit.com.cn/e/tool/gbook/?bid=1
 * 注意事项: 为了通用性、兼容性、易用性，只支持以512字节为单位的读写
 * 版本日期:	V1.1.0		2017年10月25日
@@ -37,7 +37,7 @@ uint32_t SDIO_Init(uint32_t freq) {
 
     SYS->CLKSEL &= ~SYS_CLKSEL_SDIO_Msk;
 
-    if(SystemCoreClock > 80000000)		//SDIO时钟需要小于52MHz
+    if(SystemCoreClock > 80000000)		//SDIO 时钟需要小于52MHz
         SYS->CLKSEL |= (2 << SYS_CLKSEL_SDIO_Pos);	//SDCLK = SYSCLK / 4
     else
         SYS->CLKSEL |= (0 << SYS_CLKSEL_SDIO_Pos);	//SDCLK = SYSCLK / 2
@@ -94,7 +94,7 @@ uint32_t SDIO_Init(uint32_t freq) {
     parseCID(resps);
 
 
-    SDIO_SendCmd(SD_CMD_SET_REL_ADDR, 0x00, SD_RESP_32b, &resp);			//CMD3: SD_CMD_SET_REL_ADDR，设置RCA
+    SDIO_SendCmd(SD_CMD_SET_REL_ADDR, 0x00, SD_RESP_32b, &resp);			//CMD3: SD_CMD_SET_REL_ADDR，设置 RCA
 
     SD_cardInfo.RCA = resp >> 16;
 
@@ -132,7 +132,7 @@ uint32_t SDIO_Init(uint32_t freq) {
 
 /******************************************************************************************************************************************
 * 函数名称: SDIO_BlockWrite()
-* 功能说明:	向SD卡写入数据
+* 功能说明:	向 SD卡写入数据
 * 输    入: uint32_t block_addr		SD卡块地址，每块512字节
 *			uint32_t buff[]			要写入的数据
 * 输    出: uint32_t				SD_RES_OK 操作成功    SD_RES_ERR 操作失败    SD_RES_TIMEOUT 操作超时
@@ -165,7 +165,7 @@ uint32_t SDIO_BlockWrite(uint32_t block_addr, uint32_t buff[]) {
 
 /******************************************************************************************************************************************
 * 函数名称: SDIO_MultiBlockWrite()
-* 功能说明:	向SD卡写入多块数据
+* 功能说明:	向 SD卡写入多块数据
 * 输    入: uint32_t block_addr		SD卡块地址，每块512字节
 *			uint16_t block_cnt		要写入的块数
 *			uint32_t buff[]			要写入的数据
@@ -201,7 +201,7 @@ uint32_t SDIO_MultiBlockWrite(uint32_t block_addr, uint16_t block_cnt, uint32_t 
 
 /******************************************************************************************************************************************
 * 函数名称: SDIO_DMABlockWrite()
-* 功能说明:	通过DMA向SD卡写入多块数据
+* 功能说明:	通过DMA向 SD卡写入多块数据
 * 输    入: uint32_t block_addr		SD卡块地址，每块512字节
 *			uint16_t block_cnt		要写入的块数
 *			uint32_t buff[]			要写入的数据
@@ -330,7 +330,7 @@ uint32_t SDIO_DMABlockRead(uint32_t block_addr, uint16_t block_cnt, uint32_t buf
 
 /******************************************************************************************************************************************
 * 函数名称: _SDIO_SendCmd()
-* 功能说明:	SDIO向SD卡发送命令
+* 功能说明:	SDIO向 SD卡发送命令
 * 输    入: uint32_t cmd			命令索引
 *			uint32_t arg			命令参数
 *			uint32_t resp_type		响应类型，取值SD_RESP_NO、SD_RESP_32b、SD_RESP_128b、SD_RESP_32b_busy
@@ -376,7 +376,7 @@ uint32_t _SDIO_SendCmd(uint32_t cmd, uint32_t arg, uint32_t resp_type, uint32_t 
     if(resp_type == SD_RESP_32b) {
         resp_data[0] = SDIO->RESP[0];
     } else if(resp_type == SD_RESP_128b) {
-        //寄存器中将CID/CSD[127-8]依次存放在了RESP3-0[119-0]，最低位的CRC被丢掉
+        //寄存器中将CID/CSD[127-8]依次存放在了RESP3-0[119-0]，最低位的 CRC被丢掉
         //读出数据时调整了顺序，将CID/CSD[127-8]存放在resp_data0-3[127-8]，最低8位填充0x00
         resp_data[0] = (SDIO->RESP[3] << 8) + ((SDIO->RESP[2] >> 24) & 0xFF);
         resp_data[1] = (SDIO->RESP[2] << 8) + ((SDIO->RESP[1] >> 24) & 0xFF);

@@ -337,7 +337,7 @@ extern "C"
 #define TABLE_SPACING_Q15	   0x80
 
 /**
- * 简介: SINE和COSINE控制器功能所需的宏
+ * 简介: SINE 和 COSINE控制器功能所需的宏
  */
 /* 1.31(q31) Fixed value of 2/360 */
 /* -1 to +1 is divided into 360 values so total spacing is (2/360) */

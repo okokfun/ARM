@@ -4,7 +4,7 @@
 
 typedef struct {
     uint32_t init_crc;			// 初始值
-    uint8_t  Poly;				// CRC多项式，可取值CRC_POLY_11021、CRC_POLY_107、CRC_POLY_18005、CRC_POLY_104C11DB7
+    uint8_t  Poly;				// CRC 多项式，可取值CRC_POLY_11021、CRC_POLY_107、CRC_POLY_18005、CRC_POLY_104C11DB7
     uint8_t  in_width;			// 输入数据宽度，可取值CRC_WIDTH_32、CRC_WIDTH_16、CRC_WIDTH_8
     uint8_t  in_rev;			// 输入数据翻转，可取值CRC_REV_NOT、CRC_REV_ALL、CRC_REV_IN_BYTE、CRC_REV_BYTE
     bool     in_not;			// 输入数据取反
@@ -45,7 +45,7 @@ static __INLINE void CRC_Write(uint32_t data) {
 
 /******************************************************************************************************************************************
 * 函数名称:	CRC_Result()
-* 功能说明:	获取CRC计算结果
+* 功能说明:	获取CRC 计算结果
 * 输    入: 无
 * 输    出: uint32_t			CRC 计算结果
 * 注意事项: 无

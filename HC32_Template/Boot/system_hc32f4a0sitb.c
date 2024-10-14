@@ -102,7 +102,7 @@ __NO_INIT uint32_t HRC_VALUE;
 void SystemInit(void) {
     /* FPU settings */
     #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
-    SCB->CPACR |= ((3UL << 20) | (3UL << 22)); /* 设置CP10和CP11完全访问 */
+    SCB->CPACR |= ((3UL << 20) | (3UL << 22)); /* 设置 CP10 和 CP11 完全访问 */
     #endif
     SystemCoreClockUpdate();
     /* Configure the Vector Table relocation */

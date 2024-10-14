@@ -581,27 +581,27 @@ typedef struct {
 ErrorStatus RTC_DeInit(void); // 将 RTC 寄存器去初始化为其默认复位值。
 
 /* 初始化和配置功能 *********************************/
-ErrorStatus RTC_Init(RTC_InitTypeDef* RTC_InitStruct); // 根据RTC_InitStruct中指定的参数初始化 RTC 寄存器。
-void RTC_StructInit(RTC_InitTypeDef* RTC_InitStruct); // 用其默认值填充每个RTC_InitStruct成员。
+ErrorStatus RTC_Init(RTC_InitTypeDef* RTC_InitStruct); // 根据RTC_InitStruct 中指定的参数初始化 RTC 寄存器。
+void RTC_StructInit(RTC_InitTypeDef* RTC_InitStruct); // 用其默认值填充每个RTC_InitStruct 成员。
 void RTC_WriteProtectionCmd(FunctionalState NewState); // 启用或禁用 RTC 寄存器写保护。
 ErrorStatus RTC_EnterInitMode(void); // 进入 RTC 初始化模式。
 void RTC_ExitInitMode(void); // 退出 RTC 初始化模式。
-ErrorStatus RTC_WaitForSynchro(void); // 等到 RTC 时间和日期寄存器(RTC_TR和RTC_DR)与 RTC APB 时钟同步。
+ErrorStatus RTC_WaitForSynchro(void); // 等到 RTC 时间和日期寄存器(RTC_TR和 RTC_DR)与 RTC APB 时钟同步。
 ErrorStatus RTC_RefClockCmd(FunctionalState NewState); // 启用或禁用 RTC 参考时钟检测。
 void RTC_BypassShadowCmd(FunctionalState NewState); // 启用或禁用"绕过阴影"功能。
 
 /* 时间和日期配置功能 **************************************/
 ErrorStatus RTC_SetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct); // 设置 RTC 当前时间。
-void RTC_TimeStructInit(RTC_TimeTypeDef* RTC_TimeStruct); // 用默认值填充每个RTC_TimeStruct成员(时间 = 00h:00min:00sec)。
+void RTC_TimeStructInit(RTC_TimeTypeDef* RTC_TimeStruct); // 用默认值填充每个RTC_TimeStruct 成员(时间 = 00h:00min:00sec)。
 void RTC_GetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct); // 获取 RTC 当前时间。
 uint32_t RTC_GetSubSecond(void); //获取 RTC 当前日历子秒值。
 ErrorStatus RTC_SetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct); //设置 RTC 当前日期。
-void RTC_DateStructInit(RTC_DateTypeDef* RTC_DateStruct); //用默认值填充每个RTC_DateStruct成员(星期一，一月 01 xx00)。
+void RTC_DateStructInit(RTC_DateTypeDef* RTC_DateStruct); //用默认值填充每个RTC_DateStruct 成员(星期一，一月 01 xx00)。
 void RTC_GetDate(uint32_t RTC_Format, RTC_DateTypeDef* RTC_DateStruct); // 获取 RTC 当前日期。
 
-/* 报警(报警A和报警B)配置功能  */
+/* 报警(报警A 和报警B)配置功能  */
 void RTC_SetAlarm(uint32_t RTC_Format, uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC_AlarmStruct); //设置指定的 RTC 警报。
-void RTC_AlarmStructInit(RTC_AlarmTypeDef* RTC_AlarmStruct); // 用默认值填充每个RTC_AlarmStruct成员(时间 = 00h:00mn:00sec / 日期 = 该月的第一天/掩码 = 所有字段都被屏蔽)。
+void RTC_AlarmStructInit(RTC_AlarmTypeDef* RTC_AlarmStruct); // 用默认值填充每个RTC_AlarmStruct 成员(时间 = 00h:00mn:00sec / 日期 = 该月的第一天/掩码 = 所有字段都被屏蔽)。
 void RTC_GetAlarm(uint32_t RTC_Format, uint32_t RTC_Alarm, RTC_AlarmTypeDef* RTC_AlarmStruct); //获取 RTC 警报值和掩码。
 ErrorStatus RTC_AlarmCmd(uint32_t RTC_Alarm, FunctionalState NewState); //启用或禁用指定的 RTC 警报。
 void RTC_AlarmSubSecondConfig(uint32_t RTC_Alarm, uint32_t RTC_AlarmSubSecondValue, uint32_t RTC_AlarmSubSecondMask); // 配置 RTC 警报A/B 子秒值和掩码。
@@ -615,7 +615,7 @@ ErrorStatus RTC_WakeUpCmd(FunctionalState NewState); // 启用或禁用 RTC 唤�
 
 /* 夏令时配置功能 ************************************/
 void RTC_DayLightSavingConfig(uint32_t RTC_DayLightSaving, uint32_t RTC_StoreOperation); // 从当前时间相加或减去一小时。
-uint32_t RTC_GetStoreOperation(void); // 返回RTC日间节能存储操作。
+uint32_t RTC_GetStoreOperation(void); // 返回 RTC日间节能存储操作。
 
 /* 输出引脚配置功能 ******************************************/
 void RTC_OutputConfig(uint32_t RTC_Output, uint32_t RTC_OutputPolarity); // 配置 RTC 输出源 (AFO_ALARM)。
@@ -623,7 +623,7 @@ void RTC_OutputConfig(uint32_t RTC_Output, uint32_t RTC_OutputPolarity); // 配�
 /* 数字校准配置功能 *********************************/
 ErrorStatus RTC_CoarseCalibConfig(uint32_t RTC_CalibSign, uint32_t Value); // 配置粗略校准参数。
 ErrorStatus RTC_CoarseCalibCmd(FunctionalState NewState); // 启用或禁用粗校准过程。
-void RTC_CalibOutputCmd(FunctionalState NewState); // 使能或禁用通过相对引脚输出的RTC时钟。
+void RTC_CalibOutputCmd(FunctionalState NewState); // 使能或禁用通过相对引脚输出的 RTC时钟。
 void RTC_CalibOutputConfig(uint32_t RTC_CalibOutput); // 配置校准引脚排列(RTC_CALIB)选择(1Hz 或 512Hz)。
 ErrorStatus RTC_SmoothCalibConfig(uint32_t RTC_SmoothCalibPeriod,
                                   uint32_t RTC_SmoothCalibPlusPulses,
