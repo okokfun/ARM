@@ -446,7 +446,7 @@ typedef struct {
 #define CAN_IT_LEC                  ((uint32_t)0x00000800) /*!< Last error code Interrupt*/
 #define CAN_IT_ERR                  ((uint32_t)0x00008000) /*!< Error Interrupt*/
 
-/* 名为中断的标志:仅为FW兼容性而保留 */
+/* 名为中断的标志:仅为 FW兼容性而保留 */
 #define CAN_IT_RQCP0   CAN_IT_TME
 #define CAN_IT_RQCP1   CAN_IT_TME
 #define CAN_IT_RQCP2   CAN_IT_TME

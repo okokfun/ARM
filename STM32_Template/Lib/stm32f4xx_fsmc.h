@@ -448,13 +448,13 @@ typedef struct {
 /* NOR/SRAM 控制器功能 **********************************************/
 void FSMC_NORSRAMDeInit(uint32_t FSMC_Bank); // 将 FSMC NAND 存储体寄存器取消初始化为其默认重置值。
 void FSMC_NORSRAMInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct); // 根据FSMC_NANDInitStruct 中指定的参数初始化 FSMC NAND 库。
-void FSMC_NORSRAMStructInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct); // 用其默认值填充每个FSMC_NANDInitStruct 成员。
+void FSMC_NORSRAMStructInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct); // 用其默认值填充每个 FSMC_NANDInitStruct 成员。
 void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState); // 启用或禁用指定的 NOR/SRAM 内存库。
 
 /* NAND 控制器功能 **************************************************/
 void FSMC_NANDDeInit(uint32_t FSMC_Bank); // 取消初始化 FSMC NOR/SRAM 组寄存器到其默认复位值。
 void FSMC_NANDInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct); // 根据FSMC_NANDInitStruct 中指定的参数初始化 FSMC NAND 库。
-void FSMC_NANDStructInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct); // 用其默认值填充每个FSMC_NANDInitStruct 成员。
+void FSMC_NANDStructInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct); // 用其默认值填充每个 FSMC_NANDInitStruct 成员。
 void FSMC_NANDCmd(uint32_t FSMC_Bank, FunctionalState NewState); // 启用或禁用指定的 NAND 内存库。
 void FSMC_NANDECCCmd(uint32_t FSMC_Bank, FunctionalState NewState); // 启用或禁用 FSMC NAND ECC 功能。
 uint32_t FSMC_GetECC(uint32_t FSMC_Bank); // 返回纠错码寄存器值。
@@ -462,7 +462,7 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank); // 返回纠错码寄存器值。
 /* PCCARD 控制器功能 ************************************************/
 void FSMC_PCCARDDeInit(void); // 取消初始化 FSMC PCCARD 银行寄存器到其默认重置值。
 void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct); // 根据FSMC_PCCARDInitStruct 中指定的参数初始化 FSMC PCCARD 库。
-void FSMC_PCCARDStructInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct); // 用每个FSMC_PCCARDInitStruct 成员的默认值填充该成员。
+void FSMC_PCCARDStructInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct); // 用每个 FSMC_PCCARDInitStruct 成员的默认值填充该成员。
 void FSMC_PCCARDCmd(FunctionalState NewState); // 启用或禁用 PCCARD 存储体。
 
 /* 中断和标志管理功能 **********************************/

@@ -94,7 +94,7 @@
 /**
   * 简介: 配置优先级分组:抢占优先级和子优先级。
   * 
-  * 参数: NVIC_PriorityGroup:指定优先级分组位长度。
+  * 参数: NVIC_PriorityGroup: 指定优先级分组位长度。
   * 此参数可以是以下值之一:
                 @arg NVIC_PriorityGroup_0: 0 位用于抢占优先级
    	                                       4 位用于子优先级

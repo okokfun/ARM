@@ -142,7 +142,7 @@ void I2C_Close(I2C_TypeDef * I2Cx) {
 * 输    入: I2C_TypeDef * I2Cx		指定要被设置的 I2C，有效值包括I2C0、I2C1
 *			uint8_t addr			设备地址
 *			uint8_t wait			是否等待发送完成，1 等待发送完成   0 不等待，立即返回
-* 输    出: uint8_t					1 接收到ACK   0 接收到NACK
+* 输    出: uint8_t					1 接收到ACK   0 接收到 NACK
 * 注意事项: 若选择不等待，立即返回，则返回值无意义;后续可通过 I2C_StartDone() 查询是否完成，完成后调用 I2C_IsAck() 查询接收到ACK还是NACK
 ******************************************************************************************************************************************/
 uint8_t I2C_Start(I2C_TypeDef * I2Cx, uint8_t addr, uint8_t wait) {
@@ -193,7 +193,7 @@ uint8_t I2C_StopDone(I2C_TypeDef * I2Cx) {
 * 输    入: I2C_TypeDef * I2Cx		指定要被设置的 I2C，有效值包括I2C0、I2C1
 *			uint8_t data			要写的数据
 *			uint8_t wait			是否等待发送完成，1 等待发送完成   0 不等待，立即返回
-* 输    出: uint8_t					1 接收到ACK   0 接收到NACK
+* 输    出: uint8_t					1 接收到ACK   0 接收到 NACK
 * 注意事项: 若选择不等待，立即返回，则返回值无意义;后续可通过 I2C_WriteDone() 查询是否完成，完成后调用 I2C_IsAck() 查询接收到ACK还是NACK
 ******************************************************************************************************************************************/
 uint8_t I2C_Write(I2C_TypeDef * I2Cx, uint8_t data, uint8_t wait) {

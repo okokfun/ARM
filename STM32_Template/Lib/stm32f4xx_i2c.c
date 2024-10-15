@@ -199,7 +199,7 @@ void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct) {
         /* 标准模式速度计算 */
         result = (uint16_t)(pclk1 / (I2C_InitStruct->I2C_ClockSpeed << 1));
 
-        /* 测试CCR值是否低于0x4*/
+        /* 测试CCR值是否低于 0x4*/
         if (result < 0x04) {
             /* 设置允许的最小值 */
             result = 0x04;
@@ -223,7 +223,7 @@ void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct) {
             result |= I2C_DutyCycle_16_9;
         }
 
-        /* 测试CCR值是否低于0x1*/
+        /* 测试CCR值是否低于 0x1*/
         if ((result & I2C_CCR_CCR) == 0) {
             /* 设置允许的最小值 */
             result |= (uint16_t)0x0001;
@@ -421,7 +421,7 @@ void I2C_GenerateSTOP(I2C_TypeDef* I2Cx, FunctionalState NewState) {
   * 
   * 参数:  Address: 指定将被传送的从属地址
   * 
-  * 参数:  I2C_Direction: 指定I2C设备是发射器还是接收器。
+  * 参数:  I2C_Direction: 指定I2C 设备是发射器还是接收器。
   *          该参数可以是以下值之一:
   *            @arg I2C_Direction_Transmitter: 发射器模式
   *            @arg I2C_Direction_Receiver: 接收器模式
@@ -475,7 +475,7 @@ void I2C_AcknowledgeConfig(I2C_TypeDef* I2Cx, FunctionalState NewState) {
   * 
   * 参数:  I2Cx: 其中 x 可以是1、2 或3，以选择I2C 的外设。
   * 
-  * 参数:  Address: 指定7位I2C自己的地址2。
+  * 参数:  Address: 指定7位I2C 自己的地址2。
   * 
   * 返回值: 无.
   */
@@ -858,7 +858,7 @@ uint8_t I2C_GetPEC(I2C_TypeDef* I2Cx) {
  ===============================================================================
                 ##### DMA 传输管理函数 #####
  ===============================================================================
-  本节提供的功能允许配置I2C DMA信道请求。
+  本节提供的功能允许配置I2C DMA 信道请求。
 
 @endverbatim
   */
@@ -903,10 +903,10 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 下一次DMA 传输是最后一次传输 */
+        /* 下一次 DMA 传输是最后一次传输 */
         I2Cx->CR2 |= I2C_CR2_LAST;
     } else {
-        /* 下一次DMA 传输不是最后一次传输 */
+        /* 下一次 DMA 传输不是最后一次传输 */
         I2Cx->CR2 &= (uint16_t)~((uint16_t)I2C_CR2_LAST);
     }
 }
@@ -920,7 +920,7 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
           ##### 中断、事件和标志管理功能#####
  ===============================================================================
     [..]
-    本节提供的功能允许 配置I2C中断源，并检查或清除标志位或待定位状态。
+    本节提供的功能允许 配置I2C 中断源，并检查或清除标志位或待定位状态。
     用户应该确定在他的应用程序中使用哪种模式来管理通信。轮询模式、中断模式或 DMA 模式。
 
 
@@ -953,7 +953,7 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
      (#) 高级状态监测(使用函数I2C_GetLastEvent()
 
-        使用函数I2C_GetLastEvent()，它在一个字(uint32_t)中返回两个状态寄存器的图像(状态寄存器2的值被左移16位并与状态寄存器1连接)。
+        使用函数I2C_GetLastEvent()，它在一个字(uint32_t)中返回两个状态寄存器的图像(状态寄存器2 的值被左移16位并与状态寄存器1连接)。
 
           (++)何时使用
              (++) 该函数适用于上述相同的应用，但它可以克服I2C_GetFlagStatus() 函数的上述限制。
@@ -972,7 +972,7 @@ void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
 
           (++) 何时使用
              (++) 这个函数可以用于特定的应用或在调试阶段使用。
-             (++) 当只需要检查一个标志时，它是合适的(大多数I2C事件是通过多个标志监测的)。
+             (++) 当只需要检查一个标志时，它是合适的(大多数I2C 事件是通过多个标志监测的)。
           (++)局限性。
              (++) 当调用这个函数时，状态寄存器被访问。
                当状态寄存器被访问时，一些标志被清除。
@@ -1020,13 +1020,13 @@ uint16_t I2C_ReadRegister(I2C_TypeDef* I2Cx, uint8_t I2C_Register) {
   * 
   * 参数:  I2Cx: 其中 x 可以是1、2 或3，以选择I2C 的外设。
   * 
-  * 参数:  I2C_IT: 指定要启用或禁用的 I2C中断源。
+  * 参数:  I2C_IT: 指定要启用或禁用的 I2C 中断源。
   *          此参数可以是以下值的任意组合:
   *             @arg I2C_IT_BUF: 缓冲器中断屏蔽
   *             @arg I2C_IT_EVT: 事件中断掩码
   *             @arg I2C_IT_ERR: 错误中断屏蔽
   * 
-  * 参数:  NewState: 指定I2C中断的新状态。
+  * 参数:  NewState: 指定I2C 中断的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无

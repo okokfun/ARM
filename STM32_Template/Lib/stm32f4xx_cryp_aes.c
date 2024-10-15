@@ -1171,7 +1171,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
             headersize = ((headersize / 16) + 1) * 16;
         }
 
-        /* 设置指向HBuffer的指针 headeraddr */
+        /* 设置指向HBuffer 的指针 headeraddr */
         headeraddr = (uint32_t)HBuffer;
     }
 

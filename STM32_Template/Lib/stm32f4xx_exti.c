@@ -35,7 +35,7 @@
    (#) 使用 NVIC_Init() 配置映射到 EXTI 行的 NVIC IRQ 通道
 
  [..]
-   (@) 必须启用 SYSCFG APB时钟，才能使用 RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
+   (@) 必须启用 SYSCFG APB 时钟，才能使用 RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
        对 SYSCFG_EXTICRx寄存器进行写入访问;
 
 @endverbatim
@@ -177,7 +177,7 @@ void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct) {
   * 简介:  在选定的 EXTI 线上产生一个软件中断。
   * 
   * 参数:  EXTI_Line: 指定将在其上生成软件中断的 EXTI行。
-  *         此参数可以是EXTI_Linex的任意组合，其中 x 可以是(0..22)
+  *         此参数可以是EXTI_Linex 的任意组合，其中 x 可以是(0..22)
   * 
   * 返回值: 无
   */
@@ -226,7 +226,7 @@ FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line) {
   * 简介:  清除 EXTI 的行挂起标志。
   * 
   * 参数:  EXTI_Line: 指定要清除的 EXTI行标志。
-  *          此参数可以是EXTI_Linex的任意组合，其中 x 可以是(0..22)
+  *          此参数可以是EXTI_Linex 的任意组合，其中 x 可以是(0..22)
   * 
   * 返回值: 无
   */
@@ -264,7 +264,7 @@ ITStatus EXTI_GetITStatus(uint32_t EXTI_Line) {
   * 简介:  清除 EXTI 的行挂起位。
   * 
   * 参数:  EXTI_Line: 指定要清除的 EXTI行。
-  *          此参数可以是EXTI_Linex的任意组合，其中 x 可以是(0..22)
+  *          此参数可以是EXTI_Linex 的任意组合，其中 x 可以是(0..22)
   * 
   * 返回值: 无
   */

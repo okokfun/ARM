@@ -6,7 +6,7 @@
   * 日期:    04-November-2016
   * 简介:    此文件提供固件功能，以管理电源控制器(PWR)外设设备的以下功能:
   *           + 备份域访问
-  *           + PVD配置
+  *           + PVD 配置
   *           + 唤醒引脚配置
   *           + 主调节器和备用调节器配置
   *           + FLASH 掉电配置
@@ -178,17 +178,17 @@ void PWR_BackupAccessCmd(FunctionalState NewState) {
 }
 
 
-/** @defgroup PWR_Group2 PVD配置功能
-  *  简介   PVD配置功能
+/** @defgroup PWR_Group2 PVD 配置功能
+  *  简介   PVD 配置功能
   *
 @verbatim
  ===============================================================================
-                    ##### PVD配置功能 #####
+                    ##### PVD 配置功能 #####
  ===============================================================================
     [..]
-      (+) PVD用于监测VDD 电源，将其与PVD 电平(PWR_CR中的PLS[2:0]位)选择的阈值进行比较。
+      (+) PV于监测 VDD 电源，将其与 PVD 电平(PWR_CR中的PLS[2:0]位)选择的阈值进行比较。
       (+) 一个PVDO 标志可用于指示VDD/VDDA是高于还是低于 高于或低于PVD阈值。
-          该事件内部连接到EXTI 线16，如果通过EXTI寄存器启用，可以产生一个中断。
+          该事件内部连接到EXTI 线16，如果通过 EXTI 寄存器启用，可以产生一个中断。
       (+) PVD停止在待机模式。
 
 @endverbatim
@@ -205,7 +205,7 @@ void PWR_BackupAccessCmd(FunctionalState NewState) {
   *            @arg PWR_PVDLevel_4
   *            @arg PWR_PVDLevel_5
   *            @arg PWR_PVDLevel_6
-  *            @arg PWR_PVDLevel_7
+D 用  *            @arg PWR_PVDLevel_7
   * 注意:   关于每个检测级别对应的电压阈值的更多细节，
   *         请参考您的器件数据手册的电气特性。检测水平对应的电压阈值。
   * 返回值: 无
@@ -253,7 +253,7 @@ void PWR_PVDCmd(FunctionalState NewState) {
       (+) WakeUp引脚用于将系统从待机模式唤醒。该引脚被强制配置为输入下拉，
           并在上升沿时处于激活状态。强制输入下拉配置，并且在上升沿上是有效的。
       (+) 有一个唤醒引脚。PA.00上的唤醒针脚1。
-	   (++) 对于 STM32F446xx，有两个唤醒引脚。PA.00的引脚1和PC.13的引脚2
+	   (++) 对于 STM32F446xx，有两个唤醒引脚。PA.00 的引脚1和PC.13的引脚2
            (++) 对于 STM32F410xx/STM32F412xG/STM32F413_423xx，有三个唤醒引脚。PA.00上的Pin1、PC.00上的Pin2 和PC.01上的Pin3
 @endverbatim
   */
@@ -314,7 +314,7 @@ void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState) {
           ##### 主用和备用调节器配置功能 #####
  ===============================================================================
     [..]
-      (+) 备份域包括仅可从CPU访问的4K字节备份 SRAM，以及32位、16位或8位模式的地址。
+      (+) 备份域包括仅可从 CPU访问的4K字节备份 SRAM，以及32位、16位或8位模式的地址。
           当启用低功率备用调节器时，即使在待机或VBAT模式下，其内容也会保留。当VBAT始终存在时，
           可将其视为内部EEPROM。您可以使用 PWR_BackupRegulatorCmd() 函数启用低功率备用稳压器，
           并使用 PWR_GetFlagStatus(PWR_FLAG_BRR) 检查其是否就绪。
@@ -348,7 +348,7 @@ void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState) {
 
        (+) 对于 STM32F42xxx/43xxx 设备，在运行模式下:主调节器有两种可用的操作模式:
         (++) 正常模式:CPU和核心逻辑在给定电压标度下以最大频率运行(标度1、标度2 或标度3)
-        (++) Over-drive mode: 该模式允许CPU和核心逻辑在给定电压缩放(缩放1、缩放2 或缩放3)
+        (++) Over-drive mode: 该模式允许 CPU和核心逻辑在给定电压缩放(缩放1、缩放2 或缩放3)
             下以高于正常模式的频率操作。此模式通过PWR_OverDriveCmd() 函数和PWR_OverDriveSWCmd() 函数启用，
             要进入或退出Overdrive模式，请遵循参考手册中描述的顺序。
 
@@ -409,7 +409,7 @@ void PWR_MainRegulatorModeConfig(uint32_t PWR_Regulator_Voltage) {
   *
   * 注意:   此函数只能用于 STM32F42xxx/STM3243xxx 设备。
   *
-  * 这种模式允许CPU和核心逻辑在给定的电压比例(比例1、比例2 或比例3)下以高于正常模式的频率运行。
+  * 这种模式允许 CPU和核心逻辑在给定的电压比例(比例1、比例2 或比例3)下以高于正常模式的频率运行。
   *
   * 注意: 建议在应用程序不运行关键任务，并且系统时钟源为 HSI 或HSE时，进入或退出超速驱动模式。
   *       在超速驱动开关激活期间，不应启用任何外围时钟。
@@ -645,11 +645,11 @@ void PWR_FlashPowerDownCmd(FunctionalState NewState) {
 
       (#) RTC从停止模式自动唤醒(AWU)
 
-        (++) 要想在RTC报警事件中从停止模式中唤醒，就必须:
+        (++) 要想在 RTC报警事件中从停止模式中唤醒，就必须:
           (++) 使用EXTI_Init() 函数将EXTI 17号线配置为对上升沿敏感(中断或事件模式)。
           (++) 使用 RTC_ITConfig() 函数启用 RTC报警中断。
           (++) 使用 RTC_SetAlarm()和 RTC_AlarmCmd() 函数配置 RTC以产生RTC报警。
-        (++) 要想在RTC 篡改或时间戳事件中从停止模式中唤醒，就必须:
+        (++) 要想在 RTC 篡改或时间戳事件中从停止模式中唤醒，就必须:
           (++) 使用EXTI_Init() 函数将EXTI 21号线配置为对上升沿敏感(中断或事件模式)。
           (++) 使用 RTC_ITConfig() 函数启用 RTC 篡改或时间戳中断。
           (++) 使用 RTC_TimeStampConfig(), RTC_TamperTriggerConfig()
@@ -833,9 +833,9 @@ void PWR_EnterSTANDBYMode(void) {
   *                              RTC Tamper事件、RTC TimeStamp事件或 RTC唤醒接收到唤醒事件。
   *                              当WKUP引脚级别已经很高时，如果启用了WKUP引脚(通过设置EWUP位)，
   *                              则检测到额外的唤醒事件。
-  *            @arg PWR_FLAG_SB: 备用Flage。此标志表示系统已从待机模式恢复。
+  *            @arg PWR_FLAG_SB: 备用 Flage。此标志表示系统已从待机模式恢复。
   *            @arg PWR_FLAG_PVDO: PVD Output. 仅当PWR_PVDCmd() 函数启用 PVD时，此标志才有效。PVD在待机模式下停止
-                                   因此，该位在待机或重置后等于0，直到PVDE位被设置。
+                                   因此，该位在待机或重置后等于 0，直到PVDE位被设置。
   *            @arg PWR_FLAG_BRR: 后备调节器就绪标志。
   *                               当设备从待机模式唤醒或被系统复位或电源复位时，该位不会被重置。
   *            @arg PWR_FLAG_VOSRDY: 该标志表示稳压器电压比例输出选择已准备就绪。

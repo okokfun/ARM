@@ -153,7 +153,7 @@ void PWR_DeInit(void); // 将压水堆外设寄存器去初始化为其默认复
 /* 备份域访问功能 **********************************************/
 void PWR_BackupAccessCmd(FunctionalState NewState); // 启用或禁用对备份域(RTC 寄存器、RTC 备份数据寄存器和备份 SRAM)的访问。
 
-/* PVD配置功能 ************************************************/
+/* PVD 配置功能 ************************************************/
 void PWR_PVDLevelConfig(uint32_t PWR_PVDLevel); // 配置电源电压检测器(PVD) 检测到的电压阈值。
 void PWR_PVDCmd(FunctionalState NewState); // 启用或禁用电源电压检测器 (PVD)。
 

@@ -152,7 +152,7 @@
                 ##### 初始化和配置函数 #####
  ===============================================================================
     [..]
-    本小节提供了允许初始化DMA流源地址和目标地址、增量和数据大小、传输方向、缓冲区大小、
+    本小节提供了允许初始化 DMA流源地址和目标地址、增量和数据大小、传输方向、缓冲区大小、
     循环/正常模式选择、内存到内存模式选择和流优先级值的函数。
     [..]
     DMA_Init() 函数遵循参考手册(RM0090)中描述的 DMA 配置程序，但第一点除外:等待 EN 位复位。
@@ -395,7 +395,7 @@ void DMA_StructInit(DMA_InitTypeDef* DMA_InitStruct) {
   * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择 DMA，x 可以是0到7以选择 DMAStream。
   * 
-  * 参数:  NewState: DMAy Streamx的新状态。
+  * 参数:  NewState: DMAy Streamx 的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   *
   * 注意:  此功能可用于执行暂停恢复操作。当传输正在进行时，
@@ -462,7 +462,7 @@ void DMA_PeriphIncOffsetSizeConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DM
   * 
   * 参数:  DMA_FlowCtrl: 指定 DMA流控制器。
   *          此参数可以是以下值之一:
-  *            @arg DMA_FlowCtrl_Memory: DMAy_Streamx事务流控制器是DMA控制器.
+  *            @arg DMA_FlowCtrl_Memory: DMAy_Streamx事务流控制器是DMA 控制器.
   *            @arg DMA_FlowCtrl_Peripheral: DMAy_Streamx事务流控制器是外设设备。
   * 返回值: 无
   */
@@ -527,7 +527,7 @@ void DMA_FlowControllerConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_Flo
   *
   * 注意:   在内存到内存传输模式中，DMAy_SxPAR 寄存器指向的内存缓冲区被视为外设。
   *
-  * 返回值: 当前DMAy Streamx传输中剩余的数据单元数。
+  * 返回值: 当前DMAy Streamx 传输中剩余的数据单元数。
   */
 void DMA_SetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx, uint16_t Counter) {
     /* 检查参数 */
@@ -538,17 +538,17 @@ void DMA_SetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx, uint16_t Counter) 
 }
 
 /**
-  * 简介:  Returns 当前DMAy Streamx传输中剩余的数据单元数。
+  * 简介:  Returns 当前DMAy Streamx 传输中剩余的数据单元数。
   * 
   * 参数:  DMAy_Streamx: 其中y可以是1或2以选择 DMA，x 可以是0到7以选择 DMAStream。
   * 
-  * 返回值: 当前DMAy Streamx传输中剩余的数据单元数。
+  * 返回值: 当前DMAy Streamx 传输中剩余的数据单元数。
   */
 uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx) {
     /* 检查参数 */
     assert_param(IS_DMA_ALL_PERIPH(DMAy_Streamx));
 
-    /* DMAy Streamx的剩余数据单元数 */
+    /* DMAy Streamx 的剩余数据单元数 */
     return ((uint16_t)(DMAy_Streamx->NDTR));
 }
 
@@ -566,8 +566,8 @@ uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx) {
     在将数据从内存传输到内存时，不能使用双缓冲区模式。
 
     [..]
-    双缓冲区模式允许设置 DMA控制器交替访问的两个不同内存地址
-        (完成与目标内存0的传输后，将开始与目标内存1 的传输)。
+    双缓冲区模式允许设置 DMA 控制器交替访问的两个不同内存地址
+        (完成与目标内存0 的传输后，将开始与目标内存1 的传输)。
     这可以减少双缓冲的软件开销，并减少CPU访问时间。
 
     [..]
@@ -589,7 +589,7 @@ uint16_t DMA_GetCurrDataCounter(DMA_Stream_TypeDef* DMAy_Streamx) {
     [..]
     可以调用 DMA_MemoryTargetConfig() 来修改两个目标内存之一的基址。
     DMA流当前不得使用将修改基址的内存(即，如果DMA流目前正在从内存1传输，
-        则只能修改目标内存0的基址，反之亦然)。
+        则只能修改目标内存0 的基址，反之亦然)。
     要检查此条件，建议使用函数 DMA_GetCurrentMemoryTarget()，
         该函数返回DMA流当前使用的内存目标的索引。
 
@@ -671,7 +671,7 @@ void DMA_DoubleBufferModeCmd(DMA_Stream_TypeDef* DMAy_Streamx, FunctionalState N
   *
   * 注意:    当目标内存参与当前传输时，不允许修改该目标内存的基本地址。
 			 即，如果DMA流当前正在向存储器1传输/从存储器1传输，
-			 则不可能修改存储器1 的基本地址，但可以修改存储器0的基本地址。
+			 则不可能修改存储器1 的基本地址，但可以修改存储器0 的基本地址。
   *          要知道当前使用的内存，可以使用函数 DMA_GetCurrentMemoryTarget()。
   *
   * 返回值: 无
@@ -743,7 +743,7 @@ uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx) {
         (++) uint32_t DMA_GetFIFOStatus(DMA_Stream_TypeDef* DMAy_Streamx);
 
       (#) DMA中断和标志:
-          用户应确定在其应用程序中将使用哪种模式来管理DMA控制器事件:轮询模式或中断模式。
+          用户应确定在其应用程序中将使用哪种模式来管理DMA 控制器事件:轮询模式或中断模式。
 
     *** 轮询模式 ***
     ====================
@@ -793,7 +793,7 @@ uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx) {
   *              传输过程中被禁用，则当前数据将被传输，只有在完成单个数据的传输后，
   *              流才会被有效禁用。
   *
-  * 返回值: DMAy Streamx的当前状态(ENABLE 或 DISABLE)。
+  * 返回值: DMAy Streamx 的当前状态(ENABLE 或 DISABLE)。
   */
 FunctionalState DMA_GetCmdStatus(DMA_Stream_TypeDef* DMAy_Streamx) {
     FunctionalState state = DISABLE;
@@ -960,7 +960,7 @@ void DMA_ITConfig(DMA_Stream_TypeDef* DMAy_Streamx, uint32_t DMA_IT, FunctionalS
     assert_param(IS_DMA_CONFIG_IT(DMA_IT));
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-    /* 检查如果DMA_IT参数包含FIFO 中断 */
+    /* 检查如果DMA_IT参数包含 FIFO 中断 */
     if ((DMA_IT & DMA_IT_FE) != 0) {
         if (NewState != DISABLE) {
             /* 启用选定的 DMA FIFO 中断 */

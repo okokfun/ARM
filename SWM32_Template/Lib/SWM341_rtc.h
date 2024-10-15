@@ -19,9 +19,9 @@ typedef struct {
     uint16_t Year;
     uint8_t  Month;			//取值1--12
     uint8_t  Date;			//取值1--31
-    uint8_t  Hour;			//取值0--23
-    uint8_t  Minute;		//取值0--59
-    uint8_t  Second;		//取值0--59
+    uint8_t  Hour;			//取值 0--23
+    uint8_t  Minute;		//取值 0--59
+    uint8_t  Second;		//取值 0--59
     uint8_t  SecondIEn;
     uint8_t  MinuteIEn;
 } RTC_InitStructure;

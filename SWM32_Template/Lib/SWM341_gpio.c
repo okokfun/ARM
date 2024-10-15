@@ -222,7 +222,7 @@ uint32_t GPIO_GetBits(GPIO_TypeDef * GPIOx, uint32_t n, uint32_t w) {
 * 输    入: GPIO_TypeDef * GPIOx	    指定 GPIO端口，有效值包括 GPIOA、GPIOB、GPIOC、GPIOD、GPIOE、GPIOM、GPION
 *			uint32_t n		       指定 GPIO 引脚，有效值包括PIN0、PIN1、PIN2、... ... PIN14、PIN15
 * 输    出: 无
-* 注意事项: 当GPIOx的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx的引脚必须都用 GPIO_Atomic类型函数操作
+* 注意事项: 当GPIOx 的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx 的引脚必须都用 GPIO_Atomic类型函数操作
 ******************************************************************************************************************************************/
 void GPIO_AtomicSetBit(GPIO_TypeDef * GPIOx, uint32_t n) {
     *(&GPIOx->DATAPIN0 + n) = 1;
@@ -234,7 +234,7 @@ void GPIO_AtomicSetBit(GPIO_TypeDef * GPIOx, uint32_t n) {
 * 输    入: GPIO_TypeDef * GPIOx	    指定 GPIO端口，有效值包括 GPIOA、GPIOB、GPIOC、GPIOD、GPIOE、GPIOM、GPION
 *			uint32_t n		       指定 GPIO 引脚，有效值包括PIN0、PIN1、PIN2、... ... PIN14、PIN15
 * 输    出: 无
-* 注意事项: 当GPIOx的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx的引脚必须都用 GPIO_Atomic类型函数操作
+* 注意事项: 当GPIOx 的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx 的引脚必须都用 GPIO_Atomic类型函数操作
 ******************************************************************************************************************************************/
 void GPIO_AtomicClrBit(GPIO_TypeDef * GPIOx, uint32_t n) {
     *(&GPIOx->DATAPIN0 + n) = 0;
@@ -246,7 +246,7 @@ void GPIO_AtomicClrBit(GPIO_TypeDef * GPIOx, uint32_t n) {
 * 输    入: GPIO_TypeDef * GPIOx	    指定 GPIO端口，有效值包括 GPIOA、GPIOB、GPIOC、GPIOD、GPIOE、GPIOM、GPION
 *			uint32_t n		       指定 GPIO 引脚，有效值包括PIN0、PIN1、PIN2、... ... PIN14、PIN15
 * 输    出: 无
-* 注意事项: 当GPIOx的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx的引脚必须都用 GPIO_Atomic类型函数操作
+* 注意事项: 当GPIOx 的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx 的引脚必须都用 GPIO_Atomic类型函数操作
 ******************************************************************************************************************************************/
 void GPIO_AtomicInvBit(GPIO_TypeDef * GPIOx, uint32_t n) {
     *(&GPIOx->DATAPIN0 + n) = 1 - *(&GPIOx->DATAPIN0 + n);
@@ -259,7 +259,7 @@ void GPIO_AtomicInvBit(GPIO_TypeDef * GPIOx, uint32_t n) {
 *			uint32_t n		       指定 GPIO 引脚，有效值包括PIN0、PIN1、PIN2、... ... PIN14、PIN15
 *			uint32_t w		指定要将引脚电平置高的引脚的个数
 * 输    出: 无
-* 注意事项: 当GPIOx的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx的引脚必须都用 GPIO_Atomic类型函数操作
+* 注意事项: 当GPIOx 的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx 的引脚必须都用 GPIO_Atomic类型函数操作
 ******************************************************************************************************************************************/
 void GPIO_AtomicSetBits(GPIO_TypeDef * GPIOx, uint32_t n, uint32_t w) {
     uint32_t bits;
@@ -278,7 +278,7 @@ void GPIO_AtomicSetBits(GPIO_TypeDef * GPIOx, uint32_t n, uint32_t w) {
 *			uint32_t n		       指定 GPIO 引脚，有效值包括PIN0、PIN1、PIN2、... ... PIN14、PIN15
 *			uint32_t w			   指定要将引脚电平置低的引脚的个数
 * 输    出: 无
-* 注意事项: 当GPIOx的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx的引脚必须都用 GPIO_Atomic类型函数操作
+* 注意事项: 当GPIOx 的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx 的引脚必须都用 GPIO_Atomic类型函数操作
 ******************************************************************************************************************************************/
 void GPIO_AtomicClrBits(GPIO_TypeDef * GPIOx, uint32_t n, uint32_t w) {
     uint32_t bits;
@@ -297,7 +297,7 @@ void GPIO_AtomicClrBits(GPIO_TypeDef * GPIOx, uint32_t n, uint32_t w) {
 *			uint32_t n		       指定 GPIO 引脚，有效值包括PIN0、PIN1、PIN2、... ... PIN14、PIN15
 *			uint32_t w			   指定要将引脚电平反转的引脚的个数
 * 输    出: 无
-* 注意事项: 当GPIOx的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx的引脚必须都用 GPIO_Atomic类型函数操作
+* 注意事项: 当GPIOx 的16个引脚中，有些在主循环中操作，有些在中断ISR中操作时，GPIOx 的引脚必须都用 GPIO_Atomic类型函数操作
 ******************************************************************************************************************************************/
 void GPIO_AtomicInvBits(GPIO_TypeDef * GPIOx, uint32_t n, uint32_t w) {
     uint32_t bits;

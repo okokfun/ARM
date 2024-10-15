@@ -125,7 +125,7 @@
               ##### 初始化和配置函数 #####
  ===============================================================================
  [..] 本节提供的函数允许
-   (+) 初始化HASH外设设备
+   (+) 初始化HASH 外设设备
    (+) 配置HASH处理器
    (+) MD5/SHA1,
    (+) HASH/HMAC,
@@ -137,7 +137,7 @@
   */
 
 /**
-  * 简介:  将HASH外设寄存器反初始化为其默认重置值
+  * 简介:  将HASH 外设寄存器反初始化为其默认重置值
   * 
   * 参数:  无
   * 
@@ -151,12 +151,12 @@ void HASH_DeInit(void) {
 }
 
 /**
-  * 简介:  根据HASH_InitStruct结构中的指定参数初始化HASH外设设备。
+  * 简介:  根据HASH_InitStruct 结构中的指定参数初始化HASH 外设设备。
   * 
   * 注意:  调用此函数时，哈希处理器会重置，以便hash可以计算新消息的消息摘要。
   *        不需要调用 HASH_Reset() 函数。
   * 
-  * 参数:  HASH_InitStruct: 指向包含 HASH外设设备配置信息的 HASH_InitTypeDef 结构的指针。
+  * 参数:  HASH_InitStruct: 指向包含 HASH 外设设备配置信息的 HASH_InitTypeDef 结构的指针。
   * 
   * 注意:   仅当算法模式为 HMAC 时，必须填充 HASH_InitTypeDef 中的字段 HASH_HMACKeyType。
   * 
@@ -244,7 +244,7 @@ void HASH_Reset(void) {
   * 简介:  配置消息最后一个字的有效位数
   * 
   * 参数:  ValidNumber:消息最后一个字的有效位数。
-  *           此参数必须是介于0 和0x1F之间的数字。
+  *           此参数必须是介于 0 和0x1F之间的数字。
   *             - 0x00: 最后写入的所有32位数据均有效
   *             - 0x01: 只有最后写入数据的位[0]有效
   *             - 0x02: 只有最后写入的数据的位[1:0]有效
@@ -252,7 +252,7 @@ void HASH_Reset(void) {
   *             - ...
   *             - 0x1F: 只有最后写入的数据的位[30:0]有效
   * 
-  * 注意:   在开始消息摘要竞争(在哈希和HMAC中)和密钥处理(在HMAC)之前，必须设置有效位数。
+  * 注意:   在开始消息摘要竞争(在哈希和HMAC 中)和密钥处理(在HMAC)之前，必须设置有效位数。
   * 
   * 返回值: 无
   */
@@ -292,11 +292,11 @@ uint8_t HASH_GetInFIFOWordsNbr(void) {
 /**
   * 简介:  提供消息摘要结果。
   * 
-  * 注意:   在MD5模式下，不使用 HASH_MsgDigest结构的 Data[7]到Data[4]字段，并将其读取为零。
-  *         在 SHA-1模式下，HASH_MsgDigest结构的 Data[7]到Data[5]字段不使用，读取为零。
-  *         在 SHA-224模式下，不使用 HASH_MsgDigest结构的 Data[7]字段，读取为零。
+  * 注意:   在MD5模式下，不使用 HASH_MsgDigest 结构的 Data[7]到Data[4]字段，并将其读取为零。
+  *         在 SHA-1模式下，HASH_MsgDigest 结构的 Data[7]到Data[5]字段不使用，读取为零。
+  *         在 SHA-224模式下，不使用 HASH_MsgDigest 结构的 Data[7]字段，读取为零。
   * 
-  * 参数:  HASH_MessageDigest:指向将保存消息摘要结果的 HASH_MsgDigest结构的指针
+  * 参数:  HASH_MessageDigest:指向将保存消息摘要结果的 HASH_MsgDigest 结构的指针
   * 
   * 返回值: 无
   */
@@ -351,7 +351,7 @@ void HASH_StartDigest(void) {
   * 注意:   仅当当前未处理任何块时，才能保存上下文。
     *                  因此用户必须等待DINIS=1(最后一个块已处理，输入FIFO为空)或NBW！=0(FIFO未满，未进行任何处理)。
     * 
-  * 参数:  HASH_ContextSave: 指向包含当前上下文存储库的 HASH_Context结构的指针。
+  * 参数:  HASH_ContextSave: 指向包含当前上下文存储库的 HASH_Context 结构的指针。
   * 
   * 返回值: 无
   */
@@ -373,7 +373,7 @@ void HASH_SaveContext(HASH_Context* HASH_ContextSave) {
   * 
   * 注意:   调用此函数后，用户可以从中断点重新启动处理。
   * 
-  * 参数:  HASH_ContextRestore: 指向包含已保存上下文的存储库的 HASH_Context结构的指针。
+  * 参数:  HASH_ContextRestore: 指向包含已保存上下文的存储库的 HASH_Context 结构的指针。
   * 
   * 返回值: 无
   */
@@ -555,7 +555,7 @@ FlagStatus HASH_GetFlagStatus(uint32_t HASH_FLAG) {
     /* 检查FLAG是否在CR 寄存器中 */
     if ((HASH_FLAG & HASH_FLAG_DINNE) != (uint32_t)RESET ) {
         tempreg = HASH->CR;
-    } else { /* FLAG在 SR 寄存器中 */
+    } else { /* FLAG 在 SR 寄存器中 */
         tempreg = HASH->SR;
     }
 

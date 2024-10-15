@@ -10,14 +10,14 @@ typedef struct {
 
     uint8_t  StopBits;			//停止位位数，可取值UART_STOP_1BIT、UART_STOP_2BIT
 
-    uint8_t  RXThreshold;		//取值0--7
+    uint8_t  RXThreshold;		//取值 0--7
     uint8_t  RXThresholdIEn;	//当RX FIFO 中数据个数 >  RXThreshold时触发中断
 
-    uint8_t  TXThreshold;		//取值0--7
+    uint8_t  TXThreshold;		//取值 0--7
     uint8_t  TXThresholdIEn;	//当TX FIFO 中数据个数 <= TXThreshold时触发中断
 
     uint8_t  TimeoutTime;		//超时时长 = TimeoutTime/(Baudrate/10) 秒
-    uint8_t  TimeoutIEn;		//超时中断，超过 TimeoutTime/(Baudrate/10) 秒没有在RX 线上接收到数据时触发中断
+    uint8_t  TimeoutIEn;		//超时中断，超过 TimeoutTime/(Baudrate/10) 秒没有在 RX 线上接收到数据时触发中断
 } UART_InitStructure;
 
 

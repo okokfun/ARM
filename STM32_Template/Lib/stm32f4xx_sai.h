@@ -89,7 +89,7 @@ typedef struct {
 } SAI_InitTypeDef;
 
 /**
-  * 简介:  SAI Block Frame Init结构定义
+  * 简介:  SAI Block Frame Init 结构定义
   */
 typedef struct {
     uint32_t SAI_FrameLength;         /*!< 指定帧长度，即每个音频帧的 SCK 时钟数。

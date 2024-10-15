@@ -7,7 +7,7 @@ typedef struct {
 
     uint8_t  Unit;			//DMA_UNIT_BYTE、DMA_UNIT_HALFWORD、DMA_UNIT_WORD
 
-    uint32_t Count;			//传输 Unit 个数，最大取值0x100000
+    uint32_t Count;			//传输 Unit 个数，最大取值 0x100000
 
     uint32_t SrcAddr;
 

@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    此文件提供管理SYSCFG外设设备的固件功能。
+  * 简介:    此文件提供管理SYSCFG 外设设备的固件功能。
   *
  @verbatim
 
@@ -21,7 +21,7 @@
        
        (#) 使用 SYSCFG_ETH_MediaInterfaceConfig() 选择以太网媒体接口(RMII/RII)
 
-       -@- 必须启用 SYSCFG APB时钟，才能使用 RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
+       -@- 必须启用 SYSCFG APB 时钟，才能使用 RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
 		  获得对 SYSCFG寄存器的写入访问权限;
 
  @endverbatim
@@ -129,8 +129,8 @@ void SYSCFG_MemoryRemapConfig(uint8_t SYSCFG_MemoryRemap) {
   *
   * 参数:  NewState: 内部闪存库交换的新状态。
   *          此参数可以是以下值之一:
-  *            @arg ENABLE: Flash Bank2映射于0x080000000(别名为@0x00000000)，
-  *                         Flash Bank1映射于0x00810000(别名为0x001000000)
+  *            @arg ENABLE: Flash Bank2映射于 0x080000000(别名为@0x00000000)，
+  *                         Flash Bank1映射于 0x00810000(别名为0x001000000)
   *            @arg DISABLE:(默认状态)Flash Bank1映射到 0x0800000(别名为@0x0000 0000)，
   *                         Flash Bank2映射到 0x8810000(别名为0x00100000)
   * 返回值: 无

@@ -32,9 +32,9 @@
 
    (#) 根据 SDIO模式，使用 RCC_AHB1PeriphClockCmd() 函数。
        I/O可以是以下配置之一:
-       (++) 1位数据长度:SDIO_CMD、SDIO_CK和D0。
-       (++) 4位数据长度:SDIO_CMD、SDIO_CK和D[3:0]。
-       (++) 8位数据长度:SDIO_CMD、SDIO_CK和D[7:0]。
+       (++) 1位数据长度:SDIO_CMD、SDIO_CK和 D0。
+       (++) 4位数据长度:SDIO_CMD、SDIO_CK和 D[3:0]。
+       (++) 8位数据长度:SDIO_CMD、SDIO_CK和 D[7:0]。
 
    (#) 外设复用功能:
        (++) 使用 GPIO_PinAFConfig() 函数将管脚连接到所需外设设备的复用功能(AF)

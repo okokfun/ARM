@@ -77,7 +77,7 @@
  [..] 可以在 I2S全双工模式下使用 SPI，在这种情况下，每个 SPI 外设都能够使用两条数据线
       同时管理发送和接收数据。每个 SPI 外设都有一个名为 I2Sxext 的扩展块
       (即。I2S2ext用于 SPI2, I2S3ext用于 SPI3)。
-      扩展块不是一个完整的 SPI IP，它只是作为I2S的slave来实现全双工模式。扩展块使用与主块相同的时钟源。
+      扩展块不是一个完整的 SPI IP，它只是作为I2S的slave 来实现全双工模式。扩展块使用与主块相同的时钟源。
       要配置I2S全双工，您必须:
 
       (#) 在 I2S 模式下配置 SPIx (I2S_Init() 函数)如上所述。
@@ -468,7 +468,7 @@ void SPI_StructInit(SPI_InitTypeDef* SPI_InitStruct) {
   * 返回值: 无
   */
 void I2S_StructInit(I2S_InitTypeDef* I2S_InitStruct) {
-    /*--------------- 重置I2S init结构参数值 -----------------*/
+    /*--------------- 重置I2S init 结构参数值 -----------------*/
     /* 初始化 I2S_Mode 成员 */
     I2S_InitStruct->I2S_Mode = I2S_Mode_SlaveTx;
 
@@ -764,9 +764,9 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
         从机管理、外围模式和 CRC 多项式值进行编程。
    (#) 使用 SPI_CalculateCRC() 函数启用 CRC 计算。
    (#) 使用 SPI_Cmd() 函数启用 SPI
-   (#) 在将最后的数据写入TX缓冲区之前，使用 SPI_TransmitCRC() 函数
-        设置 CRCNext位，以指示在传输最后的数据后，应传输CRC。
-   (#) 在传输最后一个数据后，SPI传输CRC。SPI_CR1_CRCNEXT位复位。
+   (#) 在将最后的数据写入 TX缓冲区之前，使用 SPI_TransmitCRC() 函数
+        设置 CRCNext位，以指示在传输最后的数据后，应传输 CRC。
+   (#) 在传输最后一个数据后，SPI传输 CRC。SPI_CR1_CRCNEXT位复位。
         还将接收CRC并与SPI_RXCRCR值进行比较。
         如果该值不匹配，则设置SPI_FLAG_CRCERR标志，并在启用 SPI_I2S_IT_ERR中断时生成中断。
 
@@ -777,7 +777,7 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
        否则，可能会进行错误的 CRC 计算。事实上，一旦设置了CRCEN，
         CRC就对 SCK从机输入时钟敏感，这与SPE位的值无关。
 
-   (@) 对于高比特率频率，在传输CRC时要小心。
+   (@) 对于高比特率频率，在传输 CRC时要小心。
        由于在CRC传输阶段使用的 CPU周期数必须尽可能低，
         因此禁止调用 CRC传输序列中的软件功能，以避免最后数据和 CRC接收中的错误。
        事实上，CRCNEXT位必须在最后数据传输/接收结束之前写入。
@@ -871,7 +871,7 @@ uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx) {
     /* 检查参数 */
     assert_param(IS_SPI_ALL_PERIPH(SPIx));
 
-    /* 返回CRC polynomial 寄存器 */
+    /* 返回 CRC polynomial 寄存器 */
     return SPIx->CRCPR;
 }
 

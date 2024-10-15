@@ -438,7 +438,7 @@ void QSPI_SetAlternateByte(uint32_t QSPI_AlternateByte) {
 /**
   * 简介:  设置 FIFO 阈值
   * 参数:  QSPI_FIFOThres: 在间接模式下，定义FIFO 中的阈值字节数，
-  *                        这将导致设置FIFO 阈值标志FTF。
+  *                        这将导致设置 FIFO 阈值标志FTF。
   *         此参数可以是0x00 和0x0F之间的任何值
   * 返回值: 无
   */

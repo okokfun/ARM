@@ -205,7 +205,7 @@ void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct) {
     tmpreg1 &= ~(CR_CLEAR_MASK << DAC_Channel);
     /* 为选定的 DAC 通道进行配置:缓冲器输出、触发器、波形生成、波形生成的掩码/振幅 */
     /* 根据 DAC_Trigger设置 TSELx 和 TENx 位值 */
-    /* 根据 DAC_WaveGeneration设置WAVEx 位值 */
+    /* 根据 DAC_WaveGeneration设置 WAVEx 位值 */
     /* 根据 DAC_LFSRUnmask_TriangleAmplitude设置MAMPx 位值 */
     /* 根据 DAC_OutputBuffer设置BOFFx 位值 */
     tmpreg2 = (DAC_InitStruct->DAC_Trigger | DAC_InitStruct->DAC_WaveGeneration |
@@ -376,7 +376,7 @@ void DAC_SetChannel1Data(uint32_t DAC_Align, uint16_t Data) {
 /**
   * 简介:  为 DAC 通道 2 设置指定的数据保持寄存器值。
   * 
-  * 参数:  DAC_Align: 指定 DAC 通道2的数据排列。
+  * 参数:  DAC_Align: 指定 DAC 通道2 的数据排列。
   *          此参数可以是以下值之一:
   *            @arg DAC_Align_8b_R: 选择8位右侧数据对齐
   *            @arg DAC_Align_12b_L: 选择了12位的左边数据排列
@@ -403,15 +403,15 @@ void DAC_SetChannel2Data(uint32_t DAC_Align, uint16_t Data) {
 /**
   * 简介:  为双通道 DAC 设置指定的数据保持寄存器值。
   * 
-  * 参数:  DAC_Align: 指定双通道DAC 的数据排列。
+  * 参数:  DAC_Align: 指定双通道 DAC 的数据排列。
   *          此参数可以是以下值之一:
   *            @arg DAC_Align_8b_R: 选择8位右侧数据对齐
   *            @arg DAC_Align_12b_L: 选择了12位的左边数据排列
   *            @arg DAC_Align_12b_R: 选择了12位的右边数据排列
   * 
-  * 参数:  Data2: 将DAC 通道2的数据加载到选定的数据保持寄存器中。
+  * 参数:  Data2: 将 DAC 通道2 的数据加载到选定的数据保持寄存器中。
   * 
-  * 参数:  Data1: 将DAC 通道1 的数据加载到选定的数据保持寄存器中。
+  * 参数:  Data1: 将 DAC 通道1 的数据加载到选定的数据保持寄存器中。
   * 
   * 注意:   在双模式下，需要一个独特的寄存器访问，以同时写入两个 DAC 通道。
   * 
@@ -484,7 +484,7 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
   *            @arg DAC_Channel_1: 选择 DAC 通道1
   *            @arg DAC_Channel_2: 选择 DAC 通道2
   * 
-  * 参数:  NewState: 所选DAC 通道DMA 请求的新状态。
+  * 参数:  NewState: 所选DAC 通道 DMA 请求的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 注意:   DAC 通道1被映射到DMA1流5通道7上，该通道必须已经被配置。
@@ -526,7 +526,7 @@ void DAC_DMACmd(uint32_t DAC_Channel, FunctionalState NewState) {
   *            @arg DAC_Channel_1: 选择 DAC 通道1
   *            @arg DAC_Channel_2: 选择 DAC 通道2
   * 
-  * 参数:  DAC_IT: 指定要启用或禁用的 DAC中断源。
+  * 参数:  DAC_IT: 指定要启用或禁用的 DAC 中断源。
   *          这个参数可以是以下值。
   *            @arg DAC_IT_DMAUDR: DMA欠运行中断掩码
   * 
@@ -620,7 +620,7 @@ void DAC_ClearFlag(uint32_t DAC_Channel, uint32_t DAC_FLAG) {
   *            @arg DAC_Channel_1: 选择 DAC 通道1
   *            @arg DAC_Channel_2: 选择 DAC 通道2
   * 
-  * 参数:  DAC_IT: 指定要检查的 DAC中断源。
+  * 参数:  DAC_IT: 指定要检查的 DAC 中断源。
   *          这个参数可以是以下值。
   *            @arg DAC_IT_DMAUDR: DMA欠运行中断掩码
   * 
@@ -660,7 +660,7 @@ ITStatus DAC_GetITStatus(uint32_t DAC_Channel, uint32_t DAC_IT) {
   *            @arg DAC_Channel_1: 选择 DAC 通道1
   *            @arg DAC_Channel_2: 选择 DAC 通道2
   * 
-  * 参数:  DAC_IT: 指定要清除的 DAC中断等待位。
+  * 参数:  DAC_IT: 指定要清除的 DAC 中断等待位。
   *          这个参数可以是以下值。
   *            @arg DAC_IT_DMAUDR: DMA欠运行中断掩码
   * 

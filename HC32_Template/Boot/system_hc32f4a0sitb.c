@@ -46,7 +46,7 @@
 
 /* Vector Table base offset field */
 #ifndef VECT_TAB_OFFSET
-    #define VECT_TAB_OFFSET                 (0x0UL)     /*!< 该值必须是0x400的倍数。 */
+    #define VECT_TAB_OFFSET                 (0x0UL)     /*!< 该值必须是0x400 的倍数。 */
 #endif
 /* Compiler Macros */
 #if defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)

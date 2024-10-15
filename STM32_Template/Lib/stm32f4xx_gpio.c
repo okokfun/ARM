@@ -14,7 +14,7 @@
                       ##### 如何使用此驱动程序 #####
  ===============================================================================
  [..]
-   (#) 使用以下函数启用 GPIO AHB时钟
+   (#) 使用以下函数启用 GPIO AHB 时钟
        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE);
 
    (#) 使用 GPIO_Init()配置GPIO 引脚
@@ -30,7 +30,7 @@
        (++) 模拟: 引脚用作ADC 通道或 DAC输出时所需的模式。
 
    (#) 外设设备复用功能:
-       (++) 对于ADC 和DAC，使用 GPIO_InitStruct->GPIO_mode=GPIO_mode_AN 在模拟模式下配置所需引脚;
+       (++) 对于ADC 和 DAC，使用 GPIO_InitStruct->GPIO_mode=GPIO_mode_AN 在模拟模式下配置所需引脚;
             (+++) 对于其他外设设备(TIM、USART…):
             
             (+++) 使用 GPIO_PinAFConfig() 函数将管脚连接到所需外设设备的复用功能(AF)
@@ -376,7 +376,7 @@ uint16_t GPIO_ReadOutputData(GPIO_TypeDef* GPIOx) {
   *                      x 可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的 GPIO 外设设备。
   * 
   * 参数:  GPIO_Pin: 指定要写入的端口位。
-  *          此参数可以是 GPIO_Pin_x的任意组合，其中 x 可以是(0..15)。
+  *          此参数可以是 GPIO_Pin_x 的任意组合，其中 x 可以是(0..15)。
   * 
   * 返回值: 无
   */
@@ -399,7 +399,7 @@ void GPIO_SetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
   *                      x 可以是(A、B、C、D和H)，以选择 STM32F401xx 设备的 GPIO 外设设备。
   * 
   * 参数:  GPIO_Pin: 指定要写入的端口位。
-  *          此参数可以是 GPIO_Pin_x的任意组合，其中 x 可以是(0..15)。
+  *          此参数可以是 GPIO_Pin_x 的任意组合，其中 x 可以是(0..15)。
   * 
   * 返回值: 无
   */
@@ -499,7 +499,7 @@ void GPIO_ToggleBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
   * 参数:  GPIO_PinSource:指定复用功能的管脚。
   *         此参数可以是 GPIO_PinSourcex，其中 x 可以是(0..15)。
   * 
-  * 参数:  GPIO_AFS选择:选择要用作复用功能的管脚。(重置后默认)
+  * 参数:  GPIO_AFS 选择:选择要用作复用功能的管脚。(重置后默认)
   *          此参数可以是以下值之一:
   *            @arg GPIO_AF_RTC_50Hz : 将 RTC_50Hz 引脚连接到 AF0 (重置后默认)
   *            @arg GPIO_AF_MCO :      将 MCO 引脚 (MCO1 and MCO2) 连接到 AF0 (重置后默认)

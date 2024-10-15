@@ -71,15 +71,15 @@
                              初始化功能
  ===============================================================================
   本节提供的功能允许:
-   - 取消初始化DFSDM
-   - 初始化DFSDM串行通道收发器
-   - 初始化DFSDM筛选器
+   - 取消初始化 DFSDM
+   - 初始化 DFSDM 串行通道收发器
+   - 初始化 DFSDM 筛选器
 
 @endverbatim
   */
 
 /**
-  * 简介:  将DFSDM 外围寄存器取消初始化为其默认重置值。
+  * 简介:  将 DFSDM 外围寄存器取消初始化为其默认重置值。
   * 
   * 参数:  无.
   * 
@@ -97,7 +97,7 @@ void DFSDM_DeInit(void) {
 }
 
 /**
-  * 简介:  根据 DFSDM_TranceiverInit 中的指定参数初始化DFSDM串行通道收发器。
+  * 简介:  根据 DFSDM_TranceiverInit 中的指定参数初始化 DFSDM 串行通道收发器。
   * 
   * 参数:  DFSDM_Channelx: 指定要选择的通道。
   *         此参数可以是以下值之一:
@@ -202,7 +202,7 @@ void DFSDM_TransceiverStructInit(DFSDM_TransceiverInitTypeDef* DFSDM_Transceiver
 }
 
 /**
-  * 简介:  根据 DFSDM_FilterInitStruct 中的指定参数初始化DFSDMx筛选器。
+  * 简介:  根据 DFSDM_FilterInitStruct 中的指定参数初始化 DFSDMx筛选器。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -340,7 +340,7 @@ void DFSDM_Cmd(uint32_t Instance, FunctionalState NewState) {
 }
 #endif /* STM32F413_423xx */
 /**
-  * 简介:  启用或禁用指定的 DFSDM串行通道x。
+  * 简介:  启用或禁用指定的 DFSDM 串行通道x。
   * 
   * 参数:  DFSDM_Channelx: 指定要选择的通道。
   *         此参数可以是以下值之一:
@@ -357,7 +357,7 @@ void DFSDM_Cmd(uint32_t Instance, FunctionalState NewState) {
   *            @arg DFSDM2_Channel6 : DFSDM 2 Channel 6 (仅适用于 STM32F413_423xx 设备)
   *            @arg DFSDM2_Channel7 : DFSDM 2 Channel 7 (仅适用于 STM32F413_423xx 设备)
   * 
-  * 参数:  NewState: DFSDM串行通道x的新状态。
+  * 参数:  NewState: DFSDM 串行通道x 的新状态。
   *         此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -688,7 +688,7 @@ void DFSDM_ConfigShortCircuitThreshold(DFSDM_Channel_TypeDef* DFSDM_Channelx, ui
 }
 
 /**
-  * 简介:  选择所选DFSDMx的模拟看门狗要保护的通道，并选择是否启用快速模拟看门犬。
+  * 简介:  选择所选DFSDMx 的模拟看门狗要保护的通道，并选择是否启用快速模拟看门犬。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -741,7 +741,7 @@ void DFSDM_ConfigAnalogWatchdog(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_AWD
 }
 
 /**
-  * 简介:  选择要由所选DFSDMx的模拟看门狗保护的通道要使用的模式.
+  * 简介:  选择要由所选DFSDMx 的模拟看门狗保护的通道要使用的模式.
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -941,7 +941,7 @@ int32_t DFSDM_GetMinValueChannel(DFSDM_Filter_TypeDef* DFSDMx) {
 }
 
 /**
-  * 简介:  返回DFSDMx的转换时间(以28位计时器为单位)。
+  * 简介:  返回DFSDMx 的转换时间(以28位计时器为单位)。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1008,7 +1008,7 @@ void DFSDM_ConfigAWDFilter(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32_t DFSDM
 }
 
 /**
-  * 简介:  返回channelx的最后一个模拟看门狗过滤器转换结果数据。
+  * 简介:  返回channelx 的最后一个模拟看门狗过滤器转换结果数据。
   * 
   * 参数:  DFSDM_Channelx: 指定要选择的通道。
   *         此参数可以是以下值之一:
@@ -1037,7 +1037,7 @@ uint32_t DFSDM_GetAWDConversionValue(DFSDM_Channel_TypeDef* DFSDM_Channelx) {
 
 
 /**
-  * 简介:  为所选DFSDMx的模拟看门狗配置高阈值和低阈值。
+  * 简介:  为所选DFSDMx 的模拟看门狗配置高阈值和低阈值。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1048,9 +1048,9 @@ uint32_t DFSDM_GetAWDConversionValue(DFSDM_Channel_TypeDef* DFSDM_Channelx) {
   *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
   *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
-  * 参数:  DFSDM_HighThreshold: 高阈值。此参数的值可以介于0 和0xFFFFFF之间。
+  * 参数:  DFSDM_HighThreshold: 高阈值。此参数的值可以介于 0 和0xFFFFFF之间。
   * 
-  * 参数:  DFSDM_LowThreshold: 低阈值。此参数的值可以介于0 和0xFFFFFF之间。
+  * 参数:  DFSDM_LowThreshold: 低阈值。此参数的值可以介于 0 和0xFFFFFF之间。
   * 
   * 返回值: 无.
   * 
@@ -1167,7 +1167,7 @@ void DFSDM_SelectRegularChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_Reg
 }
 
 /**
-  * 简介:  为选定 DFSDMx的注入通道组启动软件启动。
+  * 简介:  为选定 DFSDMx 的注入通道组启动软件启动。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1189,7 +1189,7 @@ void DFSDM_StartSoftwareInjectedConversion(DFSDM_Filter_TypeDef* DFSDMx) {
 }
 
 /**
-  * 简介:  启动选定 DFSDMx的常规频道的软件启动。
+  * 简介:  启动选定 DFSDMx 的常规频道的软件启动。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1211,7 +1211,7 @@ void DFSDM_StartSoftwareRegularConversion(DFSDM_Filter_TypeDef* DFSDMx) {
 }
 
 /**
-  * 简介:  选择触发信号以启动所选DFSDMx的注入转换。
+  * 简介:  选择触发信号以启动所选DFSDMx 的注入转换。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1308,7 +1308,7 @@ void DFSDM_SynchronousFilter0RegularStart(DFSDM_Filter_TypeDef* DFSDMx) {
 }
 
 /**
-  * 简介:  启用或禁用选定过滤器DFSDMx的常规转换的继续模式。
+  * 简介:  启用或禁用选定过滤器 DFSDMx 的常规转换的继续模式。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1339,7 +1339,7 @@ void DFSDM_RegularContinuousModeCmd(DFSDM_Filter_TypeDef* DFSDMx, FunctionalStat
 }
 
 /**
-  * 简介:  启用或禁用所选过滤器DFSDMx的快速模式。
+  * 简介:  启用或禁用所选过滤器 DFSDMx 的快速模式。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1408,7 +1408,7 @@ void DFSDM_SelectInjectedConversionMode(DFSDM_Filter_TypeDef* DFSDMx, uint32_t D
 }
 
 /**
-  * 简介:  启用或禁用 DMA以读取所选滤波器DFSDMx的注入信道组的数据。
+  * 简介:  启用或禁用 DMA以读取所选滤波器 DFSDMx 的注入信道组的数据。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1423,7 +1423,7 @@ void DFSDM_SelectInjectedConversionMode(DFSDM_Filter_TypeDef* DFSDMx, uint32_t D
   *            @arg DFSDM_DMAConversionMode_Regular:  DMA通道已启用/禁用，用于读取数据以进行常规转换
   *            @arg DFSDM_DMAConversionMode_Injected: 启用/禁用 DMA通道以读取注入转换的数据
   * 
-  * 参数:  NewState: DMA信道的新状态。
+  * 参数:  NewState: DMA 信道的新状态。
   *         此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无.
@@ -1830,7 +1830,7 @@ FlagStatus DFSDM_GetWatchdogFlagStatus(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DF
 }
 
 /**
-  * 简介:  清除DFSDMx的挂起标志。
+  * 简介:  清除DFSDMx 的挂起标志。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1859,7 +1859,7 @@ void DFSDM_ClearFlag(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_CLEARF) {
 
 #if defined(STM32F412xG)
 /**
-  * 简介:  清除DFSDMx的挂起时钟缺失通道标志。
+  * 简介:  清除DFSDMx 的挂起时钟缺失通道标志。
   * 
   * 参数:  DFSDM_CLEARF_CLKAbsence: 指定要清除的挂起位。
   *         此参数可以是 @ref DFSDM_Clear_ClockAbs_Flag_Definition的任意组合
@@ -1875,7 +1875,7 @@ void DFSDM_ClearClockAbsenceFlag(uint32_t DFSDM_CLEARF_CLKAbsence) {
 }
 
 /**
-  * 简介:  清除DFSDMx的挂起短路通道标志。
+  * 简介:  清除DFSDMx 的挂起短路通道标志。
   * 
   * 参数:  DFSDM_CLEARF_SCD: 指定要清除的挂起位。
   *         此参数可以是 @ref DFSDM_Clear_Short_Circuit_Flag_Definition的任意组合
@@ -1893,7 +1893,7 @@ void DFSDM_ClearShortCircuitFlag(uint32_t DFSDM_CLEARF_SCD) {
 
 #if defined(STM32F413_423xx)
 /**
-  * 简介:  清除DFSDMx的挂起时钟缺失通道标志。
+  * 简介:  清除DFSDMx 的挂起时钟缺失通道标志。
   * 
   * 参数:  Instance: 选择 DFSDM 的实例
   *         此参数可以是: 1 or 2.
@@ -1917,7 +1917,7 @@ void DFSDM_ClearClockAbsenceFlag(uint32_t Instance, uint32_t DFSDM_CLEARF_CLKAbs
 }
 
 /**
-  * 简介:  清除DFSDMx的挂起短路通道标志。
+  * 简介:  清除DFSDMx 的挂起短路通道标志。
   * 
   * 参数:  Instance: 选择 DFSDM 的实例
   *         此参数可以是: 1 or 2.
@@ -1941,7 +1941,7 @@ void DFSDM_ClearShortCircuitFlag(uint32_t Instance, uint32_t DFSDM_CLEARF_SCD) {
 }
 #endif /* STM32F413_423xx */
 /**
-  * 简介:  清除DFSDMx的挂起模拟监视器通道标志。
+  * 简介:  清除DFSDMx 的挂起模拟监视器通道标志。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:

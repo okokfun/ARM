@@ -261,7 +261,7 @@ typedef struct {
 
 #define SYS_CLKSEL_SYS_Pos			0		//系统时钟选择	1 HRC	0 CLK_DIVx
 #define SYS_CLKSEL_SYS_Msk			(0x01 << SYS_CLKSEL_SYS_Pos)
-#define SYS_CLKSEL_CLK_DIVx_Pos		1		//选择CLK_DIVx  0 CLK_DIV1   1 CLK_DIV8
+#define SYS_CLKSEL_CLK_DIVx_Pos		1		//选择 CLK_DIVx  0 CLK_DIV1   1 CLK_DIV8
 #define SYS_CLKSEL_CLK_DIVx_Msk		(0x01 << SYS_CLKSEL_CLK_DIVx_Pos)
 #define SYS_CLKSEL_CLK_Pos			2		//Clock Source	0 LRC	1 PLL   2 XTAL_32K   3 XTAL   4 HRC
 #define SYS_CLKSEL_CLK_Msk			(0x07 << SYS_CLKSEL_CLK_Pos)
@@ -277,7 +277,7 @@ typedef struct {
 #define SYS_CLKSEL_RTCTRIM_Msk		(0x03 << SYS_CLKSEL_RTCTRIM_Pos)
 #define SYS_CLKSEL_AD0_Pos			16		//ADC0时钟选择  0 HRC   1 XTAL   2 PLL
 #define SYS_CLKSEL_AD0_Msk			(0x03 << SYS_CLKSEL_AD0_Pos)
-#define SYS_CLKSEL_AD0DIV_Pos		18		//ADC0时钟分频  0 1分频   1 1分频   2 4分频   3 8分频
+#define SYS_CLKSEL_AD0DIV_Pos		18		//ADC0时钟分频  0 1 分频   1 1 分频   2 4分频   3 8分频
 #define SYS_CLKSEL_AD0DIV_Msk		(0x03 << SYS_CLKSEL_AD0DIV_Pos)
 #define SYS_CLKSEL_AD1_Pos			20
 #define SYS_CLKSEL_AD1_Msk			(0x03 << SYS_CLKSEL_AD1_Pos)
@@ -414,7 +414,7 @@ typedef struct {
 
 #define SYS_IOFILT_TIM_Pos			0		//滤波窗口时间 = Tfilter_clk * 时钟分频 * 2^TIM
 #define SYS_IOFILT_TIM_Msk			(0x0F << SYS_IOFILT_TIM_Pos)
-#define SYS_IOFILT_CLKDIV_Pos		4		//0 时钟不分频   1 时钟32分频
+#define SYS_IOFILT_CLKDIV_Pos		4		//0 时钟不分频   1 时钟32 分频
 #define SYS_IOFILT_CLKDIV_Msk		(0x01 << SYS_IOFILT_CLKDIV_Pos)
 #define SYS_IOFILT_IOSEL_Pos		5		//被滤波IO选择，每个IOFILT 可为四个IO 中的一个进行滤波
 #define SYS_IOFILT_IOSEL_Msk		(0x03 << SYS_IOFILT_IOSEL_Pos)
@@ -558,7 +558,7 @@ typedef struct {
 #define SYS_PLLDIV_FBDIV_Msk		(0x1FF << SYS_PLLDIV_FBDIV_Pos)
 #define SYS_PLLDIV_INDIV_Pos		16      //PLL 输入源时钟分频
 #define SYS_PLLDIV_INDIV_Msk		(0x1F << SYS_PLLDIV_INDIV_Pos)
-#define SYS_PLLDIV_OUTDIV_Pos		24      //PLL 输出分频，0 8分频    1 4分频    0 2分频
+#define SYS_PLLDIV_OUTDIV_Pos		24      //PLL 输出分频，0 8分频    1 4分频    0 2 分频
 #define SYS_PLLDIV_OUTDIV_Msk		(0x03 << SYS_PLLDIV_OUTDIV_Pos)
 
 #define SYS_LRCCR_ON_Pos			0		//Low Speed RC On
@@ -1537,7 +1537,7 @@ typedef struct {
 #define ADC_CALIB_START_Msk			(0x01 << ADC_CALIB_START_Pos)
 #define ADC_CALIB_BUSY_Pos			2		//1 正在执行校准
 #define ADC_CALIB_BUSY_Msk			(0x01 << ADC_CALIB_BUSY_Pos)
-#define ADC_CALIB_LOAD_Pos			3		//写1将校准结果加载到ADC中，硬件清零
+#define ADC_CALIB_LOAD_Pos			3		//写1将校准结果加载到ADC 中，硬件清零
 #define ADC_CALIB_LOAD_Msk			(0x01 << ADC_CALIB_LOAD_Pos)
 #define ADC_CALIB_BYPASS_Pos		4		//1 旁路校准模块
 #define ADC_CALIB_BYPASS_Msk		(0x01 << ADC_CALIB_BYPASS_Pos)
@@ -1604,7 +1604,7 @@ typedef struct {
 #define PWM_CR_DIR_Msk				(0x01 << PWM_CR_DIR_Pos)
 #define PWM_CR_CLKSRC_Pos			4		//计数时钟源，0 系统时钟   1 PWM_PULSE0输入   2 PWM_PULSE1输入
 #define PWM_CR_CLKSRC_Msk			(0x03 << PWM_CR_CLKSRC_Pos)
-#define PWM_CR_CLKDIV_Pos			6		//计数时钟预分频， 0 1分频   1 2分频   ...   1023 1024分频
+#define PWM_CR_CLKDIV_Pos			6		//计数时钟预分频， 0 1 分频   1 2 分频   ...   1023 1024分频
 #define PWM_CR_CLKDIV_Msk			(0x3FF<< PWM_CR_CLKDIV_Pos)
 #define PWM_CR_RPTNUM_Pos			16		//计数器溢出多少次执行一次寄存器重载，0 1次   1 2次   ...   255 256次
 #define PWM_CR_RPTNUM_Msk			(0xFF << PWM_CR_RPTNUM_Pos)
@@ -2082,7 +2082,7 @@ typedef struct {
 #define DMA_MUX_SRCHSEN_Msk			(0x01 << DMA_MUX_SRCHSEN_Pos)
 #define DMA_MUX_EXTHSSIG_Pos		16		//外部握手信号，0 TIMR0   1 TIMR1   2 TIMR2   3 TIMR3   4 TIMR4   5 DMA_TRIG0   6 DMA_TRIG1
 #define DMA_MUX_EXTHSSIG_Msk		(0x07 << DMA_MUX_EXTHSSIG_Pos)
-#define DMA_MUX_EXTHSEN_Pos			19		//外部握手使能，0 软件置位CR.RXEN/TXEN启动传输   1 EXTHSSRC选中的触发源启动传输
+#define DMA_MUX_EXTHSEN_Pos			19		//外部握手使能，0 软件置位 CR.RXEN/TXEN启动传输   1 EXTHSSRC选中的触发源启动传输
 #define DMA_MUX_EXTHSEN_Msk			(0x01 << DMA_MUX_EXTHSEN_Pos)
 
 #define DMA_DSTSR_LEN_Pos			0		//剩余传输量
@@ -2328,7 +2328,7 @@ typedef struct {
 #define SDIO_CR2_CLKRDY_Msk			(0x01 << SDIO_CR2_CLKRDY_Pos)
 #define SDIO_CR2_SDCLKEN_Pos		2		//SDCLK Enable
 #define SDIO_CR2_SDCLKEN_Msk		(0x01 << SDIO_CR2_SDCLKEN_Pos)
-#define SDIO_CR2_SDCLKDIV_Pos		8		//SDCLK Frequency Div, 0x00 不分频    0x01 2分频    0x02 4分频    0x04 8分频    0x08    16分频    ...    0x80 256分频
+#define SDIO_CR2_SDCLKDIV_Pos		8		//SDCLK Frequency Div, 0x00 不分频    0x01 2 分频    0x02 4分频    0x04 8分频    0x08    16分频    ...    0x80 256分频
 #define SDIO_CR2_SDCLKDIV_Msk		(0xFF << SDIO_CR2_SDCLKDIV_Pos)
 #define SDIO_CR2_TIMEOUT_Pos		16		//0 TMCLK*2^13   1 TMCLK*2^14   ...   14 TMCLK*2^27
 #define SDIO_CR2_TIMEOUT_Msk		(0x0F << SDIO_CR2_TIMEOUT_Pos)
@@ -2534,7 +2534,7 @@ typedef struct {
 #define LCD_START_GO_Pos			1		//写1开始传输数据，数据传输结束后自动清零
 #define LCD_START_GO_Msk			(0x01 << LCD_START_GO_Pos)
 
-#define LCD_CR_CLKDIV_Pos			0      	//DOTCLK相对于模块时钟的分频比，0表示2分频，1表示3分频 ...
+#define LCD_CR_CLKDIV_Pos			0      	//DOTCLK相对于模块时钟的分频比，0表示2 分频，1表示3 分频 ...
 #define LCD_CR_CLKDIV_Msk			(0x3F << LCD_CR_CLKDIV_Pos)
 #define LCD_CR_CLKINV_Pos			6      	//1 输出DOTCLK反向，用于DOTCLK下降沿采样数据的屏
 #define LCD_CR_CLKINV_Msk			(0x01 << LCD_CR_CLKINV_Pos)
@@ -2659,7 +2659,7 @@ typedef struct {
 #define DMA2D_PFCCR_AINV_Msk		(0x01 << DMA2D_PFCCR_AINV_Pos)
 #define DMA2D_PFCCR_RBSWAP_Pos		4		//RB Swap, 0 RGB   1 BGR
 #define DMA2D_PFCCR_RBSWAP_Msk		(0x01 << DMA2D_PFCCR_RBSWAP_Pos)
-#define DAM2D_PFCCR_AMODE_Pos		8		//Alpha Mode, 0 使用像素点自带Alpha值   1 使用 PFCCR.ALPHA值   2 使用像素点自带Alpha值与PFCCR.ALPHA值的乘积
+#define DAM2D_PFCCR_AMODE_Pos		8		//Alpha Mode, 0 使用像素点自带Alpha值   1 使用 PFCCR.ALPHA值   2 使用像素点自带Alpha值与 PFCCR.ALPHA值的乘积
 #define DMA2D_PFCCR_AMODE_Msk		(0x03 << DAM2D_PFCCR_AMODE_Pos)
 #define DMA2D_PFCCR_ALPHA_Pos		24
 #define DMA2D_PFCCR_ALPHA_Msk		(0xFFu<< DMA2D_PFCCR_ALPHA_Pos)
@@ -2910,7 +2910,7 @@ typedef struct {
 #define SFC_CFG_CMDTYPE_Msk			(0x0F << SFC_CFG_CMDTYPE_Pos)
 #define SFC_CFG_CMDWREN_Pos			5		//SFC->CMD寄存器写使能，使能后可将命令码写入CMD寄存器
 #define SFC_CFG_CMDWREN_Msk			(0x01 << SFC_CFG_CMDWREN_Pos)
-#define SFC_CFG_CLKDIV_Pos			6		//时钟分频：0 1分频   1 2分频   2 4分频   3 8分频
+#define SFC_CFG_CLKDIV_Pos			6		//时钟分频：0 1 分频   1 2 分频   2 4分频   3 8分频
 #define SFC_CFG_CLKDIV_Msk			(0x03 << SFC_CFG_CLKDIV_Pos)
 #define SFC_CFG_ADDR4L_Pos			8		//编程操作的地址阶段使用4条数据线
 #define SFC_CFG_ADDR4L_Msk			(0x01 << SFC_CFG_ADDR4L_Pos)
@@ -3057,7 +3057,7 @@ typedef struct {
 
     __IO uint32_t DAYHURAL;                 //周时闹铃设置
 
-    __IO uint32_t LOAD;                     //将设置寄存器中的值同步到RTC中，同步完成自动清零
+    __IO uint32_t LOAD;                     //将设置寄存器中的值同步到 RTC 中，同步完成自动清零
 
     __IO uint32_t IE;
 
@@ -3078,17 +3078,17 @@ typedef struct {
 #define RTC_LOAD_ALARM_Pos			1
 #define RTC_LOAD_ALARM_Msk			(0x01 << RTC_LOAD_ALARM_Pos)
 
-#define RTC_MINSEC_SEC_Pos			0       //秒计数，取值0--59
+#define RTC_MINSEC_SEC_Pos			0       //秒计数，取值 0--59
 #define RTC_MINSEC_SEC_Msk		    (0x3F << RTC_MINSEC_SEC_Pos)
-#define RTC_MINSEC_MIN_Pos			6       //分钟计数，取值0--59
+#define RTC_MINSEC_MIN_Pos			6       //分钟计数，取值 0--59
 #define RTC_MINSEC_MIN_Msk		    (0x3F << RTC_MINSEC_MIN_Pos)
 
-#define RTC_DATHUR_HOUR_Pos			0       //小时计数，取值0--23
+#define RTC_DATHUR_HOUR_Pos			0       //小时计数，取值 0--23
 #define RTC_DATHUR_HOUR_Msk		    (0x1F << RTC_DATHUR_HOUR_Pos)
 #define RTC_DATHUR_DATE_Pos			5       //date of month，取值1--31
 #define RTC_DATHUR_DATE_Msk		    (0x1F << RTC_DATHUR_DATE_Pos)
 
-#define RTC_MONDAY_DAY_Pos			0       //day of week，取值0--6
+#define RTC_MONDAY_DAY_Pos			0       //day of week，取值 0--6
 #define RTC_MONDAY_DAY_Msk		    (0x07 << RTC_MONDAY_DAY_Pos)
 #define RTC_MONDAY_MON_Pos			3       //月份计数，取值1--12
 #define RTC_MONDAY_MON_Msk		    (0x0F << RTC_MONDAY_MON_Pos)
@@ -3184,7 +3184,7 @@ typedef struct {
 #define WDT_CR_INTEN_Msk			(0x01 << WDT_CR_INTEN_Pos)
 #define WDT_CR_WINEN_Pos			3		// 窗口功能使能
 #define WDT_CR_WINEN_Msk			(0x01 << WDT_CR_WINEN_Pos)
-#define WDT_CR_CKDIV_Pos			8		// 时钟预分频，0 2分频   1 4分频   2 8分频 ...
+#define WDT_CR_CKDIV_Pos			8		// 时钟预分频，0 2 分频   1 4分频   2 8分频 ...
 #define WDT_CR_CKDIV_Msk			(0x0F << WDT_CR_CKDIV_Pos)
 
 

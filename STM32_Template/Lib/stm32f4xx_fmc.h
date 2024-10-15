@@ -152,7 +152,7 @@ typedef struct {
 } FMC_NAND_PCCARDTimingInitTypeDef;
 
 /**
-  * 简介:  FMC NAND Init结构定义
+  * 简介:  FMC NAND Init 结构定义
   */
 typedef struct {
     uint32_t FMC_Bank;              /*!< 指定将使用的 NAND 存储区。

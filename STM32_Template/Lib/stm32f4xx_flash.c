@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    此文件提供固件功能，以管理FLASH外设设备的以下功能:
+  * 简介:    此文件提供固件功能，以管理FLASH 外设设备的以下功能:
   *            + FLASH 接口配置
   *            + FLASH编程
   *            + 选项字节编程
@@ -712,7 +712,7 @@ FLASH_Status FLASH_ProgramDoubleWord(uint32_t Address, uint64_t Data) {
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
   * 参数:  Address: 指定要编程的地址。
-  *         此参数可以是程序内存区域或OTP区域中的任何地址。
+  *         此参数可以是程序内存区域或 OTP区域中的任何地址。
   * 
   * 参数:  Data: 指定要编程的数据。
   * 
@@ -755,7 +755,7 @@ FLASH_Status FLASH_ProgramWord(uint32_t Address, uint32_t Data) {
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
   * 参数:  Address: 指定要编程的地址。
-  *         此参数可以是程序内存区域或OTP区域中的任何地址。
+  *         此参数可以是程序内存区域或 OTP区域中的任何地址。
   * 
   * 参数:  Data: 指定要编程的数据。
   * 
@@ -798,7 +798,7 @@ FLASH_Status FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data) {
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
   * 参数:  Address: 指定要编程的地址。
-  *         此参数可以是程序内存区域或OTP区域中的任何地址。
+  *         此参数可以是程序内存区域或 OTP区域中的任何地址。
   * 
   * 参数:  Data: 指定要编程的数据。
   * 
@@ -867,7 +867,7 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
       (+) void FLASH_OB_BootConfig(uint8_t OB_BOOT)
     [..]
      擦除或程序的任何操作都应遵循以下步骤:
-      (#) 调用FLASH_OB_Unlock() 函数以启用FLASH选项控制寄存器访问
+      (#) 调用 FLASH_OB_Unlock() 函数以启用 FLASH选项控制寄存器访问
 
       (#) 调用一个或多个函数来编程所需的选项字节:
         (++) void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState)
@@ -878,10 +878,10 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
         (++) void FLASH_OB_BORConfig(uint8_t OB_BOR) => 设置BOR级别
 
       (#)正确写入所有需要编程的选项字节后，
-           调用FLASH_OB_Launch() 函数启动选项字节编程过程。
+           调用 FLASH_OB_Launch() 函数启动选项字节编程过程。
       -@-将IWDG模式从HW更改为SW或从SW更改为 HW时，
            需要进行系统重置以使更改生效。
-      (#)调用FLASH_OB_Lock() 函数以禁用FLASH选项控制寄存器访问
+      (#)调用 FLASH_OB_Lock() 函数以禁用 FLASH选项控制寄存器访问
           (建议用于保护选项字节免受可能不需要的操作)
 
 @endverbatim
@@ -918,7 +918,7 @@ void FLASH_OB_Lock(void) {
   * 简介:  为 Flash 的前 1 Mb 启用或禁用所需扇区的写保护。
   *
   * 注意:   选择内存读取保护级别(RDP级别=1)时，如果连接了CortexM4调试功能
-  *         或在RAM 中执行引导代码，则无法对闪存扇区i进行编程或擦除，即使nWRPi=1
+  *         或在 RAM 中执行引导代码，则无法对闪存扇区i进行编程或擦除，即使nWRPi=1
   * 注意:   当PCROP模式处于活动状态(SPRMOD=1)时，nWRPi位的活动值被反转。
   *
   * 参数:  OB_WRP: 指定要写保护或不保护的扇区。
@@ -955,7 +955,7 @@ void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState) {
   * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
   * 注意:   选择内存读取保护时(RDP级别=1)，如果连接了CortexM4调试功能或
-  *         在RAM 中执行引导代码，则无法编程或擦除闪存扇区i，即使nWRPi=1
+  *         在 RAM 中执行引导代码，则无法编程或擦除闪存扇区i，即使nWRPi=1
   * 
   * 注意:   当PCROP模式处于活动状态(SPRMOD=1)时，nWRPi位的活动值被反转。
   *
@@ -996,15 +996,15 @@ void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState) {
   *         全局读取保护修改级别(级别1 到级别0)出现异常
   * 注意:   一旦SPRMOD位处于活动状态，就不可能取消保护受保护扇区
   *
-  * 注意:   读取受保护扇区将设置 RDERR标志，写入受保护扇区将设置WRPERR标志
+  * 注意:   读取受保护扇区将设置 RDERR标志，写入受保护扇区将设置 WRPERR标志
   *
   * 注意:   激活PCROP功能时应采取一些预防措施:
   *            当PCROP模式激活时，nWRPi位的激活值被反转，这意味着如果 SPRMOD=1
   *            WRPi=1(默认值)，则用户扇区i受读/写保护。
   *            为了避免为不需要的扇区激活PCROP模式，请遵循以下安全顺序:
-  *            -使用FLASH_OB_PCROP_Config(OB_PCROP Sector_all，Disable) 函数为所有扇区禁用 PCROP
-  *               对于Bank1或对于Bank2的 FLASH_OB_PCROP_Sector_All，DISABLE) 函数
-  *            -使用FLASH_OB_PCROPConfig(Sector i，Enable) 功能为所需扇区i启用 PCROP
+  *            -使用 FLASH_OB_PCROP_Config(OB_PCROP Sector_all，Disable) 函数为所有扇区禁用 PCROP
+  *               对于Bank1或对于Bank2 的 FLASH_OB_PCROP_Sector_All，DISABLE) 函数
+  *            -使用 FLASH_OB_PCROPConfig(Sector i，Enable) 功能为所需扇区i启用 PCROP
   *            -激活PCROP模式FLASH_OB_PCROPSelectionConfig() 功能。
   *
   * 参数:  OB_PCROP:  选择nWPRi位的保护模式
@@ -1304,7 +1304,7 @@ uint16_t FLASH_OB_GetPCROP1(void) {
   * 参数:  无
   * 
   * 返回值: 闪存读取保护状态:
-  *           - SET, 当OB_RDP_Level_1或OB_RDP_Level_2被设置时。
+  *           - SET, 当OB_RDP_Level_1或 OB_RDP_Level_2被设置时。
   *           - RESET, 当OB_RDP_Level_0被设置时。
   */
 FlagStatus FLASH_OB_GetRDP(void) {

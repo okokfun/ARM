@@ -64,7 +64,7 @@
         (++) 清除标志/挂起位
         (++) 启用/禁用 DMA 请求
         (++) 配置 DMA 突发模式
-        (++) 选择CaptureCompare DMA 请求
+        (++) 选择 CaptureCompare DMA 请求
 
       (#) TIM 时钟管理: 该组包括配置时钟控制器单元所需的所有功能:
         (++)选择内部/外部时钟
@@ -151,7 +151,7 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
  ===============================================================================
 
 
-            ##### TIM 驱动程序:如何在计时(时基)模式下使用 #####
+            ##### TIM 驱动程序: 如何在计时(时基)模式下使用 #####
  ===============================================================================
     [..]
     要在定时(时基)模式下使用计时器，必须执行以下步骤:
@@ -339,7 +339,7 @@ void TIM_CounterModeConfig(TIM_TypeDef* TIMx, uint16_t TIM_CounterMode) {
     /* 设置计数器模式 */
     tmpcr1 |= TIM_CounterMode;
 
-    /* 写入TIMx CR1 寄存器 */
+    /* 写入 TIMx CR1 寄存器 */
     TIMx->CR1 = tmpcr1;
 }
 
@@ -556,7 +556,7 @@ void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState) {
         (++) TIM 输出比较模式: TIM_OC 模式
         (++) TIM 输出状态: TIM_OutputState
         (++) TIM 脉冲值: TIM_Pulse
-        (++) TIM 输出比较极性: TIM_OC极性
+        (++) TIM 输出比较极性: TIM_OC 极性
 
       (#) 调用 TIM_OCxInit(TIMx，&TIM_OCInitStruct)，用相应的配置配置所需的通道
 
@@ -638,16 +638,16 @@ void TIM_OC1Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct) {
         tmpcr2 |= TIM_OCInitStruct->TIM_OCNIdleState;
     }
 
-    /* 写入TIMx CR2 */
+    /* 写入 TIMx CR2 */
     TIMx->CR2 = tmpcr2;
 
-    /* 写入TIMx CCMR1 */
+    /* 写入 TIMx CCMR1 */
     TIMx->CCMR1 = tmpccmrx;
 
     /* 设置捕获比较寄存器的值 */
     TIMx->CCR1 = TIM_OCInitStruct->TIM_Pulse;
 
-    /* 写入TIMx CCER */
+    /* 写入 TIMx CCER */
     TIMx->CCER = tmpccer;
 }
 
@@ -716,16 +716,16 @@ void TIM_OC2Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct) {
         tmpcr2 |= (uint16_t)(TIM_OCInitStruct->TIM_OCNIdleState << 2);
     }
 
-    /* 写入TIMx CR2 */
+    /* 写入 TIMx CR2 */
     TIMx->CR2 = tmpcr2;
 
-    /* 写入TIMx CCMR1 */
+    /* 写入 TIMx CCMR1 */
     TIMx->CCMR1 = tmpccmrx;
 
     /* 设置捕获比较寄存器的值 */
     TIMx->CCR2 = TIM_OCInitStruct->TIM_Pulse;
 
-    /* 写入TIMx CCER */
+    /* 写入 TIMx CCER */
     TIMx->CCER = tmpccer;
 }
 
@@ -793,16 +793,16 @@ void TIM_OC3Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct) {
         tmpcr2 |= (uint16_t)(TIM_OCInitStruct->TIM_OCNIdleState << 4);
     }
 
-    /* 写入TIMx CR2 */
+    /* 写入 TIMx CR2 */
     TIMx->CR2 = tmpcr2;
 
-    /* 写入TIMx CCMR2 */
+    /* 写入 TIMx CCMR2 */
     TIMx->CCMR2 = tmpccmrx;
 
     /* 设置捕获比较寄存器的值 */
     TIMx->CCR3 = TIM_OCInitStruct->TIM_Pulse;
 
-    /* 写入TIMx CCER */
+    /* 写入 TIMx CCER */
     TIMx->CCER = tmpccer;
 }
 
@@ -855,16 +855,16 @@ void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct) {
         tmpcr2 |= (uint16_t)(TIM_OCInitStruct->TIM_OCIdleState << 6);
     }
 
-    /* 写入TIMx CR2 */
+    /* 写入 TIMx CR2 */
     TIMx->CR2 = tmpcr2;
 
-    /* 写入TIMx CCMR2 */
+    /* 写入 TIMx CCMR2 */
     TIMx->CCMR2 = tmpccmrx;
 
     /* 设置捕获比较寄存器的值 */
     TIMx->CCR4 = TIM_OCInitStruct->TIM_Pulse;
 
-    /* 写入TIMx CCER */
+    /* 写入 TIMx CCER */
     TIMx->CCER = tmpccer;
 }
 
@@ -1022,7 +1022,7 @@ void TIM_ForcedOC1Config(TIM_TypeDef* TIMx, uint16_t TIM_ForcedAction) {
     /* 配置强制输出模式 */
     tmpccmr1 |= TIM_ForcedAction;
 
-    /* 写入TIMx CCMR1 寄存器 */
+    /* 写入 TIMx CCMR1 寄存器 */
     TIMx->CCMR1 = tmpccmr1;
 }
 
@@ -1049,7 +1049,7 @@ void TIM_ForcedOC2Config(TIM_TypeDef* TIMx, uint16_t TIM_ForcedAction) {
     /* 配置强制输出模式 */
     tmpccmr1 |= (uint16_t)(TIM_ForcedAction << 8);
 
-    /* 写入TIMx CCMR1 寄存器 */
+    /* 写入 TIMx CCMR1 寄存器 */
     TIMx->CCMR1 = tmpccmr1;
 }
 
@@ -1077,7 +1077,7 @@ void TIM_ForcedOC3Config(TIM_TypeDef* TIMx, uint16_t TIM_ForcedAction) {
     /* 配置强制输出模式 */
     tmpccmr2 |= TIM_ForcedAction;
 
-    /* 写入TIMx CCMR2 寄存器 */
+    /* 写入 TIMx CCMR2 寄存器 */
     TIMx->CCMR2 = tmpccmr2;
 }
 
@@ -1104,7 +1104,7 @@ void TIM_ForcedOC4Config(TIM_TypeDef* TIMx, uint16_t TIM_ForcedAction) {
     /* 配置强制输出模式 */
     tmpccmr2 |= (uint16_t)(TIM_ForcedAction << 8);
 
-    /* 写入TIMx CCMR2 寄存器 */
+    /* 写入 TIMx CCMR2 寄存器 */
     TIMx->CCMR2 = tmpccmr2;
 }
 
@@ -1132,7 +1132,7 @@ void TIM_OC1PreloadConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPreload) {
     /* 启用或禁用输出比较预加载功能 */
     tmpccmr1 |= TIM_OCPreload;
 
-    /* 写入TIMx CCMR1 寄存器 */
+    /* 写入 TIMx CCMR1 寄存器 */
     TIMx->CCMR1 = tmpccmr1;
 }
 
@@ -1160,7 +1160,7 @@ void TIM_OC2PreloadConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPreload) {
     /* 启用或禁用输出比较预加载功能 */
     tmpccmr1 |= (uint16_t)(TIM_OCPreload << 8);
 
-    /* 写入TIMx CCMR1 寄存器 */
+    /* 写入 TIMx CCMR1 寄存器 */
     TIMx->CCMR1 = tmpccmr1;
 }
 
@@ -1188,7 +1188,7 @@ void TIM_OC3PreloadConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPreload) {
     /* 启用或禁用输出比较预加载功能 */
     tmpccmr2 |= TIM_OCPreload;
 
-    /* 写入TIMx CCMR2 寄存器 */
+    /* 写入 TIMx CCMR2 寄存器 */
     TIMx->CCMR2 = tmpccmr2;
 }
 
@@ -1216,12 +1216,12 @@ void TIM_OC4PreloadConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPreload) {
     /* 启用或禁用输出比较预加载功能 */
     tmpccmr2 |= (uint16_t)(TIM_OCPreload << 8);
 
-    /* 写入TIMx CCMR2 寄存器 */
+    /* 写入 TIMx CCMR2 寄存器 */
     TIMx->CCMR2 = tmpccmr2;
 }
 
 /**
-  * 简介:  配置 TIMx输出比较 1 快速功能。
+  * 简介:  配置 TIMx 输出比较 1 快速功能。
   * 参数:  TIMx: 其中 x 可以是 1 到 14，6 和 7 除外，以选择 TIM 外设设备。
   * 参数:  TIM_OCFast: 输出比较快速启用位的新状态。
   *          此参数可以是以下值之一:
@@ -1245,12 +1245,12 @@ void TIM_OC1FastConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCFast) {
     /* 启用或禁用输出比较快速位 */
     tmpccmr1 |= TIM_OCFast;
 
-    /* 写入TIMx CCMR1 */
+    /* 写入 TIMx CCMR1 */
     TIMx->CCMR1 = tmpccmr1;
 }
 
 /**
-  * 简介:  配置 TIMx输出比较2快速功能。
+  * 简介:  配置 TIMx 输出比较2快速功能。
   * 参数:  TIMx: 其中 x 可以是1、2、3、4、5、8、9或12，以选择 TIM 外设设备。
   * 参数:  TIM_OCFast: 输出比较快速启用位的新状态。
   *          此参数可以是以下值之一:
@@ -1274,12 +1274,12 @@ void TIM_OC2FastConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCFast) {
     /* 启用或禁用输出比较快速位 */
     tmpccmr1 |= (uint16_t)(TIM_OCFast << 8);
 
-    /* 写入TIMx CCMR1 */
+    /* 写入 TIMx CCMR1 */
     TIMx->CCMR1 = tmpccmr1;
 }
 
 /**
-  * 简介:  配置 TIMx输出比较 3 快速功能。
+  * 简介:  配置 TIMx 输出比较 3 快速功能。
   * 参数:  TIMx: 其中 x 可以是 1、2、3、4、5或8，以选择 TIM 外设设备。
   * 参数:  TIM_OCFast: 输出比较快速启用位的新状态。
   *          此参数可以是以下值之一:
@@ -1303,7 +1303,7 @@ void TIM_OC3FastConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCFast) {
     /* 启用或禁用输出比较快速位 */
     tmpccmr2 |= TIM_OCFast;
 
-    /* 写入TIMx CCMR2 */
+    /* 写入 TIMx CCMR2 */
     TIMx->CCMR2 = tmpccmr2;
 }
 
@@ -1332,7 +1332,7 @@ void TIM_OC4FastConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCFast) {
     /* 启用或禁用快速输出比较位 */
     tmpccmr2 |= (uint16_t)(TIM_OCFast << 8);
 
-    /* 写入TIMx CCMR2 */
+    /* 写入 TIMx CCMR2 */
     TIMx->CCMR2 = tmpccmr2;
 }
 
@@ -1360,7 +1360,7 @@ void TIM_ClearOC1Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear) {
     /* 启用或禁用输出比较清除位*/
     tmpccmr1 |= TIM_OCClear;
 
-    /* 写入TIMx CCMR1 寄存器 */
+    /* 写入 TIMx CCMR1 寄存器 */
     TIMx->CCMR1 = tmpccmr1;
 }
 
@@ -1388,7 +1388,7 @@ void TIM_ClearOC2Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear) {
     /* 启用或禁用输出比较清除位*/
     tmpccmr1 |= (uint16_t)(TIM_OCClear << 8);
 
-    /* 写入TIMx CCMR1 寄存器 */
+    /* 写入 TIMx CCMR1 寄存器 */
     TIMx->CCMR1 = tmpccmr1;
 }
 
@@ -1416,7 +1416,7 @@ void TIM_ClearOC3Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear) {
     /* 启用或禁用输出比较清除位 */
     tmpccmr2 |= TIM_OCClear;
 
-    /* 写入TIMx CCMR2寄存器 */
+    /* 写入 TIMx CCMR2寄存器 */
     TIMx->CCMR2 = tmpccmr2;
 }
 
@@ -1444,7 +1444,7 @@ void TIM_ClearOC4Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear) {
     /* 启用或禁用输出比较清除位*/
     tmpccmr2 |= (uint16_t)(TIM_OCClear << 8);
 
-    /* 写入TIMx CCMR2 寄存器 */
+    /* 写入 TIMx CCMR2 寄存器 */
     TIMx->CCMR2 = tmpccmr2;
 }
 
@@ -1470,7 +1470,7 @@ void TIM_OC1PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity) {
     tmpccer &= (uint16_t)(~TIM_CCER_CC1P);
     tmpccer |= TIM_OCPolarity;
 
-    /* 写入TIMx CCER 寄存器 */
+    /* 写入 TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
@@ -1495,7 +1495,7 @@ void TIM_OC1NPolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCNPolarity) {
     tmpccer &= (uint16_t)~TIM_CCER_CC1NP;
     tmpccer |= TIM_OCNPolarity;
 
-    /* 写入TIMx CCER 寄存器 */
+    /* 写入 TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
@@ -1521,7 +1521,7 @@ void TIM_OC2PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity) {
     tmpccer &= (uint16_t)(~TIM_CCER_CC2P);
     tmpccer |= (uint16_t)(TIM_OCPolarity << 4);
 
-    /* 写入TIMx CCER 寄存器 */
+    /* 写入 TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
@@ -1547,7 +1547,7 @@ void TIM_OC2NPolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCNPolarity) {
     tmpccer &= (uint16_t)~TIM_CCER_CC2NP;
     tmpccer |= (uint16_t)(TIM_OCNPolarity << 4);
 
-    /* 写入TIMx CCER 寄存器 */
+    /* 写入 TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
@@ -1573,7 +1573,7 @@ void TIM_OC3PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity) {
     tmpccer &= (uint16_t)~TIM_CCER_CC3P;
     tmpccer |= (uint16_t)(TIM_OCPolarity << 8);
 
-    /* 写入TIMx CCER 寄存器 */
+    /* 写入 TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
@@ -1599,7 +1599,7 @@ void TIM_OC3NPolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCNPolarity) {
     tmpccer &= (uint16_t)~TIM_CCER_CC3NP;
     tmpccer |= (uint16_t)(TIM_OCNPolarity << 8);
 
-    /* 写入TIMx CCER 寄存器 */
+    /* 写入 TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
@@ -1625,7 +1625,7 @@ void TIM_OC4PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity) {
     tmpccer &= (uint16_t)~TIM_CCER_CC4P;
     tmpccer |= (uint16_t)(TIM_OCPolarity << 12);
 
-    /* 写入TIMx CCER 寄存器 */
+    /* 写入 TIMx CCER 寄存器 */
     TIMx->CCER = tmpccer;
 }
 
@@ -1713,10 +1713,10 @@ void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN) {
 
       (#) 用所需参数填充 TIM_ICInitStruct，包括:
         (++)TIM通道: TIM_Channel
-        (++)TIM 输入捕捉极性: TIM_IC极性
-        (++)TIM 输入捕捉选择: TIM_ICS选择
-        (++)TIM 输入捕获预定标器: TIM_IC预定标器
-        (++)TIM 输入捕获过滤器值: TIM_IC过滤器
+        (++)TIM 输入捕捉极性: TIM_IC 极性
+        (++)TIM 输入捕捉选择: TIM_ICS 选择
+        (++)TIM 输入捕获预定标器: TIM_IC 预定标器
+        (++)TIM 输入捕获过滤器值: TIM_IC 过滤器
 
       (#) 调用 TIM_ICInit(TIMx， &TIM_ICInitStruct)用相应的配置配置所需的信道，
 		  只测量输入信号的频率或占空比，或者调用 TIM_PWMIConfig(TIMx， &TIM_ICInitStruct)
@@ -1755,7 +1755,7 @@ void TIM_ICInit(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct) {
         TI1_Config(TIMx, TIM_ICInitStruct->TIM_ICPolarity,
                    TIM_ICInitStruct->TIM_ICSelection,
                    TIM_ICInitStruct->TIM_ICFilter);
-        /* 设置 Input Capture预分频器值 */
+        /* 设置 Input Capture 预分频器值 */
         TIM_SetIC1Prescaler(TIMx, TIM_ICInitStruct->TIM_ICPrescaler);
     } else if (TIM_ICInitStruct->TIM_Channel == TIM_Channel_2) {
         /* TI2 配置*/
@@ -1763,7 +1763,7 @@ void TIM_ICInit(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct) {
         TI2_Config(TIMx, TIM_ICInitStruct->TIM_ICPolarity,
                    TIM_ICInitStruct->TIM_ICSelection,
                    TIM_ICInitStruct->TIM_ICFilter);
-        /* 设置 Input Capture预分频器值 */
+        /* 设置 Input Capture 预分频器值 */
         TIM_SetIC2Prescaler(TIMx, TIM_ICInitStruct->TIM_ICPrescaler);
     } else if (TIM_ICInitStruct->TIM_Channel == TIM_Channel_3) {
         /* TI3 配置*/
@@ -1771,7 +1771,7 @@ void TIM_ICInit(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct) {
         TI3_Config(TIMx,  TIM_ICInitStruct->TIM_ICPolarity,
                    TIM_ICInitStruct->TIM_ICSelection,
                    TIM_ICInitStruct->TIM_ICFilter);
-        /* 设置 Input Capture预分频器值 */
+        /* 设置 Input Capture 预分频器值 */
         TIM_SetIC3Prescaler(TIMx, TIM_ICInitStruct->TIM_ICPrescaler);
     } else {
         /* TI4 配置*/
@@ -1779,7 +1779,7 @@ void TIM_ICInit(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct) {
         TI4_Config(TIMx, TIM_ICInitStruct->TIM_ICPolarity,
                    TIM_ICInitStruct->TIM_ICSelection,
                    TIM_ICInitStruct->TIM_ICFilter);
-        /* 设置 Input Capture预分频器值 */
+        /* 设置 Input Capture 预分频器值 */
         TIM_SetIC4Prescaler(TIMx, TIM_ICInitStruct->TIM_ICPrescaler);
     }
 }
@@ -1829,21 +1829,21 @@ void TIM_PWMIConfig(TIM_TypeDef* TIMx, TIM_ICInitTypeDef* TIM_ICInitStruct) {
         /* TI1 配置*/
         TI1_Config(TIMx, TIM_ICInitStruct->TIM_ICPolarity, TIM_ICInitStruct->TIM_ICSelection,
                    TIM_ICInitStruct->TIM_ICFilter);
-        /* 设置 Input Capture预分频器值 */
+        /* 设置 Input Capture 预分频器值 */
         TIM_SetIC1Prescaler(TIMx, TIM_ICInitStruct->TIM_ICPrescaler);
         /* TI2 配置*/
         TI2_Config(TIMx, icoppositepolarity, icoppositeselection, TIM_ICInitStruct->TIM_ICFilter);
-        /* 设置 Input Capture预分频器值 */
+        /* 设置 Input Capture 预分频器值 */
         TIM_SetIC2Prescaler(TIMx, TIM_ICInitStruct->TIM_ICPrescaler);
     } else {
         /* TI2 配置*/
         TI2_Config(TIMx, TIM_ICInitStruct->TIM_ICPolarity, TIM_ICInitStruct->TIM_ICSelection,
                    TIM_ICInitStruct->TIM_ICFilter);
-        /* 设置 Input Capture预分频器值 */
+        /* 设置 Input Capture 预分频器值 */
         TIM_SetIC2Prescaler(TIMx, TIM_ICInitStruct->TIM_ICPrescaler);
         /* TI1 配置*/
         TI1_Config(TIMx, icoppositepolarity, icoppositeselection, TIM_ICInitStruct->TIM_ICFilter);
-        /* 设置 Input Capture预分频器值 */
+        /* 设置 Input Capture 预分频器值 */
         TIM_SetIC1Prescaler(TIMx, TIM_ICInitStruct->TIM_ICPrescaler);
     }
 }
@@ -2370,7 +2370,7 @@ void TIM_DMAConfig(TIM_TypeDef* TIMx, uint16_t TIM_DMABase, uint16_t TIM_DMABurs
     assert_param(IS_TIM_DMA_BASE(TIM_DMABase));
     assert_param(IS_TIM_DMA_LENGTH(TIM_DMABurstLength));
 
-    /* 设置 DMA基址和DMA 突发长度 */
+    /* 设置 DMA基址和 DMA 突发长度 */
     TIMx->DCR = TIM_DMABase | TIM_DMABurstLength;
 }
 
@@ -2385,7 +2385,7 @@ void TIM_DMAConfig(TIM_TypeDef* TIMx, uint16_t TIM_DMABase, uint16_t TIM_DMABurs
   *            @arg TIM_DMA_CC3: TIM 捕获比较3 DMA源
   *            @arg TIM_DMA_CC4: TIM 捕获比较4 DMA源
   *            @arg TIM_DMA_COM: TIM 交换DMA源
-  *            @arg TIM_DMA_Trigger: TIM触发器DMA源
+  *            @arg TIM_DMA_Trigger: TIM触发器 DMA源
   * 参数:  NewState: DMA 请求源的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -2486,7 +2486,7 @@ void TIM_ITRxExternalClockConfig(TIM_TypeDef* TIMx, uint16_t TIM_InputTriggerSou
   *            @arg TIM_ICPolarity_Rising
   *            @arg TIM_ICPolarity_Falling
   * 参数:  ICFilter: 指定筛选器值。
-  *          此参数的值必须介于0x0 和0xF之间。
+  *          此参数的值必须介于 0x0 和0xF之间。
   * 返回值: 无
   */
 void TIM_TIxExternalClockConfig(TIM_TypeDef* TIMx, uint16_t TIM_TIxExternalCLKSource,
@@ -2523,7 +2523,7 @@ void TIM_TIxExternalClockConfig(TIM_TypeDef* TIMx, uint16_t TIM_TIxExternalCLKSo
   *            @arg TIM_ExtTRGPolarity_Inverted: 活动低边或下降沿活动。
   *            @arg TIM_ExtTRGPolarity_NonInverted: 激活的高或上升沿激活。
   * 参数:  ExtTRGFilter: 外部触发器筛选器。
-  *          此参数的值必须介于0x00 和0x0F之间
+  *          此参数的值必须介于 0x00 和0x0F之间
   * 返回值: 无
   */
 void TIM_ETRClockMode1Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
@@ -2551,7 +2551,7 @@ void TIM_ETRClockMode1Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
     tmpsmcr &= (uint16_t)~TIM_SMCR_TS;
     tmpsmcr |= TIM_TS_ETRF;
 
-    /* 写入TIMx SMCR */
+    /* 写入 TIMx SMCR */
     TIMx->SMCR = tmpsmcr;
 }
 
@@ -2569,7 +2569,7 @@ void TIM_ETRClockMode1Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
   *            @arg TIM_ExtTRGPolarity_Inverted: 活动低边或下降沿活动。
   *            @arg TIM_ExtTRGPolarity_NonInverted: 激活的高或上升沿激活。
   * 参数:  ExtTRGFilter: 外部触发器筛选器。
-  *          此参数的值必须介于0x00 和0x0F之间
+  *          此参数的值必须介于 0x00 和0x0F之间
   * 返回值: 无
   */
 void TIM_ETRClockMode2Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
@@ -2653,7 +2653,7 @@ void TIM_SelectInputTrigger(TIM_TypeDef* TIMx, uint16_t TIM_InputTriggerSource) 
     /* 设置 Input 触发器源 */
     tmpsmcr |= TIM_InputTriggerSource;
 
-    /* 写入TIMx SMCR */
+    /* 写入 TIMx SMCR */
     TIMx->SMCR = tmpsmcr;
 }
 
@@ -2748,7 +2748,7 @@ void TIM_SelectMasterSlaveMode(TIM_TypeDef* TIMx, uint16_t TIM_MasterSlaveMode) 
   *            @arg TIM_ExtTRGPolarity_Inverted: 活动低边或下降沿活动。
   *            @arg TIM_ExtTRGPolarity_NonInverted: 激活的高或上升沿激活。
   * 参数:  ExtTRGFilter: 外部触发器筛选器。
-  *          此参数的值必须介于0x00 和0x0F之间
+  *          此参数的值必须介于 0x00 和0x0F之间
   * 返回值: 无
   */
 void TIM_ETRConfig(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
@@ -2769,7 +2769,7 @@ void TIM_ETRConfig(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
     /* 设置预分频器、滤波器值和极性 */
     tmpsmcr |= (uint16_t)(TIM_ExtTRGPrescaler | (uint16_t)(TIM_ExtTRGPolarity | (uint16_t)(ExtTRGFilter << (uint16_t)8)));
 
-    /* 写入TIMx SMCR */
+    /* 写入 TIMx SMCR */
     TIMx->SMCR = tmpsmcr;
 }
 
@@ -2827,7 +2827,7 @@ void TIM_EncoderInterfaceConfig(TIM_TypeDef* TIMx, uint16_t TIM_EncoderMode,
     tmpsmcr &= (uint16_t)~TIM_SMCR_SMS;
     tmpsmcr |= TIM_EncoderMode;
 
-    /* 选择这个Capture Compare 1 and the Capture Compare 2 as input */
+    /* 选择这个 Capture Compare 1 and the Capture Compare 2 as input */
     tmpccmr1 &= ((uint16_t)~TIM_CCMR1_CC1S) & ((uint16_t)~TIM_CCMR1_CC2S);
     tmpccmr1 |= TIM_CCMR1_CC1S_0 | TIM_CCMR1_CC2S_0;
 
@@ -2835,13 +2835,13 @@ void TIM_EncoderInterfaceConfig(TIM_TypeDef* TIMx, uint16_t TIM_EncoderMode,
     tmpccer &= ((uint16_t)~TIM_CCER_CC1P) & ((uint16_t)~TIM_CCER_CC2P);
     tmpccer |= (uint16_t)(TIM_IC1Polarity | (uint16_t)(TIM_IC2Polarity << (uint16_t)4));
 
-    /* 写入TIMx SMCR */
+    /* 写入 TIMx SMCR */
     TIMx->SMCR = tmpsmcr;
 
-    /* 写入TIMx CCMR1 */
+    /* 写入 TIMx CCMR1 */
     TIMx->CCMR1 = tmpccmr1;
 
-    /* 写入TIMx CCER */
+    /* 写入 TIMx CCER */
     TIMx->CCER = tmpccer;
 }
 
@@ -2889,7 +2889,7 @@ void TIM_SelectHallSensor(TIM_TypeDef* TIMx, FunctionalState NewState) {
   *            @arg TIM5_GPIO:      TIM5 CH4输入连接到专用定时器引脚(默认)
   *            @arg TIM5_LSI:       TIM5 CH4输入连接到LSI时钟。
   *            @arg TIM5_LSE:       TIM5 CH4输入连接到LSE时钟。
-  *            @arg TIM5_RTC:       TIM5 CH4输入连接到RTC输出事件。
+  *            @arg TIM5_RTC:       TIM5 CH4输入连接到 RTC输出事件。
   *            @arg TIM11_GPIO:     TIM11 CH4输入连接到专用定时器引脚(默认)
   *            @arg TIM11_HSE:      TIM11 CH4输入连接到HSE_RTC时钟(HSE由可编程预分频器分频)
   * 返回值: 无
@@ -2917,7 +2917,7 @@ void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap) {
   *            @arg TIM_ICSelection_IndirectTI: 选择 TIM 输入1连接至IC2。
   *            @arg TIM_ICSelection_TRC: 选择 TIM 输入1连接至 TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
-  *          此参数的值必须介于0x00 和0x0F之间。
+  *          此参数的值必须介于 0x00 和0x0F之间。
   * 返回值: 无
   */
 static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
@@ -2937,7 +2937,7 @@ static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
     tmpccer &= (uint16_t)~(TIM_CCER_CC1P | TIM_CCER_CC1NP);
     tmpccer |= (uint16_t)(TIM_ICPolarity | (uint16_t)TIM_CCER_CC1E);
 
-    /* 写入TIMx CCMR1 and CCER registers */
+    /* 写入 TIMx CCMR1 and CCER registers */
     TIMx->CCMR1 = tmpccmr1;
     TIMx->CCER = tmpccer;
 }
@@ -2956,7 +2956,7 @@ static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICSelection_IndirectTI: TIM 输入2被选择为连接到 IC1。
   *            @arg TIM_ICSelection_TRC: TIM 输入2被选择连接到 TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
-  *          此参数的值必须介于0x00 和0x0F之间。
+  *          此参数的值必须介于 0x00 和0x0F之间。
   * 返回值: 无
   */
 static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
@@ -2978,7 +2978,7 @@ static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
     tmpccer &= (uint16_t)~(TIM_CCER_CC2P | TIM_CCER_CC2NP);
     tmpccer |=  (uint16_t)(tmp | (uint16_t)TIM_CCER_CC2E);
 
-    /* 写入TIMx CCMR1 and CCER registers */
+    /* 写入 TIMx CCMR1 and CCER registers */
     TIMx->CCMR1 = tmpccmr1 ;
     TIMx->CCER = tmpccer;
 }
@@ -2997,7 +2997,7 @@ static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICSelection_IndirectTI: TIM 输入3被选择为连接到 IC4。
   *            @arg TIM_ICSelection_TRC: TIM 输入3被选择为连接到 TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
-  *          此参数的值必须介于0x00 和0x0F之间。
+  *          此参数的值必须介于 0x00 和0x0F之间。
   * 返回值: 无
   */
 static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
@@ -3018,7 +3018,7 @@ static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
     tmpccer &= (uint16_t)~(TIM_CCER_CC3P | TIM_CCER_CC3NP);
     tmpccer |= (uint16_t)(tmp | (uint16_t)TIM_CCER_CC3E);
 
-    /* 写入TIMx CCMR2 and CCER registers */
+    /* 写入 TIMx CCMR2 and CCER registers */
     TIMx->CCMR2 = tmpccmr2;
     TIMx->CCER = tmpccer;
 }
@@ -3037,7 +3037,7 @@ static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICSelection_IndirectTI: 选择 TIM 输入4连接至IC3。
   *            @arg TIM_ICSelection_TRC: 选择 TIM 输入4连接至 TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
-  *          此参数的值必须介于0x00 和0x0F之间。
+  *          此参数的值必须介于 0x00 和0x0F之间。
   * 返回值: 无
   */
 static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
@@ -3059,7 +3059,7 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
     tmpccer &= (uint16_t)~(TIM_CCER_CC4P | TIM_CCER_CC4NP);
     tmpccer |= (uint16_t)(tmp | (uint16_t)TIM_CCER_CC4E);
 
-    /* 写入TIMx CCMR2 和 CCER 寄存器 */
+    /* 写入 TIMx CCMR2 和 CCER 寄存器 */
     TIMx->CCMR2 = tmpccmr2;
     TIMx->CCER = tmpccer ;
 }

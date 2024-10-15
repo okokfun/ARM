@@ -5,8 +5,8 @@
   * 版本:    V1.8.0
   * 日期:    04-November-2016
  * 简介:    该文件提供了固件功能来管理FSMC 外设的以下功能:
-  *           + 与SRAM、PSRAM、NOR和OneNAND存储器的接口
-  *           + 与NAND存储器的接口
+  *           + 与SRAM、PSRAM、NOR 和OneNAND 存储器的接口
+  *           + 与NAND 存储器的接口
   *           + 与16位PC卡兼容存储器的接口
   *           + 中断和标志管理
   *
@@ -73,36 +73,36 @@ const FSMC_NORSRAMTimingInitTypeDef FSMC_DefaultTimingStruct = {0x0F, /* FSMC_Ad
 /** @defgroup FSMC_Private_Functions
   */
 
-/** @defgroup FSMC_Group1 NOR和 SRAM控制器功能
- *  简介   NOR和 SRAM控制器功能
+/** @defgroup FSMC_Group1 NOR 和 SRAM 控制器功能
+ *  简介   NOR 和 SRAM 控制器功能
  *
 @verbatim
  ===============================================================================
-                    ##### NOR和 SRAM控制器功能 #####
+                    ##### NOR 和 SRAM 控制器功能 #####
  ===============================================================================
 
- [...] 应遵循以下顺序来配置FSMC 与连接到NOR/SRAM库的 SRAM、PSRAM、NOR或OneNAND存储器的接口。
+ [...] 应遵循以下顺序来配置 FSMC 与连接到 NOR/SRAM 库的 SRAM、PSRAM、NOR或 OneNAND 存储器的接口。
 
-   (#) 使用以下函数为FSMC 和相关的 GPIO启用时钟。
+   (#) 使用以下函数为 FSMC 和相关的 GPIO 启用时钟。
           RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE)。
           RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE)。
 
-   (#) FSMC引脚配置
-       (++) 使用以下函数将所涉及的 FSMC引脚连接到AF12上
+   (#) FSMC 引脚配置
+       (++) 使用以下函数将所涉及的 FSMC 引脚连接到AF12上
              GPIO_PinAFConfig(GPIOx, GPIO_PinSourcex, GPIO_AF_FSMC)。
-       (++) 通过调用函数GPIO_Init()在复用功能模式下配置这些FSMC引脚。
+       (++) 通过调用函数GPIO_Init()在复用功能模式下配置这些 FSMC 引脚。
 
-   (#) 声明一个FSMC_NORSRAMInitTypeDef 结构，例如。
+   (#) 声明一个 FSMC_NORSRAMInitTypeDef 结构，例如。
           FSMC_NORSRAMInitTypeDef FSMC_NORSRAMInitStructure;
       并在FSMC_NORSRAMInitStructure变量中填入该结构成员的允许值。
 
-   (#) 通过调用函数来初始化NOR/SRAM控制器
+   (#) 通过调用函数来初始化 NOR/SRAM 控制器
           FSMC_NORSRAMInit(&FSMC_NORSRAMInitStructure)。
 
-   (#)然后启用 NOR/SRAM库，例如。
+   (#)然后启用 NOR/SRAM 库，例如。
           FSMC_NORSRAMCmd(FSMC_Bank1_NORSRAM2, ENABLE)。
 
-   (#) 在这个阶段，你可以从/到连接到NOR/SRAM库的内存中读/写。
+   (#) 在这个阶段，你可以从/到连接到 NOR/SRAM 库的内存中读/写。
 
 @endverbatim
   */
@@ -139,8 +139,8 @@ void FSMC_NORSRAMDeInit(uint32_t FSMC_Bank) {
 /**
   * 简介:  根据FSMC_NANDInitStruct 中指定的参数初始化 FSMC NAND 库。
   * 
-  * 参数:  FSMC_NORSRAMInitStruct : 指向FSMC_NORSRAMInitTypeDef 结构的指针，
-  *                                 该结构包含FSMC NOR/SRAM指定银行的配置信息。
+  * 参数:  FSMC_NORSRAMInitStruct : 指向 FSMC_NORSRAMInitTypeDef 结构的指针，
+  *                                 该结构包含 FSMC NOR/SRAM 指定银行的配置信息。
   * 
   * 返回值: 无
   */
@@ -247,9 +247,9 @@ void FSMC_NORSRAMInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct) {
 }
 
 /**
-  * 简介:  用其默认值填充每个FSMC_NANDInitStruct 成员。
+  * 简介:  用其默认值填充每个 FSMC_NANDInitStruct 成员。
   * 
-  * 参数:  FSMC_NORSRAMInitStruct: 指向FSMC_NORSRAMInitTypeDef 结构的指针，将被初始化。
+  * 参数:  FSMC_NORSRAMInitStruct: 指向 FSMC_NORSRAMInitTypeDef 结构的指针，将被初始化。
   * 
   * 返回值: 无
   */
@@ -307,28 +307,28 @@ void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
                     ##### NAND控制器功能 #####
  ===============================================================================
 
- [..]  按照以下顺序配置FSMC 与连接到NAND Bank的8位或16位NAND内存接口:
+ [..]  按照以下顺序配置 FSMC 与连接到 NAND Bank的8位或16位NAND内存接口:
 
-  (#) 使用以下函数启用FSMC 和相关GPIO 的时钟。
+  (#) 使用以下函数启用 FSMC 和相关 GPIO 的时钟。
       (++)  RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE);
       (++)  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE);
 
-  (#) FSMC引脚配置
-      (++) 使用以下函数将涉及的 FSMC引脚连接到AF12上:
+  (#) FSMC 引脚配置
+      (++) 使用以下函数将涉及的 FSMC 引脚连接到AF12上:
            GPIO_PinAFConfig(GPIOx, GPIO_PinSourcex, GPIO_AF_FSMC);
-      (++) 通过调用函数GPIO_Init()在交替功能模式下配置这些FSMC引脚。
+      (++) 通过调用函数GPIO_Init()在交替功能模式下配置这些 FSMC 引脚。
 
-  (#) 声明一个FSMC_NANDInitTypeDef 结构，比如说。
+  (#) 声明一个 FSMC_NANDInitTypeDef 结构，比如说。
       FSMC_NANDInitTypeDef  FSMC_NANDInitStructure;
       并用结构成员的允许值填充FSMC_NANDInitStructure变量。
 
-  (#) 通过调用函数初始化NAND控制器
+  (#) 通过调用函数初始化 NAND控制器
       FSMC_NANDInit(&FSMC_NANDInitStructure);
 
   (#) 然后启用 NAND Bank，比如说:
       FSMC_NANDCmd(FSMC_Bank3_NAND, ENABLE);
 
-  (#) 在这个阶段，你可以从/向连接到NAND Bank的存储器读/写。
+  (#) 在这个阶段，你可以从/向连接到 NAND Bank的存储器读/写。
 
  [..]
   (@) 要启用纠错代码(ECC)，你必须使用函数
@@ -374,8 +374,8 @@ void FSMC_NANDDeInit(uint32_t FSMC_Bank) {
 /**
   * 简介:  根据FSMC_NANDInitStruct 中指定的参数初始化 FSMC NAND 库。
   * 
-  * 参数:  FSMC_NANDInitStruct : 指向FSMC_NANDInitTypeDef 结构的指针，
-  *                              该结构包含FSMC NAND指定银行的配置信息。
+  * 参数:  FSMC_NANDInitStruct : 指向 FSMC_NANDInitTypeDef 结构的指针，
+  *                              该结构包含 FSMC NAND指定银行的配置信息。
   * 
   * 返回值: 无
   */
@@ -472,14 +472,14 @@ void FSMC_NANDInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct) {
 
 
 /**
-  * 简介:  用其默认值填充每个FSMC_NANDInitStruct 成员。
+  * 简介:  用其默认值填充每个 FSMC_NANDInitStruct 成员。
   * 
-  * 参数:  FSMC_NANDInitStruct: 指向FSMC_NANDInitTypeDef 结构的指针，将被初始化。
+  * 参数:  FSMC_NANDInitStruct: 指向 FSMC_NANDInitTypeDef 结构的指针，将被初始化。
   * 
   * 返回值: 无
   */
 void FSMC_NANDStructInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct) {
-    /* 重置NAND Init结构参数值 */
+    /* 重置NAND Init 结构参数值 */
     FSMC_NANDInitStruct->FSMC_Bank = FSMC_Bank2_NAND;
     FSMC_NANDInitStruct->FSMC_Waitfeature = FSMC_Waitfeature_Disable;
     FSMC_NANDInitStruct->FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_8b;
@@ -531,7 +531,7 @@ void FSMC_NANDCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
     }
 }
 /**
-  * 简介:  启用或禁用FSMC NAND ECC feature.
+  * 简介:  启用或禁用 FSMC NAND ECC feature.
   * 
   * 参数:  FSMC_Bank: 指定要使用的 FSMC Back
   *          此参数可以是以下值之一:
@@ -597,18 +597,18 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
                     ##### PCCARD控制器功能 #####
  ===============================================================================
 
- [..]  应遵循以下顺序来配置FSMC，使其与连接到PCCARD Bank的16位PC卡兼容存储器连接。
+ [..]  应遵循以下顺序来配置 FSMC，使其与连接到PCCARD Bank的16位PC卡兼容存储器连接。
 
-  (#) 使用以下功能启用FSMC 的时钟和相关的 GPIO。
+  (#) 使用以下功能启用 FSMC 的时钟和相关的 GPIO。
        (++)  RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC, ENABLE);
        (++)  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE);
 
-  (#) FSMC引脚配置
-       (++)使用以下函数将涉及的 FSMC引脚连接到AF12上
+  (#) FSMC 引脚配置
+       (++)使用以下函数将涉及的 FSMC 引脚连接到AF12上
             GPIO_PinAFConfig(GPIOx, GPIO_PinSourcex, GPIO_AF_FSMC) 。
-       (++)通过调用函数GPIO_Init()在复用功能模式下配置这些FSMC引脚。
+       (++)通过调用函数GPIO_Init()在复用功能模式下配置这些 FSMC 引脚。
 
-  (#) 声明一个FSMC_PCCARDInitTypeDef 结构，例如:
+  (#) 声明一个 FSMC_PCCARDInitTypeDef 结构，例如:
       FSMC_PCCARDInitTypeDef FSMC_PCCARDInitStructure;
       并在FSMC_PCCARDInitStructure变量中填入该结构成员的允许值。
 
@@ -631,7 +631,7 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
   * 返回值: 无
   */
 void FSMC_PCCARDDeInit(void) {
-    /* 设置FSMC_Bank4将寄存器设置为其重置值 */
+    /* 设置 FSMC_Bank4将寄存器设置为其重置值 */
     FSMC_Bank4->PCR4 = 0x00000018;
     FSMC_Bank4->SR4 = 0x00000000;
     FSMC_Bank4->PMEM4 = 0xFCFCFCFC;
@@ -642,8 +642,8 @@ void FSMC_PCCARDDeInit(void) {
 /**
   * 简介:  根据FSMC_PCCARDInitStruct 中指定的参数初始化 FSMC PCCARD 库。
   * 
-  * 参数:  FSMC_PCCARDInitStruct : 指向FSMC_PCCARDInitTypeDef 结构的指针，
-  *                                该结构包含FSMC PCCARD Back的配置信息。
+  * 参数:  FSMC_PCCARDInitStruct : 指向 FSMC_PCCARDInitTypeDef 结构的指针，
+  *                                该结构包含 FSMC PCCARD Back的配置信息。
   * 
   * 返回值: 无
   */
@@ -731,14 +731,14 @@ void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
 }
 
 /**
-  * 简介:  用每个FSMC_PCCARDInitStruct 成员的默认值填充该成员。
+  * 简介:  用每个 FSMC_PCCARDInitStruct 成员的默认值填充该成员。
   * 
-  * 参数:  FSMC_PCCARDInitStruct: 指向FSMC_PCCARDInitTypeDef 结构的指针，将被初始化。
+  * 参数:  FSMC_PCCARDInitStruct: 指向 FSMC_PCCARDInitTypeDef 结构的指针，将被初始化。
   * 
   * 返回值: 无
   */
 void FSMC_PCCARDStructInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
-    /* 重置PCCARD Init结构参数值 */
+    /* 重置PCCARD Init 结构参数值 */
     FSMC_PCCARDInitStruct->FSMC_Waitfeature = FSMC_Waitfeature_Disable;
     FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime = 0x0;
     FSMC_PCCARDInitStruct->FSMC_TARSetupTime = 0x0;
@@ -796,13 +796,13 @@ void FSMC_PCCARDCmd(FunctionalState NewState) {
   *            @arg FSMC_Bank3_NAND:   FSMC Bank3 NAND
   *            @arg FSMC_Bank4_PCCARD: FSMC Bank4 PCCARD
   * 
-  * 参数:  FSMC_IT: 指定要启用或禁用的 FSMC中断源。
+  * 参数:  FSMC_IT: 指定要启用或禁用的 FSMC 中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg FSMC_IT_RisingEdge:  上升沿检测中断。
   *            @arg FSMC_IT_Level:       水平边缘检测中断。
   *            @arg FSMC_IT_FallingEdge: 下降沿检测中断。
   * 
-  * 参数:  NewState: 指定的 FSMC中断的新状态。
+  * 参数:  NewState: 指定的 FSMC 中断的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -931,7 +931,7 @@ void FSMC_ClearFlag(uint32_t FSMC_Bank, uint32_t FSMC_FLAG) {
   *            @arg FSMC_Bank3_NAND: FSMC Bank3 NAND
   *            @arg FSMC_Bank4_PCCARD: FSMC Bank4 PCCARD
   * 
-  * 参数:  FSMC_IT: 指定要检查的 FSMC中断源。
+  * 参数:  FSMC_IT: 指定要检查的 FSMC 中断源。
   *          此参数可以是以下值之一:
   *            @arg FSMC_IT_RisingEdge: 上升沿检测中断。
   *            @arg FSMC_IT_Level: 水平边缘检测中断。

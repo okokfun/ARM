@@ -5,8 +5,8 @@ typedef struct {
     uint8_t  clk_src;		//ADC 转换时钟源：ADC_CLKSRC_HRC、ADC_CLKSRC_XTAL、...
     uint8_t  samplAvg;		//采样取平均，触发启动ADC 转换后，ADC在一个通道上连续采样、转换多次，并将它们的平均值作为该通道转换结果
 
-    uint8_t  EOC_IEn;		//EOC中断使能，     可针对每个序列设置，其有效值为ADC_SEQ0、ADC_SEQ1、ADC_SEQ2、ADC_SEQ3及其组合(即"按位或"运算)
-    uint8_t  HalfIEn;		//FIFO 半满中断使能，可针对每个序列设置，其有效值为ADC_SEQ0、ADC_SEQ1、ADC_SEQ2、ADC_SEQ3及其组合(即"按位或"运算)
+    uint8_t  EOC_IEn;		//EOC 中断使能，     可针对每个序列设置，其有效值为 ADC_SEQ0、ADC_SEQ1、ADC_SEQ2、ADC_SEQ3及其组合(即"按位或"运算)
+    uint8_t  HalfIEn;		//FIFO 半满中断使能，可针对每个序列设置，其有效值为 ADC_SEQ0、ADC_SEQ1、ADC_SEQ2、ADC_SEQ3及其组合(即"按位或"运算)
 } ADC_InitStructure;
 
 typedef struct {
@@ -20,7 +20,7 @@ typedef struct {
     uint16_t UpperLimit;	//比较上限值
     uint16_t UpperLimitIEn;	//ADC 转换结果大于 UpperLimit 中断使能
     uint16_t LowerLimit;	//比较下限值
-    uint16_t LowerLimitIEn;	//ADC 转换结果小于LowerLimit 中断使能
+    uint16_t LowerLimitIEn;	//ADC 转换结果小于 LowerLimit 中断使能
 } ADC_CMP_InitStructure;
 
 #define ADC_CH0		0x001

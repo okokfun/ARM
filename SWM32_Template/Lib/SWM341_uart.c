@@ -460,7 +460,7 @@ void UART_INTTimeoutDis(UART_TypeDef * UARTx) {
 
 /******************************************************************************************************************************************
 * 函数名称:	UART_INTTimeoutStat()
-* 功能说明:	是否发生了接收超时，即超过 TimeoutTime/(Baudrate/10) 秒没有在RX 线上接收到数据时触发中断
+* 功能说明:	是否发生了接收超时，即超过 TimeoutTime/(Baudrate/10) 秒没有在 RX 线上接收到数据时触发中断
 * 输    入: UART_TypeDef * UARTx	指定要被设置的 UART串口，有效值包括UART0、UART1、UART2、UART3
 * 输    出: uint32_t				1 发生了接收超时		0 未发生接收超时
 * 注意事项: 无

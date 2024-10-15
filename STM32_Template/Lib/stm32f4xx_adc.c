@@ -428,13 +428,13 @@ void ADC_Cmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
   * 
   * 参数:  ADC_AnalogWatchdog:ADC 模拟看门狗配置。
   *        此参数可以是以下值之一:
-  * 		   @arg ADC_AnalogWatchdog_SingleRegEnable			    : 单个常规通道上的模拟看门狗
-  * 		   @arg ADC_AnalogWatchdog_SingleInjecEnable		    : 单注入通道上的模拟看门狗
+  * 		   @arg ADC_AnalogWatchdog_SingleRegEnable			: 单个常规通道上的模拟看门狗
+  * 		   @arg ADC_AnalogWatchdog_SingleInjecEnable		: 单注入通道上的模拟看门狗
   * 		   @arg ADC_AnalogWatchdog_SingleRegOrInjectEnable	: 单个常规或注入通道上的模拟看门狗
-  * 		   @arg ADC_AnalogWatchdog_AllRegEnable				      : 所有常规通道上的模拟看门狗
-  * 		   @arg ADC_AnalogWatchdog_AllInjectEnable			    : 所有注入通道上的模拟看门狗
-  * 		   @arg ADC_AnalogWatchdog_AllRegAllInjectEnable	  : 所有常规和注入通道上的模拟看门狗
-  * 		   @arg ADC_AnalogWatchdog_None						          : 模拟看门狗没有保护通道
+  * 		   @arg ADC_AnalogWatchdog_AllRegEnable				: 所有常规通道上的模拟看门狗
+  * 		   @arg ADC_AnalogWatchdog_AllInjectEnable			: 所有注入通道上的模拟看门狗
+  * 		   @arg ADC_AnalogWatchdog_AllRegAllInjectEnable    : 所有常规和注入通道上的模拟看门狗
+  * 		   @arg ADC_AnalogWatchdog_None						: 模拟看门狗没有保护通道
   * 
   * 返回值: 无
   */
@@ -536,11 +536,11 @@ void ADC_AnalogWatchdogSingleChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channe
   */
 
 /** defgroup ADC_Group3 温度传感器、Vrefint(内部参考电压)和 VBAT(蓄电池电压)管理功能
- *  简介   温度传感器、Vrefint 和 VBAT管理功能
+ *  简介   温度传感器、Vrefint 和 VBAT 管理功能
  *
 @verbatim
  ===============================================================================
-      ##### 温度传感器、Vrefint 和 VBAT管理功能 #####
+      ##### 温度传感器、Vrefint 和 VBAT 管理功能 #####
  ===============================================================================
     [..] 本节提供允许启用/禁用 ADC 与温度传感器、Vrefint 和 Vbat 源之间的内部连接的功能。
 
@@ -622,7 +622,7 @@ void ADC_VBATCmd(FunctionalState NewState) {
          (++) 在常规组序列器中为每个通道配置列组
          (++) 配置每个通道的采样时间
          (++) 为常规频道选择转换触发器
-         (++) 选择所需的 EOC事件行为配置
+         (++) 选择所需的 EOC 事件行为配置
          (++) 激活连续模式(*)
          (++) 激活不连续模式
          -@@- 请注意，常规频道的以下功能是使用 ADC_Init() 函数配置的:
@@ -967,7 +967,7 @@ uint16_t ADC_GetConversionValue(ADC_TypeDef* ADCx) {
   *           Data[31:16]: 这些比特位包含 ADC2 的常规数据。
   * 
   * 注意   在三重模式下，此函数返回的值如下
-  *           Data[15:0] : 这些比特交替地包含ADC1、ADC3 和 ADC2的常规数据。
+  *           Data[15:0] : 这些比特交替地包含ADC1、ADC3 和 ADC2 的常规数据。
   *           Data[31:16]: 这些位交替包含ADC2、ADC1和 ADC3的常规数据。
   */
 uint32_t ADC_GetMultiModeConversionValue(void) {
@@ -978,24 +978,24 @@ uint32_t ADC_GetMultiModeConversionValue(void) {
   * }
   */
 
-/** defgroup ADC_Group5 常规通道DMA 配置功能
- *  简介   常规通道DMA 配置功能
+/** defgroup ADC_Group5 常规通道 DMA 配置功能
+ *  简介   常规通道 DMA 配置功能
  *
 @verbatim
  ===============================================================================
-            ##### 常规通道DMA 配置功能 #####
+            ##### 常规通道 DMA 配置功能 #####
  ===============================================================================
-    [..] 本节提供了允许为ADC 常规通道配置 DMA的功能。
+    [..] 本节提供了允许为 ADC 常规通道配置 DMA 的功能。
          由于转换后的常规信道值存储在唯一的数据寄存器中，
-            因此使用 DMA转换多个常规信道是有用的。这避免了已存储在 ADC 数据寄存器中的数据丢失。
-         启用 DMA 模式时(使用 ADC_DMACmd() 函数)，在每次转换常规频道后，都会生成DMA 请求。
-    [..] 根据"独立ADC 模式的 DMA禁用选择"配置(使用 ADC_DMARequestAfterLastTransferCmd() 函数)，
-            在最后一次DMA 传输结束时，允许两种可能性:
-      (+) 没有向 DMA控制器发出新的 DMA 请求(功能已禁用)
+            因此使用 DMA 转换多个常规信道是有用的。这避免了已存储在 ADC 数据寄存器中的数据丢失。
+         启用 DMA 模式时(使用 ADC_DMACmd() 函数)，在每次转换常规频道后，都会生成 DMA 请求。
+    [..] 根据"独立ADC 模式的 DMA 禁用选择"配置(使用 ADC_DMARequestAfterLastTransferCmd() 函数)，
+            在最后一次 DMA 传输结束时，允许两种可能性:
+      (+) 没有向 DMA 控制器发出新的 DMA 请求(功能已禁用)
       (+) 可以继续生成请求(功能已启用)。
-    [..] 根据"针对多 ADC 模式的 DMA禁用选择"配置(使用void ADC_MultiModeDMARequestAfterLastTransferCmd() 函数)，
-            在最后一次DMA 传输结束时，允许两种可能性:
-        (+) 没有向 DMA控制器发出新的 DMA 请求(功能已禁用)
+    [..] 根据"针对多 ADC 模式的 DMA 禁用选择"配置(使用void ADC_MultiModeDMARequestAfterLastTransferCmd() 函数)，
+            在最后一次 DMA 传输结束时，允许两种可能性:
+        (+) 没有向 DMA 控制器发出新的 DMA 请求(功能已禁用)
         (+) 可以继续生成请求(功能已启用)。
 
 @endverbatim
@@ -1058,7 +1058,7 @@ void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewSt
   * 
   * 注意   如果启用，则只要转换数据，就会发出DMA 请求，
 		   并且多 ADC 模式的 DMA 模式(由ADC_CommonInitStruct.ADC_DMAAccessMode
-		   结构成员使用 ADC_CommonInit() 函数选择)为ADC_DMAAccessMode_1、
+		   结构成员使用 ADC_CommonInit() 函数选择)为 ADC_DMAAccessMode_1、
 		   ADC_DMAccessMode_2 或ADC_DMAAccessMode_3。
 
   * 返回值: 无
@@ -1378,11 +1378,11 @@ FlagStatus ADC_GetSoftwareStartInjectedConvCmdStatus(ADC_TypeDef* ADCx) {
 }
 
 /**
-  * 简介:  在常规ADC自动注入组转换之后，启用或禁用所选 ADC自动插入组转换。
+  * 简介:  在常规ADC 自动注入组转换之后，启用或禁用所选 ADC 自动插入组转换。
   * 
   * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  NewState: 所选 ADC自动注入转换的新状态
+  * 参数:  NewState: 所选 ADC 自动注入转换的新状态
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -1393,10 +1393,10 @@ void ADC_AutoInjectedConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用所选 ADC自动注入组转换 */
+        /* 启用所选 ADC 自动注入组转换 */
         ADCx->CR1 |= (uint32_t)ADC_CR1_JAUTO;
     } else {
-        /* 禁用所选 ADC自动注入组转换 */
+        /* 禁用所选 ADC 自动注入组转换 */
         ADCx->CR1 &= (uint32_t)(~ADC_CR1_JAUTO);
     }
 }
@@ -1464,7 +1464,7 @@ uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedC
             ##### 中断和标记管理函数 #####
  ===============================================================================
 
-    [..] 本节提供了允许配置 ADC中断、获取状态、清除标志和中断挂起位的函数。
+    [..] 本节提供了允许配置 ADC 中断、获取状态、清除标志和中断挂起位的函数。
 
     [..] 每个 ADC提供4个中断源和6个标志，可分为3组:
 
@@ -1521,18 +1521,18 @@ uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedC
   * {
   */
 /**
-  * 简介:  启用或禁用指定的 ADC中断。
+  * 简介:  启用或禁用指定的 ADC 中断。
   * 
   * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
-  * 参数:  ADC_IT: 指定要启用或禁用的 ADC中断源。
+  * 参数:  ADC_IT: 指定要启用或禁用的 ADC 中断源。
   *          此参数可以是以下值之一:
   *            @arg ADC_IT_EOC: 转换中断屏蔽结束
   *            @arg ADC_IT_AWD: 模拟看门狗中断屏蔽
   *            @arg ADC_IT_JEOC: 注入转换中断掩码结束
   *            @arg ADC_IT_OVR: 超限中断启用
   * 
-  * 参数:  NewState: 指定ADC中断的新状态。
+  * 参数:  NewState: 指定ADC 中断的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -1549,10 +1549,10 @@ void ADC_ITConfig(ADC_TypeDef* ADCx, uint16_t ADC_IT, FunctionalState NewState) 
     itmask = (uint32_t)0x01 << itmask;
 
     if (NewState != DISABLE) {
-        /* 启用所选 ADC中断 */
+        /* 启用所选 ADC 中断 */
         ADCx->CR1 |= itmask;
     } else {
-        /* 禁用所选 ADC中断 */
+        /* 禁用所选 ADC 中断 */
         ADCx->CR1 &= (~(uint32_t)itmask);
     }
 }
@@ -1593,7 +1593,7 @@ FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG) {
 }
 
 /**
-  * 简介:  清除ADCx的挂起标志。
+  * 简介:  清除ADCx 的挂起标志。
   * 
   * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
@@ -1618,11 +1618,11 @@ void ADC_ClearFlag(ADC_TypeDef* ADCx, uint8_t ADC_FLAG) {
 }
 
 /**
-  * 简介:  检查指定的 ADC中断是否发生。
+  * 简介:  检查指定的 ADC 中断是否发生。
   * 
   * 参数:  ADCx:   其中 x 可以是1、2 或3，以选择 ADC 外设设备。
   * 
-  * 参数:  ADC_IT: 指定要检查的 ADC中断源。
+  * 参数:  ADC_IT: 指定要检查的 ADC 中断源。
   *          此参数可以是以下值之一:
   *            @arg ADC_IT_EOC:  转换中断屏蔽结束
   *            @arg ADC_IT_AWD:  模拟看门狗中断屏蔽
@@ -1645,7 +1645,7 @@ ITStatus ADC_GetITStatus(ADC_TypeDef* ADCx, uint16_t ADC_IT) {
     /* 获取ADC_IT启用位状态 */
     enablestatus = (ADCx->CR1 & ((uint32_t)0x01 << (uint8_t)ADC_IT)) ;
 
-    /* 检查指定ADC中断的状态 */
+    /* 检查指定ADC 中断的状态 */
     if (((ADCx->SR & itmask) != (uint32_t)RESET) && enablestatus) {
         /* ADC_IT已设置 */
         bitstatus = SET;
@@ -1659,11 +1659,11 @@ ITStatus ADC_GetITStatus(ADC_TypeDef* ADCx, uint16_t ADC_IT) {
 }
 
 /**
-  * 简介:  清除ADCx的中断挂起位。
+  * 简介:  清除ADCx 的中断挂起位。
   * 
   * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设设备。
   * 
-  * 参数:  ADC_IT: 指定要清除的 ADC中断挂起位。
+  * 参数:  ADC_IT: 指定要清除的 ADC 中断挂起位。
   *          此参数可以是以下值之一:
   *            @arg ADC_IT_EOC:  转换中断屏蔽结束
   *            @arg ADC_IT_AWD:  模拟看门狗中断屏蔽
@@ -1679,7 +1679,7 @@ void ADC_ClearITPendingBit(ADC_TypeDef* ADCx, uint16_t ADC_IT) {
     assert_param(IS_ADC_IT(ADC_IT));
     /* 获取ADC IT索引 */
     itmask = (uint8_t)(ADC_IT >> 8);
-    /* 清除所选 ADC中断挂起位 */
+    /* 清除所选 ADC 中断挂起位 */
     ADCx->SR = ~(uint32_t)itmask;
 }
 /**

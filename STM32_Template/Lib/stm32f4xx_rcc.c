@@ -16,13 +16,13 @@
  ===============================================================================
     [..]
       重置后，设备从内部高速振荡器(HSI 16MHz)运行，Flash 0等待状态，
-          Flash预取缓冲区、D-Cache和 I-Cache被禁用，除内部 SRAM、Flash和JTAG外，
+          Flash预取缓冲区、D-Cache和 I-Cache被禁用，除内部 SRAM、Flash和JTAG 外，
           所有外设设备均关闭。
 
       (+) 高速(AHB)和低速(APB)总线上没有预分频器;
           这些总线上映射的所有外设设备都以HSI速度运行。
 
-      (+) 除 SRAM 和 FLASH外，所有外设设备的时钟均已关闭。
+      (+) 除 SRAM 和 FLASH 外，所有外设设备的时钟均已关闭。
 
       (+) 所有 GPIO 都处于输入浮动状态，但分配用于调试目的的JTAG引脚除外。
     [..]
@@ -241,7 +241,7 @@ void RCC_DeInit(void) {
     RCC->DCKCFGR = 0x00000000;
 
     #if defined(STM32F410xx) || defined(STM32F413_423xx)
-    /* 禁用LPTIM 和 FMPI2C时钟预分频器选择，仅适用于 STM32F410xx 和 STM32F413_423xx 设备 */
+    /* 禁用 LPTIM 和 FMPI2C时钟预分频器选择，仅适用于 STM32F410xx 和 STM32F413_423xx 设备 */
     RCC->DCKCFGR2 = 0x00000000;
     #endif /* STM32F410xx || STM32F413_423xx */
 }
@@ -307,7 +307,7 @@ ErrorStatus RCC_WaitForHSEStartUp(void) {
   * 简介:  调整内部高速振荡器 (HSI) 校准值。
   * 注意:   校准用于补偿影响内部HSI RC频率的电压和温度变化。
   * 参数:  HSICalibrationValue: 指定校准微调值。
-  *         此参数必须是介于0 和0x1F之间的数字。
+  *         此参数必须是介于 0 和0x1F之间的数字。
   * 返回值: 无
   */
 void RCC_AdjustHSICalibrationValue(uint8_t HSICalibrationValue) {
@@ -350,9 +350,9 @@ void RCC_HSICmd(FunctionalState NewState) {
 
 /**
   * 简介:  配置外部低速振荡器 (LSE)。
-  * 注意:   由于LSE位于Backup域中，重置后拒绝对该域进行写访问，
+  * 注意:   由于 LSE位于Backup域中，重置后拒绝对该域进行写访问，
   *         因此在配置LSE之前必须使用 PWR_BackupAccessCmd(ENABLE) 功能启用写访问(重置后只执行一次)。
-  * 注意:   启用LSE (RCC_LSE_ON或 RCC_LSE_Bypass)后，
+  * 注意:   启用 LSE (RCC_LSE_ON或 RCC_LSE_Bypass)后，
   *         应用软件需要等待LSERDY标志设置完成，表示LSE时钟稳定，可用于RTC时钟。
   * 参数:  RCC_LSE: 指定新状态-> LSE.
   *          此参数可以是以下值之一:
@@ -393,7 +393,7 @@ void RCC_LSEConfig(uint8_t RCC_LSE) {
   * 简介:  启用或禁用内部低速振荡器 (LSI)。
   * 注意:   使能LSI后，应用软件需要等待LSIRDY标志设置完成，
   *         表示LSI时钟稳定，可用于 IWDG 和/或 RTC 的时钟。
-  * 注意:   当IWDG正在运行时，不能禁用LSI。
+  * 注意:   当IWDG正在运行时，不能禁用 LSI。
   * 参数:  NewState: 新状态-> LSI.
   *          此参数可以是: ENABLE 或 DISABLE。
   * 注意:   当LSI停止时，经过6个LSI振荡器时钟周期后LSIRDY标志位变为low。
@@ -429,7 +429,7 @@ void RCC_LSICmd(FunctionalState NewState) {
   *          此参数必须是范围{2、4、6或8}中的数字。
   * 注意:   您必须正确设置 PLLP 参数，使其在系统时钟频率上不超过 168 MHz。
   *
-  * 参数:  PLLQ: 指定OTG FS、SDIO 和 RNG时钟的分频因子
+  * 参数:  PLLQ: 指定OTG FS、SDIO 和 RNG 时钟的分频因子
   *          此参数必须是介于 4 and 15.
   *
   * 参数:  PLLR: 指定 STM32F446xx 设备中I2S、SAI、SYSTEM、SPDIF的分频因子
@@ -481,7 +481,7 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
   * 注意:   您必须正确设置PLLP参数，
   *			使其在系统时钟频率上不超过168 MHz。
   *
-  * 参数:  PLLQ: 指定OTG FS、SDIO 和 RNG时钟的分频因子
+  * 参数:  PLLQ: 指定OTG FS、SDIO 和 RNG 时钟的分频因子
   *          此参数必须是介于 4 and 15.
   * 注意:   如果您的应用程序中使用 USB OTG FS，
 			则必须正确设置PLLQ参数，使USB具有48 MHz时钟。
@@ -524,7 +524,7 @@ void RCC_PLLCmd(FunctionalState NewState) {
   * 注意:   此函数只能用于 STM32F405xx/407xx、STM32F415xx/417xx 或STM32F401xx 设备。
   *
   * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
-  * 注意:   PLLI2S 时钟源与主锁相环共用(在RCC_PLLConfig函数中配置)
+  * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SN: 指定PLLI2S VCO输出时钟的乘法因子
   *          必须为50 ~ 432之间的数字。
@@ -552,7 +552,7 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR) {
   * 注意:   该功能仅支持STM32F411xE设备。
   *
   * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
-  * 注意:   PLLI2S 时钟源与主锁相环共用(在RCC_PLLConfig函数中配置)
+  * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SM: 指定PLLI2S VCO输入时钟的除法因子
   *         该参数必须为Min_Data = 2 ~ Max_Data = 63之间的数字。
@@ -586,7 +586,7 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR, uint32_t PLLI2SM) {
   * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备
   *
   * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
-  * 注意:   PLLI2S 时钟源与主锁相环共用(在RCC_PLLConfig函数中配置)
+  * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SN: 指定PLLI2S VCO输出时钟的乘法因子
   *          必须为50 ~ 432之间的数字。
@@ -618,7 +618,7 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SQ, uint32_t PLLI2SR) {
   * 注意:   此函数只能用于 STM32F446xx 设备
   *
   * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
-  * 注意:   PLLI2S 时钟源与主锁相环共用(在RCC_PLLConfig函数中配置)
+  * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SM: 指定PLLI2S VCO输入时钟的除法因子
   *         该参数必须为Min_Data = 2 ~ Max_Data = 63之间的数字。
@@ -673,7 +673,7 @@ void RCC_PLLI2SCmd(FunctionalState NewState) {
   * 注意:   此函数只能用于 STM32F469_479xx 设备
   *
   * 注意:   仅当PLLSAI被禁用时，才能使用此函数。
-  * 注意:   PLLSAI时钟源与主PLL共用(在RCC_PLLConfig功能中配置)
+  * 注意:   PLLSAI时钟源与主PLL共用(在 RCC_PLLConfig功能中配置)
   *
   * 参数:  PLLSAIN: 指定PLLSAI VCO输出时钟的倍增系数。此参数必须是50到432之间的数字。
   * 注意:   您必须正确设置PLLSAIN参数，以确保VCO输出频率在100到432 MHz之间。
@@ -684,7 +684,7 @@ void RCC_PLLI2SCmd(FunctionalState NewState) {
   * 参数:  PLLSAIQ: 指定 SAI1时钟的分割因子
   *         此参数必须是介于2 和15 之间的数字。
   *
-  * 参数:  PLLSAIR: 指定LTDC时钟的分割因子
+  * 参数:  PLLSAIR: 指定 LTDC时钟的分割因子
   *          此参数必须是介于2 和7 之间的数字。
   *
   * 返回值: 无
@@ -707,7 +707,7 @@ void RCC_PLLSAIConfig(uint32_t PLLSAIN, uint32_t PLLSAIP, uint32_t PLLSAIQ, uint
   * 注意:   此函数只能用于 STM32F446xx 设备
   *
   * 注意:   仅当PLLSAI被禁用时，才能使用此函数。
-  * 注意:   PLLSAI时钟源与主PLL共用(在RCC_PLLConfig功能中配置)
+  * 注意:   PLLSAI时钟源与主PLL共用(在 RCC_PLLConfig功能中配置)
   *
   * 参数:  PLLSAIM: 指定PLLSAI VCO输入时钟的分割因子。此参数必须是介于Min_Data=2 和Max_Data=63之间的数字。
   * 注意:   您必须正确设置PLLSAIM参数，以确保VCO输入频率范围为1 到2 MHz。建议选择2 MHz的频率以限制PLLSAI抖动。
@@ -891,8 +891,8 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
       本节提供的功能允许配置系统，AHB，APB1和 APB2 总线时钟。
 
       (#) 多个时钟源可用于驱动系统时钟(SYSCLK): HSI、HSE 和PLL。
-          AHB时钟(HCLK)由系统时钟通过可配置的预分频器派生而来，用于为映射在 AHB总线(DMA, GPIO…)
-          上的 CPU，内存和外设计时。APB1 (PCLK1)和 APB2 (PCLK2)时钟是由AHB时钟通过可配置的预分频器派生出来的，
+          AHB 时钟(HCLK)由系统时钟通过可配置的预分频器派生而来，用于为映射在 AHB总线(DMA, GPIO…)
+          上的 CPU，内存和外设计时。APB1 (PCLK1)和 APB2 (PCLK2)时钟是由AHB 时钟通过可配置的预分频器派生出来的，
           用于为映射在这些总线上的外设设备计时。您可以使用"RCC_GetClocksFreq()"函数来检索这些时钟的频率。
 
       -@- 所有的外围时钟都来源于系统时钟(SYSCLK)，除了:
@@ -902,7 +902,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
              你必须使用 RCC_RTCCLKConfig()和 RCC_RTCCLKCmd() 函数来配置这个时钟。
         (+@) USB OTG FS, SDIO 和 RTC: USB OTG FS需要等于48 MHz的频率才能正常工作，
              而SDIO需要等于或低于48的频率。该时钟由主锁相环通过锁相环q分频器派生而来。
-        (+@) IWDG时钟，总是LSI时钟。
+        (+@) IWDG 时钟，总是LSI时钟。
 
       (#) 对于 STM32F405xx/407xx 和 STM32F415xx/417xx 设备，SYSCLK和HCLK的最大频率为168 MHz,
           PCLK2为84 MHz, PCLK1为42 MHz。根据设备电压范围的不同，应相应地调整最大频率:
@@ -1024,7 +1024,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
 
 /**
   * 简介:  配置系统时钟 (SYSCLK)。
-  * 注意:   HSI在Reset模式启动、STOP模式唤醒和 STANDBY模式唤醒后作为系统时钟源(硬件开启)，
+  * 注意:   HSI在 Reset模式启动、STOP模式唤醒和 STANDBY模式唤醒后作为系统时钟源(硬件开启)，
   *         或者在HSE故障时直接或间接作为系统时钟(时钟安全系统CSS开启)。
   * 注意:   从一个时钟源切换到另一个时钟源只有在目标时钟源准备就绪(启动延迟或锁相锁紧后时钟稳定)时才会发生。
   *          如果选择了一个尚未就绪的时钟源，则在时钟源准备就绪时进行切换。
@@ -1073,7 +1073,7 @@ uint8_t RCC_GetSYSCLKSource(void) {
   * 注意:   根据设备电压范围，软件必须正确设置这些位，
   *         以确保 HCLK不超过允许的最大频率
   *         (有关更多详细信息，请参阅上文"CPU、AHB和 APB总线时钟配置功能")
-  * 参数:  RCC_SYSCLK: 定义AHB时钟分频器。该时钟源自系统时钟(SYSCLK)。
+  * 参数:  RCC_SYSCLK: 定义AHB 时钟分频器。该时钟源自系统时钟(SYSCLK)。
   *          此参数可以是以下值之一:
   *            @arg RCC_SYSCLK_Div1: AHB clock = SYSCLK
   *            @arg RCC_SYSCLK_Div2: AHB clock = SYSCLK/2
@@ -1106,7 +1106,7 @@ void RCC_HCLKConfig(uint32_t RCC_SYSCLK) {
 
 /**
   * 简介:  配置低速 APB 时钟 (PCLK1)。
-  * 参数:  RCC_HCLK: 定义APB1时钟分频器。该时钟源自AHB时钟(HCLK)。
+  * 参数:  RCC_HCLK: 定义APB1时钟分频器。该时钟源自AHB 时钟(HCLK)。
   *          此参数可以是以下值之一:
   *            @arg RCC_HCLK_Div1:  APB1 clock = HCLK
   *            @arg RCC_HCLK_Div2:  APB1 clock = HCLK/2
@@ -1135,7 +1135,7 @@ void RCC_PCLK1Config(uint32_t RCC_HCLK) {
 
 /**
   * 简介: 配置高速 APB 时钟 (PCLK2)。
-  * 参数:  RCC_HCLK: 定义APB2时钟分频器。该时钟源自AHB时钟(HCLK)。
+  * 参数:  RCC_HCLK: 定义APB2时钟分频器。该时钟源自AHB 时钟(HCLK)。
   *          此参数可以是以下值之一:
   *            @arg RCC_HCLK_Div1:  APB2 clock = HCLK
   *            @arg RCC_HCLK_Div2:  APB2 clock = HCLK/2
@@ -1768,7 +1768,7 @@ void RCC_LTDCCLKDivConfig(uint32_t RCC_PLLSAIDivR) {
 #if defined(STM32F412xG) || defined(STM32F413_423xx)
 /**
   * 简介:  配置 DFSDM 时钟源(DFSDMCLK)。
-  * 注意:   在启用 DFSDM APB时钟之前，必须调用此函数。
+  * 注意:   在启用 DFSDM APB 时钟之前，必须调用此函数。
   * 参数:  RCC_DFSDMCLKSource: 指定 DFSDM 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_DFSDMCLKSource_APB: APB 时钟用作 DFSDM 时钟源。
@@ -1796,7 +1796,7 @@ void RCC_DFSDM1CLKConfig(uint32_t RCC_DFSDMCLKSource) {
 
 /**
   * 简介:  配置 DFSDM 音频时钟源(DFSDMACLK)。
-  * 注意:   在启用 DFSDM APB时钟之前，必须调用此函数。
+  * 注意:   在启用 DFSDM APB 时钟之前，必须调用此函数。
   * 参数:  RCC_DFSDM1ACLKSource: 指定 DFSDM 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_DFSDM1AUDIOCLKSOURCE_I2SAPB1: APB 时钟用作 DFSDM 时钟源。
@@ -1825,7 +1825,7 @@ void RCC_DFSDM1ACLKConfig(uint32_t RCC_DFSDM1ACLKSource) {
 #if defined(STM32F413_423xx)
 /**
   * 简介:  配置 DFSDM音频时钟源(DFSDMACLK)。
-  * 注意:   在启用 DFSDM APB时钟之前，必须调用此函数。
+  * 注意:   在启用 DFSDM APB 时钟之前，必须调用此函数。
   * 参数:  RCC_DFSDM2ACLKSource: 指定 DFSDM 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_DFSDM2AUDIOCLKSOURCE_I2SAPB1: APB 时钟用作 DFSDM 时钟源。
@@ -2449,7 +2449,7 @@ void RCC_APB2PeriphClockLPModeCmd(uint32_t RCC_APB2Periph, FunctionalState NewSt
 /**
   * 简介: 配置外部低速振荡器模式(LSE 模式)。
   * 注意: 这个模式只为STM32F410xx/STM32F411xx/STM32F446xx/STM32F469_479xx devices.
-  * 参数:  Mode: 指定LSE mode.
+  * 参数:  Mode: 指定 LSE mode.
   *          此参数可以是以下值之一:
   *            @arg RCC_LSE_LOWPOWER_MODE:  低功率模式下的 LSE振荡器。
   *            @arg RCC_LSE_HIGHDRIVE_MODE: LSE振荡器处于高驱动模式。
@@ -2470,7 +2470,7 @@ void RCC_LSEModeConfig(uint8_t RCC_Mode) {
 /**
   * 简介: 配置LPTIM1时钟源。
   * 注意: 此功能仅适用于 STM32F410xx 设备。
-  * 参数: RCC_ClockSource: 指定LPTIM1时钟源。
+  * 参数: RCC_ClockSource: 指定 LPTIM1时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_LPTIM1CLKSOURCE_PCLK: 已选择 APB1 的 LPTIM1时钟。
   *            @arg RCC_LPTIM1CLKSOURCE_HSI:  LPTIM1 时钟 from HSI 已选择
@@ -2659,7 +2659,7 @@ void RCC_CECClockSourceConfig(uint8_t RCC_ClockSource) {
 
 #if defined(STM32F410xx) || defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F446xx)
 /**
-  * 简介: 配置FMPI2C1时钟源。
+  * 简介: 配置 FMPI2C1时钟源。
   * 注意: 此功能仅适用于 STM32F446xx devices.
   * 参数: RCC_ClockSource: 指定FMPI2C1 时钟源.
   *          此参数可以是以下值之一:
@@ -2720,7 +2720,7 @@ void RCC_MCO2Cmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用指定的 RCC 中断.
-  * 参数:  RCC_IT: 指定要启用或禁用的 RCC中断源。
+  * 参数:  RCC_IT: 指定要启用或禁用的 RCC 中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg RCC_IT_LSIRDY: LSI 就绪中断
   *            @arg RCC_IT_LSERDY: LSE 就绪中断
@@ -2813,7 +2813,7 @@ void RCC_ClearFlag(void) {
 
 /**
   * 简介:  检查是否发生了指定的 RCC 中断。
-  * 参数:  RCC_IT: 指定要检查的 RCC中断源。
+  * 参数:  RCC_IT: 指定要检查的 RCC 中断源。
   *          此参数可以是以下值之一:
   *            @arg RCC_IT_LSIRDY: LSI 就绪中断
   *            @arg RCC_IT_LSERDY: LSE 就绪中断
@@ -2831,7 +2831,7 @@ ITStatus RCC_GetITStatus(uint8_t RCC_IT) {
     /* 检查参数 */
     assert_param(IS_RCC_GET_IT(RCC_IT));
 
-    /* 检查指定RCC中断的状态*/
+    /* 检查指定RCC 中断的状态*/
     if ((RCC->CIR & RCC_IT) != (uint32_t)RESET) {
         bitstatus = SET;
     } else {

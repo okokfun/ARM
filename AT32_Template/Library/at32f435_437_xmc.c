@@ -763,7 +763,7 @@ void XMC_PcCard_Timing_Config(XMC_NAND_PcCard_TimingInit_Type* XMC_regular_space
   * @retval 无
   */
 void XMC_PcCard_Default_Para_Init(XMC_PcCard_Init_Type* XMC_PcCard_Init_struct) {
-    /* 重置PCCARD Init结构参数值 */
+    /* 重置PCCARD Init 结构参数值 */
     XMC_PcCard_Init_struct->enable_Wait = XMC_Wait_Operation_Disable;
     XMC_PcCard_Init_struct->delay_Time_ar = 0x0;
     XMC_PcCard_Init_struct->delay_Time_cr = 0x0;

@@ -162,7 +162,7 @@ typedef struct {
 void HASH_DeInit(void); // 将 HASH 外设寄存器取消初始化为其默认复位值。
 
 /* HASH 配置功能 ************************************************/
-void HASH_Init(HASH_InitTypeDef* HASH_InitStruct); // 根据HASH_InitStruct结构中的指定参数初始化 HASH 外设。
+void HASH_Init(HASH_InitTypeDef* HASH_InitStruct); // 根据HASH_InitStruct 结构中的指定参数初始化 HASH 外设。
 void HASH_StructInit(HASH_InitTypeDef* HASH_InitStruct); // 用每个HASH_InitStruct 成员的默认值填充该成员。
 void HASH_Reset(void); // 重置 HASH 处理器内核，以便 HASH 准备好计算新消息的消息摘要。
 

@@ -111,7 +111,7 @@ uint32_t SDIO_Init(uint32_t freq) {
                  (calcSDCLKDiv(freq) << SDIO_CR2_SDCLKDIV_Pos);	//初始化完成，SDCLK切换到高速
 
 
-    SDIO_SendCmd(SD_CMD_SEL_DESEL_CARD, SD_cardInfo.RCA << 16, SD_RESP_32b_busy, &resp);	//CMD7: 选中卡，从Standy模式进入Transfer模式
+    SDIO_SendCmd(SD_CMD_SEL_DESEL_CARD, SD_cardInfo.RCA << 16, SD_RESP_32b_busy, &resp);	//CMD7: 选中卡，从Standy模式进入 Transfer模式
     SDIO->IF = SDIO_IF_TRXDONE_Msk;
 
     SDIO_SendCmd(SD_CMD_APP_CMD, SD_cardInfo.RCA << 16, SD_RESP_32b, &resp);

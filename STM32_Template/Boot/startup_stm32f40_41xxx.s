@@ -78,9 +78,9 @@ __Vectors       DCD     __initial_sp               ; 栈的顶部
 
                 ; 外部中断
                 DCD     WWDG_IRQHandler                   ; 窗口监视狗                                        
-                DCD     PVD_IRQHandler                    ; PVD通过EXTI测线检测                      
-                DCD     TAMP_STAMP_IRQHandler             ; 通过EXTI行篡改和 TimeStamp           
-                DCD     RTC_WKUP_IRQHandler               ; RTC 通过EXTI线路唤醒                      
+                DCD     PVD_IRQHandler                    ; PVD通过 EXTI测线检测                      
+                DCD     TAMP_STAMP_IRQHandler             ; 通过 EXTI行篡改和 TimeStamp           
+                DCD     RTC_WKUP_IRQHandler               ; RTC 通过 EXTI线路唤醒                      
                 DCD     FLASH_IRQHandler                  ; FLASH                                           
                 DCD     RCC_IRQHandler                    ; RCC                                             
                 DCD     EXTI0_IRQHandler                  ; EXTI Line0                                             

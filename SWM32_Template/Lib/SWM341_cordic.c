@@ -27,7 +27,7 @@
 * 功能说明:	CORDIC 初始化
 * 输    入: CORDIC_TypeDef * CORDICx	指定要被设置的 CORDIC，有效值包括CORDIC
 * 输    出: 无
-* 注意事项: CORDIC 模块依赖DIV模块，因为CORDIC_Arctan()要使用硬件除法模块计算参数值
+* 注意事项: CORDIC 模块依赖DIV模块，因为 CORDIC_Arctan()要使用硬件除法模块计算参数值
 ******************************************************************************************************************************************/
 void CORDIC_Init(CORDIC_TypeDef * CORDICx) {
     switch((uint32_t)CORDICx) {

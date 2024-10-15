@@ -30,7 +30,7 @@
            (++) 通过 GPIO_PuPd、GPIO_OType 和 GPIO_Speed 成员选择类型、上拉/下拉和输出速度
 
            (++) 调用 GPIO_Init() 函数
-           -@@- 如果使用外部时钟源，则I2S CKIN 引脚也应配置为Alternate function Push-pull - pull-up模式。
+           -@@- 如果使用外部时钟源，则I2S CKIN 引脚也应配置为 Alternate function Push-pull - pull-up模式。
 
       (#) SAI时钟可以从不同的时钟源生成:
           PLL I2S、PLL SAI 或外部时钟源。
@@ -540,7 +540,7 @@ void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  SAI_MuteValue: 指定 SAI 块静音值。
   *          此参数可以是以下值之一:
-  *            @arg SAI_ZeroValue : 在静音模式期间发送位值0
+  *            @arg SAI_ZeroValue : 在静音模式期间发送位值 0
   *            @arg SAI_LastSentValue : 静音模式下发送最后一个值
   * 返回值: 无
   */
@@ -1010,7 +1010,7 @@ void SAI_ClearITPendingBit(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT) {
 			 如果在音频帧传输过程中禁用了块，则当前帧将被传输，
 			 并且该块将仅在音频帧结束时被有效禁用。
   *
-  * 返回值: DMAy Streamx的当前状态(ENABLE 或 DISABLE)。
+  * 返回值: DMAy Streamx 的当前状态(ENABLE 或 DISABLE)。
   */
 FunctionalState SAI_GetCmdStatus(SAI_Block_TypeDef* SAI_Block_x) {
     FunctionalState state = DISABLE;

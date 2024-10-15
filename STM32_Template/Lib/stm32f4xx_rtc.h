@@ -586,7 +586,7 @@ void RTC_StructInit(RTC_InitTypeDef* RTC_InitStruct); // 用其默认值填充�
 void RTC_WriteProtectionCmd(FunctionalState NewState); // 启用或禁用 RTC 寄存器写保护。
 ErrorStatus RTC_EnterInitMode(void); // 进入 RTC 初始化模式。
 void RTC_ExitInitMode(void); // 退出 RTC 初始化模式。
-ErrorStatus RTC_WaitForSynchro(void); // 等到 RTC 时间和日期寄存器(RTC_TR和 RTC_DR)与 RTC APB 时钟同步。
+ErrorStatus RTC_WaitForSynchro(void); // 等到 RTC 时间和日期寄存器(RTC_TR 和 RTC_DR)与 RTC APB 时钟同步。
 ErrorStatus RTC_RefClockCmd(FunctionalState NewState); // 启用或禁用 RTC 参考时钟检测。
 void RTC_BypassShadowCmd(FunctionalState NewState); // 启用或禁用"绕过阴影"功能。
 

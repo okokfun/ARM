@@ -429,7 +429,7 @@ uint32_t CRYP_DataOut(void) {
 
  [..] 有可能中断一个加密/解密/密钥生成过程，以执行另一个具有更高优先级的处理，
         并在稍后完成被中断的过程，当更高优先级的任务完成后。要做到这一点，
-        必须将被中断的任务的上下文从CRYP 寄存器中保存到内存中，然后再从内存中恢复到 CRYP 寄存器中。
+        必须将被中断的任务的上下文从 CRYP 寄存器中保存到内存中，然后再从内存中恢复到 CRYP 寄存器中。
 
    (#) 要保存当前上下文，请使用 CRYP_SaveContext() 函数
    (#) 要恢复保存的上下文，请使用 CRYP_RestoreContext() 函数
@@ -443,7 +443,7 @@ uint32_t CRYP_DataOut(void) {
   * 注意:   该函数在保存上下文之前停止DMA 传输。在 恢复上下文后，
   *         你必须再次启用 DMA(如果以前使用过DMA)。
   * 
-  * 参数:  CRYP_ContextSave: 指向CRYP_Context结构的指针，该结构含有 当前上下文的存储库。
+  * 参数:  CRYP_ContextSave: 指向CRYP_Context 结构的指针，该结构含有 当前上下文的存储库。
   * 
   * 参数:  CRYP_KeyInitStruct: 指向CRYP_KeyInitTypeDef 结构的指针，该结构包含 CRYP密钥的配置信息。
   * 
@@ -689,7 +689,7 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
    (#) 在轮询模式下，建议使用以下函数。
        (++) CRYP_GetFlagStatus() : 检查是否发生标志事件。
 
-       -@@- CRYPT标志不需要被清除，因为一旦相关事件被重置，它们就会被清除。
+       -@@- CRYPT 标志不需要被清除，因为一旦相关事件被重置，它们就会被清除。
 
 
    (#) 在中断模式下，建议使用以下函数。
@@ -754,7 +754,7 @@ ITStatus CRYP_GetITStatus(uint8_t CRYP_IT) {
         bitstatus = RESET;
     }
 
-    /* 返回CRYP_IT状态 */
+    /* 返回 CRYP_IT状态 */
     return bitstatus;
 }
 
@@ -818,7 +818,7 @@ FlagStatus CRYP_GetFlagStatus(uint8_t CRYP_FLAG) {
         bitstatus = RESET;
     }
 
-    /* 返回CRYP_FLAG 状态 */
+    /* 返回 CRYP_FLAG 状态 */
     return  bitstatus;
 }
 

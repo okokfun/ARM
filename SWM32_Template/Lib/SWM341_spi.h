@@ -12,7 +12,7 @@ typedef struct {
     uint8_t  RXThreshold;	//取值1--8
     uint8_t  RXThresholdIEn;//当RX FIFO 中数据个数 >= RXThreshold时触发中断
 
-    uint8_t  TXThreshold;	//取值0--7
+    uint8_t  TXThreshold;	//取值 0--7
     uint8_t  TXThresholdIEn;//当TX FIFO 中数据个数 <= TXThreshold时触发中断
 
     uint8_t  TXCompleteIEn;	//发送 FIFO 空且发送移位寄存器空中断使能
@@ -84,7 +84,7 @@ typedef struct {
     uint8_t  RXThreshold;	//取值1--8
     uint8_t  RXThresholdIEn;//当RX FIFO 中数据个数 >= RXThreshold时触发中断
 
-    uint8_t  TXThreshold;	//取值0--7
+    uint8_t  TXThreshold;	//取值 0--7
     uint8_t  TXThresholdIEn;//当TX FIFO 中数据个数 <= TXThreshold时触发中断
 
     uint8_t  TXCompleteIEn;	//发送 FIFO 空且发送移位寄存器空中断使能

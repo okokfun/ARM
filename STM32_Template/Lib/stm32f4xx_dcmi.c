@@ -30,7 +30,7 @@
           DCMI_InitTypeDef  DCMI_InitStructure;
           并用结构成员的允许值填充 DCMI_InitStructure 变量。
 
-      (#) 通过调用函数初始化DCMI接口
+      (#) 通过调用函数初始化 DCMI接口
           DCMI_Init(&DCMI_InitStructure);
 
       (#) 配置 DMA2_Stream1 通道 1 以将数据从 DCMI DR 寄存器传输到目标内存缓冲区。
@@ -343,7 +343,7 @@ uint32_t DCMI_ReadData(void) {
   *            @arg DCMI_IT_FRAME: 帧捕获完成中断掩码
   *            @arg DCMI_IT_OVF: 溢出中断掩码
   *            @arg DCMI_IT_ERR: 同步错误中断掩码
-  *            @arg DCMI_IT_VSYNC: VSYNC中断掩码
+  *            @arg DCMI_IT_VSYNC: VSYNC 中断掩码
   *            @arg DCMI_IT_LINE: 线路中断屏蔽
   * 
   * 参数:  NewState: 指定的 DCMI中断的新状态。
@@ -444,7 +444,7 @@ void DCMI_ClearFlag(uint16_t DCMI_FLAG) {
   *          @arg DCMI_IT_FRAME: 帧捕获完成的中断掩码
   *          @arg DCMI_IT_OVF: 溢出中断掩码
   *          @arg DCMI_IT_ERR: 同步错误中断掩码
-  *          @arg DCMI_IT_VSYNC: VSYNC中断掩码
+  *          @arg DCMI_IT_VSYNC: VSYNC 中断掩码
   *          @arg DCMI_IT_LINE: 线路中断掩码
   * 
   * 返回值: DCMI_IT 的新状态(SET 或 RESET)。
@@ -475,7 +475,7 @@ ITStatus DCMI_GetITStatus(uint16_t DCMI_IT) {
     *           @arg DCMI_IT_FRAME: 帧捕获完成中断掩码
     *           @arg DCMI_IT_OVF: 溢出中断掩码
     *           @arg DCMI_IT_ERR: 同步错误中断掩码
-    *           @arg DCMI_IT_VSYNC: VSYNC中断掩码
+    *           @arg DCMI_IT_VSYNC: VSYNC 中断掩码
     *           @arg DCMI_IT_LINE: 线路中断屏蔽
     * 
   * 返回值: 无

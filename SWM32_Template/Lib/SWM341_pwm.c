@@ -227,7 +227,7 @@ void PWM_OvfTrigger(PWM_TypeDef * PWMx, uint32_t en_up, uint32_t en_down, uint32
 *			uint32_t dir			PWM_DIR_UP 向上计数时计数器与match值比较   PWM_DIR_DOWN 向下计数时计数器与match值比较
 *			uint32_t width			发出的触发信号的宽度，0 无输出   1 4个时钟周期   2 8个时钟周期    ...   63 252个时钟周期
 *			uint32_t trig_chn		触发信号有8个通道，选择此触发信号输出到哪个通道，，取值PWM_TRG_0、PWM_TRG_1、...、PWM_TRG_7
-*			uint32_t adc_trig_pos	在发出指定宽度触发信号的同时，还会在该触发信号宽度的 adc_trig_pos/8 位置处发出adc触发信号，取值0--7
+*			uint32_t adc_trig_pos	在发出指定宽度触发信号的同时，还会在该触发信号宽度的 adc_trig_pos/8 位置处发出adc触发信号，取值 0--7
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/

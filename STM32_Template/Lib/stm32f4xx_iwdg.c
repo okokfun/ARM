@@ -18,16 +18,16 @@
 
       IWDG由它自己的专用低速时钟(LSI)提供时钟，因此即使主时钟失效，它也能保持活动。
       一旦IWDG被启动，LSI被强制打开，不能被禁用(LSI也不能被禁用)，
-        计数器开始从重置值0xFFF开始倒数。当它到达计数结束值(0x000)时，就会产生系统复位。
-      IWDG计数器应定期重新加载以防止MCU复位。
+        计数器开始从重置值 0xFFF 开始倒数。当它到达计数结束值(0x000)时，就会产生系统复位。
+      IWDG 计数器应定期重新加载以防止 MCU 复位。
 
-      IWDG在 VDD 电压域中实现，在 STOP和 STANDBY模式下仍然有效(IWDG复位可以从STANDBY唤醒)。
+      IWDG 在 VDD 电压域中实现，在 STOP和 STANDBY模式下仍然有效(IWDG复位可以从STANDBY唤醒)。
 
-      RCC_CSR 寄存器中的 IWDGRST标志可用于通知何时发生IWDG复位。
+      RCC_CSR 寄存器中的 IWDGRST 标志可用于通知何时发生IWDG复位。
 
       最小-最大超时值@32KHz(LSI): ~125us/~32.7s
-      由于LSI频率分散，IWDG超时可能会有所不同。STM32F4xx器件提供了测量LSI频率的能力
-      (LSI时钟内部连接到 TIM5 CH4输入捕捉)。测量值可用于具有可接受精度的 IWDG超时。
+      由于 LSI频率分散，IWDG 超时可能会有所不同。STM32F4xx器件提供了测量LSI频率的能力
+      (LSI时钟内部连接到 TIM5 CH4输入捕捉)。测量值可用于具有可接受精度的 IWDG 超时。
       欲了解更多信息，请参考STM32F4xx参考手册
 
                      ##### 如何使用这个驱动程序 #####
@@ -44,7 +44,7 @@
 
       (#) 使用 IWDG_Enable() 函数启动 IWDG，当 IWDG 以软件模式使用时(不需要启用 LSI，它将由硬件启用)。
 
-      (#) 然后应用程序必须在正常运行期间定期重新加载IWDG计数器，以防止出现故障。以防止 MCU 复位，使用
+      (#) 然后应用程序必须在正常运行期间定期重新加载IWDG 计数器，以防止出现故障。以防止 MCU 复位，使用
           IWDG_ReloadCounter() 函数。
 
     @endverbatim
@@ -109,8 +109,8 @@
   * 
   * 参数:  IWDG_WriteAccess: 对 IWDG_PR 和 IWDG_RLR 寄存器进行写操作的新状态。
   *          此参数可以是以下值之一:
-  *            @arg IWDG_WriteAccess_Enable:  启用对IWDG_PR和 IWDG_RLR 寄存器的写入权限
-  *            @arg IWDG_WriteAccess_Disable: 禁止对IWDG_PR和 IWDG_RLR 寄存器的写访问
+  *            @arg IWDG_WriteAccess_Enable:  启用对IWDG_PR 和 IWDG_RLR 寄存器的写入权限
+  *            @arg IWDG_WriteAccess_Disable: 禁止对IWDG_PR 和 IWDG_RLR 寄存器的写访问
   * 
   * 返回值: 无
   */
@@ -121,17 +121,17 @@ void IWDG_WriteAccessCmd(uint16_t IWDG_WriteAccess) {
 }
 
 /**
-  * 简介:  设置IWDG预分频器值。
+  * 简介:  设置IWDG 预分频器值。
   * 
-  * 参数:  IWDG_Prescaler: 指定IWDG预分频器的值。
+  * 参数:  IWDG_Prescaler: 指定IWDG 预分频器的值。
   *          此参数可以是以下值之一:
-  *               @arg IWDG_Prescaler_4:   IWDG预分频器设置为 4
-  *               @arg IWDG_Prescaler_8:   IWDG预分频器设置为 8
-  *               @arg IWDG_Prescaler_16:  IWDG预分频器设置为 16
-  *               @arg IWDG_Prescaler_32:  IWDG预分频器设置为 32
-  *               @arg IWDG_Prescaler_64:  IWDG预分频器设置为 64
-  *               @arg IWDG_Prescaler_128: IWDG预分频器设置为 128
-  *               @arg IWDG_Prescaler_256: IWDG预分频器设置为 256
+  *               @arg IWDG_Prescaler_4:   IWDG 预分频器设置为 4
+  *               @arg IWDG_Prescaler_8:   IWDG 预分频器设置为 8
+  *               @arg IWDG_Prescaler_16:  IWDG 预分频器设置为 16
+  *               @arg IWDG_Prescaler_32:  IWDG 预分频器设置为 32
+  *               @arg IWDG_Prescaler_64:  IWDG 预分频器设置为 64
+  *               @arg IWDG_Prescaler_128: IWDG 预分频器设置为 128
+  *               @arg IWDG_Prescaler_256: IWDG 预分频器设置为 256
   * 
   * 返回值: 无
   */
@@ -180,7 +180,7 @@ void IWDG_ReloadCounter(void) {
   */
 
 /**
-  * 简介:  启用 IWDG(禁用对IWDG_PR和 IWDG_RLR 寄存器的写访问)。
+  * 简介:  启用 IWDG(禁用对IWDG_PR 和 IWDG_RLR 寄存器的写访问)。
   * 
   * 参数:  无
   * 

@@ -32,7 +32,7 @@
 
 /** @addtogroup AT32F435_437_System_private_defines
   */
-#define VECT_TAB_OFFSET                  0x0 /*!< 矢量表基偏移字段。 该值必须是0x400的倍数。 */
+#define VECT_TAB_OFFSET                  0x0 /*!< 矢量表基偏移字段。 该值必须是0x400 的倍数。 */
 /** @addtogroup AT32F435_437_System_private_variables
   */
 unsigned int system_Core_clock           = HICK_VALUE; /*!< 系统时钟频率(核心时钟) */

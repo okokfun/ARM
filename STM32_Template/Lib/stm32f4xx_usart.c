@@ -591,9 +591,9 @@ void USART_WakeUpConfig(USART_TypeDef* USARTx, uint16_t USART_WakeUp) {
     [..]
     本小节提供了一组允许管理 USART LIN 模式通信的函数。
     [..]
-    在LIN 模式下，根据 LIN标准，需要具有1个停止位的8位数据格式。
+    在LIN 模式下，根据 LIN 标准，需要具有1个停止位的8位数据格式。
     [..]
-    USART IP仅支持此 LIN 功能:
+    USART IP 仅支持此 LIN 功能:
       (+) LIN主同步中断发送功能和 LIN 从中断检测功能: 13位中断生成和10/11位中断检测
 
     [..]
@@ -601,7 +601,7 @@ void USART_WakeUpConfig(USART_TypeDef* USARTx, uint16_t USART_WakeUp) {
       (#) 使用 USART_Init() 函数编程波特率、字长=8位、停止位=1位、
             奇偶校验、模式发送器或模式接收器以及硬件流控制值。
       (#) 使用 USART_Cmd() 函数启用 USART。
-      (#) 使用 USART_LINCmd() 函数启用LIN 模式。
+      (#) 使用 USART_LINCmd() 函数启用 LIN 模式。
       (#) 使用 USART_SendBreak() 函数发送中断字符。
     [..]
     USART LIN主接收机可以通过以下程序进行通信:
@@ -609,7 +609,7 @@ void USART_WakeUpConfig(USART_TypeDef* USARTx, uint16_t USART_WakeUp) {
             模式发送器或模式接收器以及硬件流控制值。
       (#) 使用 USART_Cmd() 函数启用 USART。
       (#) 使用 USART_LINBreakDetectLengthConfig() 函数配置中断检测长度。
-      (#) 使用 USART_LINCmd() 函数启用LIN 模式。
+      (#) 使用 USART_LINCmd() 函数启用 LIN 模式。
 
       -@- 在LIN 模式下，必须清除以下位:
        (+@) USART_CR2寄存器中的 CLKEN，
@@ -621,7 +621,7 @@ void USART_WakeUpConfig(USART_TypeDef* USARTx, uint16_t USART_WakeUp) {
 /**
   * 简介:  设置 USART LI断检测长度。
   * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
-  * 参数:  USART_LINBreakDetectLength: 指定LIN 中断检测长度。
+  * 参数:  USART_LINBreakDetectLength: 指定 LIN 中断检测长度。
   *          此参数可以是以下值之一:
   *            @arg USART_LINBreakDetectLength_10b: 10位中断检测
   *            @arg USART_LINBreakDetectLength_11b: 11位中断检测
@@ -649,10 +649,10 @@ void USART_LINCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过设置 CR2寄存器中的 LINEN 位来启用LIN 模式 */
+        /* 通过设置 CR2寄存器中的 LINEN 位来启用 LIN 模式 */
         USARTx->CR2 |= USART_CR2_LINEN;
     } else {
-        /* 通过清除 CR2寄存器中的 LINEN 位禁用LIN 模式 */
+        /* 通过清除 CR2寄存器中的 LINEN 位禁用 LIN 模式 */
         USARTx->CR2 &= (uint16_t)~((uint16_t)USART_CR2_LINEN);
     }
 }
@@ -839,7 +839,7 @@ void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     本小节提供了一组允许管理 USART IrDA通信的功能。
     [..]
     IrDA是一种半双工通信协议。如果发射机繁忙，IrDA解码器将忽略IrDA 接收线上的任何数据，
-        如果接收机繁忙，则IrDA不会对 USART到 IrDA的 TX数据进行编码。
+        如果接收机繁忙，则IrDA不会对 USART到 IrDA 的 TX数据进行编码。
     在接收数据时，应避免传输，因为要传输的数据可能会损坏。
     [..]
     可以通过以下程序进行IrDA通信:
@@ -947,7 +947,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
             ##### 中断和标记管理函数 #####
  ===============================================================================
     [..]
-    本小节提供了一组功能，允许配置 USART中断源、DMA信道请求以及检查或清除标志或挂起位状态。
+    本小节提供了一组功能，允许配置 USART中断源、DMA 信道请求以及检查或清除标志或挂起位状态。
     用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或 DMA 模式。
 
     *** 轮询模式 ***
@@ -994,7 +994,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
         (##) USART_IT_TC  : 指定传输完成中断的中断源。
         (##) USART_IT_IDLE: 指定空闲线路中断的中断源。
         (##) USART_IT_CTS : 指定CTS中断的中断源。
-        (##) USART_IT_LBD : 指定LIN 中断检测中断的中断源。
+        (##) USART_IT_LBD : 指定 LIN 中断检测中断的中断源。
         (##) USART_IT_PE  : 指定中断源奇偶校验错误中断.
         (##) USART_IT_ERR : 指定错误中断的中断源。
 
@@ -1008,9 +1008,9 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
     *** DMA Mode ***
     ================
     [..]
-    在DMA 模式下，USART 通信可通过2个 DMA信道请求进行管理:
-      (#) USART_DMAReq_Tx: 指定 Tx缓冲器DMA 传输请求
-      (#) USART_DMAReq_Rx: 指定Rx缓冲器DMA 传输请求
+    在DMA 模式下，USART 通信可通过2个 DMA 信道请求进行管理:
+      (#) USART_DMAReq_Tx: 指定 Tx缓冲器 DMA 传输请求
+      (#) USART_DMAReq_Rx: 指定Rx缓冲器 DMA 传输请求
     [..]
     在此模式下，建议使用以下函数:
       (+) void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState NewState);
@@ -1110,7 +1110,7 @@ FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG) {
 }
 
 /**
-  * 简介:  清除USARTx的挂起标志。
+  * 简介:  清除USARTx 的挂起标志。
   * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
