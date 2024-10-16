@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    此文件提供固件功能，以管理DMA2D控制器(DMA2D)外设设备的以下功能:
+  * 简介:    此文件提供固件功能，以管理 DMA2D 控制器(DMA2D)外设设备的以下功能:
   *           + 初始化和配置
   *           + 中断和标志管理
   *
@@ -13,7 +13,7 @@
                       ##### 如何使用这个驱动程序 #####
  ===============================================================================
     [..]
-        1. 启用 DMA2D时钟使用
+        1. 启用 DMA2D 时钟使用
             RCC_APB2PeriphResetCmd(RCC_ABP2PeripH_DMA2D，ENABLE) 函数。
             (#) 配置 DMA2D
             (++) 传输模式
@@ -634,7 +634,7 @@ FlagStatus DMA2D_GetFlagStatus(uint32_t DMA2D_FLAG) {
         bitstatus = RESET;
     }
 
-    /* 返回DMA2D_FLAG 状态 */
+    /* 返回 DMA2D_FLAG 状态 */
     return bitstatus;
 }
 

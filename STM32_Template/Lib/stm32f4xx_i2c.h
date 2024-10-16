@@ -374,7 +374,7 @@ typedef struct {
   * - Slave 发射器模式:
   *    - EV3: 当一个字节已经被从服务器传输，并且应用程序正在等待字节传输的结束。
   *           两个事件I2C_EVENT_SLAVE_BYTE_TRANSMITTED和 I2C_EVENT_SLAVE-BYTE_TRANSMITTING相似。 
-  *           当用户软件不能保证在当前字节传输结束之前管理EV3时，可以选择性地使用第二个。
+  *           当用户软件不能保证在当前字节传输结束之前管理 EV3时，可以选择性地使用第二个。
   *    - EV3_2: 当主设备发送NACK以告知从设备数据传输应结束时(在发送STOP条件之前)。
   *             在这种情况下，从设备必须停止发送数据字节，并在总线上等待"停止"条件。
   *
@@ -435,11 +435,11 @@ typedef struct {
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions --------------------------------------------------------*/
 
-/*  用于将I2C配置设置为默认重置状态的功能 *****/
-void I2C_DeInit(I2C_TypeDef* I2Cx); // 将I2Cx 外设寄存器取消初始化为其默认复位值。
+/*  用于将 I2C配置设置为默认重置状态的功能 *****/
+void I2C_DeInit(I2C_TypeDef* I2Cx); // 将 I2Cx 外设寄存器取消初始化为其默认复位值。
 
 /* 初始化和配置功能 *********************************/
-void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct); // 根据 I2C_InitStruct 中的指定参数初始化I2Cx 外设。
+void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct); // 根据 I2C_InitStruct 中的指定参数初始化 I2Cx 外设。
 void I2C_StructInit(I2C_InitTypeDef* I2C_InitStruct); // 用每个I2C_InitStruct 成员的默认值填充其默认值。
 void I2C_Cmd(I2C_TypeDef* I2Cx, FunctionalState NewState); // 启用或禁用指定的 I2C 外设。
 void I2C_DigitalFilterConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DigitalFilter); // 配置 I2C 外设的数字噪声滤波器。

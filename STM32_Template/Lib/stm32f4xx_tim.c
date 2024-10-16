@@ -564,7 +564,7 @@ void TIM_Cmd(TIM_TypeDef* TIMx, FunctionalState NewState) {
 
       -@- 如果需要，可以单独使用所有其他功能来修改计时器的特定功能。
 
-      -@- 在 PWM模式下，此功能是必需的: TIM_OCxPreloadConfig(TIMx，TIM_OCPreload_ENABLE);
+      -@- 在 PWM 模式下，此功能是必需的: TIM_OCxPreloadConfig(TIMx，TIM_OCPreload_ENABLE);
 
       -@- 如果需要相应的中断或 DMA 请求，用户应:
         (+@) 启用 NVIC(或 DMA)以使用 TIM 中断(或 DMA 请求)。

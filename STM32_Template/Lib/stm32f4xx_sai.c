@@ -76,7 +76,7 @@
                并使用 SAI_MuteValueConfig() 配置静音期间传输的值。
 
           (++) 当音频块是接收端时，使用 SAI_MuteFrameCounterConfig() 检测静音模式。
-          (++) 当插槽数等于2时，使用 SAI_MonoModeConfig() 函数启用MONO模式，不需要内存中的任何数据预处理。
+          (++) 当插槽数等于2时，使用 SAI_MonoModeConfig() 函数启用MONO 模式，不需要内存中的任何数据预处理。
 
           (++) 使用 SAI_CompandingModeConfig() 启用数据压缩算法(U律和 A律)。
           
@@ -1034,7 +1034,7 @@ FunctionalState SAI_GetCmdStatus(SAI_Block_TypeDef* SAI_Block_x) {
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   *
   * 返回值: FIFO填充状态。
-  *           - SAI_FIFOStatus_Empty: 当FIFO为空时
+  *           - SAI_FIFOStatus_Empty: 当 FIFO 为空时
   *           - SAI_FIFOStatus_Less1QuarterFull: when FIFO is less than 1 quarter-full
   *                                               and not empty.
   *           - SAI_FIFOStatus_1QuarterFull: if more than 1 quarter-full.

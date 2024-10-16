@@ -30,7 +30,7 @@
 
    (#) 使用 RCC_APB2PeriphClockCmd(RCC_AB2Periph_SDIO，Enable) 启用外围时钟。
 
-   (#) 根据 SDIO模式，使用 RCC_AHB1PeriphClockCmd() 函数。
+   (#) 根据 SDIO 模式，使用 RCC_AHB1PeriphClockCmd() 函数。
        I/O可以是以下配置之一:
        (++) 1位数据长度:SDIO_CMD、SDIO_CK和 D0。
        (++) 4位数据长度:SDIO_CMD、SDIO_CK和 D[3:0]。
@@ -825,7 +825,7 @@ void SDIO_ITConfig(uint32_t SDIO_IT, FunctionalState NewState) {
   *           @arg SDIO_FLAG_TXFIFOHE:  发送 FIFO 半空
   *           @arg SDIO_FLAG_RXFIFOHF:  接收 FIFO 半满
   *           @arg SDIO_FLAG_TXFIFOF:   发送 FIFO 满
-  *           @arg SDIO_FLAG_RXFIFOF:   接收 FIFO已满
+  *           @arg SDIO_FLAG_RXFIFOF:   接收 FIFO 已满
   *           @arg SDIO_FLAG_TXFIFOE:   发送 FIFO 空
   *           @arg SDIO_FLAG_RXFIFOE:   接收 FIFO 空
   *           @arg SDIO_FLAG_TXDAVL:    传输FIFO 中可用的数据

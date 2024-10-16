@@ -199,7 +199,7 @@ void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct) {
     assert_param(IS_DAC_OUTPUT_BUFFER_STATE(DAC_InitStruct->DAC_OutputBuffer));
 
     /*---------------------------- DAC CR 配置 --------------------------*/
-    /* 获取DAC CR 值 */
+    /* 获取 DAC CR 值 */
     tmpreg1 = DAC->CR;
     /* 清除 BOFFx, TENx, TSELx, WAVEx and MAMPx 位 */
     tmpreg1 &= ~(CR_CLEAR_MASK << DAC_Channel);
@@ -213,7 +213,7 @@ void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct) {
                DAC_InitStruct->DAC_OutputBuffer);
     /* 根据 DAC_Channel计算CR 寄存器的值 */
     tmpreg1 |= tmpreg2 << DAC_Channel;
-    /* 写入DAC CR */
+    /* 写入 DAC CR */
     DAC->CR = tmpreg1;
 }
 
@@ -273,7 +273,7 @@ void DAC_Cmd(uint32_t DAC_Channel, FunctionalState NewState) {
   *            @arg DAC_Channel_1: 选择 DAC 通道1
   *            @arg DAC_Channel_2: 选择 DAC 通道2
   * 
-  * 参数:  NewState: 所选DAC 通道软件触发的新状态。
+  * 参数:  NewState: 所选 DAC 通道软件触发的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -287,7 +287,7 @@ void DAC_SoftwareTriggerCmd(uint32_t DAC_Channel, FunctionalState NewState) {
         /* 为选定的 DAC 通道启用软件触发 */
         DAC->SWTRIGR |= (uint32_t)DAC_SWTRIGR_SWTRIG1 << (DAC_Channel >> 4);
     } else {
-        /* 禁用所选DAC 通道的软件触发 */
+        /* 禁用所选 DAC 通道的软件触发 */
         DAC->SWTRIGR &= ~((uint32_t)DAC_SWTRIGR_SWTRIG1 << (DAC_Channel >> 4));
     }
 }
@@ -484,7 +484,7 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
   *            @arg DAC_Channel_1: 选择 DAC 通道1
   *            @arg DAC_Channel_2: 选择 DAC 通道2
   * 
-  * 参数:  NewState: 所选DAC 通道 DMA 请求的新状态。
+  * 参数:  NewState: 所选 DAC 通道 DMA 请求的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 注意:   DAC 通道1被映射到DMA1流5通道7上，该通道必须已经被配置。
@@ -583,7 +583,7 @@ FlagStatus DAC_GetFlagStatus(uint32_t DAC_Channel, uint32_t DAC_FLAG) {
         bitstatus = RESET;
     }
 
-    /* 返回DAC_FLAG 状态 */
+    /* 返回 DAC_FLAG 状态 */
     return  bitstatus;
 }
 
@@ -636,7 +636,7 @@ ITStatus DAC_GetITStatus(uint32_t DAC_Channel, uint32_t DAC_IT) {
     assert_param(IS_DAC_CHANNEL(DAC_Channel));
     assert_param(IS_DAC_IT(DAC_IT));
 
-    /* 获取DAC_IT enable bit 状态 */
+    /* 获取 DAC_IT enable bit 状态 */
     enablestatus = (DAC->CR & (DAC_IT << DAC_Channel)) ;
 
     /* 检查 the status of the specified DAC 中断 */
@@ -648,7 +648,7 @@ ITStatus DAC_GetITStatus(uint32_t DAC_Channel, uint32_t DAC_IT) {
         bitstatus = RESET;
     }
 
-    /* 返回DAC_IT 状态 */
+    /* 返回 DAC_IT 状态 */
     return  bitstatus;
 }
 

@@ -393,7 +393,7 @@ FlagStatus DCMI_GetFlagStatus(uint16_t DCMI_FLAG) {
     /* 检查参数 */
     assert_param(IS_DCMI_GET_FLAG(DCMI_FLAG));
 
-    /* 获取DCMI register index */
+    /* 获取 DCMI register index */
     dcmireg = (((uint16_t)DCMI_FLAG) >> 12);
 
     if (dcmireg == 0x00) { /* The FLAG is in RISR 寄存器 */
@@ -410,7 +410,7 @@ FlagStatus DCMI_GetFlagStatus(uint16_t DCMI_FLAG) {
         bitstatus = RESET;
     }
 
-    /* 返回DCMI_FLAG 状态 */
+    /* 返回 DCMI_FLAG 状态 */
     return  bitstatus;
 }
 

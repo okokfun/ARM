@@ -551,8 +551,8 @@ void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers) {
     /* 时钟通道计时器配置*/
     /* 在自动时钟通道控制模式下，DSI主机可以关闭两个高速传输之间的时钟通道。
        为此，DSI主机计算时钟通道从高速变为低功率和从低功率变为高速所需的时间。
-       此定时由DSI主机时钟通道定时器配置寄存器(DSI_CLTCR)中的 HS2LP_TIME 和 LP2HS_TIME配置。
-       但是DSI主机不是在计算LP2HS_TIME+HS2LP_TIME，而是在计算2 x HS2LP_ TIME。
+       此定时由 DSI主机时钟通道定时器配置寄存器(DSI_CLTCR)中的 HS2LP_TIME 和 LP2HS_TIME配置。
+       但是 DSI主机不是在计算LP2HS_TIME+HS2LP_TIME，而是在计算2 x HS2LP_ TIME。
 
        解决方法：配置HS2LP_TIME 和 LP2HS_TIME，使其具有相同的值，即HS2LP_ TIME 或LP2HS_ TIME的最大值。
     */
@@ -732,7 +732,7 @@ void DSI_ShortWrite(DSI_TypeDef *DSIx,
     /* 检查参数 */
     assert_param(IS_DSI_SHORT_WRITE_PACKET_TYPE(Mode));
 
-    /* 等待命令FIFO为空 */
+    /* 等待命令FIFO 为空 */
     while((DSIx->GPSR & DSI_GPSR_CMDFE) == 0)
     {}
 
@@ -774,7 +774,7 @@ void DSI_LongWrite(DSI_TypeDef *DSIx,
     /* 检查参数 */
     assert_param(IS_DSI_LONG_WRITE_PACKET_TYPE(Mode));
 
-    /* 等待命令FIFO为空 */
+    /* 等待命令FIFO 为空 */
     while((DSIx->GPSR & DSI_GPSR_CMDFE) == 0)
     {}
 
@@ -1547,10 +1547,10 @@ void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState) 
     assert_param(IS_DSI_IT(DSI_IT));
 
     if(NewState != DISABLE) {
-        /* 启用所选DSI中断 */
+        /* 启用所选 DSI中断 */
         DSIx->WIER |= DSI_IT;
     } else {
-        /* 禁用所选DSI中断 */
+        /* 禁用所选 DSI中断 */
         DSIx->WIER &= ~DSI_IT;
     }
 }
@@ -1588,7 +1588,7 @@ FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
         bitstatus = RESET;
     }
 
-    /* 返回DSI_FLAG 状态 */
+    /* 返回 DSI_FLAG 状态 */
     return  bitstatus;
 }
 
@@ -1651,7 +1651,7 @@ ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
         bitstatus = RESET;
     }
 
-    /* 返回DSI_IT 状态 */
+    /* 返回 DSI_IT 状态 */
     return bitstatus;
 }
 

@@ -221,7 +221,7 @@ void PWR_PVDLevelConfig(uint32_t PWR_PVDLevel) {
     /* 清除 PLS[7:5] 位 */
     tmpreg &= CR_PLS_MASK;
 
-    /* 根据PWR_PVDLevel值，设置PLS[7:5]位。 */
+    /* 根据 PWR_PVDLevel值，设置PLS[7:5]位。 */
     tmpreg |= PWR_PVDLevel;
 
     /* 存储新值 */
@@ -765,7 +765,7 @@ void PWR_EnterUnderDriveSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) 
     /* 清除PDDS和 LPDS位 */
     tmpreg &= CR_DS_MASK;
 
-    /* 根据PWR_Regulator设置LPDS、MRLUDS和 LPLUDS位值 */
+    /* 根据 PWR_Regulator设置LPDS、MRLUDS和 LPLUDS位值 */
     tmpreg |= PWR_Regulator;
 
     /* 存储新值 */
@@ -834,7 +834,7 @@ void PWR_EnterSTANDBYMode(void) {
   *                              当WKUP引脚级别已经很高时，如果启用了WKUP引脚(通过设置EWUP位)，
   *                              则检测到额外的唤醒事件。
   *            @arg PWR_FLAG_SB: 备用 Flage。此标志表示系统已从待机模式恢复。
-  *            @arg PWR_FLAG_PVDO: PVD Output. 仅当PWR_PVDCmd() 函数启用 PVD时，此标志才有效。PVD在待机模式下停止
+  *            @arg PWR_FLAG_PVDO: PVD Output. 仅当PWR_PVDCmd() 函数启用 PVD 时，此标志才有效。PVD在待机模式下停止
                                    因此，该位在待机或重置后等于 0，直到PVDE位被设置。
   *            @arg PWR_FLAG_BRR: 后备调节器就绪标志。
   *                               当设备从待机模式唤醒或被系统复位或电源复位时，该位不会被重置。

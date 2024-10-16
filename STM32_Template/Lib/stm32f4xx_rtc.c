@@ -814,7 +814,7 @@ uint32_t RTC_GetSubSecond(void) {
     /* 从相应寄存器获取次秒值*/
     tmpreg = (uint32_t)(RTC->SSR);
 
-    /* 读取DR 寄存器以解冻日历寄存器 */
+    /* 读取 DR 寄存器以解冻日历寄存器 */
     (void) (RTC->DR);
 
     return (tmpreg);

@@ -42,7 +42,7 @@
 
         (#) 使用 QSPI_SetDataLength() 函数设置QSPI 数据长度。
 
-        (#) 使用 QSPI_SetFIFOThreshold() 函数配置 FIFO 阈值，选择在哪个阈值上产生FTF事件。
+        (#) 使用 QSPI_SetFIFOThreshold() 函数配置 FIFO 阈值，选择在哪个阈值上产生 FTF事件。
 
         (#) 如果需要使用中断模式，使用函数 QSPI_ITConfig() 启用 NVIC 和相应的中断。
 

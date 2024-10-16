@@ -137,7 +137,7 @@ void DFSDM_TransceiverInit(DFSDM_Channel_TypeDef* DFSDM_Channelx, DFSDM_Transcei
     assert_param(IS_DFSDM_CLK_DETECTOR_STATE(DFSDM_TransceiverInitStruct->DFSDM_CLKAbsenceDetector));
     assert_param(IS_DFSDM_SC_DETECTOR_STATE(DFSDM_TransceiverInitStruct->DFSDM_ShortCircuitDetector));
 
-    /* 获取DFSDM Channelx CHCFGR1 值 */
+    /* 获取 DFSDM Channelx CHCFGR1 值 */
     tmpreg1 = DFSDM_Channelx->CHCFGR1;
 
     /* 清除 SITP, CKABEN, SCDEN and SPICKSEL 位 */
@@ -158,10 +158,10 @@ void DFSDM_TransceiverInit(DFSDM_Channel_TypeDef* DFSDM_Channelx, DFSDM_Transcei
                 DFSDM_TransceiverInitStruct->DFSDM_CLKAbsenceDetector |
                 DFSDM_TransceiverInitStruct->DFSDM_ShortCircuitDetector);
 
-    /* 写入DFSDM Channelx CHCFGR1R */
+    /* 写入 DFSDM Channelx CHCFGR1R */
     DFSDM_Channelx->CHCFGR1 = tmpreg1;
 
-    /* 获取DFSDM Channelx CHCFGR2 值 */
+    /* 获取 DFSDM Channelx CHCFGR2 值 */
     tmpreg2 = DFSDM_Channelx->CHCFGR2;
 
     /* 清除 DTRBS and OFFSET 位 */
@@ -172,7 +172,7 @@ void DFSDM_TransceiverInit(DFSDM_Channel_TypeDef* DFSDM_Channelx, DFSDM_Transcei
     tmpreg2 |= (((DFSDM_TransceiverInitStruct->DFSDM_DataRightShift) << 3 ) |
                 ((DFSDM_TransceiverInitStruct->DFSDM_Offset) << 8 ));
 
-    /* 写入DFSDM Channelx CHCFGR1R */
+    /* 写入 DFSDM Channelx CHCFGR1R */
     DFSDM_Channelx->CHCFGR2 = tmpreg2;
 }
 
@@ -188,7 +188,7 @@ void DFSDM_TransceiverStructInit(DFSDM_TransceiverInitTypeDef* DFSDM_Transceiver
     /* 默认串行接口选择具有上升沿到频闪数据的 SPI */
     DFSDM_TransceiverInitStruct->DFSDM_Interface = DFSDM_Interface_SPI_FallingEdge;
 
-    /* 来自内部DFSDM_CKOUT输出的时钟被选为默认串行时钟 */
+    /* 来自内部 DFSDM_CKOUT 输出的时钟被选为默认串行时钟 */
     DFSDM_TransceiverInitStruct->DFSDM_Clock = DFSDM_Clock_Internal;
 
     /* 未选择数据右位偏移作为默认数据右位移位 */
@@ -229,7 +229,7 @@ void DFSDM_FilterInit(DFSDM_Filter_TypeDef* DFSDMx, DFSDM_FilterInitTypeDef* DFS
     assert_param(IS_DFSDM_SINC_OVRSMPL_RATIO(DFSDM_FilterInitStruct->DFSDM_FilterOversamplingRatio));
     assert_param(IS_DFSDM_INTG_OVRSMPL_RATIO(DFSDM_FilterInitStruct->DFSDM_IntegratorOversamplingRatio));
 
-    /* 获取DFSDMx FCR 值 */
+    /* 获取 DFSDMx FCR 值 */
     tmpreg1 = DFSDMx->FLTFCR;
 
     /* 清除 FORD, FOSR and IOSR 位 */
@@ -242,7 +242,7 @@ void DFSDM_FilterInit(DFSDM_Filter_TypeDef* DFSDMx, DFSDM_FilterInitTypeDef* DFS
                 ((DFSDM_FilterInitStruct->DFSDM_FilterOversamplingRatio - 1) << 16) |
                 (DFSDM_FilterInitStruct->DFSDM_IntegratorOversamplingRatio - 1));
 
-    /* 写入DFSDMx FCR */
+    /* 写入 DFSDMx FCR */
     DFSDMx->FLTFCR = tmpreg1;
 }
 
@@ -388,7 +388,7 @@ void DFSDM_ChannelCmd(DFSDM_Channel_TypeDef* DFSDM_Channelx, FunctionalState New
   *            @arg DFSDM2_2 : DFSDM 2 Filter 2 (仅适用于 STM32F413_423xx 设备)
   *            @arg DFSDM2_3 : DFSDM 2 Filter 3 (仅适用于 STM32F413_423xx 设备)
   * 
-  * 参数:  NewState: 所选DFSDM模块的新状态。
+  * 参数:  NewState: 所选 DFSDM 模块的新状态。
   *         此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -424,7 +424,7 @@ void DFSDM_ConfigClkOutputDivider(uint32_t DFSDM_ClkOutDivision) {
     /* 检查参数 */
     assert_param(IS_DFSDM_CLOCK_OUT_DIVIDER(DFSDM_ClkOutDivision));
 
-    /* 获取DFSDM_Channel0 CHCFGR1 值 */
+    /* 获取 DFSDM_Channel0 CHCFGR1 值 */
     tmpreg1 = DFSDM1_Channel0 -> CHCFGR1;
 
     /* 清除 CKOUTDIV 位 */
@@ -433,7 +433,7 @@ void DFSDM_ConfigClkOutputDivider(uint32_t DFSDM_ClkOutDivision) {
     /* 设置或重置 CKOUTDIV 位 */
     tmpreg1 |= (uint32_t)((DFSDM_ClkOutDivision - 1) << 16);
 
-    /* 写入DFSDM Channel0 CHCFGR1 */
+    /* 写入 DFSDM Channel0 CHCFGR1 */
     DFSDM1_Channel0 -> CHCFGR1 = tmpreg1;
 }
 
@@ -453,7 +453,7 @@ void DFSDM_ConfigClkOutputSource(uint32_t DFSDM_ClkOutSource) {
     /* 检查参数 */
     assert_param(IS_DFSDM_CLOCK_OUT_SOURCE(DFSDM_ClkOutSource));
 
-    /* 获取DFSDM_Channel0 CHCFGR1 值 */
+    /* 获取 DFSDM_Channel0 CHCFGR1 值 */
     tmpreg1 = DFSDM1_Channel0 -> CHCFGR1;
 
     /* 清除 CKOUTSRC 位 */
@@ -462,7 +462,7 @@ void DFSDM_ConfigClkOutputSource(uint32_t DFSDM_ClkOutSource) {
     /* 设置或重置 CKOUTSRC 位 */
     tmpreg1 |= DFSDM_ClkOutSource;
 
-    /* 写入DFSDM Channel0 CHCFGR1 */
+    /* 写入 DFSDM Channel0 CHCFGR1 */
     DFSDM1_Channel0 -> CHCFGR1 = tmpreg1;
 }
 #endif /* STM32F412xG */
@@ -487,7 +487,7 @@ void DFSDM_ConfigClkOutputDivider(uint32_t Instance, uint32_t DFSDM_ClkOutDivisi
         /* 检查参数 */
         assert_param(IS_DFSDM_CLOCK_OUT_DIVIDER(DFSDM_ClkOutDivision));
 
-        /* 获取DFSDM_Channel0 CHCFGR1 值 */
+        /* 获取 DFSDM_Channel0 CHCFGR1 值 */
         tmpreg1 = DFSDM1_Channel0 -> CHCFGR1;
 
         /* 清除 CKOUTDIV 位 */
@@ -496,13 +496,13 @@ void DFSDM_ConfigClkOutputDivider(uint32_t Instance, uint32_t DFSDM_ClkOutDivisi
         /* 设置或重置 CKOUTDIV 位 */
         tmpreg1 |= (uint32_t)((DFSDM_ClkOutDivision - 1) << 16);
 
-        /* 写入DFSDM Channel0 CHCFGR1 */
+        /* 写入 DFSDM Channel0 CHCFGR1 */
         DFSDM1_Channel0 -> CHCFGR1 = tmpreg1;
     } else { /* DFSDM2 */
         /* 检查参数 */
         assert_param(IS_DFSDM_CLOCK_OUT_DIVIDER(DFSDM_ClkOutDivision));
 
-        /* 获取DFSDM_Channel0 CHCFGR1 值 */
+        /* 获取 DFSDM_Channel0 CHCFGR1 值 */
         tmpreg1 = DFSDM2_Channel0 -> CHCFGR1;
 
         /* 清除 CKOUTDIV 位 */
@@ -511,7 +511,7 @@ void DFSDM_ConfigClkOutputDivider(uint32_t Instance, uint32_t DFSDM_ClkOutDivisi
         /* 设置或重置 CKOUTDIV 位 */
         tmpreg1 |= (uint32_t)((DFSDM_ClkOutDivision - 1) << 16);
 
-        /* 写入DFSDM Channel0 CHCFGR1 */
+        /* 写入 DFSDM Channel0 CHCFGR1 */
         DFSDM2_Channel0 -> CHCFGR1 = tmpreg1;
     }
 }
@@ -536,7 +536,7 @@ void DFSDM_ConfigClkOutputSource(uint32_t Instance, uint32_t DFSDM_ClkOutSource)
         /* 检查参数 */
         assert_param(IS_DFSDM_CLOCK_OUT_SOURCE(DFSDM_ClkOutSource));
 
-        /* 获取DFSDM_Channel0 CHCFGR1 值 */
+        /* 获取 DFSDM_Channel0 CHCFGR1 值 */
         tmpreg1 = DFSDM1_Channel0 -> CHCFGR1;
 
         /* 清除 CKOUTSRC 位 */
@@ -545,13 +545,13 @@ void DFSDM_ConfigClkOutputSource(uint32_t Instance, uint32_t DFSDM_ClkOutSource)
         /* 设置或重置 CKOUTSRC 位 */
         tmpreg1 |= DFSDM_ClkOutSource;
 
-        /* 写入DFSDM Channel0 CHCFGR1 */
+        /* 写入 DFSDM Channel0 CHCFGR1 */
         DFSDM1_Channel0 -> CHCFGR1 = tmpreg1;
     } else { /* DFSDM2 */
         /* 检查参数 */
         assert_param(IS_DFSDM_CLOCK_OUT_SOURCE(DFSDM_ClkOutSource));
 
-        /* 获取DFSDM_Channel0 CHCFGR1 值 */
+        /* 获取 DFSDM_Channel0 CHCFGR1 值 */
         tmpreg1 = DFSDM2_Channel0 -> CHCFGR1;
 
         /* 清除 CKOUTSRC 位 */
@@ -560,7 +560,7 @@ void DFSDM_ConfigClkOutputSource(uint32_t Instance, uint32_t DFSDM_ClkOutSource)
         /* 设置或重置 CKOUTSRC 位 */
         tmpreg1 |= DFSDM_ClkOutSource;
 
-        /* 写入DFSDM Channel0 CHCFGR1 */
+        /* 写入 DFSDM Channel0 CHCFGR1 */
         DFSDM2_Channel0 -> CHCFGR1 = tmpreg1;
     }
 }
@@ -585,7 +585,7 @@ void DFSDM_ConfigClkOutputSource(uint32_t Instance, uint32_t DFSDM_ClkOutSource)
   * 
   * 参数:  DFSDM_SCDBreak_i: 其中i可以是0到3之间的值，以选择指定的中断信号。
   * 
-  * 参数:  NewState: 所选DFSDM_SCDBreak_i的新状态。
+  * 参数:  NewState: 所选 DFSDM_SCDBreak_i的新状态。
   *         此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -625,7 +625,7 @@ void DFSDM_ConfigBRKAnalogWatchDog(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32
   * 
   * 参数:  DFSDM_SCDBreak_i: 其中i可以是0到3之间的值，以选择指定的中断信号。
   * 
-  * 参数:  NewState: 所选DFSDM_SCDBreak_i的新状态。
+  * 参数:  NewState: 所选 DFSDM_SCDBreak_i的新状态。
   *         此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -674,7 +674,7 @@ void DFSDM_ConfigShortCircuitThreshold(DFSDM_Channel_TypeDef* DFSDM_Channelx, ui
     assert_param(IS_DFSDM_ALL_CHANNEL(DFSDM_Channelx));
     assert_param(IS_DFSDM_CSD_THRESHOLD_VALUE(DFSDM_SCDThreshold));
 
-    /* 获取DFSDM_Channelx AWSCDR 值 */
+    /* 获取 DFSDM_Channelx AWSCDR 值 */
     tmpreg1 = DFSDM_Channelx -> CHAWSCDR;
 
     /* 清除 SCDT 位 */
@@ -683,12 +683,12 @@ void DFSDM_ConfigShortCircuitThreshold(DFSDM_Channel_TypeDef* DFSDM_Channelx, ui
     /* 设置或重置 SCDT 位 */
     tmpreg1 |= DFSDM_SCDThreshold;
 
-    /* 写入DFSDM Channelx AWSCDR */
+    /* 写入 DFSDM Channelx AWSCDR */
     DFSDM_Channelx -> CHAWSCDR = tmpreg1;
 }
 
 /**
-  * 简介:  选择所选DFSDMx 的模拟看门狗要保护的通道，并选择是否启用快速模拟看门犬。
+  * 简介:  选择所选 DFSDMx 的模拟看门狗要保护的通道，并选择是否启用快速模拟看门犬。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -715,7 +715,7 @@ void DFSDM_ConfigAnalogWatchdog(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_AWD
     assert_param(IS_DFSDM_AWD_CHANNEL(DFSDM_AWDChannelx));
     assert_param(IS_DFSDM_AWD_MODE(DFSDM_AWDFastMode));
 
-    /* 获取DFSDMx CR2 值 */
+    /* 获取 DFSDMx CR2 值 */
     tmpreg1 = DFSDMx -> FLTCR2;
 
     /* 清除 AWDCH 位 */
@@ -724,10 +724,10 @@ void DFSDM_ConfigAnalogWatchdog(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_AWD
     /* 设置或重置 AWDCH 位 */
     tmpreg1 |= DFSDM_AWDChannelx;
 
-    /* 写入DFSDMx CR2 寄存器 */
+    /* 写入 DFSDMx CR2 寄存器 */
     DFSDMx -> FLTCR2 |= tmpreg1;
 
-    /* 获取DFSDMx CR1 值 */
+    /* 获取 DFSDMx CR1 值 */
     tmpreg2 = DFSDMx->FLTCR1;
 
     /* 清除 AWFSEL 位 */
@@ -736,12 +736,12 @@ void DFSDM_ConfigAnalogWatchdog(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_AWD
     /* 设置或重置 AWFSEL 位 */
     tmpreg2 |= DFSDM_AWDFastMode;
 
-    /* 写入DFSDMx CR1 寄存器 */
+    /* 写入 DFSDMx CR1 寄存器 */
     DFSDMx->FLTCR1 = tmpreg2;
 }
 
 /**
-  * 简介:  选择要由所选DFSDMx 的模拟看门狗保护的通道要使用的模式.
+  * 简介:  选择要由所选 DFSDMx 的模拟看门狗保护的通道要使用的模式.
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -763,7 +763,7 @@ void DFSDM_SelectExtremesDetectorChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t 
     assert_param(IS_DFSDM_ALL_FILTER(DFSDMx));
     assert_param(IS_DFSDM_EXTREM_CHANNEL(DFSDM_ExtremChannelx));
 
-    /* 获取DFSDMx CR2 值 */
+    /* 获取 DFSDMx CR2 值 */
     tmpreg1 = DFSDMx -> FLTCR2;
 
     /* 清除 EXCH 位 */
@@ -772,7 +772,7 @@ void DFSDM_SelectExtremesDetectorChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t 
     /* 设置或重置 AWDCH 位 */
     tmpreg1 |= DFSDM_ExtremChannelx;
 
-    /* 写入DFSDMx CR2 寄存器 */
+    /* 写入 DFSDMx CR2 寄存器 */
     DFSDMx -> FLTCR2 = tmpreg1;
 }
 
@@ -843,7 +843,7 @@ int32_t DFSDM_GetInjectedConversionData(DFSDM_Filter_TypeDef* DFSDMx) {
 }
 
 /**
-  * 简介:  返回由DFSDMx转换的最大值。
+  * 简介:  返回由 DFSDMx转换的最大值。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -870,7 +870,7 @@ int32_t DFSDM_GetMaxValue(DFSDM_Filter_TypeDef* DFSDMx) {
 }
 
 /**
-  * 简介:  返回由DFSDMx转换的最小值。
+  * 简介:  返回由 DFSDMx转换的最小值。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -897,7 +897,7 @@ int32_t DFSDM_GetMinValue(DFSDM_Filter_TypeDef* DFSDMx) {
 }
 
 /**
-  * 简介:  返回DFSDMx在其上捕获最高转换数据的通道数。
+  * 简介:  返回 DFSDMx在其上捕获最高转换数据的通道数。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -919,7 +919,7 @@ int32_t DFSDM_GetMaxValueChannel(DFSDM_Filter_TypeDef* DFSDMx) {
 }
 
 /**
-  * 简介:  返回DFSDMx在其上捕获最低转换数据的通道数。
+  * 简介:  返回 DFSDMx在其上捕获最低转换数据的通道数。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -941,7 +941,7 @@ int32_t DFSDM_GetMinValueChannel(DFSDM_Filter_TypeDef* DFSDMx) {
 }
 
 /**
-  * 简介:  返回DFSDMx 的转换时间(以28位计时器为单位)。
+  * 简介:  返回 DFSDMx 的转换时间(以28位计时器为单位)。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -994,7 +994,7 @@ void DFSDM_ConfigAWDFilter(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32_t DFSDM
     assert_param(IS_DFSDM_AWD_SINC_ORDER(DFSDM_AWDSincOrder));
     assert_param(IS_DFSDM_AWD_OVRSMPL_RATIO(DFSDM_AWDSincOverSampleRatio));
 
-    /* 获取DFSDM_Channelx CHAWSCDR 值 */
+    /* 获取 DFSDM_Channelx CHAWSCDR 值 */
     tmpreg1 = DFSDM_Channelx -> CHAWSCDR;
 
     /* 清除 FORD and FOSR 位 */
@@ -1003,7 +1003,7 @@ void DFSDM_ConfigAWDFilter(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32_t DFSDM
     /* 设置或重置 SCDT 位 */
     tmpreg1 |= (DFSDM_AWDSincOrder | ((DFSDM_AWDSincOverSampleRatio - 1) << 16)) ;
 
-    /* 写入DFSDM Channelx CHAWSCDR */
+    /* 写入 DFSDM Channelx CHAWSCDR */
     DFSDM_Channelx -> CHAWSCDR = tmpreg1;
 }
 
@@ -1037,7 +1037,7 @@ uint32_t DFSDM_GetAWDConversionValue(DFSDM_Channel_TypeDef* DFSDM_Channelx) {
 
 
 /**
-  * 简介:  为所选DFSDMx 的模拟看门狗配置高阈值和低阈值。
+  * 简介:  为所选 DFSDMx 的模拟看门狗配置高阈值和低阈值。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1065,7 +1065,7 @@ void DFSDM_SetAWDThreshold(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_HighThre
     assert_param(IS_DFSDM_HIGH_THRESHOLD(DFSDM_HighThreshold));
     assert_param(IS_DFSDM_LOW_THRESHOLD(DFSDM_LowThreshold));
 
-    /* 获取DFSDMx AWHTR 值 */
+    /* 获取 DFSDMx AWHTR 值 */
     tmpreg1 = DFSDMx -> FLTAWHTR;
 
     /* 清除 AWHT 位 */
@@ -1074,10 +1074,10 @@ void DFSDM_SetAWDThreshold(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_HighThre
     /* 设置或重置 AWHT 位 */
     tmpreg1 |= (DFSDM_HighThreshold  << 8 );
 
-    /* 写入DFSDMx AWHTR 寄存器 */
+    /* 写入 DFSDMx AWHTR 寄存器 */
     DFSDMx -> FLTAWHTR = tmpreg1;
 
-    /* 获取DFSDMx AWLTR 值 */
+    /* 获取 DFSDMx AWLTR 值 */
     tmpreg2 = DFSDMx -> FLTAWLTR;
 
     /* 清除 AWLTR 位 */
@@ -1086,7 +1086,7 @@ void DFSDM_SetAWDThreshold(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_HighThre
     /* 设置或重置 AWLTR 位 */
     tmpreg2 |= (DFSDM_LowThreshold  << 8 );
 
-    /* 写入DFSDMx AWLTR 寄存器 */
+    /* 写入 DFSDMx AWLTR 寄存器 */
     DFSDMx -> FLTAWLTR = tmpreg2;
 }
 
@@ -1115,7 +1115,7 @@ void DFSDM_SelectInjectedChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_In
     assert_param(IS_DFSDM_ALL_FILTER(DFSDMx));
     assert_param(IS_DFSDM_INJECT_CHANNEL(DFSDM_InjectedChannelx));
 
-    /* 获取DFSDMx JCHGR 值 */
+    /* 获取 DFSDMx JCHGR 值 */
     tmpreg1 = DFSDMx -> FLTJCHGR;
 
     /* 清除 JCHGR 位 */
@@ -1124,7 +1124,7 @@ void DFSDM_SelectInjectedChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_In
     /* 设置或重置 JCHGR 位 */
     tmpreg1 |= DFSDM_InjectedChannelx;
 
-    /* 写入DFSDMx JCHGR 寄存器 */
+    /* 写入 DFSDMx JCHGR 寄存器 */
     DFSDMx -> FLTJCHGR |= tmpreg1;
 }
 
@@ -1153,7 +1153,7 @@ void DFSDM_SelectRegularChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_Reg
     assert_param(IS_DFSDM_ALL_FILTER(DFSDMx));
     assert_param(IS_DFSDM_REGULAR_CHANNEL(DFSDM_RegularChannelx));
 
-    /* 获取DFSDMx CR1 值 */
+    /* 获取 DFSDMx CR1 值 */
     tmpreg1 = DFSDMx -> FLTCR1;
 
     /* 清除 RCH 位 */
@@ -1162,7 +1162,7 @@ void DFSDM_SelectRegularChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_Reg
     /* 设置或重置 RCH 位 */
     tmpreg1 |= DFSDM_RegularChannelx;
 
-    /* 写入DFSDMx CR1 寄存器 */
+    /* 写入 DFSDMx CR1 寄存器 */
     DFSDMx -> FLTCR1 = tmpreg1;
 }
 
@@ -1211,7 +1211,7 @@ void DFSDM_StartSoftwareRegularConversion(DFSDM_Filter_TypeDef* DFSDMx) {
 }
 
 /**
-  * 简介:  选择触发信号以启动所选DFSDMx 的注入转换。
+  * 简介:  选择触发信号以启动所选 DFSDMx 的注入转换。
   * 
   * 参数:  DFSDMx: 指定要选择的筛选器:
   *         此参数可以是以下值之一:
@@ -1246,7 +1246,7 @@ void DFSDM_ConfigInjectedTrigger(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_Tr
 
     assert_param(IS_DFSDM_TRIGGER_EDGE(DFSDM_TriggerEdge));
 
-    /* 获取DFSDMx CR1 值 */
+    /* 获取 DFSDMx CR1 值 */
     tmpreg1 = DFSDMx -> FLTCR1;
 
     /* 清除 JEXTSEL & JEXTEN 位 */
@@ -1255,7 +1255,7 @@ void DFSDM_ConfigInjectedTrigger(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_Tr
     /* 设置或重置 JEXTSEL & JEXTEN 位 */
     tmpreg1 |= (DFSDM_Trigger | DFSDM_TriggerEdge);
 
-    /* 写入DFSDMx CR1 寄存器 */
+    /* 写入 DFSDMx CR1 寄存器 */
     DFSDMx -> FLTCR1 = tmpreg1;
 }
 
@@ -1403,7 +1403,7 @@ void DFSDM_SelectInjectedConversionMode(DFSDM_Filter_TypeDef* DFSDMx, uint32_t D
     /* 清除 JSCAN 位 */
     DFSDMx -> FLTCR1 &= ~(DFSDM_FLTCR1_JSCAN);
 
-    /* 写入DFSDMx CR1 寄存器 */
+    /* 写入 DFSDMx CR1 寄存器 */
     DFSDMx -> FLTCR1 |= DFSDM_InjectConvMode;
 }
 
@@ -2024,7 +2024,7 @@ ITStatus DFSDM_GetITStatus(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_IT) {
   * 
   * 返回值: DFSDM_IT 的新状态(SET 或 RESET)。
   * 
-  * 注意:   时钟缺失中断仅由DFSDM0处理。
+  * 注意:   时钟缺失中断仅由 DFSDM0处理。
   */
 ITStatus DFSDM_GetClockAbsenceITStatus(uint32_t DFSDM_IT_CLKAbsence) {
     ITStatus bitstatus = RESET;
@@ -2056,7 +2056,7 @@ ITStatus DFSDM_GetClockAbsenceITStatus(uint32_t DFSDM_IT_CLKAbsence) {
   * 
   * 返回值: DFSDM_IT 的新状态(SET 或 RESET)。
   * 
-  * 注意:   短路中断仅由DFSDM0处理。
+  * 注意:   短路中断仅由 DFSDM0处理。
   */
 ITStatus DFSDM_GetShortCircuitITStatus(uint32_t DFSDM_IT_SCR) {
     ITStatus bitstatus = RESET;
@@ -2093,7 +2093,7 @@ ITStatus DFSDM_GetShortCircuitITStatus(uint32_t DFSDM_IT_SCR) {
   * 
   * 返回值: DFSDM_IT 的新状态(SET 或 RESET)。
   * 
-  * 注意:   时钟缺失中断仅由DFSDM0处理。
+  * 注意:   时钟缺失中断仅由 DFSDM0处理。
   */
 ITStatus DFSDM_GetClockAbsenceITStatus(uint32_t Instance, uint32_t DFSDM_IT_CLKAbsence) {
     ITStatus bitstatus = RESET;

@@ -645,7 +645,7 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
  *** Flags : ***
  ===============
  [..]
-   (#) CRYP_FLAG_IFEM : 当输入FIFO为空时设置。这个标志只能由硬件清除。
+   (#) CRYP_FLAG_IFEM : 当输入FIFO 为空时设置。这个标志只能由硬件清除。
 
    (#) CRYP_FLAG_IFNF : 当输入FIFO未满时设置。该标志仅由硬件清除。
 
@@ -671,7 +671,7 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
 
       -@- 该中断通过对输入FIFO进行写操作而被清除，直到它容纳4个或更多的字。
           输入FIFO服务中断INMIS是通过 CRYP使能位启用的。因此，当CRYP被禁用时，
-          即使输入FIFO为空，INMIS信号也是低电平。
+          即使输入FIFO 为空，INMIS信号也是低电平。
 
 
 

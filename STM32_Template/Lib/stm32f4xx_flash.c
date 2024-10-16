@@ -879,7 +879,7 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
 
       (#)正确写入所有需要编程的选项字节后，
            调用 FLASH_OB_Launch() 函数启动选项字节编程过程。
-      -@-将IWDG模式从HW更改为SW或从SW更改为 HW时，
+      -@-将 IWDG模式从HW更改为SW或从SW更改为 HW时，
            需要进行系统重置以使更改生效。
       (#)调用 FLASH_OB_Lock() 函数以禁用 FLASH选项控制寄存器访问
           (建议用于保护选项字节免受可能不需要的操作)

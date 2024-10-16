@@ -1010,7 +1010,7 @@ typedef struct {
 
 #define UART_TOCR_TIME_Pos			0		//超时时间长度，单位为 10/BAUDRATE 秒
 #define UART_TOCR_TIME_Msk			(0xFFF<< UART_TOCR_TIME_Pos)
-#define UART_TOCR_MODE_Pos			12		//0 只有当FIFO 中有数时才触发超时中断    1 即使FIFO 中没有数也可触发超时中断
+#define UART_TOCR_MODE_Pos			12		//0 只有当 FIFO 中有数时才触发超时中断    1 即使FIFO 中没有数也可触发超时中断
 #define UART_TOCR_MODE_Msk			(0x01 << UART_TOCR_MODE_Pos)
 #define UART_TOCR_IFCLR_Pos			13		//TO Interrupt Flag Clear，写1清除超时中断标志
 #define UART_TOCR_IFCLR_Msk			(0x01 << UART_TOCR_IFCLR_Pos)
@@ -1352,7 +1352,7 @@ typedef struct {
 #define ADC_CR_AVG_Msk				(0x03 << ADC_CR_AVG_Pos)
 #define ADC_CR_RESET_Pos			3		//复位模拟模块，置位至少需两个采样周期
 #define ADC_CR_RESET_Msk			(0x01 << ADC_CR_RESET_Pos)
-#define ADC_CR_DMAEN_Pos			4		//四位，每位对应一个序列，同一时刻只能一个有一个序列使能DMA，0 能通过 CPU读取DATA_FIFO   1 只能通过DMA读取DATA_FIFO
+#define ADC_CR_DMAEN_Pos			4		//四位，每位对应一个序列，同一时刻只能一个有一个序列使能DMA，0 能通过 CPU读取 DATA_FIFO   1 只能通过DMA读取 DATA_FIFO
 #define ADC_CR_DMAEN_Msk			(0x0F << ADC_CR_DMAEN_Pos)
 #define ADC_CR_FFCLR_Pos			8		//FIFO Clear，四位，每位对应一个序列
 #define ADC_CR_FFCLR_Msk			(0x0F << ADC_CR_FFCLR_Pos)
@@ -2171,7 +2171,7 @@ typedef struct {
 
 #define CAN_SR_RXDA_Pos				0		//Receive Data Available，接收 FIFO 中有完整消息可以读取
 #define CAN_SR_RXDA_Msk				(0x01 << CAN_SR_RXDA_Pos)
-#define CAN_SR_RXOV_Pos				1		//Receive FIFO Overrun，新接收的信息由于接收 FIFO已满而丢掉
+#define CAN_SR_RXOV_Pos				1		//Receive FIFO Overrun，新接收的信息由于接收 FIFO 已满而丢掉
 #define CAN_SR_RXOV_Msk				(0x01 << CAN_SR_RXOV_Pos)
 #define CAN_SR_TXBR_Pos				2		//Transmit Buffer Release，0 正在处理前面的发送，现在不能写新的消息    1 可以写入新的消息发送
 #define CAN_SR_TXBR_Msk				(0x01 << CAN_SR_TXBR_Pos)
@@ -3149,7 +3149,7 @@ typedef struct {
 #define RTC_IF_QSEC_Pos				7
 #define RTC_IF_QSEC_Msk				(0x01 << RTC_IF_QSEC_Pos)
 
-#define RTC_TRIM_ADJ_Pos		    0       //用于调整BASECNT 的计数周期，默认为32768，如果DEC为1，则计数周期调整为32768-ADJ，否则调整为32768+ADJ
+#define RTC_TRIM_ADJ_Pos		    0       //用于调整BASECNT 的计数周期，默认为32768，如果 DEC为1，则计数周期调整为32768-ADJ，否则调整为32768+ADJ
 #define RTC_TRIM_ADJ_Msk		    (0xFF << RTC_TRIM_ADJ_Pos)
 #define RTC_TRIM_DEC_Pos		    8
 #define RTC_TRIM_DEC_Msk		    (0x01 << RTC_TRIM_DEC_Pos)

@@ -299,12 +299,12 @@ void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
     }
 }
 
-/** @defgroup FSMC_Group2 NAND控制器功能
- *  简介   NAND控制器功能
+/** @defgroup FSMC_Group2 NAND 控制器功能
+ *  简介   NAND 控制器功能
  *
 @verbatim
  ===============================================================================
-                    ##### NAND控制器功能 #####
+                    ##### NAND 控制器功能 #####
  ===============================================================================
 
  [..]  按照以下顺序配置 FSMC 与连接到 NAND Bank的8位或16位NAND内存接口:
@@ -322,7 +322,7 @@ void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
       FSMC_NANDInitTypeDef  FSMC_NANDInitStructure;
       并用结构成员的允许值填充FSMC_NANDInitStructure变量。
 
-  (#) 通过调用函数初始化 NAND控制器
+  (#) 通过调用函数初始化 NAND 控制器
       FSMC_NANDInit(&FSMC_NANDInitStructure);
 
   (#) 然后启用 NAND Bank，比如说:
@@ -589,12 +589,12 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
     return(eccval);
 }
 
-/** @defgroup FSMC_Group3 PCCARD控制器功能
- *  简介   PCCARD控制器功能
+/** @defgroup FSMC_Group3 PCCARD 控制器功能
+ *  简介   PCCARD 控制器功能
  *
 @verbatim
  ===============================================================================
-                    ##### PCCARD控制器功能 #####
+                    ##### PCCARD 控制器功能 #####
  ===============================================================================
 
  [..]  应遵循以下顺序来配置 FSMC，使其与连接到PCCARD Bank的16位PC卡兼容存储器连接。
@@ -612,7 +612,7 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
       FSMC_PCCARDInitTypeDef FSMC_PCCARDInitStructure;
       并在FSMC_PCCARDInitStructure变量中填入该结构成员的允许值。
 
-  (#) 通过调用函数来初始化PCCARD控制器
+  (#) 通过调用函数来初始化PCCARD 控制器
       FSMC_PCCARDInit(&FSMC_PCCARDInitStructure)。
 
   (#) 然后启用 PCCARD Back:

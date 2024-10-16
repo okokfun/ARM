@@ -349,7 +349,7 @@ void HASH_StartDigest(void) {
   * 简介:  保存哈希外设上下文。
   * 
   * 注意:   仅当当前未处理任何块时，才能保存上下文。
-    *                  因此用户必须等待DINIS=1(最后一个块已处理，输入FIFO为空)或NBW！=0(FIFO未满，未进行任何处理)。
+    *                  因此用户必须等待DINIS=1(最后一个块已处理，输入FIFO 为空)或NBW！=0(FIFO未满，未进行任何处理)。
     * 
   * 参数:  HASH_ContextSave: 指向包含当前上下文存储库的 HASH_Context 结构的指针。
   * 

@@ -622,7 +622,7 @@ void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用 TTCM模式 */
+        /* 启用 TTCM 模式 */
         CANx->MCR |= CAN_MCR_TTCM;
 
         /* Set TGT 位 */
@@ -630,7 +630,7 @@ void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState) {
         CANx->sTxMailBox[1].TDTR |= ((uint32_t)CAN_TDT1R_TGT);
         CANx->sTxMailBox[2].TDTR |= ((uint32_t)CAN_TDT2R_TGT);
     } else {
-        /* 禁用 TTCM模式 */
+        /* 禁用 TTCM 模式 */
         CANx->MCR &= (uint32_t)(~(uint32_t)CAN_MCR_TTCM);
 
         /* 重置 TGT 位 */
@@ -879,7 +879,7 @@ void CAN_Receive(CAN_TypeDef* CANx, uint8_t FIFONumber, CanRxMsg* RxMessage) {
     }
 
     RxMessage->RTR = (uint8_t)0x02 & CANx->sFIFOMailBox[FIFONumber].RIR;
-    /* 获取DLC */
+    /* 获取 DLC */
     RxMessage->DLC = (uint8_t)0x0F & CANx->sFIFOMailBox[FIFONumber].RDTR;
     /* 获取 FMI */
     RxMessage->FMI = (uint8_t)0xFF & (CANx->sFIFOMailBox[FIFONumber].RDTR >> 8);
@@ -1240,7 +1240,7 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
 
         (++) CAN_FLAG_FOV0
         (++) CAN_FLAG_FOV1   : FIFO 0 和1溢出标志
-                               当接收到新消息并在FIFO已满时通过过滤器时设置。
+                               当接收到新消息并在FIFO 已满时通过过滤器时设置。
 
       (+) 操作模式标志
 
@@ -1288,7 +1288,7 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
 
         (++) CAN_IT_FOV0,
         (++) CAN_IT_FOV1    :  FIFO 0 和 FIFO1溢出中断(如果启用)，
-                                    当FIFO已满时接收到新消息并通过过滤器时，这些中断源处于待定状态。
+                                    当 FIFO 已满时接收到新消息并通过过滤器时，这些中断源处于待定状态。
 
       (+) 操作模式中断
 

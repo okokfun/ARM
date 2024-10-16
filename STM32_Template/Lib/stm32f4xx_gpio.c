@@ -181,7 +181,7 @@ void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct) {
     assert_param(IS_GPIO_PUPD(GPIO_InitStruct->GPIO_PuPd));
 
     /* ------------------------- 配置端口引脚 ---------------- */
-    /*-- GPIO模式配置 --*/
+    /*-- GPIO 模式配置 --*/
     for (pinpos = 0x00; pinpos < 0x10; pinpos++) {
         pos = ((uint32_t)0x01) << pinpos;
         /* 获取端口引脚位置 */

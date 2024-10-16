@@ -822,7 +822,7 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
     ==================
     [..]
       (+) LTDC_IT_LI: 当达到一个编程的线路时，会产生线路中断。线路中断的位置是在LTDC_LIPR 寄存器中编程的。
-      (+) LTDC_IT_FU: 当从一个空层FIFO请求一个像素时，产生FIFO Underrun中断。
+      (+) LTDC_IT_FU: 当从一个空层FIFO请求一个像素时，产生 FIFO Underrun中断。
       (+) LTDC_IT_TERR: 传输错误中断是在数据传输过程中发生AHB总线错误时产生的。
       (+) LTDC_IT_RR:当在垂直消隐期间执行影子寄存器重新加载时，产生寄存器重新加载中断。
 
