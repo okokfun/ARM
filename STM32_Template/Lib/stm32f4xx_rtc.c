@@ -52,7 +52,7 @@
  [..] 备份域重置将所有RTC 寄存器和寄存器设置为其重置值。BKPSRAM 不受此复位的影响。
         重置BKPSRAM 的唯一方法是通过Flash接口请求保护级别从1更改为0。
  [..] 发生以下事件之一时，将生成备份域重置:
-   (#) 软件重置，通过设置 RCC 备份域控制寄存器(RCC_BDCR)中的BDRST位触发。
+   (#) 软件重置，通过设置 RCC 备份域控制寄存器(RCC_BDCR)中的 BDRST 位触发。
         您可以使用 RCC_BackupResetCmd()。
    (#) VDD或VBAT 电源打开(如果两个电源之前都已关闭)。
 
@@ -64,8 +64,8 @@
  [..] 要启用对 RTC 域和 RTC 寄存器的访问，请执行以下操作:
     (+) 启用电源控制器 (PWR)APB1 接口使用 RCC_APB1PeriphClockCmd() 函数。
     (+) 使用 PWR_BackupAccessCmd()  函数启用对 RTC 域的访问。
-    (+) 使用 RCC_RTCCLKConfig() 函数选择RTC时钟源。
-    (+) 使用 RCC_RTCCLKCmd()  函数启用 RTC时钟。
+    (+) 使用 RCC_RTCCLKConfig() 函数选择 RTC 时钟源。
+    (+) 使用 RCC_RTCCLKCmd()  函数启用 RTC 时钟。
 
 
                   ##### 如何使用 RTC驱动程序 #####
@@ -103,7 +103,7 @@
    (+) AFO_ALARM: 该输出用于管理RTC警报A、警报B和WaKeUp信号。
                   要在 RTC_AF1 引脚上输出选定的 RTC信号，请使用 RTC_OutputConfig() 函数。
    (+) AFO_CALIB: 该输出为512Hz信号或1Hz。
-                  要在 RTC_AF1 引脚上输出RTC时钟，请使用 RTC_CalibOutputCmd() 函数。
+                  要在 RTC_AF1 引脚上输出RTC 时钟，请使用 RTC_CalibOutputCmd() 函数。
 
  *** 平滑数字校准配置 ***
  ================================================
@@ -120,8 +120,8 @@
  *** 时间戳配置 ***
  ===============================
  [..]
-   (+) 配置 RTC_AF1触发器，并使用 RTC_TimeStampCmd() 函数启用 RTC时间戳。
-   (+) 要读取RTC时间戳时间和日期寄存器，请使用 RTC_GetTimeStamp() 函数。
+   (+) 配置 RTC_AF1触发器，并使用 RTC_TimeStampCmd() 函数启用 RTC 时间戳。
+   (+) 要读取RTC 时间戳时间和日期寄存器，请使用 RTC_GetTimeStamp() 函数。
    (+) 要读取RTC TimeStamp SubSecond寄存器，请使用 RTC_GetTimeStampSubSecond() 函数。
    (+) 根据RTC_TAFCR 寄存器中 TAMP1INSEL位的值，TAMPER1替代函数可以映射到 RTC_AF1(PC13)
        或 RTC_AF2(PI8)。您可以使用 RTC_TamperPinSelection() 函数选择相应的管脚。
@@ -158,7 +158,7 @@
       只有当 RTC 时钟源为 LSE 或 LSI 时，才能从 STOP 和 Standby 模式唤醒。
 
 
-          ##### RTC_AF1复用功能的选择 #####
+          ##### RTC_AF1 复用功能的选择 #####
  ===================================================================
  [..] RTC_AF1 引脚(PC13)可用于以下目的:
    (+) AFO_ALARM output
@@ -195,7 +195,7 @@
    +-------------------------------------------------------------------------------------------------------------+
 
 
-        #####  RTC_AF2复用功能的选择 #####
+        #####  RTC_AF2 复用功能的选择 #####
  ===================================================================
  [..] RTC_AF2 引脚(PI8)可用于以下目的:
    (+) AFI_TAMPER
@@ -300,7 +300,7 @@ static uint8_t RTC_Bcd2ToByte(uint8_t Value);
    (#) 所有的 RTC 寄存器都有写保护。对 RTC 寄存器的写入是通过向写保护寄存器RTC_WPR写一个键来实现的。
 
    (#) 要配置 RTC日历，用户应用程序应进入初始化模式。在这个模式下，日历计数器被停止，
-       其值可以被更新。当初始化序列完成后，日历在4个RTCCLK周期后重新开始计数。
+       其值可以被更新。当初始化序列完成后，日历在 4个RTCCLK周期后重新开始计数。
 
    (#) 在日历初始化、日历更新或从低功耗模式唤醒后，要通过影子寄存器读取日历，软件必须首先清除
        RSF标志。然后，软件必须等待它再次被设置，然后再读取日历，这意味着日历寄存器已经被正确地复制到
@@ -312,7 +312,7 @@ static uint8_t RTC_Bcd2ToByte(uint8_t Value);
 
 /**
   * 简介:  将 RTC 寄存器去初始化为其默认复位值。
-  * 注意:   这个功能并不重置 RTC时钟源和 RTC 备份数据寄存器。
+  * 注意:   这个功能并不重置 RTC 时钟源和 RTC 备份数据寄存器。
   * 
   * 参数:  无
   * 
@@ -512,7 +512,7 @@ ErrorStatus RTC_EnterInitMode(void) {
 /**
   * 简介:  退出 RTC 初始化模式。
   * 
-  * 注意:   当初始化序列完成后，日历在4个RTCCLK周期后重新开始计数。
+  * 注意:   当初始化序列完成后，日历在 4个RTCCLK周期后重新开始计数。
   * 注意:   RTC 初始化模式是受写保护的，在调用此函数前请使用 RTC_WriteProtectionCmd(DISABLE)。
   * 
   * 参数:  无
@@ -667,8 +667,8 @@ void RTC_BypassShadowCmd(FunctionalState NewState) {
   * 参数:  RTC_TimeStruct: 指向RTC_TimeTypeDef 结构的指针，该结构包含RTC 的时间配置信息。
   * 
   * 返回值: ErrorStatus枚举值:
-  *          - SUCCESS: RTC时间寄存器已被配置
-  *          - ERROR: RTC时间寄存器没有配置
+  *          - SUCCESS: RTC 时间寄存器已被配置
+  *          - ERROR: RTC 时间寄存器没有配置
   */
 ErrorStatus RTC_SetTime(uint32_t RTC_Format, RTC_TimeTypeDef* RTC_TimeStruct) {
     uint32_t tmpreg = 0;
@@ -1214,7 +1214,7 @@ ErrorStatus RTC_AlarmCmd(uint32_t RTC_Alarm, FunctionalState NewState) {
   *     @arg RTC_Alarm_B: 选择报警B
   * 
   * 参数:  RTC_AlarmSubSecondValue: 指定子秒值。
-  *   此参数可以是0到 0x00007FFF之间的值。
+  *   此参数可以是 0 到 0x00007FFF 之间的值。
   * 
   * 参数:  RTC_AlarmSubSecondMask:  指定子秒屏蔽。
   *   此参数可以是以下值的任意组合:
@@ -1343,7 +1343,7 @@ void RTC_WakeUpClockConfig(uint32_t RTC_WakeUpClock) {
     RTC->WPR = 0xCA;
     RTC->WPR = 0x53;
 
-    /* 清除 CR中的唤醒定时器时钟源位寄存器 */
+    /* 清除 CR 中的唤醒定时器时钟源位寄存器 */
     RTC->CR &= (uint32_t)~RTC_CR_WUCKSEL;
 
     /* 配置时钟源 */
@@ -1359,7 +1359,7 @@ void RTC_WakeUpClockConfig(uint32_t RTC_WakeUpClock) {
   * 注意:   RTC WakeUp计数器只能在禁用 RTC WakeUp时写入(使用 RTC_WakeUpCmd(DISABLE))。
   * 
   * 参数:  RTC_WakeUpCounter: 指定唤醒计数器.
-  *          此参数可以是0x0000到 0xFFFF之间的值。
+  *          此参数可以是 0x0000 到 0xFFFF 之间的值。
   * 
   * 返回值: 无
   */
@@ -1652,7 +1652,7 @@ ErrorStatus RTC_CoarseCalibCmd(FunctionalState NewState) {
 }
 
 /**
-  * 简介:  启用或禁用通过相关引脚输出的 RTC时钟。
+  * 简介:  启用或禁用通过相关引脚输出的 RTC 时钟。
   * 
   * 参数:  NewState: 数字校准输出的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
@@ -1668,10 +1668,10 @@ void RTC_CalibOutputCmd(FunctionalState NewState) {
     RTC->WPR = 0x53;
 
     if (NewState != DISABLE) {
-        /* 启用 RTC时钟输出 */
+        /* 启用 RTC 时钟输出 */
         RTC->CR |= (uint32_t)RTC_CR_COE;
     } else {
-        /* 禁用 RTC时钟输出 */
+        /* 禁用 RTC 时钟输出 */
         RTC->CR &= (uint32_t)~RTC_CR_COE;
     }
 
@@ -1722,7 +1722,7 @@ void RTC_CalibOutputConfig(uint32_t RTC_CalibOutput) {
   *     @arg RTC_SmoothCalibPlusPulses_Reset: 未添加RTCCLK脉冲。
   * 
   * 参数:  RTC_SmouthCalibMinusPulsesValue: 选择 CALM[8:0]位的值。
-  *        此参数可以是0到 0x000001FF之间的任意值。
+  *        此参数可以是 0 到 0x000001FF 之间的任意值。
   * 
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: RTC校准寄存器已配置
@@ -2083,7 +2083,7 @@ void RTC_TamperPullUpCmd(FunctionalState NewState) {
   * 简介:  在指定的 RTC 备份数据寄存器中写入数据。
   * 
   * 参数:  RTC_BKP_DR: RTC 备份数据寄存器号。
-  *          此参数可以是: RTC_BKP_DRx，其中 x 可以从 0到19指定寄存器。
+  *          此参数可以是: RTC_BKP_DRx，其中 x 可以从 0 到19指定寄存器。
   * 
   * 参数:  Data: 写入指定RTC 备份数据寄存器的数据。
   * 
@@ -2106,7 +2106,7 @@ void RTC_WriteBackupRegister(uint32_t RTC_BKP_DR, uint32_t Data) {
   * 简介:  从指定的 RTC 备份数据寄存器读取数据。
   * 
   * 参数:  RTC_BKP_DR: RTC 备份数据寄存器号。
-  *          此参数可以是: RTC_BKP_DRx，其中 x 可以从 0到19指定寄存器。
+  *          此参数可以是: RTC_BKP_DRx，其中 x 可以从 0 到19指定寄存器。
   * 
   * 返回值: 无
   */
@@ -2156,7 +2156,7 @@ void RTC_TamperPinSelection(uint32_t RTC_TamperPin) {
 /**
   * 简介:  选择 RTC 时间戳引脚。
   * 
-  * 参数:  RTC_TimeStampPin: RTC时间戳引脚。
+  * 参数:  RTC_TimeStampPin: RTC 时间戳引脚。
   *          此参数可以是以下值之一:
   *            @arg RTC_TimeStampPin_PC13: PC13 被选为 RTC 时间戳引脚。
   *            @arg RTC_TimeStampPin_PI8: PI8 被选为 RTC 时间戳引脚。
@@ -2292,12 +2292,12 @@ ErrorStatus RTC_SynchroShiftConfig(uint32_t RTC_ShiftAdd1S, uint32_t RTC_ShiftSu
        (++) 配置 RTC，以检测RTC 篡改事件，使用 RTC_TamperTriggerConfig()和
             RTC_TamperCmd() 函数配置 RTC以检测RTC 篡改事件。
 
-   (+) 要启用 RTC时间戳中断，需要按以下顺序进行。
+   (+) 要启用 RTC 时间戳中断，需要按以下顺序进行。
        (++) 配置并启用中断模式下的 EXTI 21号线，并使用EXTI_Init() 函数
             选择上升沿灵敏度。使用EXTI_Init() 函数选择上升沿灵敏度。
        (++) 使用NVIC_Init() 函数配置并启用NVIC 中的 TAMP_STAMP IRQ通道。NVIC_Init() 函数
             配置并启用NVIC 的 TAMP_STAMP IRQ通道。
-       (++) 配置 RTC，以检测RTC时间戳事件，使用 RTC_TimeStampCmd() 函数检测RTC时间戳事件。
+       (++) 配置 RTC，以检测RTC 时间戳事件，使用 RTC_TimeStampCmd() 函数检测RTC 时间戳事件。
 
 @endverbatim
   */
@@ -2330,12 +2330,12 @@ void RTC_ITConfig(uint32_t RTC_IT, FunctionalState NewState) {
     if (NewState != DISABLE) {
         /* 配置 RTC_CR 寄存器中的中断。 */
         RTC->CR |= (uint32_t)(RTC_IT & ~RTC_TAFCR_TAMPIE);
-        /* 在 RTC_TAFCR中配置防篡改中断 */
+        /* 在 RTC_TAFCR 中配置防篡改中断 */
         RTC->TAFCR |= (uint32_t)(RTC_IT & RTC_TAFCR_TAMPIE);
     } else {
         /* 配置 RTC_CR 寄存器中的中断。 */
         RTC->CR &= (uint32_t)~(RTC_IT & (uint32_t)~RTC_TAFCR_TAMPIE);
-        /* 在 RTC_TAFCR中配置防篡改中断 */
+        /* 在 RTC_TAFCR 中配置防篡改中断 */
         RTC->TAFCR &= (uint32_t)~(RTC_IT & RTC_TAFCR_TAMPIE);
     }
 
@@ -2434,10 +2434,10 @@ ITStatus RTC_GetITStatus(uint32_t RTC_IT) {
     /* 获取TAMPER Interrupt enable bit and pending 位 */
     tmpreg = (uint32_t)(RTC->TAFCR & (RTC_TAFCR_TAMPIE));
 
-    /* 获取Interrupt enable 状态 */
+    /* 获取 Interrupt enable 状态 */
     enablestatus = (uint32_t)((RTC->CR & RTC_IT) | (tmpreg & (RTC_IT >> 15)) | (tmpreg & (RTC_IT >> 16)));
 
-    /* 获取Interrupt pending 位 */
+    /* 获取 Interrupt pending 位 */
     tmpreg = (uint32_t)((RTC->ISR & (uint32_t)(RTC_IT >> 4)));
 
     /* 获取status of the 中断 */
@@ -2499,7 +2499,7 @@ static uint8_t RTC_ByteToBcd2(uint8_t Value) {
 /**
   * 简介:  从2位BCD转换为二进制。
   * 
-  * 参数:  Value: 要转换的BCD值。
+  * 参数:  Value: 要转换的 BCD值。
   * 
   * 返回值: 转换的字
   */

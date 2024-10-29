@@ -163,7 +163,7 @@ void SPI_WriteWithWait(SPI_TypeDef * SPIx, uint32_t data) {
 * 输    入: SPI_TypeDef * SPIx		指定要被设置的 SPI，有效值包括SPI0、SPI1
 *			uint32_t data 			要发送的数据
 * 输    出: uint32_t				接收到的数据
-* 注意事项: 对于同一个 SPI 模块，此函数不应与SPI_Write()混着用，因为SPI_Write()不清除 SPI_STAT_RFNE状态
+* 注意事项: 对于同一个 SPI 模块，此函数不应与 SPI_Write()混着用，因为SPI_Write()不清除 SPI_STAT_RFNE状态
 ******************************************************************************************************************************************/
 uint32_t SPI_ReadWrite(SPI_TypeDef * SPIx, uint32_t data) {
     SPIx->DATA = data;
@@ -335,7 +335,7 @@ void I2S_Init(SPI_TypeDef * SPIx, I2S_InitStructure * initStruct) {
 * 注意事项: 无
 ******************************************************************************************************************************************/
 void I2S_Open(SPI_TypeDef * SPIx) {
-    SPIx->CTRL |= (0x01 << SPI_CTRL_EN_Pos);	//使能SPI才能使用 TX Complete中断
+    SPIx->CTRL |= (0x01 << SPI_CTRL_EN_Pos);	//使能 SPI才能使用 TX Complete中断
     SPIx->I2SCR |= (0x01 << SPI_I2SCR_EN_Pos);
 }
 

@@ -206,7 +206,7 @@ void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct) {
     /* 为选定的 DAC 通道进行配置:缓冲器输出、触发器、波形生成、波形生成的掩码/振幅 */
     /* 根据 DAC_Trigger设置 TSELx 和 TENx 位值 */
     /* 根据 DAC_WaveGeneration设置 WAVEx 位值 */
-    /* 根据 DAC_LFSRUnmask_TriangleAmplitude设置MAMPx 位值 */
+    /* 根据 DAC_LFSRUnmask_TriangleAmplitude 设置MAMPx 位值 */
     /* 根据 DAC_OutputBuffer设置BOFFx 位值 */
     tmpreg2 = (DAC_InitStruct->DAC_Trigger | DAC_InitStruct->DAC_WaveGeneration |
                DAC_InitStruct->DAC_LFSRUnmask_TriangleAmplitude | \

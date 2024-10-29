@@ -231,7 +231,7 @@ void HASH_Reset(void) {
  ===============================================================================
  [..] 本节提供了允许生成消息摘要的函数:
    (+) 在 IN FIFO 中推送数据:使用 HASH_DataIn()
-   (+) 获取IN FIFO 中设置的字数，使用 HASH_GetInFIFOWordsNbr()
+   (+) 获取 IN FIFO 中设置的字数，使用 HASH_GetInFIFOWordsNbr()
    (+) 使用 HASH_SetLastWordValidBitsNbr()设置最后一个字的有效位数
    (+) 开始摘要计算:使用 HASH_StartDigest()
    (+) 获取摘要消息:使用 HASH_GetDigest()
@@ -244,7 +244,7 @@ void HASH_Reset(void) {
   * 简介:  配置消息最后一个字的有效位数
   * 
   * 参数:  ValidNumber:消息最后一个字的有效位数。
-  *           此参数必须是介于 0 和0x1F之间的数字。
+  *           此参数必须是介于 0 和 0x1F 之间的数字。
   *             - 0x00: 最后写入的所有32位数据均有效
   *             - 0x01: 只有最后写入数据的位[0]有效
   *             - 0x02: 只有最后写入的数据的位[1:0]有效
@@ -273,7 +273,7 @@ void HASH_SetLastWordValidBitsNbr(uint16_t ValidNumber) {
   * 返回值: 无
   */
 void HASH_DataIn(uint32_t Data) {
-    /* 在DIN寄存器中写入新数据 */
+    /* 在 DIN寄存器中写入新数据 */
     HASH->DIN = Data;
 }
 
@@ -334,7 +334,7 @@ void HASH_StartDigest(void) {
 
  [..] 本节提供了允许保存和存储HASH上下文的函数
 
- [..] 可以中断HASH/HMAC进程以执行具有较高优先级的另一个处理，
+ [..] 可以中断HASH/HMAC 进程以执行具有较高优先级的另一个处理，
 	并在较高优先级任务完成后完成中断的进程。
 	为此，中断任务的上下文必须从HASH寄存器保存到内存，然后从内存恢复到HASH注册表。
 
@@ -422,10 +422,10 @@ void HASH_AutoStartDigest(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 在DMA 传输结束时启用最终消息摘要的自动启动 */
+        /* 在 DMA 传输结束时启用最终消息摘要的自动启动 */
         HASH->CR &= ~HASH_CR_MDMAT;
     } else {
-        /* 在DMA 传输结束时禁用最终消息摘要的自动启动 */
+        /* 在 DMA 传输结束时禁用最终消息摘要的自动启动 */
         HASH->CR |= HASH_CR_MDMAT;
     }
 }
@@ -552,7 +552,7 @@ FlagStatus HASH_GetFlagStatus(uint32_t HASH_FLAG) {
     /* 检查参数 */
     assert_param(IS_HASH_GET_FLAG(HASH_FLAG));
 
-    /* 检查FLAG是否在CR 寄存器中 */
+    /* 检查FLAG是否在 CR 寄存器中 */
     if ((HASH_FLAG & HASH_FLAG_DINNE) != (uint32_t)RESET ) {
         tempreg = HASH->CR;
     } else { /* FLAG 在 SR 寄存器中 */
@@ -564,7 +564,7 @@ FlagStatus HASH_GetFlagStatus(uint32_t HASH_FLAG) {
         /* HASH 被设置 */
         bitstatus = SET;
     } else {
-        /* HASH_FLAG复位 */
+        /* HASH_FLAG 复位 */
         bitstatus = RESET;
     }
 

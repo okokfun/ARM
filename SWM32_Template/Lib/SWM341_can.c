@@ -43,7 +43,7 @@ void CAN_Init(CAN_TypeDef * CANx, CAN_InitStructure * initStruct) {
             break;
     }
 
-    CAN_Close(CANx);	//一些关键寄存器只能在CAN关闭时设置
+    CAN_Close(CANx);	//一些关键寄存器只能在 CAN关闭时设置
 
     CANx->CR &= ~(CAN_CR_LOM_Msk | CAN_CR_STM_Msk);
     CANx->CR |= (initStruct->Mode << CAN_CR_LOM_Pos);
@@ -375,7 +375,7 @@ void CAN_INTDis(CAN_TypeDef * CANx, uint32_t it) {
 * 功能说明:	查询指定中断状态
 * 输    入: CAN_TypeDef * CANx	指定要被设置的 CAN 接口，有效值包括CAN0、CAN1
 * 输    出: uint32_t			当前中断状态
-* 注意事项: CANx->IF读取清零，因此在中断ISR中只能读取一次，不能多次读取
+* 注意事项: CANx->IF读取清零，因此在中断ISR 中只能读取一次，不能多次读取
 ******************************************************************************************************************************************/
 uint32_t CAN_INTStat(CAN_TypeDef * CANx) {
     return CANx->IF;

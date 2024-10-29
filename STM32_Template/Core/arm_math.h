@@ -44,7 +44,7 @@
    * 介绍
    * ------------
    *
-   * 本用户手册介绍了CMSIS DSP软件库，这是一套在基于Cortex-M处理器的设备上使用的通用信号处理功能。
+   * 本用户手册介绍了 CMSIS DSP软件库，这是一套在基于Cortex-M处理器的设备上使用的通用信号处理功能。
    *
    * 该库分为多个功能，每个功能都涵盖特定类别：
    * - 基本数学函数
@@ -137,10 +137,10 @@
    * Initialize macro __FPU_PRESENT = 1 when building on FPU supported Targets. Enable this macro for M4bf and M4lf libraries
    *
    * <hr>
-   * CMSIS-DSP in ARM::CMSIS Pack
+   * CMSIS-DSP in ARM:: CMSIS Pack
    * -----------------------------
    *
-   * The following files relevant to CMSIS-DSP are present in the <b>ARM::CMSIS</b> Pack directories:
+   * The following files relevant to CMSIS-DSP are present in the <b>ARM:: CMSIS</b> Pack directories:
    * |File/Folder                   |Content                                                                 |
    * |------------------------------|------------------------------------------------------------------------|
    * |\b CMSIS\\Documentation\\DSP  | This documentation                                                     |

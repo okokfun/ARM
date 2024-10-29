@@ -265,7 +265,7 @@ typedef struct {
 #define SYS_CLKSEL_CLK_DIVx_Msk		(0x01 << SYS_CLKSEL_CLK_DIVx_Pos)
 #define SYS_CLKSEL_CLK_Pos			2		//Clock Source	0 LRC	1 PLL   2 XTAL_32K   3 XTAL   4 HRC
 #define SYS_CLKSEL_CLK_Msk			(0x07 << SYS_CLKSEL_CLK_Pos)
-#define SYS_CLKSEL_RTC_Pos			5		//RTC时钟源选择  0 LRC   1 XTAL_32K
+#define SYS_CLKSEL_RTC_Pos			5		//RTC 时钟源选择  0 LRC   1 XTAL_32K
 #define SYS_CLKSEL_RTC_Msk			(0x01 << SYS_CLKSEL_RTC_Pos)
 #define SYS_CLKSEL_IOFILT_Pos		6		//IO Filter时钟选择，0 HRC   2 XTAL   3 LRC
 #define SYS_CLKSEL_IOFILT_Msk		(0x03 << SYS_CLKSEL_IOFILT_Pos)
@@ -369,9 +369,9 @@ typedef struct {
 #define SYS_CLKEN1_QEI_Pos			27
 #define SYS_CLKEN1_QEI_Msk			(0x01 << SYS_CLKEN1_QEI_Pos)
 
-#define SYS_SLEEP_SLEEP_Pos			0		//将该位置1后，系统将进入SLEEP模式
+#define SYS_SLEEP_SLEEP_Pos			0		//将该位置1后，系统将进入 SLEEP模式
 #define SYS_SLEEP_SLEEP_Msk			(0x01 << SYS_SLEEP_SLEEP_Pos)
-#define SYS_SLEEP_STOP_Pos			1		//将该位置1后，系统将进入STOP SLEEP模式
+#define SYS_SLEEP_STOP_Pos			1		//将该位置1后，系统将进入 STOP SLEEP模式
 #define SYS_SLEEP_STOP_Msk			(0x01 << SYS_SLEEP_STOP_Pos)
 
 #define SYS_RSTSR_POR_Pos			0		//1 出现过POR复位，写1清零
@@ -402,10 +402,10 @@ typedef struct {
 #define SYS_USBCR_RSTPLL_Msk		(0x01 << SYS_USBCR_RSTPLL_Pos)
 #define SYS_USBCR_ROLE_Pos			3		//0 由ID引脚决定   2 Host   3 Device
 #define SYS_USBCR_ROLE_Msk			(0x03 << SYS_USBCR_ROLE_Pos)
-#define SYS_USBCR_VBUS_Pos			5		//0 由 VBUS引脚决定   1 强制为高
+#define SYS_USBCR_VBUS_Pos			5		//0 由 VBUS 引脚决定   1 强制为高
 #define SYS_USBCR_VBUS_Msk			(0x01 << SYS_USBCR_VBUS_Pos)
 
-#define SYS_PRNGCR_CLR_Pos			0		//种子清零，至少保持一个LRC时钟周期
+#define SYS_PRNGCR_CLR_Pos			0		//种子清零，至少保持一个 LRC 时钟周期
 #define SYS_PRNGCR_CLR_Msk			(0x01 << SYS_PRNGCR_CLR_Pos)
 #define SYS_PRNGCR_MODE_Pos			1		//0 关闭   2 三时钟模式(RCHF、RCLF、XTAH)   3 两时钟模式(RCHF、RCLF)
 #define SYS_PRNGCR_MODE_Msk			(0x03 << SYS_PRNGCR_MODE_Pos)
@@ -416,7 +416,7 @@ typedef struct {
 #define SYS_IOFILT_TIM_Msk			(0x0F << SYS_IOFILT_TIM_Pos)
 #define SYS_IOFILT_CLKDIV_Pos		4		//0 时钟不分频   1 时钟32 分频
 #define SYS_IOFILT_CLKDIV_Msk		(0x01 << SYS_IOFILT_CLKDIV_Pos)
-#define SYS_IOFILT_IOSEL_Pos		5		//被滤波IO选择，每个IOFILT 可为四个IO 中的一个进行滤波
+#define SYS_IOFILT_IOSEL_Pos		5		//被滤波IO选择，每个 IOFILT 可为四个 IO 中的一个进行滤波
 #define SYS_IOFILT_IOSEL_Msk		(0x03 << SYS_IOFILT_IOSEL_Pos)
 
 #define SYS_PRSTR0_GPIOA_Pos		0		//1 复位GPIOA    0 不复位
@@ -808,7 +808,7 @@ typedef struct {
 } TIMRG_TypeDef;
 
 
-#define TIMRG_HALLIE_HALL0_Pos		0		//HALL0中断使能，HALL0使用 Timer0计数器
+#define TIMRG_HALLIE_HALL0_Pos		0		//HALL0 中断使能，HALL0使用 Timer0计数器
 #define TIMRG_HALLIE_HALL0_Msk		(0x01 << TIMRG_HALLIE_HALL0_Pos)
 #define TIMRG_HALLIE_HALL3_Pos		1
 #define TIMRG_HALLIE_HALL3_Msk		(0x01 << TIMRG_HALLIE_HALL3_Pos)
@@ -1051,9 +1051,9 @@ typedef struct {
 #define SPI_CTRL_MSTR_Msk			(0x01 << SPI_CTRL_MSTR_Pos)
 #define SPI_CTRL_FAST_Pos			13		//1 SPI工作时钟 = SYS_Freq/2    0 SPI工作时钟由SPI->CTRL.CLKDIV设置
 #define SPI_CTRL_FAST_Msk			(0x01 << SPI_CTRL_FAST_Pos)
-#define SPI_CTRL_DMATXEN_Pos		14		//1 通过DMA写FIFO    0 通过MCU写FIFO
+#define SPI_CTRL_DMATXEN_Pos		14		//1 通过 DMA写FIFO    0 通过MCU写FIFO
 #define SPI_CTRL_DMATXEN_Msk		(0x01 << SPI_CTRL_DMATXEN_Pos)
-#define SPI_CTRL_DMARXEN_Pos		15		//1 通过DMA读FIFO    0 通过MCU读FIFO
+#define SPI_CTRL_DMARXEN_Pos		15		//1 通过 DMA读FIFO    0 通过MCU读FIFO
 #define SPI_CTRL_DMARXEN_Msk		(0x01 << SPI_CTRL_DMARXEN_Pos)
 #define SPI_CTRL_FILTE_Pos			16		//1 对 SPI输入信号进行去抖操作    0 对 SPI输入信号不进行去抖操作
 #define SPI_CTRL_FILTE_Msk			(0x01 << SPI_CTRL_FILTE_Pos)
@@ -1352,7 +1352,7 @@ typedef struct {
 #define ADC_CR_AVG_Msk				(0x03 << ADC_CR_AVG_Pos)
 #define ADC_CR_RESET_Pos			3		//复位模拟模块，置位至少需两个采样周期
 #define ADC_CR_RESET_Msk			(0x01 << ADC_CR_RESET_Pos)
-#define ADC_CR_DMAEN_Pos			4		//四位，每位对应一个序列，同一时刻只能一个有一个序列使能DMA，0 能通过 CPU读取 DATA_FIFO   1 只能通过DMA读取 DATA_FIFO
+#define ADC_CR_DMAEN_Pos			4		//四位，每位对应一个序列，同一时刻只能一个有一个序列使能DMA，0 能通过 CPU读取 DATA_FIFO   1 只能通过 DMA读取 DATA_FIFO
 #define ADC_CR_DMAEN_Msk			(0x0F << ADC_CR_DMAEN_Pos)
 #define ADC_CR_FFCLR_Pos			8		//FIFO Clear，四位，每位对应一个序列
 #define ADC_CR_FFCLR_Msk			(0x0F << ADC_CR_FFCLR_Pos)
@@ -1967,7 +1967,7 @@ typedef struct {
 typedef struct {
     __IO uint32_t EN;                       //[0] ENABLE
 
-    __IO uint32_t IE;                       //只有为1时，IF[CHx]在DMA 传输结束时才能变为1，否则将一直保持在0
+    __IO uint32_t IE;                       //只有为1时，IF[CHx]在 DMA 传输结束时才能变为1，否则将一直保持在0
 
     __IO uint32_t IM;                       //当为1时，即使IF[CHx]为1，dma_int也不会因此变1
 
@@ -2153,7 +2153,7 @@ typedef struct {
 #define CAN_CR_RST_Msk				(0x01 << CAN_CR_RST_Pos)
 #define CAN_CR_LOM_Pos				1		//Listen Only Mode
 #define CAN_CR_LOM_Msk				(0x01 << CAN_CR_LOM_Pos)
-#define CAN_CR_STM_Pos				2		//Self Test Mode, 此模式下即使没有应答，CAN控制器也可以成功发送
+#define CAN_CR_STM_Pos				2		//Self Test Mode, 此模式下即使没有应答，CAN 控制器也可以成功发送
 #define CAN_CR_STM_Msk				(0x01 << CAN_CR_STM_Pos)
 #define CAN_CR_SLEEP_Pos			4		//写1进入睡眠模式，有总线活动或中断时唤醒并自动清零此位
 #define CAN_CR_SLEEP_Msk			(0x01 << CAN_CR_SLEEP_Pos)
@@ -2194,13 +2194,13 @@ typedef struct {
 #define CAN_IF_ERRWARN_Msk			(0x01 << CAN_IF_ERRWARN_Pos)
 #define CAN_IF_RXOV_Pos				3		//IF.RXOV = SR.RXOV & IE.RXOV
 #define CAN_IF_RXOV_Msk				(0x01 << CAN_IF_RXOV_Pos)
-#define CAN_IF_WKUP_Pos				4		//当IE.WKUP=1时，在睡眠模式下的 CAN控制器检测到总线活动时硬件置位
+#define CAN_IF_WKUP_Pos				4		//当IE.WKUP=1时，在睡眠模式下的 CAN 控制器检测到总线活动时硬件置位
 #define CAN_IF_WKUP_Msk				(0x01 << CAN_IF_WKUP_Pos)
 #define CAN_IF_ERRPASS_Pos			5		//
 #define CAN_IF_ERRPASS_Msk			(0x01 << CAN_IF_ERRPASS_Pos)
-#define CAN_IF_ARBLOST_Pos			6		//Arbitration Lost，当IE.ARBLOST=1时，CAN控制器丢失仲裁变成接收方时硬件置位
+#define CAN_IF_ARBLOST_Pos			6		//Arbitration Lost，当IE.ARBLOST=1时，CAN 控制器丢失仲裁变成接收方时硬件置位
 #define CAN_IF_ARBLOST_Msk			(0x01 << CAN_IF_ARBLOST_Pos)
-#define CAN_IF_BUSERR_Pos			7		//当IE.BUSERR=1时，CAN控制器检测到总线错误时硬件置位
+#define CAN_IF_BUSERR_Pos			7		//当IE.BUSERR=1时，CAN 控制器检测到总线错误时硬件置位
 #define CAN_IF_BUSERR_Msk			(0x01 << CAN_IF_BUSERR_Pos)
 
 #define CAN_IE_RXDA_Pos				0
@@ -2315,7 +2315,7 @@ typedef struct {
 #define SDIO_CR1_8BIT_Msk			(0x01 << SDIO_CR1_8BIT_Pos)
 #define SDIO_CR1_CDBIT_Pos			6		//0 No Card    1 Card Inserted
 #define SDIO_CR1_CDBIT_Msk			(0x01 << SDIO_CR1_CDBIT_Pos)
-#define SDIO_CR1_CDSRC_Pos			7		//Card Detect Source, 1 CR1.CDBIT位    0 SD_Detect引脚
+#define SDIO_CR1_CDSRC_Pos			7		//Card Detect Source, 1 CR1.CDBIT 位    0 SD_Detect 引脚
 #define SDIO_CR1_CDSRC_Msk			(0x01 << SDIO_CR1_CDSRC_Pos)
 #define SDIO_CR1_PWRON_Pos			8		//1 Power on    0 Power off
 #define SDIO_CR1_PWRON_Msk			(0x01 << SDIO_CR1_PWRON_Pos)
@@ -2540,7 +2540,7 @@ typedef struct {
 #define LCD_CR_CLKINV_Msk			(0x01 << LCD_CR_CLKINV_Pos)
 #define LCD_CR_CLKALW_Pos			7		//DOTCLK Always，1 DOTCLK一直翻转    0 DOTCLK在空闲时停在1
 #define LCD_CR_CLKALW_Msk			(0x01 << LCD_CR_CLKALW_Pos)
-#define LCD_CR_BURSTEN_Pos			8		//Burst Enable，0 只进行SINGLE读   1 优先Burst读
+#define LCD_CR_BURSTEN_Pos			8		//Burst Enable，0 只进行 SINGLE读   1 优先Burst读
 #define LCD_CR_BURSTEN_Msk			(0x01 << LCD_CR_BURSTEN_Pos)
 #define LCD_CR_AUTORESTA_Pos		13		//Auto Restart，1 刷新完一帧后自动重启刷新
 #define LCD_CR_AUTORESTA_Msk		(0x01 << LCD_CR_AUTORESTA_Pos)
@@ -2650,7 +2650,7 @@ typedef struct {
 #define DMA2D_CR_START_Msk			(0x01 << DMA2D_CR_START_Pos)
 #define DMA2D_CR_MODE_Pos			8		//0 存储器到存储器   1 存储器到存储器并执行PFC   2 存储器到存储器并执行混合   3 寄存器到存储器(仅输出阶段激合)
 #define DMA2D_CR_MODE_Msk			(0x03 << DMA2D_CR_MODE_Pos)
-#define DMA2D_CR_WAIT_Pos			22		//每传输一块数据(64个字)，等待指定个系统周期后再传输下一个块，防止DMA2D占用过多SDRAM带宽，影响LCD读取显示数据
+#define DMA2D_CR_WAIT_Pos			22		//每传输一块数据(64个字)，等待指定个系统周期后再传输下一个块，防止 DMA2D占用过多SDRAM带宽，影响LCD读取显示数据
 #define DMA2D_CR_WAIT_Msk			(0x3FFu<<DMA2D_CR_WAIT_Pos)
 
 #define DMA2D_PFCCR_CFMT_Pos		0		//Color Format, 0 ARGB8888   1 RGB8888   2 RGB565
@@ -2921,7 +2921,7 @@ typedef struct {
 #define SFC_CFG_WREN_Pos			12		//Flash写使能
 #define SFC_CFG_WREN_Msk			(0x01 << SFC_CFG_WREN_Pos)
 
-#define SFC_TIM_WIP_CHK_ITV_Pos		0		//硬件自动查询WIP时间间隔
+#define SFC_TIM_WIP_CHK_ITV_Pos		0		//硬件自动查询WIP 时间间隔
 #define SFC_TIM_WIP_CHK_ITV_Msk		(0xFF << SFC_TIM_WIP_CHK_ITV_Pos)
 #define SFC_TIM_WIP_CHK_LMT_Pos		8		//硬件自动查询WIP次数限值
 #define SFC_TIM_WIP_CHK_LMT_Msk		(0xFF << SFC_TIM_WIP_CHK_LMT_Pos)
@@ -3154,7 +3154,7 @@ typedef struct {
 #define RTC_TRIM_DEC_Pos		    8
 #define RTC_TRIM_DEC_Msk		    (0x01 << RTC_TRIM_DEC_Pos)
 
-#define RTC_TRIMM_CYCLE_Pos		    0       //用于计数周期微调，如果INC为1，则第n个计数周期调整为(32768±ADJ)+1,否则调整为(32768±ADJ)-1
+#define RTC_TRIMM_CYCLE_Pos		    0       //用于计数周期微调，如果 INC为1，则第n个计数周期调整为(32768±ADJ)+1,否则调整为(32768±ADJ)-1
 //cycles=0时，不进行微调整;cycles=1，则n为2;cycles=7，则n为8;以此类推
 #define RTC_TRIMM_CYCLE_Msk		    (0x07 << RTC_TRIMM_CYCLE_Pos)
 #define RTC_TRIMM_INC_Pos		    3

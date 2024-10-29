@@ -172,7 +172,7 @@ void QSPI_StructInit(QSPI_InitTypeDef* QSPI_InitStruct) {
 void QSPI_ComConfig_StructInit(QSPI_ComConfig_InitTypeDef* QSPI_ComConfig_InitStruct) {
     /*--------- 重置QSPI ComConfig初始化结构参数的默认值 ------------*/
 
-    /* 设置QSPI通信配置结构参数的默认值 */
+    /* 设置QSPI 通信配置结构参数的默认值 */
     /* 初始化 QSPI_ComConfig_DDRMode 成员 */
     QSPI_ComConfig_InitStruct->QSPI_ComConfig_DDRMode = QSPI_ComConfig_DDRMode_Disable ;
     /* 初始化 QSPI_ComConfig_DHHC 成员 */
@@ -308,9 +308,9 @@ void QSPI_Cmd(FunctionalState NewState) {
 /**
   * 简介:  配置 QSPI 自动轮询模式。
   * 参数:  QSPI_Match: 要与被屏蔽的状态寄存器进行比较以获得匹配的值。
-  *                    这个参数可以是0x00000000到 0xFFFFFFFF之间的任何值。
+  *                    这个参数可以是 0x00000000 到 0xFFFFFFFF 之间的任何值。
   * 参数:  QSPI_Mask: 在轮询模式下，对收到的状态字节进行屏蔽。
-  *                    这个参数可以是0x00000000到 0xFFFFFFFF之间的任何值。
+  *                    这个参数可以是 0x00000000 到 0xFFFFFFFF 之间的任何值。
   * 参数:  QSPI_Match_Mode: 表示在自动轮询模式下应该使用哪种方法来确定 "匹配"。
   *        此参数可以是以下任意值。
   * 参数   QSPI_PMM_AND: AND 匹配模式--如果从闪存接收到的所有未屏蔽的位与匹配寄存
@@ -351,7 +351,7 @@ void QSPI_AutoPollingMode_Config(uint32_t QSPI_Match, uint32_t QSPI_Mask, uint32
 /**
   * 简介:  设置自动轮询阶段两次读取之间的 CLK 周期数。
   * 参数:  QSPI_Interval: 自动轮询阶段两次读取之间的时钟周期数。
-  *          此参数可以是0x0000 和0xFFFF之间的任何值
+  *          此参数可以是 0x0000 和 0xFFFF 之间的任何值
   * 注意:   此功能仅在自动轮询模式下使用
   * 返回值: 无
   */
@@ -379,7 +379,7 @@ void QSPI_AutoPollingMode_SetInterval(uint32_t QSPI_Interval) {
   * 简介:  设置内存映射模式下的超时值
   * 参数:  QSPI_Timeout: 此字段指示FIFO 满后QSPI等待多少CLK周期，
   *                      直到它引发nCS，使闪存处于低消耗状态。
-  *         此参数可以是0x0000 和0xFFFF之间的任何值
+  *         此参数可以是 0x0000 和 0xFFFF 之间的任何值
   * 注意:   此函数仅在内存映射模式中使用
   * 返回值: 无
   */
@@ -406,7 +406,7 @@ void QSPI_MemoryMappedMode_SetTimeout(uint32_t QSPI_Timeout) {
 /**
   * 简介:  设置地址的值
   * 参数:  QSPI_Address: 要发送到外部闪存的地址。
-  *         此参数可以在0x00000000 和0xFFFFFFFFFF之间具有任何值。
+  *         此参数可以在0x00000000 和 0xFFFFFFFFFF 之间具有任何值。
   * 注意:   此功能仅在间接模式下使用
   * 返回值: 无
   */
@@ -422,7 +422,7 @@ void QSPI_SetAddress(uint32_t QSPI_Address) {
 /**
   * 简介:  设置备用字节的值
   * 参数:  QSPI_AlternateByte: 可选数据发送到地址后的外部QSPI设备。
-  *         此参数可以在0x00000000 和0xFFFFFFFFFF之间具有任何值。
+  *         此参数可以在0x00000000 和 0xFFFFFFFFFF 之间具有任何值。
   * 注意:   此功能仅在间接模式下使用
   * 返回值: 无
   */
@@ -439,7 +439,7 @@ void QSPI_SetAlternateByte(uint32_t QSPI_AlternateByte) {
   * 简介:  设置 FIFO 阈值
   * 参数:  QSPI_FIFOThres: 在间接模式下，定义FIFO 中的阈值字节数，
   *                        这将导致设置 FIFO 阈值标志FTF。
-  *         此参数可以是0x00 和0x0F之间的任何值
+  *         此参数可以是 0x00 和 0x0F 之间的任何值
   * 返回值: 无
   */
 void QSPI_SetFIFOThreshold(uint32_t QSPI_FIFOThreshold) {
@@ -463,7 +463,7 @@ void QSPI_SetFIFOThreshold(uint32_t QSPI_FIFOThreshold) {
   * 参数:  QSPI_DataLength: 在间接和状态轮询模式下要检索的数据数(值+1)。
   *                         状态轮询模式应使用不大于3(表示4字节)的值。
   *         间接模式中的所有1表示未定义的长度，其中QSPI将持续到内存结束，如FSIZE所定义
-  *         此参数可以在0x00000000 和0xFFFFFFFFFF之间具有任何值。
+  *         此参数可以在0x00000000 和 0xFFFFFFFFFF 之间具有任何值。
   *             0x0000_0000:要传输1个字节
   *             0x0000_0001:要传输2个字节
   *             0x0000_0002:要传输3个字节

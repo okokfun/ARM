@@ -895,7 +895,7 @@ void CAN_Interrupt_Enable(CAN_Type* CAN_x, uint32_t CAN_int, confirm_state new_s
   *         - CAN_TMEF_FLAG
   *         note:the state of CAN_EDZC_FLAG need to check dzc and edzif bit
   *         note:the state of CAN_TMEF_FLAG need to check rqc0,rqc1 and rqc2 bit
-  * @retval status of CAN_flag, the returned value can be:SET or RESET.
+  * @retval status of CAN_flag, the returned value can be: SET or RESET.
   */
 flag_status CAN_Flag_Get(CAN_Type* CAN_x, uint32_t CAN_flag) {
     flag_status bit_status = RESET;
@@ -1024,7 +1024,7 @@ flag_status CAN_Flag_Get(CAN_Type* CAN_x, uint32_t CAN_flag) {
   *         - CAN_QDZIF_FLAG
   *         - CAN_EDZC_FLAG
   *         - CAN_TMEF_FLAG
-  *         note:CAN_RF0MN_FLAG and CAN_RF1MN_FLAG can not clear by this function
+  *         note: CAN_RF0MN_FLAG and CAN_RF1MN_FLAG can not clear by this function
   * @retval 无.
   */
 void CAN_Flag_Clear(CAN_Type* CAN_x, uint32_t CAN_flag) {

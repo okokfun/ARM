@@ -364,24 +364,24 @@ void LTDC_DeInit(void); // 将 LTDC 外设寄存器去初始化为其默认复�
 
 /* 初始化和配置功能 *********************************/
 void LTDC_Init(LTDC_InitTypeDef* LTDC_InitStruct); // 根据 LTDC_InitStruct 中指定的参数初始化 LTDC 外设。
-void LTDC_StructInit(LTDC_InitTypeDef* LTDC_InitStruct); // 用其默认值填充每个LTDC_InitStruct 成员。
+void LTDC_StructInit(LTDC_InitTypeDef* LTDC_InitStruct); // 用其默认值填充每个 LTDC_InitStruct 成员。
 void LTDC_Cmd(FunctionalState NewState); // 启用或禁用 LTDC 控制器。
 void LTDC_DitherCmd(FunctionalState NewState); // 启用或禁用抖动。
 LTDC_RGBTypeDef LTDC_GetRGBWidth(void); // 获取抖动 RGB 宽度。
-void LTDC_RGBStructInit(LTDC_RGBTypeDef* LTDC_RGB_InitStruct); // 用每个LTDC_RGBStruct 成员的默认值填充该成员。
+void LTDC_RGBStructInit(LTDC_RGBTypeDef* LTDC_RGB_InitStruct); // 用每个 LTDC_RGBStruct 成员的默认值填充该成员。
 void LTDC_LIPConfig(uint32_t LTDC_LIPositionConfig); // 定义线路中断的位置。
 void LTDC_ReloadConfig(uint32_t LTDC_Reload); // 使用新参数重新加载图层寄存器
 void LTDC_LayerInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_Layer_InitTypeDef* LTDC_Layer_InitStruct); // 根据 LTDC_LayerStruct 中指定的参数初始化 LTDC 层。
-void LTDC_LayerStructInit(LTDC_Layer_InitTypeDef * LTDC_Layer_InitStruct); // 用每个LTDC_Layer_InitStruct 成员的默认值填充该成员。
+void LTDC_LayerStructInit(LTDC_Layer_InitTypeDef * LTDC_Layer_InitStruct); // 用每个 LTDC_Layer_InitStruct 成员的默认值填充该成员。
 void LTDC_LayerCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState); // 启用或禁用 LTDC_Layer控制器。
 LTDC_PosTypeDef LTDC_GetPosStatus(void); // 获取当前位置。
-void LTDC_PosStructInit(LTDC_PosTypeDef* LTDC_Pos_InitStruct); // 用每个LTDC_Pos_InitStruct 成员的默认值填充该成员。
+void LTDC_PosStructInit(LTDC_PosTypeDef* LTDC_Pos_InitStruct); // 用每个 LTDC_Pos_InitStruct 成员的默认值填充该成员。
 FlagStatus LTDC_GetCDStatus(uint32_t LTDC_CD); // 检查是否设置了指定的 LTDC 标志。
 void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_InitStruct, FunctionalState NewState); // 设置和配置颜色键控。
-void LTDC_ColorKeyingStructInit(LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_InitStruct); // 用每个LTDC_colorkeying_InitStruct 成员的默认值填充其默认值。
+void LTDC_ColorKeyingStructInit(LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_InitStruct); // 用每个 LTDC_colorkeying_InitStruct 成员的默认值填充其默认值。
 void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState); // 启用或禁用 CLUT。
 void LTDC_CLUTInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_CLUT_InitTypeDef* LTDC_CLUT_InitStruct); // 配置 CLUT。
-void LTDC_CLUTStructInit(LTDC_CLUT_InitTypeDef* LTDC_CLUT_InitStruct); // 用每个LTDC_CLUT_InitStruct 成员的默认值填充该成员。
+void LTDC_CLUTStructInit(LTDC_CLUT_InitTypeDef* LTDC_CLUT_InitStruct); // 用每个 LTDC_CLUT_InitStruct 成员的默认值填充该成员。
 void LTDC_LayerPosition(LTDC_Layer_TypeDef* LTDC_Layerx, uint16_t OffsetX, uint16_t OffsetY); // 重新配置图层位置。
 void LTDC_LayerAlpha(LTDC_Layer_TypeDef* LTDC_Layerx, uint8_t ConstantAlpha); // 重新配置常量 alpha。
 void LTDC_LayerAddress(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Address); // 重新配置图层地址。

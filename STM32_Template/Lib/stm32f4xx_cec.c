@@ -267,7 +267,7 @@ void CEC_OwnAddressConfig(uint8_t CEC_OwnAddress) {
 /**
   * 简介:  清除 CEC 设备的自有地址。
   * 
-  * 参数:  CEC_OwnAddress:CEC 自己的地址。
+  * 参数:  CEC_OwnAddress: CEC 自己的地址。
   * 
   * 返回值: 无
   */
@@ -285,7 +285,7 @@ void CEC_OwnAddressClear(void) {
                             ##### 数据传输函数 #####
  ===============================================================================
     [..] 本节提供了允许 CEC 数据传输的功能。CEC_RXDR 寄存器的读取访问可以使用
-         CEC_ReceiveData() 函数完成，并返回 Rx缓冲值。
+         CEC_ReceiveData() 函数完成，并返回 Rx 缓冲值。
          而对CEC_TXDR 的写访问可以使用 CEC_SendData() 函数完成。
 @endverbatim
   */
@@ -407,7 +407,7 @@ void CEC_EndOfMessage(void) {
   *          此参数可以是以下值的任意组合:
   *            @arg CEC_IT_TXACKE:  Tx缺失确认错误。
   *            @arg CEC_IT_TXERR:   Tx错误。
-  *            @arg CEC_IT_TXUDR:   Tx缓冲区不足。
+  *            @arg CEC_IT_TXUDR:   Tx 缓冲区不足。
   *            @arg CEC_IT_TXEND:   传输结束(成功传输最后一个字节)。
   *            @arg CEC_IT_TXBR:    Tx字节请求。
   *            @arg CEC_IT_ARBLST:  仲裁丢失.
@@ -445,7 +445,7 @@ void CEC_ITConfig(uint16_t CEC_IT, FunctionalState NewState) {
   *     此参数可以是以下值之一:
   *            @arg CEC_FLAG_TXACKE: Tx缺失确认错误。
   *            @arg CEC_FLAG_TXERR:  Tx错误。
-  *            @arg CEC_FLAG_TXUDR:  Tx缓冲区不足。
+  *            @arg CEC_FLAG_TXUDR:  Tx 缓冲区不足。
   *            @arg CEC_FLAG_TXEND:  传输结束(成功传输最后一个字节)。
   *            @arg CEC_FLAG_TXBR:   Tx字节请求。
   *            @arg CEC_FLAG_ARBLST: 仲裁丢失.
@@ -466,7 +466,7 @@ FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG) {
 
     /* 检查 指定CEC 标志的状态 */
     if ((CEC->ISR & CEC_FLAG) != (uint16_t)RESET) {
-        /* 设置了CEC 标志 */
+        /* 设置了 CEC 标志 */
         bitstatus = SET;
     } else {
         /* CEC 标志复位 */
@@ -484,7 +484,7 @@ FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG) {
   *          此参数可以是以下值的任意组合:
   *            @arg CEC_FLAG_TXACKE: Tx缺失确认错误。
   *            @arg CEC_FLAG_TXERR:  Tx 错误
-  *            @arg CEC_FLAG_TXUDR:  Tx缓冲区不足。
+  *            @arg CEC_FLAG_TXUDR:  Tx 缓冲区不足。
   *            @arg CEC_FLAG_TXEND:  传输结束(成功传输最后一个字节)。
   *            @arg CEC_FLAG_TXBR:   Tx字节请求
   *            @arg CEC_FLAG_ARBLST: 仲裁丢失.
@@ -512,7 +512,7 @@ void CEC_ClearFlag(uint32_t CEC_FLAG) {
   *          此参数可以是以下值之一:
   *            @arg CEC_IT_TXACKE: Tx缺失确认错误。
   *            @arg CEC_IT_TXERR:  Tx错误。
-  *            @arg CEC_IT_TXUDR:  Tx缓冲区不足。
+  *            @arg CEC_IT_TXUDR:  Tx 缓冲区不足。
   *            @arg CEC_IT_TXEND:  传输结束(成功传输最后一个字节)。
   *            @arg CEC_IT_TXBR:   Tx字节请求。
   *            @arg CEC_IT_ARBLST: 仲裁丢失..
@@ -556,7 +556,7 @@ ITStatus CEC_GetITStatus(uint16_t CEC_IT) {
   *          此参数可以是以下值的任意组合:
   *            @arg CEC_IT_TXACKE: Tx缺失确认错误。
   *            @arg CEC_IT_TXERR:  Tx 错误
-  *            @arg CEC_IT_TXUDR:  Tx缓冲区不足。
+  *            @arg CEC_IT_TXUDR:  Tx 缓冲区不足。
   *            @arg CEC_IT_TXEND:  传输结束
   *            @arg CEC_IT_TXBR:   Tx字节请求
   *            @arg CEC_IT_ARBLST: 仲裁丢失.

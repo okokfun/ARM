@@ -917,7 +917,7 @@ void FLASH_OB_Lock(void) {
 /**
   * 简介:  为 Flash 的前 1 Mb 启用或禁用所需扇区的写保护。
   *
-  * 注意:   选择内存读取保护级别(RDP级别=1)时，如果连接了CortexM4调试功能
+  * 注意:   选择内存读取保护级别(RDP级别=1)时，如果连接了 CortexM4调试功能
   *         或在 RAM 中执行引导代码，则无法对闪存扇区i进行编程或擦除，即使nWRPi=1
   * 注意:   当PCROP模式处于活动状态(SPRMOD=1)时，nWRPi位的活动值被反转。
   *
@@ -954,7 +954,7 @@ void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState) {
   *
   * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
-  * 注意:   选择内存读取保护时(RDP级别=1)，如果连接了CortexM4调试功能或
+  * 注意:   选择内存读取保护时(RDP级别=1)，如果连接了 CortexM4调试功能或
   *         在 RAM 中执行引导代码，则无法编程或擦除闪存扇区i，即使nWRPi=1
   * 
   * 注意:   当PCROP模式处于活动状态(SPRMOD=1)时，nWRPi位的活动值被反转。
@@ -996,7 +996,7 @@ void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState) {
   *         全局读取保护修改级别(级别1 到级别0)出现异常
   * 注意:   一旦SPRMOD位处于活动状态，就不可能取消保护受保护扇区
   *
-  * 注意:   读取受保护扇区将设置 RDERR标志，写入受保护扇区将设置 WRPERR标志
+  * 注意:   读取受保护扇区将设置 RDERR 标志，写入受保护扇区将设置 WRPERR 标志
   *
   * 注意:   激活PCROP功能时应采取一些预防措施:
   *            当PCROP模式激活时，nWRPi位的激活值被反转，这意味着如果 SPRMOD=1
@@ -1123,20 +1123,20 @@ void FLASH_OB_RDPConfig(uint8_t OB_RDP) {
 /**
   * 简介:  对 FLASH 用户选项字节进行编程:IWDG_SW / RST_STOP / RST_STDBY。
   * 
-  * 参数:  OB_IWDG: 选择IWDG模式
+  * 参数:  OB_IWDG: 选择 IWDG模式
   *          此参数可以是以下值之一:
   *            @arg OB_IWDG_SW: 已选择软件IWDG
   *            @arg OB_IWDG_HW: 已选择硬件IWDG
   * 
   * 参数:  OB_STOP: 进入停止模式时重置事件。
   *         此参数可以是以下值之一:
-  *             @arg OB_STOP_NoRST:输入STOP时未生成重置
-  *             @arg OB_STOP_RST:输入STOP时生成重置
+  *             @arg OB_STOP_NoRST:输入 STOP 时未生成重置
+  *             @arg OB_STOP_RST:输入 STOP 时生成重置
   * 
   * 参数:  OB_STDBY:进入待机模式时重置事件。
   *         此参数可以是以下值之一:
-  *             @arg OB_STDBY_NoRST:输入STANDBY时未生成重置
-  *             @arg OB_STDBY_RST:输入STANDBY时生成重置
+  *             @arg OB_STDBY_NoRST:输入 STANDBY时未生成重置
+  *             @arg OB_STDBY_RST:输入 STANDBY时生成重置
   * 
   * 返回值: 无
   */
@@ -1475,7 +1475,7 @@ FLASH_Status FLASH_WaitForLastOperation(void) {
     /* 检查 FLASH 状态 */
     status = FLASH_GetStatus();
 
-    /* 通过对要重置的BUSY标志进行轮询，等待FLASH 操作完成。
+    /* 通过对要重置的 BUSY标志进行轮询，等待FLASH 操作完成。
        即使FLASH 操作失败，BUSY标志也将重置，并设置错误标志 */
     while(status == FLASH_BUSY) {
         status = FLASH_GetStatus();

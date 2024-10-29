@@ -234,7 +234,7 @@ void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct) {
     /* 清除 STOP[13:12]位 */
     tmpreg &= (uint32_t)~((uint32_t)USART_CR2_STOP);
 
-    /* 配置 USART停止位、时钟、CPOL、CPHA 和 LastBit:根据 USART_StopBits值设置Stop[13:12]位 */
+    /* 配置 USART停止位、时钟、CPOL、CPHA 和 LastBit:根据 USART_StopBits值设置 Stop[13:12]位 */
     tmpreg |= (uint32_t)USART_InitStruct->USART_StopBits;
 
     /* 写入 USART CR2 */
@@ -437,7 +437,7 @@ void USART_OneBitMethodCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过在CR3 寄存器中设置ONEBITE位来启用一位方法 */
+        /* 通过在 CR3 寄存器中设置ONEBITE位来启用一位方法 */
         USARTx->CR3 |= USART_CR3_ONEBIT;
     } else {
         /* 通过清除 CR3 寄存器中的ONEBITE位禁用一位方法*/
@@ -836,13 +836,13 @@ void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
                         ##### IrDA 模式函数 #####
  ===============================================================================
     [..]
-    本小节提供了一组允许管理 USART IrDA通信的功能。
+    本小节提供了一组允许管理 USART IrDA 通信的功能。
     [..]
     IrDA是一种半双工通信协议。如果发射机繁忙，IrDA解码器将忽略IrDA 接收线上的任何数据，
         如果接收机繁忙，则IrDA不会对 USART到 IrDA 的 TX数据进行编码。
     在接收数据时，应避免传输，因为要传输的数据可能会损坏。
     [..]
-    可以通过以下程序进行IrDA通信:
+    可以通过以下程序进行IrDA 通信:
       (#) 使用 USART_Init() 函数编程波特率、字长=8位、
             停止位、奇偶校验、发送器/接收器模式和硬件流控制值。
       (#) 使用 USART_Cmd() 函数启用 USART。
@@ -855,7 +855,7 @@ void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
       -@- 接收器设置时间应由软件管理。
             IrDA物理层规范规定传输和接收之间的最小延迟为10毫秒(IrDA是半双工协议)。
       -@- 在 IrDA 模式下，必须清除以下位:
-        (+@) USART_CR2寄存器中的 LINEN、STOP和 CLKEN 位。
+        (+@) USART_CR2寄存器中的 LINEN、STOP 和 CLKEN 位。
         (+@) USART_CR3 寄存器中的 SCEN 和HDSEL位。
 
 @endverbatim
@@ -864,7 +864,7 @@ void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
 /**
   * 简介:  配置 USART 的 IrDA 接口。
   * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
-  * 参数:  USART_IrDAMode: 指定IrDA 模式。
+  * 参数:  USART_IrDAMode: 指定 IrDA 模式。
   *          此参数可以是以下值之一:
   *            @arg USART_IrDAMode_LowPower
   *            @arg USART_IrDAMode_Normal
@@ -953,7 +953,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
     *** 轮询模式 ***
     ====================
     [..]
-    在轮询模式下，SPI通信可以由10个标志管理:
+    在轮询模式下，SPI 通信可以由10个标志管理:
       (#) USART_FLAG_TXE : 指示发送缓冲寄存器的状态
       (#) USART_FLAG_RXNE: 指示接收缓冲寄存器的状态
       (#) USART_FLAG_TC  : 指示传输操作的状态
@@ -989,8 +989,8 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
 
       (#) 中断源:
 
-        (##) USART_IT_TXE : 指定 Tx缓冲区空中断的中断源。
-        (##) USART_IT_RXNE: 指定Rx缓冲区非空中断的中断源。
+        (##) USART_IT_TXE : 指定 Tx 缓冲区空中断的中断源。
+        (##) USART_IT_RXNE: 指定Rx 缓冲区非空中断的中断源。
         (##) USART_IT_TC  : 指定传输完成中断的中断源。
         (##) USART_IT_IDLE: 指定空闲线路中断的中断源。
         (##) USART_IT_CTS : 指定CTS中断的中断源。
@@ -1008,9 +1008,9 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
     *** DMA Mode ***
     ================
     [..]
-    在DMA 模式下，USART 通信可通过2个 DMA 信道请求进行管理:
-      (#) USART_DMAReq_Tx: 指定 Tx缓冲器 DMA 传输请求
-      (#) USART_DMAReq_Rx: 指定Rx缓冲器 DMA 传输请求
+    在 DMA 模式下，USART 通信可通过2个 DMA 信道请求进行管理:
+      (#) USART_DMAReq_Tx: 指定 Tx 缓冲器 DMA 传输请求
+      (#) USART_DMAReq_Rx: 指定Rx 缓冲器 DMA 传输请求
     [..]
     在此模式下，建议使用以下函数:
       (+) void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState NewState);
@@ -1031,7 +1031,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
   *            @arg USART_IT_IDLE: 空闲线路检测中断
   *            @arg USART_IT_PE:   奇偶校验错误中断
   *            @arg USART_IT_ERR:  错误中断(帧错误、噪声错误、溢出错误)
-  * 参数:  NewState: 指定 USARTx中断的新状态。
+  * 参数:  NewState: 指定 USARTx 中断的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
@@ -1057,11 +1057,11 @@ void USART_ITConfig(USART_TypeDef* USARTx, uint16_t USART_IT, FunctionalState Ne
     itpos = USART_IT & IT_MASK;
     itmask = (((uint32_t)0x01) << itpos);
 
-    if (usartreg == 0x01) { /* IT在CR1注册中 */
+    if (usartreg == 0x01) { /* IT在 CR1注册中 */
         usartxbase += 0x0C;
-    } else if (usartreg == 0x02) { /* IT在CR2注册中 */
+    } else if (usartreg == 0x02) { /* IT在 CR2注册中 */
         usartxbase += 0x10;
-    } else { /* IT在CR3注册中 */
+    } else { /* IT在 CR3注册中 */
         usartxbase += 0x14;
     }
 
@@ -1178,11 +1178,11 @@ ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT) {
     itmask = USART_IT & IT_MASK;
     itmask = (uint32_t)0x01 << itmask;
 
-    if (usartreg == 0x01) { /* IT在CR1注册中 */
+    if (usartreg == 0x01) { /* IT在 CR1注册中 */
         itmask &= USARTx->CR1;
-    } else if (usartreg == 0x02) { /* IT在CR2注册中 */
+    } else if (usartreg == 0x02) { /* IT在 CR2注册中 */
         itmask &= USARTx->CR2;
-    } else { /* IT在CR3注册中 */
+    } else { /* IT在 CR3注册中 */
         itmask &= USARTx->CR3;
     }
 

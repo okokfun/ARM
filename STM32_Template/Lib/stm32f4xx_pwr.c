@@ -165,7 +165,7 @@ void PWR_DeInit(void) {
 
 /**
   * 简介:  启用或禁用对备份域(RTC 寄存器、RTC 备份数据寄存器和备份 SRAM)的访问。
-  * 注意:   如果HSE除以2、3、...31被用作 RTC时钟，那么 备份域访问应保持启用。
+  * 注意:   如果HSE除以2、3、...31被用作 RTC 时钟，那么 备份域访问应保持启用。
   * 参数:  NewState: 访问备份域的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -186,7 +186,7 @@ void PWR_BackupAccessCmd(FunctionalState NewState) {
                     ##### PVD 配置功能 #####
  ===============================================================================
     [..]
-      (+) PV于监测 VDD 电源，将其与 PVD 电平(PWR_CR中的PLS[2:0]位)选择的阈值进行比较。
+      (+) PV于监测 VDD 电源，将其与 PVD 电平(PWR_CR 中的PLS[2:0]位)选择的阈值进行比较。
       (+) 一个PVDO 标志可用于指示VDD/VDDA是高于还是低于 高于或低于PVD阈值。
           该事件内部连接到EXTI 线16，如果通过 EXTI 寄存器启用，可以产生一个中断。
       (+) PVD停止在待机模式。
@@ -347,7 +347,7 @@ void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState) {
         有关更多详细信息，请参阅数据表。
 
        (+) 对于 STM32F42xxx/43xxx 设备，在运行模式下:主调节器有两种可用的操作模式:
-        (++) 正常模式:CPU和核心逻辑在给定电压标度下以最大频率运行(标度1、标度2 或标度3)
+        (++) 正常模式: CPU和核心逻辑在给定电压标度下以最大频率运行(标度1、标度2 或标度3)
         (++) Over-drive mode: 该模式允许 CPU和核心逻辑在给定电压缩放(缩放1、缩放2 或缩放3)
             下以高于正常模式的频率操作。此模式通过PWR_OverDriveCmd() 函数和PWR_OverDriveSWCmd() 函数启用，
             要进入或退出Overdrive模式，请遵循参考手册中描述的顺序。
@@ -383,7 +383,7 @@ void PWR_BackupRegulatorCmd(FunctionalState NewState) {
   *            @arg PWR_Regulator_Voltage_Scale1: 稳压器电压输出刻度1模式，系统频率高达168MHz。
   *            @arg PWR_Regulator_Voltage_Scale2: 稳压器电压输出刻度2模式，系统频率高达144MHz。
   *            @arg PWR_Regulator_Voltage_Scale3: 稳压器电压输出 Scale 3模式，
-  *                                               系统频率高达120 MHz(仅适用于 STM32F42xxx/43xxx器件)。
+  *                                               系统频率高达120 MHz(仅适用于 STM32F42xxx/43xxx 器件)。
   * 返回值: 无
   */
 void PWR_MainRegulatorModeConfig(uint32_t PWR_Regulator_Voltage) {
@@ -538,7 +538,7 @@ void PWR_MainRegulatorLowVoltageCmd(FunctionalState NewState) {
 /**
   * 简介: 启用或禁用低功率稳压器的低电压模式。
   *
-  * 注意:  该模式仅适用于 STM32F401xx/STM32F410xx/STM32F411xx/STM32F412xG/STM32F413_423xx器件。
+  * 注意:  该模式仅适用于 STM32F401xx/STM32F410xx/STM32F411xx/STM32F412xG/STM32F413_423xx 器件。
   *
   * 参数:  NewState: 低功率调节器低电压模式的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
@@ -566,7 +566,7 @@ void PWR_LowRegulatorLowVoltageCmd(FunctionalState NewState) {
  ===============================================================================
     [..]
       (+) 通过使用 PWR_FlashPowerDownCmd() 函数设置PWR_CR 寄存器中的 FPDS位，
-          当器件进入Stop模式时，闪存也进入了掉电模式。当闪存处于掉电模式时，
+          当器件进入 Stop模式时，闪存也进入了掉电模式。当闪存处于掉电模式时，
           当从停止模式唤醒时，会产生额外的启动延迟。
 @endverbatim
   */
@@ -594,7 +594,7 @@ void PWR_FlashPowerDownCmd(FunctionalState NewState) {
  ===============================================================================
     [..]
       这些设备具有3种低功耗模式:
-      (+)睡眠模式:Cortex-M4核心停止，外设设备继续运行。
+      (+)睡眠模式: Cortex-M4核心停止，外设设备继续运行。
       (+)停止模式:所有时钟停止，调节器运行，调节器处于低功率模式
       (+)待机模式:1.2V域断电。
 
@@ -634,7 +634,7 @@ void PWR_FlashPowerDownCmd(FunctionalState NewState) {
         (++) 使用 PWR_EnterSTANDBYMode() 函数进入待机模式。
       (+) 退出:
         (++) WKUP引脚上升沿、RTC警报(警报A 和警报B)、
-          RTC唤醒、篡改事件、时间戳事件、NRST 引脚外部复位、IWDG复位。
+          RTC唤醒、篡改事件、时间戳事件、NRST 引脚外部复位、IWDG 复位。
 
    *** 从低功耗模式自动唤醒(AWU) ***
    =============================================
@@ -689,10 +689,10 @@ void PWR_FlashPowerDownCmd(FunctionalState NewState) {
   *          此参数可以是以下值之一:
   *            @arg PWR_MainRegulator_ON: 调节器开启时的停止模式
   *            @arg PWR_LowPowerRegulator_ON: STOP模式，低功率调节器开启
-  * 参数:  PWR_STOPEntry: 指定是否通过WFI 或WFE指令进入STOP模式。
+  * 参数:  PWR_STOPEntry: 指定是否通过WFI 或WFE指令进入 STOP模式。
   *          此参数可以是以下值之一:
-  *            @arg PWR_STOPEntry_WFI: 用 WFI指令进入STOP模式
-  *            @arg PWR_STOPEntry_WFE: 用 WFE指令进入STOP模式
+  *            @arg PWR_STOPEntry_WFI: 用 WFI指令进入 STOP模式
+  *            @arg PWR_STOPEntry_WFE: 用 WFE指令进入 STOP模式
   * 返回值: 无
   */
 void PWR_EnterSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) {
@@ -747,10 +747,10 @@ void PWR_EnterSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) {
   *                                                    主调节器处于驱动模式，闪存处于断电状态
   *            @arg PWR_LowPowerRegulator_UnderDrive_ON:  低功率调节器处于驱动模式下，
   *                                                     当设备处于驱动模式停止时，闪存处于断电状态
-  * 参数:  PWR_STOPEntry: 指定是否使用 WFI 或WFE指令进入STOP模式。
+  * 参数:  PWR_STOPEntry: 指定是否使用 WFI 或WFE指令进入 STOP模式。
   *          此参数可以是以下值之一:
-  *            @arg PWR_STOPEntry_WFI: 使用 WFI指令进入STOP模式
-  *            @arg PWR_STOPEntry_WFE: 使用 WFE指令进入STOP模式
+  *            @arg PWR_STOPEntry_WFI: 使用 WFI指令进入 STOP模式
+  *            @arg PWR_STOPEntry_WFE: 使用 WFE指令进入 STOP模式
   * 返回值: 无
   */
 void PWR_EnterUnderDriveSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) {
@@ -791,7 +791,7 @@ void PWR_EnterUnderDriveSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) 
   * 简介:  进入待机模式。
   * 注意:   在待机模式下，所有的 I/O 引脚都是高阻抗的，除了:
   *          - 复位垫(仍然可用)
-  *          - RTC_AF1 引脚(PC13)如果被配置为防拆、时间戳、RTC 警报输出，或 RTC时钟校准输出。
+  *          - RTC_AF1 引脚(PC13)如果被配置为防拆、时间戳、RTC 警报输出，或 RTC 时钟校准输出。
   *          - RTC_AF2 引脚(PI8)，如果配置为防拆或时间戳。
   *          - 如果启用，WKUP引脚1(PA0)。
   * 注意:   唤醒标志(WUF)在调用函数能之前，需要在应用层面被清除。
@@ -839,9 +839,9 @@ void PWR_EnterSTANDBYMode(void) {
   *            @arg PWR_FLAG_BRR: 后备调节器就绪标志。
   *                               当设备从待机模式唤醒或被系统复位或电源复位时，该位不会被重置。
   *            @arg PWR_FLAG_VOSRDY: 该标志表示稳压器电压比例输出选择已准备就绪。
-  *            @arg PWR_FLAG_ODRDY: 该标志表示超速模式已经准备就绪(STM32F42xxx/43xxx器件)。
-  *            @arg PWR_FLAG_ODSWRDY: 该标志表示超速模式切换已准备就绪(STM32F42xxx/43xxx器件)。
-  *            @arg PWR_FLAG_UDRDY: 该标志表示在停止模式下启用欠驱动模式(STM32F42xxx/43xxx器件)。
+  *            @arg PWR_FLAG_ODRDY: 该标志表示超速模式已经准备就绪(STM32F42xxx/43xxx 器件)。
+  *            @arg PWR_FLAG_ODSWRDY: 该标志表示超速模式切换已准备就绪(STM32F42xxx/43xxx 器件)。
+  *            @arg PWR_FLAG_UDRDY: 该标志表示在停止模式下启用欠驱动模式(STM32F42xxx/43xxx 器件)。
   * 返回值: PWR_FLAG 的新状态(SET 或 RESET)。
   */
 FlagStatus PWR_GetFlagStatus(uint32_t PWR_FLAG) {

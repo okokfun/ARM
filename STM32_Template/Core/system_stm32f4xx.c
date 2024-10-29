@@ -14,7 +14,7 @@
   *                      此调用在 "startup_stm32f4xx.s" 文件中进行。
   *
   *      - SystemCoreClock variable: 包含核心时钟(HCLK)，
-  *                                  用户应用程序可以使用它来设置SysTick计时器或配置其他参数。
+  *                                  用户应用程序可以使用它来设置 SysTick 计时器或配置其他参数。
   *
   *      - SystemCoreClockUpdate(): 更新变量 SystemCoreClock，
   *                                 并且必须在程序执行期间更改核心时钟时调用。
@@ -435,7 +435,7 @@ static void SystemInit_ExtMemCtl(void);
 
 /**
   * 简介:  设置微控制器系统
-  *         初始化嵌入式闪存接口、PLL并更新SystemFrequency变量。
+  *         初始化嵌入式闪存接口、PLL并更新 SystemFrequency变量。
   * 参数:  无
   * 返回值: 无
   */
@@ -444,7 +444,7 @@ void SystemInit(void) {
 #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
     SCB->CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* 设置 CP10 和 CP11 完全访问 */
 #endif
-    /* 将RCC时钟配置重置为默认重置状态 ------------*/
+    /* 将RCC 时钟配置重置为默认重置状态 ------------*/
     /* 重置 HSION bit */
     RCC->CR |= (uint32_t)0x00000001;
 
@@ -480,10 +480,10 @@ void SystemInit(void) {
 }
 
 /**
-   * 简介:  根据时钟寄存器值更新SystemCoreClock变量。
-  *         SystemCoreClock变量包含核心时钟(HCLK)，用户应用程序可以使用它来设置SysTick计时器或配置其他参数。
+   * 简介:  根据时钟寄存器值更新 SystemCoreClock 变量。
+  *         SystemCoreClock 变量包含核心时钟(HCLK)，用户应用程序可以使用它来设置 SysTick 计时器或配置其他参数。
   *
-  * @note   每次核心时钟(HCLK)发生变化时，都必须调用此函数来更新SystemCoreClock
+  * @note   每次核心时钟(HCLK)发生变化时，都必须调用此函数来更新 SystemCoreClock
   *         变量值。否则，基于此变量的任何配置都将是不正确的。
   *
   * @note   - 通过该函数计算的系统频率不是芯片中的实际频率。它是根据预定义的常数和选定的时钟源进行计算的：
@@ -794,9 +794,9 @@ static void SetSysClock(void) {
     defined(STM32F469xx) || defined(STM32F479xx)
 /**
   * 简介:  设置外部内存控制器。
-  *         在跳转到main之前，在startup_stm32f4xx.s中调用。
+  *         在跳转到 main 之前，在 startup_stm32f4xx.s 中调用。
   *         此函数配置外部存储器(SRAM/SDRAM)
-  *         该SRAM/SDRAM将用作程序数据存储器(包括堆和堆栈)。
+  *         该 SRAM/SDRAM 将用作程序数据存储器(包括堆和堆栈)。
   * 参数:  无
   * 返回值: 无
   */
@@ -951,15 +951,15 @@ void SystemInit_ExtMemCtl(void) {
 #endif /* STM32F427xx || STM32F437xx || STM32F429xx || STM32F439xx || STM32F469xx || STM32F479xx */
 #elif defined (DATA_IN_ExtSRAM)
 /**
-  * 简介:  设置外部内存控制器。在跳转到__main之前在startup_stm32f4xx.s中调用
+  * 简介:  设置外部内存控制器。在跳转到__main 之前在 startup_stm32f4xx.s 中调用
   * 参数:  无
   * 返回值: 无
   */
 /**
   * 简介:  设置外部内存控制器。
-  *         在跳转到main之前，在startup_stm32f4xx.s中调用。
+  *         在跳转到 main 之前，在 startup_stm32f4xx.s 中调用。
   *         此功能配置安装在 STM324xG_EVAL/STM324x7I板上的外部 SRAM
-  *         该SRAM将用作程序数据存储器(包括堆和堆栈)。
+  *         该 SRAM 将用作程序数据存储器(包括堆和堆栈)。
   * 参数:  无
   * 返回值: 无
   */
@@ -1111,7 +1111,7 @@ void SystemInit_ExtMemCtl(void) {
 #elif defined (DATA_IN_ExtSDRAM)
 /**
   * 简介:  设置外部内存控制器。
-  *         在跳转到main之前，在startup_stm32f4xx.s中调用。
+  *         在跳转到 main 之前，在 startup_stm32f4xx.s 中调用。
   *         This function configures the external SDRAM mounted on STM324x9I_EVAL board
   *         This SDRAM will be used as program data memory (including heap and stack).
   * 参数:  无

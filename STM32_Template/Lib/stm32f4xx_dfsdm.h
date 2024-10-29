@@ -615,35 +615,35 @@ void DFSDM_ConfigClkOutputSource(uint32_t DFSDM_ClkOutSource); // 配置输出�
 void DFSDM_ConfigClkOutputDivider(uint32_t Instance, uint32_t DFSDM_ClkOutDivision); // 配置输出串行时钟分频器。
 void DFSDM_ConfigClkOutputSource(uint32_t Instance, uint32_t DFSDM_ClkOutSource); // 配置输出串行时钟源.
 #endif /* STM32F412xG */
-void DFSDM_SelectInjectedConversionMode(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_InjectConvMode); // 为选定的 DFSDMx选择注入转换模式。
+void DFSDM_SelectInjectedConversionMode(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_InjectConvMode); // 为选定的 DFSDMx 选择注入转换模式。
 void DFSDM_SelectInjectedChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_InjectedChannelx);
-void DFSDM_SelectRegularChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_RegularChannelx); // 为选定的 DFSDMx选择常规频道。
+void DFSDM_SelectRegularChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_RegularChannelx); // 为选定的 DFSDMx 选择常规频道。
 void DFSDM_StartSoftwareInjectedConversion(DFSDM_Filter_TypeDef* DFSDMx); // 为选定 DFSDMx 的注入通道组启动软件启动。
 void DFSDM_StartSoftwareRegularConversion(DFSDM_Filter_TypeDef* DFSDMx); // 启动选定 DFSDMx 的常规频道的软件启动。
-void DFSDM_SynchronousFilter0InjectedStart(DFSDM_Filter_TypeDef* DFSDMx); // 当在DFSDM0中由软件启动的注入转换时，同步启动注入转换。
-void DFSDM_SynchronousFilter0RegularStart(DFSDM_Filter_TypeDef* DFSDMx); // 当在DFSDM0中由软件启动的常规转换时，同步启动常规转换。
+void DFSDM_SynchronousFilter0InjectedStart(DFSDM_Filter_TypeDef* DFSDMx); // 当在 DFSDM0 中由软件启动的注入转换时，同步启动注入转换。
+void DFSDM_SynchronousFilter0RegularStart(DFSDM_Filter_TypeDef* DFSDMx); // 当在 DFSDM0 中由软件启动的常规转换时，同步启动常规转换。
 void DFSDM_RegularContinuousModeCmd(DFSDM_Filter_TypeDef* DFSDMx, FunctionalState NewState); // 启用或禁用选定过滤器 DFSDMx 的常规转换的继续模式。
 void DFSDM_InjectedContinuousModeCmd(DFSDM_Filter_TypeDef* DFSDMx, FunctionalState NewState);
 void DFSDM_FastModeCmd(DFSDM_Filter_TypeDef* DFSDMx, FunctionalState NewState); // 启用或禁用所选过滤器 DFSDMx 的快速模式。
 void DFSDM_ConfigInjectedTrigger(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_Trigger, uint32_t DFSDM_TriggerEdge); // 选择触发信号以启动所选 DFSDMx 的注入转换。
-void DFSDM_ConfigBRKShortCircuitDetector(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32_t DFSDM_SCDBreak_i, FunctionalState NewState); // 对指定的 DFSDM_Channelx启用或禁用指定的Break_i siganl。
+void DFSDM_ConfigBRKShortCircuitDetector(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32_t DFSDM_SCDBreak_i, FunctionalState NewState); // 对指定的 DFSDM_Channelx 启用或禁用指定的 Break_i siganl。
 void DFSDM_ConfigBRKAnalogWatchDog(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32_t DFSDM_SCDBreak_i, FunctionalState NewState);
-void DFSDM_ConfigShortCircuitThreshold(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32_t DFSDM_SCDThreshold); // 为选定的 DFSDM_Channelx定义短路检测器的阈值计数器。
+void DFSDM_ConfigShortCircuitThreshold(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32_t DFSDM_SCDThreshold); // 为选定的 DFSDM_Channelx 定义短路检测器的阈值计数器。
 void DFSDM_ConfigAnalogWatchdog(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_AWDChannelx, uint32_t DFSDM_AWDFastMode); // 选择所选 DFSDMx 的模拟看门狗要保护的通道，并选择是否启用快速模拟看门犬。
 void DFSDM_ConfigAWDFilter(DFSDM_Channel_TypeDef* DFSDM_Channelx, uint32_t DFSDM_AWDSincOrder, uint32_t DFSDM_AWDSincOverSampleRatio);
 uint32_t DFSDM_GetAWDConversionValue(DFSDM_Channel_TypeDef* DFSDM_Channelx); // 返回channelx 的最后一个模拟看门狗过滤器转换结果数据。
 void DFSDM_SetAWDThreshold(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_HighThreshold, uint32_t DFSDM_LowThreshold); // 为所选 DFSDMx 的模拟看门狗配置高阈值和低阈值。
 void DFSDM_SelectExtremesDetectorChannel(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_ExtremChannelx); // 选择要由所选 DFSDMx 的模拟看门狗保护的通道要使用的模式.
-int32_t DFSDM_GetRegularConversionData(DFSDM_Filter_TypeDef* DFSDMx); // 通过DFSDMx返回常规转换数据。
-int32_t DFSDM_GetInjectedConversionData(DFSDM_Filter_TypeDef* DFSDMx); // 通过DFSDMx返回注入的转换数据。
-int32_t DFSDM_GetMaxValue(DFSDM_Filter_TypeDef* DFSDMx); // 返回由 DFSDMx转换的最大值。
-int32_t DFSDM_GetMinValue(DFSDM_Filter_TypeDef* DFSDMx); // 返回由 DFSDMx转换的最小值。
-int32_t DFSDM_GetMaxValueChannel(DFSDM_Filter_TypeDef* DFSDMx); // 返回 DFSDMx在其上捕获最高转换数据的通道数。
-int32_t DFSDM_GetMinValueChannel(DFSDM_Filter_TypeDef* DFSDMx); // 返回 DFSDMx在其上捕获最低转换数据的通道数。
+int32_t DFSDM_GetRegularConversionData(DFSDM_Filter_TypeDef* DFSDMx); // 通过 DFSDMx 返回常规转换数据。
+int32_t DFSDM_GetInjectedConversionData(DFSDM_Filter_TypeDef* DFSDMx); // 通过 DFSDMx 返回注入的转换数据。
+int32_t DFSDM_GetMaxValue(DFSDM_Filter_TypeDef* DFSDMx); // 返回由 DFSDMx 转换的最大值。
+int32_t DFSDM_GetMinValue(DFSDM_Filter_TypeDef* DFSDMx); // 返回由 DFSDMx 转换的最小值。
+int32_t DFSDM_GetMaxValueChannel(DFSDM_Filter_TypeDef* DFSDMx); // 返回 DFSDMx 在其上捕获最高转换数据的通道数。
+int32_t DFSDM_GetMinValueChannel(DFSDM_Filter_TypeDef* DFSDMx); // 返回 DFSDMx 在其上捕获最低转换数据的通道数。
 uint32_t DFSDM_GetConversionTime(DFSDM_Filter_TypeDef* DFSDMx); // 返回 DFSDMx 的转换时间(以28位计时器为单位)。
 void DFSDM_DMATransferConfig(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_DMAConversionMode, FunctionalState NewState); // 启用或禁用 DMA以读取所选滤波器 DFSDMx 的注入信道组的数据。
 /* 中断和标志管理功能 **********************************/
-void DFSDM_ITConfig(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_IT, FunctionalState NewState); // 启用或禁用指定的 DFSDMx中断。
+void DFSDM_ITConfig(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_IT, FunctionalState NewState); // 启用或禁用指定的 DFSDMx 中断。
 #if defined(STM32F412xG)
 void DFSDM_ITClockAbsenceCmd(FunctionalState NewState); // 启用或禁用时钟缺失中断。
 void DFSDM_ITShortCircuitDetectorCmd(FunctionalState NewState); // 启用或禁用短路检测器中断。

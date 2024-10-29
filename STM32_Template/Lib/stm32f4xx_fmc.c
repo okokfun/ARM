@@ -103,7 +103,7 @@ const FMC_NORSRAMTimingInitTypeDef FMC_DefaultTimingStruct = {0x0F, /* FMC_Addre
 
    (#) 声明一个 FMC_NORSRAMInitTypeDef 结构，例如。
           FMC_NORSRAMInitTypeDef FMC_NORSRAMInitStructure;
-      并在FMC_NORSRAMInitStructure变量中填入结构成员的允许值。
+      并在 FMC_NORSRAMInitStructure变量中填入结构成员的允许值。
       结构成员的允许值。
 
    (#) 通过调用函数来初始化 NOR/SRAM 控制器
@@ -306,7 +306,7 @@ void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过设置BCRx中的PBKEN 位来选择NOR/SRAM组寄存器 */
+        /* 启用通过设置BCRx 中的PBKEN 位来选择NOR/SRAM组寄存器 */
         FMC_Bank1->BTCR[FMC_Bank] |= BCR_MBKEN_SET;
     } else {
         /* 禁用通过清除 BCRx 中的 PBKEN 位来选择 NOR/SRAM 组寄存器 */
@@ -336,7 +336,7 @@ void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
 
   (#) 声明一个 FMC_NANDInitTypeDef 结构，例如。
       FMC_NANDInitTypeDef FMC_NANDInitStructure;
-      并在FMC_NANDInitStructure变量中填入该结构成员的允许值。
+      并在 FMC_NANDInitStructure变量中填入该结构成员的允许值。
 
   (#) 通过调用函数来初始化 NAND 控制器
       FMC_NANDInit(&FMC_NANDInitStructure)。
@@ -350,7 +350,7 @@ void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
   (@) 为了启用纠错码(ECC)，你必须使用函数
       FMC_NANDECCCmd(FMC_Bank3_NAND, ENABLE)。
  [..]
-  (@)，为了获得当前的 ECC值，你必须使用函数
+  (@)，为了获得当前的 ECC 值，你必须使用函数
       ECCval = FMC_GetECC(FMC_Bank3_NAND)。
 
 @endverbatim
@@ -529,14 +529,14 @@ void FMC_NANDCmd(uint32_t FMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过在 PCRx中设置PBKEN 位来选择NAND组寄存器 */
+        /* 启用通过在 PCRx 中设置PBKEN 位来选择NAND组寄存器 */
         if(FMC_Bank == FMC_Bank2_NAND) {
             FMC_Bank2->PCR2 |= PCR_PBKEN_SET;
         } else {
             FMC_Bank3->PCR3 |= PCR_PBKEN_SET;
         }
     } else {
-        /* 禁用通过清除PCRx中的PBKEN 位来选择NAND组寄存器 */
+        /* 禁用通过清除PCRx 中的PBKEN 位来选择NAND组寄存器 */
         if(FMC_Bank == FMC_Bank2_NAND) {
             FMC_Bank2->PCR2 &= PCR_PBKEN_RESET;
         } else {
@@ -552,7 +552,7 @@ void FMC_NANDCmd(uint32_t FMC_Bank, FunctionalState NewState) {
   *            @arg FMC_Bank2_NAND: FMC Bank2 NAND
   *            @arg FMC_Bank3_NAND: FMC Bank3 NAND
   * 
-  * 参数:  NewState: FMC NAND ECC功能的新状态。
+  * 参数:  NewState: FMC NAND ECC 功能的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -562,14 +562,14 @@ void FMC_NANDECCCmd(uint32_t FMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过在 PCRx中设置ECCEN 位来选择NAND组ECC功能寄存器 */
+        /* 启用通过在 PCRx 中设置ECCEN 位来选择NAND组ECC 功能寄存器 */
         if(FMC_Bank == FMC_Bank2_NAND) {
             FMC_Bank2->PCR2 |= PCR_ECCEN_SET;
         } else {
             FMC_Bank3->PCR3 |= PCR_ECCEN_SET;
         }
     } else {
-        /* 禁用通过清除PCRx中的 ECCEN 位来选择NAND组ECC功能寄存器 */
+        /* 禁用通过清除PCRx 中的 ECCEN 位来选择NAND组ECC 功能寄存器 */
         if(FMC_Bank == FMC_Bank2_NAND) {
             FMC_Bank2->PCR2 &= PCR_ECCEN_RESET;
         } else {
@@ -625,7 +625,7 @@ uint32_t FMC_GetECC(uint32_t FMC_Bank) {
 
   (#) 声明一个 FMC_PCCARDInitTypeDef 结构，例如。
       FMC_PCCARDInitTypeDef FMC_PCCARDInitStructure;
-      并在FMC_PCCARDInitStructure变量中填入该结构成员的允许值。
+      并在 FMC_PCCARDInitStructure变量中填入该结构成员的允许值。
 
   (#) 通过调用函数来初始化PCCARD 控制器
       FMC_PCCARDInit(&FMC_PCCARDInitStructure)。
@@ -700,7 +700,7 @@ void FMC_PCCARDInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct) {
 
     FMC_Bank4->PCR4 = tmppcr;
 
-    /* 获取PCCARD公共空间正时寄存器值 */
+    /* 获取 PCCARD公共空间正时寄存器值 */
     tmpmem = FMC_Bank4->PMEM4;
 
     /* 清除 MEMSETx, MEMWAITx, MEMHOLDx and MEMHIZx 位 */
@@ -715,7 +715,7 @@ void FMC_PCCARDInit(FMC_PCCARDInitTypeDef* FMC_PCCARDInitStruct) {
 
     FMC_Bank4->PMEM4 = tmpmem;
 
-    /* 获取PCCARD正时参数 */
+    /* 获取 PCCARD正时参数 */
     tmppatt = FMC_Bank4->PATT4;
 
     /* 清除 ATTSETx, ATTWAITx, ATTHOLDx and ATTHIZx 位 */
@@ -824,7 +824,7 @@ void FMC_PCCARDCmd(FunctionalState NewState) {
         FMC_SDRAMCommandTypeDef FMC_SDRAMCommandStructure;
       并用该结构成员的允许值填充FMC_SDRAMCommandStructure变量。
 
-  (#) 通过调用函数FMC_SDRAMCmdConfig(&FMC_SDRAMCommandStructure)，用所需的命令参数配置SDCM寄存器。
+  (#) 通过调用函数FMC_SDRAMCmdConfig(&FMC_SDRAMCommandStructure)，用所需的命令参数配置 SDCM寄存器。
 
   (#) 在这个阶段，SDRAM内存已经准备好接受任何有效的命令。
 
@@ -983,7 +983,7 @@ void FMC_SDRAMInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct) {
   * 返回值: 无
   */
 void FMC_SDRAMStructInit(FMC_SDRAMInitTypeDef* FMC_SDRAMInitStruct) {
-    /* 重置SDRAM初始结构参数值 */
+    /* 重置 SDRAM初始结构参数值 */
     FMC_SDRAMInitStruct->FMC_Bank = FMC_Bank1_SDRAM;
     FMC_SDRAMInitStruct->FMC_ColumnBitsNumber = FMC_ColumnBits_Number_8b;
     FMC_SDRAMInitStruct->FMC_RowBitsNumber = FMC_RowBits_Number_11b;
@@ -1324,7 +1324,7 @@ ITStatus FMC_GetITStatus(uint32_t FMC_Bank, uint32_t FMC_IT) {
         tmpsr2 = FMC_Bank5_6->SDSR;
     }
 
-    /* 获取IT启用位状态*/
+    /* 获取 IT启用位状态*/
     itenable = tmpsr & FMC_IT;
 
     /* 获取相应的 IT 标志状态*/

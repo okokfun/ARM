@@ -369,7 +369,7 @@ uint16_t GPIO_ReadOutputData(GPIO_TypeDef* GPIOx) {
   * 简介:  设置所选数据端口位。
   * 
   * 注意:   此函数使用 GPIOx_BSRR 寄存器允许原子读取/修改访问。
-		这样，在读取和修改访问之间就不会发生IRQ风险。
+		这样，在读取和修改访问之间就不会发生 IRQ风险。
 
   * 参数:  GPIOx:其中 x 可以是(A..K)，用于为 STM32F405xx/407xx 和 STM32P415xx/417xx 设备选择GPIO 外设设备
   *                      x 可以是(A..I)以选择 STM32F42xxx/43xxx 设备的 GPIO 外设设备。
@@ -392,7 +392,7 @@ void GPIO_SetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
   * 简介:  清除选定的数据端口位。
   * 
   * 注意:   此函数使用 GPIOx_BSRR 寄存器允许原子读取/修改访问。
-		这样，在读取和修改访问之间就不会发生IRQ风险。
+		这样，在读取和修改访问之间就不会发生 IRQ风险。
 
   * 参数:  GPIOx:其中 x 可以是(A..K)，用于为 STM32F405xx/407xx 和 STM32P415xx/417xx 设备选择GPIO 外设设备
   *                      x 可以是(A..I)以选择 STM32F42xxx/43xxx 设备的 GPIO 外设设备。

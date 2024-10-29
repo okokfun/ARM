@@ -16,7 +16,7 @@ typedef struct {
 
     uint32_t DataSource;	//显示数据地址
     uint32_t Background;	//背景颜色
-    uint8_t  SampleEdge;	//屏幕在DOTCLK的哪个边沿采样数据：LCD_SAMPLE_RISE、LCD_SAMPLE_FALL
+    uint8_t  SampleEdge;	//屏幕在 DOTCLK的哪个边沿采样数据：LCD_SAMPLE_RISE、LCD_SAMPLE_FALL
 
     uint8_t  IntEOTEn;		//End of Transter(传输完成)中断使能
 } LCD_InitStructure;
@@ -37,8 +37,8 @@ typedef struct {
 #define LCD_FMT_SRGB565	2	//Serial RGB
 #define LCD_FMT_SRGB888	3
 
-#define LCD_SAMPLE_RISE	0	//屏幕在DOTCLK的上升沿采样数据
-#define LCD_SAMPLE_FALL	1	//屏幕在DOTCLK的下降沿采样数据
+#define LCD_SAMPLE_RISE	0	//屏幕在 DOTCLK的上升沿采样数据
+#define LCD_SAMPLE_FALL	1	//屏幕在 DOTCLK的下降沿采样数据
 
 #define LCD_LAYER_1	  	0
 #define LCD_LAYER_2     1

@@ -15,7 +15,7 @@
  ===============================================================================
     [..]
         (#) 使用
-            RCC_APB2PeriphResetCmd(RCC_APB2Periph_LTDC, ENABLE) 函数启用 LTDC时钟。
+            RCC_APB2PeriphResetCmd(RCC_APB2Periph_LTDC, ENABLE) 函数启用 LTDC 时钟。
 
         (#) 配置LTDC
           (++) 按照面板数据手册配置所需的Pixel时钟
@@ -38,7 +38,7 @@
         (#) 在LTDC_LxCR 寄存器中启用 Layer1/2，必要时启用 CLUT
 
         (#) 通过 LTDC_SRCR 寄存器将影子寄存器重新加载到活动寄存器。(#) 通过 LTDC_SRCR 寄存器将影子寄存器重新载入活动寄存器。
-          -@- 除了CLUT之外，所有的层参数都可以被即时修改。
+          -@- 除了 CLUT之外，所有的层参数都可以被即时修改。
               新的配置必须立即被重新加载 或在垂直消隐期间通过配置LTDC_SRCR 寄存器重新加载新的配置。
         (#) 调用 LTDC_Cmd()来启用 LTDC控制器。
 
@@ -264,7 +264,7 @@ LTDC_RGBTypeDef LTDC_GetRGBWidth(void) {
 }
 
 /**
-  * 简介:  用每个LTDC_RGBStruct 成员的默认值填充该成员。
+  * 简介:  用每个 LTDC_RGBStruct 成员的默认值填充该成员。
   * 参数:  LTDC_RGB_InitStruct: 指向 LTDC_RGBTypeDef 结构的指针，该结构将被初始化。
   * 返回值: 无
   */
@@ -466,7 +466,7 @@ LTDC_PosTypeDef LTDC_GetPosStatus(void) {
 }
 
 /**
-  * 简介:  用每个LTDC_Pos_InitStruct 成员的默认值填充该成员。
+  * 简介:  用每个 LTDC_Pos_InitStruct 成员的默认值填充该成员。
   * 参数:  LTDC_Pos_InitStruct: 指向 LTDC_PosTypeDef 结构的指针，该结构将被初始化。
   * 返回值: 无
   */
@@ -539,7 +539,7 @@ void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_In
 }
 
 /**
-  * 简介:  用每个LTDC_colorkeying_InitStruct 成员的默认值填充其默认值。
+  * 简介:  用每个 LTDC_colorkeying_InitStruct 成员的默认值填充其默认值。
   * 参数:  LTDC_colorkeying_InitStruct: 指向 LTDC_ColorKeying_InitTypeDef 结构
   *                                     的指针，它将被初始化,被初始化。
   * 返回值: 无
@@ -568,7 +568,7 @@ void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
         /* 使能CLUT by setting CLUTEN 位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_CLUTEN;
     } else {
-        /* 通过清除 CLUTEN禁用 CLUT位 */
+        /* 通过清除 CLUTEN禁用 CLUT 位 */
         LTDC_Layerx->CR &= ~(uint32_t)LTDC_LxCR_CLUTEN;
     }
 
@@ -604,7 +604,7 @@ void LTDC_CLUTInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_CLUT_InitTypeDef* LTDC_
 }
 
 /**
-  * 简介:  用每个LTDC_CLUT_InitStruct 成员的默认值填充该成员。
+  * 简介:  用每个 LTDC_CLUT_InitStruct 成员的默认值填充该成员。
   * 参数:  LTDC_CLUT_InitStruct: 指向 LTDC_CLUT_InitTypeDef 结构的指针，该结构将被初始化。
   * 返回值: 无
   */

@@ -182,7 +182,7 @@ void DCMI_StructInit(DCMI_InitTypeDef* DCMI_InitStruct) {
 /**
   * 简介:  根据 DCMI_CROPInitStruct 中指定的参数初始化 DCMI 外设 CROP 模式。
   * 
-  * 注意:   这个函数应该在启用和启动DCMI接口之前被调用
+  * 注意:   这个函数应该在启用和启动 DCMI接口之前被调用
   * 。
   * 参数:  DCMI_CROPInitStruct:  指向 DCMI_CROPInitTypeDef 结构的指针，
   *                              该结构包含DCMI 外围CROP模式的配置信息。
@@ -202,7 +202,7 @@ void DCMI_CROPConfig(DCMI_CROPInitTypeDef* DCMI_CROPInitStruct) {
 /**
   * 简介:  启用或禁用 DCMI 裁剪功能。
   * 
-  * 注意:   这个函数应该在启用和启动DCMI接口之前被调用。
+  * 注意:   这个函数应该在启用和启动 DCMI接口之前被调用。
   * 
   * 参数:  NewState: 新状态的 DCMI作物功能。
   *          此参数可以是: ENABLE 或 DISABLE。

@@ -31,7 +31,7 @@
 
            - 通过 LPTIM_SelectOperatingMode 来选择外设的工作模式，有两种模式可以选择。
                + 连续模式:定时器是自由运行的，定时器从一个触发事件开始，永不停止，直到定时器被禁用。
-               + 一次性模式:计时器从一个触发事件开始，当达到自动重载值时停止。
+               + 一次性模式: 计时器从一个触发事件开始，当达到自动重载值时停止。
 
            - 使用 LPTIM_SetAutoreloadValue 来设置自动重载值，LPTIM_SetCompareValue 来设置比较值。
 
@@ -601,7 +601,7 @@ void LPTIM_ConfigUpdate(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Update) {
   * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_Autoreload: Autoreload值。
-  *         此参数的值必须介于 0x0000 和0xFFFF之间
+  *         此参数的值必须介于 0x0000 和 0xFFFF 之间
   * 
   * 返回值: 无
   */
@@ -620,7 +620,7 @@ void LPTIM_SetAutoreloadValue(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Autoreload) 
   * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_Compare: 比较值。
-  *         此参数的值必须介于 0x0000 和0xFFFF之间
+  *         此参数的值必须介于 0x0000 和 0xFFFF 之间
   * 
   * 返回值: 无
   */
@@ -790,13 +790,13 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
   * 
   * 参数:  LPTIM_IT: 指定要启用或禁用的 TIM 中断源。
   *         此参数可以是以下值的任意组合:
-  *         @arg LPTIM_IT_DOWN:计数器方向从上到下改变中断源
-  *         @arg LPTIM_IT_UP:计数器方向向下更改为向上中断源
-  *         @arg LPTIM_IT_ARROK:自动重新加载寄存器更新OK中断源
-  *         @arg LPTIM_IT_CMPOK:比较寄存器更新OK中断源
-  *         @arg LPTIM_IT_EXTTRIG:外部触发器边缘事件中断源
-  *         @arg LPTIM_IT_ARRM:自动重新加载匹配中断源
-  *         @arg LPTIM_IT_CMPM:比较匹配中断源
+  *         @arg LPTIM_IT_DOWN: 计数器方向从上到下改变中断源
+  *         @arg LPTIM_IT_UP: 计数器方向向下更改为向上中断源
+  *         @arg LPTIM_IT_ARROK: 自动重新加载寄存器更新OK中断源
+  *         @arg LPTIM_IT_CMPOK: 比较寄存器更新OK中断源
+  *         @arg LPTIM_IT_EXTTRIG: 外部触发器边缘事件中断源
+  *         @arg LPTIM_IT_ARRM: 自动重新加载匹配中断源
+  *         @arg LPTIM_IT_CMPM: 比较匹配中断源
   * 
   * 注意:   LPTIM_IT_DOWN 仅适用于 LPTIM1。
   * 
@@ -831,17 +831,17 @@ void LPTIM_ITConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_IT, FunctionalState Ne
   * 
   * 参数:  LPTIM_FLAG: 指定要检查的标志。
   *         此参数可以是以下值的任意组合:
-  *         @arg LPTIM_FLAG_DOWN:计数器方向更改向上标志
-  *         @arg LPTIM_FLAG_UP:计数器方向由下变为上标志
-  *         @arg LPTIM_FLAG_ARROK:自动重新加载寄存器更新OK标志
-  *         @arg LPTIM_FLAG_CMPOK:比较寄存器更新OK标志
-  *         @arg LPTIM_FLAG_EXTTRIG:外部触发器边缘事件标志
-  *         @arg LPTIM_FLAG_ARRM:自动重新加载匹配标志
-  *         @arg LPTIM_FLAG_CMPM:比较匹配标志
+  *         @arg LPTIM_FLAG_DOWN: 计数器方向更改向上标志
+  *         @arg LPTIM_FLAG_UP: 计数器方向由下变为上标志
+  *         @arg LPTIM_FLAG_ARROK: 自动重新加载寄存器更新OK标志
+  *         @arg LPTIM_FLAG_CMPOK: 比较寄存器更新OK标志
+  *         @arg LPTIM_FLAG_EXTTRIG: 外部触发器边缘事件标志
+  *         @arg LPTIM_FLAG_ARRM: 自动重新加载匹配标志
+  *         @arg LPTIM_FLAG_CMPM: 比较匹配标志
   * 
-  * 注意:   LPTIM_Flag_DOWN 仅为LPTIM1生成。
+  * 注意:   LPTIM_Flag_DOWN 仅为 LPTIM1 生成。
   * 
-  * 注意:   LPTIM_Flag_UP 仅为LPTIM1生成。
+  * 注意:   LPTIM_Flag_UP 仅为 LPTIM1 生成。
   * 
   * 参数:  NewState: TIM 中断的新状态。
   *         此参数可以是: ENABLE 或 DISABLE。
@@ -873,14 +873,14 @@ FlagStatus LPTIM_GetFlagStatus(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_FLAG) {
   *         此参数可以是以下值的任意组合:
   *            @arg LPTIM_CLEARF_DOWN: 计数器方向向上更改清除标志
   *            @arg LPTIM_CLEARF_UP: 计数器方向由下向上变化清除标志
-  *            @arg LPTIM_CLEARF_ARROK:自动重新加载寄存器更新正常清除标志
-  *            @arg LPTIM_CLEARF_CMPOK:比较寄存器更新OK清除标志
-  *            @arg LPTIM_CLEARF_EXTTRIG:外部触发器边缘事件清除标志
-  *            @arg LPTIM_CLEARF_ARRM:自动重新加载匹配清除标志
-  *            @arg LPTIM_CLEARF_CMPM:比较匹配清除标志
+  *            @arg LPTIM_CLEARF_ARROK: 自动重新加载寄存器更新正常清除标志
+  *            @arg LPTIM_CLEARF_CMPOK: 比较寄存器更新OK清除标志
+  *            @arg LPTIM_CLEARF_EXTTRIG: 外部触发器边缘事件清除标志
+  *            @arg LPTIM_CLEARF_ARRM: 自动重新加载匹配清除标志
+  *            @arg LPTIM_CLEARF_CMPM: 比较匹配清除标志
   * 
-  * 注意:   LPTIM_Flag_DOWN 仅为LPTIM1生成。
-  * 注意:   LPTIM_Flag_UP 仅为LPTIM1生成。
+  * 注意:   LPTIM_Flag_DOWN 仅为 LPTIM1 生成。
+  * 注意:   LPTIM_Flag_UP 仅为 LPTIM1 生成。
   * 
   * 返回值: 无
   */
@@ -899,13 +899,13 @@ void LPTIM_ClearFlag(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_CLEARF) {
   * 参数:  LPTIMx: 其中 x 可以是1。
   * 
   * 参数:  LPTIM_IT: 指定要检查的 LPTIM 中断源。
-  *            @arg LPTIM_IT_DOWN:计数器方向从上到下改变中断源
-  *            @arg LPTIM_IT_UP:计数器方向向下更改为向上中断源
-  *            @arg LPTIM_IT_ARROK:自动重新加载寄存器更新OK中断源
-  *            @arg LPTIM_IT_CMPOK:比较寄存器更新OK中断源
-  *            @arg LPTIM_IT_EXTTRIG:外部触发器边缘事件中断源
-  *            @arg LPTIM_IT_ARRM:自动重新加载匹配中断源
-  *            @arg LPTIM_IT_CMPM:比较匹配中断源
+  *            @arg LPTIM_IT_DOWN: 计数器方向从上到下改变中断源
+  *            @arg LPTIM_IT_UP: 计数器方向向下更改为向上中断源
+  *            @arg LPTIM_IT_ARROK: 自动重新加载寄存器更新OK中断源
+  *            @arg LPTIM_IT_CMPOK: 比较寄存器更新OK中断源
+  *            @arg LPTIM_IT_EXTTRIG: 外部触发器边缘事件中断源
+  *            @arg LPTIM_IT_ARRM: 自动重新加载匹配中断源
+  *            @arg LPTIM_IT_CMPM: 比较匹配中断源
   * 
   * 返回值: LPTIM_IT 的新状态(SET 或 RESET)。
   */

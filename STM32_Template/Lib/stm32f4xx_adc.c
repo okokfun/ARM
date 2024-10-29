@@ -258,7 +258,7 @@ void ADC_Init(ADC_TypeDef* ADCx, ADC_InitTypeDef* ADC_InitStruct) {
     /* 清除 CONT、ALIGN、EXTEN 和 EXTSEL 位 */
     tmpreg1 &= CR2_CLEAR_MASK;
 
-    /* 配置 ADCx:外部触发事件和边沿、数据对齐和连续转换模式 */
+    /* 配置 ADCx: 外部触发事件和边沿、数据对齐和连续转换模式 */
     /* 根据 ADC_DataAlign 值设置 ALIGN 位 */
     /* 根据 ADC_ExternalTrigConvEdge 值设置 EXTEN 位 */
     /* 根据 ADC_ExternalTrigConv 值设置 EXTSEL 位 */
@@ -824,14 +824,14 @@ FlagStatus ADC_GetSoftwareStartConvStatus(ADC_TypeDef* ADCx) {
 
     /* 检查SWSTART 的状态位 */
     if ((ADCx->CR2 & ADC_CR2_SWSTART) != (uint32_t)RESET) {
-        /* SWSTART位已设置 */
+        /* SWSTART 位已设置 */
         bitstatus = SET;
     } else {
-        /* SWSTART位复位 */
+        /* SWSTART 位复位 */
         bitstatus = RESET;
     }
 
-    /* 返回SWSTART位状态 */
+    /* 返回SWSTART 位状态 */
     return  bitstatus;
 }
 
@@ -1364,16 +1364,16 @@ FlagStatus ADC_GetSoftwareStartInjectedConvCmdStatus(ADC_TypeDef* ADCx) {
     /* 检查参数 */
     assert_param(IS_ADC_ALL_PERIPH(ADCx));
 
-    /* 检查JSWSTART位的状态 */
+    /* 检查JSWSTART 位的状态 */
     if ((ADCx->CR2 & ADC_CR2_JSWSTART) != (uint32_t)RESET) {
-        /* JSWSTART位已设置 */
+        /* JSWSTART 位已设置 */
         bitstatus = SET;
     } else {
-        /* JSWSTART位重置 */
+        /* JSWSTART 位重置 */
         bitstatus = RESET;
     }
 
-    /* 返回JSWSTART位状态 */
+    /* 返回JSWSTART 位状态 */
     return  bitstatus;
 }
 
@@ -1584,7 +1584,7 @@ FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG) {
         /* ADC_FLAG已设置 */
         bitstatus = SET;
     } else {
-        /* ADC_FLAG复位 */
+        /* ADC_FLAG 复位 */
         bitstatus = RESET;
     }
 

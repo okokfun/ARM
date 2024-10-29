@@ -170,7 +170,7 @@ void SYSCFG_ENET_PHY_Interface_Config(uint32_t SYSCFG_ENET_PHY_interface) {
 
 /*!
     简介:    configure the I/O compensation cell
-    参数[输入]:  SYSCFG_compensation: 指定I/O compensation cell mode
+    参数[输入]:  SYSCFG_compensation: 指定 I/O compensation cell mode
                 only one parameter can be selected which is shown as below:
       参数:        SYSCFG_Compensation_ENABLE: I/O compensation cell is enabled
       参数:        SYSCFG_Compensation_DISABLE: I/O compensation cell is disabled

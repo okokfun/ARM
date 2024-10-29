@@ -315,7 +315,7 @@ void I2C_start_on_bus(uint32_t I2C_periph) {
 }
 
 /*!
-    简介:      生成STOP条件 on I2C bus
+    简介:      生成STOP 条件 on I2C bus
     参数[输入]:  I2C_periph: I2Cx(x=0,1,2)
     参数[输出]:  无
     返回值:      无

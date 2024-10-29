@@ -869,7 +869,7 @@ void CAN_Receive(CAN_TypeDef* CANx, uint8_t FIFONumber, CanRxMsg* RxMessage) {
     /* 检查参数 */
     assert_param(IS_CAN_ALL_PERIPH(CANx));
     assert_param(IS_CAN_FIFO(FIFONumber));
-    /* 获取Id */
+    /* 获取 Id */
     RxMessage->IDE = (uint8_t)0x04 & CANx->sFIFOMailBox[FIFONumber].RIR;
 
     if (RxMessage->IDE == CAN_Id_Standard) {
@@ -1140,7 +1140,7 @@ uint8_t CAN_WakeUp(CAN_TypeDef* CANx) {
   *          - CAN_ERRORCODE_ACKErr:确认错误
   *          - CAN_ERRORCODE_BitRecessiveErr:位隐藏错误
   *          - CAN_ERRORCODE_BitDominantErr:位主导错误
-  *          - CAN_ERRORCODE_CRCErr:CRC错误
+  *          - CAN_ERRORCODE_CRCErr: CRC 错误
   *          - CAN_ERRORCODE_SoftwareSetErr:软件设置错误
   */
 uint8_t CAN_GetLastErrorCode(CAN_TypeDef* CANx) {
@@ -1161,7 +1161,7 @@ uint8_t CAN_GetLastErrorCode(CAN_TypeDef* CANx) {
   * 
   * 注意:   如果在接收过程中出现错误，此计数器将根据 CAN 标准定义的错误条件增加1或8。
   *             每次成功接收后，计数器将递减1，如果其值高于128，则重置为120。
-  *         当计数器值超过127时，CAN控制器进入错误被动状态。
+  *         当计数器值超过127时，CAN 控制器进入错误被动状态。
   * 
   * 参数:  CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
@@ -1240,15 +1240,15 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
 
         (++) CAN_FLAG_FOV0
         (++) CAN_FLAG_FOV1   : FIFO 0 和1溢出标志
-                               当接收到新消息并在FIFO 已满时通过过滤器时设置。
+                               当接收到新消息并在 FIFO 已满时通过过滤器时设置。
 
       (+) 操作模式标志
 
         (++) CAN_FLAG_WKU    : 唤醒标志
-                               设置为在CAN硬件处于休眠模式时检测到 SOF位的信号。
+                               设置为在 CAN 硬件处于休眠模式时检测到 SOF 位的信号。
 
         (++) CAN_FLAG_SLAK   : 睡眠确认标志
-                               设置为发出CAN已进入休眠模式的信号。
+                               设置为发出 CAN已进入休眠模式的信号。
 
       (+) Error Flags
 
@@ -1261,7 +1261,7 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
                                此标志仅由硬件清除。
 
         (++) CAN_FLAG_BOF    : 总线关闭标志
-                               当CAN进入总线关闭状态时设置。TEC溢出大于255时进入总线关闭状态。
+                               当 CAN 进入总线关闭状态时设置。TEC 溢出大于255时进入总线关闭状态。
                                此标志仅由硬件清除。
 
         (++) CAN_FLAG_LEC    : 上次错误代码标志
@@ -1293,10 +1293,10 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
       (+) 操作模式中断
 
         (++) CAN_IT_WKU     :  唤醒中断
-                                    如果启用，则当CAN硬件处于休眠模式时检测到 SOF位时，此中断源处于挂起状态。
+                                    如果启用，则当 CAN 硬件处于休眠模式时检测到 SOF 位时，此中断源处于挂起状态。
 
         (++) CAN_IT_SLK     :  睡眠确认中断
-                                    如果启用，当CAN进入休眠模式时，此中断源处于待定状态。
+                                    如果启用，当 CAN 进入休眠模式时，此中断源处于待定状态。
 
       (+) 错误中断
 
@@ -1307,7 +1307,7 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
                                如果启用，当达到错误被动限制(接收错误计数器或发送错误计数器>127)时，这个中断源被挂起。
 
         (++) CAN_IT_BOF : 总线关闭中断
-                               如果启用，当CAN进入总线关闭状态时，这个中断源被挂起。总线关闭状态是在 TEC溢出时进入的，大于255。
+                               如果启用，当 CAN 进入总线关闭状态时，这个中断源被挂起。总线关闭状态是在 TEC 溢出时进入的，大于255。
                                这个标志只能由硬件来清除。
 
         (++) CAN_IT_LEC : 最后的错误代码中断
@@ -1316,9 +1316,9 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
         (++) CAN_IT_ERR : 错误中断
                                如果启用，当有错误情况发生时，该中断源将被挂起。
 
-    [...] 管理CAN控制器的事件。
+    [...] 管理 CAN 控制器的事件。
 
-         用户应该确定在他的应用程序中使用哪种模式来管理CAN控制器事件。管理CAN控制器的事件。轮询模式或中断模式。
+         用户应该确定在他的应用程序中使用哪种模式来管理 CAN 控制器事件。管理 CAN 控制器的事件。轮询模式或中断模式。
 
       (#) 在轮询模式下，建议使用以下函数。
         (++) CAN_GetFlagStatus() : 检查是否发生了标志事件。
@@ -1337,13 +1337,13 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
 @endverbatim
   */
 /**
-  * 简介: 启用或停用指定的 CANx中断。
+  * 简介: 启用或停用指定的 CANx 中断。
   * 
   * 参数: CANx: 其中 x 可以是1、2 或3，以选择 can 外设设备。
   * 
   * 参数:  CAN_IT: 指定要启用或禁用的 CAN 中断源。
   *        这个参数可以是:
-  *             @参数CAN_IT_TME:发送邮箱空中断。
+  *             @参数CAN_IT_TME: 发送邮箱空中断。
   *             @arg CAN_IT_FMP0: FIFO 0消息等待中断。
   *             @arg CAN_IT_FF0: FIFO 0已满 中断
   *             @arg CAN_IT_FOV0:FIFO 0超限中断
@@ -1352,13 +1352,13 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
   *             @arg CAN_IT_FOV1: FIFO 1超限中断
   *             @arg CAN_IT_WKU: 唤醒中断
   *             @arg CAN_IT_SLK: 睡眠确认中断
-  *             @arg CAN_IT_EWG:错误警告中断
+  *             @arg CAN_IT_EWG: 错误警告中断
   *             @arg CAN_IT_EPV: 错误被动中断
-  *             @arg CAN_IT_BOF:总线关闭中断
+  *             @arg CAN_IT_BOF: 总线关闭中断
   *             @arg CAN_IT_LEC: 最后的错误代码中断
   *             @arg CAN_IT_ERR: 错误中断
   * 
-  * 参数:  NewState:CAN 中断的新状态。
+  * 参数:  NewState: CAN 中断的新状态。
   * 
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   *          此参数可以是: ENABLE 或 DISABLE。
@@ -1372,10 +1372,10 @@ void CAN_ITConfig(CAN_TypeDef* CANx, uint32_t CAN_IT, FunctionalState NewState) 
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用选定的 CANx中断 */
+        /* 启用选定的 CANx 中断 */
         CANx->IER |= CAN_IT;
     } else {
-        /* 禁用选定的 CANx中断 */
+        /* 禁用选定的 CANx 中断 */
         CANx->IER &= ~CAN_IT;
     }
 }
@@ -1399,8 +1399,8 @@ void CAN_ITConfig(CAN_TypeDef* CANx, uint32_t CAN_IT, FunctionalState NewState) 
   *            @arg CAN_FLAG_SLAK: 睡眠确认标志
   *            @arg CAN_FLAG_EWG: 错误警告标志
   *            @arg CAN_FLAG_EPV: 错误被动标志
-  *            @arg CAN_FLAG_BOF:总线关闭标志
-  *            @arg CAN_FLAG_LEC:最后的错误代码标志
+  *            @arg CAN_FLAG_BOF: 总线关闭标志
+  *            @arg CAN_FLAG_LEC: 最后的错误代码标志
   * 注意:   CAN3 外设设备仅适用于 STM32F413_423xx 设备
   * 
   * 返回值: CAN_FLAG 的新状态(SET 或 RESET)。
@@ -1416,46 +1416,46 @@ FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG) {
     if((CAN_FLAG & CAN_FLAGS_ESR) != (uint32_t)RESET) {
         /* 检查指定的 CAN 标志的状态 */
         if ((CANx->ESR & (CAN_FLAG & 0x000FFFFF)) != (uint32_t)RESET) {
-            /* CAN_FLAG被设置 */
+            /* CAN_FLAG 被设置 */
             bitstatus = SET;
         } else {
-            /* CAN_FLAG被重置 */
+            /* CAN_FLAG 被重置 */
             bitstatus = RESET;
         }
     } else if((CAN_FLAG & CAN_FLAGS_MSR) != (uint32_t)RESET) {
         /* 检查指定的 CAN 标志的状态 */
         if ((CANx->MSR & (CAN_FLAG & 0x000FFFFF)) != (uint32_t)RESET) {
-            /* CAN_FLAG被设置 */
+            /* CAN_FLAG 被设置 */
             bitstatus = SET;
         } else {
-            /* CAN_FLAG被重置 */
+            /* CAN_FLAG 被重置 */
             bitstatus = RESET;
         }
     } else if((CAN_FLAG & CAN_FLAGS_TSR) != (uint32_t)RESET) {
         /* 检查指定的 CAN 标志的状态 */
         if ((CANx->TSR & (CAN_FLAG & 0x000FFFFF)) != (uint32_t)RESET) {
-            /* CAN_FLAG被设置 */
+            /* CAN_FLAG 被设置 */
             bitstatus = SET;
         } else {
-            /* CAN_FLAG被重置 */
+            /* CAN_FLAG 被重置 */
             bitstatus = RESET;
         }
     } else if((CAN_FLAG & CAN_FLAGS_RF0R) != (uint32_t)RESET) {
         /* 检查指定的 CAN 标志的状态 */
         if ((CANx->RF0R & (CAN_FLAG & 0x000FFFFF)) != (uint32_t)RESET) {
-            /* CAN_FLAG被设置 */
+            /* CAN_FLAG 被设置 */
             bitstatus = SET;
         } else {
-            /* CAN_FLAG被重置 */
+            /* CAN_FLAG 被重置 */
             bitstatus = RESET;
         }
     } else { /* If(CAN_FLAG & CAN_FLAGS_RF1R != (uint32_t)RESET) */
         /* 检查指定的 CAN 标志的状态 */
         if ((uint32_t)(CANx->RF1R & (CAN_FLAG & 0x000FFFFF)) != (uint32_t)RESET) {
-            /* CAN_FLAG被设置 */
+            /* CAN_FLAG 被设置 */
             bitstatus = SET;
         } else {
-            /* CAN_FLAG被重置 */
+            /* CAN_FLAG 被重置 */
             bitstatus = RESET;
         }
     }

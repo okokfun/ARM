@@ -235,7 +235,7 @@ uint32_t RNG_GetRandomNumber(void) {
   *           - 计算数据就绪事件(DRDY)，以及
   *           - 种子错误中断(SEI)和
   *           - 时钟错误中断(CEI)，
-  *         所有这些中断源都是通过在CR 寄存器中设置IE位来启用的。
+  *         所有这些中断源都是通过在 CR 寄存器中设置IE位来启用的。
 			但是，每个中断都有其特定的状态位(请参阅RNG_GetITStatus()
 			函数)和清除位(请参见RNG_ClearITPendingBit() 函数，DRDY事件除外)。
   * 参数:  NewState: 新状态-> RNG 中断.

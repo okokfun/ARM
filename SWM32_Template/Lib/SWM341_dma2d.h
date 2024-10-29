@@ -5,7 +5,7 @@
 
 
 typedef struct {
-    uint16_t Interval;			// 每传输一块数据(64个字)，等待指定个系统周期后再传输下一个块，防止DMA2D占用过多SDRAM带宽，影响LCD读取显示数据;取值1--1023
+    uint16_t Interval;			// 每传输一块数据(64个字)，等待指定个系统周期后再传输下一个块，防止 DMA2D占用过多SDRAM带宽，影响LCD读取显示数据;取值1--1023
     uint8_t  IntEOTEn;			// End of Transter(传输完成)中断使能
 } DMA2D_InitStructure;
 

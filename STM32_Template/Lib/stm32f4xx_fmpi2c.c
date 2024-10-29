@@ -124,7 +124,7 @@
           内部状态机被复位，通信控制位以及状态位回到其复位值。
 
     [..] 在使用 FMPI2C_StopModeCmd() 函数启用停止模式之前，
-         必须将FMPI2C时钟源设置为 HSI，并且必须禁用数字滤波器。
+         必须将FMPI2C 时钟源设置为 HSI，并且必须禁用数字滤波器。
 
     [..] 在通过FMPI2C_DualAddressCmd() 函数启用自有地址2之前，
          应使用 FMPI2C_OwnAddress2Config() 函数配置OA2 和掩码。
@@ -513,7 +513,7 @@ void FMPI2C_SlaveAddressConfig(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address) {
 }
 
 /**
-  * 简介:  启用或禁用 FMPI2C主站的10位寻址模式。
+  * 简介:  启用或禁用 FMPI2C 主站的10位寻址模式。
   * 
   * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
   * 
@@ -560,7 +560,7 @@ void FMPI2C_10BitAddressingModeCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewS
 
     [..] 在主控模式下，当传输超过255字节时，应该使用 Reload模式来处理通信。
          在传输的第一阶段，Nbytes应该被设置为255。在传输完这些字节后，
-         TCR标志被设置，FMPI2C_TransferHandling() 函数应该被调用来处理剩余的通信。
+         TCR 标志被设置，FMPI2C_TransferHandling() 函数应该被调用来处理剩余的通信。
 
     [..] 在主控模式下，当选择了软件结束模式时，当所有的数据被传输完毕后，
          TC 标志被设置，FMPI2C_TransferHandling() 函数应该被调用以产生STOP或者产生ReStart。
@@ -702,7 +702,7 @@ void FMPI2C_GenerateSTART(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
   * 
   * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
   * 
-  * 参数:  NewState: FMPI2C STOP条件生成的新状态。
+  * 参数:  NewState: FMPI2C STOP 条件生成的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -713,10 +713,10 @@ void FMPI2C_GenerateSTOP(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 生成STOP条件 */
+        /* 生成STOP 条件 */
         FMPI2Cx->CR2 |= FMPI2C_CR2_STOP;
     } else {
-        /* 禁用 STOP条件生成 */
+        /* 禁用 STOP 条件生成 */
         FMPI2Cx->CR2 &= (uint32_t)~((uint32_t)FMPI2C_CR2_STOP);
     }
 }
@@ -823,7 +823,7 @@ uint16_t FMPI2C_GetTransferDirection(FMPI2C_TypeDef* FMPI2Cx) {
   * 参数:  Address: 指定要编程的从属地址。
   * 
   * 参数:  Number_Bytes: 指定要编程的字节数。
-  *   这个参数必须是0到255 之间的值。
+  *   这个参数必须是 0 到 255 之间的值。
   * 
   * 参数:  ReloadEndMode: FMPI2C START条件生成的新状态。
   *   此参数可以是以下值之一:
@@ -872,7 +872,7 @@ void FMPI2C_TransferHandling(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address, uint8_t 
  ===============================================================================
                       ##### SMBUS 管理功能 #####
  ===============================================================================
-    [..] 本节提供了一组处理SMBus通信和超时检测的函数。
+    [..] 本节提供了一组处理 SMBus通信和超时检测的函数。
 
     [..] 通过调用 FMPI2C_Init() 函数并将FMPI2C_InitTypeDef()结构的
          FMPI2C_Mode成员设置为 FMPI2C_Mode_SMBusDevice，启用 SMBus设备默认地址(0b1100 001)。
@@ -909,7 +909,7 @@ void FMPI2C_SMBusAlertCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能SMBus警报 */
+        /* 使能 SMBus警报 */
         FMPI2Cx->CR1 |= FMPI2C_CR1_ALERTEN;
     } else {
         /* 禁用 SMBus警报 */
@@ -1170,7 +1170,7 @@ uint32_t FMPI2C_ReadRegister(FMPI2C_TypeDef* FMPI2Cx, uint8_t FMPI2C_Register) {
     [..] 本小节提供了一组允许管理FMPI2C 数据传输的功能。
 
     [..] FMPI2C_RXDR 寄存器的读取访问可以使用 FMPI2S_ReceiveData() 函数完成，并返回接收的值。
-         然而，可以使用 FMPI2C_SendData() 函数对FMPI2T_TXDR进行写入访问，并将写入的数据存储到 TXDR中。
+         然而，可以使用 FMPI2C_SendData() 函数对FMPI2T_TXDR进行写入访问，并将写入的数据存储到 TXDR 中。
 @endverbatim
   */
 
@@ -1187,7 +1187,7 @@ void FMPI2C_SendData(FMPI2C_TypeDef* FMPI2Cx, uint8_t Data) {
     /* 检查参数 */
     assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
 
-    /* 在DR 寄存器中写入要发送的数据 */
+    /* 在 DR 寄存器中写入要发送的数据 */
     FMPI2Cx->TXDR = (uint8_t)Data;
 }
 
@@ -1215,11 +1215,11 @@ uint8_t FMPI2C_ReceiveData(FMPI2C_TypeDef* FMPI2Cx) {
  ===============================================================================
                ##### DMA 传输管理功能 #####
  ===============================================================================
-    [..] 本节提供了两个只能在DMA 模式下使用的函数。
+    [..] 本节提供了两个只能在 DMA 模式下使用的函数。
 
-    [..] 在DMA 模式下，FMPI2C 通信可通过2个 DMA 信道请求进行管理:
-         (#) FMPI2C_DMAReq_Tx: 指定 Tx缓冲器 DMA 传输请求。
-         (#) FMPI2C_DMAReq_Rx: 指定Rx缓冲器 DMA 传输请求。
+    [..] 在 DMA 模式下，FMPI2C 通信可通过2个 DMA 信道请求进行管理:
+         (#) FMPI2C_DMAReq_Tx: 指定 Tx 缓冲器 DMA 传输请求。
+         (#) FMPI2C_DMAReq_Rx: 指定Rx 缓冲器 DMA 传输请求。
 
     [..] 在此模式下，建议使用以下函数:
          (+) FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalState NewState);
@@ -1282,7 +1282,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (#) FMPI2C_FLAG_BERR: 指示总线错误标志的状态。
         (#) FMPI2C_FLAG_ARLO: 指示仲裁失败标志的状态。
         (#) FMPI2C_FLAG_OVR: 指示超速/欠速标志的状态。
-        (#) FMPI2C_FLAG_PECERR: 指示接收中的PEC错误标志的状态。
+        (#) FMPI2C_FLAG_PECERR: 指示接收中的PEC 错误标志的状态。
         (#) FMPI2C_FLAG_TIMEOUT:表示超时或低速检测标志的状态。
         (#) FMPI2C_FLAG_ALERT: 指示SMBus警报标志的状态。
         (#) FMPI2C_FLAG_BUSY: 指示总线繁忙标志的状态。
@@ -1317,7 +1317,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (#) FMPI2C_IT_BERR: 指示总线错误标志的状态。
         (#) FMPI2C_IT_ARLO: 指示仲裁失败标志的状态。
         (#) FMPI2C_IT_OVR: 指示超速/欠速标志的状态。
-        (#) FMPI2C_IT_PECERR: 指示接收中的PEC错误标志的状态。
+        (#) FMPI2C_IT_PECERR: 指示接收中的PEC 错误标志的状态。
         (#) FMPI2C_IT_TIMEOUT:表示超时或低速检测标志的状态。
         (#) FMPI2C_IT_ALERT: 指示SMBus警报标志的状态。
 
@@ -1346,7 +1346,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
   *       @arg FMPI2C_FLAG_BERR: 总线错误
   *       @arg FMPI2C_FLAG_ARLO: 仲裁丢失。
   *       @arg FMPI2C_FLAG_OVR: 超限/不足
-  *       @arg FMPI2C_FLAG_PECERR: 接收时出现PEC错误。
+  *       @arg FMPI2C_FLAG_PECERR: 接收时出现PEC 错误。
   *       @arg FMPI2C_FLAG_TIMEOUT: 超时或 Tlow检测标志
   *       @arg FMPI2C_FLAG_ALERT: SMBus警报
   *       @arg FMPI2C_FLAG_BUSY: 总线繁忙。
@@ -1361,7 +1361,7 @@ FlagStatus FMPI2C_GetFlagStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG) {
     assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
     assert_param(IS_FMPI2C_GET_FLAG(FMPI2C_FLAG));
 
-    /* 获取ISr 寄存器值 */
+    /* 获取 ISr 寄存器值 */
     tmpreg = FMPI2Cx->ISR;
 
     /* 获取 flag 状态 */
@@ -1388,12 +1388,12 @@ FlagStatus FMPI2C_GetFlagStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG) {
   *      @arg FMPI2C_FLAG_ADDR:地址匹配(从属模式)
   *      @arg FMPI2C_FLAG_NACKF:NACK收到标志
   *      @arg FMPI2C_FLAG_STOPF:停止检测标志
-  *      @arg FMPI2C_FLAG_BERR:总线错误
+  *      @arg FMPI2C_FLAG_BERR: 总线错误
   *      @参数FMPI2C_FLAG_ARLO:仲裁丢失.
   *      @arg FMPI2C_FLAG_OVR:超限/不足
-  *      @arg FMPI2C_FLAG_PECERR:接收时出现PEC错误
+  *      @arg FMPI2C_FLAG_PECERR:接收时出现PEC 错误
   *      @arg FMPI2C_FLAG_TIMEOUT:超时或 Tlow检测标志
-  *      @arg FMPI2C_FLAG_ALERT:SMBus警报
+  *      @arg FMPI2C_FLAG_ALERT: SMBus警报
   * 
   * 返回值: FMPI2C_FLAG 的新状态(SET 或 RESET)。
   */
@@ -1449,7 +1449,7 @@ ITStatus FMPI2C_GetITStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT) {
         enablestatus = (uint32_t)((FMPI2C_IT) & (FMPI2Cx->CR1));
     }
 
-    /* 获取ISr 寄存器值 */
+    /* 获取 ISr 寄存器值 */
     tmpreg = FMPI2Cx->ISR;
 
     /* Get flag 状态 */

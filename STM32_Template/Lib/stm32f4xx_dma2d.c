@@ -232,7 +232,7 @@ void DMA2D_StartTransfer(void) {
 }
 
 /**
-  * 简介:  中止DMA2D传输。
+  * 简介:  中止 DMA2D传输。
   * 
   * 参数:
   * 
@@ -428,34 +428,34 @@ void DMA2D_BG_StructInit(DMA2D_BG_InitTypeDef* DMA2D_BG_InitStruct) {
     /*!< 初始化 DMA2D 后台存储器地址 */
     DMA2D_BG_InitStruct->DMA2D_BGMA = 0x00;
 
-    /*!< 初始化 DMA2D背景偏移 */
+    /*!< 初始化 DMA2D 背景偏移 */
     DMA2D_BG_InitStruct->DMA2D_BGO = 0x00;
 
-    /*!< 初始化 DMA2D背景颜色模式 */
+    /*!< 初始化 DMA2D 背景颜色模式 */
     DMA2D_BG_InitStruct->DMA2D_BGCM = CM_ARGB8888;
 
-    /*!< 初始化 DMA2D背景 CLUT 颜色模式 */
+    /*!< 初始化 DMA2D 背景 CLUT 颜色模式 */
     DMA2D_BG_InitStruct->DMA2D_BG_CLUT_CM = CLUT_CM_ARGB8888;
 
-    /*!< 初始化 DMA2D背景 CLUT 大小 */
+    /*!< 初始化 DMA2D 背景 CLUT 大小 */
     DMA2D_BG_InitStruct->DMA2D_BG_CLUT_SIZE = 0x00;
 
-    /*!< 初始化 DMA2D背景 alpha 模式 */
+    /*!< 初始化 DMA2D 背景 alpha 模式 */
     DMA2D_BG_InitStruct->DMA2D_BGPFC_ALPHA_MODE = NO_MODIF_ALPHA_VALUE;
 
-    /*!< 初始化 DMA2D背景 alpha 值 */
+    /*!< 初始化 DMA2D 背景 alpha 值 */
     DMA2D_BG_InitStruct->DMA2D_BGPFC_ALPHA_VALUE = 0x00;
 
-    /*!< 初始化 DMA2D背景 blue 值 */
+    /*!< 初始化 DMA2D 背景 blue 值 */
     DMA2D_BG_InitStruct->DMA2D_BGC_BLUE = 0x00;
 
-    /*!< 初始化 DMA2D背景 green 值 */
+    /*!< 初始化 DMA2D 背景 green 值 */
     DMA2D_BG_InitStruct->DMA2D_BGC_GREEN = 0x00;
 
-    /*!< 初始化 DMA2D背景 red 值 */
+    /*!< 初始化 DMA2D 背景 red 值 */
     DMA2D_BG_InitStruct->DMA2D_BGC_RED = 0x00;
 
-    /*!< 初始化 DMA2D背景 CLUT 内存地址 */
+    /*!< 初始化 DMA2D 背景 CLUT 内存地址 */
     DMA2D_BG_InitStruct->DMA2D_BGCMAR = 0x00;
 }
 

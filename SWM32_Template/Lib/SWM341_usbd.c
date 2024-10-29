@@ -176,7 +176,7 @@ static USB_Setup_Packet_t Setup_Packet;
 USB_Setup_Packet_t * pUSB_Setup = &Setup_Packet;
 /******************************************************************************************************************************************
 * 函数名称:	USBD_ProcessSetupPacket()
-* 功能说明:	处理Setup包
+* 功能说明:	处理 Setup包
 * 输    入: 无
 * 输    出: 无
 * 注意事项: 无

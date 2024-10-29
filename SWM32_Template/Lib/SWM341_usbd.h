@@ -22,7 +22,7 @@ typedef struct {
     uint8_t  *DescBOS;			// BOS descriptor
 
     /* HID */
-    uint16_t *DescHIDOffset;	// HID描述符在DescConfig中的偏移
+    uint16_t *DescHIDOffset;	// HID描述符在 DescConfig中的偏移
     uint8_t **DescHIDReport;	// HID报告描述符
 
     /* WINUSB */

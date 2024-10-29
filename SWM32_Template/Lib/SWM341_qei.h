@@ -6,7 +6,7 @@ typedef struct {
     uint16_t maxcnt;				//最大计数值
     uint8_t  swapAB;				//1 交换A、B引脚
     uint8_t  intINDEXEn;			//检测到 Index脉冲中断使能
-    uint8_t  intMATCHEn;			//POSCNT递增到与MAXCNT相等，或POSCNT 从MAXCNT递减到 0中断使能
+    uint8_t  intMATCHEn;			//POSCNT递增到与MAXCNT相等，或POSCNT 从MAXCNT递减到 0 中断使能
     uint8_t  intCNTOVEn;			//Counter Overrun，计数器溢出中断使能
     uint8_t  intERROREn;			//计数器错误中断使能
 } QEI_InitStructure;

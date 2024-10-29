@@ -284,7 +284,7 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg) {
     assert_param(IS_DSI_VSYNC_POLARITY(VidCfg->VSPolarity));
     assert_param(IS_DSI_HSYNC_POLARITY(VidCfg->HSPolarity));
 
-    /* 检查仅在18位模式下的 LooselyPacked变体 */
+    /* 检查仅在18位模式下的 LooselyPacked 变体 */
     if(VidCfg->ColorCoding == DSI_RGB666) {
         assert_param(IS_DSI_LOOSELY_PACKED(VidCfg->LooselyPacked));
     }
@@ -301,7 +301,7 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg) {
     DSIx->VPCR &= ~DSI_VPCR_VPSIZE;
     DSIx->VPCR |= VidCfg->PacketSize;
 
-    /* 设置要通过DSI链接传输的块数 */
+    /* 设置要通过 DSI 链接传输的块数 */
     DSIx->VCCR &= ~DSI_VCCR_NUMC;
     DSIx->VCCR |= VidCfg->NumberOfChunks;
 
@@ -309,7 +309,7 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg) {
     DSIx->VNPCR &= ~DSI_VNPCR_NPSIZE;
     DSIx->VNPCR |= VidCfg->NullPacketSize;
 
-    /* 选择这个LTCC接口流量的虚拟通道 */
+    /* 选择这个 LTCC 接口流量的虚拟通道 */
     DSIx->LVCIDR &= ~DSI_LVCIDR_VCID;
     DSIx->LVCIDR |= VidCfg->VirtualChannelID;
 
@@ -367,27 +367,27 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg) {
     DSIx->LPMCR &= ~DSI_LPMCR_LPSIZE;
     DSIx->LPMCR |= ((VidCfg->LPLargestPacketSize) << 16);
 
-    /* 低功率VACT 最大数据包大小 */
+    /* 低功率 VACT 最大数据包大小 */
     DSIx->LPMCR &= ~DSI_LPMCR_VLPSIZE;
     DSIx->LPMCR |= VidCfg->LPVACTLargestPacketSize;
 
-    /* 使能HFP期LP转换 */
+    /* 使能 HFP 期LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPHFPE;
     DSIx->VMCR |= VidCfg->LPHorizontalFrontPorchEnable;
 
-    /* 使能HBP期间的 LP转换 */
+    /* 使能 HBP 期间的 LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPHBPE;
     DSIx->VMCR |= VidCfg->LPHorizontalBackPorchEnable;
 
-    /* 使能VACT期间的 LP转换 */
+    /* 使能 VACT 期间的 LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPVAE;
     DSIx->VMCR |= VidCfg->LPVerticalActiveEnable;
 
-    /* 使能VFP期间的 LP转换 */
+    /* 使能 VFP 期间的 LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPVFPE;
     DSIx->VMCR |= VidCfg->LPVerticalFrontPorchEnable;
 
-    /* 使能VBP时期的 LP转换 */
+    /* 使能 VBP 时期的 LP转换 */
     DSIx->VMCR &= ~DSI_VMCR_LPVBPE;
     DSIx->VMCR |= VidCfg->LPVerticalBackPorchEnable;
 
@@ -426,7 +426,7 @@ void DSI_ConfigAdaptedCommandMode(DSI_TypeDef *DSIx, DSI_CmdCfgTypeDef *CmdCfg) 
     DSIx->WCFGR &= ~DSI_WCFGR_DSIM;
     DSIx->WCFGR |= DSI_WCFGR_DSIM;
 
-    /* 选择这个LTCC接口流量的虚拟通道 */
+    /* 选择这个 LTCC 接口流量的虚拟通道 */
     DSIx->LVCIDR &= ~DSI_LVCIDR_VCID;
     DSIx->LVCIDR |= CmdCfg->VirtualChannelID;
 
@@ -521,7 +521,7 @@ void DSI_ConfigCommand(DSI_TypeDef *DSIx, DSI_LPCmdTypeDef *LPCmd) {
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
   * 参数:  FlowControl: 要启用的流量控制功能。
-  *                      此参数可以是 @ref DSI_FlowControl的任意组合。
+  *                      此参数可以是 @ref DSI_FlowControl 的任意组合。
   * 
   * 返回值: 无
   */
@@ -535,11 +535,11 @@ void DSI_ConfigFlowControl(DSI_TypeDef *DSIx, uint32_t FlowControl) {
 }
 
 /**
-  * 简介:  配置 DSI PHY计时器参数
+  * 简介:  配置 DSI PHY 计时器参数
   * 
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数:  PhyTimers: 包含DSI PHY计时参数的 DSI_PHY_TimerTypeDef 结构
+  * 参数:  PhyTimers: 包含DSI PHY 计时参数的 DSI_PHY_TimerTypeDef 结构
   * 
   * 返回值: 无
   */
@@ -549,12 +549,12 @@ void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers) {
     maxTime = (PhyTimers->ClockLaneLP2HSTime > PhyTimers->ClockLaneHS2LPTime) ? PhyTimers->ClockLaneLP2HSTime : PhyTimers->ClockLaneHS2LPTime;
 
     /* 时钟通道计时器配置*/
-    /* 在自动时钟通道控制模式下，DSI主机可以关闭两个高速传输之间的时钟通道。
-       为此，DSI主机计算时钟通道从高速变为低功率和从低功率变为高速所需的时间。
-       此定时由 DSI主机时钟通道定时器配置寄存器(DSI_CLTCR)中的 HS2LP_TIME 和 LP2HS_TIME配置。
-       但是 DSI主机不是在计算LP2HS_TIME+HS2LP_TIME，而是在计算2 x HS2LP_ TIME。
+    /* 在自动时钟通道控制模式下，DSI 主机可以关闭两个高速传输之间的时钟通道。
+       为此，DSI 主机计算时钟通道从高速变为低功率和从低功率变为高速所需的时间。
+       此定时由 DSI 主机时钟通道定时器配置寄存器(DSI_CLTCR)中的 HS2LP_TIME 和 LP2HS_TIME 配置。
+       但是 DSI 主机不是在计算 LP2HS_TIME+HS2LP_TIME，而是在计算2 x HS2LP_ TIME。
 
-       解决方法：配置HS2LP_TIME 和 LP2HS_TIME，使其具有相同的值，即HS2LP_ TIME 或LP2HS_ TIME的最大值。
+       解决方法：配置HS2LP_TIME 和 LP2HS_TIME，使其具有相同的值，即 HS2LP_ TIME 或LP2HS_ TIME的最大值。
     */
     DSIx->CLTCR &= ~(DSI_CLTCR_LP2HS_TIME | DSI_CLTCR_HS2LP_TIME);
     DSIx->CLTCR |= (maxTime | ((maxTime) << 16));
@@ -573,7 +573,7 @@ void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers) {
   * 
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数:  HostTimeouts: 包含DSI主机超时参数的 DSI_HOST_TimeoutTypeDef 结构
+  * 参数:  HostTimeouts: 包含DSI 主机超时参数的 DSI_HOST_TimeoutTypeDef 结构
   * 
   * 返回值: 无
   */
@@ -616,7 +616,7 @@ void DSI_ConfigHostTimeouts(DSI_TypeDef *DSIx, DSI_HOST_TimeoutTypeDef *HostTime
 }
 
 /**
-  * 简介:  启动DSI 模块
+  * 简介:  启动 DSI 模块
   * 
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   *               DSI 的配置信息。
@@ -631,7 +631,7 @@ void DSI_Start(DSI_TypeDef *DSIx) {
 }
 
 /**
-  * 简介:  停止DSI 模块
+  * 简介:  停止 DSI 模块
   * 
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
@@ -683,7 +683,7 @@ void DSI_ColorMode(DSI_TypeDef *DSIx, uint32_t ColorMode) {
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
   * 参数:  Shutdown: 关闭(显示器打开或显示器关闭)。
-  *                   此参数可以是 @ref DSI_ShutDown的任何值
+  *                   此参数可以是 @ref DSI_ShutDown 的任何值
   * 
   * 返回值: 无
   */
@@ -897,7 +897,7 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx,
                                    uint32_t DataType,
                                    uint32_t Data0,
                                    uint32_t Data1) {
-    /* 用新信息更新DSI 数据包头 */
+    /* 用新信息更新 DSI 数据包头 */
     DSIx->GHCR = (DataType | (ChannelID << 6) | (Data0 << 8) | (Data1 << 16));
 }
 
@@ -914,7 +914,7 @@ static void DSI_ConfigPacketHeader(DSI_TypeDef *DSIx,
   */
 
 /**
-  * 简介:  在D-PHY PLL运行的情况下进入 ULPM(超低功率模式)(只有数据通道在 ULPM 中)
+  * 简介:  在 D-PHY PLL运行的情况下进入 ULPM(超低功率模式)(只有数据通道在 ULPM 中)
   * 
   * 参数:  DSIx: 指向 DSI 寄存器基址的指针
   * 
@@ -936,7 +936,7 @@ void DSI_EnterULPMData(DSI_TypeDef *DSIx) {
 }
 
 /**
-  * 简介:  在D-PHY PLL运行的情况下退出ULPM(超低功率模式)(只有数据通道在 ULPM 中)
+  * 简介:  在 D-PHY PLL运行的情况下退出ULPM(超低功率模式)(只有数据通道在 ULPM 中)
   * 
   * 参数:  DSIx: 指向 DSI 寄存器基址的指针
   * 
@@ -960,7 +960,7 @@ void DSI_ExitULPMData(DSI_TypeDef *DSIx) {
 }
 
 /**
-  * 简介:  在D-PHY PLL关闭的情况下进入 ULPM(超低功率模式)(数据和时钟通道都在 ULPM 中)
+  * 简介:  在 D-PHY PLL关闭的情况下进入 ULPM(超低功率模式)(数据和时钟通道都在 ULPM 中)
   * 
   * 参数:  DSIx: 指向 DSI 寄存器基址的指针
   * 
@@ -970,7 +970,7 @@ void DSI_EnterULPM(DSI_TypeDef *DSIx) {
     /* 时钟通道配置：不再有HS请求 */
     DSIx->CLCR &= ~DSI_CLCR_DPCC;
 
-    /* 在停止DSIPHY时钟源之前，使用系统PLL作为字节通道时钟源 */
+    /* 在停止 DSIPHY时钟源之前，使用系统PLL作为字节通道时钟源 */
     RCC_DSIClockSourceConfig(RCC_DSICLKSource_PLLR);
 
     /* 时钟和数据通道上的 ULPS请求 */
@@ -990,7 +990,7 @@ void DSI_EnterULPM(DSI_TypeDef *DSIx) {
 }
 
 /**
-  * 简介:  在D-PHY PLL关闭的情况下退出ULPM(超低功率模式)(数据和时钟通道都在 ULPM 中)
+  * 简介:  在 D-PHY PLL关闭的情况下退出ULPM(超低功率模式)(数据和时钟通道都在 ULPM 中)
   * 
   * 参数:  DSIx: 指向 DSI 寄存器基址的指针
   * 
@@ -1147,7 +1147,7 @@ void DSI_SetLowPowerRXFilter(DSI_TypeDef *DSIx, uint32_t Frequency) {
 }
 
 /**
-  * 简介:  激活所有车道上的其他当前路径，以满足MIPI D-PHY规范中定义的 SDDTx参数
+  * 简介:  激活所有车道上的其他当前路径，以满足MIPI D-PHY规范中定义的 SDDTx 参数
   * 
   * 参数:  hdsi: 指向 DSI_HandleTypeDef 结构的指针，该结构包含
   *               DSI 的配置信息。
@@ -1484,7 +1484,7 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
 
  *** 轮询模式 ***
  ====================
-[..] 在轮询模式下，DSI通信可以由8个标志管理:
+[..] 在轮询模式下，DSI 通信可以由8个标志管理:
   (#)DSI_FLAG_TE: 撕裂效果中断标志
   (#)DSI_FLAG_ER: 刷新中断结束标志
   (#)DSI_FLAG_BUSY: 忙标志
@@ -1501,7 +1501,7 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
 
  *** 中断模式 ***
  ======================
- [..] 在中断模式下，SPI通信可由3个中断源管理和7个挂起位:
+ [..] 在中断模式下，SPI 通信可由3个中断源管理和7个挂起位:
   (+)挂起位:
   (##)DSI_IT_TE: 撕裂效果中断标志
   (##)DSI_IT_ER: 刷新中断结束标志
@@ -1617,7 +1617,7 @@ void DSI_ClearFlag(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
 }
 
 /**
-  * 简介: 检查指定的 DSIx中断是否已发生。
+  * 简介: 检查指定的 DSIx 中断是否已发生。
   * 
   * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
@@ -1656,7 +1656,7 @@ ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
 }
 
 /**
-  * 简介: 清除DSIx中断挂起位。
+  * 简介: 清除DSIx 中断挂起位。
   * 
   * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 

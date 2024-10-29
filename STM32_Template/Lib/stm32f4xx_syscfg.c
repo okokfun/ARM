@@ -4,7 +4,7 @@
   * 作者:    MCD Application Team
   * 版本:    V1.8.0
   * 日期:    04-November-2016
-  * 简介:    此文件提供管理SYSCFG 外设设备的固件功能。
+  * 简介:    此文件提供管理 SYSCFG 外设设备的固件功能。
   *
  @verbatim
 
@@ -149,7 +149,7 @@ void SYSCFG_MemorySwappingBank(FunctionalState NewState) {
   *                               用于 STM32P405xx/407xx 和 STM32C415xx/417xx 设备，
   *                               或(A、B、C、D和H)用于 STM2401xx 设备。
   *
-  * 参数:  EXTI_PinSourcex: 指定要配置的 EXTI行。
+  * 参数:  EXTI_PinSourcex: 指定要配置的 EXTI 行。
   *           此参数可以是EXTI_PinSourcex，其中 x 可以是(0..15，除了EXTI_PortSourceGPIOI x
   *           对于 STM32F405xx/407xx 和 STM32P405xx/407xxx 设备可以为(0..11)，
   *           对于EXTI_Port SourceGPIOK x对于 STM2F42xxx/43xxx 设备可为(0..7)。
@@ -173,12 +173,12 @@ void SYSCFG_EXTILineConfig(uint8_t EXTI_PortSourceGPIOx, uint8_t EXTI_PinSourcex
   * 参数:  SYSCFG_ETH_MediaInterface: 指定媒体接口模式。
   *          此参数可以是以下值之一:
   *            @arg SYSCFG_ETH_MediaInterface_MII: 已选择MII 模式
-  *            @arg SYSCFG_ETH_MediaInterface_RMII: 已选择RMII 模式
+  *            @arg SYSCFG_ETH_MediaInterface_RMII: 已选择 RMII 模式
   * 返回值: 无
   */
 void SYSCFG_ETH_MediaInterfaceConfig(uint32_t SYSCFG_ETH_MediaInterface) {
     assert_param(IS_SYSCFG_ETH_MEDIA_INTERFACE(SYSCFG_ETH_MediaInterface));
-    /* 配置MII_RMII选择位*/
+    /* 配置MII_RMII 选择位*/
     *(__IO uint32_t *) PMC_MII_RMII_SEL_BB = SYSCFG_ETH_MediaInterface;
 }
 

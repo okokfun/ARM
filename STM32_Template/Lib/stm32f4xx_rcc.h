@@ -847,7 +847,7 @@ void        RCC_SDIOClockSourceConfig(uint8_t RCC_ClockSource); // 配置 SDIO �
 
 /* 仅适用于 STM32F446xx 器件的功能 */
 #if defined(STM32F446xx)
-void        RCC_AHB1ClockGatingCmd(uint32_t RCC_AHB1ClockGating, FunctionalState NewState); // 启用或禁用指定IP的 AHB1时钟门控。
+void        RCC_AHB1ClockGatingCmd(uint32_t RCC_AHB1ClockGating, FunctionalState NewState); // 启用或禁用指定 IP的 AHB1时钟门控。
 void        RCC_SPDIFRXClockSourceConfig(uint8_t RCC_ClockSource);
 void        RCC_CECClockSourceConfig(uint8_t RCC_ClockSource);
 #endif /* STM32F446xx */

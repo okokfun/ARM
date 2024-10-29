@@ -45,7 +45,7 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 
 /**
-  * 简介:  QSPI通信配置初始化结构定义
+  * 简介:  QSPI 通信配置初始化结构定义
   */
 typedef struct {
     uint32_t QSPI_ComConfig_FMode;            /* 指定功能模式

@@ -32,9 +32,9 @@
 
    (#) 根据 SDIO 模式，使用 RCC_AHB1PeriphClockCmd() 函数。
        I/O可以是以下配置之一:
-       (++) 1位数据长度:SDIO_CMD、SDIO_CK和 D0。
-       (++) 4位数据长度:SDIO_CMD、SDIO_CK和 D[3:0]。
-       (++) 8位数据长度:SDIO_CMD、SDIO_CK和 D[7:0]。
+       (++) 1位数据长度: SDIO_CMD、SDIO_CK和 D0。
+       (++) 4位数据长度: SDIO_CMD、SDIO_CK和 D[3:0]。
+       (++) 8位数据长度: SDIO_CMD、SDIO_CK和 D[7:0]。
 
    (#) 外设复用功能:
        (++) 使用 GPIO_PinAFConfig() 函数将管脚连接到所需外设设备的复用功能(AF)
@@ -283,7 +283,7 @@ void SDIO_Init(SDIO_InitTypeDef* SDIO_InitStruct) {
                SDIO_InitStruct->SDIO_ClockBypass | SDIO_InitStruct->SDIO_BusWide |
                SDIO_InitStruct->SDIO_ClockEdge | SDIO_InitStruct->SDIO_HardwareFlowControl);
 
-    /* 写入SDIO CLKCR */
+    /* 写入 SDIO CLKCR */
     SDIO->CLKCR = tmpreg;
 }
 
@@ -391,7 +391,7 @@ void SDIO_SendCommand(SDIO_CmdInitTypeDef *SDIO_CmdInitStruct) {
     tmpreg |= (uint32_t)SDIO_CmdInitStruct->SDIO_CmdIndex | SDIO_CmdInitStruct->SDIO_Response
               | SDIO_CmdInitStruct->SDIO_Wait | SDIO_CmdInitStruct->SDIO_CPSM;
 
-    /* 写入SDIO CMD */
+    /* 写入 SDIO CMD */
     SDIO->CMD = tmpreg;
 }
 
@@ -497,7 +497,7 @@ void SDIO_DataConfig(SDIO_DataInitTypeDef* SDIO_DataInitStruct) {
     tmpreg |= (uint32_t)SDIO_DataInitStruct->SDIO_DataBlockSize | SDIO_DataInitStruct->SDIO_TransferDir
               | SDIO_DataInitStruct->SDIO_TransferMode | SDIO_DataInitStruct->SDIO_DPSM;
 
-    /* 写入SDIO DCTRL */
+    /* 写入 SDIO DCTRL */
     SDIO->DCTRL = tmpreg;
 }
 

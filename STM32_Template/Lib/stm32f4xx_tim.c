@@ -1632,13 +1632,13 @@ void TIM_OC4PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity) {
 /**
   * 简介:  启用或禁用 TIM 捕获比较通道 x。
   * 参数:  TIMx: 其中 x 可以是1 到14，6 和7除外，以选择 TIM 外设设备。
-  * 参数:  TIM_Channel: 指定 TIM通道
+  * 参数:  TIM_Channel: 指定 TIM 通道
   *          此参数可以是以下值之一:
-  *            @arg TIM_Channel_1: TIM通道 1
-  *            @arg TIM_Channel_2: TIM通道 2
-  *            @arg TIM_Channel_3: TIM通道 3
-  *            @arg TIM_Channel_4: TIM通道 4
-  * 参数:  TIM_CCx: 指定 TIM通道 CCxE 位新状态。
+  *            @arg TIM_Channel_1: TIM 通道 1
+  *            @arg TIM_Channel_2: TIM 通道 2
+  *            @arg TIM_Channel_3: TIM 通道 3
+  *            @arg TIM_Channel_4: TIM 通道 4
+  * 参数:  TIM_CCx: 指定 TIM 通道 CCxE 位新状态。
   *          此参数可以是: TIM_CCx_Enable or TIM_CCx_Disable.
   * 返回值: 无
   */
@@ -1662,12 +1662,12 @@ void TIM_CCxCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCx) {
 /**
   * 简介:  启用或禁用 TIM 捕获比较通道 xN。
   * 参数:  TIMx: 其中 x 可以是1或8，以选择 TIM 外设设备。
-  * 参数:  TIM_Channel: 指定 TIM通道
+  * 参数:  TIM_Channel: 指定 TIM 通道
   *          此参数可以是以下值之一:
-  *            @arg TIM_Channel_1: TIM通道 1
-  *            @arg TIM_Channel_2: TIM通道 2
-  *            @arg TIM_Channel_3: TIM通道 3
-  * 参数:  TIM_CCxN: 指定 TIM通道 CCxNE 位 新状态.
+  *            @arg TIM_Channel_1: TIM 通道 1
+  *            @arg TIM_Channel_2: TIM 通道 2
+  *            @arg TIM_Channel_3: TIM 通道 3
+  * 参数:  TIM_CCxN: 指定 TIM 通道 CCxNE 位 新状态.
   *          此参数可以是: TIM_CCxN_Enable 或 TIM_CCxN_Disable。
   * 返回值: 无
   */
@@ -1712,7 +1712,7 @@ void TIM_CCxNCmd(TIM_TypeDef* TIMx, uint16_t TIM_Channel, uint16_t TIM_CCxN) {
         (++)时钟分区=TIM_CKD_DIV1
 
       (#) 用所需参数填充 TIM_ICInitStruct，包括:
-        (++)TIM通道: TIM_Channel
+        (++)TIM 通道: TIM_Channel
         (++)TIM 输入捕捉极性: TIM_IC 极性
         (++)TIM 输入捕捉选择: TIM_ICS 选择
         (++)TIM 输入捕获预定标器: TIM_IC 预定标器
@@ -1949,7 +1949,7 @@ void TIM_SetIC2Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC) {
 /**
   * 简介:  设置 TIMx 输入捕获 3 预分频器。
   * 参数:  TIMx:其中 x 可以是1、2、3、4、5或8，以选择 TIM 外设设备。
-  * 参数:  TIM_ICPSC: 指定Input Capture3预分频器的新值。
+  * 参数:  TIM_ICPSC: 指定 Input Capture3预分频器的新值。
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPSC_DIV1: 无预分频器
   *            @arg TIM_ICPSC_DIV2: 每2个事件进行一次捕获
@@ -1972,7 +1972,7 @@ void TIM_SetIC3Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC) {
 /**
   * 简介:  设置 TIMx 输入捕获 4 预分频器。
   * 参数:  TIMx: 其中 x 可以是1、2、3、4、5或8，以选择 TIM 外设设备。
-  * 参数:  TIM_ICPSC: 指定Input Capture4 prescaler new value.
+  * 参数:  TIM_ICPSC: 指定 Input Capture4 prescaler new value.
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPSC_DIV1: 没有预分频器
   *            @arg TIM_ICPSC_DIV2: 每2个事件进行一次捕获
@@ -2486,7 +2486,7 @@ void TIM_ITRxExternalClockConfig(TIM_TypeDef* TIMx, uint16_t TIM_InputTriggerSou
   *            @arg TIM_ICPolarity_Rising
   *            @arg TIM_ICPolarity_Falling
   * 参数:  ICFilter: 指定筛选器值。
-  *          此参数的值必须介于 0x0 和0xF之间。
+  *          此参数的值必须介于 0x0 和 0xF 之间。
   * 返回值: 无
   */
 void TIM_TIxExternalClockConfig(TIM_TypeDef* TIMx, uint16_t TIM_TIxExternalCLKSource,
@@ -2523,7 +2523,7 @@ void TIM_TIxExternalClockConfig(TIM_TypeDef* TIMx, uint16_t TIM_TIxExternalCLKSo
   *            @arg TIM_ExtTRGPolarity_Inverted: 活动低边或下降沿活动。
   *            @arg TIM_ExtTRGPolarity_NonInverted: 激活的高或上升沿激活。
   * 参数:  ExtTRGFilter: 外部触发器筛选器。
-  *          此参数的值必须介于 0x00 和0x0F之间
+  *          此参数的值必须介于 0x00 和 0x0F 之间
   * 返回值: 无
   */
 void TIM_ETRClockMode1Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
@@ -2569,7 +2569,7 @@ void TIM_ETRClockMode1Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
   *            @arg TIM_ExtTRGPolarity_Inverted: 活动低边或下降沿活动。
   *            @arg TIM_ExtTRGPolarity_NonInverted: 激活的高或上升沿激活。
   * 参数:  ExtTRGFilter: 外部触发器筛选器。
-  *          此参数的值必须介于 0x00 和0x0F之间
+  *          此参数的值必须介于 0x00 和 0x0F 之间
   * 返回值: 无
   */
 void TIM_ETRClockMode2Config(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
@@ -2748,7 +2748,7 @@ void TIM_SelectMasterSlaveMode(TIM_TypeDef* TIMx, uint16_t TIM_MasterSlaveMode) 
   *            @arg TIM_ExtTRGPolarity_Inverted: 活动低边或下降沿活动。
   *            @arg TIM_ExtTRGPolarity_NonInverted: 激活的高或上升沿激活。
   * 参数:  ExtTRGFilter: 外部触发器筛选器。
-  *          此参数的值必须介于 0x00 和0x0F之间
+  *          此参数的值必须介于 0x00 和 0x0F 之间
   * 返回值: 无
   */
 void TIM_ETRConfig(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
@@ -2792,11 +2792,11 @@ void TIM_ETRConfig(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
   *            @arg TIM_EncoderMode_TI1: TI1FP1边缘上的计数器计数取决于 TI2FP2级别。
   *            @arg TIM_EncoderMode_TI2: TI2FP2边缘上的计数器计数取决于 TI1FP1级别。
   *            @arg TIM_EncoderMode_TI12: TI1FP1 和 TI2FP2边缘上的计数器计数取决于其他输入的电平。
-  * 参数:  TIM_IC1Polarity: 指定IC1极性
+  * 参数:  TIM_IC1Polarity: 指定 IC1极性
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPolarity_Falling: IC下降沿。
   *            @arg TIM_ICPolarity_Rising: IC上升沿。
-  * 参数:  TIM_IC2Polarity: 指定IC2极性
+  * 参数:  TIM_IC2Polarity: 指定 IC2极性
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPolarity_Falling: IC下降沿。
   *            @arg TIM_ICPolarity_Rising: IC上升沿。
@@ -2891,7 +2891,7 @@ void TIM_SelectHallSensor(TIM_TypeDef* TIMx, FunctionalState NewState) {
   *            @arg TIM5_LSE:       TIM5 CH4输入连接到LSE时钟。
   *            @arg TIM5_RTC:       TIM5 CH4输入连接到 RTC输出事件。
   *            @arg TIM11_GPIO:     TIM11 CH4输入连接到专用定时器引脚(默认)
-  *            @arg TIM11_HSE:      TIM11 CH4输入连接到HSE_RTC时钟(HSE由可编程预分频器分频)
+  *            @arg TIM11_HSE:      TIM11 CH4输入连接到HSE_RTC 时钟(HSE由可编程预分频器分频)
   * 返回值: 无
   */
 void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap) {
@@ -2917,7 +2917,7 @@ void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap) {
   *            @arg TIM_ICSelection_IndirectTI: 选择 TIM 输入1连接至IC2。
   *            @arg TIM_ICSelection_TRC: 选择 TIM 输入1连接至 TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
-  *          此参数的值必须介于 0x00 和0x0F之间。
+  *          此参数的值必须介于 0x00 和 0x0F 之间。
   * 返回值: 无
   */
 static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
@@ -2956,7 +2956,7 @@ static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICSelection_IndirectTI: TIM 输入2被选择为连接到 IC1。
   *            @arg TIM_ICSelection_TRC: TIM 输入2被选择连接到 TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
-  *          此参数的值必须介于 0x00 和0x0F之间。
+  *          此参数的值必须介于 0x00 和 0x0F 之间。
   * 返回值: 无
   */
 static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
@@ -2997,7 +2997,7 @@ static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICSelection_IndirectTI: TIM 输入3被选择为连接到 IC4。
   *            @arg TIM_ICSelection_TRC: TIM 输入3被选择为连接到 TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
-  *          此参数的值必须介于 0x00 和0x0F之间。
+  *          此参数的值必须介于 0x00 和 0x0F 之间。
   * 返回值: 无
   */
 static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
@@ -3037,7 +3037,7 @@ static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICSelection_IndirectTI: 选择 TIM 输入4连接至IC3。
   *            @arg TIM_ICSelection_TRC: 选择 TIM 输入4连接至 TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
-  *          此参数的值必须介于 0x00 和0x0F之间。
+  *          此参数的值必须介于 0x00 和 0x0F 之间。
   * 返回值: 无
   */
 static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,

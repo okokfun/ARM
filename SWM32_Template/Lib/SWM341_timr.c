@@ -383,8 +383,8 @@ uint32_t TIMR_INTStat(TIMR_TypeDef * TIMRx) {
 * 函数名称: TIMR_OC_Init()
 * 功能说明:	输出比较功能初始化
 * 输    入: TIMR_TypeDef * TIMRx	指定要被设置的定时器，可取值包括TIMR0、TIMR1、TIMR2、TIMR3、TIMR4、BTIMR0、BTIMR1、...、BTIMR11
-*			uint32_t match			当计数器的值递减到match时引脚输出电平翻转
-*			uint32_t match_int_en	当计数器的值递减到match时是否产生中断
+*			uint32_t match			当计数器的值递减到 match时引脚输出电平翻转
+*			uint32_t match_int_en	当计数器的值递减到 match时是否产生中断
 *			uint32_t init_lvl		初始输出电平
 * 输    出: 无
 * 注意事项: 无

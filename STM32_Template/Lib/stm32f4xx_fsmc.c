@@ -5,7 +5,7 @@
   * 版本:    V1.8.0
   * 日期:    04-November-2016
  * 简介:    该文件提供了固件功能来管理FSMC 外设的以下功能:
-  *           + 与SRAM、PSRAM、NOR 和OneNAND 存储器的接口
+  *           + 与 SRAM、PSRAM、NOR 和OneNAND 存储器的接口
   *           + 与NAND 存储器的接口
   *           + 与16位PC卡兼容存储器的接口
   *           + 中断和标志管理
@@ -94,7 +94,7 @@ const FSMC_NORSRAMTimingInitTypeDef FSMC_DefaultTimingStruct = {0x0F, /* FSMC_Ad
 
    (#) 声明一个 FSMC_NORSRAMInitTypeDef 结构，例如。
           FSMC_NORSRAMInitTypeDef FSMC_NORSRAMInitStructure;
-      并在FSMC_NORSRAMInitStructure变量中填入该结构成员的允许值。
+      并在 FSMC_NORSRAMInitStructure变量中填入该结构成员的允许值。
 
    (#) 通过调用函数来初始化 NOR/SRAM 控制器
           FSMC_NORSRAMInit(&FSMC_NORSRAMInitStructure)。
@@ -291,7 +291,7 @@ void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过设置BCRx中的PBKEN 位来选择NOR/SRAM组寄存器 */
+        /* 启用通过设置BCRx 中的PBKEN 位来选择NOR/SRAM组寄存器 */
         FSMC_Bank1->BTCR[FSMC_Bank] |= BCR_MBKEN_SET;
     } else {
         /* 禁用通过清除 BCRx 中的 PBKEN 位来选择 NOR/SRAM 组寄存器 */
@@ -334,7 +334,7 @@ void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
   (@) 要启用纠错代码(ECC)，你必须使用函数
       FSMC_NANDECCCmd(FSMC_Bank3_NAND, ENABLE);
  [..]
-  (@) 而要获得当前的 ECC值，你必须使用函数
+  (@) 而要获得当前的 ECC 值，你必须使用函数
       ECCval = FSMC_GetECC(FSMC_Bank3_NAND);
 
 @endverbatim
@@ -515,14 +515,14 @@ void FSMC_NANDCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过在 PCRx中设置PBKEN 位来选择NAND组寄存器 */
+        /* 启用通过在 PCRx 中设置PBKEN 位来选择NAND组寄存器 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
             FSMC_Bank2->PCR2 |= PCR_PBKEN_SET;
         } else {
             FSMC_Bank3->PCR3 |= PCR_PBKEN_SET;
         }
     } else {
-        /* 禁用通过清除PCRx中的PBKEN 位来选择NAND组寄存器 */
+        /* 禁用通过清除PCRx 中的PBKEN 位来选择NAND组寄存器 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
             FSMC_Bank2->PCR2 &= PCR_PBKEN_RESET;
         } else {
@@ -548,14 +548,14 @@ void FSMC_NANDECCCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过在 PCRx中设置ECCEN 位来选择NAND组ECC功能寄存器 */
+        /* 启用通过在 PCRx 中设置ECCEN 位来选择NAND组ECC 功能寄存器 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
             FSMC_Bank2->PCR2 |= PCR_ECCEN_SET;
         } else {
             FSMC_Bank3->PCR3 |= PCR_ECCEN_SET;
         }
     } else {
-        /* 禁用通过清除PCRx中的 ECCEN 位来选择NAND组ECC功能寄存器 */
+        /* 禁用通过清除PCRx 中的 ECCEN 位来选择NAND组ECC 功能寄存器 */
         if(FSMC_Bank == FSMC_Bank2_NAND) {
             FSMC_Bank2->PCR2 &= PCR_ECCEN_RESET;
         } else {
@@ -610,7 +610,7 @@ uint32_t FSMC_GetECC(uint32_t FSMC_Bank) {
 
   (#) 声明一个 FSMC_PCCARDInitTypeDef 结构，例如:
       FSMC_PCCARDInitTypeDef FSMC_PCCARDInitStructure;
-      并在FSMC_PCCARDInitStructure变量中填入该结构成员的允许值。
+      并在 FSMC_PCCARDInitStructure变量中填入该结构成员的允许值。
 
   (#) 通过调用函数来初始化PCCARD 控制器
       FSMC_PCCARDInit(&FSMC_PCCARDInitStructure)。
@@ -684,7 +684,7 @@ void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
 
     FSMC_Bank4->PCR4 = tmppcr4;
 
-    /* 获取PCCARD公共空间正时寄存器值 */
+    /* 获取 PCCARD公共空间正时寄存器值 */
     tmppmem4 = FSMC_Bank4->PMEM4;
 
     /* 清除 MEMSETx, MEMWAITx, MEMHOLDx and MEMHIZx 位 */
@@ -699,7 +699,7 @@ void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct) {
 
     FSMC_Bank4->PMEM4 = tmppmem4;
 
-    /* 获取PCCARD正时参数 */
+    /* 获取 PCCARD正时参数 */
     tmppatt4 = FSMC_Bank4->PATT4;
 
     /* 清除 ATTSETx, ATTWAITx, ATTHOLDx and ATTHIZx 位 */

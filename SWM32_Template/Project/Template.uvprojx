@@ -22,9 +22,9 @@
           <Cpu>IRAM(0x20000000,0x10000) IROM(0x00000000,0x80000) CPUTYPE("Cortex-M33") FPU3(SFPU) DSP CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
-          <FlashDriverDll>UL2V8M(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0SWM341xE -FS00 -FL080000 -FP0($$Device:SWM341xE$Flash\SWM341xE.FLM))</FlashDriverDll>
+          <FlashDriverDll>UL2V8M(-S0 -C0 -P0 -FD20000000 -FC1000 -FN1 -FF0SWM341xE -FS00 -FL080000 -FP0($$Device: SWM341xE$Flash\SWM341xE.FLM))</FlashDriverDll>
           <DeviceId>0</DeviceId>
-          <RegisterFile>$$Device:SWM341xE$CSL\SWM341\CMSIS\DeviceSupport\SWM341.h</RegisterFile>
+          <RegisterFile>$$Device: SWM341xE$CSL\SWM341\CMSIS\DeviceSupport\SWM341.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -34,7 +34,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:SWM341xE$SVD\SWM341.svd</SFDFile>
+          <SFDFile>$$Device: SWM341xE$SVD\SWM341.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>

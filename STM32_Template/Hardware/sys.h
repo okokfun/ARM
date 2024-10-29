@@ -53,7 +53,7 @@
 #define GPIOI_IDR_Addr    (GPIOI_BASE+16) //0x40022010 
 
 //IO口操作,只对单一的 IO口!
-//确保n的值小于16!
+//确保n 的值小于16!
 #define PAout(n)   BIT_ADDR(GPIOA_ODR_Addr,n)  //输出 
 #define PAin(n)    BIT_ADDR(GPIOA_IDR_Addr,n)  //输入 
 

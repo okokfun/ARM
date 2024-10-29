@@ -103,10 +103,10 @@ __Vectors       DCD     __initial_sp                      ; 栈顶
                 DCD     DMA0_Channel5_IRQHandler          ; 32:DMA0 Channel5
                 DCD     DMA0_Channel6_IRQHandler          ; 33:DMA0 Channel6
                 DCD     ADC_IRQHandler                    ; 34:ADC
-                DCD     CAN0_TX_IRQHandler                ; 35:CAN0 TX
-                DCD     CAN0_RX0_IRQHandler               ; 36:CAN0 RX0
-                DCD     CAN0_RX1_IRQHandler               ; 37:CAN0 RX1
-                DCD     CAN0_EWMC_IRQHandler              ; 38:CAN0 EWMC
+                DCD     CAN0_TX_IRQHandler                ; 35: CAN0 TX
+                DCD     CAN0_RX0_IRQHandler               ; 36: CAN0 RX0
+                DCD     CAN0_RX1_IRQHandler               ; 37: CAN0 RX1
+                DCD     CAN0_EWMC_IRQHandler              ; 38: CAN0 EWMC
                 DCD     EXTI5_9_IRQHandler                ; 39:EXTI5 to EXTI9
                 DCD     TIMER0_BRK_TIMER8_IRQHandler      ; 40: TIMER0 Break and TIMER8
                 DCD     TIMER0_UP_TIMER9_IRQHandler       ; 41: TIMER0 Update and TIMER9
@@ -119,8 +119,8 @@ __Vectors       DCD     __initial_sp                      ; 栈顶
                 DCD     I2C0_ER_IRQHandler                ; 48:I2C0 Error
                 DCD     I2C1_EV_IRQHandler                ; 49:I2C1 Event
                 DCD     I2C1_ER_IRQHandler                ; 50:I2C1 Error
-                DCD     SPI0_IRQHandler                   ; 51:SPI0
-                DCD     SPI1_IRQHandler                   ; 52:SPI1
+                DCD     SPI0_IRQHandler                   ; 51: SPI0
+                DCD     SPI1_IRQHandler                   ; 52: SPI1
                 DCD     USART0_IRQHandler                 ; 53:USART0
                 DCD     USART1_IRQHandler                 ; 54:USART1
                 DCD     USART2_IRQHandler                 ; 55:USART2
@@ -133,9 +133,9 @@ __Vectors       DCD     __initial_sp                      ; 栈顶
                 DCD     TIMER7_Channel_IRQHandler         ; 62: TIMER7 Channel Capture Compare
                 DCD     DMA0_Channel7_IRQHandler          ; 63:DMA0 Channel7
                 DCD     EXMC_IRQHandler                   ; 64:EXMC
-                DCD     SDIO_IRQHandler                   ; 65:SDIO
+                DCD     SDIO_IRQHandler                   ; 65: SDIO
                 DCD     TIMER4_IRQHandler                 ; 66: TIMER4
-                DCD     SPI2_IRQHandler                   ; 67:SPI2
+                DCD     SPI2_IRQHandler                   ; 67: SPI2
                 DCD     UART3_IRQHandler                  ; 68:UART3
                 DCD     UART4_IRQHandler                  ; 69:UART4
                 DCD     TIMER5_DAC_IRQHandler             ; 70: TIMER5 and DAC0 DAC1 Underrun error
@@ -147,10 +147,10 @@ __Vectors       DCD     __initial_sp                      ; 栈顶
                 DCD     DMA1_Channel4_IRQHandler          ; 76:DMA1 Channel4
                 DCD     ENET_IRQHandler                   ; 77:Ethernet
                 DCD     ENET_WKUP_IRQHandler              ; 78:Ethernet Wakeup through EXTI Line
-                DCD     CAN1_TX_IRQHandler                ; 79:CAN1 TX
-                DCD     CAN1_RX0_IRQHandler               ; 80:CAN1 RX0
-                DCD     CAN1_RX1_IRQHandler               ; 81:CAN1 RX1
-                DCD     CAN1_EWMC_IRQHandler              ; 82:CAN1 EWMC
+                DCD     CAN1_TX_IRQHandler                ; 79: CAN1 TX
+                DCD     CAN1_RX0_IRQHandler               ; 80: CAN1 RX0
+                DCD     CAN1_RX1_IRQHandler               ; 81: CAN1 RX1
+                DCD     CAN1_EWMC_IRQHandler              ; 82: CAN1 EWMC
                 DCD     USBFS_IRQHandler                  ; 83:USBFS
                 DCD     DMA1_Channel5_IRQHandler          ; 84:DMA1 Channel5
                 DCD     DMA1_Channel6_IRQHandler          ; 85:DMA1 Channel6
@@ -168,9 +168,9 @@ __Vectors       DCD     __initial_sp                      ; 栈顶
                 DCD     FPU_IRQHandler                    ; 97:FPU
                 DCD     UART6_IRQHandler                  ; 98:UART6
                 DCD     UART7_IRQHandler                  ; 99:UART7
-                DCD     SPI3_IRQHandler                   ; 100:SPI3
-                DCD     SPI4_IRQHandler                   ; 101:SPI4
-                DCD     SPI5_IRQHandler                   ; 102:SPI5
+                DCD     SPI3_IRQHandler                   ; 100: SPI3
+                DCD     SPI4_IRQHandler                   ; 101: SPI4
+                DCD     SPI5_IRQHandler                   ; 102: SPI5
                 DCD     0                                 ; 103:Reserved
                 DCD     TLI_IRQHandler                    ; 104: TLI
                 DCD     TLI_ER_IRQHandler                 ; 105: TLI Error

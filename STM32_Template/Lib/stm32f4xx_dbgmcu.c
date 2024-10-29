@@ -76,7 +76,7 @@ uint32_t DBGMCU_GetDEVID(void) {
   *   此参数可以是以下值的任意组合:
   *     @arg DBGMCU_SLEEP:    在 SLEEP模式下保持调试器连接。
   *     @arg DBGMCU_STOP:     在 STOP模式下保持调试器的连接
-  *     @arg DBGMCU_STANDBY:  在 STANDBY模式下保持调试器的连接。
+  *     @arg DBGMCU_STANDBY:  在 STANDBY 模式下保持调试器的连接。
   * 
   * 参数:  NewState: 在调试模式下指定的低功耗模式的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -114,7 +114,7 @@ void DBGMCU_Config(uint32_t DBGMCU_Periph, FunctionalState NewState) {
   *         @arg DBGMCU_IWDG_STOP:          当 Core 停止时，停止调试 IWDG。
   *         @arg DBGMCU_I2C1_SMBUS_TIMEOUT: 当 Core 停止时，I2C1 SMBUS 超时模式停止。
   *         @arg DBGMCU_I2C2_SMBUS_TIMEOUT: I2C2 SMBUS 超时模式在 Core 停止时停止。
-  *         @arg DBGMCU_I2C3_SMBUS_TIMEOUT: I2C3 SMBUS 超时模式在Core 停止时停止。
+  *         @arg DBGMCU_I2C3_SMBUS_TIMEOUT: I2C3 SMBUS 超时模式在 Core 停止时停止。
   *         @arg DBGMCU_CAN2_STOP:          当 Core 停止时，停止调试CAN1。
   *         @arg DBGMCU_CAN1_STOP:          当 Core 停止时，停止调试CAN2。
   * 

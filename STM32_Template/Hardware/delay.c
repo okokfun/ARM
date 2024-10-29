@@ -102,7 +102,7 @@ void delay_xms(uint16_t nms) {
  **/
 void delay_ms(uint16_t nms) {
     uint8_t repeat = nms / 540;	//这里用540,是考虑到某些客户可能超频使用,
-    //比如超频到248M 的时候,delay_xms最大只能延时541ms左右了
+    //比如超频到 248M 的时候,delay_xms最大只能延时541ms左右了
     uint16_t remain = nms % 540;
 
     while(repeat) {

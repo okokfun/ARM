@@ -214,8 +214,8 @@ typedef struct {
 /**
   * @defgroup CAN_operating_mode_status
   */
-#define CAN_ModeStatus_Failed    ((uint8_t)0x00)                /*!< CAN进入特定模式失败 */
-#define CAN_ModeStatus_Success   ((uint8_t)!CAN_ModeStatus_Failed)   /*!< CAN进入特定模式成功 */
+#define CAN_ModeStatus_Failed    ((uint8_t)0x00)                /*!< CAN 进入特定模式失败 */
+#define CAN_ModeStatus_Success   ((uint8_t)!CAN_ModeStatus_Failed)   /*!< CAN 进入特定模式成功 */
 
 /** @defgroup CAN_synchronisation_jump_width
   */
@@ -350,7 +350,7 @@ typedef struct {
 /** @defgroup CAN_sleep_constants
   */
 #define CAN_Sleep_Failed     ((uint8_t)0x00) /*!< CAN 未进入睡眠模式 */
-#define CAN_Sleep_Ok         ((uint8_t)0x01) /*!< CAN进入睡眠模式 */
+#define CAN_Sleep_Ok         ((uint8_t)0x01) /*!< CAN 进入睡眠模式 */
 
 /* Legacy defines */
 #define CANSLEEPFAILED   CAN_Sleep_Failed
@@ -398,7 +398,7 @@ typedef struct {
 /* 操作模式标志 */
 #define CAN_FLAG_WKU               ((uint32_t)0x31000008) /*!< 唤醒标志 */
 #define CAN_FLAG_SLAK              ((uint32_t)0x31000012) /*!< 睡眠确认标志 */
-/* @note 当SLAK中断被禁用(SLKIE=0)时，无法对 SLAKI进行轮询。
+/* @note 当 SLAK中断被禁用(SLKIE=0)时，无法对 SLAKI进行轮询。
           在这种情况下，可以轮询SLAK位。*/
 
 /* 错误标志 */

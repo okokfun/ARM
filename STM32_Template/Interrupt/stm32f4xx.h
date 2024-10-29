@@ -2697,7 +2697,7 @@ typedef struct {
 /*                         控制器区域网络                            */
 /*                                                                            */
 /******************************************************************************/
-/*!<CAN控制和状态寄存器 */
+/*!<CAN 控制和状态寄存器 */
 /*******************  位定义 CAN_MCR 寄存器  ********************/
 #define  CAN_MCR_INRQ                        ((uint16_t)0x0001)            /*!<Initialization Request */
 #define  CAN_MCR_SLEEP                       ((uint16_t)0x0002)            /*!<Sleep Mode Request */
@@ -11678,7 +11678,7 @@ typedef struct {
 #define ETH_PTPTSLR_STPNS    ((uint32_t)0x80000000)  /* System Time Positive or negative time */
 #define ETH_PTPTSLR_STSS     ((uint32_t)0x7FFFFFFF)  /* System Time sub-seconds */
 
-/* 以太网PTP时间戳高更新寄存器的位定义 */
+/* 以太网PTP 时间戳高更新寄存器的位定义 */
 #define ETH_PTPTSHUR_TSUS    ((uint32_t)0xFFFFFFFF)  /* Time stamp update seconds */
 
 /* 以太网 PTP 时间戳低更新寄存器的位定义 */

@@ -397,7 +397,7 @@ void CRYP_Cmd(FunctionalState NewState) {
 /**
   * 简介:  将数据写入数据输入寄存器(DIN)。
   * 
-  * 注意:   在DIN寄存器被读过一次或几次之后,FIFO必须被刷新(使用 CRYP_FIFOFlush() 函数)。
+  * 注意:   在 DIN寄存器被读过一次或几次之后,FIFO必须被刷新(使用 CRYP_FIFOFlush() 函数)。
   * 
   * 参数:  Data: 要写入数据输入寄存器的数据
   * 
@@ -440,8 +440,8 @@ uint32_t CRYP_DataOut(void) {
 /**
   * 简介:  保存CRYP外设上下文。
   * 
-  * 注意:   该函数在保存上下文之前停止DMA 传输。在 恢复上下文后，
-  *         你必须再次启用 DMA(如果以前使用过DMA)。
+  * 注意:   该函数在保存上下文之前停止 DMA 传输。在 恢复上下文后，
+  *         你必须再次启用 DMA(如果以前使用过 DMA)。
   * 
   * 参数:  CRYP_ContextSave: 指向CRYP_Context 结构的指针，该结构含有 当前上下文的存储库。
   * 
@@ -455,7 +455,7 @@ ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
     uint32_t ckeckmask = 0, bitstatus;
     ErrorStatus status = ERROR;
 
-    /* 通过清除 CRYP_DMACR中的 DIEN 位停止IN FIFO上的 DMA 传输。 */
+    /* 通过清除 CRYP_DMACR 中的 DIEN 位停止IN FIFO上的 DMA 传输。 */
     CRYP->DMACR &= ~(uint32_t)CRYP_DMACR_DIEN;
 
     /* 等到 IN 和OUT FIFO 都是空的(CRYP_SR 寄存器中IFEM=1和OfNE=0)，BUSY位被清除。 */
@@ -535,7 +535,7 @@ ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
   * 简介:  恢复 CRYP 外设设备上下文。
   * 
   * 注意:   由于 DMA 传输在 CRYP_SaveContext() 函数中被停止，
-  *         在恢复上下文后，你必须再次启用 DMA(如果以前使用过DMA)。
+  *         在恢复上下文后，你必须再次启用 DMA(如果以前使用过 DMA)。
   * 
   * 参数:  CRYP_ContextRestore: 指向包含已保存上下文的存储库的 CRYP_Context 结构的指针。
   * 
@@ -660,7 +660,7 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
    (#) CRYP_FLAG_OUTRIS : 当输出FIFO原始中断等待时设置，它给出了输出FIFO服务中断屏蔽之前的原始中断状态。
        这个标志只能由硬件来清除。
 
-   (#) CRYP_FLAG_BUSY : 当CRYP核心目前正在处理一个数据块或一个密钥准备(用于AES解密)时设置。
+   (#) CRYP_FLAG_BUSY : 当 CRYP核心目前正在处理一个数据块或一个密钥准备(用于AES解密)时设置。
                         这个标志只能由硬件来清除。要清除它，CRYP内核必须被禁用，并且最后的处理已经完成。
 
  *** 中断 : ***
@@ -670,7 +670,7 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
                        这个中断与CRYP_FLAG_INRIS标志相关。
 
       -@- 该中断通过对输入FIFO进行写操作而被清除，直到它容纳4个或更多的字。
-          输入FIFO服务中断INMIS是通过 CRYP使能位启用的。因此，当CRYP被禁用时，
+          输入FIFO服务中断INMIS是通过 CRYP使能位启用的。因此，当 CRYP被禁用时，
           即使输入FIFO 为空，INMIS信号也是低电平。
 
 
@@ -682,9 +682,9 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
        -@- 该中断通过从输出FIFO 中读取数据来清除，直到没有有效的(32位)字为止(也就是说，
            该中断跟随OFNE(输出FIFO不空)标志的状态)。
 
- *** 管理CRYP控制器事件 : ***
+ *** 管理 CRYP控制器事件 : ***
  =============================================
- [..] 用户应该确定在他的应用程序中使用哪种模式来管理CRYP控制器的事件:轮询模式或中断模式。
+ [..] 用户应该确定在他的应用程序中使用哪种模式来管理 CRYP控制器的事件:轮询模式或中断模式。
 
    (#) 在轮询模式下，建议使用以下函数。
        (++) CRYP_GetFlagStatus() : 检查是否发生标志事件。

@@ -355,7 +355,7 @@ void I2C_Enable(uint32_t I2C_periph);
 void I2C_Disable(uint32_t I2C_periph);
 /* 生成START条件 on I2C bus */
 void I2C_start_on_bus(uint32_t I2C_periph);
-/* 生成STOP条件 on I2C bus */
+/* 生成STOP 条件 on I2C bus */
 void I2C_Stop_on_bus(uint32_t I2C_periph);
 /* I2C transmit data function */
 void I2C_Data_Transmit(uint32_t I2C_periph, uint8_t data);
