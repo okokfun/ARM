@@ -17,7 +17,7 @@
    (#) 使用以下函数启用 GPIO AHB 时钟
        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOx, ENABLE);
 
-   (#) 使用 GPIO_Init()配置GPIO 引脚
+   (#) 使用 GPIO_Init()配置 GPIO 引脚
        每个引脚有四种可能的配置:
        (++) 输入: 浮空、上拉、下拉。
 
@@ -108,7 +108,7 @@
   */
 
 /**
-  * 简介:  将GPIOx 外围寄存器反初始化为其默认重置值。
+  * 简介:  将 GPIOx 外围寄存器反初始化为其默认重置值。
   * 
   * 注意:   默认情况下，GPIO 引脚配置为输入浮动模式(JTAG引脚除外)。
   * 
@@ -222,7 +222,7 @@ void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct) {
   * 返回值: 无
   */
 void GPIO_StructInit(GPIO_InitTypeDef* GPIO_InitStruct) {
-    /* 重置GPIO初始化结构参数值 */
+    /* 重置 GPIO初始化结构参数值 */
     GPIO_InitStruct->GPIO_Pin   = GPIO_Pin_All;
     GPIO_InitStruct->GPIO_Mode  = GPIO_Mode_IN;
     GPIO_InitStruct->GPIO_Speed = GPIO_Speed_2MHz;
