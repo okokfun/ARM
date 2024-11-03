@@ -156,10 +156,10 @@ void CEC_DeInit(void) {
 /**
   * 简介:  根据 CEC_InitStruct 中指定的参数，初始化 CEC 外设设备。
   * 
-  * 注意:   在启用 CEC 外设之前，必须先配置 CEC参数。
+  * 注意:   在启用 CEC 外设之前，必须先配置 CEC 参数。
   * 
   * 参数:  CEC_InitStruct: 指向一个 CEC_InitTypeDef 结构的指针，
-  *                        该结构包含了 该结构包含指定CEC 外设的配置信息。
+  *                        该结构包含了 该结构包含指定 CEC 外设的配置信息。
   * 
   * 返回值: 无
   */
@@ -326,7 +326,7 @@ void CEC_StartOfMessage(void) {
 }
 
 /**
-  * 简介:  用EOM位传输消息。
+  * 简介:  用 EOM位传输消息。
   * 
   * 参数:  无
   * 
@@ -464,7 +464,7 @@ FlagStatus CEC_GetFlagStatus(uint16_t CEC_FLAG) {
 
     assert_param(IS_CEC_GET_FLAG(CEC_FLAG));
 
-    /* 检查 指定CEC 标志的状态 */
+    /* 检查 指定 CEC 标志的状态 */
     if ((CEC->ISR & CEC_FLAG) != (uint16_t)RESET) {
         /* 设置了 CEC 标志 */
         bitstatus = SET;

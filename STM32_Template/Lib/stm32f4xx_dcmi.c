@@ -30,7 +30,7 @@
           DCMI_InitTypeDef  DCMI_InitStructure;
           并用结构成员的允许值填充 DCMI_InitStructure 变量。
 
-      (#) 通过调用函数初始化 DCMI接口
+      (#) 通过调用函数初始化 DCMI 接口
           DCMI_Init(&DCMI_InitStructure);
 
       (#) 配置 DMA2_Stream1 通道 1 以将数据从 DCMI DR 寄存器传输到目标内存缓冲区。
@@ -182,7 +182,7 @@ void DCMI_StructInit(DCMI_InitTypeDef* DCMI_InitStruct) {
 /**
   * 简介:  根据 DCMI_CROPInitStruct 中指定的参数初始化 DCMI 外设 CROP 模式。
   * 
-  * 注意:   这个函数应该在启用和启动 DCMI接口之前被调用
+  * 注意:   这个函数应该在启用和启动 DCMI 接口之前被调用
   * 。
   * 参数:  DCMI_CROPInitStruct:  指向 DCMI_CROPInitTypeDef 结构的指针，
   *                              该结构包含DCMI 外围CROP模式的配置信息。
@@ -202,7 +202,7 @@ void DCMI_CROPConfig(DCMI_CROPInitTypeDef* DCMI_CROPInitStruct) {
 /**
   * 简介:  启用或禁用 DCMI 裁剪功能。
   * 
-  * 注意:   这个函数应该在启用和启动 DCMI接口之前被调用。
+  * 注意:   这个函数应该在启用和启动 DCMI 接口之前被调用。
   * 
   * 参数:  NewState: 新状态的 DCMI作物功能。
   *          此参数可以是: ENABLE 或 DISABLE。
@@ -338,7 +338,7 @@ uint32_t DCMI_ReadData(void) {
 /**
   * 简介:  启用或禁用 DCMI 接口中断。
   * 
-  * 参数:  DCMI_IT: 指定要启用或禁用的 DCMI中断源。
+  * 参数:  DCMI_IT: 指定要启用或禁用的 DCMI 中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg DCMI_IT_FRAME: 帧捕获完成中断掩码
   *            @arg DCMI_IT_OVF: 溢出中断掩码
@@ -346,7 +346,7 @@ uint32_t DCMI_ReadData(void) {
   *            @arg DCMI_IT_VSYNC: VSYNC 中断掩码
   *            @arg DCMI_IT_LINE: 线路中断屏蔽
   * 
-  * 参数:  NewState: 指定的 DCMI中断的新状态。
+  * 参数:  NewState: 指定的 DCMI 中断的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -439,7 +439,7 @@ void DCMI_ClearFlag(uint16_t DCMI_FLAG) {
 /**
   * 简介:  检查是否发生了 DCMI 中断。
   * 
-  * 参数:  DCMI_IT: 指定要检查的 DCMI中断源。
+  * 参数:  DCMI_IT: 指定要检查的 DCMI 中断源。
   *         此参数可以是以下值之一。
   *          @arg DCMI_IT_FRAME: 帧捕获完成的中断掩码
   *          @arg DCMI_IT_OVF: 溢出中断掩码
@@ -470,7 +470,7 @@ ITStatus DCMI_GetITStatus(uint16_t DCMI_IT) {
 /**
   * 简介:  清除 DCMI 的中断挂起位。
   * 
-  * 参数:  DCMI_IT: 指定要清除的 DCMI中断等待位。
+  * 参数:  DCMI_IT: 指定要清除的 DCMI 中断等待位。
   *          此参数可以是以下值的任意组合:
     *           @arg DCMI_IT_FRAME: 帧捕获完成中断掩码
     *           @arg DCMI_IT_OVF: 溢出中断掩码

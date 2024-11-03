@@ -275,9 +275,9 @@ typedef struct {
 #define SYS_CLKSEL_WDT_Msk			(0x03 << SYS_CLKSEL_WDT_Pos)
 #define SYS_CLKSEL_RTCTRIM_Pos		14		//RTC Trim参考时钟  0 XTAL   1 XTAL/2   2 XTAL/4   3 XTAL/8
 #define SYS_CLKSEL_RTCTRIM_Msk		(0x03 << SYS_CLKSEL_RTCTRIM_Pos)
-#define SYS_CLKSEL_AD0_Pos			16		//ADC0时钟选择  0 HRC   1 XTAL   2 PLL
+#define SYS_CLKSEL_AD0_Pos			16		//ADC0 时钟选择  0 HRC   1 XTAL   2 PLL
 #define SYS_CLKSEL_AD0_Msk			(0x03 << SYS_CLKSEL_AD0_Pos)
-#define SYS_CLKSEL_AD0DIV_Pos		18		//ADC0时钟分频  0 1 分频   1 1 分频   2 4分频   3 8分频
+#define SYS_CLKSEL_AD0DIV_Pos		18		//ADC0 时钟分频  0 1 分频   1 1 分频   2 4分频   3 8分频
 #define SYS_CLKSEL_AD0DIV_Msk		(0x03 << SYS_CLKSEL_AD0DIV_Pos)
 #define SYS_CLKSEL_AD1_Pos			20
 #define SYS_CLKSEL_AD1_Msk			(0x03 << SYS_CLKSEL_AD1_Pos)
@@ -374,15 +374,15 @@ typedef struct {
 #define SYS_SLEEP_STOP_Pos			1		//将该位置1后，系统将进入 STOP SLEEP模式
 #define SYS_SLEEP_STOP_Msk			(0x01 << SYS_SLEEP_STOP_Pos)
 
-#define SYS_RSTSR_POR_Pos			0		//1 出现过POR复位，写1清零
+#define SYS_RSTSR_POR_Pos			0		//1 出现过 POR复位，写1清零
 #define SYS_RSTSR_POR_Msk			(0x01 << SYS_RSTSR_POR_Pos)
 #define SYS_RSTSR_WDT_Pos			1		//1 出现过WDT复位，写1清零
 #define SYS_RSTSR_WDT_Msk			(0x01 << SYS_RSTSR_WDT_Pos)
 
-#define SYS_RTCWKCR_EN_Pos			0		//RTC唤醒使能
+#define SYS_RTCWKCR_EN_Pos			0		//RTC 唤醒使能
 #define SYS_RTCWKCR_EN_Msk			(0x01 << SYS_RTCWKCR_EN_Pos)
 
-#define SYS_RTCWKSR_FLAG_Pos		0		//RTC唤醒标志，写1清零
+#define SYS_RTCWKSR_FLAG_Pos		0		//RTC 唤醒标志，写1清零
 #define SYS_RTCWKSR_FLAG_Msk		(0x01 << SYS_RTCWKSR_FLAG_Pos)
 
 #define SYS_USBPHYCR_IDEN_Pos		0		//ID PIN采样使能
@@ -409,7 +409,7 @@ typedef struct {
 #define SYS_PRNGCR_CLR_Msk			(0x01 << SYS_PRNGCR_CLR_Pos)
 #define SYS_PRNGCR_MODE_Pos			1		//0 关闭   2 三时钟模式(RCHF、RCLF、XTAH)   3 两时钟模式(RCHF、RCLF)
 #define SYS_PRNGCR_MODE_Msk			(0x03 << SYS_PRNGCR_MODE_Pos)
-#define SYS_PRNGCR_RDY_Pos			8		//1 可以从PRNGDL和PRNGDH读取数据
+#define SYS_PRNGCR_RDY_Pos			8		//1 可以从PRNGDL和 PRNGDH读取数据
 #define SYS_PRNGCR_RDY_Msk			(0x01 << SYS_PRNGCR_RDY_Pos)
 
 #define SYS_IOFILT_TIM_Pos			0		//滤波窗口时间 = Tfilter_clk * 时钟分频 * 2^TIM
@@ -685,7 +685,7 @@ typedef struct {
 
     __IO uint32_t INTLVLTRG;				//Interrupt Level Trigger  1 电平触发中断	0 边沿触发中断
 
-    __IO uint32_t INTBE;					//Both Edge，当INTLVLTRG设为边沿触发中断时，此位置1表示上升沿和下降沿都触发中断，置0时触发边沿由INTRISEEN 选择
+    __IO uint32_t INTBE;					//Both Edge，当INTLVLTRG设为边沿触发中断时，此位置1表示上升沿和下降沿都触发中断，置0 时触发边沿由INTRISEEN 选择
 
     __IO uint32_t INTRISEEN;				//Interrupt Rise Edge Enable   1 上升沿/高电平触发中断	0 下降沿/低电平触发中断
 
@@ -796,7 +796,7 @@ typedef struct {
 
     __IO uint32_t HALL0V;					//HALL0输入跳变沿将 Timer0(加载值 - 当前值)存入此寄存器
 
-    __IO uint32_t HALL3V;					//HALL3输入跳变沿将 Timer3(加载值 - 当前值)存入此寄存器
+    __IO uint32_t HALL3V;					//HALL3 输入跳变沿将 Timer3(加载值 - 当前值)存入此寄存器
 
     uint32_t RESERVED2;
 
@@ -819,7 +819,7 @@ typedef struct {
 #define TIMRG_HALLIF_H0IN1_Msk		(0x01 << TIMRG_HALLIF_H0IN1_Pos)
 #define TIMRG_HALLIF_H0IN2_Pos		2
 #define TIMRG_HALLIF_H0IN2_Msk		(0x01 << TIMRG_HALLIF_H0IN2_Pos)
-#define TIMRG_HALLIF_H3IN0_Pos		3		//HALL3输入信号0触发中断标志
+#define TIMRG_HALLIF_H3IN0_Pos		3		//HALL3 输入信号0触发中断标志
 #define TIMRG_HALLIF_H3IN0_Msk		(0x01 << TIMRG_HALLIF_H3IN0_Pos)
 #define TIMRG_HALLIF_H3IN1_Pos		4
 #define TIMRG_HALLIF_H3IN1_Msk		(0x01 << TIMRG_HALLIF_H3IN1_Pos)
@@ -837,7 +837,7 @@ typedef struct {
 #define TIMRG_HALLSR_H0IN1_Msk		(0x01 << TIMRG_HALLSR_H0IN1_Pos)
 #define TIMRG_HALLSR_H0IN2_Pos		2
 #define TIMRG_HALLSR_H0IN2_Msk		(0x01 << TIMRG_HALLSR_H0IN2_Pos)
-#define TIMRG_HALLSR_H3IN0_Pos		3		//HALL3输入信号0当前状态
+#define TIMRG_HALLSR_H3IN0_Pos		3		//HALL3 输入信号0当前状态
 #define TIMRG_HALLSR_H3IN0_Msk		(0x01 << TIMRG_HALLSR_H3IN0_Pos)
 #define TIMRG_HALLSR_H3IN1_Pos		4
 #define TIMRG_HALLSR_H3IN1_Msk		(0x01 << TIMRG_HALLSR_H3IN1_Pos)
@@ -965,14 +965,14 @@ typedef struct {
 #define UART_FIFO_RXLVL_Msk			(0xFF << UART_FIFO_RXLVL_Pos)
 #define UART_FIFO_TXLVL_Pos			8		//TX FIFO Level，TX FIFO 中字符个数
 #define UART_FIFO_TXLVL_Msk			(0xFF << UART_FIFO_TXLVL_Pos)
-#define UART_FIFO_RXTHR_Pos			16		//RX FIFO Threshold，RX中断触发门限，中断使能时 RXLVL >  RXTHR 触发RX中断
+#define UART_FIFO_RXTHR_Pos			16		//RX FIFO Threshold，RX 中断触发门限，中断使能时 RXLVL >  RXTHR 触发RX 中断
 #define UART_FIFO_RXTHR_Msk			(0xFF << UART_FIFO_RXTHR_Pos)
-#define UART_FIFO_TXTHR_Pos			24		//TX FIFO Threshold，TX中断触发门限，中断使能时 TXLVL <= TXTHR 触发TX中断
+#define UART_FIFO_TXTHR_Pos			24		//TX FIFO Threshold，TX 中断触发门限，中断使能时 TXLVL <= TXTHR 触发TX 中断
 #define UART_FIFO_TXTHR_Msk			(0xFFu<< UART_FIFO_TXTHR_Pos)
 
-#define UART_LINCR_BRKDETIE_Pos		0		//检测到LIN Break中断使能
+#define UART_LINCR_BRKDETIE_Pos		0		//检测到 LIN Break中断使能
 #define UART_LINCR_BRKDETIE_Msk		(0x01 << UART_LINCR_BRKDETIE_Pos)
-#define UART_LINCR_BRKDETIF_Pos		1		//检测到LIN Break中断状态
+#define UART_LINCR_BRKDETIF_Pos		1		//检测到 LIN Break中断状态
 #define UART_LINCR_BRKDETIF_Msk		(0x01 << UART_LINCR_BRKDETIF_Pos)
 #define UART_LINCR_GENBRKIE_Pos		2		//发送LIN Break完成中断使能
 #define UART_LINCR_GENBRKIE_Msk		(0x01 << UART_LINCR_GENBRKIE_Pos)
@@ -983,14 +983,14 @@ typedef struct {
 
 #define UART_CTSCR_EN_Pos			0		//CTS流控使能
 #define UART_CTSCR_EN_Msk			(0x01 << UART_CTSCR_EN_Pos)
-#define UART_CTSCR_POL_Pos			2		//CTS信号极性，0 低有效，CTS输入为低表示可以发送数据
+#define UART_CTSCR_POL_Pos			2		//CTS信号极性，0 低有效，CTS 输入为低表示可以发送数据
 #define UART_CTSCR_POL_Msk			(0x01 << UART_CTSCR_POL_Pos)
 #define UART_CTSCR_STAT_Pos			7		//CTS信号的当前状态
 #define UART_CTSCR_STAT_Msk			(0x01 << UART_CTSCR_STAT_Pos)
 
 #define UART_RTSCR_EN_Pos			1		//RTS流控使能
 #define UART_RTSCR_EN_Msk			(0x01 << UART_RTSCR_EN_Pos)
-#define UART_RTSCR_POL_Pos			3		//RTS信号极性    0 低有效，RTS输入为低表示可以接收数据
+#define UART_RTSCR_POL_Pos			3		//RTS信号极性    0 低有效，RTS 输入为低表示可以接收数据
 #define UART_RTSCR_POL_Msk			(0x01 << UART_RTSCR_POL_Pos)
 #define UART_RTSCR_THR_Pos			4		//RTS流控的触发阈值    0 1字节    1 2字节    2 4字节    3 6字节
 #define UART_RTSCR_THR_Msk			(0x07 << UART_RTSCR_THR_Pos)
@@ -1057,9 +1057,9 @@ typedef struct {
 #define SPI_CTRL_DMARXEN_Msk		(0x01 << SPI_CTRL_DMARXEN_Pos)
 #define SPI_CTRL_FILTE_Pos			16		//1 对 SPI输入信号进行去抖操作    0 对 SPI输入信号不进行去抖操作
 #define SPI_CTRL_FILTE_Msk			(0x01 << SPI_CTRL_FILTE_Pos)
-#define SPI_CTRL_SSN_H_Pos			17		//0 传输过程中SSN始终为0    	 1 传输过程中每字符之间会将 SSN拉高半个 SCLK周期
+#define SPI_CTRL_SSN_H_Pos			17		//0 传输过程中SSN始终为0    	 1 传输过程中每字符之间会将 SSN拉高半个 SCLK 周期
 #define SPI_CTRL_SSN_H_Msk			(0x01 << SPI_CTRL_SSN_H_Pos)
-#define SPI_CTRL_RFTHR_Pos			18		//RX FIFO Threshold，0 接收 FIFO 中至少有1个数据   ...   7 接收 FIFO 中至少有8个数据
+#define SPI_CTRL_RFTHR_Pos			18		//RX FIFO Threshold，0 接收 FIFO 中至少有 1个数据   ...   7 接收 FIFO 中至少有8个数据
 #define SPI_CTRL_RFTHR_Msk			(0x07 << SPI_CTRL_RFTHR_Pos)
 #define SPI_CTRL_TFTHR_Pos			21		//TX FIFO Threshold，0 发送 FIFO 中至多有0个数据   ...   7 发送 FIFO 中至多有7个数据
 #define SPI_CTRL_TFTHR_Msk			(0x07 << SPI_CTRL_TFTHR_Pos)
@@ -1084,9 +1084,9 @@ typedef struct {
 #define SPI_STAT_RFF_Msk			(0x01 << SPI_STAT_RFF_Pos)
 #define SPI_STAT_RFOV_Pos			5		//接收 FIFO Overflow
 #define SPI_STAT_RFOV_Msk			(0x01 << SPI_STAT_RFOV_Pos)
-#define SPI_STAT_TFLVL_Pos			6		//发送 FIFO 中数据个数， 0 TFNF=0时表示FIFO内有8个数据，TFNF=1时表示FIFO内有0个数据	1--7 FIFO内有1--7个数据
+#define SPI_STAT_TFLVL_Pos			6		//发送 FIFO 中数据个数， 0 TFNF=0 时表示FIFO内有8个数据，TFNF=1时表示FIFO内有0个数据	1--7 FIFO内有 1--7个数据
 #define SPI_STAT_TFLVL_Msk			(0x07 << SPI_STAT_TFLVL_Pos)
-#define SPI_STAT_RFLVL_Pos			9		//接收 FIFO 中数据个数， 0 RFF =1时表示FIFO内有8个数据，RFF =0时表示FIFO内有0个数据	1--7 FIFO内有1--7个数据
+#define SPI_STAT_RFLVL_Pos			9		//接收 FIFO 中数据个数， 0 RFF =1时表示FIFO内有8个数据，RFF =0 时表示FIFO内有0个数据	1--7 FIFO内有 1--7个数据
 #define SPI_STAT_RFLVL_Msk			(0x07 << SPI_STAT_RFLVL_Pos)
 #define SPI_STAT_BUSY_Pos			15
 #define SPI_STAT_BUSY_Msk			(0x01 << SPI_STAT_BUSY_Pos)
@@ -1158,7 +1158,7 @@ typedef struct {
 #define SPI_I2SCR_CHRIGHT_Pos		16		//1 Right Channel   0 Left Channel
 #define SPI_I2SCR_CHRIGHT_Msk		(0x01 << SPI_I2SCR_CHRIGHT_Pos)
 
-#define SPI_I2SPR_MCLKDIV_Pos		0		//Fmclk = Fpclk / (2 * (MCLKDIV + 1))，MCLK一般是SCLK的256或384倍
+#define SPI_I2SPR_MCLKDIV_Pos		0		//Fmclk = Fpclk / (2 * (MCLKDIV + 1))，MCLK一般是 SCLK的 256或384倍
 #define SPI_I2SPR_MCLKDIV_Msk		(0x3F << SPI_I2SPR_MCLKDIV_Pos)
 #define SPI_I2SPR_SCLKDIV_Pos		8		//Fsclk = Fpclk / (2 * (SCLKDIV + 1))
 #define SPI_I2SPR_SCLKDIV_Msk		(0xFFF<< SPI_I2SPR_SCLKDIV_Pos)
@@ -1225,7 +1225,7 @@ typedef struct {
 #define I2C_TR_SLVWR_Msk			(0x01 << I2C_TR_SLVWR_Pos)
 #define I2C_TR_SLVSTR_Pos			11		//Slave clock stretching
 #define I2C_TR_SLVSTR_Msk			(0x01 << I2C_TR_SLVSTR_Pos)
-#define I2C_TR_SLVRDS_Pos			12		//Slave RXDATA Status, 0 空   1 接收到地址   2 接收到数据   3 接收到Master Code
+#define I2C_TR_SLVRDS_Pos			12		//Slave RXDATA Status, 0 空   1 接收到地址   2 接收到数据   3 接收到 Master Code
 #define I2C_TR_SLVRDS_Msk			(0x03 << I2C_TR_SLVRDS_Pos)
 
 #define I2C_IF_TXE_Pos				0		//TX Empty，写TXDATA清零此位
@@ -1376,7 +1376,7 @@ typedef struct {
 #define ADC_IE_SEQ0HALF_Msk			(0x01 << ADC_IE_SEQ0HALF_Pos)
 #define ADC_IE_SEQ0FULL_Pos			3       //序列0 FIFO Full 中断使能
 #define ADC_IE_SEQ0FULL_Msk			(0x01 << ADC_IE_SEQ0FULL_Pos)
-#define ADC_IE_SEQ0CMPMAX_Pos		4		//序列0转换结果大于COMP.MAX中断使能
+#define ADC_IE_SEQ0CMPMAX_Pos		4		//序列0转换结果大于COMP.MAX 中断使能
 #define ADC_IE_SEQ0CMPMAX_Msk		(0x01 << ADC_IE_SEQ0CMPMAX_Pos)
 #define ADC_IE_SEQ0CMPMIN_Pos		5		//序列0转换结果小于COMP.MIN 中断使能
 #define ADC_IE_SEQ0CMPMIN_Msk		(0x01 << ADC_IE_SEQ0CMPMIN_Pos)
@@ -1425,7 +1425,7 @@ typedef struct {
 #define ADC_IF_SEQ0HALF_Msk			(0x01 << ADC_IF_SEQ0HALF_Pos)
 #define ADC_IF_SEQ0FULL_Pos			3       //序列0 FIFO Full 中断标志
 #define ADC_IF_SEQ0FULL_Msk			(0x01 << ADC_IF_SEQ0FULL_Pos)
-#define ADC_IF_SEQ0CMPMAX_Pos		4		//序列0转换结果大于COMP.MAX中断标志
+#define ADC_IF_SEQ0CMPMAX_Pos		4		//序列0转换结果大于COMP.MAX 中断标志
 #define ADC_IF_SEQ0CMPMAX_Msk		(0x01 << ADC_IF_SEQ0CMPMAX_Pos)
 #define ADC_IF_SEQ0CMPMIN_Pos		5		//序列0转换结果小于COMP.MIN 中断标志
 #define ADC_IF_SEQ0CMPMIN_Msk		(0x01 << ADC_IF_SEQ0CMPMIN_Pos)
@@ -1476,7 +1476,7 @@ typedef struct {
 #define ADC_SR_FULL_Msk				(0x01 << ADC_SR_FULL_Pos)
 #define ADC_SR_EMPTY_Pos			4		//FIFO Empty
 #define ADC_SR_EMPTY_Msk			(0x01 << ADC_SR_EMPTY_Pos)
-#define ADC_SR_LEVEL_Pos			5		//FIFO 中数据个数，1~7：FIFO 中有1~7个数据    0 FIFO Empty时表示0个数据，FIFO Full时表示8个数据
+#define ADC_SR_LEVEL_Pos			5		//FIFO 中数据个数，1~7：FIFO 中有 1~7个数据    0 FIFO Empty时表示0个数据，FIFO Full时表示8个数据
 #define ADC_SR_LEVEL_Msk			(0x07 << ADC_SR_LEVEL_Pos)
 
 #define ADC_DR_VALUE_Pos			0
@@ -1602,7 +1602,7 @@ typedef struct {
 #define PWM_CR_MULT_Msk				(0x01 << PWM_CR_MULT_Pos)
 #define PWM_CR_DIR_Pos				3		//计数器计数方向， 0 向上计数   1 向下计数
 #define PWM_CR_DIR_Msk				(0x01 << PWM_CR_DIR_Pos)
-#define PWM_CR_CLKSRC_Pos			4		//计数时钟源，0 系统时钟   1 PWM_PULSE0输入   2 PWM_PULSE1输入
+#define PWM_CR_CLKSRC_Pos			4		//计数时钟源，0 系统时钟   1 PWM_PULSE0输入   2 PWM_PULSE1 输入
 #define PWM_CR_CLKSRC_Msk			(0x03 << PWM_CR_CLKSRC_Pos)
 #define PWM_CR_CLKDIV_Pos			6		//计数时钟预分频， 0 1 分频   1 2 分频   ...   1023 1024分频
 #define PWM_CR_CLKDIV_Msk			(0x3FF<< PWM_CR_CLKDIV_Pos)
@@ -1663,7 +1663,7 @@ typedef struct {
 #define PWM_OVFTRG_MUX_Pos			2		//Trigger输出到哪一路，0 trig[0]   1 trig[1]   2 trig[2]   ...   7 trig[7]
 #define PWM_OVFTRG_MUX_Msk			(0x07 << PWM_OVFTRG_MUX_Pos)
 
-#define PWM_CMPTRG_CMP_Pos			0		//计数器值与此比较值相等时产生Trigger信号
+#define PWM_CMPTRG_CMP_Pos			0		//计数器值与此比较值相等时产生Trigger 信号
 #define PWM_CMPTRG_CMP_Msk			(0xFFFF<<PWM_CMPTRG_CMP_Pos)
 #define PWM_CMPTRG_EN_Pos			16
 #define PWM_CMPTRG_EN_Msk			(0x01 << PWM_CMPTRG_EN_Pos)
@@ -1710,13 +1710,13 @@ typedef struct {
 #define PWM_IE_UPOVF_Msk			(0x01 << PWM_IE_UPOVF_Pos)
 #define PWM_IE_DNOVF_Pos			1		//向下计数时计数器溢出中断使能
 #define PWM_IE_DNOVF_Msk			(0x01 << PWM_IE_DNOVF_Pos)
-#define PWM_IE_UPCMPA_Pos			2		//向上计数时计数器值与CMPA相等中断使能
+#define PWM_IE_UPCMPA_Pos			2		//向上计数时计数器值与 CMPA相等中断使能
 #define PWM_IE_UPCMPA_Msk			(0x01 << PWM_IE_UPCMPA_Pos)
-#define PWM_IE_UPCMPB_Pos			3		//向上计数时计数器值与CMPB相等中断使能
+#define PWM_IE_UPCMPB_Pos			3		//向上计数时计数器值与 CMPB相等中断使能
 #define PWM_IE_UPCMPB_Msk			(0x01 << PWM_IE_UPCMPB_Pos)
-#define PWM_IE_DNCMPA_Pos			4		//向下计数时计数器值与CMPA相等中断使能
+#define PWM_IE_DNCMPA_Pos			4		//向下计数时计数器值与 CMPA相等中断使能
 #define PWM_IE_DNCMPA_Msk			(0x01 << PWM_IE_DNCMPA_Pos)
-#define PWM_IE_DNCMPB_Pos			5		//向下计数时计数器值与CMPB相等中断使能
+#define PWM_IE_DNCMPB_Pos			5		//向下计数时计数器值与 CMPB相等中断使能
 #define PWM_IE_DNCMPB_Msk			(0x01 << PWM_IE_DNCMPB_Pos)
 
 #define PWM_IF_UPOVF_Pos			0
@@ -1761,7 +1761,7 @@ typedef struct {
 
     __IO uint32_t PULSE;
 
-    __IO uint32_t FILTER;					//外部信号滤波，0 无滤波   1 4个PCLK周期   2 8个PCLK周期   3 16个PCLK周期
+    __IO uint32_t FILTER;					//外部信号滤波，0 无滤波   1 4个PCLK 周期   2 8个PCLK 周期   3 16个PCLK 周期
 
     __IO uint32_t BRKPOL;					//刹车信号极性，
 
@@ -1889,9 +1889,9 @@ typedef struct {
 
     uint32_t RESERVED[5];
 
-    __IO uint32_t IE;						//Interrupt Enable，为0时IF相应位不置位
+    __IO uint32_t IE;						//Interrupt Enable，为0 时IF相应位不置位
 
-    __IO uint32_t IM;						//Interrupt Mask，为0时即使IF相应位置位也不触发 QEI_IRQn 中断
+    __IO uint32_t IM;						//Interrupt Mask，为0 时即使IF相应位置位也不触发 QEI_IRQn 中断
 
     __O  uint32_t IC;						//Interrupt Clear
 
@@ -1918,7 +1918,7 @@ typedef struct {
 
 #define QEI_IE_INDEX_Pos 			0		//检测到 Index脉冲
 #define QEI_IE_INDEX_Msk			(0x01 << QEI_IE_INDEX_Pos)
-#define QEI_IE_MATCH_Pos 			1		//POSCNT递增到与MAXCNT相等，或POSCNT 从MAXCNT递减到 0
+#define QEI_IE_MATCH_Pos 			1		//POSCNT递增到与MAXCNT相等，或 POSCNT 从MAXCNT递减到 0
 #define QEI_IE_MATCH_Msk			(0x01 << QEI_IE_MATCH_Pos)
 #define QEI_IE_CNTOV_Pos 			2		//Counter Overrun，计数器溢出
 #define QEI_IE_CNTOV_Msk			(0x01 << QEI_IE_CNTOV_Pos)
@@ -2190,7 +2190,7 @@ typedef struct {
 #define CAN_IF_RXDA_Msk				(0x01 << CAN_IF_RXDA_Pos)
 #define CAN_IF_TXBR_Pos				1		//当IE.TXBR=1时，SR.TXBR由0变成1将置位此位
 #define CAN_IF_TXBR_Msk				(0x01 << CAN_IF_TXBR_Pos)
-#define CAN_IF_ERRWARN_Pos			2		//当IE.ERRWARN=1时，SR.ERRWARN或SR.BUSOFF 0-to-1 或 1-to-0将置位此位
+#define CAN_IF_ERRWARN_Pos			2		//当IE.ERRWARN=1时，SR.ERRWARN或 SR.BUSOFF 0-to-1 或 1-to-0将置位此位
 #define CAN_IF_ERRWARN_Msk			(0x01 << CAN_IF_ERRWARN_Pos)
 #define CAN_IF_RXOV_Pos				3		//IF.RXOV = SR.RXOV & IE.RXOV
 #define CAN_IF_RXOV_Msk				(0x01 << CAN_IF_RXOV_Pos)
@@ -2561,13 +2561,13 @@ typedef struct {
 #define LCD_CR_BURSTLEN_Pos			21		//Burst Length，0 Burst INCR4   1 Burst INCR8   2 Burst INCR16
 #define LCD_CR_BURSTLEN_Msk			(0x03 << LCD_CR_BURSTLEN_Pos)
 
-#define LCD_CRH_HSW_Pos				0		//Hsync Width, 输出HSYNC低电平持续多少个 DOTCLK周期，0表示1个周期
+#define LCD_CRH_HSW_Pos				0		//Hsync Width, 输出 HSYNC低电平持续多少个 DOTCLK 周期，0表示1个周期
 #define LCD_CRH_HSW_Msk				(0xFF << LCD_CRH_HSW_Pos)
-#define LCD_CRH_HBP_Pos			    8		//0表示1个 DOTCLK周期
+#define LCD_CRH_HBP_Pos			    8		//0表示1个 DOTCLK 周期
 #define LCD_CRH_HBP_Msk			    (0xFF << LCD_CRH_HBP_Pos)
 #define LCD_CRH_PIX_Pos				16		//水平方向的像素个数，0表示1个，最大为1023
 #define LCD_CRH_PIX_Msk				(0x3FF<< LCD_CRH_PIX_Pos)
-#define LCD_CRH_HFP_Pos			    26		//0表示1个 DOTCLK周期
+#define LCD_CRH_HFP_Pos			    26		//0表示1个 DOTCLK 周期
 #define LCD_CRH_HFP_Msk			    (0x3Fu<< LCD_CRH_HFP_Pos)
 
 #define LCD_CRV_VSW_Pos				0		//Vsync Width，输出VSYNC低电平持续多少个行周期，0表示1个周期
@@ -2740,7 +2740,7 @@ typedef struct {
 #define CORDIC_CMD_RANGE_Msk		(0x03 << CORDIC_CMD_RANGE_Pos)
 #define CORDIC_CMD_SINCOS_Pos		3		//1 计算SIN 和 COS    0 计算ARCTAN
 #define CORDIC_CMD_SINCOS_Msk		(0x01 << CORDIC_CMD_SINCOS_Pos)
-#define CORDIC_CMD_MULDIV_Pos		4		//0 计算SIN\COS\ARCTAN，具体由SINCOS位决定   2 计算除法   3 计算乘法
+#define CORDIC_CMD_MULDIV_Pos		4		//0 计算SIN\COS\ARCTAN，具体由SINCOS 位决定   2 计算除法   3 计算乘法
 #define CORDIC_CMD_MULDIV_Msk		(0x03 << CORDIC_CMD_MULDIV_Pos)
 
 #define CORDIC_INPUT_F_Pos			0		//输入数据小数部分
@@ -3155,7 +3155,7 @@ typedef struct {
 #define RTC_TRIM_DEC_Msk		    (0x01 << RTC_TRIM_DEC_Pos)
 
 #define RTC_TRIMM_CYCLE_Pos		    0       //用于计数周期微调，如果 INC为1，则第n个计数周期调整为(32768±ADJ)+1,否则调整为(32768±ADJ)-1
-//cycles=0时，不进行微调整;cycles=1，则n为2;cycles=7，则n为8;以此类推
+//cycles=0 时，不进行微调整;cycles=1，则n为2;cycles=7，则n为8;以此类推
 #define RTC_TRIMM_CYCLE_Msk		    (0x07 << RTC_TRIMM_CYCLE_Pos)
 #define RTC_TRIMM_INC_Pos		    3
 #define RTC_TRIMM_INC_Msk		    (0x01 << RTC_TRIMM_INC_Pos)

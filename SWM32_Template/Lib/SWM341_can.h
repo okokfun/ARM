@@ -74,7 +74,7 @@ typedef struct {
 #define CAN_INT_TX_EMPTY	(0x01 << 1)		//TX Buffer Empty
 #define CAN_INT_ARBLOST		(0x01 << 6)		//Arbitration lost
 #define CAN_INT_ERR			(0x01 << 7)
-#define CAN_INT_ERR_WARN	(0x01 << 2)		//TXERR/RXERR计数值达到Error Warning Limit
+#define CAN_INT_ERR_WARN	(0x01 << 2)		//TXERR/RXERR计数值达到 Error Warning Limit
 #define CAN_INT_ERR_PASS	(0x01 << 5)		//TXERR/RXERR计数值达到127
 #define CAN_INT_WAKEUP		(0x01 << 4)
 

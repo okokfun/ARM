@@ -43,7 +43,7 @@
         (++) 选择输出比较强制模式
         (++) 输出比较预加载配置
         (++) 清除输出比较参考
-        (++) 选择OCREF Clear信号
+        (++) 选择 OCREF Clear 信号
         (++) 启用/禁用捕获/比较通道
 
       (#) TIM 输入捕获管理: 该组包括配置输入捕获模式中使用的捕获/比较单元所需的所有功能:
@@ -222,11 +222,9 @@ void TIM_DeInit(TIM_TypeDef* TIMx) {
     } else if (TIMx == TIM13) {
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM13, ENABLE);
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM13, DISABLE);
-    } else {
-        if (TIMx == TIM14) {
-            RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM14, ENABLE);
-            RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM14, DISABLE);
-        }
+    } else if (TIMx == TIM14) {
+        RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM14, ENABLE);
+        RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM14, DISABLE);
     }
 }
 
@@ -1466,7 +1464,7 @@ void TIM_OC1PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity) {
 
     tmpccer = TIMx->CCER;
 
-    /* 设置或重置 CC1P位 */
+    /* 设置或重置 CC1P 位 */
     tmpccer &= (uint16_t)(~TIM_CCER_CC1P);
     tmpccer |= TIM_OCPolarity;
 
@@ -1491,7 +1489,7 @@ void TIM_OC1NPolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCNPolarity) {
 
     tmpccer = TIMx->CCER;
 
-    /* 设置或重置 CC1NP位 */
+    /* 设置或重置 CC1NP 位 */
     tmpccer &= (uint16_t)~TIM_CCER_CC1NP;
     tmpccer |= TIM_OCNPolarity;
 
@@ -1517,7 +1515,7 @@ void TIM_OC2PolarityConfig(TIM_TypeDef* TIMx, uint16_t TIM_OCPolarity) {
 
     tmpccer = TIMx->CCER;
 
-    /* 设置或重置 CC2P位 */
+    /* 设置或重置 CC2P 位 */
     tmpccer &= (uint16_t)(~TIM_CCER_CC2P);
     tmpccer |= (uint16_t)(TIM_OCPolarity << 4);
 
@@ -2670,7 +2668,7 @@ void TIM_SelectInputTrigger(TIM_TypeDef* TIMx, uint16_t TIM_InputTriggerSource) 
   *            @arg TIM_TRGOSource_Update: 选择更新事件作为触发输出(TRGO)
   *
   *  - For all TIMx except TIM6 and TIM7
-  *            @arg TIM_TRGOSource_OC1: 一旦发生捕获或比较匹配(TRGO)，当要设置 CC1IF标志时，
+  *            @arg TIM_TRGOSource_OC1: 一旦发生捕获或比较匹配(TRGO)，当要设置 CC1IF 标志时，
 										触发输出会发送一个正脉冲
   *            @arg TIM_TRGOSource_OC1Ref: OC1REF信号用作触发输出(TRGO)
   *            @arg TIM_TRGOSource_OC2Ref: OC2REF信号用作触发输出(TRGO)
@@ -2882,16 +2880,16 @@ void TIM_SelectHallSensor(TIM_TypeDef* TIMx, FunctionalState NewState) {
   * 参数:  TIMx: where x can be 2, 5 or 11 to select the TIM 外设.
   * 参数:  TIM_Remap: 指定 TIM 输入重映射源。
   *          此参数可以是以下值之一:
-  *            @arg TIM2_TIM8_TRGO: TIM2 ITR1输入连接至 TIM8触发器输出(默认)
-  *            @arg TIM2_ETH_PTP:   TIM2 ITR1输入连接到ETH PTP触发输出。
-  *            @arg TIM2_USBFS_SOF: TIM2 ITR1输入连接到USB FS SOF。
-  *            @arg TIM2_USBHS_SOF: TIM2 ITR1输入连接到USB HS SOF。
-  *            @arg TIM5_GPIO:      TIM5 CH4输入连接到专用定时器引脚(默认)
-  *            @arg TIM5_LSI:       TIM5 CH4输入连接到LSI时钟。
-  *            @arg TIM5_LSE:       TIM5 CH4输入连接到LSE时钟。
-  *            @arg TIM5_RTC:       TIM5 CH4输入连接到 RTC输出事件。
-  *            @arg TIM11_GPIO:     TIM11 CH4输入连接到专用定时器引脚(默认)
-  *            @arg TIM11_HSE:      TIM11 CH4输入连接到HSE_RTC 时钟(HSE由可编程预分频器分频)
+  *            @arg TIM2_TIM8_TRGO: TIM2 ITR1 输入连接至 TIM8 触发器输出(默认)
+  *            @arg TIM2_ETH_PTP:   TIM2 ITR1 输入连接到 ETH PTP触发输出。
+  *            @arg TIM2_USBFS_SOF: TIM2 ITR1 输入连接到 USB FS SOF。
+  *            @arg TIM2_USBHS_SOF: TIM2 ITR1 输入连接到 USB HS SOF。
+  *            @arg TIM5_GPIO:      TIM5 CH4 输入连接到专用定时器引脚(默认)
+  *            @arg TIM5_LSI:       TIM5 CH4 输入连接到 LSI 时钟。
+  *            @arg TIM5_LSE:       TIM5 CH4 输入连接到 LSE 时钟。
+  *            @arg TIM5_RTC:       TIM5 CH4 输入连接到 RTC 输出事件。
+  *            @arg TIM11_GPIO:     TIM11 CH4 输入连接到专用定时器引脚(默认)
+  *            @arg TIM11_HSE:      TIM11 CH4 输入连接到 HSE_RTC 时钟(HSE由可编程预分频器分频)
   * 返回值: 无
   */
 void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap) {
@@ -2904,7 +2902,7 @@ void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap) {
 }
 
 /**
-  * 简介:  将 TI1配置为输入。
+  * 简介:  将 TI1 配置为输入。
   * 参数:  TIMx: 其中 x 可以是1、2、3、4、5、8、9、10、11、12、13或14，以选择 TIM 外设设备。
   * 参数:  TIM_ICPolarity : 输入极性。
   *          此参数可以是以下值之一:
@@ -2913,8 +2911,8 @@ void TIM_RemapConfig(TIM_TypeDef* TIMx, uint16_t TIM_Remap) {
   *            @arg TIM_ICPolarity_BothEdge
   * 参数:  TIM_ICSelection: 指定要使用的输入。
   *          此参数可以是以下值之一:
-  *            @arg TIM_ICSelection_DirectTI: 选择 TIM 输入1连接至IC1。
-  *            @arg TIM_ICSelection_IndirectTI: 选择 TIM 输入1连接至IC2。
+  *            @arg TIM_ICSelection_DirectTI: 选择 TIM 输入1连接至 IC1。
+  *            @arg TIM_ICSelection_IndirectTI: 选择 TIM 输入1连接至 IC2。
   *            @arg TIM_ICSelection_TRC: 选择 TIM 输入1连接至 TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
   *          此参数的值必须介于 0x00 和 0x0F 之间。
@@ -2943,7 +2941,7 @@ static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
 }
 
 /**
-  * 简介:  将 TI2配置为输入。
+  * 简介:  将 TI2 配置为输入。
   * 参数:  TIMx: 其中 x 可以是1、2、3、4、5、8、9或12，以选择 TIM 外设设备。
   * 参数:  TIM_ICPolarity : 输入极性。
   *          此参数可以是以下值之一:
@@ -3033,8 +3031,8 @@ static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICPolarity_BothEdge
   * 参数:  TIM_ICSelection: 指定要使用的输入。
   *          此参数可以是以下值之一:
-  *            @arg TIM_ICSelection_DirectTI: 选择 TIM 输入4连接至IC4。
-  *            @arg TIM_ICSelection_IndirectTI: 选择 TIM 输入4连接至IC3。
+  *            @arg TIM_ICSelection_DirectTI: 选择 TIM 输入4连接至 IC4。
+  *            @arg TIM_ICSelection_IndirectTI: 选择 TIM 输入4连接至 IC3。
   *            @arg TIM_ICSelection_TRC: 选择 TIM 输入4连接至 TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
   *          此参数的值必须介于 0x00 和 0x0F 之间。
@@ -3055,7 +3053,7 @@ static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
     tmpccmr2 |= (uint16_t)(TIM_ICSelection << 8);
     tmpccmr2 |= (uint16_t)(TIM_ICFilter << 12);
 
-    /* 选择极性并设置 CC4E位 */
+    /* 选择极性并设置 CC4E 位 */
     tmpccer &= (uint16_t)~(TIM_CCER_CC4P | TIM_CCER_CC4NP);
     tmpccer |= (uint16_t)(tmp | (uint16_t)TIM_CCER_CC4E);
 

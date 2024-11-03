@@ -69,7 +69,7 @@
 			
        (++) 使用 SPI_DataSizeConfig() 函数重新配置数据大小
 	   
-       (++) 使用 SPI_SSOutputCmd() 函数启用或禁用 SS输出
+       (++) 使用 SPI_SSOutputCmd() 函数启用或禁用 SS 输出
 
     (#) 要使用 CRC 硬件计算功能，请参阅外设 CRC 硬件计算小节。
 
@@ -775,7 +775,7 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
 
    (@) 当 SPI处于从属模式时，请注意仅当时钟稳定时，即当时钟处于稳定状态时，才启用 CRC 计算。
        否则，可能会进行错误的 CRC 计算。事实上，一旦设置了 CRCEN，
-        CRC 就对 SCK 从机输入时钟敏感，这与 SPE位的值无关。
+        CRC 就对 SCK 从机输入时钟敏感，这与 SPE 位的值无关。
 
    (@) 对于高比特率频率，在传输 CRC 时要小心。
        由于在 CRC 传输阶段使用的 CPU 周期数必须尽可能低，
@@ -854,7 +854,7 @@ uint16_t SPI_GetCRC(SPI_TypeDef* SPIx, uint8_t SPI_CRC) {
         /* 获取Tx CRC 寄存器 */
         crcreg = SPIx->TXCRCR;
     } else {
-        /* 获取Rx CRC 寄存器 */
+        /* 获取 Rx CRC 寄存器 */
         crcreg = SPIx->RXCRCR;
     }
 
@@ -923,7 +923,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
             ##### 中断和标记管理函数 #####
  ===============================================================================
 
- [..] 本节提供了一组函数，允许配置 SPI中断源并检查或清除标志或挂起位状态。
+ [..] 本节提供了一组函数，允许配置 SPI 中断源并检查或清除标志或挂起位状态。
       用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或 DMA 模式。
 
  *** 轮询模式 ***
@@ -939,7 +939,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
   (#) I2S_FLAG_UDR: 指示发生欠载错误。
   (#) I2S_FLAG_CHSIDE: 表示通道侧。
 
-  (@) 不要使用BSY标志来处理每个数据传输或接收。最好使用 TXE 和 RXNE标志。
+  (@) 不要使用BSY 标志来处理每个数据传输或接收。最好使用 TXE 和 RXNE 标志。
 
  [..] 在此模式下，建议使用以下函数:
    (+) FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG);
@@ -959,7 +959,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
 
    (+) 中断源:
 (##)SPI_I2S_IT_TXE：指定 Tx 缓冲区空中断的中断源。
-(##)SPI_I2S_IT_RXNE：指定Rx 缓冲区非空中断的中断源。
+(##)SPI_I2S_IT_RXNE：指定 Rx 缓冲区非空中断的中断源。
 (##)SPI_I2S_IT_ERR：指定错误中断的中断源。
 
  [..] 在此模式下，建议使用以下函数:
@@ -971,7 +971,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
  ================
  [..] 在 DMA 模式下，SPI 通信可以通过2个 DMA 通道请求进行管理:
    (#) SPI_I2S_DMAReq_Tx: 指定 Tx 缓冲区 DMA 传输请求
-   (#) SPI_I2S_DMAReq_Rx: 指定Rx 缓冲区 DMA 传输请求
+   (#) SPI_I2S_DMAReq_Rx: 指定 Rx 缓冲区 DMA 传输请求
 
  [..] 在此模式下，建议使用以下函数:
    (+) void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState
@@ -985,7 +985,7 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
   * 参数:  SPIx: 选择 SPIx/I2Sx 外设设备，其中 x 可以是：
 				在 SPI 模式下为1、2、3、4、5或6，在 I2S 模式下为2 或3，
 				或者在 I2S 全双工模式下为 I2Sxext。
-  * 参数:  SPI_I2S_IT: 指定要启用或禁用的 SPI中断源。
+  * 参数:  SPI_I2S_IT: 指定要启用或禁用的 SPI 中断源。
   *          此参数可以是以下值之一:
   *            @arg SPI_I2S_IT_TXE: Tx 缓冲区空中断掩码
   *            @arg SPI_I2S_IT_RXNE: Rx 缓冲区空中断掩码
@@ -1056,14 +1056,14 @@ FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {
 /**
   * 简介:  清除 SPIx CRC 错误 (CRCERR) 标志。
   * 参数:  SPIx：选择 SPIx/I2Sx 外设设备，其中 x 可以是：
-			SPI 模式下的1、2、3、4、5或6，I2S 模式下的2 或3，I2S 全双工模式下的 I2Sxext。
+			SPI 模式下的1、2、3、4、5或6，I2S 模式下的 2 或3，I2S 全双工模式下的 I2Sxext。
   * 参数:  SPI_I2S_FLAG：指定要清除的 SPI标志。
   *			此功能仅清除 CRCERR 标志。
   *				@arg SPI_FLAG_CERRR: CRC 错误标志。
   *
   * 注意:   OVR(OverRun error)标志由软件序列清除：对 SPI_DR 寄存器(SPI_I2S_ReceiveData())进行
 			读取操作，然后对 SPI_SR 寄存器(SPI_I2S_GetFlagStatus())执行读取操作。
-  * 注意:   通过对 SPI_SR 寄存器的读取操作(SPI_I2S_GetFlagStatus())清除UDR(运行不足错误)标志。
+  * 注意:   通过对 SPI_SR 寄存器的读取操作(SPI_I2S_GetFlagStatus())清除 UDR(运行不足错误)标志。
   * 注意:   MODF(模式故障)标志由软件序列清除：对 SPI_SR 寄存器(SPI_I2S_GetFlagStatus())
 			进行读/写操作，然后对 SPI_CR1 寄存器(SPI_Cmd()进行写操作以启用 SPI)。
   * 返回值: 无
@@ -1073,7 +1073,7 @@ void SPI_I2S_ClearFlag(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {
     assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
     assert_param(IS_SPI_I2S_CLEAR_FLAG(SPI_I2S_FLAG));
 
-    /* 清除 selected SPI CRC Error (CRCERR) flag */
+    /* 清除被选择的 SPI CRC Error (CRCERR) flag */
     SPIx->SR = (uint16_t)~SPI_I2S_FLAG;
 }
 
@@ -1081,7 +1081,7 @@ void SPI_I2S_ClearFlag(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {
   * 简介:  检查指定的 SPIx/I2Sx 中断是否发生。
   * 参数:  SPIx: To select the SPIx/I2Sx peripheral, where x can be: 1, 2, 3, 4, 5 or 6
   *         in SPI mode or 2 or 3 in I2S mode or I2Sxext for I2S full duplex mode.
-  * 参数:  SPI_I2S_IT: 指定要检查的 SPI中断源。
+  * 参数:  SPI_I2S_IT: 指定要检查的 SPI 中断源。
   *          此参数可以是以下值之一:
   *            @arg SPI_I2S_IT_TXE: Transmit buffer empty interrupt.
   *            @arg SPI_I2S_IT_RXNE: Receive buffer not empty interrupt.
@@ -1112,7 +1112,7 @@ ITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT) {
     /* 获取 SPI_I2S_IT enable bit 状态 */
     enablestatus = (SPIx->CR2 & itmask) ;
 
-    /* 检查指定 SPI中断的状态 */
+    /* 检查指定 SPI 中断的状态 */
     if (((SPIx->SR & itpos) != (uint16_t)RESET) && enablestatus) {
         /* SPI_I2S_IT 被设置 */
         bitstatus = SET;
@@ -1128,8 +1128,8 @@ ITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT) {
 /**
   * 简介:  清除 SPIx CRC 错误(CRCERR)中断挂起位。
   * 参数:  SPIx: 选择 SPIx/I2Sx 外设设备，其中 x 可以是: SPI 模式下的1、2、3、4、5或6，
-  *         I2S 模式下的2 或3，或 I2S 全双工模式下的 I2Sxext。
-  * 参数:  SPI_I2S_IT: 指定要清除的 SPI中断挂起位。
+  *         I2S 模式下的 2 或3，或 I2S 全双工模式下的 I2Sxext。
+  * 参数:  SPI_I2S_IT: 指定要清除的 SPI 中断挂起位。
   *         此函数仅清除 CRCERR 中断挂起位。
   *            @arg SPI_IT_CRCERR: CRC 错误中断。
   *
@@ -1152,7 +1152,7 @@ void SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT) {
     /* 获取 SPI_I2S IT index */
     itpos = 0x01 << (SPI_I2S_IT & 0x0F);
 
-    /* 清除 selected SPI CRC Error (CRCERR) interrupt pending 位 */
+    /* 清除被选择的 SPI CRC Error (CRCERR) interrupt pending 位 */
     SPIx->SR = (uint16_t)~itpos;
 }
 

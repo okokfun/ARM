@@ -135,7 +135,7 @@ void RNG_Cmd(FunctionalState NewState) {
  ===============================================================================
  [..] 本节提供了一个函数，允许获取32位随机数
 
-   (@)  在调用这个函数之前，你必须等待DRDY标志被设置，
+   (@)  在调用这个函数之前，你必须等待 DRDY 标志被设置，
         使用 RNG_GetFlagStatus(RNG_FLAG_DRDY) 函数。
 
 @endverbatim
@@ -148,16 +148,16 @@ void RNG_Cmd(FunctionalState NewState) {
   * 注意:   在调用此函数之前，您必须使用 RNG_GetFlagStatus(RNG_flag_DRDY)
 			函数等待设置 DRDY(数据就绪)标志。
   * 注意:   每次读取随机数数据(使用 RNG_GetRandomNumber() 函数)
-			时，RNG_FLAG_DRDY标志会自动清除。
-  * 注意:   在种子错误的情况下，只要SECS位为"1"，随机数的生成就
+			时，RNG_FLAG_DRDY 标志会自动清除。
+  * 注意:   在种子错误的情况下，只要SECS 位为"1"，随机数的生成就
 			会中断。如果一个数字在 RNG_DR 寄存器中可用，则不能使用它，
-			因为它可能没有足够的熵。在这种情况下，建议清除 SEIS位
+			因为它可能没有足够的熵。在这种情况下，建议清除 SEIS 位
 			(使用 RNG_ClearFlag(RNG_FLAG_SECS) 功能)，
 			然后禁用并启用 RNG 外设设备(使用 RNG_Cmd() 功能)
 			以重新初始化并重新启动RNG。
   * 注意:   在时钟错误的情况下，由于PLL48CLK时钟不正确，
 			RNG不再能够生成随机数。用户必须检查时钟控制器
-			是否正确配置为提供RNG 时钟并清除 CEIS位(使用
+			是否正确配置为提供 RNG 时钟并清除 CEIS 位(使用
 			RNG_ClearFlag(RNG_FLAG_CECS) 功能)。
 			时钟错误对先前生成的随机数没有影响，
 			并且可以使用 RNG_DR 寄存器内容。
@@ -180,7 +180,7 @@ uint32_t RNG_GetRandomNumber(void) {
              ##### 中断和标记管理函数 #####
  ===============================================================================
 
- [..] 本节提供的功能允许配置 RNG中断，并获取状态和清除标志以及中断挂起位。
+ [..] 本节提供的功能允许配置 RNG 中断，并获取状态和清除标志以及中断挂起位。
 
  [..] RNG提供3个中断源和3个标志:
 
@@ -196,10 +196,10 @@ uint32_t RNG_GetRandomNumber(void) {
 
  *** 中断 ***
  ==================
- [..] 如果启用，则RNG中断处于挂起状态 :
+ [..] 如果启用，则 RNG 中断处于挂起状态 :
 
    (#) 在 RNG_DR 寄存器包含有效随机数据的情况下。
-		一旦读取了RNG_DR 寄存器(使用 RNG_GetRandomNumber() 函数)，
+		一旦读取了 RNG_DR 寄存器(使用 RNG_GetRandomNumber() 函数)，
 		该中断源将被清除，直到计算出新的有效值;
    (#) 在种子错误的情况下 : 检测到以下故障序列之一:
        (++) 具有相同值(0 或1)的64个以上连续位
@@ -208,17 +208,17 @@ uint32_t RNG_GetRandomNumber(void) {
    (#) 在时钟错误的情况下 : PLL48CLK(RNG 外围时钟源)没有
 		被正确地检测到(fPLL48CLK <fHCLK/16)。
 		使用 RNG_ClearITPendingBit(RNG_IT_CEI) 功能清除此中断源。
-       -@- 注意:在这种情况下，用户必须检查时钟控制器是否正确配置以提供RNG 时钟。
+       -@- 注意:在这种情况下，用户必须检查时钟控制器是否正确配置以提供 RNG 时钟。
 
- *** 管理RNG 控制器事件 : ***
+ *** 管理 RNG 控制器事件 : ***
  ============================================
- [..] 用户应确定在其应用程序中将使用哪种模式来管理RNG 控制器事件:轮询模式或中断模式。
+ [..] 用户应确定在其应用程序中将使用哪种模式来管理 RNG 控制器事件: 轮询模式或中断模式。
 
    (#) 在轮询模式下，建议使用以函数:
        (++) RNG_GetFlagStatus() : 以检查是否发生标志事件。
-       (++) RNG_ClearFlag()     : 以清除flags事件。
+       (++) RNG_ClearFlag()     : 以清除 flags 事件。
 
-       -@@- RNG_ClearFlag()无法清除RNG_FLAG_DRDY。
+       -@@- RNG_ClearFlag()无法清除 RNG_FLAG_DRDY。
 			它仅通过读取随机数数据而被清除。
 
    (#)  在中断模式下，建议使用以下功能:
@@ -235,7 +235,7 @@ uint32_t RNG_GetRandomNumber(void) {
   *           - 计算数据就绪事件(DRDY)，以及
   *           - 种子错误中断(SEI)和
   *           - 时钟错误中断(CEI)，
-  *         所有这些中断源都是通过在 CR 寄存器中设置IE位来启用的。
+  *         所有这些中断源都是通过在 CR 寄存器中设置IE 位来启用的。
 			但是，每个中断都有其特定的状态位(请参阅RNG_GetITStatus()
 			函数)和清除位(请参见RNG_ClearITPendingBit() 函数，DRDY事件除外)。
   * 参数:  NewState: 新状态-> RNG 中断.
@@ -257,7 +257,7 @@ void RNG_ITConfig(FunctionalState NewState) {
 
 /**
   * 简介:  检查是否设置了指定的 RNG 标志。
-  * 参数:  RNG_FLAG: 指定RNG flag to check.
+  * 参数:  RNG_FLAG: 指定 RNG flag to check.
   *          此参数可以是以下值之一:
   *            @arg RNG_FLAG_DRDY: Data Ready flag.
   *            @arg RNG_FLAG_CECS: Clock Error Current flag.
@@ -297,13 +297,13 @@ FlagStatus RNG_GetFlagStatus(uint8_t RNG_FLAG) {
 void RNG_ClearFlag(uint8_t RNG_FLAG) {
     /* 检查参数 */
     assert_param(IS_RNG_CLEAR_FLAG(RNG_FLAG));
-    /* 清除 selected RNG flags */
+    /* 清除被选择的 RNG flags */
     RNG->SR = ~(uint32_t)(((uint32_t)RNG_FLAG) << 4);
 }
 
 /**
   * 简介:  检查指定的 RNG 中断是否发生。
-  * 参数:  RNG_IT: 指定RNG interrupt source to check.
+  * 参数:  RNG_IT: 指定 RNG interrupt source to check.
   *          此参数可以是以下值之一:
   *            @arg RNG_IT_CEI: Clock Error Interrupt.
   *            @arg RNG_IT_SEI: Seed Error Interrupt.
@@ -330,7 +330,7 @@ ITStatus RNG_GetITStatus(uint8_t RNG_IT) {
 
 /**
   * 简介:  清除 RNG 中断挂起位。
-  * 参数:  RNG_IT: 指定RNG 中断挂起位 bit(s) to clear.
+  * 参数:  RNG_IT: 指定 RNG 中断挂起位 bit(s) to clear.
   *          此参数可以是以下值的任意组合:
   *            @arg RNG_IT_CEI: Clock 错误中断.
   *            @arg RNG_IT_SEI: Seed 错误中断.
@@ -340,7 +340,7 @@ void RNG_ClearITPendingBit(uint8_t RNG_IT) {
     /* 检查参数 */
     assert_param(IS_RNG_IT(RNG_IT));
 
-    /* 清除所选RNG中断挂起位 */
+    /* 清除所选RNG 中断挂起位 */
     RNG->SR = (uint8_t)~RNG_IT;
 }
 

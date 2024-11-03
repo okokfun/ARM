@@ -760,7 +760,7 @@ void DSI_SetPullDown(DSI_TypeDef *DSIx, FunctionalState State); // 启用车道�
 void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State); // 关闭数据通道上的竞争检测
 
 /* 中断和标志管理功能 **********************************/
-void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState); // 启用或禁用指定的 DSI中断。
+void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState); // 启用或禁用指定的 DSI 中断。
 FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG); // 检查是否设置了指定的 DSI标志。
 void DSI_ClearFlag(DSI_TypeDef* DSIx, uint16_t DSI_FLAG); // 清除指定的 DSI标志。
 ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT); // 检查指定的 DSIx 中断是否已发生。

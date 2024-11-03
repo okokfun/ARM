@@ -481,7 +481,7 @@ void DMA2D_FGStart(FunctionalState NewState) {
 }
 
 /**
-  * 简介:  启动CLUT 的自动加载或中止传输。
+  * 简介:  启动 CLUT 的自动加载或中止传输。
   * 
   * 参数:  NewState: DMA2D 的新状态外设.
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -504,7 +504,7 @@ void DMA2D_BGStart(FunctionalState NewState) {
 /**
   * 简介:  配置 DMA2D 死区时间。
   * 
-  * 参数:  DMA2D_DeadTime: 指定 DMA2D死区时间。
+  * 参数:  DMA2D_DeadTime: 指定 DMA2D 死区时间。
   *        此参数可以是以下值之一:
   * 
   * 返回值: 无
@@ -557,20 +557,20 @@ void DMA2D_LineWatermarkConfig(uint32_t DMA2D_LWatermarkConfig) {
     =============
     [..]
         (+) DMA2D_FLAG_CE: 配置错误中断标志
-        (+) DMA2D_FLAG_CAE: CLUT访问错误中断标志
+        (+) DMA2D_FLAG_CAE: CLUT 访问错误中断标志
         (+) DMA2D_FLAG_TW: 传输水印中断标志
         (+) DMA2D_FLAG_TC: 传输完成中断标志
         (+) DMA2D_FLAG_TE: 传输错误中断标志
-        (+) DMA2D_FLAG_CTC: CLUT传输完成中断标志
+        (+) DMA2D_FLAG_CTC: CLUT 传输完成中断标志
 
     *** 中断 ***
     ==================
     [..]
         (+) DMA2D_IT_CE: 错误时生成配置错误中断检测到配置
-        (+) DMA2D_IT_CAE: CLUT访问错误中断
+        (+) DMA2D_IT_CAE: CLUT 访问错误中断
         (+) DMA2D_IT_TW: 传输水印中断在以下情况下生成达到编程水印
         (+) DMA2D_IT_TE: CPU尝试时生成传输错误中断在 CLUT 加载或 DMA2D1 传输时访问 CLUT 正在进行中
-        (+) DMA2D_IT_CTC: CLUT传输完成中断
+        (+) DMA2D_IT_CTC: CLUT 传输完成中断
         (+) DMA2D_IT_TC: 传输完成中断
 @endverbatim
   */
@@ -580,8 +580,8 @@ void DMA2D_LineWatermarkConfig(uint32_t DMA2D_LWatermarkConfig) {
   * 参数:  DMA2D_IT: 指定要启用或禁用的 DMA2D 中断源。
   *   此参数可以是以下值的任意组合:
   *     @arg DMA2D_IT_CE: 配置错误中断启用。
-  *     @arg DMA2D_IT_CTC: CLUT传输完成中断启用。
-  *     @arg DMA2D_IT_CAE: CLUT访问错误中断启用。
+  *     @arg DMA2D_IT_CTC: CLUT 传输完成中断启用。
+  *     @arg DMA2D_IT_CAE: CLUT 访问错误中断启用。
   *     @arg DMA2D_IT_TW: 传输水印中断启用。
   *     @arg DMA2D_IT_TC: 传输完成中断启用。
   *     @arg DMA2D_IT_TE: 传输错误中断启用。
@@ -611,8 +611,8 @@ void DMA2D_ITConfig(uint32_t DMA2D_IT, FunctionalState NewState) {
   * 参数:  DMA2D_FLAG: 指定要检查的标志。
   *   此参数可以是以下值之一:
   *     @arg DMA2D_FLAG_CE: 配置错误中断标志。
-  *     @arg DMA2D_FLAG_CTC: CLUT传输完成中断标志。
-  *     @arg DMA2D_FLAG_CAE: CLUT访问错误中断标志。
+  *     @arg DMA2D_FLAG_CTC: CLUT 传输完成中断标志。
+  *     @arg DMA2D_FLAG_CAE: CLUT 访问错误中断标志。
   *     @arg DMA2D_FLAG_TW: 传输水印中断标志。
   *     @arg DMA2D_FLAG_TC: 传输完成中断标志。
   *     @arg DMA2D_FLAG_TE: 传输错误中断标志。
@@ -644,8 +644,8 @@ FlagStatus DMA2D_GetFlagStatus(uint32_t DMA2D_FLAG) {
   * 参数:  DMA2D_FLAG: 指定要清除的标志。
   *   此参数可以是以下值的任意组合:
   *     @arg DMA2D_FLAG_CE: 配置错误中断标志。
-  *     @arg DMA2D_FLAG_CTC: CLUT传输完成中断标志。
-  *     @arg DMA2D_FLAG_CAE: CLUT访问错误中断标志。
+  *     @arg DMA2D_FLAG_CTC: CLUT 传输完成中断标志。
+  *     @arg DMA2D_FLAG_CAE: CLUT 访问错误中断标志。
   *     @arg DMA2D_FLAG_TW: 传输水印中断标志。
   *     @arg DMA2D_FLAG_TC: 传输完成中断标志。
   *     @arg DMA2D_FLAG_TE: 传输错误中断标志。
@@ -666,8 +666,8 @@ void DMA2D_ClearFlag(uint32_t DMA2D_FLAG) {
   * 参数:  DMA2D_IT: 指定要检查的 DMA2D 中断源。
   *   此参数可以是以下值之一:
   *     @arg DMA2D_IT_CE: 配置错误中断启用。
-  *     @arg DMA2D_IT_CTC: CLUT传输完成中断启用。
-  *     @arg DMA2D_IT_CAE: CLUT访问错误中断启用。
+  *     @arg DMA2D_IT_CTC: CLUT 传输完成中断启用。
+  *     @arg DMA2D_IT_CAE: CLUT 访问错误中断启用。
   *     @arg DMA2D_IT_TW: 传输水印中断启用。
   *     @arg DMA2D_IT_TC: 传输完成中断启用。
   *     @arg DMA2D_IT_TE: 传输错误中断启用。
@@ -702,8 +702,8 @@ ITStatus DMA2D_GetITStatus(uint32_t DMA2D_IT) {
   * 参数:  DMA2D_IT: 指定要清除的中断等待位。
   *   此参数可以是以下值的任意组合:
   *     @arg DMA2D_IT_CE: 配置错误中断。
-  *     @arg DMA2D_IT_CTC: CLUT传输完成中断。
-  *     @arg DMA2D_IT_CAE: CLUT访问错误中断。
+  *     @arg DMA2D_IT_CTC: CLUT 传输完成中断。
+  *     @arg DMA2D_IT_CAE: CLUT 访问错误中断。
   *     @arg DMA2D_IT_TW: 传输水印中断。
   *     @arg DMA2D_IT_TC: 传输完成中断。
   *     @arg DMA2D_IT_TE: 传输错误中断。

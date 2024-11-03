@@ -165,7 +165,7 @@ void PWR_DeInit(void) {
 
 /**
   * 简介:  启用或禁用对备份域(RTC 寄存器、RTC 备份数据寄存器和备份 SRAM)的访问。
-  * 注意:   如果HSE除以2、3、...31被用作 RTC 时钟，那么 备份域访问应保持启用。
+  * 注意:   如果 HSE除以2、3、...31被用作 RTC 时钟，那么 备份域访问应保持启用。
   * 参数:  NewState: 访问备份域的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -188,7 +188,7 @@ void PWR_BackupAccessCmd(FunctionalState NewState) {
     [..]
       (+) PV于监测 VDD 电源，将其与 PVD 电平(PWR_CR 中的PLS[2:0]位)选择的阈值进行比较。
       (+) 一个PVDO 标志可用于指示VDD/VDDA是高于还是低于 高于或低于PVD阈值。
-          该事件内部连接到EXTI 线16，如果通过 EXTI 寄存器启用，可以产生一个中断。
+          该事件内部连接到 EXTI 线16，如果通过 EXTI 寄存器启用，可以产生一个中断。
       (+) PVD停止在待机模式。
 
 @endverbatim
@@ -253,8 +253,8 @@ void PWR_PVDCmd(FunctionalState NewState) {
       (+) WakeUp引脚用于将系统从待机模式唤醒。该引脚被强制配置为输入下拉，
           并在上升沿时处于激活状态。强制输入下拉配置，并且在上升沿上是有效的。
       (+) 有一个唤醒引脚。PA.00上的唤醒针脚1。
-	   (++) 对于 STM32F446xx，有两个唤醒引脚。PA.00 的引脚1和PC.13的引脚2
-           (++) 对于 STM32F410xx/STM32F412xG/STM32F413_423xx，有三个唤醒引脚。PA.00上的Pin1、PC.00上的Pin2 和PC.01上的Pin3
+	   (++) 对于 STM32F446xx，有两个唤醒引脚。PA.00 的引脚1和 PC.13的引脚2
+           (++) 对于 STM32F410xx/STM32F412xG/STM32F413_423xx，有三个唤醒引脚。PA.00上的Pin1、PC.00上的Pin2 和 PC.01上的Pin3
 @endverbatim
   */
 #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F401xx) || defined(STM32F411xE)
@@ -328,19 +328,19 @@ void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState) {
 
       (+) 主内部调节器可以被配置为在设备不以最大频率操作时在性能和功耗之间进行权衡。
       (+) 对于 STM32F405xx/407xx 和 STM32F415xx/417xx 设备，
-          可以通过PWR_MainRegulatorModelConfig() 函数动态配置调节器，
-          该函数配置PWR_CR 寄存器中的VOS位:
+          可以通过 PWR_MainRegulatorModelConfig() 函数动态配置调节器，
+          该函数配置PWR_CR 寄存器中的VOS 位:
         (++) 当设置此位时(选择调节器电压输出比例1模式)，系统频率可上升至168 MHz。
         (++) 当重置此位(选择调节器电压输出比例2模式)时，系统频率可达到144 MHz。
 
-       (+) 对于 STM32F42xxx/43xxx 设备，可以通过PWR_MainRegulatorModeConfig()
+       (+) 对于 STM32F42xxx/43xxx 设备，可以通过 PWR_MainRegulatorModeConfig()
            函数配置调节器，该函数配置PWR_CR 寄存器中的VOS[1:0]位:
            在 PWR_CR 寄存器中配置VOS[1:0]位:
         (++)当VOS[1:0]=11(选择调节器电压输出比例1模式)时，系统频率可上升至168 MHz。
         (++)当VOS[1:0]=10(选择调节器电压输出比例2模式)时，系统频率可上升至144 MHz。
         (++)当VOS[1:0]=01(选择调节器电压输出比例3模式)时，系统频率可升至120 MHz。
 
-       (+) 对于 STM32F42xxx/43xxx 设备，只有当PLL关闭且HSI 或HSE时钟源被选为系统时钟时，
+       (+) 对于 STM32F42xxx/43xxx 设备，只有当PLL关闭且HSI 或HSE 时钟源被选为系统时钟时，
             才能修改刻度。
            编程的新值仅在 PLL接通时激活。
            当锁相环关闭时，电压标度3被自动选择。
@@ -349,7 +349,7 @@ void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState) {
        (+) 对于 STM32F42xxx/43xxx 设备，在运行模式下:主调节器有两种可用的操作模式:
         (++) 正常模式: CPU和核心逻辑在给定电压标度下以最大频率运行(标度1、标度2 或标度3)
         (++) Over-drive mode: 该模式允许 CPU和核心逻辑在给定电压缩放(缩放1、缩放2 或缩放3)
-            下以高于正常模式的频率操作。此模式通过PWR_OverDriveCmd() 函数和PWR_OverDriveSWCmd() 函数启用，
+            下以高于正常模式的频率操作。此模式通过 PWR_OverDriveCmd() 函数和 PWR_OverDriveSWCmd() 函数启用，
             要进入或退出Overdrive模式，请遵循参考手册中描述的顺序。
 
        (+) For STM32F42xxx/43xxx Devices, in Stop mode: 主调节器或低功率调节器向1.2V
@@ -357,7 +357,7 @@ void PWR_WakeUpPinCmd(uint32_t PWR_WakeUpPinx, FunctionalState NewState) {
          (++) Normal mode: 1.2V域保持在标称泄漏模式下。
                            此模式仅在主调节器或低功率调节器用于比例3或低电压模式时可用。
          (++) Under-drive mode: 在减少泄漏模式下保留1.2V域。该模式仅在主稳压器或低功率稳压器处于低压模式时可用。
-                                该模式通过PWR_UnderDriveCmd() 函数启用。
+                                该模式通过 PWR_UnderDriveCmd() 函数启用。
 
 @endverbatim
   */
@@ -411,7 +411,7 @@ void PWR_MainRegulatorModeConfig(uint32_t PWR_Regulator_Voltage) {
   *
   * 这种模式允许 CPU和核心逻辑在给定的电压比例(比例1、比例2 或比例3)下以高于正常模式的频率运行。
   *
-  * 注意: 建议在应用程序不运行关键任务，并且系统时钟源为 HSI 或HSE时，进入或退出超速驱动模式。
+  * 注意: 建议在应用程序不运行关键任务，并且系统时钟源为 HSI 或HSE 时，进入或退出超速驱动模式。
   *       在超速驱动开关激活期间，不应启用任何外围时钟。
   *       一旦超速模式被激活，外围时钟必须被启用。
   *
@@ -440,7 +440,7 @@ void PWR_OverDriveSWCmd(FunctionalState NewState) {
     /* 检查参数 */
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-    /* 设置/重置ODSWEN 位以启用/禁用超速档切换模式 */
+    /* 设置/重置 ODSWEN 位以启用/禁用超速档切换模式 */
     *(__IO uint32_t *) CR_ODSWEN_BB = (uint32_t)NewState;
 }
 
@@ -565,14 +565,14 @@ void PWR_LowRegulatorLowVoltageCmd(FunctionalState NewState) {
              ##### FLASH掉电配置功能 #####
  ===============================================================================
     [..]
-      (+) 通过使用 PWR_FlashPowerDownCmd() 函数设置PWR_CR 寄存器中的 FPDS位，
+      (+) 通过使用 PWR_FlashPowerDownCmd() 函数设置PWR_CR 寄存器中的 FPDS 位，
           当器件进入 Stop模式时，闪存也进入了掉电模式。当闪存处于掉电模式时，
           当从停止模式唤醒时，会产生额外的启动延迟。
 @endverbatim
   */
 
 /**
-  * 简介:  启用或禁用 STOP模式下的 Flash断电函数。
+  * 简介:  启用或禁用 STOP模式下的 Flash 断电函数。
   * 参数:  NewState: 闪存功率模式的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -633,46 +633,46 @@ void PWR_FlashPowerDownCmd(FunctionalState NewState) {
       (+) 进入:
         (++) 使用 PWR_EnterSTANDBYMode() 函数进入待机模式。
       (+) 退出:
-        (++) WKUP引脚上升沿、RTC警报(警报A 和警报B)、
-          RTC唤醒、篡改事件、时间戳事件、NRST 引脚外部复位、IWDG 复位。
+        (++) WKUP引脚上升沿、RTC 警报(警报A 和警报B)、
+          RTC 唤醒、篡改事件、时间戳事件、NRST 引脚外部复位、IWDG 复位。
 
    *** 从低功耗模式自动唤醒(AWU) ***
    =============================================
     [..]
-      MCU可以通过RTC报警事件、RTC唤醒事件、篡改事件、时间戳事件或比较器事件从
+      MCU可以通过 RTC报警事件、RTC 唤醒事件、篡改事件、时间戳事件或比较器事件从
         低功耗模式中被唤醒。唤醒事件、篡改事件、时间戳事件或比较器事件。
         而不依赖外部中断(自动唤醒模式)。
 
       (#) RTC从停止模式自动唤醒(AWU)
 
         (++) 要想在 RTC报警事件中从停止模式中唤醒，就必须:
-          (++) 使用EXTI_Init() 函数将EXTI 17号线配置为对上升沿敏感(中断或事件模式)。
+          (++) 使用 EXTI_Init() 函数将EXTI 17号线配置为对上升沿敏感(中断或事件模式)。
           (++) 使用 RTC_ITConfig() 函数启用 RTC报警中断。
-          (++) 使用 RTC_SetAlarm()和 RTC_AlarmCmd() 函数配置 RTC以产生RTC报警。
+          (++) 使用 RTC_SetAlarm()和 RTC_AlarmCmd() 函数配置 RTC 以产生RTC报警。
         (++) 要想在 RTC 篡改或时间戳事件中从停止模式中唤醒，就必须:
-          (++) 使用EXTI_Init() 函数将EXTI 21号线配置为对上升沿敏感(中断或事件模式)。
+          (++) 使用 EXTI_Init() 函数将EXTI 21号线配置为对上升沿敏感(中断或事件模式)。
           (++) 使用 RTC_ITConfig() 函数启用 RTC 篡改或时间戳中断。
           (++) 使用 RTC_TimeStampConfig(), RTC_TamperTriggerConfig()
-              和 RTC_TamperCmd() 函数配置 RTC以检测篡改或时间戳事件。
-        (++) 为了用 RTC唤醒事件从停止模式中唤醒，有必要:
-           (++) 使用EXTI_Init() 函数将EXTI 22号线配置为对上升沿敏感(中断或事件模式)。
-           (++) 使用 RTC_ITConfig() 函数启用 RTC唤醒中断。
+              和 RTC_TamperCmd() 函数配置 RTC 以检测篡改或时间戳事件。
+        (++) 为了用 RTC 唤醒事件从停止模式中唤醒，有必要:
+           (++) 使用 EXTI_Init() 函数将EXTI 22号线配置为对上升沿敏感(中断或事件模式)。
+           (++) 使用 RTC_ITConfig() 函数启用 RTC 唤醒中断。
            (++) 使用 RTC_WakeUpClockConfig()、RTC_SetWakeUpCounter()
-              和 RTC_WakeUpCmd() 函数配置 RTC以产生RTC WakeUp事件。
+              和 RTC_WakeUpCmd() 函数配置 RTC 以产生RTC WakeUp事件。
 
       (#) RTC从待机模式自动唤醒(AWU)
 
         (++) 要从待机模式下用 RTC报警事件唤醒，必须:
           (+++) 使用 RTC_ITConfig() 函数启用 RTC报警中断
-          (+++) 使用 RTC_SetAlarm()和 RTC_AlarmCmd() 函数配置 RTC以产生RTC报警。
+          (+++) 使用 RTC_SetAlarm()和 RTC_AlarmCmd() 函数配置 RTC 以产生RTC报警。
         (++) 要从待机模式中唤醒RTC 篡改或时间戳事件，就必须:
           (+++) 使用 RTC_ITConfig() 函数启用 RTC 篡改或时间戳中断
           (+++) 使用 RTC_TimeStampConfig(), RTC_TamperTriggerConfig()
-                和 RTC_TamperCmd() 函数配置 RTC以检测篡改或时间戳事件。
-        (++) 要想用 RTC唤醒事件从待机模式中唤醒，就必须:
+                和 RTC_TamperCmd() 函数配置 RTC 以检测篡改或时间戳事件。
+        (++) 要想用 RTC 唤醒事件从待机模式中唤醒，就必须:
           (+++) 使用 RTC_ITConfig() 函数启用 RTC WakeUp中断。
           (+++) 使用 RTC_WakeUpClockConfig(), RTC_SetWakeUpCounter()
-             和 RTC_WakeUpCmd() 函数配置 RTC以产生RTC WakeUp事件。
+             和 RTC_WakeUpCmd() 函数配置 RTC 以产生RTC WakeUp事件。
 
 @endverbatim
   */
@@ -704,7 +704,7 @@ void PWR_EnterSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) {
 
     /* 在停止模式下选择调节器状态 ---------------------------------*/
     tmpreg = PWR->CR;
-    /* 清除PDDS和 LPDS位 */
+    /* 清除PDDS 和 LPDS 位 */
     tmpreg &= CR_DS_MASK;
 
     /* Set LPDS, MRLVDS and LPLVDS bits 根据 PWR_Regulator 值 */
@@ -762,10 +762,10 @@ void PWR_EnterUnderDriveSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) 
 
     /* 在停止模式下选择调节器状态 ---------------------------------*/
     tmpreg = PWR->CR;
-    /* 清除PDDS和 LPDS位 */
+    /* 清除PDDS 和 LPDS 位 */
     tmpreg &= CR_DS_MASK;
 
-    /* 根据 PWR_Regulator设置LPDS、MRLUDS和 LPLUDS位值 */
+    /* 根据 PWR_Regulator设置 LPDS、MRLUDS 和 LPLUDS 位值 */
     tmpreg |= PWR_Regulator;
 
     /* 存储新值 */
@@ -830,12 +830,12 @@ void PWR_EnterSTANDBYMode(void) {
   * 参数:  PWR_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
   *            @arg PWR_FLAG_WU: 唤醒标志. 该标志表示从WKUP引脚或 RTC告警(告警a或告警B)、
-  *                              RTC Tamper事件、RTC TimeStamp事件或 RTC唤醒接收到唤醒事件。
-  *                              当WKUP引脚级别已经很高时，如果启用了WKUP引脚(通过设置EWUP位)，
+  *                              RTC Tamper事件、RTC TimeStamp事件或 RTC 唤醒接收到唤醒事件。
+  *                              当WKUP引脚级别已经很高时，如果启用了WKUP引脚(通过设置EWUP 位)，
   *                              则检测到额外的唤醒事件。
   *            @arg PWR_FLAG_SB: 备用 Flage。此标志表示系统已从待机模式恢复。
   *            @arg PWR_FLAG_PVDO: PVD Output. 仅当PWR_PVDCmd() 函数启用 PVD 时，此标志才有效。PVD在待机模式下停止
-                                   因此，该位在待机或重置后等于 0，直到PVDE位被设置。
+                                   因此，该位在待机或重置后等于 0，直到PVDE 位被设置。
   *            @arg PWR_FLAG_BRR: 后备调节器就绪标志。
   *                               当设备从待机模式唤醒或被系统复位或电源复位时，该位不会被重置。
   *            @arg PWR_FLAG_VOSRDY: 该标志表示稳压器电压比例输出选择已准备就绪。

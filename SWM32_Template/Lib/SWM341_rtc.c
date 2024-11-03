@@ -27,7 +27,7 @@ static uint32_t calcWeekDay(uint32_t year, uint32_t month, uint32_t date);
 * 函数名称:	RTC_Init()
 * 功能说明:	RTC 初始化
 * 输    入: RTC_TypeDef * RTCx	指定要被设置的 RTC，有效值包括RTC
-*			RTC_InitStructure * initStruct    包含RTC 相关设定值的结构体
+*			RTC_InitStructure * initStruct    包含 RTC 相关设定值的结构体
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -115,7 +115,7 @@ void RTC_GetDateTime(RTC_TypeDef * RTCx, RTC_DateTime * dateTime) {
 * 函数名称:	RTC_AlarmSetup()
 * 功能说明:	RTC闹钟设定
 * 输    入: RTC_TypeDef * RTCx	指定要被设置的 RTC，有效值包括RTC
-*			RTC_AlarmStructure * alarmStruct    包含RTC闹钟设定值的结构体
+*			RTC_AlarmStructure * alarmStruct    包含 RTC闹钟设定值的结构体
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/

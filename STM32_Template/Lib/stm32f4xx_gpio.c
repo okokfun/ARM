@@ -27,7 +27,7 @@
        (++) 复用功能: Push-Pull (Pull-up, Pull-down or no Pull) Open
             Drain (Pull-up, Pull-down or no Pull).
 
-       (++) 模拟: 引脚用作ADC 通道或 DAC输出时所需的模式。
+       (++) 模拟: 引脚用作ADC 通道或 DAC 输出时所需的模式。
 
    (#) 外设设备复用功能:
        (++) 对于ADC 和 DAC，使用 GPIO_InitStruct->GPIO_mode=GPIO_mode_AN 在模拟模式下配置所需引脚;
@@ -47,10 +47,10 @@
 
    (#) 复位期间和复位后，复用功能不激活，GPIO 引脚配置为输入浮动模式(JTAG引脚除外)。
 
-   (#) LSE振荡器关闭时，可以将LSE振荡器引脚 OSC_IN 和OSC_OUT 用作通用(分别为PC14 和PC15)。
+   (#) LSE振荡器关闭时，可以将LSE振荡器引脚 OSC_IN 和OSC_OUT 用作通用(分别为PC14 和 PC15)。
 		LSE优先于 GPIO 功能。
 
-   (#) 当HSE振荡器关闭时，HSE 振荡器引脚 OSC_IN/OSC_OUT 可分别用作通用 PH0 和PH1。
+   (#) 当 HSE振荡器关闭时，HSE 振荡器引脚 OSC_IN/OSC_OUT 可分别用作通用 PH0 和 PH1。
 		HSE优先于 GPIO 职能。
 
 @endverbatim
@@ -253,11 +253,11 @@ void GPIO_PinLockConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) {
     assert_param(IS_GPIO_PIN(GPIO_Pin));
 
     tmp |= GPIO_Pin;
-    /* 设置LCKK位 */
+    /* 设置 LCKK位 */
     GPIOx->LCKR = tmp;
-    /* 重置LCKK位 */
+    /* 重置 LCKK位 */
     GPIOx->LCKR =  GPIO_Pin;
-    /* 设置LCKK位 */
+    /* 设置 LCKK位 */
     GPIOx->LCKR = tmp;
     /* 读取LCKK位 */
     tmp = GPIOx->LCKR;

@@ -32,7 +32,7 @@
            (++) 调用 GPIO_Init() 函数
            -@@- 如果使用外部时钟源，则I2S CKIN 引脚也应配置为 Alternate function Push-pull - pull-up模式。
 
-      (#) SAI时钟可以从不同的时钟源生成:
+      (#) SAI 时钟可以从不同的时钟源生成:
           PLL I2S、PLL SAI 或外部时钟源。
           (++) PLLI2S 使用以下函数配置 RCC_PLLI2SConfig()，
                                     RCC_PLLI2SCmd(ENABLE)，
@@ -194,8 +194,8 @@ void SAI_DeInit(SAI_TypeDef* SAIx) {
 /**
   * 简介:  根据 SAI_InitStruct 中指定的参数初始化 SAI Block x 外设。
   *
-  * 注意:   SAI时钟是从PLLSAI 的特定输出或PLLI2S的特定输出产生的，
-			或者是从绕过PLL I2S的替代功能产生的。
+  * 注意:   SAI 时钟是从PLLSAI 的特定输出或 PLLI2S的特定输出产生的，
+			或者是从绕过 PLL I2S的替代功能产生的。
   *
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  SAI_InitStruct: 指向 SAI_InitTypeDef 结构的指针，该结构包含指定 SAI 块的配置信息外设.
@@ -259,7 +259,7 @@ void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct) {
 /**
   * 简介:  根据 SAI_FrameInitStruct 中指定的参数初始化 SAI Block Audio 帧。
   *
-  * 注意:   如果选择了AC’97或SPDIF音频协议，则此功能没有任何意义。
+  * 注意:   如果选择了AC’97或 SPDIF音频协议，则此功能没有任何意义。
   *
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  SAI_FrameInitStruct: 指向 SAI_FrameInitTypeDef 结构的指针，
@@ -304,7 +304,7 @@ void SAI_FrameInit(SAI_Block_TypeDef* SAI_Block_x, SAI_FrameInitTypeDef* SAI_Fra
 /**
   * 简介:  根据 SAI_SlotInitStruct 中指定的参数初始化 SAI Block 音频 Slot。
   *
-  * 注意:   如果选择了AC’97或SPDIF音频协议，则此函数没有任何意义。
+  * 注意:   如果选择了AC’97或 SPDIF音频协议，则此函数没有任何意义。
   *
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  SAI_SlotInitStruct: 指向 SAI_SlotInitTypeDef 结构的指针，
@@ -525,7 +525,7 @@ void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
         /* 启用被选定的 SAI block 静音模式 */
         SAI_Block_x->CR2 |= SAI_xCR2_MUTE;
     } else {
-        /* 选择的 SAI SS输出 */
+        /* 选择的 SAI SS 输出 */
         SAI_Block_x->CR2 &= ~(SAI_xCR2_MUTE);
     }
 }
@@ -673,8 +673,8 @@ void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x) {
   [..]
   本节提供了一组允许管理 SAI 数据传输的功能。
   [..]
-  在接收过程中，数据被接收，然后被存储到内部FIFO 中，同时
-  在传输中，数据在传输之前首先存储在内部FIFO 中。
+  在接收过程中，数据被接收，然后被存储到内部 FIFO 中，同时
+  在传输中，数据在传输之前首先存储在内部 FIFO 中。
   [..]
   SAI_xDR 寄存器的读取访问可以使用 SAI_ReceiveData() 函数完成，
   并返回 Rx 缓冲值。而对 SAI_DR 的写入访问可以使用 SAI_SendData()
@@ -743,7 +743,7 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
         /* 启用选择 SAI 块静音模式 */
         SAI_Block_x->CR1 |= SAI_xCR1_DMAEN;
     } else {
-        /* 选择的 SAI SS输出 */
+        /* 选择的 SAI SS 输出 */
         SAI_Block_x->CR1 &= ~(SAI_xCR1_DMAEN);
     }
 }
@@ -757,19 +757,19 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
             ##### 中断和标记管理函数 #####
  ===============================================================================
   [..]
-  本节提供了一组功能，允许配置 SAI中断源并检查或清除标志或挂起位状态。
+  本节提供了一组功能，允许配置 SAI 中断源并检查或清除标志或挂起位状态。
   用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或 DMA 模式。
 
   *** 轮询模式 ***
   ====================
   [..]
   在轮询模式下，SAI 通信可以由7个标志管理:
-     (#) SAI_FLAG_FREQ :    以指示是否存在要写入或要读取的 FIFO请求。
-     (#) SAI_FLAG_MUTEDET : 以指示是否检测到MUTE帧
+     (#) SAI_FLAG_FREQ :    以指示是否存在要写入或要读取的 FIFO 请求。
+     (#) SAI_FLAG_MUTEDET : 以指示是否检测到 MUTE 帧
      (#) SAI_FLAG_OVRUDR :  指示是否发生溢出或不足错误
      (#) SAI_FLAG_AFSDET :  以指示是否存在比预期更早的音频帧同步(FS)的检测
      (#) SAI_FLAG_LFSDET :  以指示是否检测到晚于预期的音频帧同步(FS)
-     (#) SAI_FLAG_CNRDY :   以指示编解码器在接收AC97音频帧的 TAG 0(slot0)期间是否未准备好通信
+     (#) SAI_FLAG_CNRDY :   以指示编解码器在接收 AC97 音频帧的 TAG 0(slot0)期间是否未准备好通信
      (#) SAI_FLAG_WCKCFG:   以指示主模式中的错误时钟配置是否发生错误。
   [..]
   在此模式下，建议使用以下函数:
@@ -781,17 +781,17 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   [..]
   在中断模式, SAI 通信可以由7个中断源和7个未决位管理:
   (+) 挂起的位:
-     (##) SAI_IT_FREQ : 以指示是否存在要写入或要读取的 FIFO请求。
-     (##) SAI_IT_MUTEDET : 以指示是否检测到MUTE帧。
+     (##) SAI_IT_FREQ : 以指示是否存在要写入或要读取的 FIFO 请求。
+     (##) SAI_IT_MUTEDET : 以指示是否检测到 MUTE 帧。
      (##) SAI_IT_OVRUDR : 以指示是否发生溢出或不足运行错误。
      (##) SAI_IT_AFSDET : 以指示是否存在比预期更早的音频帧同步(FS)的检测。
      (##) SAI_IT_LFSDET : 以指示是否存在晚于预期的音频帧同步(FS)的检测。
-     (##) SAI_IT_CNRDY : 以指示编解码器在接收AC97音频帧的 TAG 0(slot0)期间是否未准备好通信。
+     (##) SAI_IT_CNRDY : 以指示编解码器在接收 AC97 音频帧的 TAG 0(slot0)期间是否未准备好通信。
      (##) SAI_IT_WCKCFG: 以指示主模式中的错误时钟配置是否发生错误。
 
   (+) 中断源:
-     (##) SAI_IT_FREQ : 指定FIFO请求的中断源。
-     (##) SAI_IT_MUTEDET : 指定检测到的MUTE帧的中断源。
+     (##) SAI_IT_FREQ : 指定FIFO 请求的中断源。
+     (##) SAI_IT_MUTEDET : 指定检测到的 MUTE 帧的中断源。
      (##) SAI_IT_OVRUDR : 指定溢出或欠载错误的中断源。
      (##) SAI_IT_AFSDET : 指定预期帧同步检测中断的中断源。
      (##) SAI_IT_LFSDET : 指定延迟帧同步检测中断的中断源。
@@ -806,7 +806,7 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   *** DMA 模式 ***
   ================
   [..]
-  在 DMA 模式, 每个 SAI 音频块具有独立的 DMA 接口，以便读取或写入 SAI_xDR 寄存器(以命中内部FIFO)。
+  在 DMA 模式, 每个 SAI 音频块具有独立的 DMA 接口，以便读取或写入 SAI_xDR 寄存器(以命中内部 FIFO)。
   按照基本DMA 请求/确认协议，音频块有一个 DMA 通道。
   [..]
   在此模式下，建议使用以下函数:
@@ -838,10 +838,10 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
   * 
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 
-  * 参数:  SAI_IT: 指定要启用或禁用的 SAI中断源。
+  * 参数:  SAI_IT: 指定要启用或禁用的 SAI 中断源。
   *          此参数可以是以下值之一:
-  *            @arg SAI_IT_FREQ: FIFO请求中断掩码
-  *            @arg SAI_IT_MUTEDET: MUTE检测中断掩码
+  *            @arg SAI_IT_FREQ: FIFO 请求中断掩码
+  *            @arg SAI_IT_MUTEDET: MUTE 检测中断掩码
   *            @arg SAI_IT_OVRUDR: 超限/欠载中断掩码
   *            @arg SAI_IT_AFSDET: 预期帧同步检测中断掩码
   *            @arg SAI_IT_LFSDET: 后期帧同步检测中断掩码
@@ -930,14 +930,14 @@ void SAI_ClearFlag(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG) {
     assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
     assert_param(IS_SAI_BLOCK_CLEAR_FLAG(SAI_FLAG));
 
-    /* 清除 selected SAI Block flag */
+    /* 清除被选择的 SAI Block flag */
     SAI_Block_x->CLRFR |= SAI_FLAG;
 }
 
 /**
   * 简介:  检查指定的 SAI Block x 中断是否发生。
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
-  * 参数:  SAI_IT: 指定要启用或禁用的 SAI中断源。
+  * 参数:  SAI_IT: 指定要启用或禁用的 SAI 中断源。
   *          此参数可以是以下值之一:
   *            @arg SAI_IT_FREQ: FIFO Request interrupt
   *            @arg SAI_IT_MUTEDET: MUTE detection interrupt

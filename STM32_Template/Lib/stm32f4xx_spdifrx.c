@@ -84,7 +84,7 @@ void SPDIFRX_DeInit(void) {
 /**
   * 简介:  根据 SPDIFRX_InitStruct 中指定的参数初始化 SPDIFRX 外设。
   *
-  * 注意:   SPDIFRX时钟由PLLSPDIFRX的特定输出或PLLI2S的特定输出或绕过PLLI2S的替代函数生成。
+  * 注意:   SPDIFRX时钟由PLLSPDIFRX的特定输出或 PLLI2S的特定输出或绕过 PLLI2S的替代函数生成。
   *
   * 参数:  SPDIFRX_InitStruct: 指向 SPDIFRX_InitTypeDef 结构的指针，该结构包含指定 SPDIFRX块外设设备的配置信息。
   * 返回值: 无
@@ -260,7 +260,7 @@ void SPDIFRX_CbDMACmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 SPDIFRX 外设。
-  * 参数:  SPDIFRX_State: 指定 SPDIFRX外设设备状态。
+  * 参数:  SPDIFRX_State: 指定 SPDIFRX 外设设备状态。
   *          此参数可以是以下值之一:
   *            @arg SPDIFRX_STATE_IDLE : Disable SPDIFRX-RX (STATE_IDLE)
   *            @arg SPDIFRX_STATE_SYNC : Enable SPDIFRX-RX Synchronization only
@@ -280,9 +280,9 @@ void SPDIFRX_Cmd(uint32_t SPDIFRX_State) {
 /**
   * 简介:  启用或禁用指定的 SPDIFRX 块中断。
   * 
-  * 参数:  SPDIFRX_IT: 指定要启用或禁用的 SPDIFRX中断源。
+  * 参数:  SPDIFRX_IT: 指定要启用或禁用的 SPDIFRX 中断源。
   *          此参数可以是以下值之一:
-  *            @arg SPDIFRX_IT_RXNE:  RXNE中断启用
+  *            @arg SPDIFRX_IT_RXNE:  RXNE 中断启用
   *            @arg SPDIFRX_IT_CSRNE: 控制缓冲就绪中断启用
   *            @arg SPDIFRX_IT_PERRIE: 奇偶校验错误中断 enable
   *            @arg SPDIFRX_IT_OVRIE:  溢出错误中断启用
@@ -301,17 +301,17 @@ void SPDIFRX_ITConfig(uint32_t SPDIFRX_IT, FunctionalState NewState) {
     assert_param(IS_SPDIFRX_CONFIG_IT(SPDIFRX_IT));
 
     if (NewState != DISABLE) {
-        /* 启用选定的 SPDIFRX中断 */
+        /* 启用选定的 SPDIFRX 中断 */
         SPDIFRX->IMR |= SPDIFRX_IT;
     } else {
-        /* 禁用选定的 SPDIFRX中断 */
+        /* 禁用选定的 SPDIFRX 中断 */
         SPDIFRX->IMR &= ~(SPDIFRX_IT);
     }
 }
 
 /**
-  * 简介:  检查是否设置了指定的 SPDIFRX标志。
-  * 参数:  SPDIFRX_FLAG: 指定要检查的 SPDIFRX标志。
+  * 简介:  检查是否设置了指定的 SPDIFRX 标志。
+  * 参数:  SPDIFRX_FLAG: 指定要检查的 SPDIFRX 标志。
   *          此参数可以是以下值之一:
   *            @arg SPDIFRX_FLAG_RXNE: 读取数据寄存器非空标志。
   *            @arg SPDIFRX_FLAG_CSRNE: 控制缓冲寄存器非空标志。
@@ -345,7 +345,7 @@ FlagStatus SPDIFRX_GetFlagStatus(uint32_t SPDIFRX_FLAG) {
 
 /**
   * 简介:  清除指定的 SPDIFRX 标志。
-  * 参数:  SPDIFRX_FLAG: 指定要检查的 SPDIFRX标志。
+  * 参数:  SPDIFRX_FLAG: 指定要检查的 SPDIFRX 标志。
   *          此参数可以是以下值之一:
   *            @arg SPDIFRX_FLAG_PERR: 奇偶校验错误标志。
   *            @arg SPDIFRX_FLAG_OVR: 溢出错误标志。
@@ -358,16 +358,16 @@ void SPDIFRX_ClearFlag(uint32_t SPDIFRX_FLAG) {
     /* 检查参数 */
     assert_param(IS_SPDIFRX_CLEAR_FLAG(SPDIFRX_FLAG));
 
-    /* 清除 selected SPDIFRX Block flag */
+    /* 清除被选择的 SPDIFRX Block flag */
     SPDIFRX->IFCR |= SPDIFRX_FLAG;
 }
 
 /**
   * 简介:  检查指定的 SPDIFRX 中断是否发生。
   * 
-  * 参数:  SPDIFRX_IT: 指定要启用或禁用的 SPDIFRX中断源。
+  * 参数:  SPDIFRX_IT: 指定要启用或禁用的 SPDIFRX 中断源。
   *          此参数可以是以下值之一:
-  *            @arg SPDIFRX_IT_RXNE:  RXNE中断启用
+  *            @arg SPDIFRX_IT_RXNE:  RXNE 中断启用
   *            @arg SPDIFRX_IT_CSRNE: 控制缓冲就绪中断启用
   *            @arg SPDIFRX_IT_PERRIE: 奇偶校验错误中断 enable
   *            @arg SPDIFRX_IT_OVRIE:  溢出错误中断启用
@@ -403,7 +403,7 @@ ITStatus SPDIFRX_GetITStatus(uint32_t SPDIFRX_IT) {
 /**
   * 简介:  清除 SPDIFRX 中断挂起位。
   * 
-  * 参数:  SAI_IT: 指定要清除的 SPDIFRX中断挂起位。
+  * 参数:  SAI_IT: 指定要清除的 SPDIFRX 中断挂起位。
   *          此参数可以是以下值之一:
   *            @arg SPDIFRX_IT_MUTEDET: 静音检测中断。
   *            @arg SPDIFRX_IT_OVRUDR: 超限/欠载运行中断。
@@ -423,7 +423,7 @@ void SPDIFRX_ClearITPendingBit(uint32_t SPDIFRX_IT) {
     /* 检查参数 */
     assert_param(IS_SPDIFRX_CLEAR_FLAG(SPDIFRX_IT));
 
-    /* 清除 selected SPDIFRX interrupt pending 位 */
+    /* 清除被选择的 SPDIFRX interrupt pending 位 */
     SPDIFRX->IFCR |= SPDIFRX_IT;
 }
 

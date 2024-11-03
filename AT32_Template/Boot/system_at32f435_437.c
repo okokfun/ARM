@@ -83,7 +83,7 @@ void SystemInit (void) {
     #ifdef VECT_TAB_SRAM
     SCB->VTOR = SRAM_BASE  | VECT_TAB_OFFSET;  /* 内部 SRAM 中的矢量表重定位. */
     #else
-    SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET;  /* 内部FLASH中的矢量表重定位. */
+    SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET;  /* 内部 FLASH 中的矢量表重定位. */
     #endif
 }
 

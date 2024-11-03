@@ -158,21 +158,21 @@ static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6
 /** @defgroup RCC_Private_Functions
   */
 
-/** @defgroup RCC_Group1 内部和外部时钟、PLL、CSS和MCO配置功能
- *  简介   内部和外部时钟、PLL、CSS和MCO配置功能
+/** @defgroup RCC_Group1 内部和外部时钟、PLL、CSS 和 MCO 配置功能
+ *  简介   内部和外部时钟、PLL、CSS 和 MCO 配置功能
  *
 @verbatim
  ===================================================================================
- ##### 内部和外部时钟、PLL、CSS和MCO配置功能 #####
+ ##### 内部和外部时钟、PLL、CSS 和 MCO 配置功能 #####
  ===================================================================================
     [..]
-      本节提供了可以配置内部/外部时钟的功能。PLL、CSS和MCO 引脚。
+      本节提供了可以配置内部/外部时钟的功能。PLL、CSS 和 MCO 引脚。
 
-      (#) HSI(高速内部)，16MHz的工厂调整的 RC直接使用或通过PLL作为系统时钟源。作为系统时钟源。
+      (#) HSI(高速内部)，16MHz的工厂调整的 RC 直接使用或通过 PLL 作为系统时钟源。作为系统时钟源。
 
-      (#) LSI(低速内部)，32KHz低消耗RC用作IWDG 和/或 RTC 时钟源。
+      (#) LSI(低速内部)，32KHz低消耗 RC 用作 IWDG 和/或 RTC 时钟源。
 
-      (#) HSE(高速外部)，4-26MHz晶体振荡器，直接或通过PLL作为系统时钟源使用。也可作为 RTC 时钟源。
+      (#) HSE(高速外部)，4-26MHz晶体振荡器，直接或通过 PLL 作为系统时钟源使用。也可作为 RTC 时钟源。
 
       (#) LSE(低速外部)，32KHz振荡器用作 RTC 时钟源。
 
@@ -180,16 +180,16 @@ static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6
         (++)第一个输出用于产生高速系统时钟(高达168MHz)
         (++)第二个输出用于产生USB OTG FS(48 MHz)、随机模拟发生器(<=48 MHz)和 SDIO(<=48 MHz)的时钟。
 
-      (#) PLLI2S(由HSI 或HSE时钟)，用于产生精确的时钟，以便在 I2S接口或SAI接口上实现高质量的音频性能，如果是STM32F429x/439x 器件。
+      (#) PLLI2S(由HSI 或HSE 时钟)，用于产生精确的时钟，以便在 I2S 接口或 SAI 接口上实现高质量的音频性能，如果是 STM32F429x/439x 器件。
 
-      (#) PLLSAI由(HSI 或HSE)时钟，用于为 SAI接口和 LCD TFT控制器产生精确的时钟，仅适用于 STM32F42xxx/43xxx/446xx/469xx/479xx 器件。
+      (#) PLLSAI 由(HSI 或HSE)时钟，用于为 SAI 接口和 LCD TFT 控制器产生精确的时钟，仅适用于 STM32F42xxx/43xxx/446xx/469xx/479xx 器件。
 
-      (#) CSS(时钟安全系统)，一旦启用，如果HSE时钟发生故障(HSE直接使用或通过PLL作为系统时钟源)，系统时钟将自动切换到HSI，如果启用则产生一个中断。
-         该中断与Cortex-M4的NMI(非屏蔽中断)异常向量相连。
+      (#) CSS(时钟安全系统)，一旦启用，如果 HSE 时钟发生故障(HSE 直接使用或通过 PLL 作为系统时钟源)，系统时钟将自动切换到 HSI，如果启用则产生一个中断。
+         该中断与 Cortex-M4 的NMI(非屏蔽中断)异常向量相连。
 
-      (#) MCO1(微控制器时钟输出)，用于在 PA8引脚上输出HSI、LSE、HSE 或PLL时钟(通过一个可配置的预分频器)。
+      (#) MCO1(微控制器时钟输出)，用于在 PA8 引脚上输出 HSI、LSE、HSE 或 PLL时钟(通过一个可配置的预分频器)。
 
-      (#) MCO2(微控制器时钟输出)，用于在 PC9引脚上输出HSE、PLL、SYSCLK或PLLI2S 时钟(通过一个可配置的预分频器)。
+      (#) MCO2(微控制器时钟输出)，用于在 PC9 引脚上输出 HSE、PLL、SYSCLK 或 PLLI2S 时钟(通过一个可配置的预分频器)。
 
  @endverbatim
   */
@@ -198,9 +198,9 @@ static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6
   * 简介:  将 RCC 时钟配置重置为默认重置状态。
   * 注意:   时钟配置的默认复位状态如下:
   *            - HSI开启并作为系统时钟源使用
-  *            - HSE、PLL和PLLI2S关闭
+  *            - HSE、PLL和 PLLI2S关闭
   *            - AHB、APB1和 APB2预分频器设置为1。
-  *            - CSS、MCO1和MCO2关闭
+  *            - CSS、MCO1和 MCO2关闭
   *            - 禁用所有中断
   * 注意:   这个函数并不修改配置
   *           - 外围时钟
@@ -257,7 +257,7 @@ void RCC_DeInit(void) {
   *        以前是启用的，你必须在调用这个函数后再次启用它。
   * 参数:  RCC_HSE: 规定了HSE的新状态。
   *          此参数可以是以下值之一:
-  *            @arg RCC_HSE_OFF: 关闭 HSE 振荡器，HSERDY 标志在6个HSE振荡器时钟周期后变低。
+  *            @arg RCC_HSE_OFF: 关闭 HSE 振荡器，HSERDY 标志在6个 HSE振荡器时钟周期后变低。
   *            @arg RCC_HSE_ON:  开启 HSE 振荡器
   *            @arg RCC_HSE_Bypass: 用外部时钟旁路 HSE 振荡器
   * 返回值: 无
@@ -275,9 +275,9 @@ void RCC_HSEConfig(uint8_t RCC_HSE) {
 
 /**
   * 简介:  等待 HSE 启动。
-  * 注意:  该函数等待HSERDY标志被设置，如果该标志被设置，则返回SUCCESS，
+  * 注意:  该函数等待HSERDY 标志被设置，如果该标志被设置，则返回SUCCESS，
   *        否则如果达到超时且该标志未被设置，则返回ERROR。超时值由stm32f4xx.h
-  *        文件中的常数HSE_STARTUP_TIMEOUT定义。你可以根据你的应用程序中使用的 HSE晶体来定制它。
+  *        文件中的常数HSE_STARTUP_TIMEOUT定义。你可以根据你的应用程序中使用的 HSE 晶体来定制它。
   * 参数:  无
   * 返回值: ErrorStatus枚举值:
   *          - SUCCESS: HSE振荡器稳定，随时可用
@@ -338,7 +338,7 @@ void RCC_AdjustHSICalibrationValue(uint8_t HSICalibrationValue) {
   *        表明 HSI 时钟稳定，可以作为系统时钟源使用。
   * 参数:  NewState: HSI 的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
-  * 注意:   当HSI停止时，HSIRDY标志在6个HSI振荡器时钟周期后变为低电平。
+  * 注意:   当 HSI停止时，HSIRDY 标志在6个 HSI振荡器时钟周期后变为低电平。
   * 返回值: 无
   */
 void RCC_HSICmd(FunctionalState NewState) {
@@ -350,13 +350,13 @@ void RCC_HSICmd(FunctionalState NewState) {
 
 /**
   * 简介:  配置外部低速振荡器 (LSE)。
-  * 注意:   由于 LSE位于Backup域中，重置后拒绝对该域进行写访问，
-  *         因此在配置LSE之前必须使用 PWR_BackupAccessCmd(ENABLE) 功能启用写访问(重置后只执行一次)。
+  * 注意:   由于 LSE 位于Backup域中，重置后拒绝对该域进行写访问，
+  *         因此在配置 LSE之前必须使用 PWR_BackupAccessCmd(ENABLE) 功能启用写访问(重置后只执行一次)。
   * 注意:   启用 LSE (RCC_LSE_ON或 RCC_LSE_Bypass)后，
-  *         应用软件需要等待LSERDY标志设置完成，表示LSE时钟稳定，可用于RTC 时钟。
+  *         应用软件需要等待LSERDY 标志设置完成，表示 LSE 时钟稳定，可用于RTC 时钟。
   * 参数:  RCC_LSE: 指定新状态-> LSE.
   *          此参数可以是以下值之一:
-  *            @arg RCC_LSE_OFF: 关闭LSE振荡器，LSERDY标志在6个 LSE振荡器时钟周期后变低。
+  *            @arg RCC_LSE_OFF: 关闭LSE振荡器，LSERDY 标志在6个 LSE振荡器时钟周期后变低。
   *            @arg RCC_LSE_ON: 打开LSE振荡器
   *            @arg RCC_LSE_Bypass: LSE振荡器用外部时钟旁路
   * 返回值: 无
@@ -365,14 +365,14 @@ void RCC_LSEConfig(uint8_t RCC_LSE) {
     /* 检查参数 */
     assert_param(IS_RCC_LSE(RCC_LSE));
 
-    /* 配置LSE前，需要重置LSEON 和 LSEBYP位 ------------------*/
+    /* 配置 LSE前，需要重置 LSEON 和 LSEBYP 位 ------------------*/
     /* Reset LSEON 位 */
     *(__IO uint8_t *) BDCR_ADDRESS = RCC_LSE_OFF;
 
     /* Reset LSEBYP 位 */
     *(__IO uint8_t *) BDCR_ADDRESS = RCC_LSE_OFF;
 
-    /* 配置LSE(上面的代码部分已经介绍了RCC_LSE_OFF) */
+    /* 配置 LSE(上面的代码部分已经介绍了 RCC_LSE_OFF) */
     switch (RCC_LSE) {
         case RCC_LSE_ON:
             /* 设置 LSEON 位 */
@@ -391,12 +391,12 @@ void RCC_LSEConfig(uint8_t RCC_LSE) {
 
 /**
   * 简介:  启用或禁用内部低速振荡器 (LSI)。
-  * 注意:   使能LSI后，应用软件需要等待LSIRDY标志设置完成，
-  *         表示LSI时钟稳定，可用于 IWDG 和/或 RTC 的时钟。
+  * 注意:   使能LSI后，应用软件需要等待LSIRDY 标志设置完成，
+  *         表示 LSI 时钟稳定，可用于 IWDG 和/或 RTC 的时钟。
   * 注意:   当IWDG正在运行时，不能禁用 LSI。
   * 参数:  NewState: 新状态-> LSI.
   *          此参数可以是: ENABLE 或 DISABLE。
-  * 注意:   当LSI停止时，经过6个 LSI振荡器时钟周期后LSIRDY标志位变为low。
+  * 注意:   当LSI停止时，经过6个 LSI振荡器时钟周期后LSIRDY 标志位变为low。
   * 返回值: 无
   */
 void RCC_LSICmd(FunctionalState NewState) {
@@ -415,7 +415,7 @@ void RCC_LSICmd(FunctionalState NewState) {
   *          此参数可以是以下值之一:
   *            @arg RCC_PLLSource_HSI: 选择HSI振荡器时钟作为锁相环时钟入口
   *            @arg RCC_PLLSource_HSE: 选择HSE振荡器时钟作为锁相环时钟入口
-  * 注意:   该时钟源(RCC_PLLSource)是主PLL和PLLI2S的通用时钟源。
+  * 注意:   该时钟源(RCC_PLLSource)是主PLL和 PLLI2S的通用时钟源。
   *
   * 参数:  PLLM: 指定PLL VCO输入时钟的分频因子
   *          此参数必须是介于 0 and 63.
@@ -463,7 +463,7 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
   *          此参数可以是以下值之一:
   *            @arg RCC_PLLSource_HSI: HSI 选择振荡器时钟作为PLL时钟点
   *            @arg RCC_PLLSource_HSE: HSE 选择振荡器时钟作为PLL时钟点
-  * 注意:   该时钟源(RCC_PLLSource)对于主PLL和PLLI2S是通用的。
+  * 注意:   该时钟源(RCC_PLLSource)对于主PLL和 PLLI2S是通用的。
   *
   * 参数:  PLLM: 指定PLL VCO输入时钟的分频因子
   *          此参数必须是介于 0 and 63.
@@ -504,9 +504,9 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
 
 /**
   * 简介:  启用或禁用主 PLL.
-  * 注意:   启用主PLL后，应用软件应等待PLLRDY标志
+  * 注意:   启用主PLL后，应用软件应等待PLLRDY 标志
 			被设置，指示PLL时钟稳定，可以用作系统时钟源。
-  * 注意:   如果主PLL用作系统时钟源，则不能禁用它
+  * 注意:   如果主PLL 用作系统时钟源，则不能禁用它
   * 注意:   当进入 STOP(停止)和 STANDBY(待机)模式时，主PLL被硬件禁用。
   * 参数:  NewState: 新状态-> main PLL. 此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -521,7 +521,7 @@ void RCC_PLLCmd(FunctionalState NewState) {
 /**
   * 简介:  配置PLLI2S 时钟乘除因子。
   *
-  * 注意:   此函数只能用于 STM32F405xx/407xx、STM32F415xx/417xx 或STM32F401xx 设备。
+  * 注意:   此函数只能用于 STM32F405xx/407xx、STM32F415xx/417xx 或 STM32F401xx 设备。
   *
   * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
   * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
@@ -668,12 +668,12 @@ void RCC_PLLI2SCmd(FunctionalState NewState) {
 
 #if defined(STM32F469_479xx)
 /**
-  * 简介:  配置PLLSAI时钟乘法和除法因子。
+  * 简介:  配置PLLSAI 时钟乘法和除法因子。
   *
   * 注意:   此函数只能用于 STM32F469_479xx 设备
   *
   * 注意:   仅当PLLSAI 被禁用时，才能使用此函数。
-  * 注意:   PLLSAI时钟源与主PLL共用(在 RCC_PLLConfig功能中配置)
+  * 注意:   PLLSAI 时钟源与主PLL共用(在 RCC_PLLConfig功能中配置)
   *
   * 参数:  PLLSAIN: 指定PLLSAI VCO输出时钟的倍增系数。此参数必须是50 到432之间的数字。
   * 注意:   您必须正确设置PLLSAIN参数，以确保VCO输出频率在100 到432 MHz之间。
@@ -702,14 +702,14 @@ void RCC_PLLSAIConfig(uint32_t PLLSAIN, uint32_t PLLSAIP, uint32_t PLLSAIQ, uint
 
 #if defined(STM32F446xx)
 /**
-  * 简介:  配置PLLSAI时钟乘法和除法因子。
+  * 简介:  配置PLLSAI 时钟乘法和除法因子。
   *
   * 注意:   此函数只能用于 STM32F446xx 设备
   *
   * 注意:   仅当PLLSAI 被禁用时，才能使用此函数。
-  * 注意:   PLLSAI时钟源与主PLL共用(在 RCC_PLLConfig功能中配置)
+  * 注意:   PLLSAI 时钟源与主PLL共用(在 RCC_PLLConfig功能中配置)
   *
-  * 参数:  PLLSAIM: 指定PLLSAI VCO输入时钟的分割因子。此参数必须是介于Min_Data=2 和Max_Data=63之间的数字。
+  * 参数:  PLLSAIM: 指定PLLSAI VCO输入时钟的分割因子。此参数必须是介于Min_Data=2 和 Max_Data=63之间的数字。
   * 注意:   您必须正确设置PLLSAIM参数，以确保VCO输入频率范围为1 到 2 MHz。建议选择2 MHz的频率以限制PLLSAI抖动。
   *
   * 参数:  PLLSAIN: 指定PLLSAI VCO输出时钟的倍增系数。此参数必须是50 到432之间的数字。
@@ -736,7 +736,7 @@ void RCC_PLLSAIConfig(uint32_t PLLSAIM, uint32_t PLLSAIN, uint32_t PLLSAIP, uint
 
 #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F401xx) || defined(STM32F411xE)
 /**
-  * 简介:  配置PLLSAI时钟乘法和除法因子。
+  * 简介:  配置PLLSAI 时钟乘法和除法因子。
   *
   * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备
   *
@@ -800,9 +800,9 @@ void RCC_ClockSecuritySystemCmd(FunctionalState NewState) {
   * 注意:   应在复用功能模式下配置PA8。
   * 参数:  RCC_MCO1Source: 指定要输出的时钟源。
   *          此参数可以是以下值之一:
-  *            @arg RCC_MCO1Source_HSI: 选择HSI时钟作为MCO1源
-  *            @arg RCC_MCO1Source_LSE: 选择LSE时钟作为MCO1源
-  *            @arg RCC_MCO1Source_HSE: 选择HSE时钟作为MCO1源
+  *            @arg RCC_MCO1Source_HSI: 选择HSI 时钟作为MCO1源
+  *            @arg RCC_MCO1Source_LSE: 选择LSE 时钟作为MCO1源
+  *            @arg RCC_MCO1Source_HSE: 选择HSE 时钟作为MCO1源
   *            @arg RCC_MCO1Source_PLLCLK: 选择主PLL时钟作为MCO1源
   * 参数:  RCC_MCO1Div: 指定MCO1预分频器。
   *          此参数可以是以下值之一:
@@ -844,7 +844,7 @@ void RCC_MCO1Config(uint32_t RCC_MCO1Source, uint32_t RCC_MCO1Div) {
   *            @arg RCC_MCO2Source_SYSCLK: 选择系统时钟(SYSCLK)作为MCO2源
   *            @arg RCC_MCO2SOURCE_PLLI2SCLK: PLLI2S 时钟被选为MCO2源，可用于除 STM32F410xx以外的所有 STM32F4设备
   *            @arg RCC_MCO2SOURCE_I2SCLK: I2SCLK时钟被选为MCO2源，仅适用于 STM32F410xx 设备
-  *            @arg RCC_MCO2Source_HSE: 选择HSE时钟作为MCO2源
+  *            @arg RCC_MCO2Source_HSE: 选择HSE 时钟作为MCO2源
   *            @arg RCC_MCO2Source_PLLCLK: 选择主PLL时钟作为MCO2源
   * 参数:  RCC_MCO2Div: 指定MCO2预分频器。
   *          此参数可以是以下值之一:
@@ -853,7 +853,7 @@ void RCC_MCO1Config(uint32_t RCC_MCO1Source, uint32_t RCC_MCO1Div) {
   *            @arg RCC_MCO2Div_3: 除以 3 应用于MCO2时钟
   *            @arg RCC_MCO2Div_4: 除以 4 应用于MCO2时钟
   *            @arg RCC_MCO2Div_5: 除以 5 应用于MCO2时钟
-  * 注意:  对于要在 MCO2 上输出 I2SCLK 时钟的 STM32F410xx 设备，您应该至少启用一个 SPI时钟(SPI1、SPI2 或SPI5)。
+  * 注意:  对于要在 MCO2 上输出 I2SCLK 时钟的 STM32F410xx 设备，您应该至少启用一个 SPI 时钟(SPI1、SPI2 或 SPI5)。
   * 返回值: 无
   */
 void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
@@ -890,7 +890,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
     [..]
       本节提供的功能允许配置系统，AHB，APB1和 APB2 总线时钟。
 
-      (#) 多个时钟源可用于驱动系统时钟(SYSCLK): HSI、HSE 和PLL。
+      (#) 多个时钟源可用于驱动系统时钟(SYSCLK): HSI、HSE 和 PLL。
           AHB 时钟(HCLK)由系统时钟通过可配置的预分频器派生而来，用于为映射在 AHB总线(DMA, GPIO…)
           上的 CPU，内存和外设计时。APB1 (PCLK1)和 APB2 (PCLK2)时钟是由AHB 时钟通过可配置的预分频器派生出来的，
           用于为映射在这些总线上的外设设备计时。您可以使用"RCC_GetClocksFreq()"函数来检索这些时钟的频率。
@@ -898,11 +898,11 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
       -@- 所有的外围时钟都来源于系统时钟(SYSCLK)，除了:
         (+@) I2S: I2S 时钟可以从特定的锁相环(PLLI2S)或映射在 I2S_CKIN 引脚上的外部时钟派生。
              您必须使用 RCC_I2SCLKConfig() 函数来配置此时钟。
-        (+@) RTC: RTC 时钟可由LSI、LSE 或HSE时钟除以2 ~ 31得到。
+        (+@) RTC: RTC 时钟可由LSI、LSE 或HSE 时钟除以2 ~ 31得到。
              你必须使用 RCC_RTCCLKConfig()和 RCC_RTCCLKCmd() 函数来配置这个时钟。
         (+@) USB OTG FS, SDIO 和 RTC: USB OTG FS需要等于48 MHz的频率才能正常工作，
-             而SDIO需要等于或低于48的频率。该时钟由主锁相环通过锁相环q分频器派生而来。
-        (+@) IWDG 时钟，总是LSI时钟。
+             而SDIO需要等于或低于48 的频率。该时钟由主锁相环通过锁相环q分频器派生而来。
+        (+@) IWDG 时钟，总是LSI 时钟。
 
       (#) 对于 STM32F405xx/407xx 和 STM32F415xx/417xx 设备，SYSCLK和HCLK的最大频率为168 MHz,
           PCLK2为84 MHz, PCLK1为42 MHz。根据设备电压范围的不同，应相应地调整最大频率:
@@ -957,7 +957,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
  +-------------------------------------------------------------------------------------+
 
       (#) 对于 STM32F401xx 设备，SYSCLK和HCLK的最大频率
-          分别为84 MHz、PCLK2 84 MHz和PCLK1 42 MHz。
+          分别为84 MHz、PCLK2 84 MHz和 PCLK1 42 MHz。
       根据设备电压范围，应相应调整最大频率：
  +-------------------------------------------------------------------------------------+
  | Latency       |                HCLK clock frequency (MHz)                           |
@@ -977,7 +977,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
  +-------------------------------------------------------------------------------------+
 
       (#) 对于 STM32F410xx/STM32F411xE设备，
-          SYSCLK和HCLK的最大频率分别为100 MHz、PCLK2 100 MHz和PCLK1 50 MHz。
+          SYSCLK和HCLK的最大频率分别为100 MHz、PCLK2 100 MHz和 PCLK1 50 MHz。
       根据设备电压范围，应相应调整最大频率：
  +-------------------------------------------------------------------------------------+
  | Latency       |                HCLK clock frequency (MHz)                           |
@@ -1017,7 +1017,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
            (++) when VOS[1:0] = '0x10' fHCLK的最大值为84MHz。
            (++) when VOS[1:0] = '0x11' fHCLK的最大值为100MHz。
 
-       您可以使用 PWR_MainRegulatorModelConfig() 函数来控制VOS位。
+       您可以使用 PWR_MainRegulatorModelConfig() 函数来控制VOS 位。
 
 @endverbatim
   */
@@ -1163,7 +1163,7 @@ void RCC_PCLK2Config(uint32_t RCC_HCLK) {
 }
 
 /**
-  * 简介:  返回不同片上时钟的频率;SYSCLK，HCLK，PCLK1和PCLK2。
+  * 简介:  返回不同片上时钟的频率;SYSCLK，HCLK，PCLK1和 PCLK2。
   *
   * 注意:   此函数计算的系统频率不是芯片中的实际频率。
   *         它是根据预定义的常数和选定的时钟源计算的:
@@ -1176,12 +1176,12 @@ void RCC_PCLK2Config(uint32_t RCC_HCLK) {
   *              用户必须确保 HSE_VALU 与所用晶体的实际频率相同。
   *              否则，此函数可能会产生错误的结果。
   *
-  * 注意:   当使用 HSE晶体的分数值时，该函数的结果可能不正确。
+  * 注意:   当使用 HSE 晶体的分数值时，该函数的结果可能不正确。
   *
-  * 参数:  RCC_Clocks: 指向RCC_ClocksTypeDef 结构的指针，该结构将保持时钟频率。
+  * 参数:  RCC_Clocks: 指向 RCC_ClocksTypeDef 结构的指针，该结构将保持时钟频率。
   *
   * 注意:   用户应用程序可以使用此功能来计算通信外设的波特率或配置其他参数。
-  * 注意:   每当 SYSCLK、HCLK、PCLK1和/或PCLK2时钟发生变化时，
+  * 注意:   每当 SYSCLK、HCLK、PCLK1和/或 PCLK2时钟发生变化时，
   *         必须调用此函数来更新结构的字段。否则，基于此功能的任何配置都将不正确。
   *
   * 返回值: 无
@@ -1251,7 +1251,7 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks) {
             break;
     }
 
-    /* 计算HCLK、PCLK1和PCLK2时钟频率 ------------------------*/
+    /* 计算HCLK、PCLK1和 PCLK2时钟频率 ------------------------*/
 
     /* 得到 HCLK 预分频器 */
     tmp = RCC->CFGR & RCC_CFGR_HPRE;
@@ -1285,7 +1285,7 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks) {
  ===============================================================================
     [..] 本节提供允许配置外围时钟的功能。
 
-      (#) 从LSI、LSE 或HSE时钟导出的 RTC 时钟除以2至31。
+      (#) 从LSI、LSE 或HSE 时钟导出的 RTC 时钟除以2至31。
 
       (#) 从 Reset(重置)重新启动或从 STANDBY(待机)唤醒后，除内部 SRAM、Flash 和 JTAG 外，
           所有外设设备均关闭。在开始使用外设设备之前，您必须启用其接口时钟。
@@ -1306,14 +1306,14 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks) {
   *         因此您必须在配置 RTC 时钟源之前使用 PWR_BackupAccessCmd(enable) 功能启用写入访问(重置后执行一次)。
   * 注意:   配置 RTC 时钟后，除非使用 RCC_BackupResetCmd() 函数或通电重置(POR)重置备份域，否则无法更改。
   *
-  * 参数:  RCC_RTCCLKSource: 指定RTC 时钟源。
+  * 参数:  RCC_RTCCLKSource: 指定 RTC 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_RTCCLKSource_LSE: LSE 被选为 RTC 时钟
   *            @arg RCC_RTCCLKSource_LSI: LSI 被选为 RTC 时钟
   *            @arg RCC_RTCCLKSource_HSE_Divx: HSE 时钟除以选择作为 RTC 时钟的x，其中 x:[2,31]
   *
   * 注意:   如果LSE 或LSI用作 RTC 时钟源，RTC将继续在 STOP 和 STANDBY 模式下工作，并可用作唤醒源。
-  *          然而，当HSE时钟用作 RTC 时钟源时，RTC不能在 STOP 和 STANDBY 模式下使用。
+  *          然而，当 HSE 时钟用作 RTC 时钟源时，RTC不能在 STOP 和 STANDBY 模式下使用。
   * 注意:   RTC 的最大输入时钟频率为1MHz(当使用 HSE作为 RTC 时钟源时)。
   *
   * 返回值: 无
@@ -1382,7 +1382,7 @@ void RCC_BackupResetCmd(FunctionalState NewState) {
   * 参数:  RCC_I2SCLKSource: 指定 I2S 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_I2SCLKSource_PLLI2S: PLLI2S 时钟用作 I2S 时钟源
-  *            @arg RCC_I2SCLKSource_Ext: I2S_CKIN 引脚上映射的外部时钟用作I2S 时钟源
+  *            @arg RCC_I2SCLKSource_Ext: I2S_CKIN 引脚上映射的外部时钟用作 I2S 时钟源
   *            @arg RCC_I2SCLKSource_PLL: PLL 时钟用作 I2S 时钟源
   *            @arg RCC_I2SCLKSource_HSI_HSE: HSI 或 HSE 取决于用作 I2S 时钟源的 PLLSRC
   * 返回值: 无
@@ -1532,7 +1532,7 @@ void RCC_I2SCLKConfig(uint32_t RCC_I2SCLKSource) {
   * 参数:  RCC_I2SCLKSource: 指定 I2S 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_I2S2CLKSource_PLLI2S: PLLI2S 时钟用作 I2S 时钟源
-  *            @arg RCC_I2S2CLKSource_Ext: I2S_CKIN 引脚上映射的外部时钟用作I2S 时钟源
+  *            @arg RCC_I2S2CLKSource_Ext: I2S_CKIN 引脚上映射的外部时钟用作 I2S 时钟源
   * 返回值: 无
   */
 void RCC_I2SCLKConfig(uint32_t RCC_I2SCLKSource) {
@@ -2468,7 +2468,7 @@ void RCC_LSEModeConfig(uint8_t RCC_Mode) {
 
 #if defined(STM32F410xx) || defined(STM32F413_423xx)
 /**
-  * 简介: 配置LPTIM1时钟源。
+  * 简介: 配置 LPTIM1时钟源。
   * 注意: 此功能仅适用于 STM32F410xx 设备。
   * 参数: RCC_ClockSource: 指定 LPTIM1时钟源。
   *          此参数可以是以下值之一:
@@ -2491,9 +2491,9 @@ void RCC_LPTIM1ClockSourceConfig(uint32_t RCC_ClockSource) {
 
 #if defined(STM32F469_479xx)
 /**
-  * 简介: 配置 DSI时钟源。
+  * 简介: 配置 DSI 时钟源。
   * 注意: 此功能仅适用于 STM32F469_479xx devices.
-  * 参数: RCC_ClockSource: 配置 DSI时钟源。
+  * 参数: RCC_ClockSource: 配置 DSI 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_DSICLKSource_PHY: DSI-PHY used as DSI byte lane clock source (usual case).
   *            @arg RCC_DSICLKSource_PLLR: PLL_R used as DSI byte lane clock source, used in case DSI PLL and DSI-PHY are off (low power mode).
@@ -2639,7 +2639,7 @@ void RCC_SPDIFRXClockSourceConfig(uint8_t RCC_ClockSource) {
 /**
   * 简介: 配置 CEC 时钟源。
   * 注意: 此功能仅适用于 STM32F446xx devices.
-  * 参数: RCC_ClockSource: 指定CEC 时钟源。
+  * 参数: RCC_ClockSource: 指定 CEC 时钟源。
   *          此参数可以是以下值之一:
   *            @arg RCC_CECCLKSource_HSIDiv488: CEC 时钟来自于 HSI/488.
   *            @arg RCC_CECCLKSource_LSE: CEC 时钟来自于 LSE.
@@ -2831,7 +2831,7 @@ ITStatus RCC_GetITStatus(uint8_t RCC_IT) {
     /* 检查参数 */
     assert_param(IS_RCC_GET_IT(RCC_IT));
 
-    /* 检查指定RCC 中断的状态*/
+    /* 检查指定 RCC 中断的状态*/
     if ((RCC->CIR & RCC_IT) != (uint32_t)RESET) {
         bitstatus = SET;
     } else {
@@ -2843,7 +2843,7 @@ ITStatus RCC_GetITStatus(uint8_t RCC_IT) {
 }
 
 /**
-  * 简介:  清除RCC 的中断挂起位。
+  * 简介:  清除 RCC 的中断挂起位。
   * 参数:  RCC_IT: 指定要清除的中断等待位。
   *          此参数可以是以下值的任意组合:
   *            @arg RCC_IT_LSIRDY: LSI 就绪中断

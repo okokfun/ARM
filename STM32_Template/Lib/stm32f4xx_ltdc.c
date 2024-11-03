@@ -17,18 +17,18 @@
         (#) 使用
             RCC_APB2PeriphResetCmd(RCC_APB2Periph_LTDC, ENABLE) 函数启用 LTDC 时钟。
 
-        (#) 配置LTDC
+        (#) 配置 LTDC
           (++) 按照面板数据手册配置所需的Pixel时钟
           (++) 配置同步时序。VSYNC, HSYNC, 垂直和水平的后序，活动数据区和前序时序
           (++) 在LTDC_GCR 寄存器中配置同步信号和时钟极性
 
-        (#) 配置Layer1/2参数
+        (#) 配置 Layer1/2参数
           (++) 在LTDC_LxWHPCR 和 LTDC_WVPCR 寄存器中配置层窗口的水平和垂直位置。层窗口必须在活动数据区。
           (++) LTDC_LxPFCR 寄存器中的像素输入格式
           (++) LTDC_LxCFBAR 寄存器中的彩色帧缓冲器起始地址
           (++) LTDC_LxCFBAR 寄存器中的彩色帧缓冲区的行长和间距。LTDC_LxCFBLR 寄存器中的彩色帧缓冲区的行长和间距
           (++) LTDC_LxCFBLR 寄存器中彩色帧缓冲器的行数。LTDC_LxCFBLNR 寄存器中彩色帧缓冲区的行数
-          (++) 如果需要的话，用 RGB值和地址加载CLUT 在LTDC_LxCLUTWR 寄存器中。
+          (++) 如果需要的话，用 RGB 值和地址加载 CLUT 在LTDC_LxCLUTWR 寄存器中。
           (++) 如果需要，在LTDC_LxCLUTWR 寄存器中分别配置默认颜色和混合系数。
                分别在LTDC_LxDCCR 和 LTDC_LxBFCR 寄存器中配置默认颜色和混合系数
 
@@ -39,7 +39,7 @@
 
         (#) 通过 LTDC_SRCR 寄存器将影子寄存器重新加载到活动寄存器。(#) 通过 LTDC_SRCR 寄存器将影子寄存器重新载入活动寄存器。
           -@- 除了 CLUT之外，所有的层参数都可以被即时修改。
-              新的配置必须立即被重新加载 或在垂直消隐期间通过配置LTDC_SRCR 寄存器重新加载新的配置。
+              新的配置必须立即被重新加载 或在垂直消隐期间通过配置 LTDC_SRCR 寄存器重新加载新的配置。
         (#) 调用 LTDC_Cmd()来启用 LTDC控制器。
 
     @endverbatim
@@ -96,7 +96,7 @@
             ##### 初始化和配置函数 #####
  ===============================================================================
     [..]  本节提供的功能允许:
-        (+) 初始化和配置LTDC
+        (+) 初始化和配置 LTDC
         (+) 启用或禁用抖动
         (+) 定义线路中断的位置
         (+) 用新参数重新加载层寄存器
@@ -189,7 +189,7 @@ void LTDC_Init(LTDC_InitTypeDef* LTDC_InitStruct) {
   * 返回值: 无
   */
 void LTDC_StructInit(LTDC_InitTypeDef* LTDC_InitStruct) {
-    /*--------------- 重置LTCC 初始化结构参数值 ----------------*/
+    /*--------------- 重置 LTCC 初始化结构参数值 ----------------*/
     LTDC_InitStruct->LTDC_HSPolarity = LTDC_HSPolarity_AL;      /*!< 初始化这个 LTDC_HSPolarity           成员 */
     LTDC_InitStruct->LTDC_VSPolarity = LTDC_VSPolarity_AL;      /*!< 初始化这个 LTDC_VSPolarity           成员 */
     LTDC_InitStruct->LTDC_DEPolarity = LTDC_DEPolarity_AL;      /*!< 初始化这个 LTDC_DEPolarity           成员 */
@@ -440,7 +440,7 @@ void LTDC_LayerCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能通过设置LEN 的 LTCC_Layer位 */
+        /* 使能通过设置 LEN 的 LTCC_Layer位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_LEN;
     } else {
         /* 通过清除LEN禁用 LTCC_Layer位 */
@@ -521,7 +521,7 @@ void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_In
     assert_param(IS_LTDC_CKEYING(LTDC_colorkeying_InitStruct->LTDC_ColorKeyRed));
 
     if (NewState != DISABLE) {
-        /* 使能通过设置 COLKEN设置LTDC颜色键控位 */
+        /* 使能通过设置 COLKEN设置 LTDC颜色键控位 */
         LTDC_Layerx->CR |= (uint32_t)LTDC_LxCR_COLKEN;
 
         /* 设置颜色关键帧值 */
@@ -595,7 +595,7 @@ void LTDC_CLUTInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_CLUT_InitTypeDef* LTDC_
     assert_param(IS_LTDC_CLUTWR(LTDC_CLUT_InitStruct->LTDC_GreenValue));
     assert_param(IS_LTDC_CLUTWR(LTDC_CLUT_InitStruct->LTDC_BlueValue));
 
-    /* 指定CLUT 地址和 RGB值 */
+    /* 指定 CLUT 地址和 RGB 值 */
     green = (LTDC_CLUT_InitStruct->LTDC_GreenValue << 8);
     red = (LTDC_CLUT_InitStruct->LTDC_RedValue << 16);
     clutadd = (LTDC_CLUT_InitStruct->LTDC_CLUTAdress << 24);
@@ -806,7 +806,7 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
             ##### 中断和标记管理函数 #####
  ===============================================================================
 
-    [..] 本节提供的功能允许配置LTDC 中断，并获得状态，清除标志和中断等待位。
+    [..] 本节提供的功能允许配置 LTDC 中断，并获得状态，清除标志和中断等待位。
 
     [..] LTDC提供了4个中断源和4个标志。
 
@@ -822,7 +822,7 @@ void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat
     ==================
     [..]
       (+) LTDC_IT_LI: 当达到一个编程的线路时，会产生线路中断。线路中断的位置是在LTDC_LIPR 寄存器中编程的。
-      (+) LTDC_IT_FU: 当从一个空层FIFO请求一个像素时，产生 FIFO Underrun中断。
+      (+) LTDC_IT_FU: 当从一个空层FIFO 请求一个像素时，产生 FIFO Underrun中断。
       (+) LTDC_IT_TERR: 传输错误中断是在数据传输过程中发生AHB总线错误时产生的。
       (+) LTDC_IT_RR:当在垂直消隐期间执行影子寄存器重新加载时，产生寄存器重新加载中断。
 

@@ -145,7 +145,7 @@
 /*#define I2S_EXTERNAL_CLOCK_VAL   12288000 */ /* Value of the external clock in Hz */
 
 
-/* 取消注释下面的行以扩展标准外设库驱动程序代码中的"assert_param"宏 */
+/* 取消注释下面的行以扩展标准外设库驱动程序代码中的 "assert_param"宏 */
 /* #define USE_FULL_ASSERT    1 */
 
 /* Exported macro ------------------------------------------------------------*/

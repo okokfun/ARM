@@ -10235,7 +10235,7 @@ typedef struct {
 #define  SPDIFRX_CR_INSEL                    ((uint32_t)0x00070000)        /*!<SPDIFRX input selection */
 
 /*******************  位定义 SPDIFRX_IMR 寄存器  *******************/
-#define  SPDIFRX_IMR_RXNEIE                   ((uint32_t)0x00000001)        /*!<RXNE中断启用                              */
+#define  SPDIFRX_IMR_RXNEIE                   ((uint32_t)0x00000001)        /*!<RXNE 中断启用                              */
 #define  SPDIFRX_IMR_CSRNEIE                  ((uint32_t)0x00000002)        /*!<Control Buffer 就绪中断 Enable              */
 #define  SPDIFRX_IMR_PERRIE                   ((uint32_t)0x00000004)        /*!<Parity error interrupt enable                      */
 #define  SPDIFRX_IMR_OVRIE                    ((uint32_t)0x00000008)        /*!<Overrun error Interrupt Enable                     */
@@ -11259,7 +11259,7 @@ typedef struct {
 #define  USART_CR1_RE                        ((uint16_t)0x0004)            /*!<Receiver Enable                        */
 #define  USART_CR1_TE                        ((uint16_t)0x0008)            /*!<Transmitter Enable                     */
 #define  USART_CR1_IDLEIE                    ((uint16_t)0x0010)            /*!<IDLE Interrupt Enable                  */
-#define  USART_CR1_RXNEIE                    ((uint16_t)0x0020)            /*!<RXNE中断启用                  */
+#define  USART_CR1_RXNEIE                    ((uint16_t)0x0020)            /*!<RXNE 中断启用                  */
 #define  USART_CR1_TCIE                      ((uint16_t)0x0040)            /*!<Transmission Complete Interrupt Enable */
 #define  USART_CR1_TXEIE                     ((uint16_t)0x0080)            /*!<PE Interrupt Enable                    */
 #define  USART_CR1_PEIE                      ((uint16_t)0x0100)            /*!<PE Interrupt Enable                    */

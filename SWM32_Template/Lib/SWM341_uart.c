@@ -227,7 +227,7 @@ uint32_t UART_GetBaudrate(UART_TypeDef * UARTx) {
 * 功能说明:	UART CTS流控配置
 * 输    入: UART_TypeDef * UARTx	指定要被设置的 UART串口，有效值包括UART0、UART1、UART2、UART3
 *			uint32_t enable			1 使能CTS流控    0 禁止CTS流控
-*			uint32_t polarity		0 CTS输入为低表示可以发送数据    1 CTS输入为高表示可以发送数据
+*			uint32_t polarity		0 CTS 输入为低表示可以发送数据    1 CTS 输入为高表示可以发送数据
 * 输    出: 无
 * 注意事项: 无
 ******************************************************************************************************************************************/
@@ -253,7 +253,7 @@ uint32_t UART_CTSLineState(UART_TypeDef * UARTx) {
 * 功能说明:	UART RTS流控配置
 * 输    入: UART_TypeDef * UARTx	指定要被设置的 UART串口，有效值包括UART0、UART1、UART2、UART3
 *			uint32_t enable			1 使能RTS流控    0 禁止RTS流控
-*			uint32_t polarity		0 RTS输出低表示可以接收数据    1 RTS输出高表示可以接收数据
+*			uint32_t polarity		0 RTS 输出低表示可以接收数据    1 RTS 输出高表示可以接收数据
 *			uint32_t threshold		RTS流控的触发阈值，可取值UART_RTS_1BYTE、UART_RTS_2BYTE、UART_RTS_4BYTE、UART_RTS_6BYTE
 * 输    出: 无
 * 注意事项: 无
@@ -311,7 +311,7 @@ void UART_LINGenerate(UART_TypeDef * UARTx) {
 * 函数名称:	UART_LINIsDetected()
 * 功能说明:	UART LIN是否检测到Break
 * 输    入: UART_TypeDef * UARTx	指定要被设置的 UART串口，有效值包括UART0、UART1、UART2、UART3
-* 输    出: uint32_t				1 检测到LIN Break    0 未检测到LIN Break
+* 输    出: uint32_t				1 检测到 LIN Break    0 未检测到 LIN Break
 * 注意事项: 无
 ******************************************************************************************************************************************/
 uint32_t UART_LINIsDetected(UART_TypeDef * UARTx) {

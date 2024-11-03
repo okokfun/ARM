@@ -229,7 +229,7 @@ void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct) {
             result |= (uint16_t)0x0001;
         }
 
-        /* 为快速模式设置速度值和 F/S位 */
+        /* 为快速模式设置速度值和 F/S 位 */
         tmpreg |= (uint16_t)(result | I2C_CCR_FS);
         /* 设置快速模式的最大上升时间 */
         I2Cx->TRISE = (uint16_t)(((freqrange * (uint16_t)300) / (uint16_t)1000) + (uint16_t)1);
@@ -246,7 +246,7 @@ void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct) {
     /* 清除 ACK, SMBTYPE and  SMBUS 位 */
     tmpreg &= CR1_CLEAR_MASK;
     /* 配置I2Cx：模式和确认 */
-    /* 根据 I2C_Mode 设置 SMBTYPE 和 SMBUS位值 */
+    /* 根据 I2C_Mode 设置 SMBTYPE 和 SMBUS 位值 */
     /* 根据 I2C_ACK设置 ACK位值 */
     tmpreg |= (uint16_t)((uint32_t)I2C_InitStruct->I2C_Mode | I2C_InitStruct->I2C_Ack);
     /* 写入I2Cx CR1 */
@@ -627,7 +627,7 @@ void I2C_FastModeDutyCycleConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DutyCycle) {
   * 
   * 注意:   此功能在 I2C 主机中很有用接收器模式 当要接收的数据数量等于2时。
   *         在这种情况下，应在数据接收开始之前调用此函数(使用参数I2C_NACKPosition_Next)，
-  *         如参考手册第节:主接收器中推荐的2字节接收程序所述。
+  *         如参考手册第节:主接收器中推荐的 2字节接收程序所述。
   * 
   * 参数:  I2Cx: 其中 x 可以是1、2 或3，以选择 I2C 的外设。
   * 

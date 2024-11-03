@@ -20,10 +20,10 @@
    (#) EXTI线路 17 连接至 RTC 报警事件
    (#) EXTI线路 18 连接到 USB OTG FS 唤醒暂停事件
    (#) EXTI线路 19 连接到以太网唤醒事件
-   (#) EXTI线路 20 连接到 USB OTG HS(在 FS中配置)唤醒事件
+   (#) EXTI线路 20 连接到 USB OTG HS(在 FS 中配置)唤醒事件
    (#) EXTI线路 21 连接到 RTC 篡改和时间戳事件
-   (#) EXTI线路 22 连接至 RTC唤醒事件
-   (#) EXTI线路 23 连接到LPTIM 唤醒事件
+   (#) EXTI线路 22 连接至 RTC 唤醒事件
+   (#) EXTI线路 23 连接到 LPTIM 唤醒事件
 
                        ##### 如何使用这个驱动程序 #####
  ===============================================================================
@@ -177,7 +177,7 @@ void EXTI_StructInit(EXTI_InitTypeDef* EXTI_InitStruct) {
   * 简介:  在选定的 EXTI 线上产生一个软件中断。
   * 
   * 参数:  EXTI_Line: 指定将在其上生成软件中断的 EXTI 行。
-  *         此参数可以是EXTI_Linex 的任意组合，其中 x 可以是(0..22)
+  *         此参数可以是 EXTI_Linex 的任意组合，其中 x 可以是(0..22)
   * 
   * 返回值: 无
   */
@@ -204,7 +204,7 @@ void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line) {
   * 简介:  检查是否设置了指定的 EXTI 行标志。
   * 
   * 参数:  EXTI_Line: 指定要检查的 EXTI 行标志。
-  *          此参数可以是EXTI_Linex，其中 x 可以是(0..22)
+  *          此参数可以是 EXTI_Linex，其中 x 可以是(0..22)
   * 
   * 返回值: EXTI_Line的新状态(SET 或 RESET)。
   */
@@ -226,7 +226,7 @@ FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line) {
   * 简介:  清除 EXTI 的行挂起标志。
   * 
   * 参数:  EXTI_Line: 指定要清除的 EXTI 行标志。
-  *          此参数可以是EXTI_Linex 的任意组合，其中 x 可以是(0..22)
+  *          此参数可以是 EXTI_Linex 的任意组合，其中 x 可以是(0..22)
   * 
   * 返回值: 无
   */
@@ -241,7 +241,7 @@ void EXTI_ClearFlag(uint32_t EXTI_Line) {
   * 简介:  检查指定的 EXTI 行是否被断言。
   * 
   * 参数:  EXTI_Line: 指定要检查的 EXTI 行。
-  *          此参数可以是EXTI_Linex，其中 x 可以是(0..22)
+  *          此参数可以是 EXTI_Linex，其中 x 可以是(0..22)
   * 
   * 返回值: EXTI_Line的新状态(SET 或 RESET)。
   */
@@ -264,7 +264,7 @@ ITStatus EXTI_GetITStatus(uint32_t EXTI_Line) {
   * 简介:  清除 EXTI 的行挂起位。
   * 
   * 参数:  EXTI_Line: 指定要清除的 EXTI 行。
-  *          此参数可以是EXTI_Linex 的任意组合，其中 x 可以是(0..22)
+  *          此参数可以是 EXTI_Linex 的任意组合，其中 x 可以是(0..22)
   * 
   * 返回值: 无
   */

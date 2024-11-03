@@ -23,7 +23,7 @@
 __asm void WFI_SET(void) {
     WFI;
 }
-//关闭所有中断(但是不包括fault 和 NMI中断)
+//关闭所有中断(但是不包括fault 和 NMI 中断)
 __asm void INTX_DISABLE(void) {
     CPSID   I
     BX      LR

@@ -801,7 +801,7 @@ void FMC_PCCARDCmd(FunctionalState NewState) {
                      ##### SDRAM 控制器功能 #####
  ===============================================================================
 
- [..]  应遵循以下顺序来配置 FMC 与连接到 SDRAM 库1或SDRAM 库2 的 SDRAM存储器连接。
+ [..]  应遵循以下顺序来配置 FMC 与连接到 SDRAM 库1或 SDRAM 库2 的 SDRAM存储器连接。
 
   (#) 使用下列函数为 FMC 和相关的 GPIO 启用时钟。
       (++) RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FMC, ENABLE)。

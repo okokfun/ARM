@@ -990,7 +990,7 @@ uint8_t CAN_MessagePending(CAN_TypeDef* CANx, uint8_t FIFONumber) {
 uint8_t CAN_OperatingModeRequest(CAN_TypeDef* CANx, uint8_t CAN_OperatingMode) {
     uint8_t status = CAN_ModeStatus_Failed;
 
-    /* INAK或SLAK位超时 */
+    /* INAK 或 SLAK位超时 */
     uint32_t timeout = INAK_TIMEOUT;
 
     /* 检查参数 */
@@ -1727,7 +1727,7 @@ void CAN_ClearITPendingBit(CAN_TypeDef* CANx, uint32_t CAN_IT) {
             CANx->ESR = RESET;
             /* 清除 CAN_MSR_ERRI (rc_w1) */
             CANx->MSR = CAN_MSR_ERRI;
-            /* 注:BOFF、EPVF和EWGF标志由硬件根据 CAN 总线状态进行清除。*/
+            /* 注:BOFF、EPVF和EWGF 标志由硬件根据 CAN 总线状态进行清除。*/
             break;
 
         default:

@@ -93,7 +93,7 @@ void ADC_Init(ADC_TypeDef * ADCx, ADC_InitStructure * initStruct);		//ADC 模数
 void ADC_SEQ_Init(ADC_TypeDef * ADCx, uint32_t seq, ADC_SEQ_InitStructure * initStruct);	//ADC序列初始化
 void ADC_CMP_Init(ADC_TypeDef * ADCx, uint32_t seq, ADC_CMP_InitStructure * initStruct);	//ADC比较功能初始化
 void ADC_Open(ADC_TypeDef * ADCx);							//ADC开启，可以软件启动、或硬件触发ADC 转换
-void ADC_Calibrate(ADC_TypeDef * ADCx);						//ADC校准
+void ADC_Calibrate(ADC_TypeDef * ADCx);						//ADC 校准
 void ADC_Close(ADC_TypeDef * ADCx);							//ADC关闭，无法软件启动、或硬件触发ADC 转换
 void ADC_Start(ADC_TypeDef * ADCx, uint32_t seq);			//启动指定ADC，开始模数转换
 void ADC_Stop(ADC_TypeDef * ADCx, uint32_t seq);			//关闭指定ADC，停止模数转换

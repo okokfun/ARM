@@ -224,7 +224,7 @@ void CEC_OwnAddressClear(void); // 清除 CEC 设备的自有地址。
 void CEC_SendData(uint8_t Data); // 通过 CEC 外设设备传输单个数据。
 uint8_t CEC_ReceiveData(void); // 返回 CEC 外设设备最近接收的数据。
 void CEC_StartOfMessage(void); // 启动新消息
-void CEC_EndOfMessage(void); // 用EOM位传输消息。
+void CEC_EndOfMessage(void); // 用 EOM位传输消息。
 
 /* CEC_Interrupts 和标志管理功能 ******************************/
 void CEC_ITConfig(uint16_t CEC_IT, FunctionalState NewState); // 启用或禁用选定的 CEC 中断。

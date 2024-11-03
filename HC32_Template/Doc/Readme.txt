@@ -9,7 +9,7 @@ Date            Author      IAR     MDK     GCC
 ================================================================================
 GCC工程，由Eclipse IDE外挂GNU-ARM Toolchain，再结合pyOCD GDB Server实现工程的编译、
 链接和调试。
-在用Eclipse导入工程后: 
+在用 Eclipse导入工程后: 
 ①请将xxxx_PyOCDDebug中pyocd-gdbserver 和 SVD文件设置为正确的路径;
 ②请将xxxx_PyOCDDownload中pyocd设置为正确的路径。注意，这些路径不能包含非英文字符。
 

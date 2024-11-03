@@ -775,7 +775,7 @@ uint8_t     RCC_GetSYSCLKSource(void); // 返回用作系统时钟的时钟源�
 void        RCC_HCLKConfig(uint32_t RCC_SYSCLK); // 配置 AHB 时钟 (HCLK)。
 void        RCC_PCLK1Config(uint32_t RCC_HCLK); // 配置低速 APB 时钟 (PCLK1)。
 void        RCC_PCLK2Config(uint32_t RCC_HCLK); // 配置高速 APB 时钟 (PCLK2)。
-void        RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks); // 返回不同片上时钟的频率;SYSCLK，HCLK，PCLK1和PCLK2。
+void        RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks); // 返回不同片上时钟的频率;SYSCLK，HCLK，PCLK1和 PCLK2。
 
 /* 外设时钟配置功能 **********************************/
 void        RCC_RTCCLKConfig(uint32_t RCC_RTCCLKSource); // 配置 RTC 时钟 (RTCCLK)。
@@ -859,7 +859,7 @@ void        RCC_FMPI2C1ClockSourceConfig(uint32_t RCC_ClockSource);
 
 /* Features available only for STM32F410xx devices */
 #if defined(STM32F410xx) || defined(STM32F413_423xx)
-void        RCC_LPTIM1ClockSourceConfig(uint32_t RCC_ClockSource); // 配置LPTIM1时钟源。
+void        RCC_LPTIM1ClockSourceConfig(uint32_t RCC_ClockSource); // 配置 LPTIM1时钟源。
 #if defined(STM32F410xx)
 void        RCC_MCO1Cmd(FunctionalState NewState);
 void        RCC_MCO2Cmd(FunctionalState NewState);

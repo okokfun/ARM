@@ -144,13 +144,13 @@ void SYSCFG_MemorySwappingBank(FunctionalState NewState) {
 
 /**
   * 简介:  选择用作 EXTI 线路的 GPIO 引脚。
-  * 参数:  EXTI_PortSourceGPIOx : 选择要用作EXTI线路源的 GPIO端口，其中 x 可以是
+  * 参数:  EXTI_PortSourceGPIOx : 选择要用作EXTI线路源的 GPIO 端口，其中 x 可以是
   *                               STM32F42xxx/43xxx 设备的(A..K)，(A..I)
   *                               用于 STM32P405xx/407xx 和 STM32C415xx/417xx 设备，
   *                               或(A、B、C、D和H)用于 STM2401xx 设备。
   *
   * 参数:  EXTI_PinSourcex: 指定要配置的 EXTI 行。
-  *           此参数可以是EXTI_PinSourcex，其中 x 可以是(0..15，除了EXTI_PortSourceGPIOI x
+  *           此参数可以是 EXTI_PinSourcex，其中 x 可以是(0..15，除了 EXTI_PortSourceGPIOI x
   *           对于 STM32F405xx/407xx 和 STM32P405xx/407xxx 设备可以为(0..11)，
   *           对于EXTI_Port SourceGPIOK x对于 STM2F42xxx/43xxx 设备可为(0..7)。
   *
@@ -184,11 +184,11 @@ void SYSCFG_ETH_MediaInterfaceConfig(uint32_t SYSCFG_ETH_MediaInterface) {
 
 /**
   * 简介:  启用或禁用 I/O 补偿单元。
-  * 注意:   仅当设备电源电压范围为2.4至3.6 V时，才能使用 I/O补偿单元。
-  * 参数:  NewState: I/O补偿单元的新状态。
+  * 注意:   仅当设备电源电压范围为2.4至3.6 V时，才能使用 I/O 补偿单元。
+  * 参数:  NewState: I/O 补偿单元的新状态。
   *          此参数可以是以下值之一:
-  *            @arg ENABLE: I/O补偿单元已启用
-  *            @arg DISABLE: I/O补偿单元断电模式
+  *            @arg ENABLE: I/O 补偿单元已启用
+  *            @arg DISABLE: I/O 补偿单元断电模式
   * 返回值: 无
   */
 void SYSCFG_CompensationCellCmd(FunctionalState NewState) {
@@ -201,7 +201,7 @@ void SYSCFG_CompensationCellCmd(FunctionalState NewState) {
 /**
   * 简介:  检查是否设置了 I/O 补偿单元就绪标志。
   * 参数:  无
-  * 返回值: I/O补偿单元就绪标志的新状态(SET 或 RESET)
+  * 返回值: I/O 补偿单元就绪标志的新状态(SET 或 RESET)
   */
 FlagStatus SYSCFG_GetCompensationCellStatus(void) {
     FlagStatus bitstatus = RESET;
@@ -219,10 +219,10 @@ FlagStatus SYSCFG_GetCompensationCellStatus(void) {
 /**
   * 简介:  将所选参数连接到 TIM1 的中断输入。
   * 注意:   所选配置已锁定，可以通过系统重置解除锁定
-  * 参数:  SYSCFG_Break: 选择要连接到中断TIM1输入的配置
+  * 参数:  SYSCFG_Break: 选择要连接到中断 TIM1 输入的配置
   *   此参数可以是以下值的任意组合:
-  *     @arg SYSCFG_Break_PVD: PVD 中断连接至 TIM1/8的中断输入。
-  *     @arg SYSCFG_Break_HardFault: CortexM4的锁定输出连接到 TIM1/8的中断输入。
+  *     @arg SYSCFG_Break_PVD: PVD 中断连接至 TIM1/8 的中断输入。
+  *     @arg SYSCFG_Break_HardFault: CortexM4 的锁定输出连接到 TIM1/8 的中断输入。
   * 返回值: 无
   */
 void SYSCFG_BreakConfig(uint32_t SYSCFG_Break) {

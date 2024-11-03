@@ -53,12 +53,12 @@
  *** HMAC操作 : ***
  ========================
  [..] HMAC算法用于消息身份验证，通过不可逆地将正在处理的消息绑定到用户选择的密钥。
-      有关HMAC规范，请参阅"HMAC:keyed hashing For message authentication，H.Krawczyk，M.Bellare，R.Canetti，1997年2月"
+      有关HMAC规范，请参阅 "HMAC:keyed hashing For message authentication，H.Krawczyk，M.Bellare，R.Canetti，1997年2月"
 
  [..] 基本上，HMAC算法由两个嵌套哈希操作组成:
       HMAC(message) = Hash[((key | pad) XOR 0x5C) | Hash(((key | pad) XOR 0x36) | message)]
       where:
-      (+) "pad"是将密钥扩展到基础哈希函数数据块长度所需的一系列零(即SHA-1和MD5哈希算法都是512位)
+      (+) "pad"是将密钥扩展到基础哈希函数数据块长度所需的一系列零(即SHA-1和 MD5哈希算法都是512位)
       (+) "|"   表示串联运算符
 
 
@@ -186,7 +186,7 @@ void HASH_Init(HASH_InitTypeDef* HASH_InitStruct) {
 }
 
 /**
-  * 简介:  用默认值填充每个HASH_InitStruct 成员。
+  * 简介:  用默认值填充每个 HASH_InitStruct 成员。
   * 
   * 参数:  HASH_InitStruct : 指向将被初始化的 HASH_InitTypeDef 结构的指针。
   * 
@@ -211,7 +211,7 @@ void HASH_StructInit(HASH_InitTypeDef* HASH_InitStruct) {
 /**
   * 简介:  重置HASH处理器内核，以便HASH可以计算新消息的消息摘要。
   * 
-  * 注意:   调用此函数将清除与HASH_IT_DCI中断和HASH_FLAG_DCIS标志相对应的 HASH_SR_DCIS(摘要计算完成中断状态)位。
+  * 注意:   调用此函数将清除与HASH_IT_DCI 中断和HASH_FLAG_DCIS标志相对应的 HASH_SR_DCIS(摘要计算完成中断状态)位。
   * 
   * 参数:  无
   * 
@@ -292,8 +292,8 @@ uint8_t HASH_GetInFIFOWordsNbr(void) {
 /**
   * 简介:  提供消息摘要结果。
   * 
-  * 注意:   在MD5模式下，不使用 HASH_MsgDigest 结构的 Data[7]到Data[4]字段，并将其读取为零。
-  *         在 SHA-1模式下，HASH_MsgDigest 结构的 Data[7]到Data[5]字段不使用，读取为零。
+  * 注意:   在MD5模式下，不使用 HASH_MsgDigest 结构的 Data[7]到 Data[4]字段，并将其读取为零。
+  *         在 SHA-1模式下，HASH_MsgDigest 结构的 Data[7]到 Data[5]字段不使用，读取为零。
   *         在 SHA-224模式下，不使用 HASH_MsgDigest 结构的 Data[7]字段，读取为零。
   * 
   * 参数:  HASH_MessageDigest:指向将保存消息摘要结果的 HASH_MsgDigest 结构的指针
@@ -336,7 +336,7 @@ void HASH_StartDigest(void) {
 
  [..] 可以中断HASH/HMAC 进程以执行具有较高优先级的另一个处理，
 	并在较高优先级任务完成后完成中断的进程。
-	为此，中断任务的上下文必须从HASH寄存器保存到内存，然后从内存恢复到HASH注册表。
+	为此，中断任务的上下文必须从HASH寄存器保存到内存，然后从内存恢复到 HASH注册表。
 
    (#) 要保存当前上下文，请使用 HASH_SaveContext() 函数
    (#) 要还原保存的上下文，请使用 HASH_RestoreContext() 函数
@@ -349,7 +349,7 @@ void HASH_StartDigest(void) {
   * 简介:  保存哈希外设上下文。
   * 
   * 注意:   仅当当前未处理任何块时，才能保存上下文。
-    *                  因此用户必须等待DINIS=1(最后一个块已处理，输入FIFO 为空)或NBW！=0(FIFO未满，未进行任何处理)。
+    *                  因此用户必须等待 DINIS=1(最后一个块已处理，输入FIFO 为空)或NBW！=0(FIFO未满，未进行任何处理)。
     * 
   * 参数:  HASH_ContextSave: 指向包含当前上下文存储库的 HASH_Context 结构的指针。
   * 
@@ -461,19 +461,19 @@ void HASH_DMACmd(FunctionalState NewState) {
                ##### 中断和标记管理函数 #####
  ===============================================================================
 
- [..] 本节提供了允许配置HASH中断、获取状态、清除标志和中断挂起位的函数。
+ [..] 本节提供了允许配置HASH 中断、获取状态、清除标志和中断挂起位的函数。
 
  [..] HASH提供2个中断源和5个标志:
 
  *** 标志 : ***
  ===============
  [..]
-   (#) HASH_FLAG_DINIS : 当 Data IN FIFO 中有16个位置空闲时设置，
+   (#) HASH_FLAG_DINIS : 当 Data IN FIFO 中有 16个位置空闲时设置，
 	这意味着一个新的块(512位)可以进入输入缓冲区。。
 
    (#) HASH_FLAG_DCIS :  摘要计算完成时设置
 
-   (#) HASH_FLAG_DMAS :  当HASH的 DMA 接口被启用(DMAE=1)或传输正在进行时设置。此标志仅由硬件清除。
+   (#) HASH_FLAG_DMAS :  当 HASH的 DMA 接口被启用(DMAE=1)或传输正在进行时设置。此标志仅由硬件清除。
 
    (#) HASH_FLAG_BUSY :  当散列核心正在处理数据块时设置此标志仅由硬件清除。
 
@@ -482,7 +482,7 @@ void HASH_DMACmd(FunctionalState NewState) {
  *** 中断 : ***
  ====================
  [..]
-   (#) HASH_IT_DINI  : 如果启用，当数据输入FIFO 中有16个位置空闲时，该中断源处于待定状态，
+   (#) HASH_IT_DINI  : 如果启用，当数据输入FIFO 中有 16个位置空闲时，该中断源处于待定状态，
 	这意味着可以将新块(512位)输入到输入缓冲器中。
 	使用 HASH_ClearITPendingBit(HASH_IT_DINI) 函数清除此中断源。
 
@@ -506,14 +506,14 @@ void HASH_DMACmd(FunctionalState NewState) {
   */
 
 /**
-  * 简介:  启用或禁用指定的 HASH中断。
+  * 简介:  启用或禁用指定的 HASH 中断。
   * 
-  * 参数:  HASH_IT: 指定要启用或禁用的 HASH中断源。
+  * 参数:  HASH_IT: 指定要启用或禁用的 HASH 中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg HASH_IT_DINI: 数据输入中断
   *            @arg HASH_IT_DCI: 摘要计算完成中断
   * 
-  * 参数:  NewState: 指定HASH中断的新状态。
+  * 参数:  NewState: 指定HASH 中断的新状态。
   *           此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -524,10 +524,10 @@ void HASH_ITConfig(uint32_t HASH_IT, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用所选HASH中断 */
+        /* 启用所选HASH 中断 */
         HASH->IMR |= HASH_IT;
     } else {
-        /* 禁用所选HASH中断 */
+        /* 禁用所选HASH 中断 */
         HASH->IMR &= (uint32_t)(~HASH_IT);
     }
 }
@@ -589,9 +589,9 @@ void HASH_ClearFlag(uint32_t HASH_FLAG) {
     HASH->SR = ~(uint32_t)HASH_FLAG;
 }
 /**
-  * 简介:  检查指定的 HASH中断是否发生。
+  * 简介:  检查指定的 HASH 中断是否发生。
   * 
-  * 参数:  HASH_IT: 指定要检查的 HASH中断源。
+  * 参数:  HASH_IT: 指定要检查的 HASH 中断源。
   *          此参数可以是以下值之一:
   *            @arg HASH_IT_DINI: 数据输入中断
   *            @arg HASH_IT_DCI: 摘要计算完成中断
@@ -606,7 +606,7 @@ ITStatus HASH_GetITStatus(uint32_t HASH_IT) {
     assert_param(IS_HASH_GET_IT(HASH_IT));
 
 
-    /* 检查指定HASH中断的状态 */
+    /* 检查指定HASH 中断的状态 */
     tmpreg =  HASH->SR;
 
     if (((HASH->IMR & tmpreg) & HASH_IT) != RESET) {
@@ -622,9 +622,9 @@ ITStatus HASH_GetITStatus(uint32_t HASH_IT) {
 }
 
 /**
-  * 简介:  清除HASH中断挂起位。
+  * 简介:  清除HASH 中断挂起位。
   * 
-  * 参数:  HASH_IT: 指定要清除的 HASH中断挂起位。
+  * 参数:  HASH_IT: 指定要清除的 HASH 中断挂起位。
   *          此参数可以是以下值的任意组合:
   *            @arg HASH_IT_DINI: 数据输入中断
   *            @arg HASH_IT_DCI: 摘要计算完成中断
@@ -635,7 +635,7 @@ void HASH_ClearITPendingBit(uint32_t HASH_IT) {
     /* 检查参数 */
     assert_param(IS_HASH_IT(HASH_IT));
 
-    /* 清除所选HASH中断挂起位 */
+    /* 清除所选HASH 中断挂起位 */
     HASH->SR = (uint32_t)(~HASH_IT);
 }
 

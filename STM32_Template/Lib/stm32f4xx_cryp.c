@@ -348,7 +348,7 @@ void CRYP_PhaseConfig(uint32_t CRYP_Phase) {
 /**
   * 简介:  刷新 IN 和 OUT FIFO(即 FIFO 的读写指针被复位)
   * 
-  * 注意:   只有当BUSY标志被重置时，FIFO 必须被刷新。
+  * 注意:   只有当BUSY 标志被重置时，FIFO 必须被刷新。
   * 
   * 参数:  无
   * 
@@ -667,7 +667,7 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
  ====================
  [..]
    (#) CRYP_IT_INI   : 当输入FIFO 中的字数少于4个时，输入FIFO服务中断被断言。
-                       这个中断与CRYP_FLAG_INRIS标志相关。
+                       这个中断与 CRYP_FLAG_INRIS标志相关。
 
       -@- 该中断通过对输入FIFO进行写操作而被清除，直到它容纳4个或更多的字。
           输入FIFO服务中断INMIS是通过 CRYP使能位启用的。因此，当 CRYP被禁用时，
@@ -676,7 +676,7 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
 
 
    (#) CRYP_IT_OUTI  : 当输出FIFO 中有一个或多个(32位字)数据项时，输出FIFO服务中断被断言。
-                       该中断与CRYP_FLAG_OUTRIS标志相关。
+                       该中断与 CRYP_FLAG_OUTRIS标志相关。
 
 
        -@- 该中断通过从输出FIFO 中读取数据来清除，直到没有有效的(32位)字为止(也就是说，
@@ -696,7 +696,7 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
        (++) CRYP_ITConfig() : 启用或禁用中断源。
        (++) CRYP_GetITStatus() : 检查是否发生中断。
 
-       -@@- CRYPT中断没有等待位，一旦相关事件被重置，中断就会被清除。
+       -@@- CRYPT 中断没有等待位，一旦相关事件被重置，中断就会被清除。
 
 @endverbatim
   */

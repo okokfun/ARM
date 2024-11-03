@@ -78,7 +78,7 @@ uint32_t SDIO_Init(uint32_t freq) {
         if(res != SD_RES_OK)
             return res;
 
-        if(resp != 0x120) return SD_RES_ERR;	//不是SD卡，可能是MMC卡
+        if(resp != 0x120) return SD_RES_ERR;	//不是 SD卡，可能是MMC卡
 
         if(SD_cardInfo.CardType == SDIO_STD_CAPACITY_SD_CARD_V2_0)
             SDIO_SendCmd(SD_CMD_SD_APP_OP_COND, 0x80100000 | 0x40000000, SD_RESP_32b, &resp);
@@ -376,7 +376,7 @@ uint32_t _SDIO_SendCmd(uint32_t cmd, uint32_t arg, uint32_t resp_type, uint32_t 
     if(resp_type == SD_RESP_32b) {
         resp_data[0] = SDIO->RESP[0];
     } else if(resp_type == SD_RESP_128b) {
-        //寄存器中将CID/CSD[127-8]依次存放在了RESP3-0[119-0]，最低位的 CRC被丢掉
+        //寄存器中将CID/CSD[127-8]依次存放在了 RESP3-0[119-0]，最低位的 CRC被丢掉
         //读出数据时调整了顺序，将CID/CSD[127-8]存放在resp_data0-3[127-8]，最低8位填充0x00
         resp_data[0] = (SDIO->RESP[3] << 8) + ((SDIO->RESP[2] >> 24) & 0xFF);
         resp_data[1] = (SDIO->RESP[2] << 8) + ((SDIO->RESP[1] >> 24) & 0xFF);

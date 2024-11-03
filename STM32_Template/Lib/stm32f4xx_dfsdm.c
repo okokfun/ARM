@@ -2017,7 +2017,7 @@ ITStatus DFSDM_GetITStatus(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_IT) {
 
 #if defined(STM32F412xG)
 /**
-  * 简介:  检查指定的"时钟缺失"通道中断是否已发生。
+  * 简介:  检查指定的 "时钟缺失"通道中断是否已发生。
   * 
   * 参数:  DFSDM_IT_CLKAbsence: 指定在哪个通道上检查中断源。
   *         此参数可以是 @ref DFSDM_Clock_Absence_Interrupt_Definition 的值。
@@ -2083,7 +2083,7 @@ ITStatus DFSDM_GetShortCircuitITStatus(uint32_t DFSDM_IT_SCR) {
 
 #if defined(STM32F413_423xx)
 /**
-  * 简介:  检查指定的"时钟缺失"通道中断是否已发生。
+  * 简介:  检查指定的 "时钟缺失"通道中断是否已发生。
   * 
   * 参数:  Instance: 选择 DFSDM 的实例
   *         此参数可以是: 1 or 2.

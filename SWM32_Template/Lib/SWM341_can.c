@@ -311,7 +311,7 @@ void CAN_SetBaudrate(CAN_TypeDef * CANx, uint32_t baudrate, uint32_t CAN_bs1, ui
 * 功能说明:	设置接收滤波器，模式为1个32位滤波器
 * 输    入: CAN_TypeDef * CANx	指定要被设置的 CAN 接口，有效值包括CAN0、CAN1
 *			uint32_t filter		要设置的滤波器，有效值有CAN_FILTER_1、CAN_FILTER_2、...、CAN_FILTER_16
-*			uint32_t check		与mask一起决定了接收到的Message是否是自己需要的：check & mask == ID & mask的Message通过过滤
+*			uint32_t check		与mask一起决定了接收到的 Message是否是自己需要的：check & mask == ID & mask的 Message通过过滤
 *			uint32_t mask
 * 输    出: 无
 * 注意事项: 只能在关闭时设置
@@ -330,7 +330,7 @@ void CAN_SetFilter32b(CAN_TypeDef * CANx, uint32_t filter, uint32_t check, uint3
 * 功能说明:	设置接收滤波器，模式为2个16位滤波器
 * 输    入: CAN_TypeDef * CANx	指定要被设置的 CAN 接口，有效值包括CAN0、CAN1
 *			uint32_t filter		要设置的滤波器，有效值有CAN_FILTER_1、CAN_FILTER_2、...、CAN_FILTER_16
-*			uint16_t check1		与mask一起决定了接收到的Message是否是自己需要的：check & mask == ID & mask的Message通过过滤
+*			uint16_t check1		与mask一起决定了接收到的 Message是否是自己需要的：check & mask == ID & mask的 Message通过过滤
 *			uint16_t mask1
 *			uint16_t check2
 *			uint16_t mask2

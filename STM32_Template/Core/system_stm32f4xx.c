@@ -20,13 +20,13 @@
   *                                 并且必须在程序执行期间更改核心时钟时调用。
   *
   * 2. 每次设备复位后，HSI(16 MHz)用作系统时钟源。
-  *    然后，在"startup_stm32f4xx.s"文件中调用 SystemInit() 函数，以在分支到主程序之前配置系统时钟。
+  *    然后，在"startup_stm32f4xx.s" 文件中调用 SystemInit() 函数，以在分支到主程序之前配置系统时钟。
   *
   * 3. 如果用户选择的系统时钟源无法启动，SystemInit() 函数将不执行任何操作，
-  *    HSI仍用作系统时钟源。用户可以在 SetSysClock() 函数中添加一些代码来处理此问题。
+  *    HSI 仍用作系统时钟源。用户可以在 SetSysClock() 函数中添加一些代码来处理此问题。
   *
-  * 4. HSE晶体的默认值设置为25MHz，请参阅"stm32f4xx.h"文件中的"HSE_value"定义。
-  *    当HSE直接或通过PLL用作系统时钟源时，如果您使用不同的晶体，则必须根据您自己的配置调整HSE值。
+  * 4. HSE 晶体的默认值设置为25MHz，请参阅 "stm32f4xx.h" 文件中的 "HSE_value" 定义。
+  *    当 HSE 直接或通过 PLL 用作系统时钟源时，如果您使用不同的晶体，则必须根据您自己的配置调整 HSE 值。
   *
   * 5. 此文件按如下方式配置系统时钟：
   *=============================================================================
@@ -313,7 +313,7 @@
   */
 
 /************************* Miscellaneous Configuration ************************/
-/*!< 如果需要使用安装在 STM324xG_EVAL/STM324x7I_EVAL/STM324x9I_EVAL 板上的外部 SRAM或SDRAM作为数据存储器，请取消注释以下行  */
+/*!< 如果需要使用安装在 STM324xG_EVAL/STM324x7I_EVAL/STM324x9I_EVAL 板上的外部 SRAM或 SDRAM作为数据存储器，请取消注释以下行  */
 #if defined(STM32F40_41xxx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F469_479xx) || defined(STM32F413_423xx)
 /* #define DATA_IN_ExtSRAM */
 #endif /* STM32F40_41xxx || STM32F427_437x || STM32F429_439xx || STM32F469_479xx || STM32F413_423xx */
@@ -435,7 +435,7 @@ static void SystemInit_ExtMemCtl(void);
 
 /**
   * 简介:  设置微控制器系统
-  *         初始化嵌入式闪存接口、PLL并更新 SystemFrequency变量。
+  *         初始化嵌入式闪存接口、PLL并更新 SystemFrequency 变量。
   * 参数:  无
   * 返回值: 无
   */
@@ -475,7 +475,7 @@ void SystemInit(void) {
 #ifdef VECT_TAB_SRAM
     SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* 内部 SRAM 中的矢量表重定位 */
 #else
-    SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* 内部FLASH中的矢量表重定位 */
+    SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* 内部 FLASH 中的矢量表重定位 */
 #endif
 }
 
@@ -688,7 +688,7 @@ static void SetSysClock(void) {
         {
         }
     } else {
-        /* 如果HSE未能启动，应用程序将具有错误的时钟配置。用户可以在此处添加一些代码来处理此错误 */
+        /* 如果 HSE未能启动，应用程序将具有错误的时钟配置。用户可以在此处添加一些代码来处理此错误 */
     }
 #elif defined(STM32F410xx) || defined(STM32F411xE)
 #if defined(USE_HSE_BYPASS)
@@ -749,7 +749,7 @@ static void SetSysClock(void) {
         {
         }
     } else {
-        /* 如果HSE未能启动，应用程序将具有错误的时钟配置。用户可以在此处添加一些代码来处理此错误 */
+        /* 如果 HSE未能启动，应用程序将具有错误的时钟配置。用户可以在此处添加一些代码来处理此错误 */
     }
 #else /* HSI will be 用作PLL时钟源 */
     /* 选择调节器电压输出比例1模式 */
@@ -958,7 +958,7 @@ void SystemInit_ExtMemCtl(void) {
 /**
   * 简介:  设置外部内存控制器。
   *         在跳转到 main 之前，在 startup_stm32f4xx.s 中调用。
-  *         此功能配置安装在 STM324xG_EVAL/STM324x7I板上的外部 SRAM
+  *         此功能配置安装在 STM324xG_EVAL/STM324x7I 板上的外部 SRAM
   *         该 SRAM 将用作程序数据存储器(包括堆和堆栈)。
   * 参数:  无
   * 返回值: 无
@@ -1054,7 +1054,7 @@ void SystemInit_ExtMemCtl(void) {
 #endif  /* STM32F40_41xxx */
 
     /*
-      Bank1_SRAM2配置如下：
+      Bank1_SRAM2 配置如下：
       如果是FSMC配置
       NORSRAMTimingStructure.FSMC_AddressSetupTime = 1;
       NORSRAMTimingStructure.FSMC_AddressHoldTime = 0;

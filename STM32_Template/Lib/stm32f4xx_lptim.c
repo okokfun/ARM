@@ -565,7 +565,7 @@ void LPTIM_ConfigWaveform(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_Waveform) {
     /* 清除 WAVE 位 */
     LPTIMx->CFGR &= ~(LPTIM_CFGR_CKFLT);
 
-    /* 设置或重置 符合LPTIM_Waveform的 WAVE位 */
+    /* 设置或重置 符合LPTIM_Waveform的 WAVE 位 */
     LPTIMx->CFGR |= (LPTIM_Waveform);
 }
 
@@ -741,7 +741,7 @@ uint32_t LPTIM_GetCompareValue(LPTIM_TypeDef* LPTIMx) {
   *    @arg LPTIM_OP_PAD_AF  : AF1上的端口B5或AF1上用于输入定时器的端口C0
   *    @arg LPTIM_OP_PAD_PA4 : 输入重新映射到端口A4
   *    @arg RCC_LPTIM1CLKSOURCE_LSI : 输入重新映射到端口B9
-  *    @arg LPTIM_OP_TIM_DAC : 来自定时器6输出的输入(用于编码器模式)
+  *    @arg LPTIM_OP_TIM_DAC : 来自定时器6 输出的输入(用于编码器模式)
   * 
   * 返回值: 计数器寄存器值
   */
@@ -761,7 +761,7 @@ void LPTIM_RemapConfig(LPTIM_TypeDef* LPTIMx, uint32_t LPTIM_OPTR) {
  ===============================================================================
                   中断和标记管理函数
  ===============================================================================
-  本节提供了允许配置LPTIM 中断、获取状态和清除标志位的函数。
+  本节提供了允许配置 LPTIM 中断、获取状态和清除标志位的函数。
 
   LPTIM提供7个标志和中断源(只有配备编码器模式接口的 LPTIM 外设设备上才有2个标志和干扰源)
 

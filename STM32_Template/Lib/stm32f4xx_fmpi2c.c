@@ -127,7 +127,7 @@
          必须将FMPI2C 时钟源设置为 HSI，并且必须禁用数字滤波器。
 
     [..] 在通过FMPI2C_DualAddressCmd() 函数启用自有地址2之前，
-         应使用 FMPI2C_OwnAddress2Config() 函数配置OA2 和掩码。
+         应使用 FMPI2C_OwnAddress2Config() 函数配置 OA2 和掩码。
 
     [..] FMPI2C_SlaveByteControlCmd() 函数启用从属字节控制，
          当NBYTES被设置为0x01时，允许用户在从属模式下获得每个字节的控制权。
@@ -320,8 +320,8 @@ void FMPI2C_SoftwareResetCmd(FMPI2C_TypeDef* FMPI2Cx) {
   *     @arg FMPI2C_IT_STOPI: 停止检测中断掩码
   *     @arg FMPI2C_IT_NACKI: 未收到确认信号的中断屏蔽
   *     @arg FMPI2C_IT_ADDRI: 地址匹配中断掩码
-  *     @arg FMPI2C_IT_RXI: RX中断掩码
-  *     @arg FMPI2C_IT_TXI: TX中断掩码
+  *     @arg FMPI2C_IT_RXI: RX 中断掩码
+  *     @arg FMPI2C_IT_TXI: TX 中断掩码
   * 
   * 参数:  NewState: 指定的 FMPI2C 中断的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -1219,7 +1219,7 @@ uint8_t FMPI2C_ReceiveData(FMPI2C_TypeDef* FMPI2Cx) {
 
     [..] 在 DMA 模式下，FMPI2C 通信可通过2个 DMA 信道请求进行管理:
          (#) FMPI2C_DMAReq_Tx: 指定 Tx 缓冲器 DMA 传输请求。
-         (#) FMPI2C_DMAReq_Rx: 指定Rx 缓冲器 DMA 传输请求。
+         (#) FMPI2C_DMAReq_Rx: 指定 Rx 缓冲器 DMA 传输请求。
 
     [..] 在此模式下，建议使用以下函数:
          (+) FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalState NewState);
@@ -1292,7 +1292,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (+) void FMPI2C_ClearFlag(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG);
 
     [..]
-        (@)不要使用BUSY标志来处理每个数据传输或接收。最好使用 TXIS和 RXNE标志来代替。
+        (@)不要使用BUSY 标志来处理每个数据传输或接收。最好使用 TXIS 和 RXNE 标志来代替。
 
   *** Interrupt Mode ***
   ======================
@@ -1303,8 +1303,8 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (#) FMPI2C_IT_STOPI: 指定停止检测中断的中断源。
         (#) FMPI2C_IT_NACKI: 指定未收到确认中断的中断源。
         (#) FMPI2C_IT_ADDRI: 指定地址匹配中断的中断源。
-        (#) FMPI2C_IT_RXI: 指定RX中断的中断源。
-        (#) FMPI2C_IT_TXI: 指定 TX中断的中断源。
+        (#) FMPI2C_IT_RXI: 指定 RX 中断的中断源。
+        (#) FMPI2C_IT_TXI: 指定 TX 中断的中断源。
 
     [..] Pending Bits:
         (#) FMPI2C_IT_TXIS:表示传输中断状态标志的状态。
@@ -1402,7 +1402,7 @@ void FMPI2C_ClearFlag(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG) {
     assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
     assert_param(IS_FMPI2C_CLEAR_FLAG(FMPI2C_FLAG));
 
-    /* 清除 selected flag */
+    /* 清除被选择的 flag */
     FMPI2Cx->ICR = FMPI2C_FLAG;
 }
 
@@ -1492,7 +1492,7 @@ void FMPI2C_ClearITPendingBit(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT) {
     assert_param(IS_FMPI2C_ALL_PERIPH(FMPI2Cx));
     assert_param(IS_FMPI2C_CLEAR_IT(FMPI2C_IT));
 
-    /* 清除 selected flag */
+    /* 清除被选择的 flag */
     FMPI2Cx->ICR = FMPI2C_IT;
 }
 

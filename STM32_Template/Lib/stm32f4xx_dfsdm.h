@@ -674,10 +674,10 @@ void DFSDM_ClearAnalogWatchdogFlag(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_
 
 ITStatus DFSDM_GetITStatus(DFSDM_Filter_TypeDef* DFSDMx, uint32_t DFSDM_IT); // 检查指定的 DFSDM 中断是否已发生。
 #if defined(STM32F412xG)
-ITStatus DFSDM_GetClockAbsenceITStatus(uint32_t DFSDM_IT_CLKAbsence); // 检查指定的"时钟缺失"通道中断是否已发生。
+ITStatus DFSDM_GetClockAbsenceITStatus(uint32_t DFSDM_IT_CLKAbsence); // 检查指定的 "时钟缺失"通道中断是否已发生。
 ITStatus DFSDM_GetShortCircuitITStatus(uint32_t DFSDM_IT_SCR); // 检查指定的短路通道中断是否已经发生。
 #else /* STM32F413_423xx */
-ITStatus DFSDM_GetClockAbsenceITStatus(uint32_t Instance, uint32_t DFSDM_IT_CLKAbsence); // 检查指定的"时钟缺失"通道中断是否已发生。
+ITStatus DFSDM_GetClockAbsenceITStatus(uint32_t Instance, uint32_t DFSDM_IT_CLKAbsence); // 检查指定的 "时钟缺失"通道中断是否已发生。
 ITStatus DFSDM_GetShortCircuitITStatus(uint32_t Instance, uint32_t DFSDM_IT_SCR); // 检查指定的短路通道中断是否已经发生。
 #endif /* STM32F412xG */
 

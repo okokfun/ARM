@@ -220,7 +220,7 @@
            (++) when VOS[1:0] = '0x11' Scale 1 mode, fHCLK的最大值为100MHz。
 
         有关更多详细信息，请参阅产品数据表
-           您可以使用 PWR_MainRegulatorModeConfig() 函数来控制VOS位。
+           您可以使用 PWR_MainRegulatorModeConfig() 函数来控制VOS 位。
 
       (+) void FLASH_PrefetchBufferCmd(FunctionalState NewState)
       (+) void FLASH_InstructionCacheCmd(FunctionalState NewState)
@@ -439,7 +439,7 @@ void FLASH_Lock(void) {
   *                                  将以半字(16位)进行操作。
   *             @arg VoltageRange_3: 当设备电压范围为2.7V至3.6V时，
   *                                  将以字(32位)进行操作。
-  *             @arg VoltageRange_4: 当器件电压范围为2.7V至3.6V+外部Vpp时，
+  *             @arg VoltageRange_4: 当器件电压范围为2.7V至3.6V+外部Vpp 时，
   *                                  将通过双字(64位)进行操作。
   *
   * 返回值: FLASH Status: 返回的值可以是:FLASH_BUSY、FLASH_ERROR_PROGRAM、
@@ -665,7 +665,7 @@ FLASH_Status FLASH_EraseAllBank2Sectors(uint8_t VoltageRange) {
 /**
   * 简介:  在指定地址编程双字(64 位)。
   * 
-  * 注意:   当设备电压范围为 2.7V 至 3.6V 且存在外部Vpp时，必须使用此函数。
+  * 注意:   当设备电压范围为 2.7V 至 3.6V 且存在外部Vpp 时，必须使用此函数。
   *
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
@@ -910,7 +910,7 @@ void FLASH_OB_Unlock(void) {
   * 返回值: 无
   */
 void FLASH_OB_Lock(void) {
-    /* 设置用于锁定FLASH选项字节寄存器访问的OPTLOCK位 */
+    /* 设置用于锁定FLASH选项字节寄存器访问的 OPTLOCK位 */
     FLASH->OPTCR |= FLASH_OPTCR_OPTLOCK;
 }
 
@@ -1033,7 +1033,7 @@ void FLASH_OB_PCROPSelectionConfig(uint8_t OB_PcROP) {
   *
   * 参数:  OB_PCROP: 指定要读/写保护或不保护的扇区。
   *          此参数可以是以下值之一:
-  *            @arg OB_PCROP: STM32F42xxx/43xxx 设备的OB_PCROP_Sector0 和
+  *            @arg OB_PCROP: STM32F42xxx/43xxx 设备的 OB_PCROP_Sector0 和
   *                           OB_PCROP_Sector11之间的值，STM32V401xx/411xE设备的
   *                           OB-PCROP_Sector0 和OB-PCROP_Sector5 之间的值。
   *            @arg OB_PCROP_Sector_All
@@ -1349,7 +1349,7 @@ uint8_t FLASH_OB_GetBOR(void) {
 /**
   * 简介:  启用或禁用指定的 FLASH 中断。
   * 
-  * 参数:  FLASH_IT: 指定要启用或禁用的 FLASH中断源。
+  * 参数:  FLASH_IT: 指定要启用或禁用的 FLASH 中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg FLASH_IT_ERR: 闪存错误中断
   *            @arg FLASH_IT_EOP: 闪存操作结束中断
@@ -1475,8 +1475,8 @@ FLASH_Status FLASH_WaitForLastOperation(void) {
     /* 检查 FLASH 状态 */
     status = FLASH_GetStatus();
 
-    /* 通过对要重置的 BUSY标志进行轮询，等待FLASH 操作完成。
-       即使FLASH 操作失败，BUSY标志也将重置，并设置错误标志 */
+    /* 通过对要重置的 BUSY 标志进行轮询，等待FLASH 操作完成。
+       即使FLASH 操作失败，BUSY 标志也将重置，并设置错误标志 */
     while(status == FLASH_BUSY) {
         status = FLASH_GetStatus();
     }

@@ -52,7 +52,7 @@
 
       (#) 使用 USART_Cmd() 函数启用 USART。
 
-      (#) 使用 DMA 模式时，使用 DMA_Cmd()功能启用 DMA。
+      (#) 使用 DMA 模式时，使用 DMA_Cmd() 功能启用 DMA。
 
       -@- 有关更多详细信息，请参阅多处理器、LIN、半双工、智能卡、IrDA 子部分
 
@@ -164,7 +164,7 @@
   */
 
 /**
-  * 简介:  将USARTx 外围寄存器取消初始化为其默认重置值。
+  * 简介:  将 USARTx 外围寄存器取消初始化为其默认重置值。
   * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
   * 返回值: 无
   */
@@ -193,12 +193,9 @@ void USART_DeInit(USART_TypeDef* USARTx) {
     } else if (USARTx == UART7) {
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART7, ENABLE);
         RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART7, DISABLE);
-    } else {
-        if (USARTx == UART8) {
-            RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART8, ENABLE);
-            RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART8, DISABLE);
-        }
-    }
+    } else if (USARTx == UART8) 
+        RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART8, ENABLE);
+        RCC_APB1PeriphResetCmd(RCC_APB1Periph_UART8, DISABLE);
 }
 
 /**
@@ -228,7 +225,7 @@ void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct) {
         assert_param(IS_USART_1236_PERIPH(USARTx));
     }
 
-    /*---------------------------- USART CR2配置 -----------------------*/
+    /*---------------------------- USART CR2 配置 -----------------------*/
     tmpreg = USARTx->CR2;
 
     /* 清除 STOP[13:12]位 */
@@ -243,13 +240,13 @@ void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct) {
     /*---------------------------- USART CR1 配置 -----------------------*/
     tmpreg = USARTx->CR1;
 
-    /* 清除M、PCE、PS、TE 和 RE位 */
+    /* 清除M、PCE、PS、TE 和 RE 位 */
     tmpreg &= (uint32_t)~((uint32_t)CR1_CLEAR_MASK);
 
     /* 配置 USART字长、奇偶校验和模式:
        根据 USART_WordLength值设置M位
-       根据 USART_Parity值设置PCE 和PS位
-       根据 USART_Mode值设置 TE 和 RE位 */
+       根据 USART_Parity值设置PCE 和 PS 位
+       根据 USART_Mode值设置 TE 和 RE 位 */
     tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
               USART_InitStruct->USART_Mode;
 
@@ -259,11 +256,11 @@ void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct) {
     /*---------------------------- USART CR3 配置 -----------------------*/
     tmpreg = USARTx->CR3;
 
-    /* 清除 CTSE 和 RTSE位 */
+    /* 清除 CTSE 和 RTSE 位 */
     tmpreg &= (uint32_t)~((uint32_t)CR3_CLEAR_MASK);
 
     /* 配置 USART HFC:
-        根据 USART_HardwareFlowControl值设置 CTSE 和 RTSE位 */
+        根据 USART_HardwareFlowControl值设置 CTSE 和 RTSE 位 */
     tmpreg |= USART_InitStruct->USART_HardwareFlowControl;
 
     /* 写入 USART CR3 */
@@ -336,7 +333,7 @@ void USART_ClockInit(USART_TypeDef* USARTx, USART_ClockInitTypeDef* USART_ClockI
     assert_param(IS_USART_CPHA(USART_ClockInitStruct->USART_CPHA));
     assert_param(IS_USART_LASTBIT(USART_ClockInitStruct->USART_LastBit));
 
-    /*---------------------------- USART CR2配置 -----------------------*/
+    /*---------------------------- USART CR2 配置 -----------------------*/
     tmpreg = USARTx->CR2;
     /* 清除 CLKEN、CPOL、CPHA 和 LBCL位 */
     tmpreg &= (uint32_t)~((uint32_t)CR2_CLOCK_CLEAR_MASK);
@@ -344,7 +341,7 @@ void USART_ClockInit(USART_TypeDef* USARTx, USART_ClockInitTypeDef* USART_ClockI
     /* 根据 USART_Clock值设置 CLKEN 位 */
     /* 根据 USART_CPOL值设置 CPOL位 */
     /* 根据 USART_CPHA值设置 CPHA位 */
-    /* 根据 USART_LastBit值设置LBCL位 */
+    /* 根据 USART_LastBit值设置 LBCL位 */
     tmpreg |= (uint32_t)USART_ClockInitStruct->USART_Clock | USART_ClockInitStruct->USART_CPOL |
               USART_ClockInitStruct->USART_CPHA | USART_ClockInitStruct->USART_LastBit;
     /* 写USART CR2 */
@@ -377,10 +374,10 @@ void USART_Cmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过设置 CR1 寄存器中的 UE位来启用所选USART */
+        /* 通过设置 CR1 寄存器中的 UE 位来启用所选USART */
         USARTx->CR1 |= USART_CR1_UE;
     } else {
-        /* 通过清除 CR1 寄存器中的 UE位禁用所选USART */
+        /* 通过清除 CR1 寄存器中的 UE 位禁用所选USART */
         USARTx->CR1 &= (uint16_t)~((uint16_t)USART_CR1_UE);
     }
 }
@@ -396,7 +393,7 @@ void USART_SetPrescaler(USART_TypeDef* USARTx, uint8_t USART_Prescaler) {
     /* 检查参数 */
     assert_param(IS_USART_ALL_PERIPH(USARTx));
 
-    /* 清除USART预分频器 */
+    /* 清除 USART预分频器 */
     USARTx->GTPR &= USART_GTPR_GT;
     /* 设置 USART预分频器 */
     USARTx->GTPR |= USART_Prescaler;
@@ -416,10 +413,10 @@ void USART_OverSampling8Cmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过设置 CR1 寄存器中的OVER8位，启用8x过采样模式*/
+        /* 通过设置 CR1 寄存器中的 OVER8位，启用8x过采样模式*/
         USARTx->CR1 |= USART_CR1_OVER8;
     } else {
-        /* 通过清除 CR1 寄存器中的OVER8位，禁用8x过采样模式*/
+        /* 通过清除 CR1 寄存器中的 OVER8位，禁用8x过采样模式*/
         USARTx->CR1 &= (uint16_t)~((uint16_t)USART_CR1_OVER8);
     }
 }
@@ -437,10 +434,10 @@ void USART_OneBitMethodCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过在 CR3 寄存器中设置ONEBITE位来启用一位方法 */
+        /* 通过在 CR3 寄存器中设置 ONEBITE 位来启用一位方法 */
         USARTx->CR3 |= USART_CR3_ONEBIT;
     } else {
-        /* 通过清除 CR3 寄存器中的ONEBITE位禁用一位方法*/
+        /* 通过清除 CR3 寄存器中的 ONEBITE 位禁用一位方法*/
         USARTx->CR3 &= (uint16_t)~((uint16_t)USART_CR3_ONEBIT);
     }
 }
@@ -456,7 +453,7 @@ void USART_OneBitMethodCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     [..]
     本小节提供了一组允许管理 USART 数据传输的函数。
     [..]
-    在 USART接收期间，数据首先通过RX引脚以最低有效位移位。
+    在 USART 接收期间，数据首先通过 RX 引脚以最低有效位移位。
     在此模式下，USART_DR 寄存器由内部总线和接收的移位寄存器之间的缓冲区(RDR)组成。
     [..]
     传输发生时，USART_DR 寄存器的写入指令将数据存储在 TDR 寄存器中，
@@ -508,7 +505,7 @@ uint16_t USART_ReceiveData(USART_TypeDef* USARTx) {
     [..]
     本小节提供了一组允许管理 USART 多处理器通信的函数。
     [..]
-    例如，其中一个 USART 可以是主机，其TX 输出连接到另一个 USAR 的 RX 输入。
+    例如，其中一个 USART 可以是主机，其 TX 输出连接到另一个 USAR 的 RX 输入。
         其他是从机，它们各自的 TX 输出在逻辑上与在一起，并连接到主机的 RX 输入。
     [..]
     USART 多处理器通信可以通过以下过程实现:
@@ -536,7 +533,7 @@ void USART_SetAddress(USART_TypeDef* USARTx, uint8_t USART_Address) {
     assert_param(IS_USART_ALL_PERIPH(USARTx));
     assert_param(IS_USART_ADDRESS(USART_Address));
 
-    /* 清除USART 地址 */
+    /* 清除 USART 地址 */
     USARTx->CR2 &= (uint16_t)~((uint16_t)USART_CR2_ADD);
     /* 设置 USART 地址节点 */
     USARTx->CR2 |= USART_Address;
@@ -591,7 +588,7 @@ void USART_WakeUpConfig(USART_TypeDef* USARTx, uint16_t USART_WakeUp) {
     [..]
     本小节提供了一组允许管理 USART LIN 模式通信的函数。
     [..]
-    在LIN 模式下，根据 LIN 标准，需要具有1个停止位的8位数据格式。
+    在LIN 模式下，根据 LIN 标准，需要具有 1个停止位的8位数据格式。
     [..]
     USART IP 仅支持此 LIN 功能:
       (+) LIN主同步中断发送功能和 LIN 从中断检测功能: 13位中断生成和10/11位中断检测
@@ -691,7 +688,7 @@ void USART_SendBreak(USART_TypeDef* USARTx) {
       (#) 使用 USART_HalfDuplexCmd() 函数启用半双工模式。
 
 
-    -@- RX引脚不再使用
+    -@- RX 引脚不再使用
     -@- 在半双工模式下，必须清除以下位:
       (+@) USART_CR2寄存器中的 LINEN 和 CLKEN 位。
       (+@) USART_CR3 寄存器中的 SCEN 和 IREN 位。
@@ -750,7 +747,7 @@ void USART_HalfDuplexCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
         (++) 1.5停止位
         (++) 偶数奇偶校验
         (++) 波特率 = 12096 波特率
-        (++) 硬件流控制已禁用(RTS和 CTS信号)
+        (++) 硬件流控制已禁用(RTS 和 CTS信号)
         (++) Tx 和 Rx已启用
       (#) P您可以选择启用奇偶校验错误中断 使用 USART_ITConfig() 函数
       (#) P使用 USART_Cmd() 函数启用 USART。
@@ -779,7 +776,7 @@ void USART_SetGuardTime(USART_TypeDef* USARTx, uint8_t USART_GuardTime) {
     /* 检查参数 */
     assert_param(IS_USART_1236_PERIPH(USARTx));
 
-    /* 清除USART警戒时间 */
+    /* 清除 USART警戒时间 */
     USARTx->GTPR &= USART_GTPR_PSC;
     /* 设置 USART警戒时间 */
     USARTx->GTPR |= (uint16_t)((uint16_t)USART_GuardTime << 0x08);
@@ -933,7 +930,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
         /* 通过在 USART CR3 寄存器中设置 DMAT和/或 DMAR位，为所选请求启用 DMA 传输 */
         USARTx->CR3 |= USART_DMAReq;
     } else {
-        /* 通过清除USART CR3 寄存器中的 DMAT和/或 DMAR位，禁用所选请求的 DMA 传输 */
+        /* 通过清除 USART CR3 寄存器中的 DMAT和/或 DMAR位，禁用所选请求的 DMA 传输 */
         USARTx->CR3 &= (uint16_t)~USART_DMAReq;
     }
 }
@@ -947,7 +944,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
             ##### 中断和标记管理函数 #####
  ===============================================================================
     [..]
-    本小节提供了一组功能，允许配置 USART中断源、DMA 信道请求以及检查或清除标志或挂起位状态。
+    本小节提供了一组功能，允许配置 USART 中断源、DMA 信道请求以及检查或清除标志或挂起位状态。
     用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式、中断模式或 DMA 模式。
 
     *** 轮询模式 ***
@@ -958,8 +955,8 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
       (#) USART_FLAG_RXNE: 指示接收缓冲寄存器的状态
       (#) USART_FLAG_TC  : 指示传输操作的状态
       (#) USART_FLAG_IDLE: 指示空闲线路的状态
-      (#) USART_FLAG_CTS : 指示nCTS输入的状态
-      (#) USART_FLAG_LBD : 指示LIN 中断检测的状态
+      (#) USART_FLAG_CTS : 指示 nCTS 输入的状态
+      (#) USART_FLAG_LBD : 指示 LIN 中断检测的状态
       (#) USART_FLAG_NE  : 指示是否发生噪音错误
       (#) USART_FLAG_FE  : 指示是否发生帧错误
       (#) USART_FLAG_PE  : 指示是否发生奇偶校验错误
@@ -980,8 +977,8 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
         (##) USART_IT_RXNE: 指示接收缓冲寄存器的状态
         (##) USART_IT_TC  : 指示传输操作的状态
         (##) USART_IT_IDLE: 指示空闲线路的状态
-        (##) USART_IT_CTS : 指示nCTS输入的状态
-        (##) USART_IT_LBD : 指示LIN 中断检测的状态
+        (##) USART_IT_CTS : 指示 nCTS 输入的状态
+        (##) USART_IT_LBD : 指示 LIN 中断检测的状态
         (##) USART_IT_NE  : 指示是否发生噪音错误
         (##) USART_IT_FE  : 指示是否发生帧错误
         (##) USART_IT_PE  : 指示是否发生奇偶校验错误
@@ -990,10 +987,10 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
       (#) 中断源:
 
         (##) USART_IT_TXE : 指定 Tx 缓冲区空中断的中断源。
-        (##) USART_IT_RXNE: 指定Rx 缓冲区非空中断的中断源。
+        (##) USART_IT_RXNE: 指定 Rx 缓冲区非空中断的中断源。
         (##) USART_IT_TC  : 指定传输完成中断的中断源。
         (##) USART_IT_IDLE: 指定空闲线路中断的中断源。
-        (##) USART_IT_CTS : 指定CTS中断的中断源。
+        (##) USART_IT_CTS : 指定 CTS 中断的中断源。
         (##) USART_IT_LBD : 指定 LIN 中断检测中断的中断源。
         (##) USART_IT_PE  : 指定中断源奇偶校验错误中断.
         (##) USART_IT_ERR : 指定错误中断的中断源。
@@ -1010,7 +1007,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
     [..]
     在 DMA 模式下，USART 通信可通过2个 DMA 信道请求进行管理:
       (#) USART_DMAReq_Tx: 指定 Tx 缓冲器 DMA 传输请求
-      (#) USART_DMAReq_Rx: 指定Rx 缓冲器 DMA 传输请求
+      (#) USART_DMAReq_Rx: 指定 Rx 缓冲器 DMA 传输请求
     [..]
     在此模式下，建议使用以下函数:
       (+) void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState NewState);
@@ -1021,9 +1018,9 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
 /**
   * 简介:  启用或禁用指定的 USART 中断。
   * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
-  * 参数:  USART_IT: 指定要启用或禁用的 USART中断源。
+  * 参数:  USART_IT: 指定要启用或禁用的 USART 中断源。
   *          此参数可以是以下值之一:
-  *            @arg USART_IT_CTS:  CTS更改中断
+  *            @arg USART_IT_CTS:  CTS 更改中断
   *            @arg USART_IT_LBD:  LIN 中断检测中断
   *            @arg USART_IT_TXE:  传输数据寄存器空中断
   *            @arg USART_IT_TC:   传输完成中断
@@ -1043,14 +1040,14 @@ void USART_ITConfig(USART_TypeDef* USARTx, uint16_t USART_IT, FunctionalState Ne
     assert_param(IS_USART_CONFIG_IT(USART_IT));
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-    /* CTS中断不适用于 UART4 和 UART5 */
+    /* CTS 中断不适用于 UART4 和 UART5 */
     if (USART_IT == USART_IT_CTS) {
         assert_param(IS_USART_1236_PERIPH(USARTx));
     }
 
     usartxbase = (uint32_t)USARTx;
 
-    /* 获取USART寄存器索引 */
+    /* 获取 USART寄存器索引 */
     usartreg = (((uint8_t)USART_IT) >> 0x05);
 
     /* 获取interrupt position */
@@ -1077,13 +1074,13 @@ void USART_ITConfig(USART_TypeDef* USARTx, uint16_t USART_IT, FunctionalState Ne
   * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
-  *            @arg USART_FLAG_CTS:  CTS更改标志(不适用于 UART4 和 UART5)
+  *            @arg USART_FLAG_CTS:  CTS 更改标志(不适用于 UART4 和 UART5)
   *            @arg USART_FLAG_LBD:  LIN 中断检测标志
   *            @arg USART_FLAG_TXE:  传输数据寄存器为空标志
   *            @arg USART_FLAG_TC:   传输完成标志
   *            @arg USART_FLAG_RXNE: 接收数据寄存器非空标志
   *            @arg USART_FLAG_IDLE: 空闲线路检测标志
-  *            @arg USART_FLAG_ORE:  OverRun错误标志
+  *            @arg USART_FLAG_ORE:  OverRun 错误标志
   *            @arg USART_FLAG_NE:   噪声错误标志
   *            @arg USART_FLAG_FE:   帧错误标志
   *            @arg USART_FLAG_PE:  奇偶校验错误标志
@@ -1110,22 +1107,22 @@ FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG) {
 }
 
 /**
-  * 简介:  清除USARTx 的挂起标志。
+  * 简介:  清除 USARTx 的挂起标志。
   * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
-  *            @arg USART_FLAG_CTS:  CTS更改标志(不适用于 UART4 和 UART5)。
-  *            @arg USART_FLAG_LBD:  LIN断开检测标志。
+  *            @arg USART_FLAG_CTS:  CTS 更改标志(不适用于 UART4 和 UART5)。
+  *            @arg USART_FLAG_LBD:  LIN 断开检测标志。
   *            @arg USART_FLAG_TC:   传输完成标志。
   *            @arg USART_FLAG_RXNE: 接收数据寄存器非空标志。
   *
-  * 注意:   PE(奇偶校验错误)、FE(帧错误)、NE(噪声错误)、ORE(OverRun错误)和
-  *         IDLE(检测到空闲行)标志按软件顺序清除:先读取USART_SR 寄存器
-  *         (USART_GetFlagStatus())，然后读取USART_DR 寄存器(USERT_ReceiveData())。
-  * 注意:   RXNE标志也可以通过读取USART_DR 寄存器(USART_ReceiveData())来清除。
-  * 注意:   TC 标志也可以通过软件序列清除:先读取USART_SR 寄存器(USART_GetFlagStatus())，
+  * 注意:   PE(奇偶校验错误)、FE(帧错误)、NE(噪声错误)、ORE(OverRun 错误)和
+  *         IDLE(检测到空闲行)标志按软件顺序清除:先读取 USART_SR 寄存器
+  *         (USART_GetFlagStatus())，然后读取 USART_DR 寄存器(USERT_ReceiveData())。
+  * 注意:   RXNE 标志也可以通过读取 USART_DR 寄存器(USART_ReceiveData())来清除。
+  * 注意:   TC 标志也可以通过软件序列清除:先读取 USART_SR 寄存器(USART_GetFlagStatus())，
   *             然后写入 USART_DR 寄存器(USATT_SendData())。
-  * 注意:   TXE标志只能通过写入 USART_DR 寄存器(USART_SendData())来清除。
+  * 注意:   TXE 标志只能通过写入 USART_DR 寄存器(USART_SendData())来清除。
   *
   * 返回值: 无
   */
@@ -1145,16 +1142,16 @@ void USART_ClearFlag(USART_TypeDef* USARTx, uint16_t USART_FLAG) {
 /**
   * 简介:  检查指定的 USART 中断是否发生。
   * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
-  * 参数:  USART_IT: 指定要检查的 USART中断源。
+  * 参数:  USART_IT: 指定要检查的 USART 中断源。
   *          此参数可以是以下值之一:
-  *            @arg USART_IT_CTS:  CTS更改中断(不适用于 UART4 和 UART5)
+  *            @arg USART_IT_CTS:  CTS 更改中断(不适用于 UART4 和 UART5)
   *            @arg USART_IT_LBD:  LIN 中断检测中断
   *            @arg USART_IT_TXE:  传输数据寄存器空中断
   *            @arg USART_IT_TC:   传输完成中断
   *            @arg USART_IT_RXNE: 接收数据寄存器非空中断
   *            @arg USART_IT_IDLE: 空闲线路检测中断
-  *            @arg USART_IT_ORE_RX : 如果设置了RXNEIE位，则OverRun Error中断
-  *            @arg USART_IT_ORE_ER : 如果设置了EIE位，则OverRun Error中断
+  *            @arg USART_IT_ORE_RX : 如果设置了 RXNEIE 位，则 OverRun Error 中断
+  *            @arg USART_IT_ORE_ER : 如果设置了 EIE 位，则 OverRun Error 中断
   *            @arg USART_IT_NE:   噪声错误中断
   *            @arg USART_IT_FE:   帧错误中断
   *            @arg USART_IT_PE:   奇偶校验错误中断
@@ -1167,12 +1164,12 @@ ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT) {
     assert_param(IS_USART_ALL_PERIPH(USARTx));
     assert_param(IS_USART_GET_IT(USART_IT));
 
-    /* CTS中断不适用于 UART4 和 UART5 */
+    /* CTS 中断不适用于 UART4 和 UART5 */
     if (USART_IT == USART_IT_CTS) {
         assert_param(IS_USART_1236_PERIPH(USARTx));
     }
 
-    /* 获取USART寄存器索引 */
+    /* 获取 USART寄存器索引 */
     usartreg = (((uint8_t)USART_IT) >> 0x05);
     /* 获取中断位置 */
     itmask = USART_IT & IT_MASK;
@@ -1204,17 +1201,17 @@ ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT) {
   * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_IT: 指定要清除的中断挂起位。
   *          此参数可以是以下值之一:
-  *            @arg USART_IT_CTS:  CTS更改中断(不适用于 UART4 和 UART5)
+  *            @arg USART_IT_CTS:  CTS 更改中断(不适用于 UART4 和 UART5)
   *            @arg USART_IT_LBD:  LIN 中断检测中断
   *            @arg USART_IT_TC:   传输完成中断。
   *            @arg USART_IT_RXNE: 接收数据寄存器非空中断。
   *
-  * 注意:   PE(奇偶校验错误)、FE(帧错误)、NE(噪声错误)、ORE(OverRun错误)和
+  * 注意:   PE(奇偶校验错误)、FE(帧错误)、NE(噪声错误)、ORE(OverRun 错误)和
   *             IDLE(检测到空闲线)挂起的位按软件顺序清除:
-  *             先读取USART_SR 寄存器(USART_GetITStatus())，
-  *             然后读取USART_DR 寄存器(USERT_ReceiveData())
-  * 注意:   RXNE挂起位也可以通过读取USART_DR 寄存器(USART_ReceiveData())来清除。
-  * 注意:   TC挂起位也可以通过软件序列清除:先读取USART_SR 寄存器(USART_GetITStatus())，
+  *             先读取 USART_SR 寄存器(USART_GetITStatus())，
+  *             然后读取 USART_DR 寄存器(USERT_ReceiveData())
+  * 注意:   RXNE挂起位也可以通过读取 USART_DR 寄存器(USART_ReceiveData())来清除。
+  * 注意:   TC挂起位也可以通过软件序列清除:先读取 USART_SR 寄存器(USART_GetITStatus())，
   *             然后写入 USART_DR 寄存器(USATT_SendData())。
   * 注意:   TXE挂起位仅通过写入 USART_DR 寄存器(USART_SendData())来清除。
   *
@@ -1226,7 +1223,7 @@ void USART_ClearITPendingBit(USART_TypeDef* USARTx, uint16_t USART_IT) {
     assert_param(IS_USART_ALL_PERIPH(USARTx));
     assert_param(IS_USART_CLEAR_IT(USART_IT));
 
-    /* CTS中断不适用于 UART4 和 UART5 */
+    /* CTS 中断不适用于 UART4 和 UART5 */
     if (USART_IT == USART_IT_CTS) {
         assert_param(IS_USART_1236_PERIPH(USARTx));
     }

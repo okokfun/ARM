@@ -27,7 +27,7 @@
 * 功能说明:	端口引脚功能选择
 * 输    入: PORT_TypeDef * PORTx	指定PORT端口，有效值包括PORTA、PORTB、PORTC、PORTD、PORTE、PORTM、PORTN
 *			uint32_t n		   		指定PORT 引脚，有效值包括PIN0、PIN1、PIN2、... ... PIN14、PIN15
-*			uint32_t func	   		指定端口引脚要设定的功能，其可取值见"SWM201_port.h"文件
+*			uint32_t func	   		指定端口引脚要设定的功能，其可取值见"SWM201_port.h" 文件
 *			uint32_t digit_in_en   	数字输入使能
 * 输    出: 无
 * 注意事项: 无

@@ -837,7 +837,7 @@ FlagStatus ADC_GetSoftwareStartConvStatus(ADC_TypeDef* ADCx) {
 
 
 /**
-  * 简介:  在每个常规通道转换中启用或禁用EOC。
+  * 简介:  在每个常规通道转换中启用或禁用 EOC。
   * 
   * 参数:  ADCx: 其中 x 可以是1、2 或3，以选择 ADC 外设。
   * 
@@ -1474,7 +1474,7 @@ uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedC
       (+) Flags :
         (##) ADC_FLAG_OVR : 常规转换数据丢失时的溢出检测
 
-        (##) ADC_FLAG_EOC : 常规通道转换结束==>以指示(取决于EOCS位，
+        (##) ADC_FLAG_EOC : 常规通道转换结束==>以指示(取决于EOCS 位，
                             由ADC_EOCOnEachRegularChannelCmd()管理)以下内容的结束:
              (+++) 常规CHANNEL转换
              (+++) 常规GROUP转换的序列。

@@ -377,7 +377,7 @@ void QSPI_AutoPollingMode_SetInterval(uint32_t QSPI_Interval) {
 
 /**
   * 简介:  设置内存映射模式下的超时值
-  * 参数:  QSPI_Timeout: 此字段指示FIFO 满后QSPI等待多少CLK周期，
+  * 参数:  QSPI_Timeout: 此字段指示FIFO 满后QSPI等待多少CLK 周期，
   *                      直到它引发nCS，使闪存处于低消耗状态。
   *         此参数可以是 0x0000 和 0xFFFF 之间的任何值
   * 注意:   此函数仅在内存映射模式中使用
@@ -462,7 +462,7 @@ void QSPI_SetFIFOThreshold(uint32_t QSPI_FIFOThreshold) {
   * 简介:  设置要传输的字节数
   * 参数:  QSPI_DataLength: 在间接和状态轮询模式下要检索的数据数(值+1)。
   *                         状态轮询模式应使用不大于3(表示4字节)的值。
-  *         间接模式中的所有1表示未定义的长度，其中QSPI将持续到内存结束，如FSIZE所定义
+  *         间接模式中的所有 1表示未定义的长度，其中QSPI将持续到内存结束，如FSIZE所定义
   *         此参数可以在0x00000000 和 0xFFFFFFFFFF 之间具有任何值。
   *             0x0000_0000:要传输1个字节
   *             0x0000_0001:要传输2个字节
@@ -641,14 +641,14 @@ void QSPI_DMACmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用指定的 QSPI 中断.
-  * 参数:  QSPI_IT: 指定要启用或禁用的QSPI中断源。
+  * 参数:  QSPI_IT: 指定要启用或禁用的QSPI 中断源。
   *          此参数可以是以下值之一:
   *                @arg QSPI_IT_TO:超时中断
   *                @arg QSPI_IT_SM:状态匹配中断
   *                @arg QSPI_IT_FT:FIFO 阈值
   *                @arg QSPI_IT_TC:传输完成
   *                @arg QSPI_IT_TE:传输错误
-  * 参数:  NewState: 新状态-> 指定的QSPI中断。
+  * 参数:  NewState: 新状态-> 指定的QSPI 中断。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
@@ -749,7 +749,7 @@ void QSPI_ClearFlag(uint32_t QSPI_FLAG) {
 
 /**
   * 简介:  检查指定的 QSPI 中断是否发生。
-  * 参数:  QSPI_IT: 指定要检查的QSPI中断源。
+  * 参数:  QSPI_IT: 指定要检查的QSPI 中断源。
   *          此参数可以是以下值之一:
   *          @arg QSPI_IT_TO: 超时中断
   *          @arg QSPI_IT_SM: 状态匹配中断

@@ -25,7 +25,7 @@ void SerialInit(void) {
     UART_InitStructure UART_initStruct;
 
     PORT_Init(PORTM, PIN0, PORTM_PIN0_UART0_RX, 1);	//GPIOM.0配置为UART0输入引脚
-    PORT_Init(PORTM, PIN1, PORTM_PIN1_UART0_TX, 0);	//GPIOM.1配置为UART0输出引脚
+    PORT_Init(PORTM, PIN1, PORTM_PIN1_UART0_TX, 0);	//GPIOM.1 配置为UART0输出引脚
 
     UART_initStruct.Baudrate = 57600;
     UART_initStruct.DataBits = UART_DATA_8BIT;

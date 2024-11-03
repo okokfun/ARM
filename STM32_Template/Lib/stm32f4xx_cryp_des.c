@@ -86,7 +86,7 @@
   * 
   * 参数:  Key: 用于DES算法的密钥。
   * 
-  * 参数:  Ilength: 输入缓冲区的长度，必须是8的倍数。
+  * 参数:  Ilength: 输入缓冲区的长度，必须是8 的倍数。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 
@@ -186,7 +186,7 @@ ErrorStatus CRYP_DES_ECB(uint8_t Mode, uint8_t Key[8], uint8_t *Input,
   * 
   * 参数:  InitVectors: 用于DES算法的初始化矢量。
   * 
-  * 参数:  Ilength: 输入缓冲区的长度，必须是8的倍数。
+  * 参数:  Ilength: 输入缓冲区的长度，必须是8 的倍数。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 

@@ -186,7 +186,7 @@ void DSI_Init(DSI_TypeDef *DSIx, DSI_InitTypeDef* DSI_InitStruct, DSI_PLLInitTyp
     DSIx->PCONFR &= ~DSI_PCONFR_NL;
     DSIx->PCONFR |= DSI_InitStruct->NumberOfLanes;
 
-    /************************ 设置 DSI时钟参数 ************************/
+    /************************ 设置 DSI 时钟参数 ************************/
     /* 设置 TTX转义时钟分频因子 */
     DSIx->CCR &= ~DSI_CCR_TXECKDIV;
     DSIx->CCR = DSI_InitStruct->TXEscapeCkdiv;
@@ -720,7 +720,7 @@ void DSI_Shutdown(DSI_TypeDef *DSIx, uint32_t Shutdown) {
   * 参数:  Param1: DSC命令或第一个通用参数。
   *                 此参数可以是 @ref DSI_DCS_Command 或通用命令代码.
   * 
-  * 参数:  Param2: DSC参数或第二个通用参数。
+  * 参数:  Param2: DSC 参数或第二个通用参数。
   * 
   * 返回值: 无
   */
@@ -925,7 +925,7 @@ void DSI_EnterULPMData(DSI_TypeDef *DSIx) {
     DSIx->PUCR |= DSI_PUCR_URDL;
 
 
-    /* 等待，直到D-PHY活动通道进入 ULPM */
+    /* 等待，直到 D-PHY活动通道进入 ULPM */
     if((DSIx->PCONFR & DSI_PCONFR_NL) == DSI_ONE_DATA_LANE) {
         while((DSIx->PSR & DSI_PSR_UAN0) != 0)
         {}
@@ -970,7 +970,7 @@ void DSI_EnterULPM(DSI_TypeDef *DSIx) {
     /* 时钟通道配置：不再有HS请求 */
     DSIx->CLCR &= ~DSI_CLCR_DPCC;
 
-    /* 在停止 DSIPHY时钟源之前，使用系统PLL作为字节通道时钟源 */
+    /* 在停止 DSIPHY时钟源之前，使用系统PLL 作为字节通道时钟源 */
     RCC_DSIClockSourceConfig(RCC_DSICLKSource_PLLR);
 
     /* 时钟和数据通道上的 ULPS请求 */
@@ -1019,10 +1019,10 @@ void DSI_ExitULPM(DSI_TypeDef *DSIx) {
     /* 取消断言ULPM请求和 ULPM退出位 */
     DSIx->PUCR = 0;
 
-    /* 将RCC 中的字节时钟源从系统PLL切换到D-PHY */
+    /* 将RCC 中的字节时钟源从系统PLL切换到 D-PHY */
     RCC_DSIClockSourceConfig(RCC_DSICLKSource_PHY);
 
-    /* 将时钟通道配置恢复到HS */
+    /* 将时钟通道配置恢复到 HS */
     DSIx->CLCR |= DSI_CLCR_DPCC;
 }
 
@@ -1479,7 +1479,7 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
             ##### 中断和标记管理函数 #####
  ===============================================================================
 
- [..] 本节提供了一组函数，允许配置 DSI中断源并检查或清除标志或挂起位状态。
+ [..] 本节提供了一组函数，允许配置 DSI 中断源并检查或清除标志或挂起位状态。
       用户应确定在其应用程序中将使用哪种模式来管理通信:轮询模式或中断模式。
 
  *** 轮询模式 ***
@@ -1523,11 +1523,11 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
   */
 
 /**
-  * 简介: 启用或禁用指定的 DSI中断。
+  * 简介: 启用或禁用指定的 DSI 中断。
   * 
   * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数: DSI_IT: 指定要启用或禁用的 DSI中断源。
+  * 参数: DSI_IT: 指定要启用或禁用的 DSI 中断源。
   *          此参数可以是以下值的任意组合:
   *            @arg DSI_IT_TE: 撕裂效果中断
   *            @arg DSI_IT_ER: 刷新中断结束
@@ -1535,7 +1535,7 @@ void DSI_SetContentionDetectionOff(DSI_TypeDef *DSIx, FunctionalState State) {
   *            @arg DSI_IT_PLLU: PLL解锁中断
   *            @arg DSI_IT_RR: 调节器就绪中断
   * 
-  * 参数:  NewState: 指定 DSI中断的新状态。
+  * 参数:  NewState: 指定 DSI 中断的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -1547,10 +1547,10 @@ void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState) 
     assert_param(IS_DSI_IT(DSI_IT));
 
     if(NewState != DISABLE) {
-        /* 启用所选 DSI中断 */
+        /* 启用所选 DSI 中断 */
         DSIx->WIER |= DSI_IT;
     } else {
-        /* 禁用所选 DSI中断 */
+        /* 禁用所选 DSI 中断 */
         DSIx->WIER &= ~DSI_IT;
     }
 }
@@ -1621,7 +1621,7 @@ void DSI_ClearFlag(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
   * 
   * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数: DSI_IT: 指定要检查的 DSI中断源。
+  * 参数: DSI_IT: 指定要检查的 DSI 中断源。
   *          此参数可以是以下值之一:
   *          @arg DSI_IT_TE    : 撕裂效果中断
   *          @arg DSI_IT_ER    : 刷新中断结束
@@ -1642,7 +1642,7 @@ ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
     /* 获取 DSI_IT enable bit 状态 */
     enablestatus = (DSIx->WIER & DSI_IT);
 
-    /* 检查指定 SPI中断的状态 */
+    /* 检查指定 SPI 中断的状态 */
     if (((DSIx->WISR & DSI_IT) != (uint32_t)RESET) && enablestatus) {
         /* DSI_IT 被设置 */
         bitstatus = SET;
@@ -1660,7 +1660,7 @@ ITStatus DSI_GetITStatus(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
   * 
   * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数: DSI_IT: 指定要清除的 DSI中断源。
+  * 参数: DSI_IT: 指定要清除的 DSI 中断源。
   *        此参数可以是以下值之一:
   *            @arg DSI_IT_TE:撕裂效果中断
   *            @arg DSI_IT_ER:刷新中断结束
@@ -1675,7 +1675,7 @@ void DSI_ClearITPendingBit(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
     assert_param(IS_DSI_ALL_PERIPH(DSIx));
     assert_param(IS_DSI_IT(DSI_IT));
 
-    /* 清除 selected DSI interrupt pending 位 */
+    /* 清除被选择的 DSI interrupt pending 位 */
     DSIx->WIFCR = (uint32_t)DSI_IT;
 }
 

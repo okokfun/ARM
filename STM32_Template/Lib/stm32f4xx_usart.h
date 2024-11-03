@@ -52,7 +52,7 @@ typedef struct {
                                             波特率使用以下公式计算:
                                              - IntegerDivider = ((PCLKx) / (8 * (OVR8+1) * (USART_InitStruct->USART_BaudRate)))
                                              - FractionalDivider = ((IntegerDivider - ((u32) IntegerDivider)) * 8 * (OVR8+1)) + 0.5
-                                            其中 OVR8 是 CR1 寄存器中的"8 模式过采样"配置位。*/
+                                            其中 OVR8 是 CR1 寄存器中的 "8 模式过采样"配置位。*/
 
     uint16_t USART_WordLength;          /*!< 指定帧中传输或接收的数据位数。
                                             该参数可以是 @ref USART_Word_Length 的值 */

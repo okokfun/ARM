@@ -153,11 +153,11 @@
   */
 
 /** @defgroup DAC_Group1 DAC 通道配置
- *  简介   DAC 通道配置:触发器、输出缓冲器、数据格式
+ *  简介   DAC 通道配置: 触发器、输出缓冲器、数据格式
  *
 @verbatim
  ===============================================================================
-   ##### DAC 通道配置:触发器、输出缓冲器、数据格式 #####
+   ##### DAC 通道配置: 触发器、输出缓冲器、数据格式 #####
  ===============================================================================
 
 @endverbatim
@@ -227,7 +227,7 @@ void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct) {
 void DAC_StructInit(DAC_InitTypeDef* DAC_InitStruct) {
     /*--------------- 重置 DAC 初始结构参数值-----------------*/
     /* 初始化 DAC_Trigger 成员 */
-    DAC_InitStruct->DAC_Trigger = DAC_Trigger_None;
+    DAC_InitStruct->DAC_Trigger        = DAC_Trigger_None;
     /* 初始化 DAC_WaveGeneration 成员 */
     DAC_InitStruct->DAC_WaveGeneration = DAC_WaveGeneration_None;
     /* 初始化 DAC_LFSRUnmask_TriangleAmplitude 成员 */
@@ -351,9 +351,9 @@ void DAC_WaveGenerationCmd(uint32_t DAC_Channel, uint32_t DAC_Wave, FunctionalSt
   * 
   * 参数:  DAC_Align: 指定 DAC 通道1 的数据排列。
   *          此参数可以是以下值之一:
-  *            @arg DAC_Align_8b_R: 选择8位右侧数据对齐
-  *            @arg DAC_Align_12b_L: 选择了12位的左边数据排列
-  *            @arg DAC_Align_12b_R: 选择了12位的右边数据排列
+  *            @arg DAC_Align_8b_R: 选择 8 位右侧数据对齐
+  *            @arg DAC_Align_12b_L: 选择了 12 位的左边数据排列
+  *            @arg DAC_Align_12b_R: 选择了 12 位的右边数据排列
   * 
   * 参数:  Data: 要加载到选定的数据保持寄存器中的数据。
   * 
@@ -378,9 +378,9 @@ void DAC_SetChannel1Data(uint32_t DAC_Align, uint16_t Data) {
   * 
   * 参数:  DAC_Align: 指定 DAC 通道2 的数据排列。
   *          此参数可以是以下值之一:
-  *            @arg DAC_Align_8b_R: 选择8位右侧数据对齐
-  *            @arg DAC_Align_12b_L: 选择了12位的左边数据排列
-  *            @arg DAC_Align_12b_R: 选择了12位的右边数据排列
+  *            @arg DAC_Align_8b_R: 选择 8 位右侧数据对齐
+  *            @arg DAC_Align_12b_L: 选择了 12 位的左边数据排列
+  *            @arg DAC_Align_12b_R: 选择了 12 位的右边数据排列
   * 
   * 参数:  Data: 要加载到选定的数据保持寄存器中的数据。
   * 
@@ -405,9 +405,9 @@ void DAC_SetChannel2Data(uint32_t DAC_Align, uint16_t Data) {
   * 
   * 参数:  DAC_Align: 指定双通道 DAC 的数据排列。
   *          此参数可以是以下值之一:
-  *            @arg DAC_Align_8b_R: 选择8位右侧数据对齐
-  *            @arg DAC_Align_12b_L: 选择了12位的左边数据排列
-  *            @arg DAC_Align_12b_R: 选择了12位的右边数据排列
+  *            @arg DAC_Align_8b_R: 选择 8 位右侧数据对齐
+  *            @arg DAC_Align_12b_L: 选择了 12 位的左边数据排列
+  *            @arg DAC_Align_12b_R: 选择了 12 位的右边数据排列
   * 
   * 参数:  Data2: 将 DAC 通道2 的数据加载到选定的数据保持寄存器中。
   * 
@@ -487,9 +487,9 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
   * 参数:  NewState: 所选 DAC 通道 DMA 请求的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
-  * 注意:   DAC 通道1被映射到DMA1流5通道7上，该通道必须已经被配置。
+  * 注意:   DAC 通道1 被映射到 DMA1流5通道7上，该通道必须已经被配置。
   * 
-  * 注意:   DAC 通道2被映射到DMA1流6通道7上，该通道必须已经被配置。
+  * 注意:   DAC 通道2被映射到 DMA1流6通道7上，该通道必须已经被配置。
   * 
   * 返回值: 无
   */
@@ -528,9 +528,9 @@ void DAC_DMACmd(uint32_t DAC_Channel, FunctionalState NewState) {
   * 
   * 参数:  DAC_IT: 指定要启用或禁用的 DAC 中断源。
   *          这个参数可以是以下值。
-  *            @arg DAC_IT_DMAUDR: DMA欠运行中断掩码
+  *            @arg DAC_IT_DMAUDR: DMA 欠运行中断掩码
   * 
-  * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
+  * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA 欠载发生。
   * 
   * 参数:  NewState: 指定 DAC 中断的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
@@ -562,9 +562,9 @@ void DAC_ITConfig(uint32_t DAC_Channel, uint32_t DAC_IT, FunctionalState NewStat
   * 
   * 参数:  DAC_FLAG: 指定要检查的标志。
   *          该参数只能是以下值:
-  *            @arg DAC_FLAG_DMAUDR: DMA欠载标志
+  *            @arg DAC_FLAG_DMAUDR: DMA 欠载标志
   * 
-  * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
+  * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA 欠载发生。
   * 
   * 返回值: DAC_FLAG 的新状态(SET 或 RESET)。
   */
@@ -597,9 +597,9 @@ FlagStatus DAC_GetFlagStatus(uint32_t DAC_Channel, uint32_t DAC_FLAG) {
   * 
   * 参数:  DAC_FLAG: 指定要清除的标志。
   *          这个参数可以是以下值:
-  *            @arg DAC_FLAG_DMAUDR: DMA欠载标志
+  *            @arg DAC_FLAG_DMAUDR: DMA 欠载标志
   * 
-  * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
+  * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA 欠载发生。
   * 
   * 返回值: 无
   */
@@ -608,7 +608,7 @@ void DAC_ClearFlag(uint32_t DAC_Channel, uint32_t DAC_FLAG) {
     assert_param(IS_DAC_CHANNEL(DAC_Channel));
     assert_param(IS_DAC_FLAG(DAC_FLAG));
 
-    /* 清除 selected DAC flags */
+    /* 清除被选择的 DAC flags */
     DAC->SR = (DAC_FLAG << DAC_Channel);
 }
 
@@ -622,9 +622,9 @@ void DAC_ClearFlag(uint32_t DAC_Channel, uint32_t DAC_FLAG) {
   * 
   * 参数:  DAC_IT: 指定要检查的 DAC 中断源。
   *          这个参数可以是以下值。
-  *            @arg DAC_IT_DMAUDR: DMA欠运行中断掩码
+  *            @arg DAC_IT_DMAUDR: DMA 欠运行中断掩码
   * 
-  * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
+  * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA 欠载发生。
   * 
   * 返回值: DAC_IT 的新状态(SET 或 RESET)。
   */
@@ -662,9 +662,9 @@ ITStatus DAC_GetITStatus(uint32_t DAC_Channel, uint32_t DAC_IT) {
   * 
   * 参数:  DAC_IT: 指定要清除的 DAC 中断等待位。
   *          这个参数可以是以下值。
-  *            @arg DAC_IT_DMAUDR: DMA欠运行中断掩码
+  *            @arg DAC_IT_DMAUDR: DMA 欠运行中断掩码
   * 
-  * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA欠载发生。
+  * 注意:   当第二个外部触发器在收到第一个外部触发器的确认(第一个请求)之前到达时，DMA 欠载发生。
   * 
   * 返回值: 无
   */
@@ -673,7 +673,7 @@ void DAC_ClearITPendingBit(uint32_t DAC_Channel, uint32_t DAC_IT) {
     assert_param(IS_DAC_CHANNEL(DAC_Channel));
     assert_param(IS_DAC_IT(DAC_IT));
 
-    /* 清除 selected DAC interrupt pending 位 */
+    /* 清除被选择的 DAC 中断挂起位 */
     DAC->SR = (DAC_IT << DAC_Channel);
 }
 
