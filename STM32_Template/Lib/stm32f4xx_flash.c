@@ -31,7 +31,7 @@
       (#) 选项字节编程功能: 该组包括管理选项字节所需的所有功能:
           (++) 设置/重置写保护
           (++) 设置读取保护级别
-          (++) 设置BOR级别
+          (++) 设置 BOR 级别
           (++) 对用户选项字节进行编程
           (++) 启动选项字节加载程序
 
@@ -237,7 +237,7 @@
 /**
   * 简介:  设置代码延迟值。
   * 
-  * 参数:  FLASH_Latency: 指定FLASH Latency值。
+  * 参数:  FLASH_Latency: 指定 FLASH Latency 值。
   *          此参数可以是以下值之一:
   *            @arg FLASH_Latency_0: FLASH Zero 延迟周期
   *            @arg FLASH_Latency_1: FLASH One 延迟周期
@@ -418,9 +418,9 @@ void FLASH_Lock(void) {
   * 参数:  FLASH_Sector: 要擦除的扇区编号。
   *
   *  @note  对于 STM32F405xx/407xx 和 STM32V415xx/417xx 设备，
-  *         此参数可以是介于 FLASH_Sector_0 和 FLASH_Sentor_11之间的值。
+  *         此参数可以是介于 FLASH_Sector_0 和 FLASH_Sentor_11 之间的值。
   *
-  *         对于 STM32F42xxx/43xxx 设备此参数可以是FLASH_Sector_0 和 FLASH_Sector_23之间的值。
+  *         对于 STM32F42xxx/43xxx 设备此参数可以是FLASH_Sector_0 和 FLASH_Sector_23 之间的值。
   *
   *         对于 STM32F401xx 设备，此参数可以是介于 FLASH_Sector_0 和 FLASH_Sctor_5 之间的值。
   *
@@ -442,7 +442,7 @@ void FLASH_Lock(void) {
   *             @arg VoltageRange_4: 当器件电压范围为2.7V至3.6V+外部Vpp 时，
   *                                  将通过双字(64位)进行操作。
   *
-  * 返回值: FLASH Status: 返回的值可以是:FLASH_BUSY、FLASH_ERROR_PROGRAM、
+  * 返回值: FLASH Status: 返回的值可以是: FLASH_BUSY、FLASH_ERROR_PROGRAM、
   *                       FLASH_ARROR_WRP、FLASHE_ERROR_OPERATION或FLASH_COMPLETE。
   */
 FLASH_Status FLASH_EraseSector(uint32_t FLASH_Sector, uint8_t VoltageRange) {
@@ -712,7 +712,7 @@ FLASH_Status FLASH_ProgramDoubleWord(uint32_t Address, uint64_t Data) {
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
   * 参数:  Address: 指定要编程的地址。
-  *         此参数可以是程序内存区域或 OTP区域中的任何地址。
+  *         此参数可以是程序内存区域或 OTP 区域中的任何地址。
   * 
   * 参数:  Data: 指定要编程的数据。
   * 
@@ -755,7 +755,7 @@ FLASH_Status FLASH_ProgramWord(uint32_t Address, uint32_t Data) {
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
   * 参数:  Address: 指定要编程的地址。
-  *         此参数可以是程序内存区域或 OTP区域中的任何地址。
+  *         此参数可以是程序内存区域或 OTP 区域中的任何地址。
   * 
   * 参数:  Data: 指定要编程的数据。
   * 
@@ -798,7 +798,7 @@ FLASH_Status FLASH_ProgramHalfWord(uint32_t Address, uint16_t Data) {
   * 注意:   如果同时请求擦除和程序操作，则擦除操作将在程序操作之前执行。
   *
   * 参数:  Address: 指定要编程的地址。
-  *         此参数可以是程序内存区域或 OTP区域中的任何地址。
+  *         此参数可以是程序内存区域或 OTP 区域中的任何地址。
   * 
   * 参数:  Data: 指定要编程的数据。
   * 
@@ -867,7 +867,7 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
       (+) void FLASH_OB_BootConfig(uint8_t OB_BOOT)
     [..]
      擦除或程序的任何操作都应遵循以下步骤:
-      (#) 调用 FLASH_OB_Unlock() 函数以启用 FLASH选项控制寄存器访问
+      (#) 调用 FLASH_OB_Unlock() 函数以启用 FLASH 选项控制寄存器访问
 
       (#) 调用一个或多个函数来编程所需的选项字节:
         (++) void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState)
@@ -875,13 +875,13 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data) {
         (++) void FLASH_OB_RDPConfig(uint8_t OB_RDP) => 设置所需的读取保护级别
         (++) void FLASH_OB_UserConfig(uint8_t OB_IWDG, uint8_t OB_STOP, uint8_t OB_STDBY)
              => 配置用户选项字节。
-        (++) void FLASH_OB_BORConfig(uint8_t OB_BOR) => 设置BOR级别
+        (++) void FLASH_OB_BORConfig(uint8_t OB_BOR) => 设置 BOR 级别
 
       (#)正确写入所有需要编程的选项字节后，
            调用 FLASH_OB_Launch() 函数启动选项字节编程过程。
-      -@-将 IWDG模式从HW更改为SW或从SW更改为 HW时，
+      -@-将 IWDG 模式从 HW 更改为 SW 或从 SW 更改为 HW 时，
            需要进行系统重置以使更改生效。
-      (#)调用 FLASH_OB_Lock() 函数以禁用 FLASH选项控制寄存器访问
+      (#)调用 FLASH_OB_Lock() 函数以禁用 FLASH 选项控制寄存器访问
           (建议用于保护选项字节免受可能不需要的操作)
 
 @endverbatim
@@ -910,20 +910,20 @@ void FLASH_OB_Unlock(void) {
   * 返回值: 无
   */
 void FLASH_OB_Lock(void) {
-    /* 设置用于锁定FLASH选项字节寄存器访问的 OPTLOCK位 */
+    /* 设置用于锁定 FLASH 选项字节寄存器访问的 OPTLOCK位 */
     FLASH->OPTCR |= FLASH_OPTCR_OPTLOCK;
 }
 
 /**
-  * 简介:  为 Flash 的前 1 Mb 启用或禁用所需扇区的写保护。
+  * 简介:  为 Flash 的前 1Mb 启用或禁用所需扇区的写保护。
   *
-  * 注意:   选择内存读取保护级别(RDP级别=1)时，如果连接了 CortexM4调试功能
+  * 注意:   选择内存读取保护级别(RDP级别=1)时，如果连接了 CortexM4 调试功能
   *         或在 RAM 中执行引导代码，则无法对闪存扇区i进行编程或擦除，即使nWRPi=1
-  * 注意:   当PCROP模式处于活动状态(SPRMOD=1)时，nWRPi位的活动值被反转。
+  * 注意:   当PCROP 模式处于活动状态(SPRMOD=1)时，nWRPi 位的活动值被反转。
   *
   * 参数:  OB_WRP: 指定要写保护或不保护的扇区。
   *          此参数可以是以下值之一:
-  *            @arg OB_WRP: OB_WRP_Sector0 和 OB_WRP _Sector11 之间的值
+  *            @arg OB_WRP: OB_WRP_Sector0 和 OB_WRP_Sector11 之间的值
   *            @arg OB_WRP_Sector_All
   * 
   * 参数:  Newstate: 写保护的新状态。
@@ -950,18 +950,18 @@ void FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState) {
 }
 
 /**
-  * 简介:  为闪存的第二个 1 Mb 启用或禁用所需扇区的写保护。
+  * 简介:  为闪存的第二个 1Mb 启用或禁用所需扇区的写保护。
   *
   * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备。
   *
-  * 注意:   选择内存读取保护时(RDP级别=1)，如果连接了 CortexM4调试功能或
+  * 注意:   选择内存读取保护时(RDP级别=1)，如果连接了 CortexM4 调试功能或
   *         在 RAM 中执行引导代码，则无法编程或擦除闪存扇区i，即使nWRPi=1
   * 
-  * 注意:   当PCROP模式处于活动状态(SPRMOD=1)时，nWRPi位的活动值被反转。
+  * 注意:   当PCROP 模式处于活动状态(SPRMOD=1)时，nWRPi 位的活动值被反转。
   *
   * 参数:  OB_WRP: 指定要写保护或不保护的扇区。
   *          此参数可以是以下值之一:
-  *            @arg OB_WRP: OB_WRP_Sector12 和OB_WRP _Sector23之间的值
+  *            @arg OB_WRP: OB_WRP_Sector12 和 OB_WRP_Sector23 之间的值
   *            @arg OB_WRP_Sector_All
   * 
   * 参数:  Newstate: 写保护的新状态。
@@ -990,7 +990,7 @@ void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState) {
 /**
   * 简介:  选择保护模式 (SPRMOD)。
   *
-  * 注意:   此函数只能用于 STM32F42xxx/43xxx 和 STM32V401xx/411xE设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 和 STM32V401xx/411xE 设备。
   *
   * 注意:   PCROP激活后，无法修改选项字节。
   *         全局读取保护修改级别(级别1 到级别0)出现异常
@@ -999,18 +999,18 @@ void FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState) {
   * 注意:   读取受保护扇区将设置 RDERR 标志，写入受保护扇区将设置 WRPERR 标志
   *
   * 注意:   激活PCROP功能时应采取一些预防措施:
-  *            当PCROP模式激活时，nWRPi位的激活值被反转，这意味着如果 SPRMOD=1
+  *            当PCROP 模式激活时，nWRPi 位的激活值被反转，这意味着如果 SPRMOD=1
   *            WRPi=1(默认值)，则用户扇区i受读/写保护。
-  *            为了避免为不需要的扇区激活PCROP模式，请遵循以下安全顺序:
+  *            为了避免为不需要的扇区激活PCROP 模式，请遵循以下安全顺序:
   *            -使用 FLASH_OB_PCROP_Config(OB_PCROP Sector_all，Disable) 函数为所有扇区禁用 PCROP
   *               对于Bank1或对于Bank2 的 FLASH_OB_PCROP_Sector_All，DISABLE) 函数
   *            -使用 FLASH_OB_PCROPConfig(Sector i，Enable) 功能为所需扇区i启用 PCROP
-  *            -激活PCROP模式FLASH_OB_PCROPSelectionConfig() 功能。
+  *            -激活PCROP 模式FLASH_OB_PCROPSelectionConfig() 功能。
   *
-  * 参数:  OB_PCROP:  选择nWPRi位的保护模式
+  * 参数:  OB_PCROP:  选择nWPRi 位的保护模式
   *          此参数可以是以下值之一:
-  *            @arg OB_PcROP_Disable: nWRPi控制各个用户扇区的写保护。
-  *            @arg OB_PcROP_Enable: nWRPi控制各个用户扇区的读写保护(PCROP)。
+  *            @arg OB_PcROP_Disable: nWRPi 控制各个用户扇区的写保护。
+  *            @arg OB_PcROP_Enable: nWRPi 控制各个用户扇区的读写保护(PCROP)。
   * 
   * 返回值: 无
   */
@@ -1034,8 +1034,8 @@ void FLASH_OB_PCROPSelectionConfig(uint8_t OB_PcROP) {
   * 参数:  OB_PCROP: 指定要读/写保护或不保护的扇区。
   *          此参数可以是以下值之一:
   *            @arg OB_PCROP: STM32F42xxx/43xxx 设备的 OB_PCROP_Sector0 和
-  *                           OB_PCROP_Sector11之间的值，STM32V401xx/411xE设备的
-  *                           OB-PCROP_Sector0 和OB-PCROP_Sector5 之间的值。
+  *                           OB_PCROP_Sector11 之间的值，STM32V401xx/411xE 设备的
+  *                           OB-PCROP_Sector0 和 OB-PCROP_Sector5 之间的值。
   *            @arg OB_PCROP_Sector_All
   * 
   * 参数:  Newstate: 写保护的新状态。
@@ -1068,7 +1068,7 @@ void FLASH_OB_PCROPConfig(uint32_t OB_PCROP, FunctionalState NewState) {
   *
   * 参数:  OB_PCROP: 指定要读/写保护或不保护的扇区。
   *          此参数可以是以下值之一:
-  *            @arg OB_PCROP: OB_PCROP_Sector12 和OB_PCROP_Sector23之间的值
+  *            @arg OB_PCROP: OB_PCROP_Sector12 和 OB_PCROP_Sector23 之间的值
   *            @arg OB_PCROP_Sector_All
   * 参数:  Newstate: 写保护的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
@@ -1123,10 +1123,10 @@ void FLASH_OB_RDPConfig(uint8_t OB_RDP) {
 /**
   * 简介:  对 FLASH 用户选项字节进行编程:IWDG_SW / RST_STOP / RST_STDBY。
   * 
-  * 参数:  OB_IWDG: 选择 IWDG模式
+  * 参数:  OB_IWDG: 选择 IWDG 模式
   *          此参数可以是以下值之一:
-  *            @arg OB_IWDG_SW: 已选择软件IWDG
-  *            @arg OB_IWDG_HW: 已选择硬件IWDG
+  *            @arg OB_IWDG_SW: 已选择软件 IWDG
+  *            @arg OB_IWDG_HW: 已选择硬件 IWDG
   * 
   * 参数:  OB_STOP: 进入停止模式时重置事件。
   *         此参数可以是以下值之一:
@@ -1135,8 +1135,8 @@ void FLASH_OB_RDPConfig(uint8_t OB_RDP) {
   * 
   * 参数:  OB_STDBY:进入待机模式时重置事件。
   *         此参数可以是以下值之一:
-  *             @arg OB_STDBY_NoRST:输入 STANDBY时未生成重置
-  *             @arg OB_STDBY_RST:输入 STANDBY时生成重置
+  *             @arg OB_STDBY_NoRST:输入 STANDBY 时未生成重置
+  *             @arg OB_STDBY_RST:输入 STANDBY 时生成重置
   * 
   * 返回值: 无
   */
@@ -1195,10 +1195,10 @@ void FLASH_OB_BootConfig(uint8_t OB_BOOT) {
   * 
   * 参数:  OB_BOR: 指定选项字节BOR重置级别。
   *          此参数可以是以下值之一:
-  *             @arg OB_BOR_LEVEL3:电源电压范围为2.7至3.6 V
-  *             @arg OB_BOR_LEVEL2:电源电压范围为2.4至2.7 V
-  *             @arg OB_BOR_LEVEL1:电源电压范围为2.1至2.4 V
-  *             @arg OB_BOR_OFF:电源电压范围为1.62至2.1 V
+  *             @arg OB_BOR_LEVEL3: 电源电压范围为2.7至3.6 V
+  *             @arg OB_BOR_LEVEL2: 电源电压范围为2.4至2.7 V
+  *             @arg OB_BOR_LEVEL1: 电源电压范围为2.1至2.4 V
+  *             @arg OB_BOR_OFF: 电源电压范围为1.62至2.1 V
   * 
   * 返回值: 无
   */
@@ -1217,7 +1217,7 @@ void FLASH_OB_BORConfig(uint8_t OB_BOR) {
   * 
   * 参数:  无
   * 
-  * 返回值: FLASH Status: 返回的值可以是:FLASH_BUSY、FLASH_ERROR_PROGRAM、
+  * 返回值: FLASH Status: 返回的值可以是: FLASH_BUSY、FLASH_ERROR_PROGRAM、
   *                       FLASH_ARROR_WRP、FLASHE_ERROR_OPERATION或FLASH_COMPLETE。
   */
 FLASH_Status FLASH_OB_Launch(void) {
@@ -1304,7 +1304,7 @@ uint16_t FLASH_OB_GetPCROP1(void) {
   * 参数:  无
   * 
   * 返回值: 闪存读取保护状态:
-  *           - SET, 当OB_RDP_Level_1或 OB_RDP_Level_2被设置时。
+  *           - SET, 当OB_RDP_Level_1或 OB_RDP_Level_2 被设置时。
   *           - RESET, 当OB_RDP_Level_0被设置时。
   */
 FlagStatus FLASH_OB_GetRDP(void) {
@@ -1324,11 +1324,11 @@ FlagStatus FLASH_OB_GetRDP(void) {
   * 
   * 参数:  无
   * 
-  * 返回值: 闪存BOR级别:
-  *       - OB_BOR_LEVEL3:电源电压范围为2.7至3.6 V
-  *       - OB_BOR_LEVEL2:电源电压范围为2.4至2.7 V
-  *       - OB_BOR_LEVEL1:电源电压范围为2.1至2.4 V
-  *       - OB_BOR_OFF:电源电压范围为1.62至2.1 V
+  * 返回值: 闪存BOR 级别:
+  *       - OB_BOR_LEVEL3: 电源电压范围为2.7至3.6 V
+  *       - OB_BOR_LEVEL2: 电源电压范围为2.4至2.7 V
+  *       - OB_BOR_LEVEL1: 电源电压范围为2.1至2.4 V
+  *       - OB_BOR_OFF: 电源电压范围为1.62至2.1 V
   */
 uint8_t FLASH_OB_GetBOR(void) {
     /* 返回FLASH BOR level */
@@ -1375,14 +1375,14 @@ void FLASH_ITConfig(uint32_t FLASH_IT, FunctionalState NewState) {
   * 
   * 参数:  FLASH_FLAG: 指定要检查的 FLASH标志。
   *          此参数可以是以下值之一:
-  *             @arg FLASH_FLAG_EOP:FLASH 操作结束标志
-  *             @arg FLASH_FLAG_OPERR:FLASH 操作错误标志
-  *             @arg FLASH_FLAG_WRPERR:FLASH写保护错误标志
-  *             @arg FLASH_FLAG_PGAERR:FLASH编程校准错误标志
-  *             @arg FLASH_FLAG_PGPERR:FLASH编程并行性错误标志
-  *             @arg FLASH_FLAG_PGSERR:FLASH编程序列错误标志
-  *             @arg FLASH_FLAG_RDERR:FLASH(PCROP)读保护错误标志(STM32F42xx/43xxx 和 STM32F2F401xx/411xE设备)
-  *             @arg FLASH_FLAG_BSY:FLASH Busy标志
+  *             @arg FLASH_FLAG_EOP: FLASH 操作结束标志
+  *             @arg FLASH_FLAG_OPERR: FLASH 操作错误标志
+  *             @arg FLASH_FLAG_WRPERR: FLASH写保护错误标志
+  *             @arg FLASH_FLAG_PGAERR: FLASH编程校准错误标志
+  *             @arg FLASH_FLAG_PGPERR: FLASH编程并行性错误标志
+  *             @arg FLASH_FLAG_PGSERR: FLASH编程序列错误标志
+  *             @arg FLASH_FLAG_RDERR: FLASH(PCROP)读保护错误标志(STM32F42xx/43xxx 和 STM32F2F401xx/411xE 设备)
+  *             @arg FLASH_FLAG_BSY: FLASH Busy标志
   * 
   * 返回值: FLASH_FLAG 的新状态(SET 或 RESET)。
   */
@@ -1406,13 +1406,13 @@ FlagStatus FLASH_GetFlagStatus(uint32_t FLASH_FLAG) {
   * 
   * 参数:  FLASH_FLAG: 指定要清除的 FLASH标志。
   *          此参数可以是以下值的任意组合:
-  *            @arg FLASH_FLAG_EOP:FLASH 操作结束标志
-  *            @arg FLASH_FLAG_OPERR:FLASH 操作错误标志
-  *            @arg FLASH_FLAG_WRPERR:FLASH写保护错误标志
-  *            @arg FLASH_FLAG_PGAERR:FLASH编程校准错误标志
-  *            @arg FLASH_FLAG_PGPERR:FLASH编程并行性错误标志
-  *            @arg FLASH_FLAG_PGSERR:FLASH编程序列错误标志
-  *            @arg FLASH_FLAG_RDERR:闪存读取保护错误标志(STM32F42xx/43xxx 和 STM32V401xx/411xE设备)
+  *            @arg FLASH_FLAG_EOP: FLASH 操作结束标志
+  *            @arg FLASH_FLAG_OPERR: FLASH 操作错误标志
+  *            @arg FLASH_FLAG_WRPERR: FLASH写保护错误标志
+  *            @arg FLASH_FLAG_PGAERR: FLASH编程校准错误标志
+  *            @arg FLASH_FLAG_PGPERR: FLASH编程并行性错误标志
+  *            @arg FLASH_FLAG_PGSERR: FLASH编程序列错误标志
+  *            @arg FLASH_FLAG_RDERR:闪存读取保护错误标志(STM32F42xx/43xxx 和 STM32V401xx/411xE 设备)
   * 
   * 返回值: 无
   */

@@ -89,7 +89,7 @@
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
   * 
-  * 参数:  Key: 用于AES算法的密钥。
+  * 参数:  Key: 用于AES 算法的密钥。
   * 
   * 参数:  Keysize: 密钥的长度必须为128、192 或256。
   * 
@@ -218,7 +218,7 @@ ErrorStatus CRYP_AES_ECB(uint8_t Mode, uint8_t* Key, uint16_t Keysize,
     CRYP_Cmd(ENABLE);
 
     if(CRYP_GetCmdStatus() == DISABLE) {
-        /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+        /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
         return(ERROR);
     }
 
@@ -272,9 +272,9 @@ ErrorStatus CRYP_AES_ECB(uint8_t Mode, uint8_t* Key, uint16_t Keysize,
   *            @arg MODE_ENCRYPT:加密
   *            @arg MODE_DECRYPT:解密
   * 
-  * 参数:  InitVectors: 用于AES算法的初始化矢量。
+  * 参数:  InitVectors: 用于AES 算法的初始化矢量。
   * 
-  * 参数:  Key: 用于AES算法的密钥。
+  * 参数:  Key: 用于AES 算法的密钥。
   * 
   * 参数:  Keysize: 密钥的长度必须为128、192 或256。
   * 
@@ -356,7 +356,7 @@ ErrorStatus CRYP_AES_CBC(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
             break;
     }
 
-    /* CRYP 初始化Vectors */
+    /* CRYP 初始化 Vectors */
     AES_CRYP_IVInitStructure.CRYP_IV0Left = __REV(*(uint32_t*)(ivaddr));
     ivaddr += 4;
     AES_CRYP_IVInitStructure.CRYP_IV0Right = __REV(*(uint32_t*)(ivaddr));
@@ -409,7 +409,7 @@ ErrorStatus CRYP_AES_CBC(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
     AES_CRYP_InitStructure.CRYP_DataType = CRYP_DataType_8b;
     CRYP_Init(&AES_CRYP_InitStructure);
 
-    /* CRYP 初始化Vectors */
+    /* CRYP 初始化 Vectors */
     CRYP_IVInit(&AES_CRYP_IVInitStructure);
 
     /* Flush IN/OUT FIFOs */
@@ -419,7 +419,7 @@ ErrorStatus CRYP_AES_CBC(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
     CRYP_Cmd(ENABLE);
 
     if(CRYP_GetCmdStatus() == DISABLE) {
-        /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+        /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
         return(ERROR);
     }
 
@@ -472,9 +472,9 @@ ErrorStatus CRYP_AES_CBC(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
   * 
-  * 参数:  InitVectors: 用于AES算法的初始化矢量。
+  * 参数:  InitVectors: 用于AES 算法的初始化矢量。
   * 
-  * 参数:  Key: 用于AES算法的密钥。
+  * 参数:  Key: 用于AES 算法的密钥。
   * 
   * 参数:  Keysize: 密钥的长度必须为128、192 或256。
   * 
@@ -556,7 +556,7 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
             break;
     }
 
-    /* CRYP 初始化Vectors */
+    /* CRYP 初始化 Vectors */
     AES_CRYP_IVInitStructure.CRYP_IV0Left = __REV(*(uint32_t*)(ivaddr));
     ivaddr += 4;
     AES_CRYP_IVInitStructure.CRYP_IV0Right = __REV(*(uint32_t*)(ivaddr));
@@ -583,7 +583,7 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
     AES_CRYP_InitStructure.CRYP_DataType = CRYP_DataType_8b;
     CRYP_Init(&AES_CRYP_InitStructure);
 
-    /* CRYP 初始化Vectors */
+    /* CRYP 初始化 Vectors */
     CRYP_IVInit(&AES_CRYP_IVInitStructure);
 
     /* Flush IN/OUT FIFOs */
@@ -593,7 +593,7 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
     CRYP_Cmd(ENABLE);
 
     if(CRYP_GetCmdStatus() == DISABLE) {
-        /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+        /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
         return(ERROR);
     }
 
@@ -646,9 +646,9 @@ ErrorStatus CRYP_AES_CTR(uint8_t Mode, uint8_t InitVectors[16], uint8_t *Key,
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
   * 
-  * 参数:  InitVectors: 用于AES算法的初始化矢量。
+  * 参数:  InitVectors: 用于AES 算法的初始化矢量。
   * 
-  * 参数:  Key: 用于AES算法的密钥。
+  * 参数:  Key: 用于AES 算法的密钥。
   * 
   * 参数:  Keysize: 密钥的长度必须为128、192 或256。
   * 
@@ -741,7 +741,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
             break;
     }
 
-    /* CRYP 初始化Vectors */
+    /* CRYP 初始化 Vectors */
     AES_CRYP_IVInitStructure.CRYP_IV0Left = __REV(*(uint32_t*)(ivaddr));
     ivaddr += 4;
     AES_CRYP_IVInitStructure.CRYP_IV0Right = __REV(*(uint32_t*)(ivaddr));
@@ -758,7 +758,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
         /* 密钥初始化 */
         CRYP_KeyInit(&AES_CRYP_KeyInitStructure);
 
-        /* CRYP 初始化Vectors */
+        /* CRYP 初始化 Vectors */
         CRYP_IVInit(&AES_CRYP_IVInitStructure);
 
         /* 用于解密过程密钥准备的加密初始化 */
@@ -787,7 +787,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
             CRYP_Cmd(ENABLE);
 
             if(CRYP_GetCmdStatus() == DISABLE) {
-                /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+                /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
                 return(ERROR);
             }
 
@@ -829,7 +829,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
             CRYP_Cmd(ENABLE);
 
             if(CRYP_GetCmdStatus() == DISABLE) {
-                /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+                /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
                 return(ERROR);
             }
 
@@ -884,11 +884,11 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
         CRYP_Cmd(ENABLE);
 
         if(CRYP_GetCmdStatus() == DISABLE) {
-            /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+            /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
             return(ERROR);
         }
 
-        /* 写入FIFO 中与头连接的位数 */
+        /* 写入 FIFO 中与头连接的位数 */
         CRYP_DataIn(__REV(headerlength >> 32));
         CRYP_DataIn(__REV(headerlength));
         CRYP_DataIn(__REV(inputlength >> 32));
@@ -917,7 +917,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
         /* 密钥初始化 */
         CRYP_KeyInit(&AES_CRYP_KeyInitStructure);
 
-        /* CRYP 初始化Vectors */
+        /* CRYP 初始化 Vectors */
         CRYP_IVInit(&AES_CRYP_IVInitStructure);
 
         /* 用于解密过程密钥准备的加密初始化 */
@@ -946,7 +946,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
             CRYP_Cmd(ENABLE);
 
             if(CRYP_GetCmdStatus() == DISABLE) {
-                /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+                /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
                 return(ERROR);
             }
 
@@ -988,7 +988,7 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
             CRYP_Cmd(ENABLE);
 
             if(CRYP_GetCmdStatus() == DISABLE) {
-                /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+                /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
                 return(ERROR);
             }
 
@@ -1043,11 +1043,11 @@ ErrorStatus CRYP_AES_GCM(uint8_t Mode, uint8_t InitVectors[16],
         CRYP_Cmd(ENABLE);
 
         if(CRYP_GetCmdStatus() == DISABLE) {
-            /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+            /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
             return(ERROR);
         }
 
-        /* 写入FIFO 中与头连接的位数 */
+        /* 写入 FIFO 中与头连接的位数 */
         CRYP_DataIn(__REV(headerlength >> 32));
         CRYP_DataIn(__REV(headerlength));
         CRYP_DataIn(__REV(inputlength >> 32));
@@ -1263,7 +1263,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
             break;
     }
 
-    /* CRYP 初始化Vectors */
+    /* CRYP 初始化 Vectors */
     AES_CRYP_IVInitStructure.CRYP_IV0Left = (__REV(*(uint32_t*)(ctraddr)));
     ctraddr += 4;
     AES_CRYP_IVInitStructure.CRYP_IV0Right = (__REV(*(uint32_t*)(ctraddr)));
@@ -1280,7 +1280,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
         /* 密钥初始化 */
         CRYP_KeyInit(&AES_CRYP_KeyInitStructure);
 
-        /* CRYP 初始化Vectors */
+        /* CRYP 初始化 Vectors */
         CRYP_IVInit(&AES_CRYP_IVInitStructure);
 
         /* 用于解密过程密钥准备的加密初始化 */
@@ -1319,7 +1319,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
             CRYP_Cmd(ENABLE);
 
             if(CRYP_GetCmdStatus() == DISABLE) {
-                /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+                /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
                 return(ERROR);
             }
 
@@ -1361,7 +1361,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
             CRYP_Cmd(ENABLE);
 
             if(CRYP_GetCmdStatus() == DISABLE) {
-                /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+                /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
                 return(ERROR);
             }
 
@@ -1416,7 +1416,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
         CRYP_Cmd(ENABLE);
 
         if(CRYP_GetCmdStatus() == DISABLE) {
-            /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+            /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
             return(ERROR);
         }
 
@@ -1488,7 +1488,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
             CRYP_Cmd(ENABLE);
 
             if(CRYP_GetCmdStatus() == DISABLE) {
-                /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+                /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
                 return(ERROR);
             }
 
@@ -1530,7 +1530,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
             CRYP_Cmd(ENABLE);
 
             if(CRYP_GetCmdStatus() == DISABLE) {
-                /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+                /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
                 return(ERROR);
             }
 
@@ -1585,7 +1585,7 @@ ErrorStatus CRYP_AES_CCM(uint8_t Mode,
         CRYP_Cmd(ENABLE);
 
         if(CRYP_GetCmdStatus() == DISABLE) {
-            /* CRYP外围时钟未启用或设备未嵌入CRYP外设(请检查设备销售类型)。 */
+            /* CRYP 外围时钟未启用或设备未嵌入 CRYP 外设(请检查设备销售类型)。 */
             return(ERROR);
         }
 

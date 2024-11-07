@@ -213,7 +213,7 @@ void CRYP_Init(CRYP_InitTypeDef* CRYP_InitStruct) {
     CRYP->CR &= ~CRYP_CR_DATATYPE;
     CRYP->CR |= CRYP_InitStruct->CRYP_DataType;
 
-    /* 选择密钥大小(仅用于AES算法) */
+    /* 选择密钥大小(仅用于AES 算法) */
     if ((CRYP_InitStruct->CRYP_AlgoMode != CRYP_AlgoMode_TDES_ECB) &&
             (CRYP_InitStruct->CRYP_AlgoMode != CRYP_AlgoMode_TDES_CBC) &&
             (CRYP_InitStruct->CRYP_AlgoMode != CRYP_AlgoMode_DES_ECB) &&
@@ -360,7 +360,7 @@ void CRYP_FIFOFlush(void) {
 }
 
 /**
-  * 简介:  启用或禁用 CRYP外设设备。
+  * 简介:  启用或禁用 CRYP 外设设备。
   * 
   * 参数:  NewState: CRYP 外围的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
@@ -438,7 +438,7 @@ uint32_t CRYP_DataOut(void) {
   */
 
 /**
-  * 简介:  保存CRYP外设上下文。
+  * 简介:  保存CRYP 外设上下文。
   * 
   * 注意:   该函数在保存上下文之前停止 DMA 传输。在 恢复上下文后，
   *         你必须再次启用 DMA(如果以前使用过 DMA)。
@@ -458,7 +458,7 @@ ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
     /* 通过清除 CRYP_DMACR 中的 DIEN 位停止IN FIFO上的 DMA 传输。 */
     CRYP->DMACR &= ~(uint32_t)CRYP_DMACR_DIEN;
 
-    /* 等到 IN 和OUT FIFO 都是空的(CRYP_SR 寄存器中IFEM=1和OfNE=0)，BUSY位被清除。 */
+    /* 等到 IN 和 OUT FIFO 都是空的(CRYP_SR 寄存器中IFEM=1和 OfNE=0)，BUSY位被清除。 */
 
     if ((CRYP->CR & (uint32_t)(CRYP_CR_ALGOMODE_TDES_ECB | CRYP_CR_ALGOMODE_TDES_CBC)) != (uint32_t)0 ) { /* TDES */
         ckeckmask =  CRYP_SR_IFEM | CRYP_SR_BUSY ;
@@ -488,7 +488,7 @@ ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
                                               CRYP_CR_ALGOMODE |
                                               CRYP_CR_ALGODIR);
 
-        /* and, if not in ECB mode, the 初始化Vectors. */
+        /* and, if not in ECB mode, the 初始化 Vectors. */
         CRYP_ContextSave->CRYP_IV0LR = CRYP->IV0LR;
         CRYP_ContextSave->CRYP_IV0RR = CRYP->IV0RR;
         CRYP_ContextSave->CRYP_IV1LR = CRYP->IV1LR;
@@ -523,7 +523,7 @@ ErrorStatus CRYP_SaveContext(CRYP_Context* CRYP_ContextSave,
         CRYP_ContextSave->CRYP_CSGCMR[6] = CRYP->CSGCM6R;
         CRYP_ContextSave->CRYP_CSGCMR[7] = CRYP->CSGCM7R;
 
-        /* 需要时，保存DMA状态(IN 和OUT信息的指针，剩余字节数等)。 */
+        /* 需要时，保存DMA状态(IN 和 OUT信息的指针，剩余字节数等)。 */
 
         status = SUCCESS;
     }
@@ -558,7 +558,7 @@ void CRYP_RestoreContext(CRYP_Context* CRYP_ContextRestore) {
     CRYP->K3LR = CRYP_ContextRestore->CRYP_K3LR;
     CRYP->K3RR = CRYP_ContextRestore->CRYP_K3RR;
 
-    /* and the 初始化Vectors. */
+    /* and the 初始化 Vectors. */
     CRYP->IV0LR = CRYP_ContextRestore->CRYP_IV0LR;
     CRYP->IV0RR = CRYP_ContextRestore->CRYP_IV0RR;
     CRYP->IV1LR = CRYP_ContextRestore->CRYP_IV1LR;
@@ -645,12 +645,12 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
  *** Flags : ***
  ===============
  [..]
-   (#) CRYP_FLAG_IFEM : 当输入FIFO 为空时设置。这个标志只能由硬件清除。
+   (#) CRYP_FLAG_IFEM : 当输入 FIFO 为空时设置。这个标志只能由硬件清除。
 
-   (#) CRYP_FLAG_IFNF : 当输入FIFO未满时设置。该标志仅由硬件清除。
+   (#) CRYP_FLAG_IFNF : 当输入 FIFO未满时设置。该标志仅由硬件清除。
 
 
-   (#) CRYP_FLAG_INRIS : 当输入FIFO原始中断等待时设置，它给出输入FIFO服务中断屏蔽前的原始中断状态。
+   (#) CRYP_FLAG_INRIS : 当输入 FIFO原始中断等待时设置，它给出输入 FIFO服务中断屏蔽前的原始中断状态。
                          这个标志只能由硬件来清除。
 
    (#) CRYP_FLAG_OFNE : 当输出FIFO不空时设置。该标志仅由硬件清除。
@@ -666,12 +666,12 @@ void CRYP_DMACmd(uint8_t CRYP_DMAReq, FunctionalState NewState) {
  *** 中断 : ***
  ====================
  [..]
-   (#) CRYP_IT_INI   : 当输入FIFO 中的字数少于4个时，输入FIFO服务中断被断言。
+   (#) CRYP_IT_INI   : 当输入 FIFO 中的字数少于4个时，输入 FIFO服务中断被断言。
                        这个中断与 CRYP_FLAG_INRIS标志相关。
 
-      -@- 该中断通过对输入FIFO进行写操作而被清除，直到它容纳4个或更多的字。
-          输入FIFO服务中断INMIS是通过 CRYP使能位启用的。因此，当 CRYP被禁用时，
-          即使输入FIFO 为空，INMIS信号也是低电平。
+      -@- 该中断通过对输入 FIFO进行写操作而被清除，直到它容纳4个或更多的字。
+          输入 FIFO服务中断INMIS是通过 CRYP使能位启用的。因此，当 CRYP被禁用时，
+          即使输入 FIFO 为空，INMIS信号也是低电平。
 
 
 
@@ -763,7 +763,7 @@ ITStatus CRYP_GetITStatus(uint8_t CRYP_IT) {
   * 
   * 参数:  无.
   * 
-  * 返回值: CRYP外设的当前状态(ENABLE 或 DISABLE)。
+  * 返回值: CRYP 外设的当前状态(ENABLE 或 DISABLE)。
   */
 FunctionalState CRYP_GetCmdStatus(void) {
     FunctionalState state = DISABLE;

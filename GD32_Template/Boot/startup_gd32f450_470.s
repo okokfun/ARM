@@ -88,7 +88,7 @@ __Vectors       DCD     __initial_sp                      ; 栈顶
                 DCD     LVD_IRQHandler                    ; 17:LVD through EXTI Line detect
                 DCD     TAMPER_STAMP_IRQHandler           ; 18: Tamper and TimeStamp through EXTI Line detect
                 DCD     RTC_WKUP_IRQHandler               ; 19:RTC Wakeup through EXTI Line
-                DCD     FMC_IRQHandler                    ; 20:FMC
+                DCD     FMC_IRQHandler                    ; 20: FMC
                 DCD     RCU_CTC_IRQHandler                ; 21:RCU and CTC
                 DCD     EXTI0_IRQHandler                  ; 22:EXTI Line 0
                 DCD     EXTI1_IRQHandler                  ; 23:EXTI Line 1
@@ -165,7 +165,7 @@ __Vectors       DCD     __initial_sp                      ; 栈顶
                 DCD     DCI_IRQHandler                    ; 94:DCI
                 DCD     0                                 ; 95:Reserved
                 DCD     TRNG_IRQHandler                   ; 96: TRNG
-                DCD     FPU_IRQHandler                    ; 97:FPU
+                DCD     FPU_IRQHandler                    ; 97: FPU
                 DCD     UART6_IRQHandler                  ; 98:UART6
                 DCD     UART7_IRQHandler                  ; 99:UART7
                 DCD     SPI3_IRQHandler                   ; 100: SPI3

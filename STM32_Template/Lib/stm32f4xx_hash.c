@@ -190,7 +190,7 @@ void HASH_Init(HASH_InitTypeDef* HASH_InitStruct) {
   * 
   * 参数:  HASH_InitStruct : 指向将被初始化的 HASH_InitTypeDef 结构的指针。
   * 
-  * @note  默认值设置为:处理器模式为 HASH，选择的算法为SHA1，选择的数据类型为32b，HMAC密钥类型为短键。
+  * @note  默认值设置为:处理器模式为 HASH，选择的算法为 SHA1，选择的数据类型为32b，HMAC密钥类型为短键。
   * 
   * 返回值: 无
   */
@@ -266,7 +266,7 @@ void HASH_SetLastWordValidBitsNbr(uint16_t ValidNumber) {
 }
 
 /**
-  * 简介:  将数据写入数据输入FIFO
+  * 简介:  将数据写入数据输入 FIFO
   * 
   * 参数:  Data:待处理消息的新数据。
   * 
@@ -336,7 +336,7 @@ void HASH_StartDigest(void) {
 
  [..] 可以中断HASH/HMAC 进程以执行具有较高优先级的另一个处理，
 	并在较高优先级任务完成后完成中断的进程。
-	为此，中断任务的上下文必须从HASH寄存器保存到内存，然后从内存恢复到 HASH注册表。
+	为此，中断任务的上下文必须从 HASH寄存器保存到内存，然后从内存恢复到 HASH注册表。
 
    (#) 要保存当前上下文，请使用 HASH_SaveContext() 函数
    (#) 要还原保存的上下文，请使用 HASH_RestoreContext() 函数
@@ -349,7 +349,7 @@ void HASH_StartDigest(void) {
   * 简介:  保存哈希外设上下文。
   * 
   * 注意:   仅当当前未处理任何块时，才能保存上下文。
-    *                  因此用户必须等待 DINIS=1(最后一个块已处理，输入FIFO 为空)或NBW！=0(FIFO未满，未进行任何处理)。
+    *                  因此用户必须等待 DINIS=1(最后一个块已处理，输入 FIFO 为空)或NBW！=0(FIFO未满，未进行任何处理)。
     * 
   * 参数:  HASH_ContextSave: 指向包含当前上下文存储库的 HASH_Context 结构的指针。
   * 
@@ -482,7 +482,7 @@ void HASH_DMACmd(FunctionalState NewState) {
  *** 中断 : ***
  ====================
  [..]
-   (#) HASH_IT_DINI  : 如果启用，当数据输入FIFO 中有 16个位置空闲时，该中断源处于待定状态，
+   (#) HASH_IT_DINI  : 如果启用，当数据输入 FIFO 中有 16个位置空闲时，该中断源处于待定状态，
 	这意味着可以将新块(512位)输入到输入缓冲器中。
 	使用 HASH_ClearITPendingBit(HASH_IT_DINI) 函数清除此中断源。
 

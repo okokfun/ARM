@@ -21,7 +21,7 @@
         计数器开始从重置值 0xFFF 开始倒数。当它到达计数结束值(0x000)时，就会产生系统复位。
       IWDG 计数器应定期重新加载以防止 MCU 复位。
 
-      IWDG 在 VDD 电压域中实现，在 STOP 和 STANDBY 模式下仍然有效(IWDG 复位可以从STANDBY唤醒)。
+      IWDG 在 VDD 电压域中实现，在 STOP 和 STANDBY 模式下仍然有效(IWDG 复位可以从 STANDBY唤醒)。
 
       RCC_CSR 寄存器中的 IWDGRST 标志可用于通知何时发生 IWDG 复位。
 

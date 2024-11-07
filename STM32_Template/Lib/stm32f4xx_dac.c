@@ -207,7 +207,7 @@ void DAC_Init(uint32_t DAC_Channel, DAC_InitTypeDef* DAC_InitStruct) {
     /* 根据 DAC_Trigger设置 TSELx 和 TENx 位值 */
     /* 根据 DAC_WaveGeneration设置 WAVEx 位值 */
     /* 根据 DAC_LFSRUnmask_TriangleAmplitude 设置MAMPx 位值 */
-    /* 根据 DAC_OutputBuffer设置BOFFx 位值 */
+    /* 根据 DAC_OutputBuffer设置 BOFFx 位值 */
     tmpreg2 = (DAC_InitStruct->DAC_Trigger | DAC_InitStruct->DAC_WaveGeneration |
                DAC_InitStruct->DAC_LFSRUnmask_TriangleAmplitude | \
                DAC_InitStruct->DAC_OutputBuffer);
@@ -476,7 +476,7 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
 /**
   * 简介:  启用或禁用指定的 DAC 通道 DMA 请求。
   * 
-  * 注意:   当启用时，当外部触发(EXTI Line9、TIM2、TIM4、TIM5、TIM6、TIM7或 TIM8，
+  * 注意:   当启用时，当外部触发(EXTI Line9、TIM2、TIM4、TIM5、TIM6、TIM7 或 TIM8，
   *         但不是软件触发)发生时产生DMA1。
   * 
   * 参数:  DAC_Channel: 选定的 DAC 通道。
@@ -489,7 +489,7 @@ uint16_t DAC_GetDataOutputValue(uint32_t DAC_Channel) {
   * 
   * 注意:   DAC 通道1 被映射到 DMA1流5通道7上，该通道必须已经被配置。
   * 
-  * 注意:   DAC 通道2被映射到 DMA1流6通道7上，该通道必须已经被配置。
+  * 注意:   DAC 通道2 被映射到 DMA1流6通道7上，该通道必须已经被配置。
   * 
   * 返回值: 无
   */

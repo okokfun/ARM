@@ -373,7 +373,7 @@ typedef struct {
   *
   * - Slave 发射器模式:
   *    - EV3: 当一个字节已经被从服务器传输，并且应用程序正在等待字节传输的结束。
-  *           两个事件I2C_EVENT_SLAVE_BYTE_TRANSMITTED和 I2C_EVENT_SLAVE-BYTE_TRANSMITTING相似。 
+  *           两个事件 I2C_EVENT_SLAVE_BYTE_TRANSMITTED和 I2C_EVENT_SLAVE-BYTE_TRANSMITTING相似。 
   *           当用户软件不能保证在当前字节传输结束之前管理 EV3时，可以选择性地使用第二个。
   *    - EV3_2: 当主设备发送NACK以告知从设备数据传输应结束时(在发送STOP 条件之前)。
   *             在这种情况下，从设备必须停止发送数据字节，并在总线上等待"停止"条件。

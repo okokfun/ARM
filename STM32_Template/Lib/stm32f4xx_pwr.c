@@ -572,7 +572,7 @@ void PWR_LowRegulatorLowVoltageCmd(FunctionalState NewState) {
   */
 
 /**
-  * 简介:  启用或禁用 STOP模式下的 Flash 断电函数。
+  * 简介:  启用或禁用 STOP 模式下的 Flash 断电函数。
   * 参数:  NewState: 闪存功率模式的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -685,14 +685,14 @@ void PWR_FlashPowerDownCmd(FunctionalState NewState) {
   * 注意:   当电压调节器在低功率模式下工作时，从停止模式唤醒时会产生额外的启动延迟。
   *         在 "停止 "模式下保持内部调节器开启，虽然启动时间缩短，但消耗量会更大。
   *
-  * 参数:  PWR_Regulator: 指定调节器在 STOP模式下的状态。
+  * 参数:  PWR_Regulator: 指定调节器在 STOP 模式下的状态。
   *          此参数可以是以下值之一:
   *            @arg PWR_MainRegulator_ON: 调节器开启时的停止模式
-  *            @arg PWR_LowPowerRegulator_ON: STOP模式，低功率调节器开启
-  * 参数:  PWR_STOPEntry: 指定是否通过WFI 或WFE指令进入 STOP模式。
+  *            @arg PWR_LowPowerRegulator_ON: STOP 模式，低功率调节器开启
+  * 参数:  PWR_STOPEntry: 指定是否通过WFI 或WFE指令进入 STOP 模式。
   *          此参数可以是以下值之一:
-  *            @arg PWR_STOPEntry_WFI: 用 WFI指令进入 STOP模式
-  *            @arg PWR_STOPEntry_WFE: 用 WFE指令进入 STOP模式
+  *            @arg PWR_STOPEntry_WFI: 用 WFI指令进入 STOP 模式
+  *            @arg PWR_STOPEntry_WFE: 用 WFE指令进入 STOP 模式
   * 返回值: 无
   */
 void PWR_EnterSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) {
@@ -741,16 +741,16 @@ void PWR_EnterSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) {
   * 注意:   当电压调节器在低功率模式下运行时，从停止模式唤醒时会产生额外的启动延迟。
   *         通过在停止模式下保持内部调节器打开，虽然启动时间缩短，但消耗量较高。
   *
-  * 参数:  PWR_Regulator: 指定 STOP模式下的调节器状态。
+  * 参数:  PWR_Regulator: 指定 STOP 模式下的调节器状态。
   *          此参数可以是以下值之一:
   *            @arg PWR_MainRegulator_UnderDrive_ON:  当设备处于驱动模式下的停止时，
   *                                                    主调节器处于驱动模式，闪存处于断电状态
   *            @arg PWR_LowPowerRegulator_UnderDrive_ON:  低功率调节器处于驱动模式下，
   *                                                     当设备处于驱动模式停止时，闪存处于断电状态
-  * 参数:  PWR_STOPEntry: 指定是否使用 WFI 或WFE指令进入 STOP模式。
+  * 参数:  PWR_STOPEntry: 指定是否使用 WFI 或WFE指令进入 STOP 模式。
   *          此参数可以是以下值之一:
-  *            @arg PWR_STOPEntry_WFI: 使用 WFI指令进入 STOP模式
-  *            @arg PWR_STOPEntry_WFE: 使用 WFE指令进入 STOP模式
+  *            @arg PWR_STOPEntry_WFI: 使用 WFI指令进入 STOP 模式
+  *            @arg PWR_STOPEntry_WFE: 使用 WFE指令进入 STOP 模式
   * 返回值: 无
   */
 void PWR_EnterUnderDriveSTOPMode(uint32_t PWR_Regulator, uint8_t PWR_STOPEntry) {

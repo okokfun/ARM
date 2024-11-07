@@ -417,11 +417,11 @@ void RCC_LSICmd(FunctionalState NewState) {
   *            @arg RCC_PLLSource_HSE: 选择HSE振荡器时钟作为锁相环时钟入口
   * 注意:   该时钟源(RCC_PLLSource)是主PLL和 PLLI2S的通用时钟源。
   *
-  * 参数:  PLLM: 指定PLL VCO输入时钟的分频因子
+  * 参数:  PLLM: 指定PLL VCO 输入时钟的分频因子
   *          此参数必须是介于 0 and 63.
-  * 注意:   您必须正确设置 PLLM 参数，以确保VCO输入频率在1 到 2 MHz之间。建议选择 2 MHz 的频率来限制 PLL 抖动。
+  * 注意:   您必须正确设置 PLLM 参数，以确保VCO 输入频率在1 到 2 MHz之间。建议选择 2 MHz 的频率来限制 PLL 抖动。
   *
-  * 参数:  PLLN: 指定PLL VCO输出时钟的倍增因子
+  * 参数:  PLLN: 指定PLL VCO 输出时钟的倍增因子
   *          必须为50 ~ 432之间的数字。
   * 注意:   您必须正确设置 PLLN 参数，以确保 VCO 输出频率在 100 和 432 MHz之间。
   *
@@ -465,16 +465,16 @@ void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t PLLM, uint32_t PLLN, uint32_
   *            @arg RCC_PLLSource_HSE: HSE 选择振荡器时钟作为PLL时钟点
   * 注意:   该时钟源(RCC_PLLSource)对于主PLL和 PLLI2S是通用的。
   *
-  * 参数:  PLLM: 指定PLL VCO输入时钟的分频因子
+  * 参数:  PLLM: 指定PLL VCO 输入时钟的分频因子
   *          此参数必须是介于 0 and 63.
-  * 注意:   您必须正确设置PLLM参数，以确保VCO输入频率
+  * 注意:   您必须正确设置PLLM参数，以确保VCO 输入频率
 			在1 到 2 MHz之间。
 			建议选择2 MHz的频率来限制PLL抖动。
   *
-  * 参数:  PLLN: 指定PLL VCO输出时钟的倍增因子
+  * 参数:  PLLN: 指定PLL VCO 输出时钟的倍增因子
   *          必须为50 ~ 432之间的数字。
   * 注意:   您必须正确设置PLLN参数，
-  *			以确保VCO输出频率在100 和432 MHz之间。
+  *			以确保VCO 输出频率在100 和432 MHz之间。
   *
   * 参数:  PLLP: 指定主系统时钟(SYSCLK)的分频因子
   *          此参数必须是范围{2、4、6或8}中的数字。
@@ -526,9 +526,9 @@ void RCC_PLLCmd(FunctionalState NewState) {
   * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
   * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
-  * 参数:  PLLI2SN: 指定PLLI2S VCO输出时钟的乘法因子
+  * 参数:  PLLI2SN: 指定PLLI2S VCO 输出时钟的乘法因子
   *          必须为50 ~ 432之间的数字。
-  * 注意:   必须正确设置PLLI2SN参数，以确保VCO输出频率在100 ~ 432mhz之间。
+  * 注意:   必须正确设置PLLI2SN参数，以确保VCO 输出频率在100 ~ 432mhz之间。
   *
   * 参数:  PLLI2SR: I2S 时钟的除法因子
   *          此参数必须是介于2 和7 之间的数字。
@@ -549,19 +549,19 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR) {
 /**
   * 简介:  配置PLLI2S 时钟乘除因子。
   *
-  * 注意:   该功能仅支持STM32F411xE设备。
+  * 注意:   该功能仅支持STM32F411xE 设备。
   *
   * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
   * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
-  * 参数:  PLLI2SM: 指定PLLI2S VCO输入时钟的除法因子
-  *         该参数必须为Min_Data = 2 ~ Max_Data = 63之间的数字。
-  * 注意:   为了保证VCO输入频率在1 ~ 2mhz范围内，
+  * 参数:  PLLI2SM: 指定PLLI2S VCO 输入时钟的除法因子
+  *         该参数必须为Min_Data = 2 ~ Max_Data = 63 之间的数字。
+  * 注意:   为了保证VCO 输入频率在1 ~ 2mhz范围内，
   *         必须正确设置PLLI2SM参数。建议选择2mhz的频率，以限制PLLI2S抖动。
   *
-  * 参数:  PLLI2SN: 指定PLLI2S VCO输出时钟的乘法因子
+  * 参数:  PLLI2SN: 指定PLLI2S VCO 输出时钟的乘法因子
   *          必须为50 ~ 432之间的数字。
-  * 注意:   必须正确设置PLLI2SN参数，以确保VCO输出频率在100 ~ 432mhz之间。
+  * 注意:   必须正确设置PLLI2SN参数，以确保VCO 输出频率在100 ~ 432mhz之间。
   *
   * 参数:  PLLI2SR: I2S 时钟的除法因子
   *          此参数必须是介于2 和7 之间的数字。
@@ -588,9 +588,9 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR, uint32_t PLLI2SM) {
   * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
   * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
-  * 参数:  PLLI2SN: 指定PLLI2S VCO输出时钟的乘法因子
+  * 参数:  PLLI2SN: 指定PLLI2S VCO 输出时钟的乘法因子
   *          必须为50 ~ 432之间的数字。
-  * 注意:   必须正确设置PLLI2SN参数，以确保VCO输出频率在100 ~ 432mhz之间。
+  * 注意:   必须正确设置PLLI2SN参数，以确保VCO 输出频率在100 ~ 432mhz之间。
   *
   * 参数:  PLLI2SQ: 指定 SAI1时钟的分割因子
   *          此参数必须是介于2 和15 之间的数字。
@@ -620,14 +620,14 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SQ, uint32_t PLLI2SR) {
   * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
   * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
-  * 参数:  PLLI2SM: 指定PLLI2S VCO输入时钟的除法因子
-  *         该参数必须为Min_Data = 2 ~ Max_Data = 63之间的数字。
-  * 注意:   为了保证VCO输入频率在1 ~ 2mhz范围内，必须正确设置PLLI2SM参数。
+  * 参数:  PLLI2SM: 指定PLLI2S VCO 输入时钟的除法因子
+  *         该参数必须为Min_Data = 2 ~ Max_Data = 63 之间的数字。
+  * 注意:   为了保证VCO 输入频率在1 ~ 2mhz范围内，必须正确设置PLLI2SM参数。
   *         建议选择2mhz的频率，以限制PLLI2S抖动。
   *
-  * 参数:  PLLI2SN: 指定PLLI2S VCO输出时钟的乘法因子
+  * 参数:  PLLI2SN: 指定PLLI2S VCO 输出时钟的乘法因子
   *          必须为50 ~ 432之间的数字。
-  * 注意:   必须正确设置PLLI2SN参数，以确保VCO输出频率在100 ~ 432mhz之间。
+  * 注意:   必须正确设置PLLI2SN参数，以确保VCO 输出频率在100 ~ 432mhz之间。
   *
   * 参数:  PLLI2SP: 指定PLL 48Mhz时钟输出的分频因数
   *          此参数必须是范围{2、4、6或8}中的数字。
@@ -675,8 +675,8 @@ void RCC_PLLI2SCmd(FunctionalState NewState) {
   * 注意:   仅当PLLSAI 被禁用时，才能使用此函数。
   * 注意:   PLLSAI 时钟源与主PLL共用(在 RCC_PLLConfig功能中配置)
   *
-  * 参数:  PLLSAIN: 指定PLLSAI VCO输出时钟的倍增系数。此参数必须是50 到432之间的数字。
-  * 注意:   您必须正确设置PLLSAIN参数，以确保VCO输出频率在100 到432 MHz之间。
+  * 参数:  PLLSAIN: 指定PLLSAI VCO 输出时钟的倍增系数。此参数必须是50 到432之间的数字。
+  * 注意:   您必须正确设置PLLSAIN参数，以确保VCO 输出频率在100 到432 MHz之间。
   *
   * 参数:  PLLSAIP: 指定PLL 48Mhz时钟输出的分频因数
   *         此参数必须是范围{2、4、6或8}中的数字。.
@@ -709,11 +709,11 @@ void RCC_PLLSAIConfig(uint32_t PLLSAIN, uint32_t PLLSAIP, uint32_t PLLSAIQ, uint
   * 注意:   仅当PLLSAI 被禁用时，才能使用此函数。
   * 注意:   PLLSAI 时钟源与主PLL共用(在 RCC_PLLConfig功能中配置)
   *
-  * 参数:  PLLSAIM: 指定PLLSAI VCO输入时钟的分割因子。此参数必须是介于Min_Data=2 和 Max_Data=63之间的数字。
-  * 注意:   您必须正确设置PLLSAIM参数，以确保VCO输入频率范围为1 到 2 MHz。建议选择2 MHz的频率以限制PLLSAI抖动。
+  * 参数:  PLLSAIM: 指定PLLSAI VCO 输入时钟的分割因子。此参数必须是介于Min_Data=2 和 Max_Data=63 之间的数字。
+  * 注意:   您必须正确设置PLLSAIM参数，以确保VCO 输入频率范围为1 到 2 MHz。建议选择2 MHz的频率以限制PLLSAI抖动。
   *
-  * 参数:  PLLSAIN: 指定PLLSAI VCO输出时钟的倍增系数。此参数必须是50 到432之间的数字。
-  * 注意:   您必须正确设置PLLSAIN参数，以确保VCO输出频率在100 到432 MHz之间。
+  * 参数:  PLLSAIN: 指定PLLSAI VCO 输出时钟的倍增系数。此参数必须是50 到432之间的数字。
+  * 注意:   您必须正确设置PLLSAIN参数，以确保VCO 输出频率在100 到432 MHz之间。
   *
   * 参数:  PLLSAIP: 指定PLL 48Mhz时钟输出的分频因数
   *         此参数必须是范围{2、4、6或8}中的数字。
@@ -976,7 +976,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
  |4WS(5CPU cycle)|      NA        |      NA        |      NA         |80 < HCLK <= 84  |
  +-------------------------------------------------------------------------------------+
 
-      (#) 对于 STM32F410xx/STM32F411xE设备，
+      (#) 对于 STM32F410xx/STM32F411xE 设备，
           SYSCLK和HCLK的最大频率分别为100 MHz、PCLK2 100 MHz和 PCLK1 50 MHz。
       根据设备电压范围，应相应调整最大频率：
  +-------------------------------------------------------------------------------------+
@@ -1024,7 +1024,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
 
 /**
   * 简介:  配置系统时钟 (SYSCLK)。
-  * 注意:   HSI在 Reset模式启动、STOP模式唤醒和 STANDBY 模式唤醒后作为系统时钟源(硬件开启)，
+  * 注意:   HSI在 Reset模式启动、STOP 模式唤醒和 STANDBY 模式唤醒后作为系统时钟源(硬件开启)，
   *         或者在HSE故障时直接或间接作为系统时钟(时钟安全系统CSS开启)。
   * 注意:   从一个时钟源切换到另一个时钟源只有在目标时钟源准备就绪(启动延迟或锁相锁紧后时钟稳定)时才会发生。
   *          如果选择了一个尚未就绪的时钟源，则在时钟源准备就绪时进行切换。
@@ -1034,7 +1034,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
   *            @arg RCC_SYSCLKSource_HSI: 选择 HSI 作为系统时钟源
   *            @arg RCC_SYSCLKSource_HSE: 选择 HSE 作为系统时钟源
   *            @arg RCC_SYSCLKSource_PLLCLK: PLL被选为系统时钟源(用于 STM32F446xx 设备的 RCC_SYSCLKSource_PLLPCLK)
-  *            @arg RCC_SYSCLKSource_PLLRCLK: PLL R仅被选为STM32F412xG、STM32F413_423xx 和 STM32F446xx 设备的系统时钟源
+  *            @arg RCC_SYSCLKSource_PLLRCLK: PLL R仅被选为 STM32F412xG、STM32F413_423xx 和 STM32F446xx 设备的系统时钟源
   * 返回值: 无
   */
 void RCC_SYSCLKConfig(uint32_t RCC_SYSCLKSource) {
@@ -1294,7 +1294,7 @@ void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks) {
       (#) 要重置外设设备配置(设备重置后为默认状态)，可以使用
           RCC_AHBPeriphResetCmd()、RCC_APB2PeriphResetCmd()和 RCC_APB1PeriphResedCmd() 函数。
 
-      (#) 为了进一步降低SLEEP模式下的功耗，可以在执行WFI 或WFE指令之前禁用外围时钟。
+      (#) 为了进一步降低SLEEP 模式下的功耗，可以在执行WFI 或WFE指令之前禁用外围时钟。
           可以使用 RCC_AHBPeriphClockLPModeCmd()、RCC_APB2PeriphClockLPModeCmd()和 RCC_APB1PeriphClockLPModeCmd() 函数执行此操作。
 
 @endverbatim
@@ -1856,7 +1856,7 @@ void RCC_DFSDM2ACLKConfig(uint32_t RCC_DFSDMACLKSource) {
 /**
   * 简介:  配置"计时器时钟"预分频器选择。
   *
-  * 注意:   此函数只能用于 STM32F42xxx/43xxx 和 STM32V401xx/411xE设备。
+  * 注意:   此函数只能用于 STM32F42xxx/43xxx 和 STM32V401xx/411xE 设备。
   *
   * 参数:  RCC_TIMCLKPrescaler : 指定计时器时钟预分频器选择
   *         此参数可以是以下值之一:
@@ -2178,7 +2178,7 @@ void RCC_AHB3PeriphResetCmd(uint32_t RCC_AHB3Periph, FunctionalState NewState) {
   *            @arg RCC_APB1Periph_I2C1:   I2C1 时钟
   *            @arg RCC_APB1Periph_I2C2:   I2C2 时钟
   *            @arg RCC_APB1Periph_I2C3:   I2C3 时钟
-  *            @arg RCC_APB1Periph_FMPI2C1:FMPI2C1 时钟
+  *            @arg RCC_APB1Periph_FMPI2C1: FMPI2C1 时钟
   *            @arg RCC_APB1Periph_CAN1:   CAN1 时钟
   *            @arg RCC_APB1Periph_CAN2:   CAN2 时钟
   *            @arg RCC_APB1Periph_CEC:    CEC 时钟(STM32F446xx devices)
@@ -2248,7 +2248,7 @@ void RCC_APB2PeriphResetCmd(uint32_t RCC_APB2Periph, FunctionalState NewState) {
 
 /**
   * 简介:  在低功耗(睡眠)模式下启用或禁用 AHB1外设时钟。
-  * 注意:   SLEEP模式下的外围时钟门控可用于进一步降低功耗。
+  * 注意:   SLEEP 模式下的外围时钟门控可用于进一步降低功耗。
   * 注意:   从睡眠模式唤醒后，将再次启用外围时钟。
   * 注意:   默认情况下，在睡眠模式期间启用所有外围时钟。
   * 参数:  RCC_AHBPeriph: 指定AHB1外设设备选通其时钟。
@@ -2293,7 +2293,7 @@ void RCC_AHB1PeriphClockLPModeCmd(uint32_t RCC_AHB1Periph, FunctionalState NewSt
 
 /**
   * 简介:  启用或禁用 AHB2 低功耗(睡眠)模式下的外围时钟。
-  * 注意:   SLEEP模式下的外围时钟门控可用于进一步降低功耗。
+  * 注意:   SLEEP 模式下的外围时钟门控可用于进一步降低功耗。
   * 注意:   从睡眠模式唤醒后，将再次启用外围时钟。
   * 注意:   默认情况下，在睡眠模式期间启用所有外围时钟。
   * 参数:  RCC_AHBPeriph: 指定AHB2外设设备以设置时钟门。
@@ -2322,7 +2322,7 @@ void RCC_AHB2PeriphClockLPModeCmd(uint32_t RCC_AHB2Periph, FunctionalState NewSt
 #if defined(STM32F40_41xxx) || defined(STM32F412xG) || defined(STM32F413_423xx) || defined(STM32F427_437xx) || defined(STM32F429_439xx) || defined(STM32F446xx) || defined(STM32F469_479xx)
 /**
   * 简介:  启用或禁用 AHB3 低功耗(睡眠)模式下的外围时钟。
-  * 注意:   SLEEP模式下的外围时钟门控可用于进一步降低功耗。
+  * 注意:   SLEEP 模式下的外围时钟门控可用于进一步降低功耗。
   * 注意:   从睡眠模式唤醒后，将再次启用外围时钟。
   * 注意:   默认情况下，在睡眠模式期间启用所有外围时钟。
   * 参数:  RCC_AHBPeriph: 指定AHB3 外设设备选通其时钟。
@@ -2348,7 +2348,7 @@ void RCC_AHB3PeriphClockLPModeCmd(uint32_t RCC_AHB3Periph, FunctionalState NewSt
 
 /**
   * 简介:  启用或禁用 APB1 低功耗(睡眠)模式下的外围时钟。
-  * 注意:   SLEEP模式下的外围时钟门控可用于进一步降低功耗。
+  * 注意:   SLEEP 模式下的外围时钟门控可用于进一步降低功耗。
   * 注意:   从睡眠模式唤醒后，将再次启用外围时钟。
   * 注意:   默认情况下，在睡眠模式期间启用所有外围时钟。
   * 参数:  RCC_APB1Periph: 指定APB1外设设备选通其时钟。
@@ -2400,7 +2400,7 @@ void RCC_APB1PeriphClockLPModeCmd(uint32_t RCC_APB1Periph, FunctionalState NewSt
 
 /**
   * 简介:  启用或禁用 APB2 低功耗(睡眠)模式下的外围时钟。
-  * 注意:   SLEEP模式下的外围时钟门控可用于进一步降低功耗。
+  * 注意:   SLEEP 模式下的外围时钟门控可用于进一步降低功耗。
   * 注意:   从睡眠模式唤醒后，将再次启用外围时钟。
   * 注意:   默认情况下，在睡眠模式期间启用所有外围时钟。
   * 参数:  RCC_APB2Periph: 指定APB2外设设备选通其时钟。
@@ -2448,7 +2448,7 @@ void RCC_APB2PeriphClockLPModeCmd(uint32_t RCC_APB2Periph, FunctionalState NewSt
 
 /**
   * 简介: 配置外部低速振荡器模式(LSE 模式)。
-  * 注意: 这个模式只为STM32F410xx/STM32F411xx/STM32F446xx/STM32F469_479xx devices.
+  * 注意: 这个模式只为 STM32F410xx/STM32F411xx/STM32F446xx/STM32F469_479xx devices.
   * 参数:  Mode: 指定 LSE mode.
   *          此参数可以是以下值之一:
   *            @arg RCC_LSE_LOWPOWER_MODE:  低功率模式下的 LSE振荡器。
@@ -2661,7 +2661,7 @@ void RCC_CECClockSourceConfig(uint8_t RCC_ClockSource) {
 /**
   * 简介: 配置 FMPI2C1时钟源。
   * 注意: 此功能仅适用于 STM32F446xx devices.
-  * 参数: RCC_ClockSource: 指定FMPI2C1 时钟源.
+  * 参数: RCC_ClockSource: 指定 FMPI2C1 时钟源.
   *          此参数可以是以下值之一:
   *            @arg RCC_FMPI2C1CLKSource_APB1: FMPI2C1 时钟来自于 APB1.
   *            @arg RCC_FMPI2C1CLKSource_SYSCLK: FMPI2C1 时钟来自于 Sytem 时钟被选择.

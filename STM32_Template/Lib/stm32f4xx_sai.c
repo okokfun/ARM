@@ -259,7 +259,7 @@ void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct) {
 /**
   * 简介:  根据 SAI_FrameInitStruct 中指定的参数初始化 SAI Block Audio 帧。
   *
-  * 注意:   如果选择了AC’97或 SPDIF音频协议，则此功能没有任何意义。
+  * 注意:   如果选择了AC’97 或 SPDIF音频协议，则此功能没有任何意义。
   *
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  SAI_FrameInitStruct: 指向 SAI_FrameInitTypeDef 结构的指针，
@@ -304,7 +304,7 @@ void SAI_FrameInit(SAI_Block_TypeDef* SAI_Block_x, SAI_FrameInitTypeDef* SAI_Fra
 /**
   * 简介:  根据 SAI_SlotInitStruct 中指定的参数初始化 SAI Block 音频 Slot。
   *
-  * 注意:   如果选择了AC’97或 SPDIF音频协议，则此函数没有任何意义。
+  * 注意:   如果选择了AC’97 或 SPDIF音频协议，则此函数没有任何意义。
   *
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  SAI_SlotInitStruct: 指向 SAI_SlotInitTypeDef 结构的指针，
@@ -509,7 +509,7 @@ void SAI_CompandingModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Compa
   * 注意:   只有当音频块是发射器时，此功能才有意义
   * 注意:   静音模式适用于所有有效插槽的整个帧
 			当设置在音频帧的某个位置时，它在音频帧结束时变为活动。
-  *         静音模式退出发生在设置了位Mute的帧的末尾。
+  *         静音模式退出发生在设置了位Mute 的帧的末尾。
   *
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  NewState: 新状态-> SAIx block.
@@ -561,7 +561,7 @@ void SAI_MuteValueConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_MuteValue)
   * 注意:  只有当音频块为 Receiver时，此函数才有意义
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  SAI_MuteCounter: 指定 SAI block mute value.
-  *         此参数可以是 0 到 6 3之间的数字。
+  *         此参数可以是 0 到 6 3 之间的数字。
 
   * 返回值: 无
   */
@@ -790,7 +790,7 @@ void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState) {
      (##) SAI_IT_WCKCFG: 以指示主模式中的错误时钟配置是否发生错误。
 
   (+) 中断源:
-     (##) SAI_IT_FREQ : 指定FIFO 请求的中断源。
+     (##) SAI_IT_FREQ : 指定 FIFO 请求的中断源。
      (##) SAI_IT_MUTEDET : 指定检测到的 MUTE 帧的中断源。
      (##) SAI_IT_OVRUDR : 指定溢出或欠载错误的中断源。
      (##) SAI_IT_AFSDET : 指定预期帧同步检测中断的中断源。

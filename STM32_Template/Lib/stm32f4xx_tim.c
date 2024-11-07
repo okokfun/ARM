@@ -2374,7 +2374,7 @@ void TIM_DMAConfig(TIM_TypeDef* TIMx, uint16_t TIM_DMABase, uint16_t TIM_DMABurs
 
 /**
   * 简介:  启用或禁用 TIMx 的 DMA 请求。
-  * 参数:  TIMx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 TIM 外设设备。
+  * 参数:  TIMx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 TIM 外设设备。
   * 参数:  TIM_DMASource: 指定 DMA 请求源。
   *          此参数可以是以下值的任意组合:
   *            @arg TIM_DMA_Update: TIM 更新中断源
@@ -2657,7 +2657,7 @@ void TIM_SelectInputTrigger(TIM_TypeDef* TIMx, uint16_t TIM_InputTriggerSource) 
 
 /**
   * 简介:  选择 TIMx 触发输出模式。
-  * 参数:  TIMx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 TIM 外设设备。
+  * 参数:  TIMx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 TIM 外设设备。
   *
   * 参数:  TIM_TRGOSource: 指定触发器输出源。
   *   此参数可以是以下值之一:
@@ -2950,9 +2950,9 @@ static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_
   *            @arg TIM_ICPolarity_BothEdge
   * 参数:  TIM_ICSelection: 指定要使用的输入。
   *          此参数可以是以下值之一:
-  *            @arg TIM_ICSelection_DirectTI: TIM 输入2被选择为连接到 IC2。
-  *            @arg TIM_ICSelection_IndirectTI: TIM 输入2被选择为连接到 IC1。
-  *            @arg TIM_ICSelection_TRC: TIM 输入2被选择连接到 TRC。
+  *            @arg TIM_ICSelection_DirectTI: TIM 输入2 被选择为连接到 IC2。
+  *            @arg TIM_ICSelection_IndirectTI: TIM 输入2 被选择为连接到 IC1。
+  *            @arg TIM_ICSelection_TRC: TIM 输入2 被选择连接到 TRC。
   * 参数:  TIM_ICFilter: 指定输入捕获过滤器。
   *          此参数的值必须介于 0x00 和 0x0F 之间。
   * 返回值: 无

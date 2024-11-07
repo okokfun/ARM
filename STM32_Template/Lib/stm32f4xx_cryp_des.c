@@ -84,9 +84,9 @@
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
   * 
-  * 参数:  Key: 用于DES算法的密钥。
+  * 参数:  Key: 用于DES 算法的密钥。
   * 
-  * 参数:  Ilength: 输入缓冲区的长度，必须是8 的倍数。
+  * 参数:  Ilength: 输入缓冲区的长度，必须是 8 的倍数。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 
@@ -136,12 +136,12 @@ ErrorStatus CRYP_DES_ECB(uint8_t Mode, uint8_t Key[8], uint8_t *Input,
     CRYP_Cmd(ENABLE);
 
     if(CRYP_GetCmdStatus() == DISABLE) {
-        /* CRYP外设时钟没有启用，或者设备没有嵌入CRYP外设(请检查设备销售类型。*/
+        /* CRYP 外设时钟没有启用，或者设备没有嵌入 CRYP 外设(请检查设备销售类型。*/
         status = ERROR;
     } else {
         for(i = 0; ((i < Ilength) && (status != ERROR)); i += 8) {
 
-            /* 在输入FIFO 中写入输入块 */
+            /* 在输入 FIFO 中写入输入块 */
             CRYP_DataIn(*(uint32_t*)(inputaddr));
             inputaddr += 4;
             CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -182,11 +182,11 @@ ErrorStatus CRYP_DES_ECB(uint8_t Mode, uint8_t Key[8], uint8_t *Input,
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
   * 
-  * 参数:  Key: 用于DES算法的密钥。
+  * 参数:  Key: 用于DES 算法的密钥。
   * 
-  * 参数:  InitVectors: 用于DES算法的初始化矢量。
+  * 参数:  InitVectors: 用于DES 算法的初始化矢量。
   * 
-  * 参数:  Ilength: 输入缓冲区的长度，必须是8 的倍数。
+  * 参数:  Ilength: 输入缓冲区的长度，必须是 8 的倍数。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 
@@ -231,7 +231,7 @@ ErrorStatus CRYP_DES_CBC(uint8_t Mode, uint8_t Key[8], uint8_t InitVectors[8],
     DES_CRYP_KeyInitStructure.CRYP_Key1Right = __REV(*(uint32_t*)(keyaddr));
     CRYP_KeyInit(& DES_CRYP_KeyInitStructure);
 
-    /* 初始化Vectors */
+    /* 初始化 Vectors */
     DES_CRYP_IVInitStructure.CRYP_IV0Left = __REV(*(uint32_t*)(ivaddr));
     ivaddr += 4;
     DES_CRYP_IVInitStructure.CRYP_IV0Right = __REV(*(uint32_t*)(ivaddr));
@@ -244,11 +244,11 @@ ErrorStatus CRYP_DES_CBC(uint8_t Mode, uint8_t Key[8], uint8_t InitVectors[8],
     CRYP_Cmd(ENABLE);
 
     if(CRYP_GetCmdStatus() == DISABLE) {
-        /* CRYP外设时钟没有启用，或者设备没有嵌入CRYP外设(请检查设备销售类型。*/
+        /* CRYP 外设时钟没有启用，或者设备没有嵌入 CRYP 外设(请检查设备销售类型。*/
         status = ERROR;
     } else {
         for(i = 0; ((i < Ilength) && (status != ERROR)); i += 8) {
-            /* 在输入FIFO 中写入输入块 */
+            /* 在输入 FIFO 中写入输入块 */
             CRYP_DataIn(*(uint32_t*)(inputaddr));
             inputaddr += 4;
             CRYP_DataIn(*(uint32_t*)(inputaddr));

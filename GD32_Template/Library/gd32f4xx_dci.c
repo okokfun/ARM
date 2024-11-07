@@ -231,7 +231,7 @@ uint32_t DCI_Data_Read(void) {
     参数[输入]:  flag:
       参数:         DCI_Flag_HS: HS line status
       参数:         DCI_Flag_VS: VS line status
-      参数:         DCI_Flag_FV:FIFO valid
+      参数:         DCI_Flag_FV: FIFO valid
       参数:         DCI_Flag_EF: end of frame flag
       参数:         DCI_Flag_OVR: FIFO overrun flag
       参数:         DCI_Flag_ESE: embedded synchronous error flag

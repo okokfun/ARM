@@ -768,7 +768,7 @@ uint32_t DMA_GetCurrentMemoryTarget(DMA_Stream_TypeDef* DMAy_Streamx) {
     *** 中断源 ***
     ========================
     [..]
-     (#) DMA_IT_FEIFx: 指定FIFO 模式传输错误事件的中断源。
+     (#) DMA_IT_FEIFx: 指定 FIFO 模式传输错误事件的中断源。
      (#) DMA_IT_DMEIFx: 指定直接模式传输错误事件的中断源。
      (#) DMA_IT_TEIFx: 指定传输错误事件的中断源。
      (#) DMA_IT_HTIFx: 指定"半传输完成"事件的中断源。

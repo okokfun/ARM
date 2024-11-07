@@ -369,9 +369,9 @@ typedef struct {
 #define SYS_CLKEN1_QEI_Pos			27
 #define SYS_CLKEN1_QEI_Msk			(0x01 << SYS_CLKEN1_QEI_Pos)
 
-#define SYS_SLEEP_SLEEP_Pos			0		//将该位置1后，系统将进入 SLEEP模式
+#define SYS_SLEEP_SLEEP_Pos			0		//将该位置1后，系统将进入 SLEEP 模式
 #define SYS_SLEEP_SLEEP_Msk			(0x01 << SYS_SLEEP_SLEEP_Pos)
-#define SYS_SLEEP_STOP_Pos			1		//将该位置1后，系统将进入 STOP SLEEP模式
+#define SYS_SLEEP_STOP_Pos			1		//将该位置1后，系统将进入 STOP SLEEP 模式
 #define SYS_SLEEP_STOP_Msk			(0x01 << SYS_SLEEP_STOP_Pos)
 
 #define SYS_RSTSR_POR_Pos			0		//1 出现过 POR复位，写1清零
@@ -553,8 +553,8 @@ typedef struct {
 #define SYS_PLLCR_RST_Msk			(0x01 << SYS_PLLCR_RST_Pos)
 
 #define SYS_PLLDIV_FBDIV_Pos		0       //PLL FeedBack分频寄存器
-//VCO输出频率 = PLL输入时钟 / INDIV * 4 * FBDIV
-//PLL输出频率 = PLL输入时钟 / INDIV * 4 * FBDIV / OUTDIV = VCO输出频率 / OUTDIV
+//VCO 输出频率 = PLL输入时钟 / INDIV * 4 * FBDIV
+//PLL输出频率 = PLL输入时钟 / INDIV * 4 * FBDIV / OUTDIV = VCO 输出频率 / OUTDIV
 #define SYS_PLLDIV_FBDIV_Msk		(0x1FF << SYS_PLLDIV_FBDIV_Pos)
 #define SYS_PLLDIV_INDIV_Pos		16      //PLL 输入源时钟分频
 #define SYS_PLLDIV_INDIV_Msk		(0x1F << SYS_PLLDIV_INDIV_Pos)
@@ -2050,7 +2050,7 @@ typedef struct {
 
 #define DMA_CR_LEN_Pos				0       //此通道传输单位个数
 #define DMA_CR_LEN_Msk				(0xFFFFF<< DMA_CR_LEN_Pos)
-#define DMA_CR_RXEN_Pos				24		//软件启动传输，传输方向为SRC-->DST
+#define DMA_CR_RXEN_Pos				24		//软件启动传输，传输方向为 SRC-->DST
 #define DMA_CR_RXEN_Msk				(0x01 << DMA_CR_RXEN_Pos)
 #define DMA_CR_TXEN_Pos				25		//软件启动传输，传输方向为DST-->SRC
 #define DMA_CR_TXEN_Msk				(0x01 << DMA_CR_TXEN_Pos)
@@ -2908,7 +2908,7 @@ typedef struct {
 //6 无地址、有数据(写2字节)、有WIP(自动写使能)，用于写16位状态寄存器
 //7 有地址、无数据、有WIP(自动写使能)，用于扇区擦
 #define SFC_CFG_CMDTYPE_Msk			(0x0F << SFC_CFG_CMDTYPE_Pos)
-#define SFC_CFG_CMDWREN_Pos			5		//SFC->CMD寄存器写使能，使能后可将命令码写入CMD寄存器
+#define SFC_CFG_CMDWREN_Pos			5		//SFC->CMD寄存器写使能，使能后可将命令码写入 CMD寄存器
 #define SFC_CFG_CMDWREN_Msk			(0x01 << SFC_CFG_CMDWREN_Pos)
 #define SFC_CFG_CLKDIV_Pos			6		//时钟分频：0 1 分频   1 2 分频   2 4分频   3 8分频
 #define SFC_CFG_CLKDIV_Msk			(0x03 << SFC_CFG_CLKDIV_Pos)

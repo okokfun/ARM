@@ -123,7 +123,7 @@ void DCMI_DeInit(void) {
 /**
   * 简介:  根据 DCMI_InitStruct 中指定的参数初始化 DCMI。
   * 
-  * 参数:  DCMI_InitStruct: 指向 DCMI_InitTypeDef 结构的指针，该结构包含DCMI 的配置信息。
+  * 参数:  DCMI_InitStruct: 指向 DCMI_InitTypeDef 结构的指针，该结构包含 DCMI 的配置信息。
   * 
   * 返回值: 无
   */
@@ -185,7 +185,7 @@ void DCMI_StructInit(DCMI_InitTypeDef* DCMI_InitStruct) {
   * 注意:   这个函数应该在启用和启动 DCMI 接口之前被调用
   * 。
   * 参数:  DCMI_CROPInitStruct:  指向 DCMI_CROPInitTypeDef 结构的指针，
-  *                              该结构包含DCMI 外围CROP模式的配置信息。
+  *                              该结构包含 DCMI 外设 CROP 模式的配置信息。
   * 
   * 返回值: 无
   */
@@ -204,7 +204,7 @@ void DCMI_CROPConfig(DCMI_CROPInitTypeDef* DCMI_CROPInitStruct) {
   * 
   * 注意:   这个函数应该在启用和启动 DCMI 接口之前被调用。
   * 
-  * 参数:  NewState: 新状态的 DCMI作物功能。
+  * 参数:  NewState: 新状态的 DCMI 作物功能。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -226,7 +226,7 @@ void DCMI_CROPCmd(FunctionalState NewState) {
   * 简介:  设置嵌入式同步代码。
   * 
   * 参数:  DCMI_CodesInitTypeDef: 指向 DCMI_CodesInitTypeDef 结构的指针，
-  *                               该结构包含DCMI 外设的嵌入式同步代码。
+  *                               该结构包含 DCMI 外设的嵌入式同步代码。
   * 
   * 返回值: 无
   */
@@ -295,7 +295,7 @@ void DCMI_Cmd(FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 DCMI 捕获。
   * 
-  * 参数:  NewState: DCMI捕获的新状态。
+  * 参数:  NewState: DCMI 捕获的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无

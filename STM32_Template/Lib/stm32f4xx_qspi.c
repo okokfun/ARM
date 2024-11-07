@@ -645,7 +645,7 @@ void QSPI_DMACmd(FunctionalState NewState) {
   *          此参数可以是以下值之一:
   *                @arg QSPI_IT_TO:超时中断
   *                @arg QSPI_IT_SM:状态匹配中断
-  *                @arg QSPI_IT_FT:FIFO 阈值
+  *                @arg QSPI_IT_FT: FIFO 阈值
   *                @arg QSPI_IT_TC:传输完成
   *                @arg QSPI_IT_TE:传输错误
   * 参数:  NewState: 新状态-> 指定的QSPI 中断。

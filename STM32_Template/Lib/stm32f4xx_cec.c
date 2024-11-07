@@ -187,7 +187,7 @@ void CEC_Init(CEC_InitTypeDef* CEC_InitStruct) {
                CEC_InitStruct->CEC_LongBitPeriodError | CEC_InitStruct->CEC_BRDNoGen |
                CEC_InitStruct->CEC_SFTOption);
 
-    /* 写入CEC CFGR  寄存器 */
+    /* 写入 CEC CFGR  寄存器 */
     CEC->CFGR = tmpreg;
 }
 

@@ -74,8 +74,8 @@ uint32_t DBGMCU_GetDEVID(void) {
   * 
   * 参数:  DBGMCU_Periph: 指定低功率模式。
   *   此参数可以是以下值的任意组合:
-  *     @arg DBGMCU_SLEEP:    在 SLEEP模式下保持调试器连接。
-  *     @arg DBGMCU_STOP:     在 STOP模式下保持调试器的连接
+  *     @arg DBGMCU_SLEEP:    在 SLEEP 模式下保持调试器连接。
+  *     @arg DBGMCU_STOP:     在 STOP 模式下保持调试器的连接
   *     @arg DBGMCU_STANDBY:  在 STANDBY 模式下保持调试器的连接。
   * 
   * 参数:  NewState: 在调试模式下指定的低功耗模式的新状态。

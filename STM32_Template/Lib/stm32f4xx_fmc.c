@@ -5,7 +5,7 @@
   * 版本:    V1.8.0
   * 日期:    04-November-2016
   * 简介:    此文件提供固件功能，以管理FMC 外设设备的以下功能:
-  *           + 与 SRAM、PSRAM、NOR 和OneNAND 存储器的接口
+  *           + 与 SRAM、PSRAM、NOR 和 OneNAND 存储器的接口
   *           + 与 NAND 存储器的接口
   *           + 与 16 位 PC卡 兼容的存储器接口
   *           + 与 SDRAM 存储器的接口
@@ -306,7 +306,7 @@ void FMC_NORSRAMCmd(uint32_t FMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过设置BCRx 中的PBKEN 位来选择NOR/SRAM组寄存器 */
+        /* 启用通过设置 BCRx 中的PBKEN 位来选择NOR/SRAM组寄存器 */
         FMC_Bank1->BTCR[FMC_Bank] |= BCR_MBKEN_SET;
     } else {
         /* 禁用通过清除 BCRx 中的 PBKEN 位来选择 NOR/SRAM 组寄存器 */
@@ -1139,7 +1139,7 @@ void FMC_SDRAMWriteProtectionConfig(uint32_t SDRAM_Bank, FunctionalState NewStat
   *            @arg FMC_IT_FallingEdge: 下降沿检测中断。
   *            @arg FMC_IT_Refresh: 刷新错误检测中断。
   * 
-  * 参数:  NewState: 指定FMC 中断的新状态。
+  * 参数:  NewState: 指定 FMC 中断的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无

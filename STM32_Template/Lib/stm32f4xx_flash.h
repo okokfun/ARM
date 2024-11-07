@@ -380,8 +380,8 @@ FLASH_Status FLASH_ProgramByte(uint32_t Address, uint8_t Data); // 在指定地�
 /* 选项字节编程功能 *****************************************/
 void         FLASH_OB_Unlock(void); // 解锁 FLASH 选项控制寄存器访问。
 void         FLASH_OB_Lock(void); // 上锁 FLASH 选项控制寄存器访问
-void         FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState); // 为 Flash 的前 1 Mb 启用或禁用所需扇区的写保护。
-void         FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState); // 为闪存的第二个 1 Mb 启用或禁用所需扇区的写保护。
+void         FLASH_OB_WRPConfig(uint32_t OB_WRP, FunctionalState NewState); // 为 Flash 的前 1Mb 启用或禁用所需扇区的写保护。
+void         FLASH_OB_WRP1Config(uint32_t OB_WRP, FunctionalState NewState); // 为闪存的第二个 1Mb 启用或禁用所需扇区的写保护。
 void         FLASH_OB_PCROPSelectionConfig(uint8_t OB_PcROP); // 选择保护模式 (SPRMOD)。
 void         FLASH_OB_PCROPConfig(uint32_t OB_PCROP, FunctionalState NewState); // 为 Flash 的前 1 MB 启用或禁用所需扇区的读/写保护 (PCROP)。
 void         FLASH_OB_PCROP1Config(uint32_t OB_PCROP, FunctionalState NewState); // 启用或禁用所需扇区的读/写保护 (PCROP)。

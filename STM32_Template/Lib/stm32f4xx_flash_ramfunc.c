@@ -87,7 +87,7 @@
 /**
   * 简介:  开始/停止flash接口当系统运行时
   * 
-  * 注意:  这个模式只为STM32F411xx 设备.
+  * 注意:  这个模式只为 STM32F411xx 设备.
   * 
   * 注意:  使用闪存本身执行时无法设置此模式。
   *        它应该使用从RAM执行的特定例程来完成。
@@ -110,7 +110,7 @@ __RAM_FUNC FLASH_FlashInterfaceCmd(FunctionalState NewState) {
 /**
   * 简介: 使能/失能 flash 睡眠模式当系统运行时
   * 
-  * 注意:  这个模式只为STM32F411xx devices.
+  * 注意:  这个模式只为 STM32F411xx devices.
   * 
   * 注意:  使用闪存本身执行时无法设置此模式。
   *        它应该使用从RAM执行的特定例程来完成。

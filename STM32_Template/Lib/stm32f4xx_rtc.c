@@ -50,7 +50,7 @@
                    ##### 备份域重置 #####
  ===================================================================
  [..] 备份域重置将所有RTC 寄存器和寄存器设置为其重置值。BKPSRAM 不受此复位的影响。
-        重置BKPSRAM 的唯一方法是通过Flash接口请求保护级别从1更改为0。
+        重置 BKPSRAM 的唯一方法是通过Flash接口请求保护级别从1更改为0。
  [..] 发生以下事件之一时，将生成备份域重置:
    (#) 软件重置，通过设置 RCC 备份域控制寄存器(RCC_BDCR)中的 BDRST 位触发。
         您可以使用 RCC_BackupResetCmd()。
@@ -1459,7 +1459,7 @@ ErrorStatus RTC_WakeUpCmd(FunctionalState NewState) {
   *            @arg RTC_DayLightSaving_SUB1H: Substract one hour (winter time)
   *            @arg RTC_DayLightSaving_ADD1H: Add one hour (summer time)
   * 
-  * 参数:  RTC_StoreOperation: 指定要写入CR 寄存器BCK位以存储操作的值。
+  * 参数:  RTC_StoreOperation: 指定要写入 CR 寄存器BCK位以存储操作的值。
   *          此参数可以是以下值之一:
   *            @arg RTC_StoreOperation_Reset: BCK位重置
   *            @arg RTC_StoreOperation_Set: BCK Bit Set
@@ -1570,7 +1570,7 @@ void RTC_OutputConfig(uint32_t RTC_Output, uint32_t RTC_OutputPolarity) {
   * 
   * 参数:  Value: 以ppm表示的粗校准值(编码为5位)。
   *
-  * 注意:   当使用负符号和2-ppm步长时，该校准值应介于 0 和63之间。
+  * 注意:   当使用负符号和2-ppm步长时，该校准值应介于 0 和63 之间。
   *
   * 注意:   当使用正号和4-ppm步长时，此校准值应介于 0 和126之间。
   *

@@ -1346,7 +1346,7 @@ uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx) {
   *             @参数CAN_IT_TME: 发送邮箱空中断。
   *             @arg CAN_IT_FMP0: FIFO 0消息等待中断。
   *             @arg CAN_IT_FF0: FIFO 0已满 中断
-  *             @arg CAN_IT_FOV0:FIFO 0超限中断
+  *             @arg CAN_IT_FOV0: FIFO 0超限中断
   *             @arg CAN_IT_FMP1: FIFO 1消息等待中断
   *             @arg CAN_IT_FF1: FIFO 1满了 中断
   *             @arg CAN_IT_FOV1: FIFO 1超限中断

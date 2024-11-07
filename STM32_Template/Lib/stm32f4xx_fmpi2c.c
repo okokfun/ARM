@@ -160,7 +160,7 @@ void FMPI2C_DeInit(FMPI2C_TypeDef* FMPI2Cx) {
   * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
   * 
   * 参数:  FMPI2C_InitStruct: 指向 FMPI2C_InitTypeDef 结构的指针，
-  *                           该结构包含指定FMPI2C 外设的配置信息。
+  *                           该结构包含指定 FMPI2C 外设的配置信息。
   * 
   * 返回值: 无
   */
@@ -189,13 +189,13 @@ void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct)
     /* 设置 DFN bits 根据 FMPI2C_DigitalFilter 值 */
     tmpreg |= (uint32_t)FMPI2C_InitStruct->FMPI2C_AnalogFilter | (FMPI2C_InitStruct->FMPI2C_DigitalFilter << 8);
 
-    /* 写入FMPI2Cx CR1 */
+    /* 写入 FMPI2Cx CR1 */
     FMPI2Cx->CR1 = tmpreg;
 
     /*---------------------------- FMPI2Cx TIMING 配置 -------------------*/
     /* 配置 FMPI2Cx: Timing */
     /* 设置 TIMINGR bits 根据 FMPI2C_Timing */
-    /* 写入FMPI2Cx TIMING */
+    /* 写入 FMPI2Cx TIMING */
     FMPI2Cx->TIMINGR = FMPI2C_InitStruct->FMPI2C_Timing & TIMING_CLEAR_MASK;
 
     /* 使能FMPI2Cx 外设 */
@@ -213,7 +213,7 @@ void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct)
     /* 设置 OA1 bits 根据 FMPI2C_OwnAddress1 值 */
     tmpreg = (uint32_t)((uint32_t)FMPI2C_InitStruct->FMPI2C_AcknowledgedAddress | \
                         (uint32_t)FMPI2C_InitStruct->FMPI2C_OwnAddress1);
-    /* 写入FMPI2Cx OAR1 */
+    /* 写入 FMPI2Cx OAR1 */
     FMPI2Cx->OAR1 = tmpreg;
     /* 使能Own 地址1确认 */
     FMPI2Cx->OAR1 |= FMPI2C_OAR1_OA1EN;
@@ -222,7 +222,7 @@ void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct)
     /* 配置 FMPI2Cx: mode */
     /* 设置 SMBDEN and SMBHEN bits 根据 FMPI2C_Mode 值 */
     tmpreg = FMPI2C_InitStruct->FMPI2C_Mode;
-    /* 写入FMPI2Cx CR1 */
+    /* 写入 FMPI2Cx CR1 */
     FMPI2Cx->CR1 |= tmpreg;
 
     /*---------------------------- FMPI2Cx ACK 配置 ----------------------*/
@@ -233,7 +233,7 @@ void FMPI2C_Init(FMPI2C_TypeDef* FMPI2Cx, FMPI2C_InitTypeDef* FMPI2C_InitStruct)
     /* 配置 FMPI2Cx: 确认 */
     /* 设置 NACK bit 根据 FMPI2C_Ack 值 */
     tmpreg |= FMPI2C_InitStruct->FMPI2C_Ack;
-    /* 写入FMPI2Cx CR2 */
+    /* 写入 FMPI2Cx CR2 */
     FMPI2Cx->CR2 = tmpreg;
 }
 
@@ -887,7 +887,7 @@ void FMPI2C_TransferHandling(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address, uint8_t 
 
     [..] 通过使用 FMPI2C_TimeoutBConfig() 函数配置 TIMEOUTB，
          然后调用 FMPI2C_ClockTimeoutCmd()来检测SCL低电平超时。
-         当在此过程中加入FMPI2C_IdleClockTimeoutCmd() 函数的调用时，
+         当在此过程中加入 FMPI2C_IdleClockTimeoutCmd() 函数的调用时，
          总线空闲状态(SCL和 SDA均为高电平)也被检测到。
 
 @endverbatim

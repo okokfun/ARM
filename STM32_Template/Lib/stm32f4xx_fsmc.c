@@ -5,7 +5,7 @@
   * 版本:    V1.8.0
   * 日期:    04-November-2016
  * 简介:    该文件提供了固件功能来管理FSMC 外设的以下功能:
-  *           + 与 SRAM、PSRAM、NOR 和OneNAND 存储器的接口
+  *           + 与 SRAM、PSRAM、NOR 和 OneNAND 存储器的接口
   *           + 与NAND 存储器的接口
   *           + 与16位PC卡兼容存储器的接口
   *           + 中断和标志管理
@@ -291,7 +291,7 @@ void FSMC_NORSRAMCmd(uint32_t FSMC_Bank, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用通过设置BCRx 中的PBKEN 位来选择NOR/SRAM组寄存器 */
+        /* 启用通过设置 BCRx 中的PBKEN 位来选择NOR/SRAM组寄存器 */
         FSMC_Bank1->BTCR[FSMC_Bank] |= BCR_MBKEN_SET;
     } else {
         /* 禁用通过清除 BCRx 中的 PBKEN 位来选择 NOR/SRAM 组寄存器 */

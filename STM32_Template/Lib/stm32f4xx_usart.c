@@ -165,7 +165,7 @@
 
 /**
   * 简介:  将 USARTx 外围寄存器取消初始化为其默认重置值。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 返回值: 无
   */
 void USART_DeInit(USART_TypeDef* USARTx) {
@@ -200,7 +200,7 @@ void USART_DeInit(USART_TypeDef* USARTx) {
 
 /**
   * 简介:  根据 USART_InitStruct 中的指定参数初始化 USARTx 外设设备。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_InitStruct: 指向 USART_InitTypeDef 结构的指针，
   *             该结构包含指定 USART 外设设备的配置信息。
   * 返回值: 无
@@ -245,7 +245,7 @@ void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct) {
 
     /* 配置 USART字长、奇偶校验和模式:
        根据 USART_WordLength值设置M位
-       根据 USART_Parity值设置PCE 和 PS 位
+       根据 USART_Parity 值设置PCE 和 PS 位
        根据 USART_Mode值设置 TE 和 RE 位 */
     tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
               USART_InitStruct->USART_Mode;
@@ -363,7 +363,7 @@ void USART_ClockStructInit(USART_ClockInitTypeDef* USART_ClockInitStruct) {
 
 /**
   * 简介:  启用或禁用指定的 USART 外设设备。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  NewState: USARTx 外设设备的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -384,7 +384,7 @@ void USART_Cmd(USART_TypeDef* USARTx, FunctionalState NewState) {
 
 /**
   * 简介:  设置系统时钟预分频器。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_Prescaler: 指定预分频器时钟。
   * 注意:   该功能用于 UART4 和 UART5 的 IrDA 模式。
   * 返回值: 无
@@ -402,7 +402,7 @@ void USART_SetPrescaler(USART_TypeDef* USARTx, uint8_t USART_Prescaler) {
 /**
   * 简介:  启用或禁用 USART 的8x过采样模式。
   * 注意:   为了获得正确的波特率分频器值，必须在调用 USART_Init() 函数之前调用此函数。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  NewState: USART 8x过采样模式的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -423,7 +423,7 @@ void USART_OverSampling8Cmd(USART_TypeDef* USARTx, FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 USART 的一位采样方法。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  NewState: USART一位采样方法的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -468,7 +468,7 @@ void USART_OneBitMethodCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
 
 /**
   * 简介:  通过 USARTx 外设传输单个数据。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  Data:要传输的数据。
   * 返回值: 无
   */
@@ -483,7 +483,7 @@ void USART_SendData(USART_TypeDef* USARTx, uint16_t Data) {
 
 /**
   * 简介:  返回 USARTx 外设最近接收到的数据。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 返回值: 接收的数据。
   */
 uint16_t USART_ReceiveData(USART_TypeDef* USARTx) {
@@ -524,7 +524,7 @@ uint16_t USART_ReceiveData(USART_TypeDef* USARTx) {
 
 /**
   * 简介:  设置 USART 节点的地址。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_Address: 指示USART 节点的地址。
   * 返回值: 无
   */
@@ -541,7 +541,7 @@ void USART_SetAddress(USART_TypeDef* USARTx, uint8_t USART_Address) {
 
 /**
   * 简介:  确定 USART 是否处于静音模式。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  NewState: USART 静音模式的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -561,7 +561,7 @@ void USART_ReceiverWakeUpCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
 }
 /**
   * 简介:  选择 USART 唤醒方法。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_WakeUp: 指定 USART唤醒方法。
   *          此参数可以是以下值之一:
   *            @arg USART_WakeUp_IdleLine: 通过空闲线路检测唤醒
@@ -617,7 +617,7 @@ void USART_WakeUpConfig(USART_TypeDef* USARTx, uint16_t USART_WakeUp) {
 
 /**
   * 简介:  设置 USART LI断检测长度。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_LINBreakDetectLength: 指定 LIN 中断检测长度。
   *          此参数可以是以下值之一:
   *            @arg USART_LINBreakDetectLength_10b: 10位中断检测
@@ -635,7 +635,7 @@ void USART_LINBreakDetectLengthConfig(USART_TypeDef* USARTx, uint16_t USART_LINB
 N 中
 /**
   * 简介:  启用或禁用 USART 的 LIN 模式。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  NewState: 新状态-> USART LIN mode.
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -656,7 +656,7 @@ void USART_LINCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
 
 /**
   * 简介:  传输中断字符。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 返回值: 无
   */
 void USART_SendBreak(USART_TypeDef* USARTx) {
@@ -698,7 +698,7 @@ void USART_SendBreak(USART_TypeDef* USARTx) {
 
 /**
   * 简介:  启用或禁用 USART 的半双工通信。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  NewState: USART 通信的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -860,7 +860,7 @@ void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
 
 /**
   * 简介:  配置 USART 的 IrDA 接口。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_IrDAMode: 指定 IrDA 模式。
   *          此参数可以是以下值之一:
   *            @arg USART_IrDAMode_LowPower
@@ -878,7 +878,7 @@ void USART_IrDAConfig(USART_TypeDef* USARTx, uint16_t USART_IrDAMode) {
 
 /**
   * 简介:  启用或禁用 USART 的 IrDA 接口。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  NewState: IrDA 模式的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
@@ -911,7 +911,7 @@ void USART_IrDACmd(USART_TypeDef* USARTx, FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 USART 的 DMA 接口。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_DMAReq: 指定 DMA 请求。
   *          此参数可以是以下值的任意组合:
   *            @arg USART_DMAReq_Tx: USART DMA 传输请求
@@ -1017,7 +1017,7 @@ void USART_DMACmd(USART_TypeDef* USARTx, uint16_t USART_DMAReq, FunctionalState 
 
 /**
   * 简介:  启用或禁用指定的 USART 中断。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_IT: 指定要启用或禁用的 USART 中断源。
   *          此参数可以是以下值之一:
   *            @arg USART_IT_CTS:  CTS 更改中断
@@ -1071,7 +1071,7 @@ void USART_ITConfig(USART_TypeDef* USARTx, uint16_t USART_IT, FunctionalState Ne
 
 /**
   * 简介:  检查是否设置了指定的 USART 标志。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
   *            @arg USART_FLAG_CTS:  CTS 更改标志(不适用于 UART4 和 UART5)
@@ -1108,7 +1108,7 @@ FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG) {
 
 /**
   * 简介:  清除 USARTx 的挂起标志。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
   *            @arg USART_FLAG_CTS:  CTS 更改标志(不适用于 UART4 和 UART5)。
@@ -1141,7 +1141,7 @@ void USART_ClearFlag(USART_TypeDef* USARTx, uint16_t USART_FLAG) {
 
 /**
   * 简介:  检查指定的 USART 中断是否发生。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_IT: 指定要检查的 USART 中断源。
   *          此参数可以是以下值之一:
   *            @arg USART_IT_CTS:  CTS 更改中断(不适用于 UART4 和 UART5)
@@ -1198,7 +1198,7 @@ ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT) {
 
 /**
   * 简介:  清除 USARTx 的中断挂起位。
-  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7或8，以选择 USART 或 UART 外设设备。
+  * 参数:  USARTx: 其中 x 可以是1、2、3、4、5、6、7 或8，以选择 USART 或 UART 外设设备。
   * 参数:  USART_IT: 指定要清除的中断挂起位。
   *          此参数可以是以下值之一:
   *            @arg USART_IT_CTS:  CTS 更改中断(不适用于 UART4 和 UART5)

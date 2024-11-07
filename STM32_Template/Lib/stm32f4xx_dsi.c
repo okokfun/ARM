@@ -109,7 +109,7 @@ void DSI_DeInit(DSI_TypeDef *DSIx) {
     /* 禁用 DSI host */
     DSIx->CR &= ~DSI_CR_EN;
 
-    /* D-PHY时钟和数字禁用 */
+    /* D-PHY 时钟和数字禁用 */
     DSIx->PCTLR &= ~(DSI_PCTLR_CKE | DSI_PCTLR_DEN);
 
     /* 关闭DSI PLL */
@@ -175,7 +175,7 @@ void DSI_Init(DSI_TypeDef *DSIx, DSI_InitTypeDef* DSI_InitStruct, DSI_PLLInitTyp
 
     /*************************** 设置PHY参数 ***************************/
 
-    /* D-PHY时钟和数字启用*/
+    /* D-PHY 时钟和数字启用*/
     DSIx->PCTLR |= (DSI_PCTLR_CKE | DSI_PCTLR_DEN);
 
     /* Clock lane 配置*/
@@ -264,7 +264,7 @@ void DSI_SetGenericVCID(DSI_TypeDef *DSIx, uint32_t VirtualChannelID) {
   * 
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数:  VidCfg: 指向一个包含DSI视频模式配置参数的 DSI_VidCfgTypeDef 结构的指针。
+  * 参数:  VidCfg: 指向一个包含 DSI视频模式配置参数的 DSI_VidCfgTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -405,7 +405,7 @@ void DSI_ConfigVideoMode(DSI_TypeDef *DSIx, DSI_VidCfgTypeDef *VidCfg) {
   * 
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数:  CmdCfg: 指向一个包含DSI命令模式配置参数的 DSI_CmdCfgTypeDef 结构的指针。
+  * 参数:  CmdCfg: 指向一个包含 DSI命令模式配置参数的 DSI_CmdCfgTypeDef 结构的指针。
   * 
   * 返回值: 无
   */
@@ -465,7 +465,7 @@ void DSI_ConfigAdaptedCommandMode(DSI_TypeDef *DSIx, DSI_CmdCfgTypeDef *CmdCfg) 
   * 
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数:  LPCmd: 指向包含DSI命令传输模式配置参数的 DSI_LPCmdTypeDef 结构的指针
+  * 参数:  LPCmd: 指向包含 DSI命令传输模式配置参数的 DSI_LPCmdTypeDef 结构的指针
   * 
   * 返回值: 无
   */
@@ -539,7 +539,7 @@ void DSI_ConfigFlowControl(DSI_TypeDef *DSIx, uint32_t FlowControl) {
   * 
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数:  PhyTimers: 包含DSI PHY 计时参数的 DSI_PHY_TimerTypeDef 结构
+  * 参数:  PhyTimers: 包含 DSI PHY 计时参数的 DSI_PHY_TimerTypeDef 结构
   * 
   * 返回值: 无
   */
@@ -573,7 +573,7 @@ void DSI_ConfigPhyTimer(DSI_TypeDef *DSIx, DSI_PHY_TimerTypeDef *PhyTimers) {
   * 
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数:  HostTimeouts: 包含DSI 主机超时参数的 DSI_HOST_TimeoutTypeDef 结构
+  * 参数:  HostTimeouts: 包含 DSI 主机超时参数的 DSI_HOST_TimeoutTypeDef 结构
   * 
   * 返回值: 无
   */
@@ -664,7 +664,7 @@ void DSI_Refresh(DSI_TypeDef *DSIx) {
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
   * 参数:  ColorMode: 颜色模式(全色或8色)。
-  *                    此参数可以是 @ref DSI_Color_Mode的任何值
+  *                    此参数可以是 @ref DSI_Color_Mode 的任何值
   * 
   * 返回值: 无
   */
@@ -970,7 +970,7 @@ void DSI_EnterULPM(DSI_TypeDef *DSIx) {
     /* 时钟通道配置：不再有HS请求 */
     DSIx->CLCR &= ~DSI_CLCR_DPCC;
 
-    /* 在停止 DSIPHY时钟源之前，使用系统PLL 作为字节通道时钟源 */
+    /* 在停止 DSIPHY 时钟源之前，使用系统PLL 作为字节通道时钟源 */
     RCC_DSIClockSourceConfig(RCC_DSICLKSource_PLLR);
 
     /* 时钟和数据通道上的 ULPS请求 */
@@ -1173,7 +1173,7 @@ void DSI_SetSDD(DSI_TypeDef *DSIx, FunctionalState State) {
   * 参数:  CustomLane: 要应用于选定车道的功能。
   *                     此参数可以是 @ref DSI_CustomLane
   * 
-  * 参数:  Lane: 在时钟或数据通道0 或数据通道1之间进行选择。
+  * 参数:  Lane: 在时钟或数据通道0 或数据通道1 之间进行选择。
   *               此参数可以是 @ref DSI_Lane_Select
   * 
   * 参数:  State: ENABLE or DISABLE
@@ -1399,7 +1399,7 @@ void DSI_ForceTXStopMode(DSI_TypeDef *DSIx, uint32_t Lane, FunctionalState State
 /**
   * 简介:  强制LP接收器处于低功率模式
   * 
-  * 参数:  hdsi: 指向 DSI_HandleTypeDef 结构的指针，该结构包含DSI 的配置信息。
+  * 参数:  hdsi: 指向 DSI_HandleTypeDef 结构的指针，该结构包含 DSI 的配置信息。
   * 
   * 参数:  State: ENABLE or DISABLE
   * 
@@ -1417,7 +1417,7 @@ void DSI_ForceRXLowPower(DSI_TypeDef *DSIx, FunctionalState State) {
 /**
   * 简介:  BTA后强制数据通道处于RX模式
   * 
-  * 参数:  hdsi: 指向 DSI_HandleTypeDef 结构的指针，该结构包含DSI 的配置信息。
+  * 参数:  hdsi: 指向 DSI_HandleTypeDef 结构的指针，该结构包含 DSI 的配置信息。
   * 
   * 参数:  State: ENABLE or DISABLE
   * 
@@ -1685,7 +1685,7 @@ void DSI_ClearITPendingBit(DSI_TypeDef* DSIx, uint32_t DSI_IT) {
   * 参数:  DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
   * 参数:  ActiveErrors: 指示将启用哪些错误中断。
-  *                      此参数可以是 @ref DSI_Error_Data_Type的任意组合。
+  *                      此参数可以是 @ref DSI_Error_Data_Type 的任意组合。
   * 
   * 返回值: 无
   */

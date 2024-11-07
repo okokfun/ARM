@@ -163,7 +163,7 @@ void SPI_WriteWithWait(SPI_TypeDef * SPIx, uint32_t data) {
 * 输    入: SPI_TypeDef * SPIx		指定要被设置的 SPI，有效值包括SPI0、SPI1
 *			uint32_t data 			要发送的数据
 * 输    出: uint32_t				接收到的数据
-* 注意事项: 对于同一个 SPI 模块，此函数不应与 SPI_Write()混着用，因为SPI_Write()不清除 SPI_STAT_RFNE状态
+* 注意事项: 对于同一个 SPI 模块，此函数不应与 SPI_Write()混着用，因为 SPI_Write()不清除 SPI_STAT_RFNE状态
 ******************************************************************************************************************************************/
 uint32_t SPI_ReadWrite(SPI_TypeDef * SPIx, uint32_t data) {
     SPIx->DATA = data;

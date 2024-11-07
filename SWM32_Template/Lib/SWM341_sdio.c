@@ -111,7 +111,7 @@ uint32_t SDIO_Init(uint32_t freq) {
                  (calcSDCLKDiv(freq) << SDIO_CR2_SDCLKDIV_Pos);	//初始化完成，SDCLK切换到高速
 
 
-    SDIO_SendCmd(SD_CMD_SEL_DESEL_CARD, SD_cardInfo.RCA << 16, SD_RESP_32b_busy, &resp);	//CMD7: 选中卡，从Standy模式进入 Transfer模式
+    SDIO_SendCmd(SD_CMD_SEL_DESEL_CARD, SD_cardInfo.RCA << 16, SD_RESP_32b_busy, &resp);	//CMD7: 选中卡，从 Standy模式进入 Transfer模式
     SDIO->IF = SDIO_IF_TRXDONE_Msk;
 
     SDIO_SendCmd(SD_CMD_APP_CMD, SD_cardInfo.RCA << 16, SD_RESP_32b, &resp);
@@ -231,7 +231,7 @@ uint32_t SDIO_DMABlockWrite(uint32_t block_addr, uint16_t block_cnt, uint32_t bu
 
 /******************************************************************************************************************************************
 * 函数名称: SDIO_BlockRead()
-* 功能说明:	从SD卡读出数据
+* 功能说明:	从 SD卡读出数据
 * 输    入: uint32_t block_addr		SD卡块地址，每块512字节
 *			uint32_t buff[]			读出的数据
 * 输    出: uint32_t				SD_RES_OK 操作成功    SD_RES_ERR 操作失败    SD_RES_TIMEOUT 操作超时
@@ -264,7 +264,7 @@ uint32_t SDIO_BlockRead(uint32_t block_addr, uint32_t buff[]) {
 
 /******************************************************************************************************************************************
 * 函数名称: SDIO_MultiBlockRead()
-* 功能说明:	从SD卡读出多块数据
+* 功能说明:	从 SD卡读出多块数据
 * 输    入: uint32_t block_addr		SD卡块地址，每块512字节
 *			uint16_t block_cnt		要读出的块数
 *			uint32_t buff[]			读出的数据
@@ -300,7 +300,7 @@ uint32_t SDIO_MultiBlockRead(uint32_t block_addr, uint16_t block_cnt, uint32_t b
 
 /******************************************************************************************************************************************
 * 函数名称: SDIO_DMABlockRead()
-* 功能说明:	通过DMA从SD卡读出多块数据
+* 功能说明:	通过DMA从 SD卡读出多块数据
 * 输    入: uint32_t block_addr		SD卡块地址，每块512字节
 *			uint16_t block_cnt		要读出的块数
 *			uint32_t buff[]			读出的数据

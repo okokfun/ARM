@@ -85,9 +85,9 @@
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
   * 
-  * 参数:  Key: 用于 TDES算法的密钥。
+  * 参数:  Key: 用于 TDES 算法的密钥。
   * 
-  * 参数:  Ilength: 输入缓冲区的长度，必须是8 的倍数。
+  * 参数:  Ilength: 输入缓冲区的长度，必须是 8 的倍数。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 
@@ -149,7 +149,7 @@ ErrorStatus CRYP_TDES_ECB(uint8_t Mode, uint8_t Key[24], uint8_t *Input,
         status = ERROR;
     } else {
         for(i = 0; ((i < Ilength) && (status != ERROR)); i += 8) {
-            /* 在输入FIFO 中写入输入块 */
+            /* 在输入 FIFO 中写入输入块 */
             CRYP_DataIn(*(uint32_t*)(inputaddr));
             inputaddr += 4;
             CRYP_DataIn(*(uint32_t*)(inputaddr));
@@ -190,13 +190,13 @@ ErrorStatus CRYP_TDES_ECB(uint8_t Mode, uint8_t Key[24], uint8_t *Input,
   *            @arg MODE_ENCRYPT: 加密
   *            @arg MODE_DECRYPT: 解密
   * 
-  * 参数:  Key: 用于 TDES算法的密钥。
+  * 参数:  Key: 用于 TDES 算法的密钥。
   * 
-  * 参数:  InitVectors: 用于 TDES算法的初始化矢量。
+  * 参数:  InitVectors: 用于 TDES 算法的初始化矢量。
   * 
   * 参数:  Input: 指向输入缓冲区的指针。
   * 
-  * 参数:  Ilength: 输入缓冲区的长度，必须是8 的倍数。
+  * 参数:  Ilength: 输入缓冲区的长度，必须是 8 的倍数。
   * 
   * 参数:  Output: 指向返回缓冲区的指针。
   * 
@@ -210,13 +210,13 @@ ErrorStatus CRYP_TDES_CBC(uint8_t Mode, uint8_t Key[24], uint8_t InitVectors[8],
     CRYP_KeyInitTypeDef TDES_CRYP_KeyInitStructure;
     CRYP_IVInitTypeDef TDES_CRYP_IVInitStructure;
     __IO uint32_t counter = 0;
-    uint32_t busystatus = 0;
-    ErrorStatus status = SUCCESS;
-    uint32_t keyaddr    = (uint32_t)Key;
-    uint32_t inputaddr  = (uint32_t)Input;
-    uint32_t outputaddr = (uint32_t)Output;
-    uint32_t ivaddr     = (uint32_t)InitVectors;
-    uint32_t i = 0;
+    uint32_t busystatus   = 0;
+    ErrorStatus status    = SUCCESS;
+    uint32_t keyaddr      = (uint32_t)Key;
+    uint32_t inputaddr    = (uint32_t)Input;
+    uint32_t outputaddr   = (uint32_t)Output;
+    uint32_t ivaddr       = (uint32_t)InitVectors;
+    uint32_t i            = 0;
 
     /* 加密数据结构初始化 */
     CRYP_KeyStructInit(&TDES_CRYP_KeyInitStructure);
@@ -247,7 +247,7 @@ ErrorStatus CRYP_TDES_CBC(uint8_t Mode, uint8_t Key[24], uint8_t InitVectors[8],
     TDES_CRYP_KeyInitStructure.CRYP_Key3Right = __REV(*(uint32_t*)(keyaddr));
     CRYP_KeyInit(& TDES_CRYP_KeyInitStructure);
 
-    /* 初始化Vectors */
+    /* 初始化 Vectors */
     TDES_CRYP_IVInitStructure.CRYP_IV0Left = __REV(*(uint32_t*)(ivaddr));
     ivaddr += 4;
     TDES_CRYP_IVInitStructure.CRYP_IV0Right = __REV(*(uint32_t*)(ivaddr));
@@ -260,11 +260,11 @@ ErrorStatus CRYP_TDES_CBC(uint8_t Mode, uint8_t Key[24], uint8_t InitVectors[8],
     CRYP_Cmd(ENABLE);
 
     if(CRYP_GetCmdStatus() == DISABLE) {
-        /* CRYP外设时钟没有启用，或者设备没有嵌入CRYP外设(请检查设备销售类型。*/
+        /* CRYP 外设时钟没有启用，或者设备没有嵌入 CRYP 外设(请检查设备销售类型。*/
         status = ERROR;
     } else {
         for(i = 0; ((i < Ilength) && (status != ERROR)); i += 8) {
-            /* 在输入FIFO 中写入输入块 */
+            /* 在输入 FIFO 中写入输入块 */
             CRYP_DataIn(*(uint32_t*)(inputaddr));
             inputaddr += 4;
             CRYP_DataIn(*(uint32_t*)(inputaddr));
