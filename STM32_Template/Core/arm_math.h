@@ -7,7 +7,7 @@
 * Project: 	    CMSIS DSP Library
 * Title:	    arm_math.h
 *
-* Description:	CMSIS DSP库的公共头文件
+* Description:	CMSIS DSP 库的公共头文件
 *
 * Target Processor: Cortex-M7/Cortex-M4/Cortex-M3/Cortex-M0
 *
@@ -44,7 +44,7 @@
    * 介绍
    * ------------
    *
-   * 本用户手册介绍了 CMSIS DSP软件库，这是一套在基于Cortex-M处理器的设备上使用的通用信号处理功能。
+   * 本用户手册介绍了 CMSIS DSP 软件库，这是一套在基于 Cortex-M 处理器的设备上使用的通用信号处理功能。
    *
    * 该库分为多个功能，每个功能都涵盖特定类别：
    * - 基本数学函数

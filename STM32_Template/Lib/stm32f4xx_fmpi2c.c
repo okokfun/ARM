@@ -1276,7 +1276,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (#) FMPI2C_FLAG_RXNE: 表示接收数据寄存器非空标志的状态。
         (#) FMPI2C_FLAG_ADDR: 表示地址匹配标志的状态(从机模式)。
         (#) FMPI2C_FLAG_NACKF: 指示接收到 NACK标志的状态。
-        (#) FMPI2C_FLAG_STOPF: 指示STOP检测标志的状态。
+        (#) FMPI2C_FLAG_STOPF: 指示 STOP检测标志的状态。
         (#) FMPI2C_FLAG_TC: 指示传输完成标志的状态(主模式)。
         (#) FMPI2C_FLAG_TCR: 用于指示传输完成重载标志的状态。
         (#) FMPI2C_FLAG_BERR: 指示总线错误标志的状态。
@@ -1284,7 +1284,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (#) FMPI2C_FLAG_OVR: 指示超速/欠速标志的状态。
         (#) FMPI2C_FLAG_PECERR: 指示接收中的PEC 错误标志的状态。
         (#) FMPI2C_FLAG_TIMEOUT:表示超时或低速检测标志的状态。
-        (#) FMPI2C_FLAG_ALERT: 指示SMBus警报标志的状态。
+        (#) FMPI2C_FLAG_ALERT: 指示 SMBus警报标志的状态。
         (#) FMPI2C_FLAG_BUSY: 指示总线繁忙标志的状态。
 
     [..] 在这种模式下，建议使用以下函数:
@@ -1311,7 +1311,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (#) FMPI2C_IT_RXNE:表示接收数据寄存器非空标志的状态。
         (#) FMPI2C_IT_ADDR: 指示地址匹配标志的状态(从属模式)。
         (#) FMPI2C_IT_NACKF: 指示接收到 NACK标志的状态。
-        (#) FMPI2C_IT_STOPF: 指示STOP检测标志的状态。
+        (#) FMPI2C_IT_STOPF: 指示 STOP检测标志的状态。
         (#) FMPI2C_IT_TC: 指示传输完成标志的状态(主模式)。
         (#) FMPI2C_IT_TCR:表示传输完成重载标志的状态。
         (#) FMPI2C_IT_BERR: 指示总线错误标志的状态。
@@ -1319,7 +1319,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (#) FMPI2C_IT_OVR: 指示超速/欠速标志的状态。
         (#) FMPI2C_IT_PECERR: 指示接收中的PEC 错误标志的状态。
         (#) FMPI2C_IT_TIMEOUT:表示超时或低速检测标志的状态。
-        (#) FMPI2C_IT_ALERT: 指示SMBus警报标志的状态。
+        (#) FMPI2C_IT_ALERT: 指示 SMBus警报标志的状态。
 
     [..] 在这种模式下，建议使用以下函数:
          (+) void FMPI2C_ClearITPendingBit(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT);

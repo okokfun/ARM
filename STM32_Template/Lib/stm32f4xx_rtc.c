@@ -2348,7 +2348,7 @@ void RTC_ITConfig(uint32_t RTC_IT, FunctionalState NewState) {
   * 
   * 参数:  RTC_FLAG: 指定要检查的标志。
   *          此参数可以是以下值之一:
-  *            @arg RTC_FLAG_RECALPF: RECALPF事件标志。
+  *            @arg RTC_FLAG_RECALPF: RECALPF 事件标志。
   *            @arg RTC_FLAG_TAMP1F:  篡改1事件标志
   *            @arg RTC_FLAG_TAMP2F:  篡改2事件标志
   *            @arg RTC_FLAG_TSOVF:   时间戳溢出标志

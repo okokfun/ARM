@@ -65,7 +65,7 @@
             在 SPI_Direction_Tx 或 SPI_Direction_Rx 之间切换。
 			
        (++) 当 SPI_NSS_Soft 被选择为使用 SPI_Init() 函数的 Slave Select Management 参数时，
-            可以使用 SPI_NSSInternalSoftwareConfig() 函数来管理NSS内部信号。
+            可以使用 SPI_NSSInternalSoftwareConfig() 函数来管理 NSS 内部信号。
 			
        (++) 使用 SPI_DataSizeConfig() 函数重新配置数据大小
 	   
@@ -77,7 +77,7 @@
  [..] 可以在 I2S 全双工模式下使用 SPI，在这种情况下，每个 SPI 外设都能够使用两条数据线
       同时管理发送和接收数据。每个 SPI 外设都有一个名为 I2Sxext 的扩展块
       (即。I2S2ext 用于 SPI2, I2S3ext 用于 SPI3)。
-      扩展块不是一个完整的 SPI IP，它只是作为 I2S的slave 来实现全双工模式。扩展块使用与主块相同的时钟源。
+      扩展块不是一个完整的 SPI IP，它只是作为 I2S 的slave 来实现全双工模式。扩展块使用与主块相同的时钟源。
       要配置I2S 全双工，您必须:
 
       (#) 在 I2S 模式下配置 SPIx (I2S_Init() 函数)如上所述。
@@ -92,7 +92,7 @@
       SPI_I2S_SendData()， SPI_I2S_DMACmd()， SPI_I2S_ITConfig()， SPI_I2S_GetFlagStatus()，
       SPI_I2S_ClearFlag()， SPI_I2S_GetITStatus()和 SPI_I2S_ClearITPendingBit()。
 
-      示例: 在全双工模式下使用 SPI3 (SPI3是主Tx, I2S3ext是从Rx):
+      示例: 在全双工模式下使用 SPI3 (SPI3 是主Tx, I2S3ext 是从 Rx):
 
       RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI3, ENABLE);
       I2S_StructInit(&I2SInitStruct);
@@ -191,8 +191,8 @@
   * 简介:  将 SPIx 外设寄存器取消初始化为其缺省复位值。
   * 参数:  SPIx: 选择 SPIx/I2Sx 外设，其中 x 在 SPI 模式下为1、2、3、4、5或6，在 I2S 模式下为2 或3。
   *
-  * 注意:   扩展的 I2S 块(即。I2S2ext 和 I2S3ext块)在相对
-			      I2S 外设去初始化时被去初始化(扩展块的时钟由I2S 外设时钟管理)。
+  * 注意:   扩展的 I2S 块(即。I2S2ext 和 I2S3ext 块)在相对
+			      I2S 外设去初始化时被去初始化(扩展块的时钟由 I2S 外设时钟管理)。
   *
   * 返回值: 无
   */
@@ -573,7 +573,7 @@ void SPI_BiDirectionalLineConfig(SPI_TypeDef* SPIx, uint16_t SPI_Direction) {
 }
 
 /**
-  * 简介:  通过软件在内部配置所选 SPI 的NSS 引脚。
+  * 简介:  通过软件在内部配置所选 SPI 的 NSS 引脚。
   * 参数:  SPIx: 其中 x 可以是1、2、3、4、5或6，以选择 SPI 外设设备。
   * 参数:  SPI_NSSInternalSoft: 指定 SPI NSS internal state.
   *          此参数可以是以下值之一:
@@ -773,7 +773,7 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
  [..]
    (@) 建议不要在通信期间读取计算的 CRC 值。
 
-   (@) 当 SPI处于从属模式时，请注意仅当时钟稳定时，即当时钟处于稳定状态时，才启用 CRC 计算。
+   (@) 当 SPI 处于从属模式时，请注意仅当时钟稳定时，即当时钟处于稳定状态时，才启用 CRC 计算。
        否则，可能会进行错误的 CRC 计算。事实上，一旦设置了 CRCEN，
         CRC 就对 SCK 从机输入时钟敏感，这与 SPE 位的值无关。
 
@@ -782,14 +782,14 @@ void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data) {
         因此禁止调用 CRC 传输序列中的软件功能，以避免最后数据和 CRC 接收中的错误。
        事实上，CRCNEXT 位必须在最后数据传输/接收结束之前写入。
 
-   (@) 对于高比特率频率，建议使用 DMA 模式，以避免由于CPU访问影响SPI带宽而导致 SPI 速度性能下降。
+   (@) 对于高比特率频率，建议使用 DMA 模式，以避免由于 CPU 访问影响 SPI 带宽而导致 SPI 速度性能下降。
 
    (@) 当 STM32F4xx 配置为从机并且使用 NSS 硬件模式时，NSS 引脚需要在数据相位和 CRC 相位之间保持低电平。
 
-   (@) 当 SPI在启用 CRC 功能的从属模式下配置时，即使NSS 引脚上应用了高电平，也会进行 CRC 计算。
+   (@) 当 SPI 在启用 CRC 功能的从属模式下配置时，即使 NSS 引脚上应用了高电平，也会进行 CRC 计算。
        例如，在通信主机交替寻址从机的多从机环境中，可能会发生这种情况。
 
-   (@) 在从设备取消选择(NSS上的高电平)和新的从设备选择(NSC上的低电平)之间，
+   (@) 在从设备取消选择(NSS 上的高电平)和新的从设备选择(NSC 上的低电平)之间，
         应清除主设备和从设备侧的 CRC 值，以便重新同步主设备和从属设备进行各自的 CRC 计算。
 
    (@) 要清除 CRC，请遵循以下程序:
@@ -823,7 +823,7 @@ void SPI_CalculateCRC(SPI_TypeDef* SPIx, FunctionalState NewState) {
 }
 
 /**
-  * 简介:  传输SPIx CRC 值。
+  * 简介:  传输 SPIx CRC 值。
   * 参数:  SPIx: 其中 x 可以是1、2、3、4、5或6，以选择 SPI 外设设备。
   * 返回值: 无
   */
@@ -928,10 +928,10 @@ void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState 
 
  *** 轮询模式 ***
  ====================
-[..] 在轮询模式下，SPI/I2S通信可通过9个标志进行管理:
+[..] 在轮询模式下，SPI/I2S 通信可通过9个标志进行管理:
   (#) SPI_I2S_FLAG_TXE : 指示发送缓冲寄存器的状态
   (#) SPI_I2S_FLAG_RXNE : 指示接收缓冲寄存器的状态
-  (#) SPI_I2S_FLAG_BSY : 指示SPI 通信层的状态。
+  (#) SPI_I2S_FLAG_BSY : 指示 SPI 通信层的状态。
   (#) SPI_FLAG_CRCERR : 指示是否发生 CRC 计算错误
   (#) SPI_FLAG_MODF : 指示是否发生模式故障
   (#) SPI_I2S_FLAG_OVR : 指示是否发生超限错误
@@ -1057,7 +1057,7 @@ FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG) {
   * 简介:  清除 SPIx CRC 错误 (CRCERR) 标志。
   * 参数:  SPIx：选择 SPIx/I2Sx 外设设备，其中 x 可以是：
 			SPI 模式下的1、2、3、4、5或6，I2S 模式下的 2 或3，I2S 全双工模式下的 I2Sxext。
-  * 参数:  SPI_I2S_FLAG：指定要清除的 SPI标志。
+  * 参数:  SPI_I2S_FLAG：指定要清除的 SPI 标志。
   *			此功能仅清除 CRCERR 标志。
   *				@arg SPI_FLAG_CERRR: CRC 错误标志。
   *

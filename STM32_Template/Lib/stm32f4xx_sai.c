@@ -194,8 +194,8 @@ void SAI_DeInit(SAI_TypeDef* SAIx) {
 /**
   * 简介:  根据 SAI_InitStruct 中指定的参数初始化 SAI Block x 外设。
   *
-  * 注意:   SAI 时钟是从PLLSAI 的特定输出或 PLLI2S的特定输出产生的，
-			或者是从绕过 PLL I2S的替代功能产生的。
+  * 注意:   SAI 时钟是从PLLSAI 的特定输出或 PLLI2S 的特定输出产生的，
+			或者是从绕过 PLL I2S 的替代功能产生的。
   *
   * 参数:  SAI_Block_x: 其中 x 可以是A或B，以选择 SAI 块外设。
   * 参数:  SAI_InitStruct: 指向 SAI_InitTypeDef 结构的指针，该结构包含指定 SAI 块的配置信息外设.

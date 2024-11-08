@@ -852,10 +852,10 @@ void ADC_EOCOnEachRegularChannelCmd(ADC_TypeDef* ADCx, FunctionalState NewState)
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 在每个常规通道转换中启用选定的 ADC EOC上升 */
+        /* 在每个常规通道转换中启用选定的 ADC EOC 上升 */
         ADCx->CR2 |= (uint32_t)ADC_CR2_EOCS;
     } else {
-        /* 在每个常规通道转换中禁用选定的 ADC EOC上升 */
+        /* 在每个常规通道转换中禁用选定的 ADC EOC 上升 */
         ADCx->CR2 &= (uint32_t)(~ADC_CR2_EOCS);
     }
 }
@@ -1057,7 +1057,7 @@ void ADC_DMARequestAfterLastTransferCmd(ADC_TypeDef* ADCx, FunctionalState NewSt
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 注意   如果启用，则只要转换数据，就会发出DMA 请求，
-		   并且多 ADC 模式的 DMA 模式(由ADC_CommonInitStruct.ADC_DMAAccessMode
+		   并且多 ADC 模式的 DMA 模式(由 ADC_CommonInitStruct.ADC_DMAAccessMode
 		   结构成员使用 ADC_CommonInit() 函数选择)为 ADC_DMAAccessMode_1、
 		   ADC_DMAccessMode_2 或ADC_DMAAccessMode_3。
 
@@ -1475,7 +1475,7 @@ uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedC
         (##) ADC_FLAG_OVR : 常规转换数据丢失时的溢出检测
 
         (##) ADC_FLAG_EOC : 常规通道转换结束==>以指示(取决于EOCS 位，
-                            由ADC_EOCOnEachRegularChannelCmd()管理)以下内容的结束:
+                            由 ADC_EOCOnEachRegularChannelCmd()管理)以下内容的结束:
              (+++) 常规CHANNEL转换
              (+++) 常规GROUP转换的序列。
 

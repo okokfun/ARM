@@ -2793,11 +2793,11 @@ void TIM_ETRConfig(TIM_TypeDef* TIMx, uint16_t TIM_ExtTRGPrescaler,
   * 参数:  TIM_IC1Polarity: 指定 IC1极性
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPolarity_Falling: IC下降沿。
-  *            @arg TIM_ICPolarity_Rising: IC上升沿。
+  *            @arg TIM_ICPolarity_Rising: IC 上升沿。
   * 参数:  TIM_IC2Polarity: 指定 IC2极性
   *          此参数可以是以下值之一:
   *            @arg TIM_ICPolarity_Falling: IC下降沿。
-  *            @arg TIM_ICPolarity_Rising: IC上升沿。
+  *            @arg TIM_ICPolarity_Rising: IC 上升沿。
   * 返回值: 无
   */
 void TIM_EncoderInterfaceConfig(TIM_TypeDef* TIMx, uint16_t TIM_EncoderMode,

@@ -816,10 +816,10 @@ void USART_SmartCardNACKCmd(USART_TypeDef* USARTx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 通过设置 CR3 寄存器中的NACK位来启用 NACK传输 */
+        /* 通过设置 CR3 寄存器中的 NACK位来启用 NACK传输 */
         USARTx->CR3 |= USART_CR3_NACK;
     } else {
-        /* 通过清除 CR3 寄存器中的NACK位禁用 NACK传输 */
+        /* 通过清除 CR3 寄存器中的 NACK位禁用 NACK传输 */
         USARTx->CR3 &= (uint16_t)~((uint16_t)USART_CR3_NACK);
     }
 }
@@ -1210,10 +1210,10 @@ ITStatus USART_GetITStatus(USART_TypeDef* USARTx, uint16_t USART_IT) {
   *             IDLE(检测到空闲线)挂起的位按软件顺序清除:
   *             先读取 USART_SR 寄存器(USART_GetITStatus())，
   *             然后读取 USART_DR 寄存器(USERT_ReceiveData())
-  * 注意:   RXNE挂起位也可以通过读取 USART_DR 寄存器(USART_ReceiveData())来清除。
-  * 注意:   TC挂起位也可以通过软件序列清除:先读取 USART_SR 寄存器(USART_GetITStatus())，
+  * 注意:   RXNE 挂起位也可以通过读取 USART_DR 寄存器(USART_ReceiveData())来清除。
+  * 注意:   TC 挂起位也可以通过软件序列清除:先读取 USART_SR 寄存器(USART_GetITStatus())，
   *             然后写入 USART_DR 寄存器(USATT_SendData())。
-  * 注意:   TXE挂起位仅通过写入 USART_DR 寄存器(USART_SendData())来清除。
+  * 注意:   TXE 挂起位仅通过写入 USART_DR 寄存器(USART_SendData())来清除。
   *
   * 返回值: 无
   */

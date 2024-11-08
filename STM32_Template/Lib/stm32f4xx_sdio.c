@@ -530,7 +530,7 @@ uint32_t SDIO_GetDataCounter(void) {
 }
 
 /**
-  * 简介:  从Rx FIFO读取一个数据字。
+  * 简介:  从 Rx FIFO读取一个数据字。
   * 
   * 参数:  无
   * 

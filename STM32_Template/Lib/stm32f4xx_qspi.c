@@ -38,11 +38,11 @@
         (#) 使用 QSPI_Init() 函数对Flash大小、CS High Time、Sample Shift、Prescaler、Clock Mode进行编程。
             值，使用 QSPI_Init() 函数。
 
-        (#) 使用 QSPI_Cmd() 函数启用QSPI。
+        (#) 使用 QSPI_Cmd() 函数启用 QSPI。
 
-        (#) 使用 QSPI_SetDataLength() 函数设置QSPI 数据长度。
+        (#) 使用 QSPI_SetDataLength() 函数设置 QSPI 数据长度。
 
-        (#) 使用 QSPI_SetFIFOThreshold() 函数配置 FIFO 阈值，选择在哪个阈值上产生 FTF事件。
+        (#) 使用 QSPI_SetFIFOThreshold() 函数配置 FIFO 阈值，选择在哪个阈值上产生 FTF 事件。
 
         (#) 如果需要使用中断模式，使用函数 QSPI_ITConfig() 启用 NVIC 和相应的中断。
 
@@ -147,7 +147,7 @@ void QSPI_DeInit(void) {
   * 返回值: 无
   */
 void QSPI_StructInit(QSPI_InitTypeDef* QSPI_InitStruct) {
-    /*--------- 重置QSPI初始化结构参数默认值 ------------*/
+    /*--------- 重置 QSPI初始化结构参数默认值 ------------*/
     /* 初始化 QSPI_SShift 成员 */
     QSPI_InitStruct->QSPI_SShift = QSPI_SShift_NoShift ;
     /* 初始化 QSPI_Prescaler 成员 */
@@ -170,9 +170,9 @@ void QSPI_StructInit(QSPI_InitTypeDef* QSPI_InitStruct) {
   * 返回值: 无
   */
 void QSPI_ComConfig_StructInit(QSPI_ComConfig_InitTypeDef* QSPI_ComConfig_InitStruct) {
-    /*--------- 重置QSPI ComConfig初始化结构参数的默认值 ------------*/
+    /*--------- 重置 QSPI ComConfig初始化结构参数的默认值 ------------*/
 
-    /* 设置QSPI 通信配置结构参数的默认值 */
+    /* 设置 QSPI 通信配置结构参数的默认值 */
     /* 初始化 QSPI_ComConfig_DDRMode 成员 */
     QSPI_ComConfig_InitStruct->QSPI_ComConfig_DDRMode = QSPI_ComConfig_DDRMode_Disable ;
     /* 初始化 QSPI_ComConfig_DHHC 成员 */
@@ -731,7 +731,7 @@ FlagStatus QSPI_GetFlagStatus(uint32_t QSPI_FLAG) {
 
 /**
   * 简介:  清除 QSPI 标志。
-  * 参数:  QSPI_FLAG: 指定要清除的QSPI标志。
+  * 参数:  QSPI_FLAG: 指定要清除的QSPI 标志。
   *          此参数可以是以下值之一:
   *          @arg QSPI_FLAG_TO:超时中断标志
   *          @arg QSPI_FLAG_SM:状态匹配中断标志
@@ -814,10 +814,10 @@ void QSPI_DualFlashMode_Cmd(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用QSPI双Flash模式 */
+        /* 启用 QSPI双Flash模式 */
         QUADSPI->CR |= QUADSPI_CR_DFM;
     } else {
-        /* 禁用QSPI双Flash模式 */
+        /* 禁用 QSPI双Flash模式 */
         QUADSPI->CR &= ~ QUADSPI_CR_DFM;
     }
 }

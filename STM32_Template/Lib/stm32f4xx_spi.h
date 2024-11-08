@@ -381,7 +381,7 @@ void SPI_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState);         // 启用或�
 void I2S_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState);         // 启用或禁用指定的 SPI 外设(在 I2S 模式下)。
 void SPI_DataSizeConfig(SPI_TypeDef* SPIx, uint16_t SPI_DataSize); // 配置所选 SPI 的数据大小。
 void SPI_BiDirectionalLineConfig(SPI_TypeDef* SPIx, uint16_t SPI_Direction); // 为指定的 SPI 选择双向模式下的数据传输方向。
-void SPI_NSSInternalSoftwareConfig(SPI_TypeDef* SPIx, uint16_t SPI_NSSInternalSoft); // 通过软件在内部配置所选 SPI 的NSS 引脚。
+void SPI_NSSInternalSoftwareConfig(SPI_TypeDef* SPIx, uint16_t SPI_NSSInternalSoft); // 通过软件在内部配置所选 SPI 的 NSS 引脚。
 void SPI_SSOutputCmd(SPI_TypeDef* SPIx, FunctionalState NewState); // 启用或禁用所选 SPI 的 SS 输出。
 void SPI_TIModeCmd(SPI_TypeDef* SPIx, FunctionalState NewState);   // 启用或禁用 SPIx/I2Sx DMA 接口。
 

@@ -23,7 +23,7 @@
 
         RCC_CSR 寄存器中的 WWDGRST 标志可用于通知何时发生 WWDG 重置。
 
-        WWDG 计数器输入时钟由APB 时钟除以可编程预分频器得到。
+        WWDG 计数器输入时钟由 APB 时钟除以可编程预分频器得到。
 
         WWDG 计数器时钟 = PCLK1 / Prescaler
         WWDG 超时 = (WWDG counter clock) * (counter value)
@@ -78,7 +78,7 @@
   */
 
 /** @defgroup WWDG
-  * 简介: WWDG驱动程序模块
+  * 简介: WWDG 驱动程序模块
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -91,7 +91,7 @@
 #define EWI_BitNumber     0x09
 #define CFR_EWI_BB        (PERIPH_BB_BASE + (CFR_OFFSET * 32) + (EWI_BitNumber * 4))
 
-/* --------------------- WWDG寄存器位掩码 ------------------------ */
+/* --------------------- WWDG 寄存器位掩码 ------------------------ */
 /* CFR 寄存器位掩码 */
 #define CFR_WDGTB_MASK    ((uint32_t)0xFFFFFE7F)
 #define CFR_W_MASK        ((uint32_t)0xFFFFFF80)

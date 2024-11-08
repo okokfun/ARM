@@ -64,7 +64,7 @@
   块模式、音频协议、数据大小、音频块之间的同步、主时钟分频器、
   FIFO 阈值、帧配置、插槽配置、三态模式、压缩模式和静音模式。
   [..]
-  SPDIFRX_Init()、SPDIFRX_FrameInit()和 SPDIFRX块配置程序遵循主模式和从模式的 SPDIFRX块配置程序(有关这些程序的详细信息，请参阅参考手册(RMxxxx))。
+  SPDIFRX_Init()、SPDIFRX_FrameInit()和 SPDIFRX 块配置程序遵循主模式和从模式的 SPDIFRX 块配置程序(有关这些程序的详细信息，请参阅参考手册(RMxxxx))。
 
 @endverbatim
   */
@@ -75,18 +75,18 @@
   * 返回值: 无
   */
 void SPDIFRX_DeInit(void) {
-    /* 使能SPDIFRX 复位状态 */
+    /* 使能 SPDIFRX 复位状态 */
     RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPDIFRX, ENABLE);
-    /* 释放SPDIFRX from 复位状态 */
+    /* 释放 SPDIFRX from 复位状态 */
     RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPDIFRX, DISABLE);
 }
 
 /**
   * 简介:  根据 SPDIFRX_InitStruct 中指定的参数初始化 SPDIFRX 外设。
   *
-  * 注意:   SPDIFRX时钟由PLLSPDIFRX的特定输出或 PLLI2S的特定输出或绕过 PLLI2S的替代函数生成。
+  * 注意:   SPDIFRX时钟由PLLSPDIFRX的特定输出或 PLLI2S 的特定输出或绕过 PLLI2S 的替代函数生成。
   *
-  * 参数:  SPDIFRX_InitStruct: 指向 SPDIFRX_InitTypeDef 结构的指针，该结构包含指定 SPDIFRX块外设设备的配置信息。
+  * 参数:  SPDIFRX_InitStruct: 指向 SPDIFRX_InitTypeDef 结构的指针，该结构包含指定 SPDIFRX 块外设设备的配置信息。
   * 返回值: 无
   */
 void SPDIFRX_Init(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
@@ -119,7 +119,7 @@ void SPDIFRX_Init(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
                          SPDIFRX_InitStruct->SPDIFRX_DataFormat       | SPDIFRX_InitStruct->SPDIFRX_StereoMode
                         );
 
-    /* 写入SPDIFRX CR */
+    /* 写入 SPDIFRX CR */
     SPDIFRX->CR = tmpreg;
 }
 
@@ -146,7 +146,7 @@ void SPDIFRX_StructInit(SPDIFRX_InitTypeDef* SPDIFRX_InitStruct) {
 
 /**
   * 简介:  启用或禁用 SPDIFRX frame x bit.
-  * 参数:  NewState: 选定 SPDIFRX帧位的新状态。
+  * 参数:  NewState: 选定 SPDIFRX 帧位的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
@@ -165,7 +165,7 @@ void SPDIFRX_SetPreambleTypeBit(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 SPDIFRX frame x bit.
-  * 参数:  NewState: 选定 SPDIFRX帧位的新状态。
+  * 参数:  NewState: 选定 SPDIFRX 帧位的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
@@ -184,7 +184,7 @@ void SPDIFRX_SetUserDataChannelStatusBits(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 SPDIFRX 帧 x 位。
-  * 参数:  NewState: 选定 SPDIFRX帧位的新状态。
+  * 参数:  NewState: 选定 SPDIFRX 帧位的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
@@ -203,7 +203,7 @@ void SPDIFRX_SetValidityBit(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 SPDIFRX 帧 x 位。
-  * 参数:  NewState: 选定 SPDIFRX帧位的新状态。
+  * 参数:  NewState: 选定 SPDIFRX 帧位的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
@@ -212,17 +212,17 @@ void SPDIFRX_SetParityBit(FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 启用选定的 SPDIFRX帧位 */
+        /* 启用选定的 SPDIFRX 帧位 */
         SPDIFRX->CR |= SPDIFRX_CR_PMSK;
     } else {
-        /* 禁用选定的 SPDIFRX帧位 */
+        /* 禁用选定的 SPDIFRX 帧位 */
         SPDIFRX->CR &= ~(SPDIFRX_CR_PMSK);
     }
 }
 
 /**
   * 简介:  启用或禁用 SPDIFRX DMA 接口 (RX)。
-  * 参数:  NewState: 所选SPDIFRX DMA 传输请求的新状态。
+  * 参数:  NewState: 所选 SPDIFRX DMA 传输请求的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
@@ -241,7 +241,7 @@ void SPDIFRX_RxDMACmd(FunctionalState NewState) {
 
 /**
   * 简介:  启用或禁用 SPDIFRX DMA 接口(控制缓冲区)。
-  * 参数:  NewState: 所选SPDIFRX DMA 传输请求的新状态。
+  * 参数:  NewState: 所选 SPDIFRX DMA 传输请求的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 返回值: 无
   */
@@ -414,7 +414,7 @@ ITStatus SPDIFRX_GetITStatus(uint32_t SPDIFRX_IT) {
   *
   * 注意:    FREQ (FIFO Request) flag is cleared :
   *          - 当音频块是发送器且 FIFO 已满或 FIFO 有一个数据（一个缓冲模式）时，
-  *            取决于 SPDIFRX_xCR2 寄存器中的位FTH。
+  *            取决于 SPDIFRX_xCR2 寄存器中的位 FTH。
   *          - 当音频块为接收器且 FIFO 不为空时
   *
   * 返回值: 无

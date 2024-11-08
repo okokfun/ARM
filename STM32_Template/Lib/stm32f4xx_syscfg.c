@@ -17,12 +17,12 @@
 
        (#) 交换内部闪存 Bank1 和 Bank2 此功能仅对 STM32F42xxx/43xxx 设备设备可见。
 
-       (#) 使用 SYSCFG_EXTILineConfig() 管理到GPIO 的 EXTI线路连接
+       (#) 使用 SYSCFG_EXTILineConfig() 管理到 GPIO 的 EXTI 线路连接
        
        (#) 使用 SYSCFG_ETH_MediaInterfaceConfig() 选择以太网媒体接口(RMII/RII)
 
        -@- 必须启用 SYSCFG APB 时钟，才能使用 RCC_APB2PeriphClockCmd(RCC_APP2PeripH_SYSCFG，ENABLE)
-		  获得对 SYSCFG寄存器的写入访问权限;
+		  获得对 SYSCFG 寄存器的写入访问权限;
 
  @endverbatim
   ******************************************************************************
@@ -53,7 +53,7 @@
   */
 
 /** @defgroup SYSCFG
-  * 简介: SYSCFG驱动模块
+  * 简介: SYSCFG 驱动模块
   */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -129,10 +129,10 @@ void SYSCFG_MemoryRemapConfig(uint8_t SYSCFG_MemoryRemap) {
   *
   * 参数:  NewState: 内部闪存库交换的新状态。
   *          此参数可以是以下值之一:
-  *            @arg ENABLE: Flash Bank2映射于 0x080000000(别名为@0x00000000)，
-  *                         Flash Bank1映射于 0x00810000(别名为0x001000000)
-  *            @arg DISABLE:(默认状态)Flash Bank1映射到 0x0800000(别名为@0x0000 0000)，
-  *                         Flash Bank2映射到 0x8810000(别名为0x00100000)
+  *            @arg ENABLE: Flash Bank2 映射于 0x080000000(别名为@0x00000000)，
+  *                         Flash Bank1 映射于 0x00810000(别名为0x001000000)
+  *            @arg DISABLE:(默认状态)Flash Bank1 映射到 0x0800000(别名为@0x0000 0000)，
+  *                         Flash Bank2 映射到 0x8810000(别名为0x00100000)
   * 返回值: 无
   */
 void SYSCFG_MemorySwappingBank(FunctionalState NewState) {
@@ -144,7 +144,7 @@ void SYSCFG_MemorySwappingBank(FunctionalState NewState) {
 
 /**
   * 简介:  选择用作 EXTI 线路的 GPIO 引脚。
-  * 参数:  EXTI_PortSourceGPIOx : 选择要用作EXTI线路源的 GPIO 端口，其中 x 可以是
+  * 参数:  EXTI_PortSourceGPIOx : 选择要用作 EXTI 线路源的 GPIO 端口，其中 x 可以是
   *                               STM32F42xxx/43xxx 设备的(A..K)，(A..I)
   *                               用于 STM32P405xx/407xx 和 STM32C415xx/417xx 设备，
   *                               或(A、B、C、D和H)用于 STM2401xx 设备。

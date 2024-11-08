@@ -691,7 +691,7 @@ void DSI_Shutdown(DSI_TypeDef *DSIx, uint32_t Shutdown) {
     /* 检查参数 */
     assert_param(IS_DSI_SHUT_DOWN(Shutdown));
 
-    /* 更新显示Shutdown */
+    /* 更新显示 Shutdown */
     DSIx->WCR &= ~DSI_WCR_SHTDN;
     DSIx->WCR |= Shutdown;
 }
@@ -1556,11 +1556,11 @@ void DSI_ITConfig(DSI_TypeDef* DSIx, uint32_t DSI_IT, FunctionalState NewState) 
 }
 
 /**
-  * 简介: 检查是否设置了指定的 DSI标志。
+  * 简介: 检查是否设置了指定的 DSI 标志。
   * 
   * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数: DSI_FLAG: 指定要检查的 SPI标志。
+  * 参数: DSI_FLAG: 指定要检查的 SPI 标志。
   *          此参数可以是以下值之一:
   *          @arg DSI_FLAG_TE: 撕裂效果中断标志
   *          @arg DSI_FLAG_ER: 刷新中断结束标志
@@ -1579,7 +1579,7 @@ FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
     assert_param(IS_DSI_ALL_PERIPH(DSIx));
     assert_param(IS_DSI_GET_FLAG(DSI_FLAG));
 
-    /* 检查指定 DSI标志的状态 */
+    /* 检查指定 DSI 标志的状态 */
     if((DSIx->WISR & DSI_FLAG) != (uint32_t)RESET) {
         /* DSI_FLAG 被设置 */
         bitstatus = SET;
@@ -1593,11 +1593,11 @@ FlagStatus DSI_GetFlagStatus(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
 }
 
 /**
-  * 简介: 清除指定的 DSI标志。
+  * 简介: 清除指定的 DSI 标志。
   * 
   * 参数: DSIx: 要选择 DSIx 外设，其中 x 可以是不同的 DSI 实例
   * 
-  * 参数: DSI_FLAG: 指定要清除的 SPI标志。
+  * 参数: DSI_FLAG: 指定要清除的 SPI 标志。
   *          此参数可以是以下值之一:
   *            @arg DSI_FLAG_TE   : 撕裂效果中断标志
   *            @arg DSI_FLAG_ER   : 刷新中断结束标志
@@ -1612,7 +1612,7 @@ void DSI_ClearFlag(DSI_TypeDef* DSIx, uint16_t DSI_FLAG) {
     assert_param(IS_DSI_ALL_PERIPH(DSIx));
     assert_param(IS_DSI_CLEAR_FLAG(DSI_FLAG));
 
-    /* 清除选定 DSI标志 */
+    /* 清除选定 DSI 标志 */
     DSIx->WIFCR = (uint32_t)DSI_FLAG;
 }
 

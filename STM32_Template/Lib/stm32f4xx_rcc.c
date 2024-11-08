@@ -185,7 +185,7 @@ static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6
       (#) PLLSAI 由(HSI 或HSE)时钟，用于为 SAI 接口和 LCD TFT 控制器产生精确的时钟，仅适用于 STM32F42xxx/43xxx/446xx/469xx/479xx 器件。
 
       (#) CSS(时钟安全系统)，一旦启用，如果 HSE 时钟发生故障(HSE 直接使用或通过 PLL 作为系统时钟源)，系统时钟将自动切换到 HSI，如果启用则产生一个中断。
-         该中断与 Cortex-M4 的NMI(非屏蔽中断)异常向量相连。
+         该中断与 Cortex-M4 的 NMI(非屏蔽中断)异常向量相连。
 
       (#) MCO1(微控制器时钟输出)，用于在 PA8 引脚上输出 HSI、LSE、HSE 或 PLL时钟(通过一个可配置的预分频器)。
 
@@ -415,7 +415,7 @@ void RCC_LSICmd(FunctionalState NewState) {
   *          此参数可以是以下值之一:
   *            @arg RCC_PLLSource_HSI: 选择HSI振荡器时钟作为锁相环时钟入口
   *            @arg RCC_PLLSource_HSE: 选择HSE振荡器时钟作为锁相环时钟入口
-  * 注意:   该时钟源(RCC_PLLSource)是主PLL和 PLLI2S的通用时钟源。
+  * 注意:   该时钟源(RCC_PLLSource)是主PLL和 PLLI2S 的通用时钟源。
   *
   * 参数:  PLLM: 指定PLL VCO 输入时钟的分频因子
   *          此参数必须是介于 0 and 63.
@@ -523,7 +523,7 @@ void RCC_PLLCmd(FunctionalState NewState) {
   *
   * 注意:   此函数只能用于 STM32F405xx/407xx、STM32F415xx/417xx 或 STM32F401xx 设备。
   *
-  * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
+  * 注意:   该功能仅在禁用 PLLI2S 的情况下使用。
   * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SN: 指定PLLI2S VCO 输出时钟的乘法因子
@@ -551,7 +551,7 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR) {
   *
   * 注意:   该功能仅支持STM32F411xE 设备。
   *
-  * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
+  * 注意:   该功能仅在禁用 PLLI2S 的情况下使用。
   * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SM: 指定PLLI2S VCO 输入时钟的除法因子
@@ -585,7 +585,7 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SR, uint32_t PLLI2SM) {
   *
   * 注意:   此函数只能用于 STM32F42xxx/43xxx 设备
   *
-  * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
+  * 注意:   该功能仅在禁用 PLLI2S 的情况下使用。
   * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SN: 指定PLLI2S VCO 输出时钟的乘法因子
@@ -617,7 +617,7 @@ void RCC_PLLI2SConfig(uint32_t PLLI2SN, uint32_t PLLI2SQ, uint32_t PLLI2SR) {
   *
   * 注意:   此函数只能用于 STM32F446xx 设备
   *
-  * 注意:   该功能仅在禁用 PLLI2S的情况下使用。
+  * 注意:   该功能仅在禁用 PLLI2S 的情况下使用。
   * 注意:   PLLI2S 时钟源与主锁相环共用(在 RCC_PLLConfig函数中配置)
   *
   * 参数:  PLLI2SM: 指定PLLI2S VCO 输入时钟的除法因子
@@ -892,7 +892,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
 
       (#) 多个时钟源可用于驱动系统时钟(SYSCLK): HSI、HSE 和 PLL。
           AHB 时钟(HCLK)由系统时钟通过可配置的预分频器派生而来，用于为映射在 AHB总线(DMA, GPIO…)
-          上的 CPU，内存和外设计时。APB1 (PCLK1)和 APB2 (PCLK2)时钟是由AHB 时钟通过可配置的预分频器派生出来的，
+          上的 CPU，内存和外设计时。APB1 (PCLK1)和 APB2 (PCLK2)时钟是由 AHB 时钟通过可配置的预分频器派生出来的，
           用于为映射在这些总线上的外设设备计时。您可以使用"RCC_GetClocksFreq()"函数来检索这些时钟的频率。
 
       -@- 所有的外围时钟都来源于系统时钟(SYSCLK)，除了:
@@ -1024,7 +1024,7 @@ void RCC_MCO2Config(uint32_t RCC_MCO2Source, uint32_t RCC_MCO2Div) {
 
 /**
   * 简介:  配置系统时钟 (SYSCLK)。
-  * 注意:   HSI在 Reset模式启动、STOP 模式唤醒和 STANDBY 模式唤醒后作为系统时钟源(硬件开启)，
+  * 注意:   HSI 在 Reset模式启动、STOP 模式唤醒和 STANDBY 模式唤醒后作为系统时钟源(硬件开启)，
   *         或者在HSE故障时直接或间接作为系统时钟(时钟安全系统CSS开启)。
   * 注意:   从一个时钟源切换到另一个时钟源只有在目标时钟源准备就绪(启动延迟或锁相锁紧后时钟稳定)时才会发生。
   *          如果选择了一个尚未就绪的时钟源，则在时钟源准备就绪时进行切换。

@@ -247,7 +247,7 @@ void LTDC_DitherCmd(FunctionalState NewState) {
 
 /**
   * 简介:  获取抖动 RGB 宽度。
-  * 参数:  LTDC_RGB_InitStruct: 指向 LTDC_RGBTypeDef 结构的指针，该结构含有 Dither RGB宽度。
+  * 参数:  LTDC_RGB_InitStruct: 指向 LTDC_RGBTypeDef 结构的指针，该结构含有 Dither RGB 宽度。
   * 返回值: 无
   */
 

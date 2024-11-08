@@ -400,7 +400,7 @@ typedef struct {
 #define SYS_USBCR_RST12M_Msk		(0x01 << SYS_USBCR_RST12M_Pos)
 #define SYS_USBCR_RSTPLL_Pos		2		//USB控制器PLL时钟域复位
 #define SYS_USBCR_RSTPLL_Msk		(0x01 << SYS_USBCR_RSTPLL_Pos)
-#define SYS_USBCR_ROLE_Pos			3		//0 由ID引脚决定   2 Host   3 Device
+#define SYS_USBCR_ROLE_Pos			3		//0 由 ID引脚决定   2 Host   3 Device
 #define SYS_USBCR_ROLE_Msk			(0x03 << SYS_USBCR_ROLE_Pos)
 #define SYS_USBCR_VBUS_Pos			5		//0 由 VBUS 引脚决定   1 强制为高
 #define SYS_USBCR_VBUS_Msk			(0x01 << SYS_USBCR_VBUS_Pos)
@@ -685,7 +685,7 @@ typedef struct {
 
     __IO uint32_t INTLVLTRG;				//Interrupt Level Trigger  1 电平触发中断	0 边沿触发中断
 
-    __IO uint32_t INTBE;					//Both Edge，当INTLVLTRG设为边沿触发中断时，此位置1表示上升沿和下降沿都触发中断，置0 时触发边沿由INTRISEEN 选择
+    __IO uint32_t INTBE;					//Both Edge，当INTLVLTRG设为边沿触发中断时，此位置1表示上升沿和下降沿都触发中断，置0 时触发边沿由 INTRISEEN 选择
 
     __IO uint32_t INTRISEEN;				//Interrupt Rise Edge Enable   1 上升沿/高电平触发中断	0 下降沿/低电平触发中断
 
@@ -1101,9 +1101,9 @@ typedef struct {
 #define SPI_IE_TFE_Msk				(0x01 << SPI_IE_TFE_Pos)
 #define SPI_IE_TFHF_Pos				4		//发送 FIFO 中数据个数大于4
 #define SPI_IE_TFHF_Msk				(0x01 << SPI_IE_TFHF_Pos)
-#define SPI_IE_RFTHR_Pos			5		//接收 FIFO 中数据个数大于CTRL.RFTHR设定值中断使能
+#define SPI_IE_RFTHR_Pos			5		//接收 FIFO 中数据个数大于 CTRL.RFTHR设定值中断使能
 #define SPI_IE_RFTHR_Msk			(0x01 << SPI_IE_RFTHR_Pos)
-#define SPI_IE_TFTHR_Pos			6		//发送 FIFO 中数据个数小于CTRL.TFTHR设定值中断使能
+#define SPI_IE_TFTHR_Pos			6		//发送 FIFO 中数据个数小于 CTRL.TFTHR设定值中断使能
 #define SPI_IE_TFTHR_Msk			(0x01 << SPI_IE_TFTHR_Pos)
 #define SPI_IE_WTC_Pos				8		//Word Transmit Complete
 #define SPI_IE_WTC_Msk				(0x01 << SPI_IE_WTC_Pos)
@@ -1376,9 +1376,9 @@ typedef struct {
 #define ADC_IE_SEQ0HALF_Msk			(0x01 << ADC_IE_SEQ0HALF_Pos)
 #define ADC_IE_SEQ0FULL_Pos			3       //序列0 FIFO Full 中断使能
 #define ADC_IE_SEQ0FULL_Msk			(0x01 << ADC_IE_SEQ0FULL_Pos)
-#define ADC_IE_SEQ0CMPMAX_Pos		4		//序列0转换结果大于COMP.MAX 中断使能
+#define ADC_IE_SEQ0CMPMAX_Pos		4		//序列0转换结果大于 COMP.MAX 中断使能
 #define ADC_IE_SEQ0CMPMAX_Msk		(0x01 << ADC_IE_SEQ0CMPMAX_Pos)
-#define ADC_IE_SEQ0CMPMIN_Pos		5		//序列0转换结果小于COMP.MIN 中断使能
+#define ADC_IE_SEQ0CMPMIN_Pos		5		//序列0转换结果小于 COMP.MIN 中断使能
 #define ADC_IE_SEQ0CMPMIN_Msk		(0x01 << ADC_IE_SEQ0CMPMIN_Pos)
 #define ADC_IE_SEQ1EOC_Pos			8
 #define ADC_IE_SEQ1EOC_Msk			(0x01 << ADC_IE_SEQ1EOC_Pos)
@@ -1425,9 +1425,9 @@ typedef struct {
 #define ADC_IF_SEQ0HALF_Msk			(0x01 << ADC_IF_SEQ0HALF_Pos)
 #define ADC_IF_SEQ0FULL_Pos			3       //序列0 FIFO Full 中断标志
 #define ADC_IF_SEQ0FULL_Msk			(0x01 << ADC_IF_SEQ0FULL_Pos)
-#define ADC_IF_SEQ0CMPMAX_Pos		4		//序列0转换结果大于COMP.MAX 中断标志
+#define ADC_IF_SEQ0CMPMAX_Pos		4		//序列0转换结果大于 COMP.MAX 中断标志
 #define ADC_IF_SEQ0CMPMAX_Msk		(0x01 << ADC_IF_SEQ0CMPMAX_Pos)
-#define ADC_IF_SEQ0CMPMIN_Pos		5		//序列0转换结果小于COMP.MIN 中断标志
+#define ADC_IF_SEQ0CMPMIN_Pos		5		//序列0转换结果小于 COMP.MIN 中断标志
 #define ADC_IF_SEQ0CMPMIN_Msk		(0x01 << ADC_IF_SEQ0CMPMIN_Pos)
 #define ADC_IF_SEQ1EOC_Pos			8
 #define ADC_IF_SEQ1EOC_Msk			(0x01 << ADC_IF_SEQ1EOC_Pos)
@@ -2596,13 +2596,13 @@ typedef struct {
 #define LCD_WVP_STP_Pos				16		//Layer Window 竖直结束点
 #define LCD_WVP_STP_Msk				(0x3FF<< LCD_WVP_STP_Pos)
 
-#define LCD_MPUCR_RCS1_0_Pos		0		//读操作时，CS上升沿到下降沿时间间隔，0  1个时钟中期
+#define LCD_MPUCR_RCS1_0_Pos		0		//读操作时，CS 上升沿到下降沿时间间隔，0  1个时钟中期
 #define LCD_MPUCR_RCS1_0_Msk		(0x1F << LCD_MPUCR_RCS1_0_Pos)
 #define LCD_MPUCR_RDHOLD_Pos		5		//RD低电平保持时间
 #define LCD_MPUCR_RDHOLD_Msk		(0x1F << LCD_MPUCR_RDHOLD_Pos)
-#define LCD_MPUCR_WCS1_0_Pos		10		//写操作时，CS上升沿到下降沿时间间隔
+#define LCD_MPUCR_WCS1_0_Pos		10		//写操作时，CS 上升沿到下降沿时间间隔
 #define LCD_MPUCR_WCS1_0_Msk		(0x0F << LCD_MPUCR_WCS1_0_Pos)
-#define LCD_MPUCR_WR1CS1_Pos		14		//WR上升沿到 CS上升沿延时
+#define LCD_MPUCR_WR1CS1_Pos		14		//WR上升沿到 CS 上升沿延时
 #define LCD_MPUCR_WR1CS1_Msk		(0x03 << LCD_MPUCR_WR1CS1_Pos)
 #define LCD_MPUCR_WRHOLD_Pos		16		//WR低电平保持时间
 #define LCD_MPUCR_WRHOLD_Msk		(0x0F << LCD_MPUCR_WRHOLD_Pos)

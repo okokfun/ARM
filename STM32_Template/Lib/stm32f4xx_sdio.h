@@ -380,7 +380,7 @@ uint32_t SDIO_GetResponse(uint32_t SDIO_RESP); // 返回从卡收到的对最后
 void SDIO_DataConfig(SDIO_DataInitTypeDef* SDIO_DataInitStruct); // 根据 SDIO_DataInitStruct 中指定的参数初始化 SDIO 数据路径。
 void SDIO_DataStructInit(SDIO_DataInitTypeDef* SDIO_DataInitStruct); // 用每个 SDIO_DataInitStruct 成员的默认值填充每个成员。
 uint32_t SDIO_GetDataCounter(void); // 返回要传输的剩余数据字节数。
-uint32_t SDIO_ReadData(void); // 从Rx FIFO读取一个数据字。
+uint32_t SDIO_ReadData(void); // 从 Rx FIFO读取一个数据字。
 void SDIO_WriteData(uint32_t Data); // 将一个数据字写入 Tx FIFO。
 uint32_t SDIO_GetFIFOCount(void); // 返回要写入 FIFO 或从 FIFO 读取的剩余字数。
 

@@ -46,11 +46,11 @@ typedef struct {
 #define SPI_IT_RX_HFULL		(1 << 2)	//RX FIFO Half Full
 #define SPI_IT_TX_EMPTY		(1 << 3)	//TX FIFO Empty
 #define SPI_IT_TX_HFULL		(1 << 4)	//TX FIFO Half Full
-#define SPI_IT_RX_THRES		(1 << 5)	//RX FIFO Threshold(接收 FIFO 中数据个数大于CTRL.RFTHR设定值)
-#define SPI_IT_TX_THRES		(1 << 6)	//TX FIFO Threshold(发送 FIFO 中数据个数小于CTRL.TFTHR设定值)
+#define SPI_IT_RX_THRES		(1 << 5)	//RX FIFO Threshold(接收 FIFO 中数据个数大于 CTRL.RFTHR设定值)
+#define SPI_IT_TX_THRES		(1 << 6)	//TX FIFO Threshold(发送 FIFO 中数据个数小于 CTRL.TFTHR设定值)
 #define SPI_IT_TX_DONE		(1 << 9)	//TX Done(发送 FIFO 空且发送移位寄存器空)
 #define SPI_IT_CS_FALL		(1 << 10)	//从机模式下，CS下降沿中断
-#define SPI_IT_CS_RISE		(1 << 11)	//从机模式下，CS上升沿中断
+#define SPI_IT_CS_RISE		(1 << 11)	//从机模式下，CS 上升沿中断
 
 
 void SPI_Init(SPI_TypeDef * SPIx, SPI_InitStructure * initStruct);		//SPI初始化
