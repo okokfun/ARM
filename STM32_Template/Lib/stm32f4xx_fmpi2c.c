@@ -138,7 +138,7 @@
 /**
   * 简介:  将 FMPI2Cx 外设寄存器取消初始化为其默认复位值。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 返回值: 无
   */
@@ -157,7 +157,7 @@ void FMPI2C_DeInit(FMPI2C_TypeDef* FMPI2Cx) {
 /**
   * 简介:  根据 FMPI2C_InitStruct 中指定的参数初始化 FMPI2Cx 外设。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  FMPI2C_InitStruct: 指向 FMPI2C_InitTypeDef 结构的指针，
   *                           该结构包含指定 FMPI2C 外设的配置信息。
@@ -265,7 +265,7 @@ void FMPI2C_StructInit(FMPI2C_InitTypeDef* FMPI2C_InitStruct) {
 /**
   * 简介:  启用或禁用指定的 FMPI2C 外设.
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2Cx 外设的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -290,7 +290,7 @@ void FMPI2C_Cmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用指定的 FMPI2C 软件复位。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 返回值: 无
   */
@@ -311,7 +311,7 @@ void FMPI2C_SoftwareResetCmd(FMPI2C_TypeDef* FMPI2Cx) {
 /**
   * 简介:  启用或禁用指定的 FMPI2C 中断.
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  FMPI2C_IT: 指定要启用或禁用的 FMPI2C 中断源。
   *   此参数可以是以下值的任意组合:
@@ -346,9 +346,9 @@ void FMPI2C_ITConfig(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT, FunctionalStat
 /**
   * 简介:  启用或禁用 FMPI2C 时钟拉伸。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
-  * 参数:  NewState: FMPI2Cx时钟拉伸的新状态。
+  * 参数:  NewState: FMPI2Cx 时钟拉伸的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -370,7 +370,7 @@ void FMPI2C_StretchClockCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 FMPI2C 自身地址 2.
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2C 自身地址的新状态 2.
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -394,7 +394,7 @@ void FMPI2C_DualAddressCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 /**
   * 简介:  配置 FMPI2C 从机自己的地址 2 和掩码。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  Address: 指定要编程的从属地址。
   * 
@@ -436,7 +436,7 @@ void FMPI2C_OwnAddress2Config(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address, uint8_t
 /**
   * 简介:  启用或禁用 FMPI2C一般调用模式。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2C一般调用模式的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -460,7 +460,7 @@ void FMPI2C_GeneralCallCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 FMPI2C从属字节控制。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2C从属字节控制的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -484,7 +484,7 @@ void FMPI2C_SlaveByteControlCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewStat
 /**
   * 简介:  配置启动生成后要传输的从属地址。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  Address: 指定要编程的从属地址。
   * 
@@ -515,7 +515,7 @@ void FMPI2C_SlaveAddressConfig(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address) {
 /**
   * 简介:  启用或禁用 FMPI2C 主站的10位寻址模式。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2C 10位寻址模式的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -571,7 +571,7 @@ void FMPI2C_10BitAddressingModeCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewS
 /**
   * 简介:  启用或禁用 FMPI2C 自动结束模式(传输 nbytes 数据时自动发送停止条件)。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2C 自动结束模式的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -597,7 +597,7 @@ void FMPI2C_AutoEndCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 FMPI2C nbytes 重载模式。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: nbytes重载模式的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -621,7 +621,7 @@ void FMPI2C_ReloadCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 /**
   * 简介:  配置要发送/接收的字节数。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  Number_Bytes: 指定要编程的字节数。
   * 
@@ -649,7 +649,7 @@ void FMPI2C_NumberOfBytesConfig(FMPI2C_TypeDef* FMPI2Cx, uint8_t Number_Bytes) {
 /**
   * 简介:  配置主站的传输请求类型。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  FMPI2C_Direction: 指定要编程的转移请求方向。
   *    此参数可以是以下值之一:
@@ -676,7 +676,7 @@ void FMPI2C_MasterRequestConfig(FMPI2C_TypeDef* FMPI2Cx, uint16_t FMPI2C_Directi
 /**
   * 简介:  生成 FMPI2Cx 通信启动条件。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2C START条件生成的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -700,7 +700,7 @@ void FMPI2C_GenerateSTART(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 /**
   * 简介:  生成 FMPI2Cx 通信停止条件。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2C STOP 条件生成的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -724,7 +724,7 @@ void FMPI2C_GenerateSTOP(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用具有读取方向的 FMPI2C 10 位仅标头模式。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2C 10-bit header only模式的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -750,7 +750,7 @@ void FMPI2C_10BitAddressHeaderCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewSt
 /**
   * 简介:  生成 FMPI2C 通信确认。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: 新状态-> Acknowledge.
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -774,7 +774,7 @@ void FMPI2C_AcknowledgeConfig(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState)
 /**
   * 简介:  返回 FMPI2C 从机匹配地址。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 返回值: 从机匹配地址的值。
   */
@@ -789,7 +789,7 @@ uint8_t FMPI2C_GetAddressMatched(FMPI2C_TypeDef* FMPI2Cx) {
 /**
   * 简介:  返回 FMPI2C 从机接收到的请求。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 返回值: 收到的请求的值。
   */
@@ -818,7 +818,7 @@ uint16_t FMPI2C_GetTransferDirection(FMPI2C_TypeDef* FMPI2Cx) {
 /**
   * 简介:  在开始传输或传输期间(TC 或 TCR 标志置位)处理 FMPI2Cx 通信。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  Address: 指定要编程的从属地址。
   * 
@@ -896,9 +896,9 @@ void FMPI2C_TransferHandling(FMPI2C_TypeDef* FMPI2Cx, uint16_t Address, uint8_t 
 /**
   * 简介:  启用或禁用 FMPI2C SMBus 警报。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
-  * 参数:  NewState: FMPI2Cx SMBus警报的新状态。
+  * 参数:  NewState: FMPI2Cx SMBus 警报的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -909,10 +909,10 @@ void FMPI2C_SMBusAlertCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
     assert_param(IS_FUNCTIONAL_STATE(NewState));
 
     if (NewState != DISABLE) {
-        /* 使能 SMBus警报 */
+        /* 使能 SMBus 警报 */
         FMPI2Cx->CR1 |= FMPI2C_CR1_ALERTEN;
     } else {
-        /* 禁用 SMBus警报 */
+        /* 禁用 SMBus 警报 */
         FMPI2Cx->CR1 &= (uint32_t)~((uint32_t)FMPI2C_CR1_ALERTEN);
     }
 }
@@ -920,9 +920,9 @@ void FMPI2C_SMBusAlertCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 FMPI2C 时钟超时(SCL 超时检测)。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
-  * 参数:  NewState: FMPI2Cx时钟的新状态 超时。
+  * 参数:  NewState: FMPI2Cx 时钟的新状态 超时。
   *   此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -942,9 +942,9 @@ void FMPI2C_ClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 }
 
 /**
-  * 简介:  启用或禁用 FMPI2C扩展时钟超时(SCL累积超时检测)。
+  * 简介:  启用或禁用 FMPI2C 扩展时钟超时(SCL 累积超时检测)。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2Cx扩展时钟超时的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -968,7 +968,7 @@ void FMPI2C_ExtendedClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState New
 /**
   * 简介:  启用或禁用 FMPI2C 空闲时钟超时(总线空闲 SCL 和 SDA 高电平检测)。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2Cx空闲时钟超时的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -992,7 +992,7 @@ void FMPI2C_IdleClockTimeoutCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewStat
 /**
   * 简介:  配置 FMPI2C 总线超时 A(TIDLE = 0 时 SCL 超时或 TIDLE = 1 时总线空闲 SCL 和 SDA 高)。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  Timeout: 指定要编程的 TimeoutA。
   * 
@@ -1021,7 +1021,7 @@ void FMPI2C_TimeoutAConfig(FMPI2C_TypeDef* FMPI2Cx, uint16_t Timeout) {
 /**
   * 简介:  配置 FMPI2C 总线超时 B(SCL 累积超时)。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  Timeout: 指定要编程的 TimeoutB。
   * 
@@ -1050,7 +1050,7 @@ void FMPI2C_TimeoutBConfig(FMPI2C_TypeDef* FMPI2Cx, uint16_t Timeout) {
 /**
   * 简介:  启用或禁用 FMPI2C PEC 计算。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2Cx PEC 计算的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -1074,7 +1074,7 @@ void FMPI2C_CalculatePEC(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 /**
   * 简介:  启用或禁用 FMPI2C PEC 发送/接收请求。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  NewState: FMPI2Cx PEC请求的新状态。
   *   此参数可以是: ENABLE 或 DISABLE。
@@ -1098,7 +1098,7 @@ void FMPI2C_PECRequestCmd(FMPI2C_TypeDef* FMPI2Cx, FunctionalState NewState) {
 /**
   * 简介:  返回 FMPI2C PEC。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 返回值: PEC 的值。
   */
@@ -1127,7 +1127,7 @@ uint8_t FMPI2C_GetPEC(FMPI2C_TypeDef* FMPI2Cx) {
 /**
 * 简介:  读取指定的 FMPI2C 寄存器并返回其值。
 * 
-* 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+* 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
 * 
 * 参数:  FMPI2C_Register: 指定要读取的寄存器。
 *   此参数可以是以下值之一:
@@ -1177,7 +1177,7 @@ uint32_t FMPI2C_ReadRegister(FMPI2C_TypeDef* FMPI2Cx, uint8_t FMPI2C_Register) {
 /**
   * 简介:  通过 FMPI2Cx 外设发送一个数据字节。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  Data: 要传输的字节。
   * 
@@ -1194,7 +1194,7 @@ void FMPI2C_SendData(FMPI2C_TypeDef* FMPI2Cx, uint8_t Data) {
 /**
   * 简介:  返回 FMPI2Cx 外设最近接收的数据。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 返回值: The value of 接收的数据。
   */
@@ -1229,7 +1229,7 @@ uint8_t FMPI2C_ReceiveData(FMPI2C_TypeDef* FMPI2Cx) {
 /**
   * 简介:  启用或禁用 FMPI2C DMA 接口.
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  FMPI2C_DMAReq: 指定要启用或禁用的 FMPI2C DMA 传输请求。
   *   此参数可以是以下值的任意组合:
@@ -1284,7 +1284,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (#) FMPI2C_FLAG_OVR: 指示超速/欠速标志的状态。
         (#) FMPI2C_FLAG_PECERR: 指示接收中的PEC 错误标志的状态。
         (#) FMPI2C_FLAG_TIMEOUT:表示超时或低速检测标志的状态。
-        (#) FMPI2C_FLAG_ALERT: 指示 SMBus警报标志的状态。
+        (#) FMPI2C_FLAG_ALERT: 指示 SMBus 警报标志的状态。
         (#) FMPI2C_FLAG_BUSY: 指示总线繁忙标志的状态。
 
     [..] 在这种模式下，建议使用以下函数:
@@ -1319,7 +1319,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
         (#) FMPI2C_IT_OVR: 指示超速/欠速标志的状态。
         (#) FMPI2C_IT_PECERR: 指示接收中的PEC 错误标志的状态。
         (#) FMPI2C_IT_TIMEOUT:表示超时或低速检测标志的状态。
-        (#) FMPI2C_IT_ALERT: 指示 SMBus警报标志的状态。
+        (#) FMPI2C_IT_ALERT: 指示 SMBus 警报标志的状态。
 
     [..] 在这种模式下，建议使用以下函数:
          (+) void FMPI2C_ClearITPendingBit(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT);
@@ -1331,7 +1331,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
 /**
   * 简介:  检查是否设置了指定的 FMPI2C 标志。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  FMPI2C_FLAG: 指定要检查的标志。
   *   此参数可以是以下值之一:
@@ -1348,7 +1348,7 @@ void FMPI2C_DMACmd(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_DMAReq, FunctionalSt
   *       @arg FMPI2C_FLAG_OVR: 超限/不足
   *       @arg FMPI2C_FLAG_PECERR: 接收时出现PEC 错误。
   *       @arg FMPI2C_FLAG_TIMEOUT: 超时或 Tlow检测标志
-  *       @arg FMPI2C_FLAG_ALERT: SMBus警报
+  *       @arg FMPI2C_FLAG_ALERT: SMBus 警报
   *       @arg FMPI2C_FLAG_BUSY: 总线繁忙。
   * 
   * 返回值: FMPI2C_FLAG 的新状态(SET 或 RESET)。
@@ -1381,7 +1381,7 @@ FlagStatus FMPI2C_GetFlagStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG) {
 /**
   * 简介:  清除 FMPI2Cx 的挂起标志。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  FMPI2C_FLAG: 指定要清除的标志。
   *   此参数可以是以下值的任意组合:
@@ -1393,7 +1393,7 @@ FlagStatus FMPI2C_GetFlagStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG) {
   *      @arg FMPI2C_FLAG_OVR:超限/不足
   *      @arg FMPI2C_FLAG_PECERR:接收时出现PEC 错误
   *      @arg FMPI2C_FLAG_TIMEOUT:超时或 Tlow检测标志
-  *      @arg FMPI2C_FLAG_ALERT: SMBus警报
+  *      @arg FMPI2C_FLAG_ALERT: SMBus 警报
   * 
   * 返回值: FMPI2C_FLAG 的新状态(SET 或 RESET)。
   */
@@ -1409,7 +1409,7 @@ void FMPI2C_ClearFlag(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG) {
 /**
   * 简介:  检查是否发生了指定的 FMPI2C 中断。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  FMPI2C_IT: 指定要检查的中断源。
   *   此参数可以是以下值之一:
@@ -1424,7 +1424,7 @@ void FMPI2C_ClearFlag(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_FLAG) {
   *     @arg FMPI2C_IT_OVR: 超限/不足
   *     @arg FMPI2C_IT_PECERR: PEC在接收时出错。
   *     @arg FMPI2C_IT_TIMEOUT: 超时或 Tlow检测标志
-  *     @arg FMPI2C_IT_ALERT: SMBus警报
+  *     @arg FMPI2C_IT_ALERT: SMBus 警报
   * 
   * 返回值。FMPI2C_IT 的新状态(SET 或 RESET)。
   */
@@ -1471,7 +1471,7 @@ ITStatus FMPI2C_GetITStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT) {
 /**
   * 简介:  清除 FMPI2Cx 的中断挂起位。
   * 
-  * 参数:  FMPI2Cx: 其中 x 可以是1，选择FMPI2C 的外设。
+  * 参数:  FMPI2Cx: 其中 x 可以是1，选择 FMPI2C 的外设。
   * 
   * 参数:  FMPI2C_IT: 指定要清除的中断等待位。
   *   此参数可以是以下值的任意组合:
@@ -1483,7 +1483,7 @@ ITStatus FMPI2C_GetITStatus(FMPI2C_TypeDef* FMPI2Cx, uint32_t FMPI2C_IT) {
   *         @arg FMPI2C_IT_OVR: 超限/不足
   *         @arg FMPI2C_IT_PECERR: PEC在接收时出错。
   *         @arg FMPI2C_IT_TIMEOUT: 超时或 Tlow检测标志
-  *         @arg FMPI2C_IT_ALERT: SMBus警报
+  *         @arg FMPI2C_IT_ALERT: SMBus 警报
   * 
   * 返回值: FMPI2C_IT 的新状态(SET 或 RESET)。
   */

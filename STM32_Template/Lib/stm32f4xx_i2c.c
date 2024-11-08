@@ -577,7 +577,7 @@ void I2C_SoftwareResetCmd(I2C_TypeDef* I2Cx, FunctionalState NewState) {
   * 
   * 参数:  I2Cx: 其中 x 可以是1、2 或3，以选择 I2C 的外设。
   * 
-  * 参数:  NewState: I2Cx时钟拉伸的新状态。
+  * 参数:  NewState: I2Cx 时钟拉伸的新状态。
   *          此参数可以是: ENABLE 或 DISABLE。
   * 
   * 返回值: 无
@@ -1170,7 +1170,7 @@ uint32_t I2C_GetLastEvent(I2C_TypeDef* I2Cx) {
   *             @arg I2C_FLAG_TRA: 发送器/接收器标志
   *             @arg I2C_FLAG_BUSY: 总线繁忙标志
   *             @arg I2C_FLAG_MSL: 主/从标志
-  *             @arg I2C_FLAG_SMBALERT: SMBus警报标志
+  *             @arg I2C_FLAG_SMBALERT: SMBus 警报标志
   *             @arg I2C_FLAG_TIMEOUT: 超时或 Tlow错误标志
   *             @arg I2C_FLAG_PECERR: 接收中的PEC 错误标志
   *             @arg I2C_FLAG_OVR: 超载/欠载标志(从机模式)。
@@ -1234,7 +1234,7 @@ FlagStatus I2C_GetFlagStatus(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG) {
   * 
   * 参数:  I2C_FLAG: 指定要清除的标志。
   *          此参数可以是以下值的任意组合:
-  *             @arg I2C_FLAG_SMBALERT: SMBus警报标志
+  *             @arg I2C_FLAG_SMBALERT: SMBus 警报标志
   *             @arg I2C_FLAG_TIMEOUT: 超时或 Tlow错误标志
   *             @arg I2C_FLAG_PECERR: 接收中的PEC 错误标志
   *             @arg I2C_FLAG_OVR: 超载/欠载标志(从机模式)。
@@ -1273,7 +1273,7 @@ void I2C_ClearFlag(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG) {
   * 
   * 参数:  I2C_IT: 指定要检查的中断源。
   *          此参数可以是以下值之一:
-  *             @arg I2C_IT_SMBALERT: SMBus警报标志
+  *             @arg I2C_IT_SMBALERT: SMBus 警报标志
   *             @arg I2C_IT_TIMEOUT: 超时或 Tlow错误标志
   *             @arg I2C_IT_PECERR: 接收中的PEC 错误标志
   *             @arg I2C_IT_OVR: 超载/欠载标志(从机模式)。
@@ -1325,7 +1325,7 @@ ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, uint32_t I2C_IT) {
   * 
   * 参数:  I2C_IT: 指定要清除的中断等待位。
   *          此参数可以是以下值的任意组合:
-  *              @arg I2C_IT_SMBALERT: SMBus警报中断
+  *              @arg I2C_IT_SMBALERT: SMBus 警报中断
   *              @arg I2C_IT_TIMEOUT: 超时或 Tlow错误中断
   *              @arg I2C_IT_PECERR: 接收中的PEC 错误中断
   *              @arg I2C_IT_OVR: 超载/欠载中断(从机模式)

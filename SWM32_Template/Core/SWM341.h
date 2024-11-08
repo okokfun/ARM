@@ -141,7 +141,7 @@ typedef enum IRQn {
 typedef struct {
     __IO uint32_t CLKSEL;				    //Clock Select
 
-    __IO uint32_t CLKDIVx_ON;				//[0] CLK_DIVx时钟源开关
+    __IO uint32_t CLKDIVx_ON;				//[0] CLK_DIVx 时钟源开关
 
     __IO uint32_t CLKEN0;					//Clock Enable
 
