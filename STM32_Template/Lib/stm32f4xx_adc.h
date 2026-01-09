@@ -537,5 +537,4 @@ void ADC_ClearITPendingBit(ADC_TypeDef* ADCx, uint16_t ADC_IT); // 清除 ADCx �
 
 #endif /*__STM32F4xx_ADC_H */
 
-
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
